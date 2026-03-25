@@ -3,1345 +3,1406 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liberal Music & Arts School — Build Confidence Through Music & Art</title>
+  <title>Liberal Music & Arts — Build Confidence Through Music & Art | Singapore</title>
+  <meta name="description" content="Singapore's most trusted music and arts school for children aged 4–16. Piano, Violin, Guitar, Art, Dance. Book your free trial class today." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── RESET & BASE ─────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #5A6B85;
-      background: #fff;
-      overflow-x: hidden;
-    }
+  /* ============================================================
+     TOKENS & RESET
+  ============================================================ */
+  :root {
+    --blue:       #4DA6FF;
+    --blue-dk:    #2A8DE8;
+    --blue-lt:    #EBF5FF;
+    --dark:       #1F2A44;
+    --body:       #5A6B85;
+    --muted:      #8D9BB0;
+    --bg:         #FFFFFF;
+    --bg-alt:     #F8FBFF;
+    --yellow:     #FFF3B0;
+    --mint:       #B8F2E6;
+    --mint-dk:    #4ECBA8;
+    --pink:       #FFD6E0;
+    --lavender:   #E8E4FF;
+    --r-sm:  12px;
+    --r-md:  20px;
+    --r-lg:  28px;
+    --r-xl:  40px;
+    --shadow-sm:  0 2px 8px rgba(31,42,68,0.06);
+    --shadow-md:  0 8px 28px rgba(31,42,68,0.09);
+    --shadow-lg:  0 20px 60px rgba(31,42,68,0.12);
+    --shadow-blue:0 12px 36px rgba(77,166,255,0.28);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --t: 0.28s;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: var(--body); background: var(--bg);
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4,h5 { font-family: 'Nunito', sans-serif; color: var(--dark); line-height: 1.2; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-    /* ─── CSS VARIABLES ───────────────────────────────────── */
-    :root {
-      --primary:   #4DA6FF;
-      --primary-d: #2E8FEF;
-      --dark:      #1F2A44;
-      --body:      #5A6B85;
-      --bg-alt:    #F8FBFF;
-      --yellow:    #FFF3B0;
-      --mint:      #B8F2E6;
-      --pink:      #FFD6E0;
-      --lavender:  #E8E4FF;
-      --radius-card: 20px;
-      --shadow-card: 0 8px 24px rgba(0,0,0,0.06);
-      --shadow-hover: 0 16px 40px rgba(77,166,255,0.18);
-    }
+  /* ============================================================
+     LAYOUT
+  ============================================================ */
+  .wrap    { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+  .wrap-sm { max-width: 860px;  margin: 0 auto; padding: 0 28px; }
 
-    h1, h2, h3, h4 {
-      font-family: 'Nunito', sans-serif;
-      color: var(--dark);
-      line-height: 1.25;
-    }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 12px;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .ey-mint   { background: var(--mint);     color: #1a7560; }
+  .ey-yellow { background: var(--yellow);   color: #7a6200; }
+  .ey-pink   { background: var(--pink);     color: #9a2050; }
+  .ey-blue   { background: var(--blue-lt);  color: #1a5a9a; }
+  .ey-lav    { background: var(--lavender); color: #4a3a9a; }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
+  .s-head { margin-bottom: 56px; }
+  .s-head.center { text-align: center; }
+  .s-head.center .s-sub { margin: 0 auto; }
+  .s-title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.4px; margin-bottom: 16px; }
+  .s-sub   { font-size: 17px; line-height: 1.75; color: var(--body); max-width: 540px; }
 
-    /* ─── UTILITY ──────────────────────────────────────────── */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--mint); color: #1a7a62;
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
-      padding: 6px 16px; border-radius: 999px; letter-spacing: 0.5px;
-      margin-bottom: 16px; text-transform: uppercase;
-    }
-    .section-tag.yellow { background: var(--yellow); color: #8a6f00; }
-    .section-tag.pink   { background: var(--pink);   color: #b0004a; }
-    .section-tag.blue   { background: #D4EDFF; color: #1a5a8a; }
-    .section-tag.lavender { background: var(--lavender); color: #4a3a9a; }
+  /* ============================================================
+     BUTTONS
+  ============================================================ */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
+    border-radius: 999px; padding: 14px 30px;
+    transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), background var(--t);
+    white-space: nowrap;
+  }
+  .btn-p  { background: var(--blue); color: #fff; box-shadow: var(--shadow-blue); }
+  .btn-p:hover  { background: var(--blue-dk); box-shadow: 0 16px 48px rgba(77,166,255,0.38); transform: translateY(-2px); }
+  .btn-dk { background: var(--dark); color: #fff; box-shadow: 0 8px 24px rgba(31,42,68,0.22); }
+  .btn-dk:hover { background: #2c3d5e; transform: translateY(-2px); }
+  .btn-gh { background: transparent; color: var(--dark); border: 2px solid #DDE6F0; }
+  .btn-gh:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+  .btn-lg { font-size: 17px; padding: 18px 40px; }
+  .btn-sm { font-size: 13px; padding: 10px 20px; }
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; border-radius: 999px; font-weight: 700;
-      font-family: 'Nunito', sans-serif; font-size: 16px;
-      transition: all 0.2s ease; cursor: pointer; border: none;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--primary); color: #fff;
-      box-shadow: 0 4px 16px rgba(77,166,255,0.35);
-    }
-    .btn-primary:hover {
-      background: var(--primary-d);
-      box-shadow: 0 8px 24px rgba(77,166,255,0.45);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent; color: var(--dark);
-      border: 2px solid #DDE6F0;
-    }
-    .btn-outline:hover {
-      border-color: var(--primary); color: var(--primary);
-      transform: translateY(-2px);
-    }
-    .btn-white {
-      background: #fff; color: var(--primary);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-    .btn-white:hover {
-      background: #f0f7ff;
-      transform: translateY(-2px);
-    }
+  /* ============================================================
+     SCROLL REVEAL
+  ============================================================ */
+  .sr { opacity: 0; transform: translateY(32px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+  .sr.in { opacity: 1; transform: none; }
+  .sr-d1 { transition-delay: 0.08s; }
+  .sr-d2 { transition-delay: 0.16s; }
+  .sr-d3 { transition-delay: 0.24s; }
+  .sr-d4 { transition-delay: 0.32s; }
 
-    /* ─── FADE-IN ON SCROLL ───────────────────────────────── */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+  /* ============================================================
+     NAVBAR
+  ============================================================ */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: 72px;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border-bottom: 1px solid rgba(221,230,240,0.5);
+    transition: box-shadow 0.3s, background 0.3s;
+  }
+  .navbar.scrolled {
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 1px 0 rgba(221,230,240,0.8), 0 8px 32px rgba(31,42,68,0.07);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 16px; }
+  .nav-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .nav-brand img { height: 40px; width: auto; }
+  .nav-brand-text { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 16px; line-height: 1.2; color: var(--dark); }
+  .nav-brand-text em { font-style: normal; color: var(--blue); }
+  .nav-menu { display: flex; align-items: center; gap: 4px; list-style: none; }
+  .nav-menu a {
+    display: block; padding: 8px 14px; border-radius: var(--r-sm);
+    font-weight: 600; font-size: 14.5px; color: var(--body);
+    transition: color var(--t), background var(--t);
+  }
+  .nav-menu a:hover { color: var(--blue); background: var(--blue-lt); }
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-lang {
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    background: var(--bg-alt); border: 1.5px solid #DDE6F0;
+    padding: 7px 14px; border-radius: 999px; transition: all var(--t); cursor: pointer;
+  }
+  .nav-lang:hover { border-color: var(--blue); color: var(--blue); }
+  .nav-ham {
+    display: none; flex-direction: column; gap: 5px;
+    padding: 6px; border-radius: var(--r-sm); transition: background var(--t);
+  }
+  .nav-ham:hover { background: var(--bg-alt); }
+  .nav-ham span { display: block; width: 22px; height: 2.5px; background: var(--dark); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .nav-ham.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  .nav-ham.open span:nth-child(2) { opacity: 0; }
+  .nav-ham.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-    /* ═══════════════════════════════════════════════════════
-       NAVBAR
-    ════════════════════════════════════════════════════════ */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 72px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(221,230,240,0.6);
-      transition: box-shadow 0.3s;
-    }
-    .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-    .navbar-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 100%; gap: 24px;
-    }
-    .navbar-logo {
-      display: flex; align-items: center; gap: 10px;
-      flex-shrink: 0;
-    }
-    .navbar-logo img { height: 42px; width: auto; }
-    .navbar-logo span {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: 18px; color: var(--dark); line-height: 1.2;
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-weight: 600; font-size: 15px; color: var(--body);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .navbar-cta { display: flex; align-items: center; gap: 12px; }
-    .navbar-cta .lang-btn {
-      font-size: 13px; font-weight: 600; color: var(--body);
-      background: var(--bg-alt); border: 1px solid #DDE6F0;
-      padding: 6px 14px; border-radius: 999px; cursor: pointer;
-      transition: all 0.2s;
-    }
-    .navbar-cta .lang-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px; background: none; border: none;
-    }
-    .hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--dark); border-radius: 2px; transition: all 0.3s;
-    }
+  .nav-drawer {
+    display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
+    background: #fff; border-bottom: 1px solid #DDE6F0;
+    padding: 20px 24px 28px; flex-direction: column; gap: 6px;
+    box-shadow: 0 12px 40px rgba(31,42,68,0.12);
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a { display: block; padding: 12px 16px; border-radius: var(--r-sm); font-weight: 700; font-size: 16px; color: var(--dark); transition: background var(--t); }
+  .nav-drawer a:hover { background: var(--bg-alt); }
+  .nav-drawer .btn { width: 100%; justify-content: center; margin-top: 8px; }
 
-    /* Mobile nav */
-    .mobile-nav {
-      display: none; position: fixed; top: 72px; left: 0; right: 0;
-      background: #fff; border-bottom: 1px solid #DDE6F0;
-      padding: 20px 24px 28px; z-index: 999;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
-    .mobile-nav.open { display: block; }
-    .mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .mobile-nav a { font-weight: 600; font-size: 16px; color: var(--dark); }
-    .mobile-nav .btn { width: 100%; justify-content: center; margin-top: 16px; }
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    min-height: 100vh; position: relative; overflow: hidden;
+    display: flex; align-items: center; padding: 108px 0 72px;
+  }
+  .hero-mesh {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 900px 700px at 80% -10%, rgba(184,242,230,0.45) 0%, transparent 65%),
+      radial-gradient(ellipse 600px 500px at -5% 80%, rgba(212,237,255,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 400px at 50% 60%, rgba(255,214,224,0.22) 0%, transparent 65%);
+  }
+  .hero-ring {
+    position: absolute; border-radius: 50%;
+    border: 1.5px solid rgba(77,166,255,0.1);
+    pointer-events: none;
+  }
+  .hero-ring-1 { width: 680px; height: 680px; top: -180px; right: -140px; }
+  .hero-ring-2 { width: 480px; height: 480px; top: -80px; right: -40px; border-color: rgba(184,242,230,0.3); }
 
-    /* ═══════════════════════════════════════════════════════
-       HERO
-    ════════════════════════════════════════════════════════ */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 120px 0 80px; position: relative; overflow: hidden;
-      background: #fff;
-    }
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 55fr 45fr;
+    gap: 64px; align-items: center;
+  }
 
-    /* Gradient blobs */
-    .blob {
-      position: absolute; border-radius: 50%;
-      filter: blur(70px); opacity: 0.55; pointer-events: none;
-    }
-    .blob-1 {
-      width: 520px; height: 520px;
-      background: radial-gradient(circle, #B8F2E6 0%, transparent 70%);
-      top: -120px; right: -80px;
-    }
-    .blob-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, #D4EDFF 0%, transparent 70%);
-      bottom: -100px; left: -60px;
-    }
-    .blob-3 {
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, #FFD6E0 0%, transparent 70%);
-      top: 30%; right: 30%;
-    }
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--yellow); color: #6b4e00;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
+    padding: 8px 18px; border-radius: 999px; margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(240,216,71,0.3);
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 900;
+    letter-spacing: -0.8px; line-height: 1.1; margin-bottom: 22px;
+  }
+  .word-blue {
+    color: var(--blue); position: relative; display: inline-block;
+  }
+  .word-blue::after {
+    content: '';
+    position: absolute; bottom: 2px; left: 0; width: 100%; height: 8px;
+    background: var(--yellow); border-radius: 4px; z-index: -1;
+    transform: scaleX(0); transform-origin: left;
+    animation: ul-grow 0.6s var(--ease) 0.8s forwards;
+  }
+  @keyframes ul-grow { to { transform: scaleX(1); } }
 
-    .hero-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: center; position: relative; z-index: 1;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--yellow); color: #8a6f00;
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
-      padding: 8px 16px; border-radius: 999px; margin-bottom: 24px;
-    }
-    .hero-badge::before { content: '🎵'; font-size: 15px; }
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 3.5rem);
-      font-weight: 900; line-height: 1.15; margin-bottom: 20px;
-      letter-spacing: -0.5px;
-    }
-    .hero h1 .highlight {
-      position: relative; color: var(--primary);
-      display: inline-block;
-    }
-    .hero h1 .highlight::after {
-      content: '';
-      position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 6px; border-radius: 3px;
-      background: var(--yellow); z-index: -1;
-    }
-    .hero-sub {
-      font-size: 17px; line-height: 1.7; margin-bottom: 28px; color: var(--body);
-      max-width: 480px;
-    }
-    .hero-instruments {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;
-    }
-    .instrument-pill {
-      display: flex; align-items: center; gap: 6px;
-      background: var(--bg-alt); border: 1.5px solid #DDE6F0;
-      padding: 8px 16px; border-radius: 999px;
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px;
-      color: var(--dark); transition: all 0.2s;
-    }
-    .instrument-pill:hover { border-color: var(--primary); color: var(--primary); background: #EBF5FF; }
-    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .play-btn {
-      display: flex; align-items: center; gap: 10px;
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px;
-      color: var(--dark); cursor: pointer; background: none; border: none;
-      padding: 0; transition: color 0.2s;
-    }
-    .play-btn:hover { color: var(--primary); }
-    .play-icon {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--dark); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; transition: all 0.2s; flex-shrink: 0;
-    }
-    .play-btn:hover .play-icon { background: var(--primary); transform: scale(1.08); }
+  .hero-desc { font-size: 18px; line-height: 1.75; color: var(--body); margin-bottom: 30px; max-width: 500px; }
 
-    /* Hero visual */
-    .hero-visual { position: relative; }
-    .hero-image-wrap {
-      border-radius: 32px; overflow: hidden;
-      box-shadow: 0 24px 64px rgba(77,166,255,0.18);
-      aspect-ratio: 4/5; position: relative;
-      background: linear-gradient(135deg, #B8F2E6 0%, #D4EDFF 50%, #FFD6E0 100%);
-    }
-    .hero-image-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .hero-image-placeholder {
-      width: 100%; height: 100%; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 12px;
-      color: var(--body); font-size: 64px;
-    }
-    .hero-image-placeholder p {
-      font-family: 'Nunito', sans-serif; font-weight: 700;
-      font-size: 16px; color: var(--body);
-    }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #fff; border: 1.5px solid #E2EAF4;
+    padding: 8px 16px; border-radius: 999px;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--dark);
+    box-shadow: var(--shadow-sm); transition: all var(--t);
+  }
+  .pill:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-lt); transform: translateY(-1px); }
 
-    /* Floating badges on hero image */
-    .hero-float {
-      position: absolute; background: #fff;
-      border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      padding: 12px 16px; display: flex; align-items: center; gap: 10px;
-      animation: float 4s ease-in-out infinite;
-    }
-    .hero-float-1 { bottom: 40px; left: -32px; animation-delay: 0s; }
-    .hero-float-2 { top: 40px; right: -32px; animation-delay: 1.5s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .hero-float-icon {
-      width: 40px; height: 40px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center; font-size: 20px;
-    }
-    .hero-float-icon.green { background: var(--mint); }
-    .hero-float-icon.yellow { background: var(--yellow); }
-    .hero-float strong {
-      display: block; font-family: 'Nunito', sans-serif;
-      font-weight: 800; font-size: 18px; color: var(--dark); line-height: 1;
-    }
-    .hero-float span { font-size: 12px; color: var(--body); font-weight: 500; }
+  .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
 
-    /* ═══════════════════════════════════════════════════════
-       TRUST STRIP
-    ════════════════════════════════════════════════════════ */
-    .trust-strip {
-      background: var(--dark);
-      padding: 48px 0;
-    }
-    .trust-strip-inner {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 24px; text-align: center;
-    }
-    .trust-stat { padding: 16px; }
-    .trust-stat .number {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: 2.8rem; color: #fff; line-height: 1;
-      margin-bottom: 6px;
-    }
-    .trust-stat .number span { color: var(--primary); }
-    .trust-stat .label {
-      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6);
-    }
-    .trust-stat .sublabel {
-      font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px;
-    }
+  .play-btn {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px;
+    color: var(--dark); transition: color var(--t); background: none; border: none; cursor: pointer;
+  }
+  .play-btn:hover { color: var(--blue); }
+  .play-circle {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--dark); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0; padding-left: 3px;
+    transition: all var(--t); box-shadow: var(--shadow-md);
+  }
+  .play-btn:hover .play-circle { background: var(--blue); transform: scale(1.1); }
 
-    /* ═══════════════════════════════════════════════════════
-       PROGRAMS
-    ════════════════════════════════════════════════════════ */
-    .programs { padding: 100px 0; background: var(--bg-alt); }
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-header h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 16px;
-    }
-    .section-header p { font-size: 17px; max-width: 520px; margin: 0 auto; }
+  .hero-proof { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .proof-avs { display: flex; }
+  .proof-avs .av {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 2.5px solid #fff; margin-left: -10px; overflow: hidden;
+    background: linear-gradient(135deg, var(--mint), var(--blue-lt));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; box-shadow: var(--shadow-sm);
+  }
+  .proof-avs .av:first-child { margin-left: 0; }
+  .proof-text strong { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; color: var(--dark); }
+  .proof-text span { display: block; font-size: 12.5px; color: var(--muted); }
+  .proof-div { width: 1px; height: 32px; background: #DDE6F0; }
+  .proof-stars .stars { color: #F0C040; font-size: 14px; letter-spacing: 2px; }
+  .proof-stars span { font-size: 12.5px; color: var(--muted); }
 
-    .programs-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .program-card {
-      background: #fff; border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card); overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .program-card:hover {
-      transform: scale(1.03);
-      box-shadow: var(--shadow-hover);
-    }
-    .program-card-image {
-      aspect-ratio: 4/3; position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 64px;
-    }
-    .program-card-image img { width: 100%; height: 100%; object-fit: cover; }
-    .program-badge {
-      position: absolute; top: 12px; left: 12px;
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12px;
-      color: var(--dark); padding: 5px 12px; border-radius: 999px;
-    }
-    .program-card-body { padding: 20px; }
-    .program-card-body h3 {
-      font-size: 19px; font-weight: 800; margin-bottom: 8px; color: var(--dark);
-    }
-    .program-card-body p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
-    .program-card-body .btn { font-size: 14px; padding: 10px 20px; }
-    .prog-bg-1 { background: linear-gradient(135deg, #D4EDFF, #B8F2E6); }
-    .prog-bg-2 { background: linear-gradient(135deg, #FFD6E0, #FFF3B0); }
-    .prog-bg-3 { background: linear-gradient(135deg, #E8E4FF, #D4EDFF); }
-    .prog-bg-4 { background: linear-gradient(135deg, #B8F2E6, #FFF3B0); }
-    .prog-bg-5 { background: linear-gradient(135deg, #FFF3B0, #FFD6E0); }
-    .prog-bg-6 { background: linear-gradient(135deg, #FFD6E0, #E8E4FF); }
+  /* Hero visual */
+  .hero-visual { position: relative; }
+  .hero-frame {
+    border-radius: var(--r-xl); overflow: hidden; aspect-ratio: 4/5; position: relative;
+    box-shadow: 0 32px 80px rgba(31,42,68,0.15), 0 0 0 1px rgba(255,255,255,0.8);
+    background: linear-gradient(145deg, #C5F0E4 0%, #D8EDFF 50%, #F5D8E8 100%);
+  }
+  .hero-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-placeholder {
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; color: rgba(31,42,68,0.25); gap: 10px; font-size: 72px;
+  }
+  .hero-placeholder p { font-size: 13px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
 
-    /* ═══════════════════════════════════════════════════════
-       EXPERIENCE SECTION
-    ════════════════════════════════════════════════════════ */
-    .experience { padding: 100px 0; background: #fff; }
-    .experience-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
-    }
-    .experience-visual {
-      position: relative;
-    }
-    .exp-main-img {
-      border-radius: 28px; overflow: hidden;
-      box-shadow: 0 16px 48px rgba(77,166,255,0.14);
-      aspect-ratio: 5/4;
-      background: linear-gradient(135deg, #D4EDFF, #B8F2E6);
-      display: flex; align-items: center; justify-content: center; font-size: 80px;
-    }
-    .exp-main-img img { width: 100%; height: 100%; object-fit: cover; }
-    .exp-small-img {
-      position: absolute; bottom: -24px; right: -24px;
-      width: 200px; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #FFF3B0, #FFD6E0);
-      display: flex; align-items: center; justify-content: center; font-size: 40px;
-    }
-    .exp-small-img img { width: 100%; height: 100%; object-fit: cover; }
-    .exp-dot {
-      position: absolute; top: -16px; left: -16px;
-      width: 100px; height: 100px; border-radius: 50%;
-      background: var(--yellow); opacity: 0.6; z-index: -1;
-    }
+  .float-card {
+    position: absolute; background: #fff; border-radius: var(--r-md);
+    box-shadow: var(--shadow-lg); padding: 14px 18px;
+    display: flex; align-items: center; gap: 12px;
+    animation: fc-float 5s ease-in-out infinite;
+    border: 1px solid rgba(221,230,240,0.6); max-width: 200px;
+  }
+  .fc-1 { bottom: 60px; left: -36px; animation-delay: 0s; }
+  .fc-2 { top: 52px;   right: -36px; animation-delay: 1.8s; }
+  .fc-3 { top: 46%;    left: -24px;  animation-delay: 0.9s; max-width: 160px; }
+  @keyframes fc-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  .fi { width: 42px; height: 42px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .fi-m { background: var(--mint); }
+  .fi-y { background: var(--yellow); }
+  .fi-p { background: var(--pink); }
+  .float-card strong { display: block; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 18px; color: var(--dark); line-height: 1; }
+  .float-card span { font-size: 11.5px; color: var(--muted); font-weight: 500; }
 
-    .experience-text h2 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; margin-bottom: 20px;
-    }
-    .experience-text p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; }
-    .exp-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
-    .exp-feature {
-      display: flex; align-items: flex-start; gap: 14px;
-    }
-    .exp-feature-icon {
-      width: 44px; height: 44px; border-radius: 14px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 20px;
-    }
-    .exp-feature-icon.mint { background: var(--mint); }
-    .exp-feature-icon.yellow { background: var(--yellow); }
-    .exp-feature-icon.pink { background: var(--pink); }
-    .exp-feature-text strong {
-      display: block; font-family: 'Nunito', sans-serif;
-      font-weight: 700; font-size: 15px; color: var(--dark); margin-bottom: 3px;
-    }
-    .exp-feature-text span { font-size: 14px; }
+  /* ============================================================
+     TRUST BAR
+  ============================================================ */
+  .trust-bar { background: var(--dark); padding: 56px 0; }
+  .trust-bar-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+  .trust-item {
+    text-align: center; padding: 20px 16px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-num {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 2.8rem; line-height: 1; color: #fff; margin-bottom: 6px;
+  }
+  .trust-num sup,
+  .trust-num sub { font-size: 1.4rem; color: var(--blue); vertical-align: baseline; }
+  .trust-lbl { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); }
+  .trust-lbl strong { display: block; font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 3px; }
 
-    /* ═══════════════════════════════════════════════════════
-       TEACHERS
-    ════════════════════════════════════════════════════════ */
-    .teachers { padding: 100px 0; background: var(--bg-alt); }
-    .teachers-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-    }
-    .teacher-card {
-      background: #fff; border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card); overflow: hidden; text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s; padding-bottom: 24px;
-    }
-    .teacher-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-    .teacher-photo {
-      aspect-ratio: 1; overflow: hidden;
-      display: flex; align-items: center; justify-content: center; font-size: 72px;
-      margin-bottom: 16px;
-    }
-    .teacher-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .teacher-photo.bg-mint { background: linear-gradient(135deg, var(--mint), #D4EDFF); }
-    .teacher-photo.bg-yellow { background: linear-gradient(135deg, var(--yellow), var(--mint)); }
-    .teacher-photo.bg-pink { background: linear-gradient(135deg, var(--pink), var(--lavender)); }
-    .teacher-photo.bg-blue { background: linear-gradient(135deg, #D4EDFF, var(--mint)); }
-    .teacher-card h3 {
-      font-size: 17px; font-weight: 800; margin-bottom: 4px; padding: 0 16px;
-    }
-    .teacher-card .instrument-tag {
-      display: inline-block; background: var(--bg-alt);
-      font-size: 12px; font-weight: 600; color: var(--primary);
-      padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
-    }
-    .teacher-card p { font-size: 13px; line-height: 1.5; padding: 0 16px; }
+  /* ============================================================
+     PROGRAMS
+  ============================================================ */
+  .programs { padding: 112px 0; background: var(--bg-alt); }
+  .prog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .prog-card {
+    background: #fff; border-radius: var(--r-lg); overflow: hidden;
+    box-shadow: var(--shadow-md); border: 1px solid rgba(221,230,240,0.5);
+    display: flex; flex-direction: column;
+    transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
+  }
+  .prog-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(31,42,68,0.13); }
+  .prog-thumb {
+    aspect-ratio: 16/10; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; font-size: 56px;
+  }
+  .prog-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+  .prog-card:hover .prog-thumb img { transform: scale(1.04); }
+  .prog-age {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11.5px;
+    color: var(--dark); padding: 5px 12px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.7);
+  }
+  .prog-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+  .prog-tag {
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 8px;
+  }
+  .prog-body h3 { font-size: 19px; font-weight: 900; margin-bottom: 8px; }
+  .prog-body p  { font-size: 14px; line-height: 1.65; flex: 1; margin-bottom: 18px; }
+  .prog-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 16px; border-top: 1px solid #EEF2F8;
+  }
+  .prog-meta { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+  .prog-meta strong { display: block; font-size: 14px; color: var(--dark); margin-bottom: 1px; }
+  .pt-1{background:linear-gradient(135deg,#C5F0E4,#D8EDFF);}
+  .pt-2{background:linear-gradient(135deg,#FFE0EC,#FFF3B0);}
+  .pt-3{background:linear-gradient(135deg,#E8E4FF,#D8EDFF);}
+  .pt-4{background:linear-gradient(135deg,#B8F2E6,#FFF3B0);}
+  .pt-5{background:linear-gradient(135deg,#FFF3B0,#FFD6E0);}
+  .pt-6{background:linear-gradient(135deg,#FFD6E0,#E8E4FF);}
 
-    /* ═══════════════════════════════════════════════════════
-       ACHIEVEMENTS
-    ════════════════════════════════════════════════════════ */
-    .achievements { padding: 100px 0; background: #fff; }
-    .achievements-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
-    }
-    .achievements h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; margin-bottom: 20px; }
-    .achievements p { font-size: 16px; line-height: 1.75; margin-bottom: 32px; }
-    .ach-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-    .ach-card {
-      background: var(--bg-alt); border-radius: 16px; padding: 20px;
-      border: 1.5px solid #DDE6F0; transition: border-color 0.2s, transform 0.2s;
-    }
-    .ach-card:hover { border-color: var(--primary); transform: translateY(-3px); }
-    .ach-icon { font-size: 28px; margin-bottom: 10px; }
-    .ach-card strong {
-      display: block; font-family: 'Nunito', sans-serif;
-      font-weight: 800; font-size: 22px; color: var(--dark); margin-bottom: 4px;
-    }
-    .ach-card span { font-size: 13px; color: var(--body); }
+  /* ============================================================
+     WHY LIBERAL
+  ============================================================ */
+  .why { padding: 112px 0; }
+  .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-visual { position: relative; }
+  .why-photo {
+    border-radius: var(--r-xl); overflow: hidden; aspect-ratio: 5/4;
+    box-shadow: 0 24px 64px rgba(31,42,68,0.12);
+    background: linear-gradient(145deg, #D8EDFF, #C5F0E4);
+    display: flex; align-items: center; justify-content: center; font-size: 80px;
+  }
+  .why-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .why-accent-img {
+    position: absolute; bottom: -28px; right: -28px;
+    width: 190px; border-radius: var(--r-lg); overflow: hidden;
+    box-shadow: var(--shadow-lg); aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--yellow), var(--mint));
+    display: flex; align-items: center; justify-content: center; font-size: 48px;
+  }
+  .why-accent-img img { width: 100%; height: 100%; object-fit: cover; }
+  .why-dot {
+    position: absolute; top: -20px; left: -20px;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--yellow); opacity: 0.5; z-index: -1;
+  }
+  .why-rating-badge {
+    position: absolute; top: -18px; right: 20px;
+    background: #fff; border-radius: var(--r-md);
+    box-shadow: var(--shadow-lg); padding: 14px 18px;
+    display: flex; align-items: center; gap: 12px; border: 1px solid #EEF2F8;
+  }
+  .why-rating-badge .stars { font-size: 16px; color: #F0C040; }
+  .why-rating-badge strong { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 22px; color: var(--dark); }
+  .why-rating-badge span  { font-size: 12px; color: var(--muted); display: block; }
 
-    .ach-visual {
-      border-radius: 28px; overflow: hidden;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-      aspect-ratio: 4/5;
-      background: linear-gradient(135deg, var(--lavender), #D4EDFF);
-      display: flex; align-items: center; justify-content: center; font-size: 80px;
-    }
-    .ach-visual img { width: 100%; height: 100%; object-fit: cover; }
+  .why-text h2 { margin-bottom: 20px; }
+  .why-text > p { font-size: 16.5px; line-height: 1.8; margin-bottom: 32px; }
+  .feat-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+  .feat-item { display: flex; gap: 16px; align-items: flex-start; }
+  .feat-icon {
+    width: 48px; height: 48px; border-radius: 16px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .fib-a { background: var(--mint); }
+  .fib-b { background: var(--yellow); }
+  .fib-c { background: var(--pink); }
+  .fib-d { background: var(--lavender); }
+  .feat-item h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .feat-item p  { font-size: 14px; line-height: 1.6; }
 
-    /* ═══════════════════════════════════════════════════════
-       TESTIMONIALS
-    ════════════════════════════════════════════════════════ */
-    .testimonials { padding: 100px 0; background: var(--bg-alt); }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .testi-card {
-      background: #fff; border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card); padding: 28px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-    .testi-stars { font-size: 18px; margin-bottom: 14px; letter-spacing: 2px; }
-    .testi-card blockquote {
-      font-size: 15px; line-height: 1.75; color: var(--body);
-      font-style: italic; margin-bottom: 20px;
-    }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
-      display: flex; align-items: center; justify-content: center; font-size: 24px;
-      flex-shrink: 0;
-    }
-    .testi-avatar.a1 { background: var(--mint); }
-    .testi-avatar.a2 { background: var(--yellow); }
-    .testi-avatar.a3 { background: var(--pink); }
-    .testi-avatar.a4 { background: var(--lavender); }
-    .testi-avatar.a5 { background: #D4EDFF; }
-    .testi-avatar.a6 { background: #FFF3B0; }
-    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .testi-name strong {
-      display: block; font-family: 'Nunito', sans-serif;
-      font-weight: 700; font-size: 15px; color: var(--dark);
-    }
-    .testi-name span { font-size: 13px; color: var(--body); }
-    .testi-highlight {
-      background: linear-gradient(135deg, var(--primary), #36b9ff);
-      color: #fff;
-    }
-    .testi-highlight blockquote { color: rgba(255,255,255,0.85); }
-    .testi-highlight .testi-name strong { color: #fff; }
-    .testi-highlight .testi-name span { color: rgba(255,255,255,0.7); }
+  /* ============================================================
+     TEACHERS
+  ============================================================ */
+  .teachers { padding: 112px 0; background: var(--bg-alt); }
+  .teachers-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+  .t-card {
+    background: #fff; border-radius: var(--r-lg); overflow: hidden;
+    box-shadow: var(--shadow-md); border: 1px solid rgba(221,230,240,0.5);
+    transition: transform var(--t) var(--ease), box-shadow var(--t);
+  }
+  .t-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-blue); }
+  .t-photo {
+    aspect-ratio: 1; overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center; font-size: 72px;
+  }
+  .t-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .t-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(31,42,68,0.35) 0%, transparent 50%); opacity: 0; transition: opacity var(--t); }
+  .t-card:hover .t-overlay { opacity: 1; }
+  .tp-1{background:linear-gradient(135deg,var(--mint),#D8EDFF);}
+  .tp-2{background:linear-gradient(135deg,var(--yellow),var(--mint));}
+  .tp-3{background:linear-gradient(135deg,var(--pink),var(--lavender));}
+  .tp-4{background:linear-gradient(135deg,#D8EDFF,var(--mint));}
+  .t-body { padding: 18px 20px 20px; }
+  .t-tag {
+    display: inline-block; font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--blue); background: var(--blue-lt);
+    padding: 4px 11px; border-radius: 999px; margin-bottom: 8px;
+  }
+  .t-body h3 { font-size: 17px; font-weight: 900; margin-bottom: 6px; }
+  .t-body p  { font-size: 13px; line-height: 1.55; }
 
-    /* ═══════════════════════════════════════════════════════
-       BRANCHES
-    ════════════════════════════════════════════════════════ */
-    .branches { padding: 100px 0; background: #fff; }
-    .branches-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    }
-    .branch-card {
-      background: var(--bg-alt); border-radius: var(--radius-card);
-      padding: 28px 24px; border: 1.5px solid #DDE6F0;
-      transition: all 0.3s; cursor: pointer;
-    }
-    .branch-card:hover {
-      border-color: var(--primary); background: #EBF5FF;
-      transform: translateY(-4px); box-shadow: var(--shadow-hover);
-    }
-    .branch-icon {
-      width: 52px; height: 52px; border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 16px;
-    }
-    .branch-icon.b1 { background: var(--mint); }
-    .branch-icon.b2 { background: var(--yellow); }
-    .branch-icon.b3 { background: var(--pink); }
-    .branch-icon.b4 { background: var(--lavender); }
-    .branch-card h3 {
-      font-size: 17px; font-weight: 800; margin-bottom: 8px;
-    }
-    .branch-card address {
-      font-style: normal; font-size: 14px; line-height: 1.6;
-      color: var(--body); margin-bottom: 16px;
-    }
-    .branch-phone {
-      display: flex; align-items: center; gap: 8px;
-      font-family: 'Nunito', sans-serif; font-weight: 700;
-      font-size: 14px; color: var(--primary);
-    }
-    .branch-phone::before { content: '📱'; }
-    .branch-wa {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 10px; font-size: 13px; font-weight: 600;
-      color: #25D366; text-decoration: none;
-      background: #E8FFF1; padding: 6px 12px; border-radius: 999px;
-      transition: background 0.2s;
-    }
-    .branch-wa:hover { background: #D0FFE4; }
+  /* ============================================================
+     ACHIEVEMENTS
+  ============================================================ */
+  .achieve { padding: 112px 0; }
+  .achieve-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+  .stat-tile {
+    background: var(--bg-alt); border-radius: var(--r-md);
+    padding: 22px; border: 1.5px solid #EEF2F8;
+    transition: border-color var(--t), transform var(--t);
+  }
+  .stat-tile:hover { border-color: var(--blue); transform: translateY(-3px); }
+  .stat-tile .icon { font-size: 26px; margin-bottom: 10px; }
+  .stat-tile .num  { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.9rem; color: var(--dark); line-height: 1; margin-bottom: 4px; }
+  .stat-tile .lbl  { font-size: 13px; color: var(--body); }
+  .achieve-visual {
+    border-radius: var(--r-xl); overflow: hidden; aspect-ratio: 4/5;
+    box-shadow: 0 24px 64px rgba(31,42,68,0.12);
+    background: linear-gradient(145deg, var(--lavender), #D8EDFF);
+    display: flex; align-items: center; justify-content: center; font-size: 80px;
+    position: relative;
+  }
+  .achieve-visual img { width: 100%; height: 100%; object-fit: cover; }
+  .achieve-badge {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+    border-radius: var(--r-md); padding: 16px 18px;
+    display: flex; align-items: center; gap: 14px; box-shadow: var(--shadow-md);
+  }
+  .achieve-badge .icon { font-size: 28px; }
+  .achieve-badge strong { font-family:'Nunito'; font-weight:900; font-size:15px; color:var(--dark); display:block; }
+  .achieve-badge span   { font-size:12.5px; color:var(--muted); }
 
-    /* ═══════════════════════════════════════════════════════
-       FINAL CTA
-    ════════════════════════════════════════════════════════ */
-    .final-cta {
-      padding: 100px 0;
-      background: linear-gradient(135deg, #1F2A44 0%, #2D3F66 100%);
-      position: relative; overflow: hidden; text-align: center;
-    }
-    .final-cta .blob {
-      opacity: 0.15;
-    }
-    .final-cta h2 {
-      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; color: #fff;
-      margin-bottom: 20px; line-height: 1.15;
-    }
-    .final-cta h2 .color-blue { color: var(--primary); }
-    .final-cta p { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
-    .final-cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .final-cta .note { margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.4); }
+  /* ============================================================
+     TESTIMONIALS
+  ============================================================ */
+  .testi { padding: 112px 0; background: var(--bg-alt); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .testi-card {
+    background: #fff; border-radius: var(--r-lg); padding: 28px;
+    box-shadow: var(--shadow-md); border: 1px solid rgba(221,230,240,0.5);
+    display: flex; flex-direction: column;
+    transition: transform var(--t) var(--ease), box-shadow var(--t);
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .testi-card.feat {
+    background: linear-gradient(145deg, var(--dark) 0%, #2c3d5e 100%);
+    border-color: transparent;
+  }
+  .testi-stars { color: #F0C040; font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+  .feat .testi-stars { color: #FFD84D; }
+  .testi-q { font-size: 15.5px; line-height: 1.75; flex: 1; color: var(--body); font-style: italic; margin-bottom: 22px; }
+  .feat .testi-q { color: rgba(255,255,255,0.75); }
+  .testi-person { display: flex; align-items: center; gap: 12px; }
+  .t-av {
+    width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .t-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .av1{background:var(--mint);}
+  .av2{background:var(--yellow);}
+  .av3{background:var(--pink);}
+  .av4{background:var(--lavender);}
+  .av5{background:var(--blue-lt);}
+  .av6{background:linear-gradient(135deg,var(--mint),var(--blue-lt));}
+  .t-info strong { font-family: 'Nunito'; font-weight: 800; font-size: 14.5px; color: var(--dark); }
+  .t-info span   { font-size: 12.5px; color: var(--muted); }
+  .feat .t-info strong { color: #fff; }
+  .feat .t-info span   { color: rgba(255,255,255,0.45); }
 
-    /* ═══════════════════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════════════════════ */
-    .footer {
-      background: var(--dark); color: rgba(255,255,255,0.6);
-      padding: 60px 0 32px;
-    }
-    .footer-inner {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px; margin-bottom: 48px;
-    }
-    .footer-brand img { height: 40px; margin-bottom: 16px; }
-    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; }
-    .footer h4 {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 14px; color: #fff; text-transform: uppercase;
-      letter-spacing: 1px; margin-bottom: 16px;
-    }
-    .footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-    .footer a:hover { color: #fff; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 28px; display: flex;
-      align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-    }
-    .footer-bottom p { font-size: 13px; }
+  /* ============================================================
+     BRANCHES
+  ============================================================ */
+  .branches { padding: 112px 0; }
+  .branches-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .branch-card {
+    border-radius: var(--r-lg); padding: 28px 24px;
+    background: var(--bg-alt); border: 1.5px solid #EEF2F8;
+    transition: all var(--t) var(--ease);
+  }
+  .branch-card:hover { border-color: var(--blue); background: #EBF5FF; transform: translateY(-5px); box-shadow: var(--shadow-blue); }
+  .b-icon { width: 54px; height: 54px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 18px; }
+  .bi-1{background:var(--mint);}  .bi-2{background:var(--yellow);}
+  .bi-3{background:var(--pink);}  .bi-4{background:var(--lavender);}
+  .branch-card h3 { font-size: 17px; font-weight: 900; margin-bottom: 6px; }
+  .branch-card address { font-style: normal; font-size: 13.5px; line-height: 1.6; color: var(--body); margin-bottom: 14px; }
+  .b-phone { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; color: var(--dark); margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .b-phone::before { content: '📱'; font-size: 13px; }
+  .b-wa {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #E8FFF1; color: #1a8a45;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
+    padding: 9px 16px; border-radius: 999px; transition: background var(--t);
+  }
+  .b-wa:hover { background: #C2FFDB; }
+  .b-wa::before { content: '💬'; }
 
-    /* ═══════════════════════════════════════════════════════
-       FLOATING WHATSAPP
-    ════════════════════════════════════════════════════════ */
-    .wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 900;
-    }
-    .wa-float-btn {
-      width: 60px; height: 60px; border-radius: 50%;
-      background: #25D366; color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
-      transition: all 0.3s; cursor: pointer; border: none;
-      font-size: 28px;
-    }
-    .wa-float-btn:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
-    .wa-float-popup {
-      position: absolute; bottom: 70px; right: 0;
-      background: #fff; border-radius: 20px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.14);
-      width: 280px; padding: 20px;
-      display: none; flex-direction: column; gap: 10px;
-    }
-    .wa-float-popup.open { display: flex; }
-    .wa-float-popup h4 {
-      font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 4px;
-    }
-    .wa-float-popup p { font-size: 13px; color: var(--body); margin-bottom: 8px; }
-    .wa-option {
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--bg-alt); border-radius: 12px; padding: 12px 14px;
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--dark);
-      transition: all 0.2s; text-decoration: none;
-    }
-    .wa-option:hover { background: #D4EDFF; color: var(--primary); }
-    .wa-option span { font-size: 12px; font-weight: 500; color: var(--body); }
+  /* ============================================================
+     FINAL CTA
+  ============================================================ */
+  .cta-section {
+    padding: 120px 0; text-align: center;
+    background: linear-gradient(145deg, #F0F8FF 0%, #F8FBFF 40%, #FFF8F0 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 700px 500px at 20% 50%, rgba(184,242,230,0.3) 0%, transparent 65%),
+      radial-gradient(ellipse 600px 400px at 80% 50%, rgba(255,214,224,0.25) 0%, transparent 65%);
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .cta-inner h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.5px; }
+  .cta-inner h2 .accent { color: var(--blue); }
+  .cta-inner > p { font-size: 18px; line-height: 1.7; margin-bottom: 40px; }
+  .cta-btns { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .cta-checks { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .cta-check { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: var(--muted); }
+  .cta-check::before { content: '✓'; color: var(--mint-dk); font-weight: 900; font-size: 15px; }
 
-    /* Mobile sticky CTA */
-    .mobile-sticky-cta {
-      display: none; position: fixed; bottom: 0; left: 0; right: 0;
-      background: #fff; padding: 12px 20px;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.1); z-index: 800;
-    }
-    .mobile-sticky-cta .btn { width: 100%; justify-content: center; }
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  .footer { background: var(--dark); color: rgba(255,255,255,0.55); padding: 72px 0 36px; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 40px;
+    padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 32px;
+  }
+  .footer-brand img { height: 38px; margin-bottom: 16px; }
+  .footer-brand p { font-size: 14px; line-height: 1.75; max-width: 280px; }
+  .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+  .footer-social a {
+    width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center; font-size: 16px; transition: background var(--t);
+  }
+  .footer-social a:hover { background: rgba(255,255,255,0.15); }
+  .footer-col h5 {
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: rgba(255,255,255,0.9); margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .footer-col a { font-size: 14px; transition: color var(--t); }
+  .footer-col a:hover { color: #fff; }
+  .footer-btm { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-btm p { font-size: 13px; }
+  .footer-btm a { color: rgba(255,255,255,0.5); font-size: 13px; transition: color var(--t); }
+  .footer-btm a:hover { color: #fff; }
 
-    /* ═══════════════════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .programs-grid { grid-template-columns: repeat(2, 1fr); }
-      .teachers-grid { grid-template-columns: repeat(2, 1fr); }
-      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    }
+  /* ============================================================
+     WA FLOAT
+  ============================================================ */
+  .wa-widget { position: fixed; bottom: 28px; right: 28px; z-index: 900; }
+  .wa-fab {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+    transition: transform var(--t), box-shadow var(--t);
+    cursor: pointer;
+  }
+  .wa-fab:hover { transform: scale(1.1); box-shadow: 0 14px 36px rgba(37,211,102,0.5); }
+  .wa-panel {
+    position: absolute; bottom: 72px; right: 0;
+    background: #fff; border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); width: 290px; padding: 22px;
+    border: 1px solid #EEF2F8;
+    opacity: 0; transform: scale(0.9) translateY(8px); transform-origin: bottom right;
+    pointer-events: none;
+    transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
+  }
+  .wa-panel.open { opacity: 1; transform: scale(1) translateY(0); pointer-events: all; }
+  .wa-panel h4 { font-size: 15px; font-weight: 900; color: var(--dark); margin-bottom: 5px; }
+  .wa-panel p  { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .wa-branch {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 14px; border-radius: var(--r-sm);
+    background: var(--bg-alt); border: 1.5px solid #EEF2F8; margin-bottom: 8px;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--dark);
+    transition: all var(--t);
+  }
+  .wa-branch:hover { border-color: #25D366; background: #E8FFF1; color: #1a8a45; }
+  .wa-branch span { font-size: 12px; font-weight: 500; color: var(--muted); }
+  .wa-branch:hover span { color: #1a8a45; }
 
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-visual { order: -1; }
-      .hero-float-1 { left: 0; }
-      .hero-float-2 { right: 0; }
-      .experience-inner,
-      .achievements-inner { grid-template-columns: 1fr; gap: 40px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .branches-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .nav-links, .navbar-cta .btn { display: none; }
-      .hamburger { display: flex; }
-      .mobile-sticky-cta { display: block; }
-      .wa-float { bottom: 80px; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .teachers-grid { grid-template-columns: repeat(2, 1fr); }
-      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); }
-    }
+  /* Mobile sticky */
+  .mob-cta {
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800;
+    background: #fff; padding: 12px 20px 16px;
+    box-shadow: 0 -4px 20px rgba(31,42,68,0.10); border-top: 1px solid #EEF2F8;
+  }
+  .mob-cta .btn { width: 100%; justify-content: center; font-size: 16px; padding: 15px; }
 
-    @media (max-width: 480px) {
-      .branches-grid { grid-template-columns: 1fr; }
-      .ach-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .teachers-grid { grid-template-columns: 1fr; }
-      .trust-strip-inner { grid-template-columns: 1fr; }
-    }
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 1100px) {
+    .prog-grid { grid-template-columns: repeat(2,1fr); }
+    .teachers-grid { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { order: -1; max-width: 480px; margin: 0 auto; }
+    .fc-1 { left: -10px; } .fc-2 { right: -10px; }
+    .why-inner, .achieve-inner { grid-template-columns: 1fr; gap: 48px; }
+    .trust-bar-grid { grid-template-columns: repeat(2,1fr); }
+    .testi-grid { grid-template-columns: 1fr; }
+    .branches-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-menu, .nav-lang, .nav-actions .btn { display: none; }
+    .nav-ham { display: flex; }
+    .mob-cta { display: block; }
+    .wa-widget { bottom: 80px; }
+    .prog-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .trust-bar-grid { grid-template-columns: 1fr 1fr; }
+    .branches-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .teachers-grid { grid-template-columns: 1fr; }
+    .fc-3 { display: none; }
+    .why-accent-img { display: none; }
+  }
   </style>
 </head>
 <body>
 
-  <!-- ═══ NAVBAR ══════════════════════════════════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="navbar-inner">
-        <a href="index.html" class="navbar-logo">
-          <img src="assets/logo.webp" alt="Liberal Music School" onerror="this.style.display='none'" />
-          <span>Liberal<br>Music School</span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="pages/courses.html">Programmes</a></li>
-          <li><a href="pages/instructors.html">Teachers</a></li>
-          <li><a href="pages/about.html">About Us</a></li>
-          <li><a href="pages/blog.html">Blog</a></li>
-          <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
-        <div class="navbar-cta">
-          <a href="index-zh.html" class="lang-btn">中文</a>
-          <a href="pages/trial.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">
-            🎵 Free Trial
-          </a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+<!-- ═══ NAVBAR ════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.webp" alt="Liberal Music & Arts School" onerror="this.style.display='none'" />
+        <div class="nav-brand-text">Liberal<br><em>Music &amp; Arts</em></div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="pages/courses.html">Programmes</a></li>
+        <li><a href="pages/instructors.html">Teachers</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/testimonial.html">Reviews</a></li>
+        <li><a href="pages/blog.html">Blog</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index-zh.html" class="nav-lang">中文</a>
+        <a href="pages/trial.html" class="btn btn-p" style="padding:10px 22px;font-size:14px;">✨ Free Trial</a>
       </div>
+      <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </nav>
-
-  <!-- Mobile nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <ul>
-      <li><a href="pages/courses.html">Programmes</a></li>
-      <li><a href="pages/instructors.html">Teachers</a></li>
-      <li><a href="pages/about.html">About Us</a></li>
-      <li><a href="pages/testimonial.html">Testimonials</a></li>
-      <li><a href="pages/contact.html">Contact</a></li>
-    </ul>
-    <a href="pages/trial.html" class="btn btn-primary">🎵 Book Free Trial Class</a>
   </div>
+</nav>
 
-  <!-- ═══ HERO ════════════════════════════════════════════ -->
-  <section class="hero" id="home">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="hero-badge reveal">Singapore's Favourite Music & Arts School</div>
-          <h1 class="reveal reveal-delay-1">
-            Build <span class="highlight">Confidence</span><br>
-            Through Music & Art
-          </h1>
-          <p class="hero-sub reveal reveal-delay-2">
-            Every child has a unique talent waiting to be discovered. We nurture creativity, discipline, and joy — one lesson at a time.
-          </p>
-          <div class="hero-instruments reveal reveal-delay-2">
-            <span class="instrument-pill">🎹 Piano</span>
-            <span class="instrument-pill">🎻 Violin</span>
-            <span class="instrument-pill">🎸 Guitar</span>
-            <span class="instrument-pill">🎨 Art</span>
-            <span class="instrument-pill">💃 Dance</span>
-            <span class="instrument-pill">🥁 Drums</span>
-          </div>
-          <div class="hero-actions reveal reveal-delay-3">
-            <a href="pages/trial.html" class="btn btn-primary">
-              🎵 Book Free Trial Class
-            </a>
-            <button class="play-btn" onclick="openVideo()">
-              <span class="play-icon">▶</span>
-              Watch a Class
-            </button>
-          </div>
+<nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
+  <a href="pages/courses.html">Programmes</a>
+  <a href="pages/instructors.html">Teachers</a>
+  <a href="pages/about.html">About Us</a>
+  <a href="pages/testimonial.html">Reviews</a>
+  <a href="pages/contact.html">Contact</a>
+  <a href="pages/trial.html" class="btn btn-p">✨ Book Free Trial Class</a>
+</nav>
+
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-ring hero-ring-1" aria-hidden="true"></div>
+  <div class="hero-ring hero-ring-2" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="hero-inner">
+
+      <div class="hero-copy">
+        <div class="hero-kicker sr">🎵 Singapore's Most Trusted Music School</div>
+
+        <h1 class="sr sr-d1">
+          Build <span class="word-blue">Confidence</span><br>
+          Through Music<br>&amp; Art
+        </h1>
+
+        <p class="hero-desc sr sr-d2">
+          Expert-led classes for children aged 4–16. We nurture creativity,
+          discipline, and the courage to perform — for life.
+        </p>
+
+        <div class="hero-pills sr sr-d2">
+          <span class="pill">🎹 Piano</span>
+          <span class="pill">🎻 Violin</span>
+          <span class="pill">🎸 Guitar</span>
+          <span class="pill">🎨 Art</span>
+          <span class="pill">💃 Dance</span>
+          <span class="pill">🥁 Drums</span>
         </div>
 
-        <div class="hero-visual reveal reveal-delay-2">
-          <div class="hero-image-wrap">
-            <!-- Replace with real student image: <img src="assets/hero-student.webp" alt="Students learning music"> -->
-            <div class="hero-image-placeholder">
-              🎵
-              <p>Add hero image here</p>
-            </div>
-          </div>
-          <div class="hero-float hero-float-1">
-            <div class="hero-float-icon green">🌟</div>
-            <div>
-              <strong>500+</strong>
-              <span>Happy Students</span>
-            </div>
-          </div>
-          <div class="hero-float hero-float-2">
-            <div class="hero-float-icon yellow">🏆</div>
-            <div>
-              <strong>#1 Rated</strong>
-              <span>Music School SG</span>
-            </div>
-          </div>
+        <div class="hero-cta sr sr-d3">
+          <a href="pages/trial.html" class="btn btn-p btn-lg">✨ Book Free Trial Class</a>
+          <button class="play-btn" onclick="openVideo()">
+            <span class="play-circle">▶</span>
+            Watch a Class
+          </button>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══ TRUST STRIP ══════════════════════════════════════ -->
-  <section class="trust-strip">
-    <div class="container">
-      <div class="trust-strip-inner">
-        <div class="trust-stat reveal">
-          <div class="number">500<span>+</span></div>
-          <div class="label">Happy Students</div>
-          <div class="sublabel">and growing every month</div>
-        </div>
-        <div class="trust-stat reveal reveal-delay-1">
-          <div class="number">10<span>+</span></div>
-          <div class="label">Years of Experience</div>
-          <div class="sublabel">nurturing young talent</div>
-        </div>
-        <div class="trust-stat reveal reveal-delay-2">
-          <div class="number">4</div>
-          <div class="label">Convenient Locations</div>
-          <div class="sublabel">across Singapore</div>
-        </div>
-        <div class="trust-stat reveal reveal-delay-3">
-          <div class="number">98<span>%</span></div>
-          <div class="label">Parent Satisfaction</div>
-          <div class="sublabel">5-star reviews</div>
+        <div class="hero-proof sr sr-d4">
+          <div class="proof-avs">
+            <div class="av">👧</div>
+            <div class="av">👦</div>
+            <div class="av">🧒</div>
+            <div class="av">👧</div>
+            <div class="av" style="background:var(--blue);color:#fff;font-size:11px;font-weight:900;font-family:'Nunito',sans-serif;">500+</div>
+          </div>
+          <div class="proof-text">
+            <strong>500+ Happy Students</strong>
+            <span>and growing every term</span>
+          </div>
+          <div class="proof-div"></div>
+          <div class="proof-stars">
+            <div class="stars">★★★★★</div>
+            <span>5.0 on Google</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══ PROGRAMS ══════════════════════════════════════════ -->
-  <section class="programs" id="programs">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">🎓 Our Programmes</div>
-        <h2>Find the Perfect Programme<br>for Your Child</h2>
-        <p>Structured, fun, and expertly designed for ages 4–16. All skill levels welcome.</p>
-      </div>
-      <div class="programs-grid">
-
-        <div class="program-card reveal">
-          <div class="program-card-image prog-bg-1">
-            🎹
-            <span class="program-badge">Ages 4–16</span>
-          </div>
-          <div class="program-card-body">
-            <h3>Piano</h3>
-            <p>From first notes to concert pieces — build technique, theory, and confidence at the keyboard.</p>
-            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
-          </div>
-        </div>
-
-        <div class="program-card reveal reveal-delay-1">
-          <div class="program-card-image prog-bg-2">
-            🎻
-            <span class="program-badge">Ages 5–16</span>
-          </div>
-          <div class="program-card-body">
-            <h3>Violin</h3>
-            <p>Develop focus, ear training, and beautiful tone. Great for children who love classical music.</p>
-            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
-          </div>
-        </div>
-
-        <div class="program-card reveal reveal-delay-2">
-          <div class="program-card-image prog-bg-3">
-            🎸
-            <span class="program-badge">Ages 6–16</span>
-          </div>
-          <div class="program-card-body">
-            <h3>Guitar</h3>
-            <p>From acoustic strumming to electric riffs — spark a lifelong love of music.</p>
-            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
-          </div>
-        </div>
-
-        <div class="program-card reveal">
-          <div class="program-card-image prog-bg-4">
-            🎨
-            <span class="program-badge">Ages 4–16</span>
-          </div>
-          <div class="program-card-body">
-            <h3>Visual Art</h3>
-            <p>Unleash imagination through drawing, painting, and mixed media. Build creative confidence.</p>
-            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
-          </div>
-        </div>
-
-        <div class="program-card reveal reveal-delay-1">
-          <div class="program-card-image prog-bg-5">
-            💃
-            <span class="program-badge">Ages 4–14</span>
-          </div>
-          <div class="program-card-body">
-            <h3>Dance</h3>
-            <p>Express, move, and perform. Ballet, hip-hop, and contemporary in a joyful environment.</p>
-            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
-          </div>
-        </div>
-
-        <div class="program-card reveal reveal-delay-2">
-          <div class="program-card-image prog-bg-6">
-            🥁
-            <span class="program-badge">Ages 6–16</span>
-          </div>
-          <div class="program-card-body">
-            <h3>Drums & Percussion</h3>
-            <p>Build rhythm, coordination, and energy. Perfect for kids who love to make some noise!</p>
-            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ EXPERIENCE ════════════════════════════════════════ -->
-  <section class="experience">
-    <div class="container">
-      <div class="experience-inner">
-        <div class="experience-visual reveal">
-          <div class="exp-dot"></div>
-          <div class="exp-main-img">
-            🎼
-            <!-- Replace: <img src="assets/class-photo.webp" alt="Class in session"> -->
-          </div>
-          <div class="exp-small-img">
+      <div class="hero-visual">
+        <div class="hero-frame">
+          <!-- ✏️ Replace with: <img src="assets/hero-student.webp" alt="Student learning piano at Liberal Music School"> -->
+          <div class="hero-placeholder">
             🎵
-            <!-- Replace: <img src="assets/student-smile.webp" alt="Happy student"> -->
+            <p>Add hero image here</p>
           </div>
         </div>
-        <div class="experience-text reveal reveal-delay-1">
-          <div class="section-tag yellow">✨ The Liberal Experience</div>
-          <h2>Fun + Structured = Real Growth</h2>
-          <p>Our approach blends structured learning with joyful play. Children don't just learn music — they develop patience, resilience, and the courage to perform.</p>
-          <div class="exp-features">
-            <div class="exp-feature">
-              <div class="exp-feature-icon mint">🧒</div>
-              <div class="exp-feature-text">
-                <strong>Small Group & 1-to-1 Classes</strong>
-                <span>Personalised attention for every child's learning pace and style.</span>
-              </div>
-            </div>
-            <div class="exp-feature">
-              <div class="exp-feature-icon yellow">📈</div>
-              <div class="exp-feature-text">
-                <strong>Regular Progress Reports</strong>
-                <span>Parents stay updated with monthly progress notes and goal-setting.</span>
-              </div>
-            </div>
-            <div class="exp-feature">
-              <div class="exp-feature-icon pink">🎭</div>
-              <div class="exp-feature-text">
-                <strong>Annual Recitals & Showcases</strong>
-                <span>Children shine on stage — building confidence and precious memories.</span>
-              </div>
-            </div>
-          </div>
-          <a href="pages/about.html" class="btn btn-outline">Learn Our Story →</a>
+
+        <div class="float-card fc-1">
+          <div class="fi fi-m">🌟</div>
+          <div><strong>500+</strong><span>Happy Students</span></div>
         </div>
+        <div class="float-card fc-2">
+          <div class="fi fi-y">🏆</div>
+          <div><strong>#1 Rated</strong><span>Music School SG</span></div>
+        </div>
+        <div class="float-card fc-3">
+          <div class="fi fi-p">🎓</div>
+          <div><strong>10+ Yrs</strong><span>Experience</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ TRUST BAR ═════════════════════════════════════════ -->
+<section class="trust-bar" aria-label="Key statistics">
+  <div class="wrap">
+    <div class="trust-bar-grid">
+      <div class="trust-item sr">
+        <div class="trust-num">500<sup>+</sup></div>
+        <div class="trust-lbl"><strong>Students Enrolled</strong>and growing every term</div>
+      </div>
+      <div class="trust-item sr sr-d1">
+        <div class="trust-num">10<sup>+</sup></div>
+        <div class="trust-lbl"><strong>Years of Excellence</strong>trusted since 2014</div>
+      </div>
+      <div class="trust-item sr sr-d2">
+        <div class="trust-num">4</div>
+        <div class="trust-lbl"><strong>Locations in Singapore</strong>always close to you</div>
+      </div>
+      <div class="trust-item sr sr-d3">
+        <div class="trust-num">98<sub>%</sub></div>
+        <div class="trust-lbl"><strong>Parent Satisfaction</strong>5-star rated</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ TEACHERS ══════════════════════════════════════════ -->
-  <section class="teachers" id="teachers">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag lavender">👩‍🏫 Our Instructors</div>
-        <h2>Passionate Teachers,<br>Incredible Results</h2>
-        <p>Our educators are degree-holders and performers who genuinely love teaching young children.</p>
+
+<!-- ═══ PROGRAMMES ════════════════════════════════════════ -->
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="s-head center sr">
+      <div class="eyebrow ey-mint">🎓 Our Programmes</div>
+      <h2 class="s-title">Find the Perfect Class<br>for Your Child</h2>
+      <p class="s-sub">Structured, fun, and expertly designed for ages 4–16. All skill levels welcome — from complete beginners.</p>
+    </div>
+
+    <div class="prog-grid">
+
+      <div class="prog-card sr">
+        <div class="prog-thumb pt-1">
+          🎹
+          <!-- ✏️ <img src="assets/prog-piano.webp" alt="Piano class"> -->
+          <span class="prog-age">Ages 4–16</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-tag">⭐ Most Popular</div>
+          <h3>Piano</h3>
+          <p>From first notes to concert repertoire — build technique, theory, and unstoppable musical confidence at the keys.</p>
+          <div class="prog-foot">
+            <div class="prog-meta"><strong>1-to-1 &amp; Group</strong>Classes available</div>
+            <a href="pages/trial.html" class="btn btn-p btn-sm">Try Free →</a>
+          </div>
+        </div>
       </div>
-      <div class="teachers-grid">
 
-        <div class="teacher-card reveal">
-          <div class="teacher-photo bg-mint">🎹</div>
+      <div class="prog-card sr sr-d1">
+        <div class="prog-thumb pt-2">
+          🎻
+          <!-- ✏️ <img src="assets/prog-violin.webp" alt="Violin class"> -->
+          <span class="prog-age">Ages 5–16</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-tag">🎯 Great for Focus</div>
+          <h3>Violin</h3>
+          <p>Develop beautiful tone, sharp ear training, and the poise that comes from mastering one of the world's great instruments.</p>
+          <div class="prog-foot">
+            <div class="prog-meta"><strong>1-to-1 &amp; Group</strong>Classes available</div>
+            <a href="pages/trial.html" class="btn btn-p btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-card sr sr-d2">
+        <div class="prog-thumb pt-3">
+          🎸
+          <!-- ✏️ <img src="assets/prog-guitar.webp" alt="Guitar class"> -->
+          <span class="prog-age">Ages 6–16</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-tag">🌱 Beginner Friendly</div>
+          <h3>Guitar</h3>
+          <p>Acoustic, classical, or electric — spark a lifelong love of music from the very first chord.</p>
+          <div class="prog-foot">
+            <div class="prog-meta"><strong>1-to-1 &amp; Group</strong>Classes available</div>
+            <a href="pages/trial.html" class="btn btn-p btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-card sr">
+        <div class="prog-thumb pt-4">
+          🎨
+          <!-- ✏️ <img src="assets/prog-art.webp" alt="Art class"> -->
+          <span class="prog-age">Ages 4–16</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-tag">🎨 Creative Expression</div>
+          <h3>Visual Art</h3>
+          <p>Drawing, painting, mixed media and design — building creative confidence that flows into every aspect of school life.</p>
+          <div class="prog-foot">
+            <div class="prog-meta"><strong>Group Classes</strong>Fun &amp; project-based</div>
+            <a href="pages/trial.html" class="btn btn-p btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-card sr sr-d1">
+        <div class="prog-thumb pt-5">
+          💃
+          <!-- ✏️ <img src="assets/prog-dance.webp" alt="Dance class"> -->
+          <span class="prog-age">Ages 4–14</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-tag">💃 High Energy</div>
+          <h3>Dance</h3>
+          <p>Ballet, hip-hop, and contemporary in a joyful, encouraging space. Watch your child blossom on stage.</p>
+          <div class="prog-foot">
+            <div class="prog-meta"><strong>Group Classes</strong>Annual showcase</div>
+            <a href="pages/trial.html" class="btn btn-p btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-card sr sr-d2">
+        <div class="prog-thumb pt-6">
+          🥁
+          <!-- ✏️ <img src="assets/prog-drums.webp" alt="Drums class"> -->
+          <span class="prog-age">Ages 6–16</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-tag">🔥 Builds Rhythm</div>
+          <h3>Drums &amp; Percussion</h3>
+          <p>Build coordination, timing, and explosive energy. The programme that turns restless kids into focused musicians.</p>
+          <div class="prog-foot">
+            <div class="prog-meta"><strong>1-to-1 &amp; Group</strong>Classes available</div>
+            <a href="pages/trial.html" class="btn btn-p btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:44px" class="sr">
+      <a href="pages/courses.html" class="btn btn-gh">View All Programmes →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WHY LIBERAL ═══════════════════════════════════════ -->
+<section class="why" id="about">
+  <div class="wrap">
+    <div class="why-inner">
+
+      <div class="why-visual sr">
+        <div class="why-dot"></div>
+        <div class="why-photo">
+          🎼
+          <!-- ✏️ <img src="assets/class-in-session.webp" alt="Class in session"> -->
+        </div>
+        <div class="why-accent-img">
+          🎵
+          <!-- ✏️ <img src="assets/happy-student.webp" alt="Happy student"> -->
+        </div>
+        <div class="why-rating-badge">
+          <div>
+            <div class="stars" style="color:#F0C040;font-size:15px;letter-spacing:2px;">★★★★★</div>
+            <span style="font-size:12px;color:var(--muted);">200+ reviews</span>
+          </div>
+          <strong style="font-family:'Nunito';font-weight:900;font-size:22px;color:var(--dark);">5.0</strong>
+        </div>
+      </div>
+
+      <div class="why-text sr sr-d2">
+        <div class="eyebrow ey-yellow">✨ Why Liberal</div>
+        <h2 class="s-title">More Than Lessons —<br>We Shape Your Child</h2>
+        <p>Our structured-yet-joyful approach develops not just musical skill, but the confidence, discipline, and resilience that will serve your child for life.</p>
+
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="feat-icon fib-a">🧒</div>
+            <div>
+              <h4>Personalised Learning</h4>
+              <p>Every child is different. Our teachers tailor lessons to their pace, interests, and learning style.</p>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon fib-b">📈</div>
+            <div>
+              <h4>Monthly Progress Reports</h4>
+              <p>Stay in the loop with detailed updates and clear goal-setting every single month.</p>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon fib-c">🎭</div>
+            <div>
+              <h4>Annual Recitals &amp; Showcases</h4>
+              <p>Children perform on real stages — building stage presence, pride, and unforgettable memories.</p>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon fib-d">🎓</div>
+            <div>
+              <h4>Exam Preparation</h4>
+              <p>ABRSM &amp; Trinity graded support with an outstanding pass rate and Distinction record.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="pages/about.html" class="btn btn-dk">Our Story →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ TEACHERS ══════════════════════════════════════════ -->
+<section class="teachers" id="teachers">
+  <div class="wrap">
+    <div class="s-head center sr">
+      <div class="eyebrow ey-lav">👩‍🏫 Our Teachers</div>
+      <h2 class="s-title">Passionate Educators,<br>Exceptional Results</h2>
+      <p class="s-sub">Degree-holders, performers, and genuine child-lovers — our teachers are the heart of Liberal.</p>
+    </div>
+
+    <div class="teachers-grid">
+
+      <div class="t-card sr">
+        <div class="t-photo tp-1">🎹<div class="t-overlay"></div></div>
+        <!-- ✏️ <img src="assets/teacher-sarah.webp" alt="Ms Sarah Tan"> -->
+        <div class="t-body">
+          <span class="t-tag">Piano</span>
           <h3>Ms Sarah Tan</h3>
-          <span class="instrument-tag">Piano</span>
-          <p>ABRSM Grade 8 | Trinity College London Diploma | 8 years teaching experience</p>
+          <p>ABRSM Grade 8 Distinction · Trinity College London Diploma · 8 years teaching ages 4–16</p>
         </div>
+      </div>
 
-        <div class="teacher-card reveal reveal-delay-1">
-          <div class="teacher-photo bg-yellow">🎻</div>
+      <div class="t-card sr sr-d1">
+        <div class="t-photo tp-2">🎻<div class="t-overlay"></div></div>
+        <div class="t-body">
+          <span class="t-tag">Violin</span>
           <h3>Mr David Lee</h3>
-          <span class="instrument-tag">Violin</span>
-          <p>NUS Yong Siew Toh Conservatory | Former Singapore Youth Orchestra member</p>
+          <p>NUS Yong Siew Toh Conservatory · Former Singapore Youth Orchestra · Suzuki certified</p>
         </div>
+      </div>
 
-        <div class="teacher-card reveal reveal-delay-2">
-          <div class="teacher-photo bg-pink">🎸</div>
+      <div class="t-card sr sr-d2">
+        <div class="t-photo tp-3">🎸<div class="t-overlay"></div></div>
+        <div class="t-body">
+          <span class="t-tag">Guitar &amp; Ukulele</span>
           <h3>Ms Rachel Ng</h3>
-          <span class="instrument-tag">Guitar & Ukulele</span>
-          <p>Berklee Online Certified | Guitar specialist with 6 years of children's education</p>
+          <p>Berklee Online Certified · 6 years specialising in children's guitar · RSL accredited</p>
         </div>
+      </div>
 
-        <div class="teacher-card reveal reveal-delay-3">
-          <div class="teacher-photo bg-blue">🎨</div>
+      <div class="t-card sr sr-d3">
+        <div class="t-photo tp-4">🎨<div class="t-overlay"></div></div>
+        <div class="t-body">
+          <span class="t-tag">Visual Art</span>
           <h3>Mr James Lim</h3>
-          <span class="instrument-tag">Visual Art</span>
-          <p>LASALLE College of the Arts graduate | Specialises in child-led creative development</p>
+          <p>LASALLE College of the Arts · Specialises in child-led creative development · Exhibition artist</p>
         </div>
+      </div>
 
-      </div>
-      <div style="text-align:center; margin-top:40px;" class="reveal">
-        <a href="pages/instructors.html" class="btn btn-outline">Meet All Our Teachers →</a>
-      </div>
     </div>
-  </section>
 
-  <!-- ═══ ACHIEVEMENTS ════════════════════════════════════ -->
-  <section class="achievements">
-    <div class="container">
-      <div class="achievements-inner">
-        <div class="reveal">
-          <div class="section-tag pink">🏆 Results & Achievements</div>
-          <h2>Our Students Shine<br>On Every Stage</h2>
-          <p>From first-time performances to national competitions — we celebrate every milestone and push every child to discover their full potential.</p>
-          <div class="ach-grid">
-            <div class="ach-card reveal">
-              <div class="ach-icon">🥇</div>
-              <strong>50+</strong>
-              <span>Competition Awards</span>
-            </div>
-            <div class="ach-card reveal reveal-delay-1">
-              <div class="ach-icon">🎓</div>
-              <strong>200+</strong>
-              <span>ABRSM Distinctions</span>
-            </div>
-            <div class="ach-card reveal reveal-delay-2">
-              <div class="ach-icon">🎭</div>
-              <strong>12</strong>
-              <span>Annual Recitals Held</span>
-            </div>
-            <div class="ach-card reveal reveal-delay-3">
-              <div class="ach-icon">⭐</div>
-              <strong>5.0</strong>
-              <span>Average Google Rating</span>
-            </div>
-          </div>
-        </div>
-        <div class="ach-visual reveal reveal-delay-2">
-          🏆
-          <!-- Replace: <img src="assets/achievements.webp" alt="Students performing"> -->
-        </div>
-      </div>
+    <div style="text-align:center;margin-top:44px" class="sr">
+      <a href="pages/instructors.html" class="btn btn-gh">Meet All Our Teachers →</a>
     </div>
-  </section>
-
-  <!-- ═══ TESTIMONIALS ══════════════════════════════════════ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">💛 Parent Reviews</div>
-        <h2>Real Parents, Real Stories</h2>
-        <p>Don't take our word for it — here's what the families we work with have to say.</p>
-      </div>
-      <div class="testimonials-grid">
-
-        <div class="testi-card testi-highlight reveal">
-          <div class="testi-stars">★★★★★</div>
-          <blockquote>"My daughter was shy and reluctant to perform — after just 6 months at Liberal, she played at her school concert and cried happy tears. We're so grateful."</blockquote>
-          <div class="testi-author">
-            <div class="testi-avatar a1">👩</div>
-            <div class="testi-name">
-              <strong>Mrs Chen Wei</strong>
-              <span>Parent of 8-year-old pianist</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card reveal reveal-delay-1">
-          <div class="testi-stars">★★★★★</div>
-          <blockquote>"The teachers here genuinely care. They learn each child's learning style and make lessons feel like play. My son actually begs to go to violin class now!"</blockquote>
-          <div class="testi-author">
-            <div class="testi-avatar a2">👨</div>
-            <div class="testi-name">
-              <strong>Mr Amir Hassan</strong>
-              <span>Parent of 6-year-old violinist</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card reveal reveal-delay-2">
-          <div class="testi-stars">★★★★★</div>
-          <blockquote>"We tried two other schools before finding Liberal. The difference is the warmth and structure here. My twins have both gained confidence beyond just music."</blockquote>
-          <div class="testi-author">
-            <div class="testi-avatar a3">👩</div>
-            <div class="testi-name">
-              <strong>Ms Priya Nair</strong>
-              <span>Parent of twin guitar students</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card reveal">
-          <div class="testi-stars">★★★★★</div>
-          <blockquote>"What I love most is how they communicate progress to parents. I always know exactly how my child is doing and what to encourage at home."</blockquote>
-          <div class="testi-author">
-            <div class="testi-avatar a4">👩</div>
-            <div class="testi-name">
-              <strong>Mrs Tan Mei Ling</strong>
-              <span>Parent of 10-year-old art student</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card reveal reveal-delay-1">
-          <div class="testi-stars">★★★★★</div>
-          <blockquote>"Amazing school. My son passed ABRSM Grade 5 with Distinction after just 2 years. The teachers are professional, patient, and really inspiring."</blockquote>
-          <div class="testi-author">
-            <div class="testi-avatar a5">👨</div>
-            <div class="testi-name">
-              <strong>Mr Kevin Goh</strong>
-              <span>Parent of 12-year-old pianist</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card reveal reveal-delay-2">
-          <div class="testi-stars">★★★★★</div>
-          <blockquote>"The recitals are beautiful and the children clearly work so hard preparing. It teaches them stage presence, practice habits, and real pride in their craft."</blockquote>
-          <div class="testi-author">
-            <div class="testi-avatar a6">👩</div>
-            <div class="testi-name">
-              <strong>Ms Lily Wong</strong>
-              <span>Parent of dance student</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div style="text-align:center; margin-top:40px;" class="reveal">
-        <a href="pages/testimonial.html" class="btn btn-outline">Read More Reviews →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ BRANCHES ════════════════════════════════════════ -->
-  <section class="branches" id="branches">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag blue">📍 Our Locations</div>
-        <h2>4 Convenient Locations<br>Across Singapore</h2>
-        <p>We're close to home — find the branch nearest to your family.</p>
-      </div>
-      <div class="branches-grid">
-
-        <div class="branch-card reveal">
-          <div class="branch-icon b1">🏡</div>
-          <h3>Tengah</h3>
-          <address>Tengah Plantation Walk<br>Singapore</address>
-          <div class="branch-phone">+65 8922 2848</div>
-          <a href="https://wa.me/6589222848" target="_blank" class="branch-wa">
-            💬 WhatsApp Us
-          </a>
-        </div>
-
-        <div class="branch-card reveal reveal-delay-1">
-          <div class="branch-icon b2">🌅</div>
-          <h3>Tampines</h3>
-          <address>Tampines Hub / East Area<br>Singapore</address>
-          <div class="branch-phone">+65 8892 1198</div>
-          <a href="https://wa.me/6588921198" target="_blank" class="branch-wa">
-            💬 WhatsApp Us
-          </a>
-        </div>
-
-        <div class="branch-card reveal reveal-delay-2">
-          <div class="branch-icon b3">🌸</div>
-          <h3>Jurong West</h3>
-          <address>Jurong West / Le Quest<br>Singapore</address>
-          <div class="branch-phone">+65 9627 7582</div>
-          <a href="https://wa.me/6596277582" target="_blank" class="branch-wa">
-            💬 WhatsApp Us
-          </a>
-        </div>
-
-        <div class="branch-card reveal reveal-delay-3">
-          <div class="branch-icon b4">🎪</div>
-          <h3>Jurong Point</h3>
-          <address>Jurong Point Mall<br>Singapore</address>
-          <div class="branch-phone">+65 9627 7582</div>
-          <a href="https://wa.me/6596277582" target="_blank" class="branch-wa">
-            💬 WhatsApp Us
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FINAL CTA ════════════════════════════════════════ -->
-  <section class="final-cta">
-    <div class="blob blob-1" style="top:-100px;right:-50px;opacity:0.12;"></div>
-    <div class="blob blob-2" style="bottom:-80px;left:-60px;opacity:0.1;"></div>
-    <div class="container" style="position:relative;z-index:1;">
-      <div class="reveal" style="max-width:640px;margin:0 auto;">
-        <h2>
-          Start Your Child's<br>
-          <span class="color-blue">Creative Journey</span> Today
-        </h2>
-        <p>First lesson is on us. No pressure, no commitment — just pure musical joy for your child.</p>
-        <div class="final-cta-actions">
-          <a href="pages/trial.html" class="btn btn-primary" style="font-size:18px;padding:16px 36px;">
-            🎵 Book Free Trial Class
-          </a>
-          <a href="pages/contact.html" class="btn btn-white">
-            Ask a Question
-          </a>
-        </div>
-        <p class="note">✓ Free, no-obligation trial &nbsp;&nbsp; ✓ Ages 4–16 welcome &nbsp;&nbsp; ✓ All skill levels</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <img src="assets/logo.webp" alt="Liberal Music School" onerror="this.style.display='none'" />
-          <p>Nurturing creativity, confidence, and a love for music and art in children across Singapore since 2014.</p>
-        </div>
-        <div>
-          <h4>Programmes</h4>
-          <ul>
-            <li><a href="pages/courses.html">Piano</a></li>
-            <li><a href="pages/courses.html">Violin</a></li>
-            <li><a href="pages/courses.html">Guitar</a></li>
-            <li><a href="pages/courses.html">Visual Art</a></li>
-            <li><a href="pages/courses.html">Dance</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>School</h4>
-          <ul>
-            <li><a href="pages/about.html">About Us</a></li>
-            <li><a href="pages/instructors.html">Teachers</a></li>
-            <li><a href="pages/testimonial.html">Testimonials</a></li>
-            <li><a href="pages/blog.html">Blog</a></li>
-            <li><a href="pages/career.html">Careers</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="https://wa.me/6589222848">Tengah Branch</a></li>
-            <li><a href="https://wa.me/6588921198">Tampines Branch</a></li>
-            <li><a href="https://wa.me/6596277582">Jurong West / JP</a></li>
-            <li><a href="pages/contact.html">Contact Form</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Liberal Music & Arts School. All rights reserved.</p>
-        <p><a href="index-zh.html">中文版本</a></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ═══ FLOATING WHATSAPP ════════════════════════════════ -->
-  <div class="wa-float">
-    <div class="wa-float-popup" id="waPopup">
-      <h4>💬 Chat with Us!</h4>
-      <p>Choose your nearest branch to WhatsApp us directly.</p>
-      <a href="https://wa.me/6589222848" target="_blank" class="wa-option">
-        <span>🏡 Tengah Branch</span>
-        <span>8922 2848</span>
-      </a>
-      <a href="https://wa.me/6588921198" target="_blank" class="wa-option">
-        <span>🌅 Tampines Branch</span>
-        <span>8892 1198</span>
-      </a>
-      <a href="https://wa.me/6596277582" target="_blank" class="wa-option">
-        <span>🌸 Jurong West / JP</span>
-        <span>9627 7582</span>
-      </a>
-    </div>
-    <button class="wa-float-btn" id="waBtn" aria-label="WhatsApp us">💬</button>
   </div>
+</section>
 
-  <!-- ═══ MOBILE STICKY CTA ════════════════════════════════ -->
-  <div class="mobile-sticky-cta">
-    <a href="pages/trial.html" class="btn btn-primary">🎵 Book Free Trial Class</a>
+
+<!-- ═══ ACHIEVEMENTS ══════════════════════════════════════ -->
+<section class="achieve">
+  <div class="wrap">
+    <div class="achieve-inner">
+
+      <div class="sr">
+        <div class="eyebrow ey-pink">🏆 Achievements</div>
+        <h2 class="s-title">Our Students Shine<br>on Every Stage</h2>
+        <p style="font-size:16.5px;line-height:1.8;margin-bottom:32px;">From first-time performances to national competitions — we celebrate every milestone and guide every child to discover their full potential.</p>
+
+        <div class="stat-grid">
+          <div class="stat-tile sr">
+            <div class="icon">🥇</div>
+            <div class="num">50+</div>
+            <div class="lbl">Competition Awards</div>
+          </div>
+          <div class="stat-tile sr sr-d1">
+            <div class="icon">🎓</div>
+            <div class="num">200+</div>
+            <div class="lbl">ABRSM Distinctions</div>
+          </div>
+          <div class="stat-tile sr sr-d2">
+            <div class="icon">🎭</div>
+            <div class="num">12</div>
+            <div class="lbl">Annual Recitals</div>
+          </div>
+          <div class="stat-tile sr sr-d3">
+            <div class="icon">⭐</div>
+            <div class="num">5.0</div>
+            <div class="lbl">Google Rating</div>
+          </div>
+        </div>
+
+        <a href="pages/trial.html" class="btn btn-p">Book Free Trial →</a>
+      </div>
+
+      <div class="achieve-visual sr sr-d2">
+        🏆
+        <!-- ✏️ <img src="assets/recital.webp" alt="Students performing at annual recital"> -->
+        <div class="achieve-badge">
+          <div class="icon">🎉</div>
+          <div>
+            <strong>2024 Recital — Sold Out!</strong>
+            <span>Over 150 families attended our showcase</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <!-- ═══ JAVASCRIPT ════════════════════════════════════════ -->
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
 
-    // Hamburger menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
+<!-- ═══ TESTIMONIALS ══════════════════════════════════════ -->
+<section class="testi" id="reviews">
+  <div class="wrap">
+    <div class="s-head center sr">
+      <div class="eyebrow ey-yellow">💛 Parent Reviews</div>
+      <h2 class="s-title">Real Parents, Real Stories</h2>
+      <p class="s-sub">See what Singapore families say about the Liberal difference.</p>
+    </div>
 
-    // WhatsApp float
-    const waBtn = document.getElementById('waBtn');
-    const waPopup = document.getElementById('waPopup');
-    waBtn.addEventListener('click', () => {
-      waPopup.classList.toggle('open');
-    });
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.wa-float')) {
-        waPopup.classList.remove('open');
-      }
-    });
+    <div class="testi-grid">
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+      <div class="testi-card feat sr">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"My daughter was so shy she wouldn't speak up in class. Six months at Liberal and she played a solo at her school concert — and cried happy tears. We will never forget it."</p>
+        <div class="testi-person">
+          <div class="t-av av1">👩</div>
+          <div class="t-info">
+            <strong>Mrs Chen Wei</strong>
+            <span>Parent of 8-year-old pianist</span>
+          </div>
+        </div>
+      </div>
 
-    // Video placeholder
-    function openVideo() {
-      alert('Add your class video URL here!');
+      <div class="testi-card sr sr-d1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"The teachers genuinely learn each child's learning style and make lessons feel like play. My son actually begs to go to violin class — we never expected that!"</p>
+        <div class="testi-person">
+          <div class="t-av av2">👨</div>
+          <div class="t-info">
+            <strong>Mr Amir Hassan</strong>
+            <span>Parent of 6-year-old violinist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card sr sr-d2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"We tried two other schools before finding Liberal. The warmth, structure, and communication here is completely different. My twins are thriving."</p>
+        <div class="testi-person">
+          <div class="t-av av3">👩</div>
+          <div class="t-info">
+            <strong>Ms Priya Nair</strong>
+            <span>Parent of twin guitar students</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card sr">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"I love the monthly progress reports — I always know exactly how my child is doing and what to encourage at home. It feels like a true partnership."</p>
+        <div class="testi-person">
+          <div class="t-av av4">👩</div>
+          <div class="t-info">
+            <strong>Mrs Tan Mei Ling</strong>
+            <span>Parent of art student, age 10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card sr sr-d1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"My son passed ABRSM Grade 5 with Distinction after just 2 years. The teacher was professional, patient, and somehow made practice feel fun. Remarkable."</p>
+        <div class="testi-person">
+          <div class="t-av av5">👨</div>
+          <div class="t-info">
+            <strong>Mr Kevin Goh</strong>
+            <span>Parent of 12-year-old pianist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card sr sr-d2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"The annual recital is the highlight of our year. Watching the children perform with such pride teaches far more than music. It truly builds character."</p>
+        <div class="testi-person">
+          <div class="t-av av6">👩</div>
+          <div class="t-info">
+            <strong>Ms Lily Wong</strong>
+            <span>Parent of dance student, age 7</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:44px" class="sr">
+      <a href="pages/testimonial.html" class="btn btn-gh">Read All Reviews →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ BRANCHES ══════════════════════════════════════════ -->
+<section class="branches" id="branches">
+  <div class="wrap">
+    <div class="s-head center sr">
+      <div class="eyebrow ey-blue">📍 Our Locations</div>
+      <h2 class="s-title">4 Branches Across Singapore</h2>
+      <p class="s-sub">We're always close to home. Find your nearest branch and say hello.</p>
+    </div>
+
+    <div class="branches-grid">
+
+      <div class="branch-card sr">
+        <div class="b-icon bi-1">🏡</div>
+        <h3>Tengah</h3>
+        <address>Tengah Plantation Walk<br>Singapore</address>
+        <div class="b-phone">+65 8922 2848</div>
+        <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="b-wa">WhatsApp Us</a>
+      </div>
+
+      <div class="branch-card sr sr-d1">
+        <div class="b-icon bi-2">🌅</div>
+        <h3>Tampines</h3>
+        <address>Tampines Hub<br>East Singapore</address>
+        <div class="b-phone">+65 8892 1198</div>
+        <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="b-wa">WhatsApp Us</a>
+      </div>
+
+      <div class="branch-card sr sr-d2">
+        <div class="b-icon bi-3">🌸</div>
+        <h3>Jurong West</h3>
+        <address>Le Quest Mall<br>Jurong West, Singapore</address>
+        <div class="b-phone">+65 9627 7582</div>
+        <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="b-wa">WhatsApp Us</a>
+      </div>
+
+      <div class="branch-card sr sr-d3">
+        <div class="b-icon bi-4">🛍</div>
+        <h3>Jurong Point</h3>
+        <address>Jurong Point Mall<br>Jurong, Singapore</address>
+        <div class="b-phone">+65 9627 7582</div>
+        <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="b-wa">WhatsApp Us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner sr">
+    <div class="eyebrow ey-mint" style="margin:0 auto 18px;">🎵 Start Today</div>
+    <h2>Start Your Child's<br><span class="accent">Creative Journey</span> Today</h2>
+    <p>The first lesson is completely free — no pressure, no commitment. Come meet our teachers and see why over 500 Singapore families trust Liberal.</p>
+    <div class="cta-btns">
+      <a href="pages/trial.html" class="btn btn-p btn-lg">✨ Book Free Trial Class</a>
+      <a href="pages/contact.html" class="btn btn-gh btn-lg">Ask a Question</a>
+    </div>
+    <div class="cta-checks">
+      <span class="cta-check">Free, no-obligation trial</span>
+      <span class="cta-check">Ages 4–16 welcome</span>
+      <span class="cta-check">All skill levels</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.webp" alt="Liberal Music & Arts School" onerror="this.style.display='none'" />
+        <p>Nurturing creativity, confidence, and a lifelong love of music and art in children across Singapore since 2014.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Programmes</h5>
+        <ul>
+          <li><a href="pages/courses.html">Piano</a></li>
+          <li><a href="pages/courses.html">Violin</a></li>
+          <li><a href="pages/courses.html">Guitar</a></li>
+          <li><a href="pages/courses.html">Visual Art</a></li>
+          <li><a href="pages/courses.html">Dance</a></li>
+          <li><a href="pages/courses.html">Drums</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>School</h5>
+        <ul>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="pages/instructors.html">Teachers</a></li>
+          <li><a href="pages/testimonial.html">Testimonials</a></li>
+          <li><a href="pages/blog.html">Blog</a></li>
+          <li><a href="pages/career.html">Careers</a></li>
+          <li><a href="pages/trial.html">Free Trial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Locations</h5>
+        <ul>
+          <li><a href="https://wa.me/6589222848">Tengah</a></li>
+          <li><a href="https://wa.me/6588921198">Tampines</a></li>
+          <li><a href="https://wa.me/6596277582">Jurong West</a></li>
+          <li><a href="https://wa.me/6596277582">Jurong Point</a></li>
+          <li><a href="pages/contact.html">Contact Form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
+      <div style="display:flex;gap:20px;align-items:center;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="index-zh.html">中文版本</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══ WA FLOAT ══════════════════════════════════════════ -->
+<div class="wa-widget">
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp branches">
+    <h4>💬 Chat with Us!</h4>
+    <p>Pick your nearest branch to WhatsApp directly.</p>
+    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-branch">
+      🏡 Tengah <span>8922 2848</span>
+    </a>
+    <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-branch">
+      🌅 Tampines <span>8892 1198</span>
+    </a>
+    <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-branch">
+      🌸 Jurong West / JP <span>9627 7582</span>
+    </a>
+  </div>
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">💬</button>
+</div>
+
+<div class="mob-cta">
+  <a href="pages/trial.html" class="btn btn-p">✨ Book Free Trial Class</a>
+</div>
+
+
+<!-- ═══ JS ═════════════════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  /* Navbar scroll */
+  const nb = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nb.classList.toggle('scrolled', scrollY > 24), { passive: true });
+
+  /* Hamburger */
+  const ham = document.getElementById('navHam');
+  const drw = document.getElementById('navDrawer');
+  ham.addEventListener('click', () => {
+    const open = drw.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.navbar') && !e.target.closest('.nav-drawer')) {
+      drw.classList.remove('open');
+      ham.classList.remove('open');
     }
-  </script>
+  });
+
+  /* WhatsApp */
+  const fab   = document.getElementById('waFab');
+  const panel = document.getElementById('waPanel');
+  fab.addEventListener('click', e => { e.stopPropagation(); panel.classList.toggle('open'); });
+  document.addEventListener('click', e => { if (!e.target.closest('.wa-widget')) panel.classList.remove('open'); });
+
+  /* Scroll reveal */
+  const els = document.querySelectorAll('.sr');
+  const io  = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+  els.forEach(el => io.observe(el));
+
+  /* Hero stagger on load */
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.hero-copy .sr').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in'), i * 100);
+      });
+    }, 100);
+  });
+
+  /* Video stub */
+  window.openVideo = () => alert('Add your class video URL here!');
+
+})();
+</script>
 </body>
 </html>
