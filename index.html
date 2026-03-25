@@ -3,1211 +3,811 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liberal Music School – Piano, Violin, Drums & More in West Singapore</title>
-  <meta name="description" content="Music lessons for kids & adults in Jurong, Tengah, Tampines. ABRSM certified teachers. 2,000+ students since 2009. Book your trial class today!" />
+  <title>Liberal Music & Arts School — Build Confidence Through Music & Art</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ── Design tokens ─────────────────────────────────────── */
-    :root {
-      --pr: #EE7A33;
-      --pr-dark: #d4651f;
-      --pr-light: #fff4ed;
-      --dark: #1E1208;
-      --dark2: #2e1c0e;
-      --mid: #6b4c33;
-      --light: #f9f5f2;
-      --white: #ffffff;
-      --gray: #f3ede8;
-      --text: #3a2510;
-      --text-mid: #7a5c3e;
-      --fh: 'Poppins', sans-serif;
-      --fb: 'Inter', sans-serif;
-      --nav-h: 72px;
-      --radius: 14px;
-      --radius-lg: 22px;
-      --shadow: 0 4px 24px rgba(30,18,8,.10);
-      --shadow-md: 0 8px 40px rgba(30,18,8,.14);
-      --shadow-lg: 0 16px 64px rgba(30,18,8,.18);
-      --trans: 0.18s ease;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    /* ── Reset & base ──────────────────────────────────────── */
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: var(--fb);
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Inter', sans-serif;
+      color: #5A6B85;
+      background: #fff;
+      overflow-x: hidden;
     }
-    img { max-width: 100%; display: block; }
+
+    /* ─── CSS VARIABLES ───────────────────────────────────── */
+    :root {
+      --primary:   #4DA6FF;
+      --primary-d: #2E8FEF;
+      --dark:      #1F2A44;
+      --body:      #5A6B85;
+      --bg-alt:    #F8FBFF;
+      --yellow:    #FFF3B0;
+      --mint:      #B8F2E6;
+      --pink:      #FFD6E0;
+      --lavender:  #E8E4FF;
+      --radius-card: 20px;
+      --shadow-card: 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-hover: 0 16px 40px rgba(77,166,255,0.18);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Nunito', sans-serif;
+      color: var(--dark);
+      line-height: 1.25;
+    }
+
     a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    button { font-family: var(--fb); cursor: pointer; border: none; }
+    img { display: block; max-width: 100%; }
 
-    /* ── Utility ───────────────────────────────────────────── */
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    /* ─── UTILITY ──────────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .section-tag {
-      display: inline-block;
-      font-family: var(--fh);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--pr);
-      background: var(--pr-light);
-      border-radius: 100px;
-      padding: 5px 14px;
-      margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--mint); color: #1a7a62;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      padding: 6px 16px; border-radius: 999px; letter-spacing: 0.5px;
+      margin-bottom: 16px; text-transform: uppercase;
     }
-    .section-title {
-      font-family: var(--fh);
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 800;
-      color: var(--dark);
-      line-height: 1.2;
-    }
-    .section-sub {
-      font-size: 17px;
-      color: var(--text-mid);
-      margin-top: 10px;
-      max-width: 560px;
-    }
+    .section-tag.yellow { background: var(--yellow); color: #8a6f00; }
+    .section-tag.pink   { background: var(--pink);   color: #b0004a; }
+    .section-tag.blue   { background: #D4EDFF; color: #1a5a8a; }
+    .section-tag.lavender { background: var(--lavender); color: #4a3a9a; }
 
-    /* ── Buttons ───────────────────────────────────────────── */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--fh);
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 10px;
-      padding: 13px 26px;
-      transition: var(--trans);
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 999px; font-weight: 700;
+      font-family: 'Nunito', sans-serif; font-size: 16px;
+      transition: all 0.2s ease; cursor: pointer; border: none;
+      white-space: nowrap;
     }
-    .btn:active { transform: scale(.97); }
     .btn-primary {
-      background: var(--pr);
-      color: var(--white);
-      box-shadow: 0 4px 18px rgba(238,122,51,.35);
+      background: var(--primary); color: #fff;
+      box-shadow: 0 4px 16px rgba(77,166,255,0.35);
     }
-    .btn-primary:hover { background: var(--pr-dark); box-shadow: 0 6px 24px rgba(238,122,51,.45); transform: translateY(-1px); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--dark);
-      border: 2px solid rgba(30,18,8,.15);
+    .btn-primary:hover {
+      background: var(--primary-d);
+      box-shadow: 0 8px 24px rgba(77,166,255,0.45);
+      transform: translateY(-2px);
     }
-    .btn-ghost:hover { border-color: var(--pr); color: var(--pr); }
-    .btn-outline-white {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,.5);
+    .btn-outline {
+      background: transparent; color: var(--dark);
+      border: 2px solid #DDE6F0;
     }
-    .btn-outline-white:hover { background: rgba(255,255,255,.12); }
+    .btn-outline:hover {
+      border-color: var(--primary); color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: #fff; color: var(--primary);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .btn-white:hover {
+      background: #f0f7ff;
+      transform: translateY(-2px);
+    }
 
-    /* ── NAVBAR ────────────────────────────────────────────── */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      height: var(--nav-h);
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(30,18,8,.07);
-      transition: box-shadow var(--trans);
+    /* ─── FADE-IN ON SCROLL ───────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    #navbar.scrolled { box-shadow: var(--shadow); }
-    .nav-inner {
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      gap: 0;
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: 72px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(221,230,240,0.6);
+      transition: box-shadow 0.3s;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .navbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%; gap: 24px;
+    }
+    .navbar-logo {
+      display: flex; align-items: center; gap: 10px;
       flex-shrink: 0;
     }
-    .nav-logo img { height: 42px; width: auto; }
+    .navbar-logo img { height: 42px; width: auto; }
+    .navbar-logo span {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 18px; color: var(--dark); line-height: 1.2;
+    }
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-left: 40px;
-      flex: 1;
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
     }
     .nav-links a {
-      font-family: var(--fh);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: var(--trans);
+      font-weight: 600; font-size: 15px; color: var(--body);
+      transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--pr); background: var(--pr-light); }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-left: auto;
+    .nav-links a:hover { color: var(--primary); }
+    .navbar-cta { display: flex; align-items: center; gap: 12px; }
+    .navbar-cta .lang-btn {
+      font-size: 13px; font-weight: 600; color: var(--body);
+      background: var(--bg-alt); border: 1px solid #DDE6F0;
+      padding: 6px 14px; border-radius: 999px; cursor: pointer;
+      transition: all 0.2s;
     }
-    .nav-lang {
-      font-family: var(--fh);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-mid);
-      border: 1.5px solid rgba(30,18,8,.15);
-      border-radius: 7px;
-      padding: 4px 10px;
-      transition: var(--trans);
+    .navbar-cta .lang-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
     }
-    .nav-lang:hover { color: var(--pr); border-color: var(--pr); }
-    .nav-cta { font-size: 14px; padding: 9px 20px; }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dark); border-radius: 2px; transition: all 0.3s;
+    }
 
-    /* Hamburger */
-    .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      padding: 4px;
-      margin-left: 12px;
+    /* Mobile nav */
+    .mobile-nav {
+      display: none; position: fixed; top: 72px; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid #DDE6F0;
+      padding: 20px 24px 28px; z-index: 999;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
-    .nav-burger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--dark);
-      border-radius: 2px;
-      transition: var(--trans);
-    }
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: var(--nav-h); left: 0; right: 0;
-      background: var(--white);
-      border-bottom: 1px solid rgba(30,18,8,.08);
-      padding: 20px 24px 28px;
-      z-index: 999;
-      flex-direction: column;
-      gap: 6px;
-      box-shadow: var(--shadow-md);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: var(--fh);
-      font-size: 16px;
-      font-weight: 500;
-      padding: 12px 14px;
-      border-radius: 10px;
-      color: var(--dark);
-      transition: var(--trans);
-    }
-    .mobile-menu a:hover { background: var(--pr-light); color: var(--pr); }
-    .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 10px; }
+    .mobile-nav.open { display: block; }
+    .mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .mobile-nav a { font-weight: 600; font-size: 16px; color: var(--dark); }
+    .mobile-nav .btn { width: 100%; justify-content: center; margin-top: 16px; }
 
-    /* ── HERO ──────────────────────────────────────────────── */
-    #hero {
-      padding-top: calc(var(--nav-h) + 70px);
-      padding-bottom: 80px;
-      background: linear-gradient(135deg, #fdf8f4 0%, #fff4eb 50%, #fdf0e2 100%);
-      position: relative;
-      overflow: hidden;
+    /* ═══════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 120px 0 80px; position: relative; overflow: hidden;
+      background: #fff;
     }
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -120px; right: -120px;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(238,122,51,.12) 0%, transparent 70%);
-      pointer-events: none;
+
+    /* Gradient blobs */
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(70px); opacity: 0.55; pointer-events: none;
     }
-    #hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: -80px;
+    .blob-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, #B8F2E6 0%, transparent 70%);
+      top: -120px; right: -80px;
+    }
+    .blob-2 {
       width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(238,122,51,.07) 0%, transparent 70%);
-      pointer-events: none;
+      background: radial-gradient(circle, #D4EDFF 0%, transparent 70%);
+      bottom: -100px; left: -60px;
     }
+    .blob-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, #FFD6E0 0%, transparent 70%);
+      top: 30%; right: 30%;
+    }
+
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center; position: relative; z-index: 1;
     }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--fh);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--pr-dark);
-      background: linear-gradient(135deg, #fff4ed, #ffe8d0);
-      border: 1.5px solid rgba(238,122,51,.3);
-      border-radius: 100px;
-      padding: 6px 16px;
-      margin-bottom: 22px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--yellow); color: #8a6f00;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      padding: 8px 16px; border-radius: 999px; margin-bottom: 24px;
     }
-    .hero-h1 {
-      font-family: var(--fh);
-      font-size: clamp(34px, 5vw, 58px);
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--dark);
-      letter-spacing: -.02em;
+    .hero-badge::before { content: '🎵'; font-size: 15px; }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 900; line-height: 1.15; margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
-    .hero-h1 .accent { color: var(--pr); }
+    .hero h1 .highlight {
+      position: relative; color: var(--primary);
+      display: inline-block;
+    }
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 6px; border-radius: 3px;
+      background: var(--yellow); z-index: -1;
+    }
     .hero-sub {
-      font-size: clamp(16px, 2vw, 18px);
-      color: var(--text-mid);
-      margin-top: 18px;
+      font-size: 17px; line-height: 1.7; margin-bottom: 28px; color: var(--body);
       max-width: 480px;
-      line-height: 1.65;
     }
-    .hero-ctas {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 32px;
-      flex-wrap: wrap;
+    .hero-instruments {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;
     }
-    .hero-ctas .btn-primary { font-size: 16px; padding: 15px 30px; }
-    .hero-trust {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-top: 36px;
-      flex-wrap: wrap;
+    .instrument-pill {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg-alt); border: 1.5px solid #DDE6F0;
+      padding: 8px 16px; border-radius: 999px;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--dark); transition: all 0.2s;
     }
-    .trust-pill {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-mid);
+    .instrument-pill:hover { border-color: var(--primary); color: var(--primary); background: #EBF5FF; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .play-btn {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px;
+      color: var(--dark); cursor: pointer; background: none; border: none;
+      padding: 0; transition: color 0.2s;
     }
-    .trust-pill .icon {
-      width: 28px; height: 28px;
-      border-radius: 8px;
-      background: var(--pr-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
+    .play-btn:hover { color: var(--primary); }
+    .play-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--dark); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: all 0.2s; flex-shrink: 0;
     }
-    .trust-divider { color: rgba(30,18,8,.2); font-size: 18px; }
+    .play-btn:hover .play-icon { background: var(--primary); transform: scale(1.08); }
 
     /* Hero visual */
-    .hero-visual {
-      position: relative;
+    .hero-visual { position: relative; }
+    .hero-image-wrap {
+      border-radius: 32px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(77,166,255,0.18);
+      aspect-ratio: 4/5; position: relative;
+      background: linear-gradient(135deg, #B8F2E6 0%, #D4EDFF 50%, #FFD6E0 100%);
     }
-    .hero-img-wrap {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #f5dcc8 0%, #e8c5a0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+    .hero-image-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
     }
-    .hero-img-placeholder {
-      text-align: center;
-      color: var(--mid);
+    .hero-image-placeholder {
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      color: var(--body); font-size: 64px;
     }
-    .hero-img-placeholder .big-icon { font-size: 80px; opacity: .4; }
-    .hero-img-placeholder p { font-size: 14px; margin-top: 8px; opacity: .5; }
-    .hero-float-card {
-      position: absolute;
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: var(--shadow-md);
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-float-card.card-1 { bottom: -20px; left: -30px; }
-    .hero-float-card.card-2 { top: -16px; right: -20px; }
-    .float-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: var(--pr-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .float-text strong {
-      display: block;
-      font-family: var(--fh);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-    .float-text span {
-      font-size: 12px;
-      color: var(--text-mid);
-    }
-    .hero-stars {
-      display: flex;
-      color: #f5a623;
-      font-size: 13px;
-      gap: 1px;
+    .hero-image-placeholder p {
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 16px; color: var(--body);
     }
 
-    /* ── STATS STRIP ───────────────────────────────────────── */
-    #stats {
+    /* Floating badges on hero image */
+    .hero-float {
+      position: absolute; background: #fff;
+      border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-float-1 { bottom: 40px; left: -32px; animation-delay: 0s; }
+    .hero-float-2 { top: 40px; right: -32px; animation-delay: 1.5s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero-float-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .hero-float-icon.green { background: var(--mint); }
+    .hero-float-icon.yellow { background: var(--yellow); }
+    .hero-float strong {
+      display: block; font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 18px; color: var(--dark); line-height: 1;
+    }
+    .hero-float span { font-size: 12px; color: var(--body); font-weight: 500; }
+
+    /* ═══════════════════════════════════════════════════════
+       TRUST STRIP
+    ════════════════════════════════════════════════════════ */
+    .trust-strip {
       background: var(--dark);
-      padding: 42px 0;
+      padding: 48px 0;
     }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+    .trust-strip-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; text-align: center;
     }
-    .stat-item {
-      text-align: center;
-      padding: 0 20px;
-      border-right: 1px solid rgba(255,255,255,.1);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--fh);
-      font-size: clamp(30px, 4vw, 44px);
-      font-weight: 900;
-      color: var(--pr);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 13px;
-      color: rgba(255,255,255,.65);
-      margin-top: 6px;
-      font-weight: 500;
-    }
-
-    /* ── COURSES ───────────────────────────────────────────── */
-    #courses {
-      padding: 90px 0;
-      background: var(--white);
-    }
-    .section-header { margin-bottom: 48px; }
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 22px;
-    }
-    .course-card {
-      border-radius: var(--radius);
-      border: 1.5px solid rgba(30,18,8,.08);
-      overflow: hidden;
-      transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
-      position: relative;
-      background: var(--white);
-      cursor: pointer;
-    }
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--pr);
-    }
-    .course-card-img {
-      height: 130px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 52px;
-      position: relative;
-      overflow: hidden;
-    }
-    .course-card-body { padding: 18px; }
-    .course-card-name {
-      font-family: var(--fh);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-    .course-card-micro {
-      font-size: 13px;
-      color: var(--text-mid);
-      margin-top: 5px;
-      line-height: 1.5;
-    }
-    .course-card-hover {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(160deg, rgba(238,122,51,.95), rgba(212,101,31,.97));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 22px;
-      opacity: 0;
-      transition: opacity var(--trans);
-    }
-    .course-card:hover .course-card-hover { opacity: 1; }
-    .course-card-hover h4 {
-      font-family: var(--fh);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .course-badge {
-      font-size: 12px;
-      font-weight: 600;
-      background: rgba(255,255,255,.2);
-      color: var(--white);
-      border-radius: 6px;
-      padding: 3px 9px;
+    .trust-stat { padding: 16px; }
+    .trust-stat .number {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 2.8rem; color: #fff; line-height: 1;
       margin-bottom: 6px;
-      display: inline-block;
     }
-    .courses-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 44px;
+    .trust-stat .number span { color: var(--primary); }
+    .trust-stat .label {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6);
     }
-
-    /* ── WHY CHOOSE US ─────────────────────────────────────── */
-    #why {
-      padding: 90px 0;
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
-    }
-    #why::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(238,122,51,.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #why .section-tag { background: rgba(238,122,51,.15); color: #ffb07a; }
-    #why .section-title { color: var(--white); }
-    #why .section-sub { color: rgba(255,255,255,.6); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 48px;
-    }
-    .why-card {
-      background: rgba(255,255,255,.05);
-      border: 1.5px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 30px 26px;
-      transition: var(--trans);
-    }
-    .why-card:hover {
-      background: rgba(255,255,255,.09);
-      border-color: rgba(238,122,51,.4);
-      transform: translateY(-3px);
-    }
-    .why-icon {
-      width: 50px; height: 50px;
-      border-radius: 12px;
-      background: rgba(238,122,51,.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-    .why-title {
-      font-family: var(--fh);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .why-desc {
-      font-size: 14px;
-      color: rgba(255,255,255,.55);
-      line-height: 1.65;
-    }
-    .why-num {
-      font-family: var(--fh);
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--pr);
-      margin-top: 14px;
+    .trust-stat .sublabel {
+      font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px;
     }
 
-    /* ── ABOUT ─────────────────────────────────────────────── */
-    #about {
-      padding: 90px 0;
-      background: var(--light);
+    /* ═══════════════════════════════════════════════════════
+       PROGRAMS
+    ════════════════════════════════════════════════════════ */
+    .programs { padding: 100px 0; background: var(--bg-alt); }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 16px;
     }
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-    .about-visual {
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, #f5dcc8, #e8c5a0);
-      aspect-ratio: 5/4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      opacity: .5;
-      box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
-    }
-    .about-visual::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(238,122,51,.15), transparent);
-    }
-    .about-text .section-sub { max-width: none; }
-    .about-features {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .about-feat {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .feat-icon {
-      width: 36px; height: 36px;
-      border-radius: 9px;
-      background: var(--pr-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .feat-text strong {
-      display: block;
-      font-family: var(--fh);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-    .feat-text span {
-      font-size: 13px;
-      color: var(--text-mid);
-    }
+    .section-header p { font-size: 17px; max-width: 520px; margin: 0 auto; }
 
-    /* ── TESTIMONIALS ──────────────────────────────────────── */
-    #testimonials {
-      padding: 90px 0;
-      background: var(--white);
+    .programs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     }
-    .testi-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 44px;
-    }
-    .testi-nav {
-      display: flex;
-      gap: 10px;
-    }
-    .testi-btn {
-      width: 42px; height: 42px;
-      border-radius: 10px;
-      border: 2px solid rgba(30,18,8,.12);
-      background: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--dark);
+    .program-card {
+      background: #fff; border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card); overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      transition: var(--trans);
     }
-    .testi-btn:hover { border-color: var(--pr); color: var(--pr); }
-    .testi-track-wrap { overflow: hidden; }
-    .testi-track {
-      display: flex;
-      gap: 22px;
-      transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    .program-card:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-hover);
+    }
+    .program-card-image {
+      aspect-ratio: 4/3; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px;
+    }
+    .program-card-image img { width: 100%; height: 100%; object-fit: cover; }
+    .program-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12px;
+      color: var(--dark); padding: 5px 12px; border-radius: 999px;
+    }
+    .program-card-body { padding: 20px; }
+    .program-card-body h3 {
+      font-size: 19px; font-weight: 800; margin-bottom: 8px; color: var(--dark);
+    }
+    .program-card-body p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+    .program-card-body .btn { font-size: 14px; padding: 10px 20px; }
+    .prog-bg-1 { background: linear-gradient(135deg, #D4EDFF, #B8F2E6); }
+    .prog-bg-2 { background: linear-gradient(135deg, #FFD6E0, #FFF3B0); }
+    .prog-bg-3 { background: linear-gradient(135deg, #E8E4FF, #D4EDFF); }
+    .prog-bg-4 { background: linear-gradient(135deg, #B8F2E6, #FFF3B0); }
+    .prog-bg-5 { background: linear-gradient(135deg, #FFF3B0, #FFD6E0); }
+    .prog-bg-6 { background: linear-gradient(135deg, #FFD6E0, #E8E4FF); }
+
+    /* ═══════════════════════════════════════════════════════
+       EXPERIENCE SECTION
+    ════════════════════════════════════════════════════════ */
+    .experience { padding: 100px 0; background: #fff; }
+    .experience-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .experience-visual {
+      position: relative;
+    }
+    .exp-main-img {
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(77,166,255,0.14);
+      aspect-ratio: 5/4;
+      background: linear-gradient(135deg, #D4EDFF, #B8F2E6);
+      display: flex; align-items: center; justify-content: center; font-size: 80px;
+    }
+    .exp-main-img img { width: 100%; height: 100%; object-fit: cover; }
+    .exp-small-img {
+      position: absolute; bottom: -24px; right: -24px;
+      width: 200px; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #FFF3B0, #FFD6E0);
+      display: flex; align-items: center; justify-content: center; font-size: 40px;
+    }
+    .exp-small-img img { width: 100%; height: 100%; object-fit: cover; }
+    .exp-dot {
+      position: absolute; top: -16px; left: -16px;
+      width: 100px; height: 100px; border-radius: 50%;
+      background: var(--yellow); opacity: 0.6; z-index: -1;
+    }
+
+    .experience-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; margin-bottom: 20px;
+    }
+    .experience-text p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; }
+    .exp-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .exp-feature {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .exp-feature-icon {
+      width: 44px; height: 44px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .exp-feature-icon.mint { background: var(--mint); }
+    .exp-feature-icon.yellow { background: var(--yellow); }
+    .exp-feature-icon.pink { background: var(--pink); }
+    .exp-feature-text strong {
+      display: block; font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 15px; color: var(--dark); margin-bottom: 3px;
+    }
+    .exp-feature-text span { font-size: 14px; }
+
+    /* ═══════════════════════════════════════════════════════
+       TEACHERS
+    ════════════════════════════════════════════════════════ */
+    .teachers { padding: 100px 0; background: var(--bg-alt); }
+    .teachers-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    }
+    .teacher-card {
+      background: #fff; border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card); overflow: hidden; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s; padding-bottom: 24px;
+    }
+    .teacher-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .teacher-photo {
+      aspect-ratio: 1; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; font-size: 72px;
+      margin-bottom: 16px;
+    }
+    .teacher-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .teacher-photo.bg-mint { background: linear-gradient(135deg, var(--mint), #D4EDFF); }
+    .teacher-photo.bg-yellow { background: linear-gradient(135deg, var(--yellow), var(--mint)); }
+    .teacher-photo.bg-pink { background: linear-gradient(135deg, var(--pink), var(--lavender)); }
+    .teacher-photo.bg-blue { background: linear-gradient(135deg, #D4EDFF, var(--mint)); }
+    .teacher-card h3 {
+      font-size: 17px; font-weight: 800; margin-bottom: 4px; padding: 0 16px;
+    }
+    .teacher-card .instrument-tag {
+      display: inline-block; background: var(--bg-alt);
+      font-size: 12px; font-weight: 600; color: var(--primary);
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .teacher-card p { font-size: 13px; line-height: 1.5; padding: 0 16px; }
+
+    /* ═══════════════════════════════════════════════════════
+       ACHIEVEMENTS
+    ════════════════════════════════════════════════════════ */
+    .achievements { padding: 100px 0; background: #fff; }
+    .achievements-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .achievements h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; margin-bottom: 20px; }
+    .achievements p { font-size: 16px; line-height: 1.75; margin-bottom: 32px; }
+    .ach-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .ach-card {
+      background: var(--bg-alt); border-radius: 16px; padding: 20px;
+      border: 1.5px solid #DDE6F0; transition: border-color 0.2s, transform 0.2s;
+    }
+    .ach-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .ach-icon { font-size: 28px; margin-bottom: 10px; }
+    .ach-card strong {
+      display: block; font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 22px; color: var(--dark); margin-bottom: 4px;
+    }
+    .ach-card span { font-size: 13px; color: var(--body); }
+
+    .ach-visual {
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--lavender), #D4EDFF);
+      display: flex; align-items: center; justify-content: center; font-size: 80px;
+    }
+    .ach-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ═══════════════════════════════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════════════════════════════════ */
+    .testimonials { padding: 100px 0; background: var(--bg-alt); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     }
     .testi-card {
-      min-width: calc(33.333% - 15px);
-      background: var(--light);
-      border-radius: var(--radius);
-      padding: 28px;
-      border: 1.5px solid rgba(30,18,8,.06);
-      flex-shrink: 0;
+      background: #fff; border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card); padding: 28px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .testi-stars { color: #f5a623; font-size: 16px; letter-spacing: 1px; margin-bottom: 14px; }
-    .testi-quote {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text);
-      font-style: italic;
+    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .testi-stars { font-size: 18px; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-card blockquote {
+      font-size: 15px; line-height: 1.75; color: var(--body);
+      font-style: italic; margin-bottom: 20px;
     }
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(30,18,8,.08);
-    }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
     .testi-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--pr), #f5a623);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--fh);
-      font-weight: 700;
-      color: var(--white);
-      font-size: 15px;
+      width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; font-size: 24px;
       flex-shrink: 0;
     }
-    .testi-name {
-      font-family: var(--fh);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--dark);
+    .testi-avatar.a1 { background: var(--mint); }
+    .testi-avatar.a2 { background: var(--yellow); }
+    .testi-avatar.a3 { background: var(--pink); }
+    .testi-avatar.a4 { background: var(--lavender); }
+    .testi-avatar.a5 { background: #D4EDFF; }
+    .testi-avatar.a6 { background: #FFF3B0; }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name strong {
+      display: block; font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 15px; color: var(--dark);
     }
-    .testi-role { font-size: 12px; color: var(--text-mid); margin-top: 2px; }
-    .testi-google {
-      margin-top: 36px;
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-mid);
+    .testi-name span { font-size: 13px; color: var(--body); }
+    .testi-highlight {
+      background: linear-gradient(135deg, var(--primary), #36b9ff);
+      color: #fff;
     }
-    .testi-google strong { color: var(--dark); font-weight: 700; }
+    .testi-highlight blockquote { color: rgba(255,255,255,0.85); }
+    .testi-highlight .testi-name strong { color: #fff; }
+    .testi-highlight .testi-name span { color: rgba(255,255,255,0.7); }
 
-    /* ── PROMOTIONS BANNER ─────────────────────────────────── */
-    #promo {
-      padding: 60px 0;
-      background: linear-gradient(135deg, var(--pr) 0%, #f59c4e 100%);
-      position: relative;
-      overflow: hidden;
+    /* ═══════════════════════════════════════════════════════
+       BRANCHES
+    ════════════════════════════════════════════════════════ */
+    .branches { padding: 100px 0; background: #fff; }
+    .branches-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
     }
-    #promo::before {
-      content: '♪';
-      position: absolute;
-      font-size: 260px;
-      right: -30px; top: -60px;
-      color: rgba(255,255,255,.08);
-      line-height: 1;
+    .branch-card {
+      background: var(--bg-alt); border-radius: var(--radius-card);
+      padding: 28px 24px; border: 1.5px solid #DDE6F0;
+      transition: all 0.3s; cursor: pointer;
     }
-    .promo-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
+    .branch-card:hover {
+      border-color: var(--primary); background: #EBF5FF;
+      transform: translateY(-4px); box-shadow: var(--shadow-hover);
     }
-    .promo-text h2 {
-      font-family: var(--fh);
-      font-size: clamp(24px, 4vw, 38px);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.15;
+    .branch-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 16px;
     }
-    .promo-text p {
-      color: rgba(255,255,255,.85);
-      font-size: 16px;
-      margin-top: 8px;
+    .branch-icon.b1 { background: var(--mint); }
+    .branch-icon.b2 { background: var(--yellow); }
+    .branch-icon.b3 { background: var(--pink); }
+    .branch-icon.b4 { background: var(--lavender); }
+    .branch-card h3 {
+      font-size: 17px; font-weight: 800; margin-bottom: 8px;
     }
-    .promo-badge {
-      background: rgba(255,255,255,.2);
-      border-radius: 10px;
-      padding: 6px 14px;
-      display: inline-block;
-      font-family: var(--fh);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    .branch-card address {
+      font-style: normal; font-size: 14px; line-height: 1.6;
+      color: var(--body); margin-bottom: 16px;
     }
-    .promo-cta {
-      background: var(--white);
-      color: var(--pr);
-      font-weight: 700;
-      padding: 16px 32px;
-      font-size: 16px;
-      border-radius: 12px;
-      transition: var(--trans);
-      flex-shrink: 0;
-      font-family: var(--fh);
+    .branch-phone {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 14px; color: var(--primary);
     }
-    .promo-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.15); }
+    .branch-phone::before { content: '📱'; }
+    .branch-wa {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 10px; font-size: 13px; font-weight: 600;
+      color: #25D366; text-decoration: none;
+      background: #E8FFF1; padding: 6px 12px; border-radius: 999px;
+      transition: background 0.2s;
+    }
+    .branch-wa:hover { background: #D0FFE4; }
 
-    /* ── LOCATIONS ─────────────────────────────────────────── */
-    #locations {
-      padding: 90px 0;
-      background: var(--gray);
+    /* ═══════════════════════════════════════════════════════
+       FINAL CTA
+    ════════════════════════════════════════════════════════ */
+    .final-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #1F2A44 0%, #2D3F66 100%);
+      position: relative; overflow: hidden; text-align: center;
     }
-    .loc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 22px;
-      margin-top: 44px;
+    .final-cta .blob {
+      opacity: 0.15;
     }
-    .loc-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 26px;
-      border: 1.5px solid rgba(30,18,8,.07);
-      transition: var(--trans);
+    .final-cta h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; color: #fff;
+      margin-bottom: 20px; line-height: 1.15;
     }
-    .loc-card:hover { box-shadow: var(--shadow); border-color: var(--pr); transform: translateY(-3px); }
-    .loc-icon {
-      width: 44px; height: 44px;
-      border-radius: 11px;
-      background: var(--pr-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-    .loc-name {
-      font-family: var(--fh);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-    .loc-address {
-      font-size: 13px;
-      color: var(--text-mid);
-      margin-top: 6px;
-      line-height: 1.6;
-    }
-    .loc-wa {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 16px;
-      background: #25D366;
-      color: var(--white);
-      font-family: var(--fh);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 9px 16px;
-      border-radius: 8px;
-      transition: var(--trans);
-    }
-    .loc-wa:hover { background: #1db955; transform: translateY(-1px); }
+    .final-cta h2 .color-blue { color: var(--primary); }
+    .final-cta p { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+    .final-cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .final-cta .note { margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.4); }
 
-    /* ── INSTRUCTORS ───────────────────────────────────────── */
-    #instructors {
-      padding: 90px 0;
-      background: var(--white);
-    }
-    .instr-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 22px;
-      margin-top: 44px;
-    }
-    .instr-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1.5px solid rgba(30,18,8,.07);
-      transition: var(--trans);
-    }
-    .instr-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .instr-photo {
-      height: 160px;
-      background: linear-gradient(135deg, #f5dcc8, #e8c5a0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 50px;
-      position: relative;
-    }
-    .instr-badge {
-      position: absolute;
-      bottom: 10px; right: 10px;
-      background: var(--pr);
-      color: var(--white);
-      font-family: var(--fh);
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 5px;
-    }
-    .instr-info { padding: 16px; }
-    .instr-name {
-      font-family: var(--fh);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-    .instr-spec { font-size: 13px; color: var(--pr); font-weight: 500; margin-top: 3px; }
-    .instr-years { font-size: 12px; color: var(--text-mid); margin-top: 3px; }
-
-    /* ── FINAL CTA ─────────────────────────────────────────── */
-    #final-cta {
-      padding: 90px 0;
-      background: linear-gradient(135deg, #1e1208 0%, #2e1c0e 100%);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #final-cta::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(238,122,51,.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #final-cta h2 {
-      font-family: var(--fh);
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.15;
-    }
-    #final-cta h2 span { color: var(--pr); }
-    #final-cta p {
-      color: rgba(255,255,255,.65);
-      font-size: 17px;
-      margin-top: 14px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .final-cta-btns {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 36px;
-      flex-wrap: wrap;
-    }
-    .final-cta-btns .btn-primary { font-size: 17px; padding: 17px 36px; }
-
-    /* ── FOOTER ────────────────────────────────────────────── */
-    #footer {
-      background: #120b05;
-      padding: 50px 0 24px;
+    /* ═══════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--dark); color: rgba(255,255,255,0.6);
+      padding: 60px 0 32px;
     }
     .footer-inner {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 48px;
     }
-    .footer-logo img { height: 38px; filter: brightness(1.2); }
-    .footer-tagline {
-      font-size: 14px;
-      color: rgba(255,255,255,.5);
-      margin-top: 12px;
-      line-height: 1.65;
-      max-width: 240px;
+    .footer-brand img { height: 40px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; }
+    .footer h4 {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 14px; color: #fff; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 16px;
     }
-    .footer-col h4 {
-      font-family: var(--fh);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: rgba(255,255,255,.45);
-      margin-bottom: 16px;
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: 9px; }
-    .footer-col ul a {
-      font-size: 14px;
-      color: rgba(255,255,255,.6);
-      transition: var(--trans);
-    }
-    .footer-col ul a:hover { color: var(--pr); }
+    .footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .footer a:hover { color: #fff; }
     .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 24px;
-      flex-wrap: wrap;
-      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px; display: flex;
+      align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
     }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,.35); }
+    .footer-bottom p { font-size: 13px; }
 
-    /* ── FLOATING WA BUTTON ────────────────────────────────── */
-    #wa-float {
-      position: fixed;
-      bottom: 90px;
-      right: 24px;
-      z-index: 900;
+    /* ═══════════════════════════════════════════════════════
+       FLOATING WHATSAPP
+    ════════════════════════════════════════════════════════ */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
     }
-    .wa-bubble {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.45);
-      cursor: pointer;
-      transition: var(--trans);
-      animation: wa-pulse 2.5s infinite;
+    .wa-float-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+      transition: all 0.3s; cursor: pointer; border: none;
+      font-size: 28px;
     }
-    .wa-bubble:hover { transform: scale(1.1); }
-    .wa-bubble svg { width: 26px; height: 26px; fill: var(--white); }
-    @keyframes wa-pulse {
-      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.45); }
-      50% { box-shadow: 0 4px 28px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.12); }
+    .wa-float-btn:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+    .wa-float-popup {
+      position: absolute; bottom: 70px; right: 0;
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+      width: 280px; padding: 20px;
+      display: none; flex-direction: column; gap: 10px;
     }
-    .wa-menu {
-      position: absolute;
-      bottom: 68px; right: 0;
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: var(--shadow-lg);
-      padding: 12px;
-      min-width: 230px;
-      display: none;
-      flex-direction: column;
-      gap: 6px;
+    .wa-float-popup.open { display: flex; }
+    .wa-float-popup h4 {
+      font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 4px;
     }
-    .wa-menu.open { display: flex; }
-    .wa-menu-title {
-      font-family: var(--fh);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      color: var(--text-mid);
-      padding: 4px 8px 8px;
-      border-bottom: 1px solid rgba(30,18,8,.08);
-      margin-bottom: 2px;
+    .wa-float-popup p { font-size: 13px; color: var(--body); margin-bottom: 8px; }
+    .wa-option {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg-alt); border-radius: 12px; padding: 12px 14px;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--dark);
+      transition: all 0.2s; text-decoration: none;
     }
-    .wa-branch {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 10px;
-      border-radius: 9px;
-      transition: var(--trans);
-    }
-    .wa-branch:hover { background: #f0fdf4; }
-    .wa-branch-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: #f0fdf4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
-    .wa-branch-name {
-      font-family: var(--fh);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-    .wa-branch-num { font-size: 12px; color: var(--text-mid); }
+    .wa-option:hover { background: #D4EDFF; color: var(--primary); }
+    .wa-option span { font-size: 12px; font-weight: 500; color: var(--body); }
 
-    /* ── MOBILE STICKY BAR ─────────────────────────────────── */
-    #mobile-bar {
-      display: none;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 990;
-      background: var(--white);
-      border-top: 1px solid rgba(30,18,8,.1);
-      padding: 10px 14px;
-      gap: 10px;
-      box-shadow: 0 -4px 20px rgba(30,18,8,.1);
+    /* Mobile sticky CTA */
+    .mobile-sticky-cta {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      background: #fff; padding: 12px 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1); z-index: 800;
     }
-    .mobile-bar-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--fh);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 14px 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      border: none;
-    }
-    .mobile-bar-btn.trial {
-      background: var(--pr);
-      color: var(--white);
-      box-shadow: 0 3px 14px rgba(238,122,51,.4);
-    }
-    .mobile-bar-btn.whatsapp {
-      background: #25D366;
-      color: var(--white);
-    }
+    .mobile-sticky-cta .btn { width: 100%; justify-content: center; }
 
-    /* ── RESPONSIVE ────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
-      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 28px 0; }
-      .stat-item:last-child, .stat-item:nth-child(2) { border-bottom: none; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .programs-grid { grid-template-columns: repeat(2, 1fr); }
+      .teachers-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-burger { display: flex; }
-      .nav-cta { display: none; }
-      .hero-inner { grid-template-columns: 1fr; gap: 44px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-visual { order: -1; }
-      .hero-float-card.card-2 { display: none; }
-      .hero-float-card.card-1 { bottom: -14px; left: -10px; }
-      .about-inner { grid-template-columns: 1fr; gap: 40px; }
-      .about-visual { order: -1; aspect-ratio: 16/9; }
-      .testi-card { min-width: calc(85% - 11px); }
-      .why-grid { grid-template-columns: 1fr; }
-      .courses-grid { grid-template-columns: repeat(2, 1fr); }
-      .instr-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-inner { grid-template-columns: 1fr; }
-      .testi-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      #mobile-bar { display: flex; }
-      #wa-float { bottom: 85px; }
-      body { padding-bottom: 70px; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); padding: 24px 16px; }
-      .stat-item:nth-child(2n) { border-right: none; }
-      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
-      .promo-inner { flex-direction: column; text-align: center; }
-      .final-cta-btns { flex-direction: column; width: 100%; max-width: 360px; margin-left: auto; margin-right: auto; }
-      .final-cta-btns .btn { width: 100%; justify-content: center; }
+      .hero-float-1 { left: 0; }
+      .hero-float-2 { right: 0; }
+      .experience-inner,
+      .achievements-inner { grid-template-columns: 1fr; gap: 40px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .branches-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .nav-links, .navbar-cta .btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-sticky-cta { display: block; }
+      .wa-float { bottom: 80px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .teachers-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 480px) {
-      .courses-grid { grid-template-columns: 1fr; }
-      .instr-grid { grid-template-columns: 1fr; }
-      .hero-trust { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .trust-divider { display: none; }
-      .loc-grid { grid-template-columns: 1fr; }
+      .branches-grid { grid-template-columns: 1fr; }
+      .ach-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .teachers-grid { grid-template-columns: 1fr; }
+      .trust-strip-inner { grid-template-columns: 1fr; }
     }
-
-    /* ── Scroll animation ──────────────────────────────────── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .5s ease, transform .5s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-  <!-- ══════════════ NAVBAR ══════════════ -->
-  <nav id="navbar">
+  <!-- ═══ NAVBAR ══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          <img src="assets/logo.webp" alt="Liberal Music School" />
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo">
+          <img src="assets/logo.webp" alt="Liberal Music School" onerror="this.style.display='none'" />
+          <span>Liberal<br>Music School</span>
         </a>
-        <div class="nav-links">
-          <a href="pages/courses.html">Courses</a>
-          <a href="#locations">Locations</a>
-          <a href="pages/instructors.html">Instructors</a>
-          <a href="pages/about.html">About</a>
-          <a href="pages/contact.html">Contact</a>
+        <ul class="nav-links">
+          <li><a href="pages/courses.html">Programmes</a></li>
+          <li><a href="pages/instructors.html">Teachers</a></li>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="pages/blog.html">Blog</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-cta">
+          <a href="index-zh.html" class="lang-btn">中文</a>
+          <a href="pages/trial.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">
+            🎵 Free Trial
+          </a>
         </div>
-        <div class="nav-right">
-          <a href="index-zh.html" class="nav-lang">中文</a>
-          <a href="pages/trial.html" class="btn btn-primary nav-cta">🎯 Book Trial</a>
-        </div>
-        <button class="nav-burger" id="burgerBtn" aria-label="Menu">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="pages/courses.html">Courses</a>
-    <a href="#locations">Locations</a>
-    <a href="pages/instructors.html">Instructors</a>
-    <a href="pages/about.html">About</a>
-    <a href="pages/contact.html">Contact</a>
-    <a href="index-zh.html" class="nav-lang" style="align-self:flex-start">中文 版本</a>
-    <a href="pages/trial.html" class="btn btn-primary">🎯 Book Trial Class</a>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="pages/courses.html">Programmes</a></li>
+      <li><a href="pages/instructors.html">Teachers</a></li>
+      <li><a href="pages/about.html">About Us</a></li>
+      <li><a href="pages/testimonial.html">Testimonials</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <a href="pages/trial.html" class="btn btn-primary">🎵 Book Free Trial Class</a>
   </div>
 
-  <!-- ══════════════ HERO ══════════════ -->
-  <section id="hero">
+  <!-- ═══ HERO ════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
     <div class="container">
       <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-badge">⭐ Trusted by 2,000+ students in West Singapore since 2009</div>
-          <h1 class="hero-h1">Music Lessons That Build <span class="accent">Confidence</span> & Real Skills</h1>
-          <p class="hero-sub">Piano, Violin, Guitar, Drums & More — For Kids &amp; Adults across Jurong, Tengah &amp; Tampines.</p>
-          <div class="hero-ctas">
-            <a href="pages/trial.html" class="btn btn-primary">👉 Book Trial Class</a>
-            <a href="pages/courses.html" class="btn btn-ghost">View Courses</a>
+        <div class="hero-text">
+          <div class="hero-badge reveal">Singapore's Favourite Music & Arts School</div>
+          <h1 class="reveal reveal-delay-1">
+            Build <span class="highlight">Confidence</span><br>
+            Through Music & Art
+          </h1>
+          <p class="hero-sub reveal reveal-delay-2">
+            Every child has a unique talent waiting to be discovered. We nurture creativity, discipline, and joy — one lesson at a time.
+          </p>
+          <div class="hero-instruments reveal reveal-delay-2">
+            <span class="instrument-pill">🎹 Piano</span>
+            <span class="instrument-pill">🎻 Violin</span>
+            <span class="instrument-pill">🎸 Guitar</span>
+            <span class="instrument-pill">🎨 Art</span>
+            <span class="instrument-pill">💃 Dance</span>
+            <span class="instrument-pill">🥁 Drums</span>
           </div>
-          <div class="hero-trust">
-            <div class="trust-pill">
-              <div class="icon">⭐</div>
-              <span><strong>4.9</strong> Google Rating</span>
-            </div>
-            <div class="trust-divider">·</div>
-            <div class="trust-pill">
-              <div class="icon">🎓</div>
-              <span>ABRSM Certified</span>
-            </div>
-            <div class="trust-divider">·</div>
-            <div class="trust-pill">
-              <div class="icon">📍</div>
-              <span>4 Locations</span>
-            </div>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="pages/trial.html" class="btn btn-primary">
+              🎵 Book Free Trial Class
+            </a>
+            <button class="play-btn" onclick="openVideo()">
+              <span class="play-icon">▶</span>
+              Watch a Class
+            </button>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-img-wrap">
-            <div class="hero-img-placeholder">
-              <div class="big-icon">🎵</div>
-              <p>Replace with hero photo</p>
+
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="hero-image-wrap">
+            <!-- Replace with real student image: <img src="assets/hero-student.webp" alt="Students learning music"> -->
+            <div class="hero-image-placeholder">
+              🎵
+              <p>Add hero image here</p>
             </div>
           </div>
-          <div class="hero-float-card card-1">
-            <div class="float-icon">🏆</div>
-            <div class="float-text">
-              <strong>ABRSM Ready</strong>
-              <span>Exam prep from Grade 1–8</span>
+          <div class="hero-float hero-float-1">
+            <div class="hero-float-icon green">🌟</div>
+            <div>
+              <strong>500+</strong>
+              <span>Happy Students</span>
             </div>
           </div>
-          <div class="hero-float-card card-2">
-            <div class="float-icon">👨‍👩‍👧</div>
-            <div class="float-text">
-              <div class="hero-stars">★★★★★</div>
-              <strong>300+ Google Reviews</strong>
+          <div class="hero-float hero-float-2">
+            <div class="hero-float-icon yellow">🏆</div>
+            <div>
+              <strong>#1 Rated</strong>
+              <span>Music School SG</span>
             </div>
           </div>
         </div>
@@ -1215,521 +815,533 @@
     </div>
   </section>
 
-  <!-- ══════════════ STATS STRIP ══════════════ -->
-  <section id="stats">
+  <!-- ═══ TRUST STRIP ══════════════════════════════════════ -->
+  <section class="trust-strip">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item fade-up">
-          <div class="stat-num">2,000+</div>
-          <div class="stat-label">Students Trained</div>
+      <div class="trust-strip-inner">
+        <div class="trust-stat reveal">
+          <div class="number">500<span>+</span></div>
+          <div class="label">Happy Students</div>
+          <div class="sublabel">and growing every month</div>
         </div>
-        <div class="stat-item fade-up">
-          <div class="stat-num">15+</div>
-          <div class="stat-label">Years Teaching</div>
+        <div class="trust-stat reveal reveal-delay-1">
+          <div class="number">10<span>+</span></div>
+          <div class="label">Years of Experience</div>
+          <div class="sublabel">nurturing young talent</div>
         </div>
-        <div class="stat-item fade-up">
-          <div class="stat-num">4.9★</div>
-          <div class="stat-label">Google Rating</div>
+        <div class="trust-stat reveal reveal-delay-2">
+          <div class="number">4</div>
+          <div class="label">Convenient Locations</div>
+          <div class="sublabel">across Singapore</div>
         </div>
-        <div class="stat-item fade-up">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Branches in Singapore</div>
+        <div class="trust-stat reveal reveal-delay-3">
+          <div class="number">98<span>%</span></div>
+          <div class="label">Parent Satisfaction</div>
+          <div class="sublabel">5-star reviews</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ COURSES ══════════════ -->
-  <section id="courses">
+  <!-- ═══ PROGRAMS ══════════════════════════════════════════ -->
+  <section class="programs" id="programs">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Programmes</span>
-        <h2 class="section-title">Find the Right Instrument for Your Child</h2>
-        <p class="section-sub">Every course is structured for steady progress — from beginner basics to ABRSM exam-grade performance.</p>
+      <div class="section-header reveal">
+        <div class="section-tag">🎓 Our Programmes</div>
+        <h2>Find the Perfect Programme<br>for Your Child</h2>
+        <p>Structured, fun, and expertly designed for ages 4–16. All skill levels welcome.</p>
       </div>
-      <div class="courses-grid">
-        <!-- Piano -->
-        <div class="course-card">
-          <div class="course-card-img" style="background:linear-gradient(135deg,#fff4eb,#fde4c5);">🎹</div>
-          <div class="course-card-body">
-            <div class="course-card-name">Piano</div>
-            <div class="course-card-micro">Build strong foundation &amp; exam skills</div>
+      <div class="programs-grid">
+
+        <div class="program-card reveal">
+          <div class="program-card-image prog-bg-1">
+            🎹
+            <span class="program-badge">Ages 4–16</span>
           </div>
-          <div class="course-card-hover">
-            <h4>Piano Lessons</h4>
-            <span class="course-badge">Beginner to Advanced</span>
-            <span class="course-badge">ABRSM Prep</span>
-            <span class="course-badge">Kids &amp; Adults</span>
+          <div class="program-card-body">
+            <h3>Piano</h3>
+            <p>From first notes to concert pieces — build technique, theory, and confidence at the keyboard.</p>
+            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
           </div>
         </div>
-        <!-- Violin -->
-        <div class="course-card">
-          <div class="course-card-img" style="background:linear-gradient(135deg,#fdf4ff,#ead5f5);">🎻</div>
-          <div class="course-card-body">
-            <div class="course-card-name">Violin</div>
-            <div class="course-card-micro">Classical training &amp; performance ready</div>
+
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-card-image prog-bg-2">
+            🎻
+            <span class="program-badge">Ages 5–16</span>
           </div>
-          <div class="course-card-hover">
-            <h4>Violin Lessons</h4>
-            <span class="course-badge">Beginner to Advanced</span>
-            <span class="course-badge">ABRSM Prep</span>
-            <span class="course-badge">Kids &amp; Adults</span>
+          <div class="program-card-body">
+            <h3>Violin</h3>
+            <p>Develop focus, ear training, and beautiful tone. Great for children who love classical music.</p>
+            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
           </div>
         </div>
-        <!-- Guitar -->
-        <div class="course-card">
-          <div class="course-card-img" style="background:linear-gradient(135deg,#f0fdf4,#c6f1d6);">🎸</div>
-          <div class="course-card-body">
-            <div class="course-card-name">Guitar</div>
-            <div class="course-card-micro">Acoustic, electric &amp; classical styles</div>
+
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-card-image prog-bg-3">
+            🎸
+            <span class="program-badge">Ages 6–16</span>
           </div>
-          <div class="course-card-hover">
-            <h4>Guitar Lessons</h4>
-            <span class="course-badge">Beginner to Advanced</span>
-            <span class="course-badge">ABRSM Prep</span>
-            <span class="course-badge">Kids &amp; Adults</span>
+          <div class="program-card-body">
+            <h3>Guitar</h3>
+            <p>From acoustic strumming to electric riffs — spark a lifelong love of music.</p>
+            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
           </div>
         </div>
-        <!-- Drums -->
-        <div class="course-card">
-          <div class="course-card-img" style="background:linear-gradient(135deg,#fff8f0,#fddcb5);">🥁</div>
-          <div class="course-card-body">
-            <div class="course-card-name">Drums</div>
-            <div class="course-card-micro">Rhythm, technique &amp; music theory</div>
+
+        <div class="program-card reveal">
+          <div class="program-card-image prog-bg-4">
+            🎨
+            <span class="program-badge">Ages 4–16</span>
           </div>
-          <div class="course-card-hover">
-            <h4>Drum Lessons</h4>
-            <span class="course-badge">Beginner to Advanced</span>
-            <span class="course-badge">Rock &amp; Pop</span>
-            <span class="course-badge">Kids &amp; Adults</span>
+          <div class="program-card-body">
+            <h3>Visual Art</h3>
+            <p>Unleash imagination through drawing, painting, and mixed media. Build creative confidence.</p>
+            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
           </div>
         </div>
-        <!-- Ukulele -->
-        <div class="course-card">
-          <div class="course-card-img" style="background:linear-gradient(135deg,#fafff0,#ddfac5);">🪕</div>
-          <div class="course-card-body">
-            <div class="course-card-name">Ukulele</div>
-            <div class="course-card-micro">Fun entry-point for young learners</div>
+
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-card-image prog-bg-5">
+            💃
+            <span class="program-badge">Ages 4–14</span>
           </div>
-          <div class="course-card-hover">
-            <h4>Ukulele Lessons</h4>
-            <span class="course-badge">Beginner Friendly</span>
-            <span class="course-badge">Kids &amp; Adults</span>
-          </div>
-        </div>
-        <!-- Vocal -->
-        <div class="course-card">
-          <div class="course-card-img" style="background:linear-gradient(135deg,#fff0f4,#fdd0de);">🎤</div>
-          <div class="course-card-body">
-            <div class="course-card-name">Vocal</div>
-            <div class="course-card-micro">Technique, pitch &amp; stage confidence</div>
-          </div>
-          <div class="course-card-hover">
-            <h4>Vocal Lessons</h4>
-            <span class="course-badge">Beginner to Advanced</span>
-            <span class="course-badge">ABRSM Prep</span>
-            <span class="course-badge">Kids &amp; Adults</span>
+          <div class="program-card-body">
+            <h3>Dance</h3>
+            <p>Express, move, and perform. Ballet, hip-hop, and contemporary in a joyful environment.</p>
+            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
           </div>
         </div>
-      </div>
-      <div class="courses-cta">
-        <a href="pages/courses.html" class="btn btn-ghost">View All Courses</a>
-        <a href="pages/trial.html" class="btn btn-primary">👉 Book Trial Class</a>
+
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-card-image prog-bg-6">
+            🥁
+            <span class="program-badge">Ages 6–16</span>
+          </div>
+          <div class="program-card-body">
+            <h3>Drums & Percussion</h3>
+            <p>Build rhythm, coordination, and energy. Perfect for kids who love to make some noise!</p>
+            <a href="pages/trial.html" class="btn btn-primary">Try a Class →</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ WHY CHOOSE US ══════════════ -->
-  <section id="why">
+  <!-- ═══ EXPERIENCE ════════════════════════════════════════ -->
+  <section class="experience">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Why Liberal Music</span>
-        <h2 class="section-title">Not Just Lessons — A System That <br/>Gets Real Results</h2>
-        <p class="section-sub">Here's the specific difference parents see within the first 3 months.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card fade-up">
-          <div class="why-icon">🎓</div>
-          <div class="why-title">Certified Teachers with Stage Experience</div>
-          <div class="why-desc">Not just degree holders — our teachers have performed at recitals, competitions and public events. They teach what they've lived.</div>
-          <div class="why-num">15+ yrs avg.</div>
+      <div class="experience-inner">
+        <div class="experience-visual reveal">
+          <div class="exp-dot"></div>
+          <div class="exp-main-img">
+            🎼
+            <!-- Replace: <img src="assets/class-photo.webp" alt="Class in session"> -->
+          </div>
+          <div class="exp-small-img">
+            🎵
+            <!-- Replace: <img src="assets/student-smile.webp" alt="Happy student"> -->
+          </div>
         </div>
-        <div class="why-card fade-up">
-          <div class="why-icon">📈</div>
-          <div class="why-title">Structured Progress You Can See Each Month</div>
-          <div class="why-desc">Every student gets a clear progression path. Parents receive updates so you always know how your child is improving.</div>
-          <div class="why-num">2,000+ students</div>
-        </div>
-        <div class="why-card fade-up">
-          <div class="why-icon">🏅</div>
-          <div class="why-title">ABRSM Exam Prep That Actually Works</div>
-          <div class="why-desc">Our students consistently pass ABRSM grades. We drill technique, sight reading, ear training and scales — not just the exam pieces.</div>
-          <div class="why-num">High pass rate</div>
-        </div>
-        <div class="why-card fade-up">
-          <div class="why-icon">🧒</div>
-          <div class="why-title">Patient Teaching That Builds Confidence</div>
-          <div class="why-desc">Even shy or reluctant kids become eager to perform. Our teachers specialise in making music feel achievable, not intimidating.</div>
-        </div>
-        <div class="why-card fade-up">
-          <div class="why-icon">📍</div>
-          <div class="why-title">Convenient Locations Near You in West Singapore</div>
-          <div class="why-desc">4 branches across Tengah, Tampines, Jurong West &amp; Le Quest — so lessons fit naturally into your family's weekly routine.</div>
-        </div>
-        <div class="why-card fade-up">
-          <div class="why-icon">🔁</div>
-          <div class="why-title">Flexible Scheduling for Busy Families</div>
-          <div class="why-desc">Weekday evenings and full weekend slots available. No rigid timetables — we work around your schedule, not the other way around.</div>
+        <div class="experience-text reveal reveal-delay-1">
+          <div class="section-tag yellow">✨ The Liberal Experience</div>
+          <h2>Fun + Structured = Real Growth</h2>
+          <p>Our approach blends structured learning with joyful play. Children don't just learn music — they develop patience, resilience, and the courage to perform.</p>
+          <div class="exp-features">
+            <div class="exp-feature">
+              <div class="exp-feature-icon mint">🧒</div>
+              <div class="exp-feature-text">
+                <strong>Small Group & 1-to-1 Classes</strong>
+                <span>Personalised attention for every child's learning pace and style.</span>
+              </div>
+            </div>
+            <div class="exp-feature">
+              <div class="exp-feature-icon yellow">📈</div>
+              <div class="exp-feature-text">
+                <strong>Regular Progress Reports</strong>
+                <span>Parents stay updated with monthly progress notes and goal-setting.</span>
+              </div>
+            </div>
+            <div class="exp-feature">
+              <div class="exp-feature-icon pink">🎭</div>
+              <div class="exp-feature-text">
+                <strong>Annual Recitals & Showcases</strong>
+                <span>Children shine on stage — building confidence and precious memories.</span>
+              </div>
+            </div>
+          </div>
+          <a href="pages/about.html" class="btn btn-outline">Learn Our Story →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ ABOUT ══════════════ -->
-  <section id="about">
+  <!-- ═══ TEACHERS ══════════════════════════════════════════ -->
+  <section class="teachers" id="teachers">
     <div class="container">
-      <div class="about-inner">
-        <div class="about-visual">🎵</div>
-        <div class="about-text">
-          <span class="section-tag">Our Story</span>
-          <h2 class="section-title">West Singapore's Music School Since 2009</h2>
-          <p class="section-sub" style="max-width:none;margin-top:12px;">Liberal Music School was founded with one belief: every child deserves access to quality music education that goes beyond rote learning — building real skills, real confidence, and a lifelong love of music.</p>
-          <div class="about-features">
-            <div class="about-feat">
-              <div class="feat-icon">🎵</div>
-              <div class="feat-text">
-                <strong>Singapore-Rooted, Internationally Certified</strong>
-                <span>ABRSM-aligned syllabus taught by performance-experienced educators</span>
-              </div>
+      <div class="section-header reveal">
+        <div class="section-tag lavender">👩‍🏫 Our Instructors</div>
+        <h2>Passionate Teachers,<br>Incredible Results</h2>
+        <p>Our educators are degree-holders and performers who genuinely love teaching young children.</p>
+      </div>
+      <div class="teachers-grid">
+
+        <div class="teacher-card reveal">
+          <div class="teacher-photo bg-mint">🎹</div>
+          <h3>Ms Sarah Tan</h3>
+          <span class="instrument-tag">Piano</span>
+          <p>ABRSM Grade 8 | Trinity College London Diploma | 8 years teaching experience</p>
+        </div>
+
+        <div class="teacher-card reveal reveal-delay-1">
+          <div class="teacher-photo bg-yellow">🎻</div>
+          <h3>Mr David Lee</h3>
+          <span class="instrument-tag">Violin</span>
+          <p>NUS Yong Siew Toh Conservatory | Former Singapore Youth Orchestra member</p>
+        </div>
+
+        <div class="teacher-card reveal reveal-delay-2">
+          <div class="teacher-photo bg-pink">🎸</div>
+          <h3>Ms Rachel Ng</h3>
+          <span class="instrument-tag">Guitar & Ukulele</span>
+          <p>Berklee Online Certified | Guitar specialist with 6 years of children's education</p>
+        </div>
+
+        <div class="teacher-card reveal reveal-delay-3">
+          <div class="teacher-photo bg-blue">🎨</div>
+          <h3>Mr James Lim</h3>
+          <span class="instrument-tag">Visual Art</span>
+          <p>LASALLE College of the Arts graduate | Specialises in child-led creative development</p>
+        </div>
+
+      </div>
+      <div style="text-align:center; margin-top:40px;" class="reveal">
+        <a href="pages/instructors.html" class="btn btn-outline">Meet All Our Teachers →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ACHIEVEMENTS ════════════════════════════════════ -->
+  <section class="achievements">
+    <div class="container">
+      <div class="achievements-inner">
+        <div class="reveal">
+          <div class="section-tag pink">🏆 Results & Achievements</div>
+          <h2>Our Students Shine<br>On Every Stage</h2>
+          <p>From first-time performances to national competitions — we celebrate every milestone and push every child to discover their full potential.</p>
+          <div class="ach-grid">
+            <div class="ach-card reveal">
+              <div class="ach-icon">🥇</div>
+              <strong>50+</strong>
+              <span>Competition Awards</span>
             </div>
-            <div class="about-feat">
-              <div class="feat-icon">👨‍👩‍👧</div>
-              <div class="feat-text">
-                <strong>Family-Friendly Environment</strong>
-                <span>Welcoming studios designed for children, beginners &amp; returning adults</span>
-              </div>
+            <div class="ach-card reveal reveal-delay-1">
+              <div class="ach-icon">🎓</div>
+              <strong>200+</strong>
+              <span>ABRSM Distinctions</span>
             </div>
-            <div class="about-feat">
-              <div class="feat-icon">🏆</div>
-              <div class="feat-text">
-                <strong>15+ Years, Still Growing</strong>
-                <span>From one location to four — driven entirely by student results &amp; parent trust</span>
-              </div>
+            <div class="ach-card reveal reveal-delay-2">
+              <div class="ach-icon">🎭</div>
+              <strong>12</strong>
+              <span>Annual Recitals Held</span>
+            </div>
+            <div class="ach-card reveal reveal-delay-3">
+              <div class="ach-icon">⭐</div>
+              <strong>5.0</strong>
+              <span>Average Google Rating</span>
             </div>
           </div>
-          <a href="pages/about.html" class="btn btn-ghost" style="margin-top:28px;">More About Us</a>
+        </div>
+        <div class="ach-visual reveal reveal-delay-2">
+          🏆
+          <!-- Replace: <img src="assets/achievements.webp" alt="Students performing"> -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ TESTIMONIALS ══════════════ -->
-  <section id="testimonials">
+  <!-- ═══ TESTIMONIALS ══════════════════════════════════════ -->
+  <section class="testimonials" id="testimonials">
     <div class="container">
-      <div class="testi-header">
-        <div>
-          <span class="section-tag">What Parents Say</span>
-          <h2 class="section-title">Real Results, Real Families</h2>
-        </div>
-        <div class="testi-nav">
-          <button class="testi-btn" id="testiPrev">←</button>
-          <button class="testi-btn" id="testiNext">→</button>
-        </div>
+      <div class="section-header reveal">
+        <div class="section-tag">💛 Parent Reviews</div>
+        <h2>Real Parents, Real Stories</h2>
+        <p>Don't take our word for it — here's what the families we work with have to say.</p>
       </div>
-      <div class="testi-track-wrap">
-        <div class="testi-track" id="testiTrack">
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"Within 3 months my daughter went from dreading practice to playing voluntarily every evening. The teacher makes her feel capable, not pressured. We've already renewed for another term."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">MT</div>
-              <div>
-                <div class="testi-name">Mrs Tan</div>
-                <div class="testi-role">Parent — Sophia, age 8 · Piano · Jurong West</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"My son passed ABRSM Grade 3 with a Merit on his first attempt. The teacher's structured approach to practice — especially scales and sight reading — made a huge difference."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">RL</div>
-              <div>
-                <div class="testi-name">Mr Ramesh Lim</div>
-                <div class="testi-role">Parent — Aryan, age 12 · Violin · Tengah</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"I started as a complete beginner at 35 — no music background at all. My teacher is incredibly patient. Six months in, I'm playing songs I love and actually enjoying every lesson."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">JC</div>
-              <div>
-                <div class="testi-name">Jane Chua</div>
-                <div class="testi-role">Adult Student — Guitar · Le Quest</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"Both my kids attend here — one learns piano, the other drums. Scheduling two lessons was never a hassle. The studio is clean, well-equipped, and the teachers genuinely care about progress."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">LK</div>
-              <div>
-                <div class="testi-name">Mrs Loh Kim Peng</div>
-                <div class="testi-role">Parent of 2 students · Tampines</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"My daughter performed in a school concert after only 5 months of lessons. I didn't expect her to be stage-ready so soon. The confidence boost has carried over into school and sports too."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">NW</div>
-              <div>
-                <div class="testi-name">Mrs Nurul Wahidah</div>
-                <div class="testi-role">Parent — Aisyah, age 9 · Piano · Jurong Point</div>
-              </div>
+      <div class="testimonials-grid">
+
+        <div class="testi-card testi-highlight reveal">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"My daughter was shy and reluctant to perform — after just 6 months at Liberal, she played at her school concert and cried happy tears. We're so grateful."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar a1">👩</div>
+            <div class="testi-name">
+              <strong>Mrs Chen Wei</strong>
+              <span>Parent of 8-year-old pianist</span>
             </div>
           </div>
         </div>
+
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"The teachers here genuinely care. They learn each child's learning style and make lessons feel like play. My son actually begs to go to violin class now!"</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar a2">👨</div>
+            <div class="testi-name">
+              <strong>Mr Amir Hassan</strong>
+              <span>Parent of 6-year-old violinist</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"We tried two other schools before finding Liberal. The difference is the warmth and structure here. My twins have both gained confidence beyond just music."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar a3">👩</div>
+            <div class="testi-name">
+              <strong>Ms Priya Nair</strong>
+              <span>Parent of twin guitar students</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"What I love most is how they communicate progress to parents. I always know exactly how my child is doing and what to encourage at home."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar a4">👩</div>
+            <div class="testi-name">
+              <strong>Mrs Tan Mei Ling</strong>
+              <span>Parent of 10-year-old art student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"Amazing school. My son passed ABRSM Grade 5 with Distinction after just 2 years. The teachers are professional, patient, and really inspiring."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar a5">👨</div>
+            <div class="testi-name">
+              <strong>Mr Kevin Goh</strong>
+              <span>Parent of 12-year-old pianist</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"The recitals are beautiful and the children clearly work so hard preparing. It teaches them stage presence, practice habits, and real pride in their craft."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar a6">👩</div>
+            <div class="testi-name">
+              <strong>Ms Lily Wong</strong>
+              <span>Parent of dance student</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <p class="testi-google">⭐ <strong>4.9 rating</strong> from 300+ Google Reviews — see what families are saying</p>
+      <div style="text-align:center; margin-top:40px;" class="reveal">
+        <a href="pages/testimonial.html" class="btn btn-outline">Read More Reviews →</a>
+      </div>
     </div>
   </section>
 
-  <!-- ══════════════ PROMO BANNER ══════════════ -->
-  <section id="promo">
+  <!-- ═══ BRANCHES ════════════════════════════════════════ -->
+  <section class="branches" id="branches">
     <div class="container">
-      <div class="promo-inner">
-        <div class="promo-text">
-          <div class="promo-badge">🎉 Limited Offer</div>
-          <h2>First Trial Lesson at Special Rate</h2>
-          <p>No commitment. Try any instrument with a certified teacher — and see the difference in one session.</p>
-        </div>
-        <a href="pages/trial.html" class="promo-cta">👉 Claim Trial Class</a>
+      <div class="section-header reveal">
+        <div class="section-tag blue">📍 Our Locations</div>
+        <h2>4 Convenient Locations<br>Across Singapore</h2>
+        <p>We're close to home — find the branch nearest to your family.</p>
       </div>
-    </div>
-  </section>
+      <div class="branches-grid">
 
-  <!-- ══════════════ LOCATIONS ══════════════ -->
-  <section id="locations">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Branches</span>
-        <h2 class="section-title">Find a Branch Near You</h2>
-        <p class="section-sub">4 conveniently located studios across West &amp; East Singapore — easy to reach, easy to park.</p>
-      </div>
-      <div class="loc-grid">
-        <div class="loc-card fade-up">
-          <div class="loc-icon">📍</div>
-          <div class="loc-name">Tengah</div>
-          <div class="loc-address">Plantation Plaza, 2 Tengah Boulevard<br/>Singapore 828720</div>
-          <a href="https://wa.me/6589222848" target="_blank" class="loc-wa">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            +65 8922 2848
+        <div class="branch-card reveal">
+          <div class="branch-icon b1">🏡</div>
+          <h3>Tengah</h3>
+          <address>Tengah Plantation Walk<br>Singapore</address>
+          <div class="branch-phone">+65 8922 2848</div>
+          <a href="https://wa.me/6589222848" target="_blank" class="branch-wa">
+            💬 WhatsApp Us
           </a>
         </div>
-        <div class="loc-card fade-up">
-          <div class="loc-icon">📍</div>
-          <div class="loc-name">Tampines</div>
-          <div class="loc-address">Century Square, 2 Tampines Central 5<br/>Singapore 529509</div>
-          <a href="https://wa.me/6588921198" target="_blank" class="loc-wa">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            +65 8892 1198
+
+        <div class="branch-card reveal reveal-delay-1">
+          <div class="branch-icon b2">🌅</div>
+          <h3>Tampines</h3>
+          <address>Tampines Hub / East Area<br>Singapore</address>
+          <div class="branch-phone">+65 8892 1198</div>
+          <a href="https://wa.me/6588921198" target="_blank" class="branch-wa">
+            💬 WhatsApp Us
           </a>
         </div>
-        <div class="loc-card fade-up">
-          <div class="loc-icon">📍</div>
-          <div class="loc-name">Jurong West</div>
-          <div class="loc-address">Jurong West Street, Jurong West<br/>Singapore</div>
-          <a href="https://wa.me/6596277582" target="_blank" class="loc-wa">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            +65 9627 7582
+
+        <div class="branch-card reveal reveal-delay-2">
+          <div class="branch-icon b3">🌸</div>
+          <h3>Jurong West</h3>
+          <address>Jurong West / Le Quest<br>Singapore</address>
+          <div class="branch-phone">+65 9627 7582</div>
+          <a href="https://wa.me/6596277582" target="_blank" class="branch-wa">
+            💬 WhatsApp Us
           </a>
         </div>
-        <div class="loc-card fade-up">
-          <div class="loc-icon">📍</div>
-          <div class="loc-name">Le Quest / Jurong Point</div>
-          <div class="loc-address">Le Quest Mall, Bukit Batok West<br/>Singapore</div>
-          <a href="https://wa.me/6596277582" target="_blank" class="loc-wa">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            +65 9627 7582
+
+        <div class="branch-card reveal reveal-delay-3">
+          <div class="branch-icon b4">🎪</div>
+          <h3>Jurong Point</h3>
+          <address>Jurong Point Mall<br>Singapore</address>
+          <div class="branch-phone">+65 9627 7582</div>
+          <a href="https://wa.me/6596277582" target="_blank" class="branch-wa">
+            💬 WhatsApp Us
           </a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ FINAL CTA ══════════════ -->
-  <section id="final-cta">
-    <div class="container">
-      <h2>Start Your Child's <span>Music Journey</span> Today</h2>
-      <p>One trial lesson. Zero commitment. Just book it — and see the difference a great teacher makes.</p>
-      <div class="final-cta-btns">
-        <a href="pages/trial.html" class="btn btn-primary">👉 Book Trial Class</a>
-        <a href="https://wa.me/6589222848" target="_blank" class="btn btn-outline-white">💬 WhatsApp Us</a>
+  <!-- ═══ FINAL CTA ════════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="blob blob-1" style="top:-100px;right:-50px;opacity:0.12;"></div>
+    <div class="blob blob-2" style="bottom:-80px;left:-60px;opacity:0.1;"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="reveal" style="max-width:640px;margin:0 auto;">
+        <h2>
+          Start Your Child's<br>
+          <span class="color-blue">Creative Journey</span> Today
+        </h2>
+        <p>First lesson is on us. No pressure, no commitment — just pure musical joy for your child.</p>
+        <div class="final-cta-actions">
+          <a href="pages/trial.html" class="btn btn-primary" style="font-size:18px;padding:16px 36px;">
+            🎵 Book Free Trial Class
+          </a>
+          <a href="pages/contact.html" class="btn btn-white">
+            Ask a Question
+          </a>
+        </div>
+        <p class="note">✓ Free, no-obligation trial &nbsp;&nbsp; ✓ Ages 4–16 welcome &nbsp;&nbsp; ✓ All skill levels</p>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ FOOTER ══════════════ -->
-  <footer id="footer">
+  <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+  <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div>
-          <div class="footer-logo">
-            <img src="assets/logo.webp" alt="Liberal Music School" />
-          </div>
-          <p class="footer-tagline">Building confidence &amp; real skills through music — in West Singapore since 2009.</p>
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Liberal Music School" onerror="this.style.display='none'" />
+          <p>Nurturing creativity, confidence, and a love for music and art in children across Singapore since 2014.</p>
         </div>
-        <div class="footer-col">
-          <h4>Courses</h4>
+        <div>
+          <h4>Programmes</h4>
           <ul>
             <li><a href="pages/courses.html">Piano</a></li>
             <li><a href="pages/courses.html">Violin</a></li>
             <li><a href="pages/courses.html">Guitar</a></li>
-            <li><a href="pages/courses.html">Drums</a></li>
-            <li><a href="pages/courses.html">Vocal</a></li>
+            <li><a href="pages/courses.html">Visual Art</a></li>
+            <li><a href="pages/courses.html">Dance</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div>
           <h4>School</h4>
           <ul>
             <li><a href="pages/about.html">About Us</a></li>
-            <li><a href="pages/instructors.html">Instructors</a></li>
+            <li><a href="pages/instructors.html">Teachers</a></li>
             <li><a href="pages/testimonial.html">Testimonials</a></li>
             <li><a href="pages/blog.html">Blog</a></li>
             <li><a href="pages/career.html">Careers</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div>
           <h4>Contact</h4>
           <ul>
-            <li><a href="pages/contact.html">Get in Touch</a></li>
-            <li><a href="https://wa.me/6589222848" target="_blank">WhatsApp Tengah</a></li>
-            <li><a href="https://wa.me/6588921198" target="_blank">WhatsApp Tampines</a></li>
-            <li><a href="https://wa.me/6596277582" target="_blank">WhatsApp JW / LQ</a></li>
-            <li><a href="pages/trial.html">Book Trial</a></li>
+            <li><a href="https://wa.me/6589222848">Tengah Branch</a></li>
+            <li><a href="https://wa.me/6588921198">Tampines Branch</a></li>
+            <li><a href="https://wa.me/6596277582">Jurong West / JP</a></li>
+            <li><a href="pages/contact.html">Contact Form</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Liberal Music School. All rights reserved.</p>
-        <p class="footer-copy">Singapore · ABRSM Certified</p>
+        <p>© 2025 Liberal Music & Arts School. All rights reserved.</p>
+        <p><a href="index-zh.html">中文版本</a></p>
       </div>
     </div>
   </footer>
 
-  <!-- ══════════════ WA FLOAT ══════════════ -->
-  <div id="wa-float">
-    <div class="wa-menu" id="waMenu">
-      <div class="wa-menu-title">Choose a Branch</div>
-      <a href="https://wa.me/6589222848" target="_blank" class="wa-branch">
-        <div class="wa-branch-icon">📍</div>
-        <div>
-          <div class="wa-branch-name">Tengah</div>
-          <div class="wa-branch-num">+65 8922 2848</div>
-        </div>
+  <!-- ═══ FLOATING WHATSAPP ════════════════════════════════ -->
+  <div class="wa-float">
+    <div class="wa-float-popup" id="waPopup">
+      <h4>💬 Chat with Us!</h4>
+      <p>Choose your nearest branch to WhatsApp us directly.</p>
+      <a href="https://wa.me/6589222848" target="_blank" class="wa-option">
+        <span>🏡 Tengah Branch</span>
+        <span>8922 2848</span>
       </a>
-      <a href="https://wa.me/6588921198" target="_blank" class="wa-branch">
-        <div class="wa-branch-icon">📍</div>
-        <div>
-          <div class="wa-branch-name">Tampines</div>
-          <div class="wa-branch-num">+65 8892 1198</div>
-        </div>
+      <a href="https://wa.me/6588921198" target="_blank" class="wa-option">
+        <span>🌅 Tampines Branch</span>
+        <span>8892 1198</span>
       </a>
-      <a href="https://wa.me/6596277582" target="_blank" class="wa-branch">
-        <div class="wa-branch-icon">📍</div>
-        <div>
-          <div class="wa-branch-name">Jurong West / Le Quest</div>
-          <div class="wa-branch-num">+65 9627 7582</div>
-        </div>
+      <a href="https://wa.me/6596277582" target="_blank" class="wa-option">
+        <span>🌸 Jurong West / JP</span>
+        <span>9627 7582</span>
       </a>
     </div>
-    <div class="wa-bubble" id="waBubble" role="button" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </div>
+    <button class="wa-float-btn" id="waBtn" aria-label="WhatsApp us">💬</button>
   </div>
 
-  <!-- ══════════════ MOBILE STICKY BAR ══════════════ -->
-  <div id="mobile-bar">
-    <button class="mobile-bar-btn trial" onclick="window.location='pages/trial.html'">🎯 Book Trial</button>
-    <button class="mobile-bar-btn whatsapp" onclick="window.location='https://wa.me/6589222848'">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      WhatsApp
-    </button>
+  <!-- ═══ MOBILE STICKY CTA ════════════════════════════════ -->
+  <div class="mobile-sticky-cta">
+    <a href="pages/trial.html" class="btn btn-primary">🎵 Book Free Trial Class</a>
   </div>
 
+  <!-- ═══ JAVASCRIPT ════════════════════════════════════════ -->
   <script>
-    // Navbar scroll shadow
-    const nav = document.getElementById('navbar');
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // Mobile burger menu
-    const burger = document.getElementById('burgerBtn');
-    const menu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => {
-      menu.classList.toggle('open');
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
     });
-    document.addEventListener('click', e => {
-      if (!burger.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove('open');
+
+    // WhatsApp float
+    const waBtn = document.getElementById('waBtn');
+    const waPopup = document.getElementById('waPopup');
+    waBtn.addEventListener('click', () => {
+      waPopup.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.wa-float')) {
+        waPopup.classList.remove('open');
       }
     });
 
-    // WhatsApp float toggle
-    const waBubble = document.getElementById('waBubble');
-    const waMenu = document.getElementById('waMenu');
-    waBubble.addEventListener('click', () => {
-      waMenu.classList.toggle('open');
-    });
-    document.addEventListener('click', e => {
-      if (!document.getElementById('wa-float').contains(e.target)) {
-        waMenu.classList.remove('open');
-      }
-    });
-
-    // Testimonials carousel
-    const track = document.getElementById('testiTrack');
-    const cards = track.querySelectorAll('.testi-card');
-    let testiIndex = 0;
-    const visibleCount = () => window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-
-    function updateCarousel() {
-      const vc = visibleCount();
-      const maxIndex = Math.max(0, cards.length - vc);
-      if (testiIndex > maxIndex) testiIndex = maxIndex;
-      const cardWidth = cards[0].offsetWidth + 22;
-      track.style.transform = `translateX(-${testiIndex * cardWidth}px)`;
-    }
-
-    document.getElementById('testiNext').addEventListener('click', () => {
-      const vc = visibleCount();
-      const maxIndex = Math.max(0, cards.length - vc);
-      testiIndex = Math.min(testiIndex + 1, maxIndex);
-      updateCarousel();
-    });
-    document.getElementById('testiPrev').addEventListener('click', () => {
-      testiIndex = Math.max(testiIndex - 1, 0);
-      updateCarousel();
-    });
-    window.addEventListener('resize', updateCarousel);
-
-    // Scroll fade-up animation
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-    fadeEls.forEach(el => observer.observe(el));
+    reveals.forEach(el => observer.observe(el));
+
+    // Video placeholder
+    function openVideo() {
+      alert('Add your class video URL here!');
+    }
   </script>
 </body>
 </html>
