@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Book a Free Trial | Liberal Music &amp; Arts School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--pr:#EE7A33;--pr-h:#d96b27;--pr-lt:#FFF4ED;--tx:#1A1A1A;--sub:#4A4A4A;--mut:#777;--bg:#FFFAF5;--bg-s:#FEF6EE;--bdr:#EEDCCA;--dark:#1E1208;--fh:"Poppins",sans-serif;--fb:"Inter",sans-serif;--ease:.22s cubic-bezier(.4,0,.2,1);--max:1180px;--pill:999px;--rc:18px;--sh:0 2px 16px rgba(238,122,51,.08);--sh-h:0 8px 32px rgba(238,122,51,.20)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--tx);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.65;font-size:16px}
+a{text-decoration:none;color:inherit}ul,ol{list-style:none}img{max-width:100%;display:block}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--pr);border-radius:2px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px}
+@keyframes blob{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}33%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}66%{border-radius:50% 60% 30% 60%/30% 60% 70% 40%}}
+@keyframes pulseRing{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.3);opacity:0}}
+[data-anim]{opacity:0;transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+[data-anim].on{opacity:1;transform:none!important}
+[data-anim="up"]{transform:translateY(28px)}[data-anim="left"]{transform:translateX(36px)}[data-anim="right"]{transform:translateX(-36px)}[data-anim="zoom"]{transform:scale(.93)}
+[data-delay="1"]{transition-delay:.08s}[data-delay="2"]{transition-delay:.16s}[data-delay="3"]{transition-delay:.24s}[data-delay="4"]{transition-delay:.32s}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 28px;background:#fff;box-shadow:0 1px 0 var(--bdr),0 2px 16px rgba(0,0,0,.05)}
+.nav-in{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:8px}
+.nav-logo img{height:52px;width:auto;max-width:220px;object-fit:contain;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:0;margin-left:auto}
+.nav-a{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 11px;box-sizing:border-box;font-size:15px;font-weight:500;color:var(--tx);transition:color .2s ease;position:relative;white-space:nowrap;background:transparent!important;border:none!important;text-decoration:none}
+.nav-a:hover,.nav-a.active{color:var(--pr)}
+.nav-a::after{content:"";position:absolute;bottom:2px;left:11px;right:11px;height:2px;background:var(--pr);border-radius:1px;transform:scaleX(0);transform-origin:center;transition:transform .22s ease}
+.nav-a:hover::after,.nav-a.active::after{transform:scaleX(1)}
+.nav-act{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.lang-btn{display:inline-flex;align-items:center;justify-content:center;height:36px;min-width:52px;padding:0 14px;box-sizing:border-box;border-radius:8px;font-size:14px;font-weight:500;color:var(--sub);border:1.5px solid var(--bdr);background:transparent;cursor:pointer;transition:var(--ease);text-decoration:none;white-space:nowrap}
+.lang-btn:hover{color:var(--pr);border-color:var(--pr);background:var(--pr-lt)}
+.btn-contact{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 24px;box-sizing:border-box;font-size:15px;font-family:var(--fh);font-weight:600;background:var(--pr);color:#fff;border-radius:var(--pill);border:none;cursor:pointer;transition:var(--ease);text-decoration:none;white-space:nowrap}
+.btn-contact:hover{background:var(--pr-h);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin-left:auto}
+.hamburger span{display:block;width:22px;height:2px;background:var(--tx);border-radius:2px}
+.mob-nav{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;z-index:999;padding:12px;border-bottom:1px solid var(--bdr);box-shadow:0 8px 32px rgba(0,0,0,.10);flex-direction:column;gap:2px}
+.mob-nav.open{display:flex}
+.mob-nav .nav-a{display:block;padding:12px 16px;border-radius:10px;font-size:15px}
+.mob-nav .nav-act{flex-direction:row;padding:12px 16px 4px;border-top:1px solid var(--bdr);margin-top:4px;display:flex;gap:10px}
+.page-hero{position:relative;padding:116px 28px 56px;background:linear-gradient(160deg,#FFF6EE 0%,#FFFAF5 50%,#FEF4E8 100%);overflow:hidden}
+.blob{position:absolute;border-radius:50%;pointer-events:none;animation:blob 10s ease-in-out infinite}
+.b1{width:280px;height:280px;background:radial-gradient(circle,rgba(238,122,51,.14) 0%,transparent 70%);top:-50px;left:-50px;animation-duration:11s}
+.b2{width:200px;height:200px;background:radial-gradient(circle,rgba(192,57,43,.10) 0%,transparent 70%);top:10px;right:40px;animation-duration:8s;animation-delay:-3s}
+.page-hero .wrap{position:relative;z-index:2}
+.breadcrumb{font-size:14px;color:var(--mut);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.breadcrumb a{color:var(--mut);transition:color var(--ease)}.breadcrumb a:hover{color:var(--pr)}
+.page-h1{font-family:var(--fh);font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.025em;color:var(--tx);margin-bottom:10px}
+.page-sub{font-size:17px;color:var(--sub);max-width:600px;line-height:1.75}
+.sec-label{font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--pr);display:block;margin-bottom:8px}
+.cta-ban{background:var(--pr);padding:68px 28px;text-align:center;position:relative;overflow:hidden}
+.cta-ban::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.cta-ban h2{font-family:var(--fh);font-size:clamp(22px,3vw,36px);font-weight:800;color:#fff;margin-bottom:10px;position:relative;z-index:1}
+.cta-ban p{font-size:17px;color:rgba(255,255,255,.88);max-width:520px;margin:0 auto 32px;position:relative;z-index:1;line-height:1.75}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-w{font-size:15px;padding:13px 28px;background:#fff;color:var(--pr);border-radius:var(--pill);font-family:var(--fh);font-weight:700;border:none;cursor:pointer;transition:var(--ease);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-w:hover{background:var(--pr-lt);transform:translateY(-2px)}
+.btn-ow{font-size:15px;padding:12px 26px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);border-radius:var(--pill);font-family:var(--fh);font-weight:600;cursor:pointer;transition:var(--ease);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-ow:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.footer{background:var(--dark);padding:64px 28px 0;border-top:2px solid rgba(238,122,51,.18)}
+.fg{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1.2fr 1.5fr;gap:48px;padding-bottom:52px}
+.footer-logo img{height:52px;width:auto;margin-bottom:16px;opacity:1;filter:brightness(1.1)}
+.fdesc{color:rgba(255,255,255,.80);font-size:16px;line-height:1.85;margin-bottom:20px}
+.fcon a{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.82);font-size:16px;margin-bottom:10px;transition:color var(--ease)}
+.fcon a:hover{color:var(--pr)}
+.fcol h4{font-size:12px;font-weight:800;letter-spacing:.10em;text-transform:uppercase;color:var(--pr);margin-bottom:18px}
+.fcol ul li{margin-bottom:10px}
+.fcol ul li a{color:rgba(255,255,255,.85);font-size:16px;transition:color var(--ease),padding-left var(--ease);display:inline-block}
+.fcol ul li a:hover{color:var(--pr);padding-left:5px}
+.sub-row{display:flex}
+.sub-input{flex:1;padding:12px 16px;border:1px solid rgba(255,255,255,.22);border-right:none;border-radius:var(--pill) 0 0 var(--pill);background:rgba(255,255,255,.10);color:#fff;font-size:15px;outline:none}
+.sub-input::placeholder{color:rgba(255,255,255,.55)}
+.sub-btn{padding:12px 16px;background:var(--pr);border:none;border-radius:0 var(--pill) var(--pill) 0;cursor:pointer;color:#fff;display:flex;align-items:center;transition:var(--ease)}
+.sub-btn:hover{background:var(--pr-h)}
+.floc{display:flex;gap:10px;margin-bottom:14px}
+.fln{color:rgba(255,255,255,.92);font-size:15px;font-weight:600}
+.fls{color:rgba(255,255,255,.60);font-size:13px;margin-top:1px}
+.fbot{max-width:var(--max);margin:0 auto;padding:20px 0;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.fbot p{color:rgba(255,255,255,.60);font-size:14px}
+.fbot-l{display:flex;gap:20px}
+.fbot-l a{color:rgba(255,255,255,.60);font-size:14px;transition:color var(--ease)}
+.fbot-l a:hover{color:rgba(255,255,255,.92)}
+.fab{position:fixed;bottom:84px;right:20px;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.4);z-index:800;transition:var(--ease);overflow:visible}
+.fab::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(37,211,102,.4);animation:pulseRing 2s ease-in-out infinite}
+.fab:hover{transform:scale(1.1)}
+.mob-sticky{position:fixed;bottom:0;left:0;right:0;z-index:799;background:rgba(255,250,245,.97);backdrop-filter:blur(12px);border-top:1px solid var(--bdr);padding:10px 16px;padding-bottom:max(10px,env(safe-area-inset-bottom));display:none}
+.mob-sticky-in{max-width:400px;margin:0 auto;display:flex;gap:10px}
+.mob-btn{flex:1;border-radius:var(--pill);font-size:15px;padding:12px 16px;font-family:var(--fh);font-weight:600;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.mob-btn-pr{background:var(--pr);color:#fff}.mob-btn-wa{background:#25D366;color:#fff}
+@media(max-width:1024px){.fg{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:768px){.page-hero{padding:96px 20px 44px}.nav-links,.nav-act{display:none}.hamburger{display:flex}.mob-sticky{display:block}.fab{bottom:74px}.fg{grid-template-columns:1fr;gap:24px}.fbot{flex-direction:column;text-align:center}.cta-btns{flex-direction:column;align-items:center}}
+
+/* ── Contact Page Specific ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-form-wrap{background:#fff;border-radius:var(--rc);padding:40px;box-shadow:var(--sh);border:1px solid var(--bdr)}
+.contact-form-wrap h2{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.contact-form-wrap p{font-size:15px;color:var(--sub);margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--sub);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);color:var(--tx);background:#fff;outline:none;transition:border-color var(--ease)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--pr)}
+.form-group textarea{resize:vertical;min-height:110px}
+.btn-submit{width:100%;padding:14px;background:var(--pr);color:#fff;border:none;border-radius:var(--pill);font-family:var(--fh);font-weight:700;font-size:16px;cursor:pointer;transition:var(--ease)}
+.btn-submit:hover{background:var(--pr-h);transform:translateY(-1px)}
+.branch-card{background:#fff;border-radius:var(--rc);padding:28px;border:1px solid var(--bdr);box-shadow:var(--sh);transition:var(--ease);margin-bottom:20px}
+.branch-card:hover{box-shadow:var(--sh-h);border-color:rgba(238,122,51,.3);transform:translateY(-2px)}
+.branch-card:last-child{margin-bottom:0}
+.branch-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.branch-name{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--tx)}
+.branch-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);background:var(--pr-lt);color:var(--pr);white-space:nowrap}
+.branch-badge.soon{background:#f0f0f0;color:#999}
+.branch-addr{font-size:14px;color:var(--sub);line-height:1.6;margin-bottom:12px}
+.branch-hours{font-size:13px;color:var(--mut);margin-bottom:16px}
+.wa-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:#25D366;color:#fff;border-radius:var(--pill);font-size:14px;font-weight:600;font-family:var(--fh);transition:var(--ease)}
+.wa-btn:hover{background:#1fb959;transform:translateY(-1px)}
+@media(max-width:960px){.contact-grid{grid-template-columns:1fr;gap:40px}.form-row{grid-template-columns:1fr}}
+@media(max-width:600px){.contact-form-wrap{padding:24px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><a href="../index.html" class="nav-logo"><img src="../assets/logo.webp" alt="Liberal Music &amp; Arts School"/></a><ul class="nav-links"><li><a href="../index.html" class="nav-a" data-zh="首页">Home</a></li><li><a href="about.html" class="nav-a" data-zh="关于我们">About Us</a></li><li><a href="courses.html" class="nav-a" data-zh="课程">Courses</a></li><li><a href="instructors.html" class="nav-a" data-zh="讲师团队">Our Instructors</a></li><li><a href="blog.html" class="nav-a" data-zh="博客">Blog</a></li><li><a href="testimonial.html" class="nav-a" data-zh="学员评价">Testimonial</a></li><li><a href="career.html" class="nav-a" data-zh="加入我们">Career</a></li></ul><div class="nav-act"><a href="../index-zh.html" class="lang-btn" aria-label="切换到中文">中文</a><a href="contact.html" class="btn-contact active" data-zh="联系我们">Contact Us</a></div><button class="hamburger" id="hamburger"><span></span><span></span><span></span></button></div></nav>
+<div class="mob-nav" id="mobile-nav"><a href="../index.html" class="nav-a" data-zh="首页">Home</a><a href="about.html" class="nav-a" data-zh="关于我们">About Us</a><a href="courses.html" class="nav-a" data-zh="课程">Courses</a><a href="instructors.html" class="nav-a" data-zh="讲师团队">Our Instructors</a><a href="blog.html" class="nav-a" data-zh="博客">Blog</a><a href="testimonial.html" class="nav-a" data-zh="学员评价">Testimonial</a><a href="career.html" class="nav-a" data-zh="加入我们">Career</a><div class="nav-act"><a href="../index-zh.html" class="lang-btn" aria-label="切换到中文">中文</a><a href="contact.html" class="btn-contact" data-zh="联系我们">Contact Us</a></div>
+<section class="page-hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="wrap">
+    <div class="breadcrumb" data-anim="up"><a href="../index.html" data-zh="首页">Home</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg><span style="color:var(--pr);font-weight:500">Book a Trial</span></div>
+    <span class="sec-label" data-anim="up" data-delay="1">Free Trial Lesson</span>
+    <h1 class="page-h1" data-anim="up" data-delay="2">Book Your Free Trial Class</h1>
+    <p class="page-sub" data-anim="up" data-delay="3">Experience our teaching method firsthand. No commitment required — just show up and play.</p>
+  </div>
+</section>
+
+<section style="padding:64px 0 80px;background:#fff">
+  <div class="wrap" style="max-width:760px">
+
+    <div style="background:var(--bg-s);border:1px solid var(--bdr);border-radius:var(--rc);padding:40px 36px;margin-bottom:40px">
+      <h2 style="font-family:var(--fh);font-size:22px;font-weight:700;margin-bottom:8px;color:var(--tx)">What to Expect</h2>
+      <p style="color:var(--sub);margin-bottom:20px">Your free 30-minute trial lesson includes a brief assessment of your current level, a sample lesson with one of our instructors, and a personalised course recommendation.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px">
+        <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid var(--bdr);text-align:center">
+          <div style="font-size:28px;margin-bottom:8px">🎵</div>
+          <div style="font-weight:600;font-family:var(--fh);font-size:14px">30 Min Lesson</div>
+          <div style="font-size:13px;color:var(--mut);margin-top:4px">Fully personalized</div>
+        </div>
+        <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid var(--bdr);text-align:center">
+          <div style="font-size:28px;margin-bottom:8px">✅</div>
+          <div style="font-weight:600;font-family:var(--fh);font-size:14px">No Commitment</div>
+          <div style="font-size:13px;color:var(--mut);margin-top:4px">Completely free</div>
+        </div>
+        <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid var(--bdr);text-align:center">
+          <div style="font-size:28px;margin-bottom:8px">📍</div>
+          <div style="font-weight:600;font-family:var(--fh);font-size:14px">5 Locations</div>
+          <div style="font-size:13px;color:var(--mut);margin-top:4px">Across Singapore</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--bdr);border-radius:var(--rc);padding:40px 36px">
+      <h2 style="font-family:var(--fh);font-size:22px;font-weight:700;margin-bottom:24px;color:var(--tx)">Request Your Free Trial</h2>
+
+      <div style="display:grid;gap:20px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Full Name *</label>
+            <input type="text" placeholder="Your name" style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'"/>
+          </div>
+          <div>
+            <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Phone / WhatsApp *</label>
+            <input type="tel" placeholder="+65 XXXX XXXX" style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'"/>
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Email Address</label>
+          <input type="email" placeholder="your@email.com" style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'"/>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Instrument / Course *</label>
+          <select style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;background:#fff;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'">
+            <option value="">Select an instrument...</option>
+            <option>Piano</option>
+            <option>Guitar (Classical)</option>
+            <option>Guitar (Electric)</option>
+            <option>Violin</option>
+            <option>Drums / Percussion</option>
+            <option>Vocal / Singing</option>
+            <option>Bass Guitar</option>
+            <option>Ukulele</option>
+            <option>Music Theory</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Preferred Branch *</label>
+          <select style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;background:#fff;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'">
+            <option value="">Select a branch...</option>
+            <option>Tengah (Bukit Batok)</option>
+            <option>Tampines</option>
+            <option>Jurong West</option>
+            <option>Le Quest Mall</option>
+            <option>Jurong Point (Opening Soon)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Student Age / Level</label>
+          <select style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;background:#fff;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'">
+            <option value="">Select age group...</option>
+            <option>Child (4–7 years)</option>
+            <option>Child (8–12 years)</option>
+            <option>Teen (13–17 years)</option>
+            <option>Adult (18+)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx)">Anything to tell us?</label>
+          <textarea rows="3" placeholder="e.g. preferred days/times, current experience level..." style="width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:10px;font-size:15px;font-family:var(--fb);outline:none;box-sizing:border-box;resize:vertical;transition:.2s" onfocus="this.style.borderColor='var(--pr)'" onblur="this.style.borderColor='var(--bdr)'"></textarea>
+        </div>
+
+        <button onclick="handleSubmit(this)" style="width:100%;padding:16px;background:var(--pr);color:#fff;border:none;border-radius:var(--pill);font-size:16px;font-family:var(--fh);font-weight:700;cursor:pointer;transition:.2s;letter-spacing:.01em" onmouseover="this.style.background='var(--pr-h)'" onmouseout="this.style.background='var(--pr)'">
+          Book My Free Trial →
+        </button>
+
+        <p style="text-align:center;font-size:13px;color:var(--mut)">We'll reach out within 24 hours to confirm your slot. No payment required.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:32px">
+      <a href="https://wa.me/6589222848" target="_blank" style="display:flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:16px 20px;border-radius:12px;text-decoration:none;font-family:var(--fh);font-weight:600;font-size:14px;transition:.2s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="contact.html" style="display:flex;align-items:center;gap:12px;background:var(--pr-lt);color:var(--pr);padding:16px 20px;border-radius:12px;text-decoration:none;font-family:var(--fh);font-weight:600;font-size:14px;border:1.5px solid var(--bdr);transition:.2s" onmouseover="this.style.background='var(--bdr)'" onmouseout="this.style.background='var(--pr-lt)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Find a Branch
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-ban">
+  <div class="wrap" style="text-align:center">
+    <h2 data-anim="up">Ready to Start Your Musical Journey?</h2>
+    <p style="color:rgba(255,255,255,.85);margin-bottom:28px;font-size:16px" data-anim="up" data-delay="1">Join 20,000+ students who have learned with Liberal Music & Arts School.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="courses.html" class="btn-w">Explore Courses →</a>
+      <a href="contact.html" class="btn-ow">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="fg">
+<div><div class="footer-logo"><img src="../assets/logo.webp" alt="Liberal Music &amp; Arts School"/></div>
+<p class="fdesc">Liberal Music &amp; Arts School offers music and dance lessons in Singapore — piano, violin, drums, guitar, ukulele, vocals, Chinese instruments and dance, taught by expert instructors for all ages.</p>
+<div class="fcon"><a href="tel:+6591234567"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>+65 9123 4567</a><a href="mailto:hello@liberalmusic.sg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>hello@liberalmusic.sg</a></div></div>
+<div class="fcol"><h4>Discover</h4><ul><li><a href="../index.html" data-zh="首页">Home</a></li><li><a href="about.html" data-zh="关于我们">About Us</a></li><li><a href="courses.html" data-zh="课程">Courses</a></li><li><a href="instructors.html" data-zh="讲师团队">Our Instructors</a></li><li><a href="blog.html" data-zh="博客">Blog</a></li><li><a href="testimonial.html" data-zh="学员评价">Testimonial</a></li><li><a href="career.html" data-zh="加入我们">Career</a></li></ul></div>
+<div class="fcol"><h4>Services</h4><ul><li><a href="courses.html">Piano Lessons</a></li><li><a href="courses.html">Violin Lessons</a></li><li><a href="courses.html">Guitar Lessons</a></li><li><a href="courses.html">Drum Lessons</a></li><li><a href="courses.html">Vocal Lessons</a></li><li><a href="courses.html">Ballet</a></li><li><a href="courses.html">Hip Hop Dance</a></li><li><a href="courses.html">Ballroom Dance</a></li></ul></div>
+<div class="fcol"><h4>Subscribe News</h4><p style="color:rgba(255,255,255,.70);font-size:15px;margin-bottom:12px">Get latest updates &amp; promotions.</p>
+<div class="sub-row"><input type="email" class="sub-input" placeholder="Please enter your email address"/><button class="sub-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></button></div>
+<div style="margin-top:20px"><div class="floc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Jurong West</div><div class="fls">Blk 505 Jurong West St 52</div></div></div><div class="floc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Bukit Batok</div><div class="fls">4 Bukit Batok St 41 (Le Quest)</div></div></div><div class="floc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Tengah</div><div class="fls">Tengah Plantation Loop</div></div></div><div class="floc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Jurong Point</div><div class="fls">1 Jurong West Central 2</div></div></div></div></div>
+</div><div class="fbot"><p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p><div class="fbot-l"><a href="../index.html" onclick="localStorage.setItem('lang','en')">English</a><a href="../index-zh.html" onclick="localStorage.setItem('lang','zh')">中文</a></div></div></footer>
+
+<a href="https://wa.me/+6589222848" target="_blank" rel="noopener noreferrer" class="fab" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+<div class="mob-sticky"><div class="mob-sticky-in"><a href="https://wa.me/+6589222848" target="_blank" rel="noopener noreferrer" class="mob-btn mob-btn-wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a><a href="trial.html" class="mob-btn mob-btn-pr">Book Trial</a></div></div>
+<script>
+var hb=document.getElementById('hamburger'),mn=document.getElementById('mobile-nav'),nav=document.querySelector('.nav');
+if(hb&&mn){hb.addEventListener('click',function(){mn.classList.toggle('open')});document.addEventListener('click',function(e){if(nav&&!nav.contains(e.target)&&!mn.contains(e.target))mn.classList.remove('open')});mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open')})}); }
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-anim]').forEach(function(el){obs.observe(el)});
+function handleSubmit(e){e.preventDefault();var btn=e.target.querySelector('.btn-submit');btn.textContent='&#10003; Message Sent!';btn.style.background='#27ae60';setTimeout(function(){btn.textContent='&#128140; Send Message';btn.style.background='';e.target.reset();},3000);}
+</script>
+</body>
+</html>
+<script>
+function handleSubmit(btn) {
+  btn.textContent = '✓ Request Sent!';
+  btn.style.background = '#22c55e';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Book My Free Trial →';
+    btn.style.background = 'var(--pr)';
+    btn.disabled = false;
+  }, 3000);
+}
+
+// Scroll animation
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+  });
+}, {threshold:.12});
+document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+
+// Hamburger
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobile-nav');
+if(ham && mob) {
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+}
+
+// Sticky nav
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
+}, {passive:true});
+</script>
+</body></html>
