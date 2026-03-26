@@ -335,6 +335,53 @@ section{padding:100px 0}
 .trust-card p{font-size:14px;line-height:1.68}
 
 /* ╔═══════════════════════════════════════════════════════╗
+   ║  STATS STRIP                                          ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.stats-strip{
+  background:#1F2A44;          /* same dark navy as footer */
+  padding:0;
+  position:relative;
+}
+/* Diagonal top-left slice into strip */
+.stats-strip::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:28px;
+  background:var(--s1);        /* matches "Why Parents" section above */
+  clip-path:polygon(0 0,100% 0,100% 100%,0 0);
+  pointer-events:none;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.stat-cell{
+  text-align:center;
+  padding:52px 24px 48px;
+  border-right:1px solid rgba(255,255,255,.07);
+  transition:background .22s;
+  position:relative;
+}
+.stat-cell:last-child{border-right:none}
+.stat-cell:hover{background:rgba(255,255,255,.04)}
+.stat-icon{font-size:2rem;margin-bottom:12px;display:block}
+.stat-num{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:clamp(2.4rem,4vw,3.2rem);
+  line-height:1;color:#fff;
+  margin-bottom:10px;display:block;
+}
+.stat-num .acc{color:var(--or)}  /* orange + and % only */
+.stat-label{
+  font-family:'Nunito',sans-serif;font-weight:700;
+  font-size:15px;color:rgba(255,255,255,.85);
+  display:block;margin-bottom:4px;
+}
+.stat-sub{
+  font-size:13px;color:rgba(255,255,255,.40);
+  font-weight:500;
+}
+
+/* ╔═══════════════════════════════════════════════════════╗
    ║  3. COURSES                                           ║
    ╚═══════════════════════════════════════════════════════╝ */
 .courses{background:var(--s2)}
@@ -390,82 +437,138 @@ section{padding:100px 0}
 /* ╔═══════════════════════════════════════════════════════╗
    ║  5. BRANCHES                                          ║
    ╚═══════════════════════════════════════════════════════╝ */
-.branches{background:var(--s2)}
-/* 5-card responsive grid: 3+2 on wide, adapts down */
+.branches{background:#fff7f2;padding:100px 0}
+
+/* 5-card layout: 3 top row, 2 bottom row centred */
 .branch-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:24px;
 }
 .branch-grid-row2{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:22px;
-  margin-top:22px;
-  max-width:calc(66.66% + 11px);  /* match 2-of-3 width */
+  gap:24px;
+  margin-top:24px;
+  max-width:66.5%;
   margin-left:auto;
   margin-right:auto;
 }
+
+/* Base card */
 .bc{
-  background:var(--w);border-radius:18px;padding:28px 26px;
-  box-shadow:0 4px 20px rgba(31,42,68,.08);
-  border:1.5px solid #EEF3FA;
-  transition:all var(--t) var(--sp);
-  display:flex;flex-direction:column;
+  background:#fff;
+  border-radius:22px;
+  padding:32px 28px;
+  box-shadow:0 6px 24px rgba(31,42,68,.07),0 1px 4px rgba(31,42,68,.04);
+  border:1.5px solid rgba(255,102,0,.08);
+  display:flex;flex-direction:column;gap:0;
+  transition:transform .22s var(--sp),box-shadow .22s var(--sp),border-color .18s;
+  position:relative;overflow:hidden;
 }
-.bc:hover{border-color:var(--or);background:var(--or-lt);transform:translateY(-6px);box-shadow:var(--or-sh)}
-.bc-ico{
-  width:54px;height:54px;border-radius:16px;
+/* Subtle top-edge orange line */
+.bc::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--or),#ffaa66);
+  border-radius:22px 22px 0 0;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s var(--sp);
+}
+.bc:hover::after{transform:scaleX(1)}
+.bc:hover{
+  transform:translateY(-7px);
+  box-shadow:0 16px 40px rgba(255,102,0,.13),0 4px 12px rgba(31,42,68,.06);
+  border-color:rgba(255,102,0,.22);
+}
+
+/* Pin + name row */
+.bc-pin-row{
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:16px;
+}
+.bc-pin{
+  width:42px;height:42px;border-radius:14px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  font-size:26px;margin-bottom:18px;
-  transition:transform var(--t) var(--sp);
+  font-size:20px;
+  transition:transform .22s var(--sp);
 }
-.bc:hover .bc-ico{transform:scale(1.1)}
-.bi-1{background:var(--teal)}
-.bi-2{background:var(--lem)}
-.bi-3{background:var(--blush)}
-.bi-4{background:var(--lav)}
+.bc:hover .bc-pin{transform:scale(1.1)}
+.bi-1{background:linear-gradient(135deg,#B8F2E6,#8ae8d0)}
+.bi-2{background:linear-gradient(135deg,#FFF3B0,#f5d85a)}
+.bi-3{background:linear-gradient(135deg,#FFD6E0,#ffaabf)}
+.bi-4{background:linear-gradient(135deg,#E8E4FF,#c4bdff)}
 .bi-5{background:linear-gradient(135deg,#FFE8D0,#FFD0AA)}
-.bc h3{font-size:17px;font-weight:900;margin-bottom:6px;color:var(--ink)}
-.bc address{font-size:13.5px;line-height:1.65;color:var(--body);margin-bottom:14px}
-.bc-ph{
-  font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;
-  color:var(--ink);display:flex;align-items:center;gap:6px;margin-bottom:14px;
+
+/* Orange school name */
+.bc h3{
+  font-family:'Nunito',sans-serif;
+  font-size:16.5px;font-weight:900;
+  color:var(--or);
+  line-height:1.25;margin:0;
 }
-.bc-ph::before{content:'📱';font-size:13px}
+
+/* Clean address block */
+.bc-addr{
+  margin:14px 0 0;
+  display:flex;flex-direction:column;gap:4px;
+}
+.bc-addr-line{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13.5px;line-height:1.55;color:var(--body);
+}
+.bc-addr-line svg{
+  flex-shrink:0;margin-top:2px;
+  color:var(--or);opacity:.7;
+}
+
+/* WhatsApp CTA */
 .bc-wa{
   display:inline-flex;align-items:center;gap:7px;
   background:#E8FFF1;color:#1a8a45;
   font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;
-  padding:9px 16px;border-radius:999px;transition:background var(--t);
-  margin-top:auto;align-self:flex-start;
+  padding:9px 18px;border-radius:999px;
+  transition:background .18s,transform .18s var(--sp);
+  margin-top:22px;align-self:flex-start;
+  border:1px solid rgba(37,211,102,.2);
 }
-.bc-wa:hover{background:#C2FFDB}
-.bc-wa::before{content:'💬'}
-/* Coming Soon — Jurong Point card */
+.bc-wa:hover{background:#C2FFDB;transform:translateY(-1px)}
+.bc-wa::before{content:'💬';font-size:14px}
+
+/* ── Coming Soon card ── */
 .bc.coming-soon{
-  background:var(--or-lt);
-  border:2px dashed var(--or);
-  border-radius:18px;
+  background:#fff3ea;
+  border:2px dashed rgba(255,102,0,.45);
 }
 .bc.coming-soon:hover{
-  background:#FFE8D4;
-  border-color:var(--or-dk);
-  transform:translateY(-6px);
-  box-shadow:var(--or-sh);
+  background:#ffe8d4;
+  border-color:var(--or);
+  transform:translateY(-7px);
+  box-shadow:0 16px 40px rgba(255,102,0,.16);
 }
+.bc.coming-soon::after{display:none}
 .bc-badge{
-  display:inline-flex;align-items:center;gap:6px;
+  display:inline-flex;align-items:center;gap:5px;
   background:var(--or);color:#fff;
-  font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;
-  text-transform:uppercase;letter-spacing:1px;
-  padding:5px 13px;border-radius:999px;margin-bottom:14px;
-  align-self:flex-start;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:1.1px;
+  padding:5px 13px;border-radius:999px;
+  margin-bottom:16px;align-self:flex-start;
+  box-shadow:0 3px 10px rgba(255,102,0,.28);
 }
 .bc-soon-note{
-  font-size:13.5px;color:var(--or-dk);font-weight:600;
-  margin-top:auto;padding-top:12px;
+  font-size:13px;color:var(--or-dk);font-weight:600;
+  line-height:1.6;margin-top:14px;
 }
+.bc-notify{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--or);color:#fff;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;
+  padding:9px 18px;border-radius:999px;
+  transition:background .18s,transform .18s var(--sp),box-shadow .18s;
+  margin-top:18px;align-self:flex-start;
+  box-shadow:0 4px 14px rgba(255,102,0,.30);
+}
+.bc-notify:hover{background:var(--or-dk);transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,102,0,.38)}
 
 /* ╔═══════════════════════════════════════════════════════╗
    ║  6. PARENT REVIEWS                                    ║
@@ -520,66 +623,117 @@ section{padding:100px 0}
    ║  8. FOOTER                                            ║
    ╚═══════════════════════════════════════════════════════╝ */
 .footer{
-  background:var(--w);
-  border-top:1px solid #EEF3FA;
-  padding:72px 0 0;
+  background:#1F2A44;          /* dark navy — matches screenshot */
+  border-top:none;
+  padding:80px 0 0;
 }
-/* 3 columns: intro | nav | locations */
 .foot-grid{
   display:grid;
-  grid-template-columns:1.7fr 1fr 1.6fr;
-  gap:56px;
-  padding-bottom:56px;
-  border-bottom:1px solid #EEF3FA;
-  margin-bottom:30px;
+  grid-template-columns:1.8fr 1fr 1.7fr;
+  gap:60px;
+  padding-bottom:60px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:0;
 }
-.foot-brand img{height:52px;margin-bottom:20px}
-.foot-brand p{font-size:14.5px;line-height:1.82;color:var(--body);max-width:320px}
+/* Col 1 — brand */
+.foot-brand img{
+  height:56px;width:auto;
+  margin-bottom:22px;display:block;
+}
+.foot-brand p{
+  font-size:14px;line-height:1.82;
+  color:rgba(255,255,255,.52);max-width:300px;
+  margin-bottom:8px;
+}
+.foot-brand-contact{
+  display:flex;flex-direction:column;gap:7px;
+  margin-top:20px;
+}
+.foot-brand-contact a{
+  display:flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:600;
+  color:rgba(255,255,255,.48);
+  transition:color .18s;
+}
+.foot-brand-contact a:hover{color:var(--or)}
+.foot-brand-contact a::before{ font-size:14px;flex-shrink:0; }
+.foot-brand-contact a.email::before{content:'✉️'}
+.foot-brand-contact a.phone::before{content:'📞'}
 .foot-soc{display:flex;gap:9px;margin-top:24px}
 .foot-soc a{
-  width:38px;height:38px;border-radius:11px;
-  background:var(--s1);border:1px solid #EEF3FA;
+  width:38px;height:38px;border-radius:12px;
+  background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.10);
   display:flex;align-items:center;justify-content:center;font-size:16px;
-  transition:background var(--t),border-color var(--t);
+  transition:background .18s,border-color .18s,transform .18s var(--sp);
 }
-.foot-soc a:hover{background:var(--or-lt);border-color:var(--or)}
+.foot-soc a:hover{background:rgba(255,102,0,.30);border-color:var(--or);transform:translateY(-2px)}
 
-/* Column headings — orange per spec */
+/* Col 2 & 3 headings — white, uppercase */
 .foot-col h5{
-  font-family:'Nunito',sans-serif;font-weight:900;font-size:13px;
-  text-transform:uppercase;letter-spacing:1.2px;
-  color:var(--or);margin-bottom:20px;
+  font-family:'Nunito',sans-serif;font-weight:900;font-size:12.5px;
+  text-transform:uppercase;letter-spacing:1.4px;
+  color:#fff;margin-bottom:22px;
+  display:flex;align-items:center;gap:7px;
 }
+.foot-col h5::after{
+  content:'';flex:1;height:1px;
+  background:rgba(255,255,255,.12);
+}
+/* Nav column */
 .foot-col ul{display:flex;flex-direction:column;gap:10px}
-.foot-col a{font-size:14px;color:var(--body);transition:color var(--t)}
-.foot-col a:hover{color:var(--or)}
+.foot-col a{
+  font-size:14px;
+  color:rgba(255,255,255,.52);
+  transition:color .18s,padding-left .18s;
+  display:block;
+}
+.foot-col a:hover{color:#fff;padding-left:4px}
 
-/* Locations column — two mini-cards per row */
-.foot-locs{display:flex;flex-direction:column;gap:10px}
+/* Locations list */
+.foot-locs{display:flex;flex-direction:column;gap:8px}
 .foot-loc{
-  display:flex;flex-direction:column;gap:2px;
-  padding:12px 14px;border-radius:12px;
-  background:var(--s1);border:1px solid #EEF3FA;
-  transition:all var(--t);
+  display:grid;
+  grid-template-columns:18px 1fr;
+  gap:9px;
+  align-items:flex-start;
+  padding:11px 13px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.07);
+  transition:background .18s,border-color .18s,transform .18s var(--sp);
 }
-.foot-loc:hover{background:var(--or-lt);border-color:var(--or)}
-.foot-loc strong{
+.foot-loc:hover{
+  background:rgba(255,102,0,.12);
+  border-color:rgba(255,102,0,.30);
+  transform:translateX(3px);
+}
+.foot-loc-pin{
+  color:var(--or);font-size:12px;
+  line-height:1.6;margin-top:1px;flex-shrink:0;
+}
+.foot-loc-text strong{
+  display:block;
   font-family:'Nunito',sans-serif;font-weight:800;
-  font-size:13.5px;color:var(--ink);
+  font-size:13px;color:rgba(255,255,255,.88);
+  margin-bottom:2px;
 }
-.foot-loc span{font-size:12px;color:var(--muted);line-height:1.5}
-.foot-loc.soon strong{color:var(--or)}
-.foot-loc.soon span{color:var(--or-dk);font-weight:600}
+.foot-loc-text span{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.5}
+.foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
+.foot-loc.soon .foot-loc-text strong{color:var(--or)}
+.foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
 
 /* Bottom bar */
 .foot-btm{
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:12px;
   padding:22px 0;
+  background:transparent;
 }
-.foot-btm p{font-size:13px;color:var(--muted)}
-.foot-btm a{font-size:13px;color:var(--muted);transition:color var(--t)}
-.foot-btm a:hover{color:var(--or)}
+.foot-btm p{font-size:13px;color:rgba(255,255,255,.35)}
+.foot-btm-links{display:flex;gap:20px;align-items:center}
+.foot-btm a{font-size:13px;color:rgba(255,255,255,.35);transition:color .18s}
+.foot-btm a:hover{color:#fff}
 
 /* ╔═══════════════════════════════════════════════════════╗
    ║  FLOATING WHATSAPP                                    ║
@@ -621,11 +775,15 @@ section{padding:100px 0}
   .hero-grid{grid-template-columns:1fr;gap:48px}
   .hero-vis{order:-1;max-width:460px;margin:0 auto}
   .fc-a{left:-8px}.fc-b{right:-8px}
-  /* Branches: all 5 in 2-col grid on tablet */
+  /* Stats strip: 2x2 on tablet */
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  /* Branches — all 5 in 2-col on tablet */
   .branch-grid{grid-template-columns:repeat(2,1fr)}
   .branch-grid-row2{grid-template-columns:repeat(2,1fr);max-width:100%;margin-left:0;margin-right:0}
-  .rev-inner{grid-template-columns:1fr}
+  /* Footer — stack to 2-col */
   .foot-grid{grid-template-columns:1fr 1fr}
+  .rev-inner{grid-template-columns:1fr}
   .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
   .nav-ham{display:flex}
   .mob-bar{display:block}
@@ -635,9 +793,11 @@ section{padding:100px 0}
 }
 @media(max-width:700px){
   .foot-grid{grid-template-columns:1fr}
+  .foot-brand{border-bottom:1px solid rgba(255,102,0,.1);padding-bottom:28px}
 }
 @media(max-width:540px){
   .trust-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
   .branch-grid{grid-template-columns:1fr}
   .branch-grid-row2{grid-template-columns:1fr}
   .teacher-grid{grid-template-columns:1fr}
@@ -806,6 +966,44 @@ section{padding:100px 0}
 </section>
 
 
+<!-- ════════ STATS STRIP ════════ -->
+<section class="stats-strip" aria-label="Key statistics">
+  <div class="W">
+    <div class="stats-grid">
+
+      <div class="stat-cell sr">
+        <span class="stat-icon">🎓</span>
+        <span class="stat-num" data-count="500">500<span class="acc">+</span></span>
+        <span class="stat-label">Students Enrolled</span>
+        <span class="stat-sub">and growing every term</span>
+      </div>
+
+      <div class="stat-cell sr d1">
+        <span class="stat-icon">📅</span>
+        <span class="stat-num">10<span class="acc">+</span></span>
+        <span class="stat-label">Years of Excellence</span>
+        <span class="stat-sub">trusted since 2014</span>
+      </div>
+
+      <div class="stat-cell sr d2">
+        <span class="stat-icon">📍</span>
+        <span class="stat-num">4</span>
+        <span class="stat-label">Branches in Singapore</span>
+        <span class="stat-sub">always close to you</span>
+      </div>
+
+      <div class="stat-cell sr d3">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-num">98<span class="acc">%</span></span>
+        <span class="stat-label">Parent Satisfaction</span>
+        <span class="stat-sub">5-star rated school</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ════════ 3. COURSES ════════ -->
 <section class="courses" id="programs">
   <div class="W">
@@ -968,45 +1166,80 @@ section{padding:100px 0}
 
     <!-- Row 1: 3 cards -->
     <div class="branch-grid">
+
       <div class="bc sr">
-        <div class="bc-ico bi-1">🏡</div>
-        <h3>Tengah Music School</h3>
-        <address>127A Plantation Crescent<br>#01-381 Singapore 691127</address>
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-1">🏡</div>
+          <h3>Tengah Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+          </div>
+        </div>
         <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
       </div>
+
       <div class="bc sr d1">
-        <div class="bc-ico bi-2">🌅</div>
-        <h3>Tampines Music School</h3>
-        <address>Blk 139 Tampines Street 11<br>#01-60 Singapore 521139</address>
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-2">🌅</div>
+          <h3>Tampines Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Blk 139 Tampines Street 11, #01-60<br>Singapore 521139</span>
+          </div>
+        </div>
         <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
       </div>
+
       <div class="bc sr d2">
-        <div class="bc-ico bi-3">🌿</div>
-        <h3>Jurong West Music School</h3>
-        <address>Blk 492 Jurong West Street 41<br>#01-10 Singapore 640492</address>
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-3">🌿</div>
+          <h3>Jurong West Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Blk 492 Jurong West Street 41, #01-10<br>Singapore 640492</span>
+          </div>
+        </div>
         <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
       </div>
+
     </div>
 
     <!-- Row 2: 2 cards centred -->
     <div class="branch-grid-row2">
+
       <div class="bc sr d1">
-        <div class="bc-ico bi-4">🏢</div>
-        <h3>Le Quest Mall</h3>
-        <address>4 Bukit Batok Street 41<br>#01-83 Singapore 657991</address>
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-4">🏢</div>
+          <h3>Le Quest Mall Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>4 Bukit Batok Street 41, #01-83<br>Singapore 657991</span>
+          </div>
+        </div>
         <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
       </div>
-      <!-- Jurong Point — Coming Soon: dashed orange border highlight -->
-      <div class="bc coming-soon sr d2">
-        <div class="bc-ico bi-5">🎵</div>
-        <span class="bc-badge">✦ Opening Soon</span>
-        <h3>Jurong Point</h3>
-        <address>Jurong Point Shopping Mall<br>Singapore</address>
-        <p class="bc-soon-note">Stay tuned — we're coming to Jurong Point! Register your interest below.</p>
-        <a href="pages/contact.html" style="margin-top:16px;" class="bc-wa" onclick="">Get Notified →</a>
-      </div>
-    </div>
 
+      <!-- Jurong Point — Coming Soon -->
+      <div class="bc coming-soon sr d2">
+        <span class="bc-badge">✦ Opening Soon</span>
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-5">🎵</div>
+          <h3>Jurong Point Music School</h3>
+        </div>
+        <p class="bc-soon-note">We're coming to Jurong Point! Register your interest and be the first to know when we open.</p>
+        <a href="pages/contact.html" class="bc-notify">Get Notified →</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1108,11 +1341,15 @@ section{padding:100px 0}
   <div class="W">
     <div class="foot-grid">
 
-      <!-- Column 1: School intro -->
+      <!-- Column 1: School intro + contact -->
       <div class="foot-brand">
         <img src="assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
              onerror="this.src='assets/logo.webp'"/>
-        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and art in children across Singapore. Expert teachers. Holistic learning. Real results since 2014.</p>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+        <div class="foot-brand-contact">
+          <a href="mailto:hello@liberalmusic.sg" class="email">hello@liberalmusic.sg</a>
+          <a href="tel:+6589222848" class="phone">+65 8922 2848</a>
+        </div>
         <div class="foot-soc">
           <a href="#" aria-label="Facebook">📘</a>
           <a href="#" aria-label="Instagram">📸</a>
@@ -1132,33 +1369,55 @@ section{padding:100px 0}
           <li><a href="pages/testimonial.html">Review</a></li>
           <li><a href="pages/blog.html">Blog</a></li>
           <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="pages/trial.html" style="color:var(--or);font-weight:700;">✦ Free Trial Class</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: All 5 locations -->
+      <!-- Column 3: All 5 locations with pin icons -->
       <div class="foot-col">
         <h5>Our Locations</h5>
         <div class="foot-locs">
+
           <div class="foot-loc">
-            <strong>🏡 Tengah</strong>
-            <span>127A Plantation Crescent, #01-381, S691127</span>
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Tengah Music School</strong>
+              <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+            </div>
           </div>
+
           <div class="foot-loc">
-            <strong>🌅 Tampines</strong>
-            <span>Blk 139 Tampines St 11, #01-60, S521139</span>
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Tampines Music School</strong>
+              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+            </div>
           </div>
+
           <div class="foot-loc">
-            <strong>🌿 Jurong West</strong>
-            <span>Blk 492 Jurong West St 41, #01-10, S640492</span>
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Jurong West Music School</strong>
+              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+            </div>
           </div>
+
           <div class="foot-loc">
-            <strong>🏢 Le Quest Mall</strong>
-            <span>4 Bukit Batok St 41, #01-83, S657991</span>
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Le Quest Mall Music School</strong>
+              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+            </div>
           </div>
+
           <div class="foot-loc soon">
-            <strong>✦ Jurong Point</strong>
-            <span>Opening Soon — Stay Tuned!</span>
+            <span class="foot-loc-pin">✦</span>
+            <div class="foot-loc-text">
+              <strong>Jurong Point Music School</strong>
+              <span>Opening Soon — Register Interest</span>
+            </div>
           </div>
+
         </div>
       </div>
 
@@ -1166,7 +1425,7 @@ section{padding:100px 0}
 
     <div class="foot-btm">
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
-      <div style="display:flex;gap:22px;align-items:center;">
+      <div class="foot-btm-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
         <a href="index-zh.html">中文版本</a>
@@ -1295,6 +1554,29 @@ section{padding:100px 0}
   modal?.addEventListener('click', e => { if (e.target === modal) closeM(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
   window.openVideo = openM;
+
+  /* Count-up for stats strip */
+  function countUp(el, target, dur) {
+    const acc = el.querySelector('.acc');
+    if (!acc) return;
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = p < .5 ? 2*p*p : -1+(4-2*p)*p; // ease-in-out quad
+      el.firstChild.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.firstChild.textContent = target;
+    })(t0);
+  }
+  const cntIO = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const t = parseInt(en.target.dataset.count, 10);
+      if (!isNaN(t)) countUp(en.target, t, 1800);
+      cntIO.unobserve(en.target);
+    });
+  }, { threshold: .5 });
+  document.querySelectorAll('[data-count]').forEach(el => cntIO.observe(el));
 
 })();
 </script>
