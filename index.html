@@ -133,10 +133,12 @@ section{padding:100px 0}
 /* ╔═══════════════════════════════════════════════════════╗
    ║  SCROLL REVEAL                                        ║
    ╚═══════════════════════════════════════════════════════╝ */
-.sr {opacity:0;transform:translateY(28px);transition:opacity .7s var(--sp),transform .7s var(--sp)}
-.sl {opacity:0;transform:translateX(-28px);transition:opacity .7s var(--sp),transform .7s var(--sp)}
-.sfr{opacity:0;transform:translateX(28px);transition:opacity .7s var(--sp),transform .7s var(--sp)}
-.sr.in,.sl.in,.sfr.in{opacity:1;transform:none}
+.sr  {opacity:0;transform:translateY(28px); transition:opacity .7s var(--sp),transform .7s var(--sp)}
+.sl  {opacity:0;transform:translateX(-28px);transition:opacity .7s var(--sp),transform .7s var(--sp)}
+.sfr {opacity:0;transform:translateX(28px); transition:opacity .7s var(--sp),transform .7s var(--sp)}
+.sr.in  {opacity:1 !important;transform:none !important}
+.sl.in  {opacity:1 !important;transform:none !important}
+.sfr.in {opacity:1 !important;transform:none !important}
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}
 .d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
 
@@ -1497,16 +1499,16 @@ section{padding:100px 0}
     entries.forEach(en => {
       if (en.isIntersecting) { en.target.classList.add('in'); rvIO.unobserve(en.target); }
     });
-  }, { threshold: .1, rootMargin: '0px 0px -28px 0px' });
+  }, { threshold: .05, rootMargin: '0px 0px -10px 0px' });
   document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
 
-  /* Hero stagger on load */
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
+  /* Hero stagger — fire immediately via rAF chain (DOMContentLoaded already past) */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       document.querySelectorAll('.hero-copy .sr').forEach((el, i) => {
-        setTimeout(() => el.classList.add('in'), i * 95);
+        setTimeout(() => el.classList.add('in'), i * 110);
       });
-    }, 80);
+    });
   });
 
   /* Hero 3D tilt */
