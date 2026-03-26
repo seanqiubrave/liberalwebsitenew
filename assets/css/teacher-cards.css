@@ -1,0 +1,313 @@
+/* ═══════════════════════════════════════════════════════════
+   TEACHER CARDS  —  Art Bible: White cards, 20px radius,
+   soft shadow, hover lift, #1F2A44 names, #5A6B85 bios
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Grid container ──────────────────────────────────────── */
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 28px;
+  margin-top: 0;
+}
+
+/* ── Card shell ──────────────────────────────────────────── */
+.tc {
+  background: #FFFFFF;
+  border-radius: 20px;                          /* Art Bible: 20px */
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(31, 42, 68, .08);
+  border: 1.5px solid rgba(255, 102, 0, .07);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform  .22s cubic-bezier(.22,1,.36,1),
+    box-shadow .22s cubic-bezier(.22,1,.36,1);
+  position: relative;
+}
+/* Hover: lift + orange glow shadow */
+.tc:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 48px rgba(255, 102, 0, .14),
+    0  6px 18px rgba(31,  42,  68, .06);
+}
+/* Orange top accent — sweeps in on hover */
+.tc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #FF6600, #FF9940);
+  border-radius: 20px 20px 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s cubic-bezier(.22,1,.36,1);
+}
+.tc:hover::before { transform: scaleX(1); }
+
+/* ── Photo area ──────────────────────────────────────────── */
+.tc-photo {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tc-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s cubic-bezier(.22,1,.36,1);
+  display: block;
+}
+.tc:hover .tc-photo img { transform: scale(1.06); }
+
+/* Fallback emoji placeholder */
+.tc-fallback {
+  font-size: 72px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gradient overlay on hover */
+.tc-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(31, 42, 68, .22) 0%,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity .22s;
+}
+.tc:hover .tc-overlay { opacity: 1; }
+
+/* Per-teacher background gradients (Art Bible accent palette) */
+.tc-bg-cecily  { background: linear-gradient(135deg, #B8F2E6, #D4EDFF); }
+.tc-bg-calvin  { background: linear-gradient(135deg, #FFF3B0, #FFD6A0); }
+.tc-bg-kate    { background: linear-gradient(135deg, #FFD6E0, #FFF3B0); }
+.tc-bg-jiang   { background: linear-gradient(135deg, #E8E4FF, #D4EDFF); }
+.tc-bg-leonard { background: linear-gradient(135deg, #D4EDFF, #B8F2E6); }
+
+/* ── Card body ───────────────────────────────────────────── */
+.tc-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+/* ── Instrument chips ────────────────────────────────────── */
+.tc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tc-chip {
+  display: inline-block;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  color: #FF6600;                               /* Art Bible: orange accents */
+  background: #FFF4ED;
+  padding: 4px 11px;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+
+/* ── Name — Art Bible: #1F2A44 ───────────────────────────── */
+.tc-name {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #1F2A44;                               /* Art Bible: text color */
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+
+/* ── Role ────────────────────────────────────────────────── */
+.tc-role {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FF6600;
+  margin: 0 0 14px;
+}
+
+/* ── Bio — Art Bible: #5A6B85 ───────────────────────────── */
+.tc-bio {
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: #5A6B85;                               /* Art Bible: body text */
+  margin: 0 0 14px;
+  flex: 1;
+}
+
+/* ── Qualifications list ────────────────────────────────── */
+.tc-quals {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.tc-quals li {
+  font-size: 12px;
+  color: #8FA2BC;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+.tc-quals li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #FF6600;
+  font-weight: 900;
+  font-size: 11px;
+}
+
+/* ── CTA button — Art Bible: pill, orange, scale 1.05 ───── */
+.tc-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: #FFFFFF;
+  background: #FF6600;
+  padding: 10px 20px;
+  border-radius: 999px;                         /* Art Bible: pill shape */
+  margin-top: auto;
+  align-self: flex-start;
+  box-shadow: 0 6px 18px rgba(255, 102, 0, .26);
+  transition:
+    background .2s ease,
+    transform   .2s ease,
+    box-shadow  .2s ease;
+  text-decoration: none;
+}
+.tc-cta:hover {
+  background: #E55900;
+  transform: scale(1.05);                       /* Art Bible: scale 1.05 */
+  box-shadow: 0 10px 28px rgba(255, 102, 0, .36);
+}
+.tc-cta:active { transform: scale(.98); }
+
+/* ══════════════════════════════════════════════════════════
+   AEO QUICK FACTS BLOCK
+══════════════════════════════════════════════════════════ */
+.aeo-block {
+  background: #FFF7F2;                          /* Art Bible: warm bg */
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin-top: 72px;
+  border: 1.5px solid rgba(255, 102, 0, .10);
+}
+.aeo-title {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #1F2A44;
+  margin-bottom: 18px;
+}
+.aeo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px 28px;
+  padding: 0;
+  list-style: none;
+}
+.aeo-list li {
+  font-size: 14px;
+  color: #5A6B85;
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+.aeo-list li::before {
+  content: '📌';
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  top: 2px;
+}
+.aeo-list li strong {
+  color: #1F2A44;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FAQ BLOCK
+══════════════════════════════════════════════════════════ */
+.faq-block {
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid rgba(31, 42, 68, .08);
+}
+.faq-title {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: #1F2A44;
+  margin-bottom: 28px;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.faq-item {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 22px 26px;
+  box-shadow: 0 3px 12px rgba(31, 42, 68, .06);
+  border: 1px solid rgba(255, 102, 0, .08);
+}
+.faq-item dt {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: #1F2A44;
+  margin-bottom: 8px;
+}
+.faq-item dd {
+  font-size: 14px;
+  color: #5A6B85;
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .teacher-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 540px) {
+  .teacher-grid {
+    grid-template-columns: 1fr;
+  }
+  .aeo-block {
+    padding: 28px 22px;
+  }
+  .aeo-list {
+    grid-template-columns: 1fr;
+  }
+}

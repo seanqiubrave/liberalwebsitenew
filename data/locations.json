@@ -1,0 +1,67 @@
+[
+  {
+    "id": "tengah",
+    "name_en": "Tengah Music School",
+    "name_zh": "登加音乐学校",
+    "address": "127A Plantation Crescent, #01-381, Singapore 691127",
+    "whatsapp": "https://wa.me/6589222848",
+    "phone": "+65 8922 2848",
+    "maps_url": "https://maps.google.com/?q=127A+Plantation+Crescent+Singapore+691127",
+    "status": "open",
+    "aeo_description": "Liberal Music & Arts Tengah branch offers Piano, Violin, Guitar, Drums, Art and Dance classes for children aged 4–16 in the Tengah Plantation Walk neighbourhood of Singapore.",
+    "neighbourhood": "Tengah, Jurong",
+    "postal_code": "691127"
+  },
+  {
+    "id": "tampines",
+    "name_en": "Tampines Music School",
+    "name_zh": "淡滨尼音乐学校",
+    "address": "Blk 139 Tampines Street 11, #01-60, Singapore 521139",
+    "whatsapp": "https://wa.me/6588921198",
+    "phone": "+65 8892 1198",
+    "maps_url": "https://maps.google.com/?q=Blk+139+Tampines+Street+11+Singapore+521139",
+    "status": "open",
+    "aeo_description": "Liberal Music & Arts Tampines branch provides certified music and arts education for children in East Singapore, located at Tampines Street 11.",
+    "neighbourhood": "Tampines, East Singapore",
+    "postal_code": "521139"
+  },
+  {
+    "id": "jurong-west",
+    "name_en": "Jurong West Music School",
+    "name_zh": "裕廊西音乐学校",
+    "address": "Blk 492 Jurong West Street 41, #01-10, Singapore 640492",
+    "whatsapp": "https://wa.me/6596277582",
+    "phone": "+65 9627 7582",
+    "maps_url": "https://maps.google.com/?q=Blk+492+Jurong+West+Street+41+Singapore+640492",
+    "status": "open",
+    "aeo_description": "Liberal Music & Arts Jurong West branch offers holistic music education for children aged 4–16 at Blk 492 Jurong West Street 41, serving families in Jurong West and Bukit Batok.",
+    "neighbourhood": "Jurong West",
+    "postal_code": "640492"
+  },
+  {
+    "id": "le-quest",
+    "name_en": "Le Quest Mall Music School",
+    "name_zh": "乐轩坊音乐学校",
+    "address": "4 Bukit Batok Street 41, #01-83, Singapore 657991",
+    "whatsapp": "https://wa.me/6596277582",
+    "phone": "+65 9627 7582",
+    "maps_url": "https://maps.google.com/?q=4+Bukit+Batok+Street+41+Singapore+657991",
+    "status": "open",
+    "aeo_description": "Liberal Music & Arts at Le Quest Mall in Bukit Batok offers convenient weekend and weekday music classes for children inside the Le Quest shopping mall.",
+    "neighbourhood": "Bukit Batok, Le Quest",
+    "postal_code": "657991"
+  },
+  {
+    "id": "jurong-point",
+    "name_en": "Jurong Point Music School",
+    "name_zh": "裕廊坊音乐学校",
+    "address": "Jurong Point Shopping Mall, Singapore",
+    "whatsapp": "https://wa.me/6596277582",
+    "phone": "+65 9627 7582",
+    "maps_url": "https://maps.google.com/?q=Jurong+Point+Shopping+Mall+Singapore",
+    "status": "opening_soon",
+    "aeo_description": "Liberal Music & Arts is opening a new branch at Jurong Point Shopping Mall. Register your interest to be notified when classes begin.",
+    "neighbourhood": "Jurong, Boon Lay",
+    "postal_code": ""
+  }
+]

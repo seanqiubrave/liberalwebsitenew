@@ -1,0 +1,98 @@
+{% comment %}
+  /_includes/card-teacher.html
+  Usage:  {% include card-teacher.html teacher=teacher lang=page.lang %}
+  Expects: teacher  — a single object from _data/teachers.json
+            lang    — "en" or "zh" (falls back to "en")
+{% endcomment %}
+
+{% assign t    = include.teacher %}
+{% assign lang = include.lang | default: "en" %}
+
+{% if lang == "zh" %}
+  {% assign t_name  = t.name_zh %}
+  {% assign t_role  = t.role_zh %}
+  {% assign t_bio   = t.bio_zh %}
+  {% assign t_instr = t.instruments_zh %}
+  {% assign cta_label = "免费试课" %}
+{% else %}
+  {% assign t_name  = t.name_en %}
+  {% assign t_role  = t.role_en %}
+  {% assign t_bio   = t.bio_en %}
+  {% assign t_instr = t.instruments %}
+  {% assign cta_label = "Book Free Trial" %}
+{% endif %}
+
+<!-- Person Schema JSON-LD — feeds GEO/AEO scrapers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ t.name_en }}",
+  "jobTitle": "{{ t.role_en }}",
+  "description": "{{ t.bio_en | strip_newlines | strip }}",
+  "worksFor": {
+    "@type": "MusicSchool",
+    "name": "Liberal Music & Arts School",
+    "url": "https://seanqiubrave.github.io/liberalwebsitenew/"
+  },
+  "knowsAbout": [{% for instr in t.instruments %}"{{ instr }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+  "image": "https://seanqiubrave.github.io/liberalwebsitenew{{ t.image }}"{% if t.schema_same_as != "" %},
+  "sameAs": "{{ t.schema_same_as }}"{% endif %}
+}
+</script>
+
+<article class="tc" id="teacher-{{ t.id }}" aria-label="{{ t_name }}, {{ t_role }}">
+
+  <!-- Photo -->
+  <div class="tc-photo tc-bg-{{ t.id }}">
+    <img
+      src="{{ t.image }}"
+      alt="{{ t_name }} — {{ t_role }} at Liberal Music &amp; Arts School"
+      loading="lazy"
+      width="320"
+      height="320"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <!-- Fallback placeholder shown if image 404s -->
+    <div class="tc-fallback" aria-hidden="true" style="display:none">
+      {{ t.image_placeholder }}
+    </div>
+    <div class="tc-overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- Body -->
+  <div class="tc-body">
+
+    <!-- Instrument chips -->
+    <div class="tc-chips" aria-label="Instruments taught">
+      {% for instr in t_instr %}
+        <span class="tc-chip">{{ instr }}</span>
+      {% endfor %}
+    </div>
+
+    <!-- Name + Role -->
+    <h3 class="tc-name">{{ t_name }}</h3>
+    <p class="tc-role">{{ t_role }}</p>
+
+    <!-- Bio -->
+    <p class="tc-bio">{{ t_bio }}</p>
+
+    <!-- Qualifications (collapsed by default) -->
+    <ul class="tc-quals" aria-label="Qualifications">
+      {% if lang == "en" %}
+        {% for q in t.qualifications_en %}
+          <li>{{ q }}</li>
+        {% endfor %}
+      {% else %}
+        {% for q in t.qualifications_en %}
+          <li>{{ q }}</li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+
+    <!-- CTA -->
+    <a href="/pages/trial.html" class="tc-cta btn-cta" aria-label="{{ cta_label }} with {{ t_name }}">
+      {{ cta_label }} →
+    </a>
+
+  </div>
+</article>
