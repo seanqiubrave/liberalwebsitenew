@@ -1347,7 +1347,7 @@ section{padding:100px 0}
              onerror="this.src='assets/logo.webp'"/>
         <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
         <div class="foot-brand-contact">
-          <a href="mailto:hello@liberalmusic.sg" class="email">hello@liberalmusic.sg</a>
+          <a href="/cdn-cgi/l/email-protection#6b030e0707042b0702090e190a07061e18020845180c" class="email"><span class="__cf_email__" data-cfemail="deb6bbb2b2b19eb2b7bcbbacbfb2b3abadb7bdf0adb9">[email&#160;protected]</span></a>
           <a href="tel:+6589222848" class="phone">+65 8922 2848</a>
         </div>
         <div class="foot-soc">
@@ -1426,6 +1426,7 @@ section{padding:100px 0}
     <div class="foot-btm">
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
+        <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
         <a href="index-zh.html">中文版本</a>
@@ -1463,7 +1464,7 @@ section{padding:100px 0}
 
 
 <!-- ════════ JS ════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function () {
   'use strict';
 
@@ -1571,14 +1572,4 @@ section{padding:100px 0}
   const cntIO = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
-      const t = parseInt(en.target.dataset.count, 10);
-      if (!isNaN(t)) countUp(en.target, t, 1800);
-      cntIO.unobserve(en.target);
-    });
-  }, { threshold: .5 });
-  document.querySelectorAll('[data-count]').forEach(el => cntIO.observe(el));
-
-})();
-</script>
-</body>
-</html>
+      const t = parseInt(en.target.d
