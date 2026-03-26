@@ -2,1072 +2,1581 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Liberal Music &amp; Arts School | Professional Music Education Singapore</title>
-<meta name="description" content="Singapore's leading private music academy since 2009. Piano, violin, drums, guitar, ukulele, vocals. 4 locations in Jurong."/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Singapore's most-loved music school for children aged 4–16. Piano, Violin, Guitar, Art, Dance. First trial class is FREE — no commitment needed."/>
+<title>Liberal Music &amp; Arts — Build Confidence, Creativity &amp; Joy Through Music</title>
+
+<!-- Nunito: joyful display · Quicksand: round, friendly body -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
 <style>
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  DESIGN TOKENS                                        ║
+   ╚═══════════════════════════════════════════════════════╝ */
 :root {
-  --pr: #EE7A33;
-  --pr-h: #d96b27;
-  --pr-lt: #FFF4ED;
-  --tx: #1A1A1A;
-  --sub: #555;
-  --mut: #888;
-  --bg: #FFFAF5;
-  --bg-s: #FEF6EE;
-  --bdr: #EEDCCA;
-  --dark: #1C1410;
-  --fh: 'Poppins', sans-serif;
-  --fb: 'Inter', sans-serif;
-  --ease: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-  --max: 1180px;
-  --pill: 999px;
-  --rc: 16px;
-  --sh: 0 2px 16px rgba(238,122,51,0.08);
-  --sh-h: 0 8px 32px rgba(238,122,51,0.20);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--fb); color: var(--tx); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; line-height: 1.65; }
-a { text-decoration: none; color: inherit; }
-ul, ol { list-style: none; }
-img { max-width: 100%; display: block; }
-button, input, select, textarea { font-family: inherit; }
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-thumb { background: var(--pr); border-radius: 2px; }
+  /* Brand orange — action signal ONLY */
+  --or:      #FF6600;
+  --or-dk:   #E55900;
+  --or-lt:   #FFF4ED;
+  --or-pale: #FFF7F2;
+  --or-glow: rgba(255,102,0,.16);
+  --or-sh:   0 12px 32px rgba(255,102,0,.22);
+  --or-shh:  0 16px 40px rgba(255,102,0,.34);
 
-/* ── Layout ── */
-.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-.sec { padding: 88px 0; }
-.sec-cream { background: var(--bg-s); }
-.sec-white { background: #fff; }
-.sec-orange { background: var(--pr); }
-.sec-dark { background: var(--dark); }
-.center { text-align: center; }
+  /* Surfaces */
+  --w:       #FFFFFF;
+  --s1:      #FFFAF5;   /* warm off-white sections */
+  --s2:      #F8FBFF;   /* cool off-white sections */
 
-/* ── Buttons ── */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--fh); font-weight: 600; border: none; cursor: pointer; transition: var(--ease); white-space: nowrap; text-decoration: none; line-height: 1; border-radius: var(--pill); }
-.btn:hover { transform: translateY(-2px) scale(1.02); }
-.btn:active { transform: none; }
-.btn-pr { font-size: 16px; padding: 15px 34px; background: var(--pr); color: #fff; box-shadow: 0 6px 22px rgba(238,122,51,0.32); }
-.btn-pr:hover { background: var(--pr-h); box-shadow: 0 10px 30px rgba(238,122,51,0.40); }
-.btn-dark { font-size: 14px; padding: 11px 24px; background: var(--dark); color: #fff; border-radius: var(--pill); }
-.btn-dark:hover { background: #2d1f14; }
-.btn-sm { font-size: 13px !important; padding: 9px 20px !important; }
-.btn-outline-w { font-size: 16px; padding: 15px 32px; background: transparent; color: #fff; border: 2px solid #fff; border-radius: var(--pill); }
-.btn-outline-w:hover { background: rgba(255,255,255,0.15); }
-.btn-wa { font-size: 15px; padding: 13px 26px; background: #25D366; color: #fff; border-radius: var(--pill); }
-.btn-wa:hover { background: #1fba58; }
+  /* Text */
+  --ink:     #1F2A44;
+  --body:    #5A6B85;
+  --muted:   #8FA2BC;
 
-/* ── Scroll Animations ── */
-[data-anim] { opacity: 0; will-change: transform, opacity; transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1); }
-[data-anim].visible { opacity: 1 !important; transform: none !important; }
-[data-anim="up"]    { transform: translateY(32px); }
-[data-anim="left"]  { transform: translateX(36px); }
-[data-anim="right"] { transform: translateX(-36px); }
-[data-anim="zoom"]  { transform: scale(0.92); }
-[data-delay="1"] { transition-delay: 0.08s; }
-[data-delay="2"] { transition-delay: 0.18s; }
-[data-delay="3"] { transition-delay: 0.28s; }
-[data-delay="4"] { transition-delay: 0.38s; }
-[data-delay="5"] { transition-delay: 0.48s; }
-[data-delay="6"] { transition-delay: 0.58s; }
-[data-anim="up"]    { transform: translateY(30px); }
-[data-anim="left"]  { transform: translateX(36px); }
-[data-anim="right"] { transform: translateX(-36px); }
-[data-anim="zoom"]  { transform: scale(0.92); }
-[data-delay="1"] { transition-delay: 0.08s; }
-[data-delay="2"] { transition-delay: 0.18s; }
-[data-delay="3"] { transition-delay: 0.28s; }
-[data-delay="4"] { transition-delay: 0.38s; }
-[data-delay="5"] { transition-delay: 0.48s; }
-[data-delay="6"] { transition-delay: 0.58s; }
+  /* Accent palette */
+  --teal:    #B8F2E6;
+  --sky:     #D4EDFF;
+  --blush:   #FFD6E0;
+  --lem:     #FFF3B0;
+  --lav:     #E8E4FF;
 
-/* ══════════════════════
-   NAVBAR
-══════════════════════ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: 80px; display: flex; align-items: center; padding: 0 32px;
-  background: #fff;
-  box-shadow: 0 1px 0 var(--bdr), 0 2px 16px rgba(0,0,0,0.05);
-  transition: box-shadow 0.22s ease;
-}
-.nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.10); }
-.nav-in { max-width: var(--max); margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 8px; }
+  /* System */
+  --r:       16px;
+  --r-l:     20px;
+  --r-xl:    28px;
+  --sh:      0 8px 28px rgba(31,42,68,.09);
+  --sh-l:    0 20px 56px rgba(31,42,68,.11);
+  --sh-s:    0 2px 10px rgba(31,42,68,.06);
 
-/* Logo */
-.nav-logo img { height: 52px; width: auto; max-width: 220px; object-fit: contain; flex-shrink: 0; display: block; }
-
-/* Nav links */
-.nav-links { display: flex; align-items: center; gap: 0; margin-left: auto; }
-.nav-a {
-  padding: 8px 11px;
-  font-size: 15px; font-weight: 500;
-  border: none !important;
-  color: var(--tx);
-  transition: color 0.2s ease;
-  position: relative; white-space: nowrap;
-  background: transparent !important;
-  border-radius: 0;
-}
-.nav-a:hover { color: var(--pr); }
-.nav-a::after {
-  content: ''; position: absolute;
-  bottom: 2px; left: 11px; right: 11px;
-  height: 2px; background: var(--pr); border-radius: 1px;
-  transform: scaleX(0); transform-origin: center;
-  transition: transform 0.22s ease;
-}
-.nav-a:hover::after { transform: scaleX(1); }
-.nav-a.active { color: var(--pr); }
-.nav-a.active::after { transform: scaleX(1); }
-
-/* Nav actions */
-.nav-act { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-.lang-btn {
-  padding: 8px 16px; border-radius: 8px;
-  font-size: 15px; font-weight: 500;
-  color: var(--sub); border: 1.5px solid var(--bdr);
-  background: transparent; cursor: pointer; transition: var(--ease);
-}
-.lang-btn:hover { color: var(--pr); border-color: var(--pr); background: var(--pr-lt); }
-.btn-contact {
-  font-size: 16px; padding: 13px 28px;
-  background: var(--pr); color: #fff;
-  border-radius: var(--pill); font-family: var(--fh); font-weight: 600;
-  border: none; cursor: pointer; transition: var(--ease);
-  text-decoration: none; display: inline-flex; align-items: center;
-  white-space: nowrap;
-}
-.btn-contact:hover { background: var(--pr-h); transform: translateY(-1px); }
-
-/* Hamburger */
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; margin-left: auto; }
-.hamburger span { display: block; width: 24px; height: 2.5px; background: var(--tx); border-radius: 2px; transition: var(--ease); }
-
-/* Mobile nav */
-.mob-nav {
-  display: none; position: fixed; top: 80px; left: 0; right: 0;
-  background: #fff; z-index: 999; padding: 12px;
-  border-bottom: 1px solid var(--bdr);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-  flex-direction: column; gap: 2px;
-}
-.mob-nav.open { display: flex; }
-.mob-nav .nav-a { display: block; padding: 14px 18px; border-radius: 10px; font-size: 16px; }
-.mob-nav .nav-a:hover { color: var(--pr); background: var(--pr-lt) !important; }
-.mob-nav .nav-a::after { display: none; }
-.mob-nav .nav-act { flex-direction: row; padding: 12px 16px 4px; border-top: 1px solid var(--bdr); margin-top: 4px; display: flex; gap: 10px; }
-
-/* ══════════════════════
-   HERO
-══════════════════════ */
-.hero {
-  position: relative;
-  background: linear-gradient(160deg, #FFF6EE 0%, #FFFAF5 50%, #FEF4E8 100%);
-  padding: 108px 28px 60px;
-  overflow: hidden;
-}
-/* Blobs */
-.blob { position: absolute; border-radius: 50%; pointer-events: none; animation: blob 10s ease-in-out infinite; }
-.b1 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(238,122,51,0.18) 0%, rgba(255,200,120,0.10) 55%, transparent 100%); top: -40px; left: -50px; animation-duration: 11s; }
-.b2 { width: 180px; height: 180px; background: radial-gradient(circle, rgba(192,57,43,0.12) 0%, transparent 70%); top: 30px; left: 80px; animation-duration: 8s; animation-delay: -3s; }
-.b3 { width: 260px; height: 260px; background: radial-gradient(circle, rgba(238,122,51,0.10) 0%, transparent 70%); bottom: -20px; right: -30px; animation-duration: 13s; animation-delay: -6s; }
-.b4 { width: 160px; height: 160px; background: radial-gradient(circle, rgba(220,80,60,0.08) 0%, transparent 70%); bottom: 60px; right: 80px; animation-duration: 9s; animation-delay: -2s; }
-/* Floating music notes */
-.mnote { position: absolute; pointer-events: none; opacity: 0; animation: noteFloat linear infinite; }
-/* Decorative static notes */
-.deco-note { position: absolute; pointer-events: none; font-size: 28px; opacity: 0.45; }
-
-/* Hero text — centered */
-.hero-text { position: relative; z-index: 2; text-align: center; max-width: 920px; margin: 0 auto 36px; }
-.hero-h1 { font-family: var(--fh); font-size: clamp(26px, 3.5vw, 50px); font-weight: 800; line-height: 1.12; letter-spacing: -0.025em; color: var(--tx); margin-bottom: 14px; white-space: nowrap; }
-.hero-sub { font-size: 18px; line-height: 1.7; color: var(--sub); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
-.hero-btns { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; }
-.btn-explore { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fh); font-size: 16px; font-weight: 600; color: var(--tx); transition: color 0.2s ease; cursor: pointer; background: none; border: none; padding: 0; }
-.btn-explore:hover { color: var(--pr); }
-.btn-explore svg { transition: transform 0.22s ease; }
-.btn-explore:hover svg { transform: translateX(4px); }
-
-/* Video */
-.hero-vid { position: relative; z-index: 2; max-width: 960px; margin: 36px auto 0; width: 100%; }
-.vid-frame { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; background: #111; box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10); }
-.vid-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; }
-/* Thumbnail */
-.vid-thumb { position: absolute; inset: 0; cursor: pointer; overflow: hidden; border-radius: inherit; }
-.vid-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-.vid-thumb:hover img { transform: scale(1.03); }
-.vid-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3)); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-.vid-thumb:hover .vid-play { transform: translate(-50%, -50%) scale(1.12); }
-.vid-label { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-radius: var(--pill); padding: 6px 16px; font-size: 12px; font-weight: 700; color: var(--pr); display: flex; align-items: center; gap: 6px; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
-.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #E53E3E; display: inline-block; animation: pulseDot 1.4s ease-in-out infinite; }
-.vid-iframe-wrap { display: none; position: absolute; inset: 0; }
-
-/* ══════════════════════
-   CTA STRIP
-══════════════════════ */
-.cta-strip { background: var(--pr); padding: 20px 28px; position: relative; overflow: hidden; }
-.cta-strip::before { content: ''; position: absolute; top: -60%; right: -2%; width: 240px; height: 220%; background: rgba(255,255,255,0.07); transform: skewX(-14deg); pointer-events: none; }
-.strip-in { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.strip-in h3 { font-family: var(--fh); font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 2px; }
-.strip-in p { font-size: 13px; color: rgba(255,255,255,0.82); }
-.strip-btns { display: flex; gap: 10px; flex-shrink: 0; }
-.s-btn-w { background: #fff; color: var(--pr); padding: 11px 22px; border-radius: var(--pill); font-family: var(--fh); font-weight: 700; font-size: 14px; border: none; cursor: pointer; transition: var(--ease); display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
-.s-btn-w:hover { background: var(--pr-lt); transform: translateY(-1px); }
-.s-btn-g { background: rgba(255,255,255,0.14); color: #fff; border: 1.5px solid rgba(255,255,255,0.3); padding: 10px 20px; border-radius: var(--pill); font-family: var(--fh); font-weight: 600; font-size: 14px; cursor: pointer; transition: var(--ease); display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
-.s-btn-g:hover { background: rgba(255,255,255,0.24); transform: translateY(-1px); }
-
-/* ══════════════════════
-   ABOUT US
-══════════════════════ */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.about-img-outer { display: flex; justify-content: center; }
-.about-img-wrap { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1/1; }
-.about-circle { width: 78%; aspect-ratio: 1/1; border-radius: 50%; background: linear-gradient(135deg, #EE7A33, #d4672a); overflow: hidden; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 8px 32px rgba(238,122,51,0.30); display: flex; align-items: center; justify-content: center; font-size: 90px; }
-.stat-bubble { position: absolute; border-radius: 50%; background: var(--pr); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(238,122,51,0.35); }
-.sb-tl { width: 130px; height: 130px; top: -5px; left: -5px; }
-.sb-tr { width: 100px; height: 100px; top: 5%; right: -10px; }
-.bnum { font-family: var(--fh); font-size: 24px; font-weight: 800; line-height: 1; }
-.blbl { font-size: 12px; font-weight: 500; margin-top: 3px; opacity: 0.9; }
-.dec-dot { position: absolute; border-radius: 50%; background: var(--pr); }
-.dd1 { width: 14px; height: 14px; top: 38%; left: 1%; opacity: 0.6; }
-.dd2 { width: 10px; height: 10px; bottom: 25%; right: 3%; opacity: 0.45; }
-.tag-lbl { font-size: 13px; font-weight: 600; color: var(--sub); letter-spacing: 0.04em; display: block; margin-bottom: 8px; }
-.sh2 { font-family: var(--fh); font-size: clamp(26px, 3.2vw, 38px); font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; color: var(--tx); margin-bottom: 8px; }
-.sh2-w { color: #fff; }
-.sp { font-size: 15px; line-height: 1.78; color: var(--sub); }
-.about-body p { font-size: 15px; line-height: 1.82; color: var(--sub); margin-bottom: 16px; }
-
-/* ══════════════════════
-   COURSES
-══════════════════════ */
-.course-layout { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
-.course-intro p { font-size: 15px; color: var(--sub); line-height: 1.7; margin-bottom: 22px; }
-.cg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.cc { background: #fff; border-radius: var(--rc); padding: 26px 20px; box-shadow: var(--sh); border: 1px solid var(--bdr); transition: var(--ease); display: flex; flex-direction: column; }
-.cc:hover { transform: translateY(-5px); box-shadow: var(--sh-h); border-color: rgba(238,122,51,0.3); }
-.cc-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--pr); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 14px; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-.cc:hover .cc-icon { transform: scale(1.1) rotate(-5deg); }
-.cc h3 { font-family: var(--fh); font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--tx); }
-.cc p { font-size: 13px; line-height: 1.7; color: var(--sub); flex: 1; margin-bottom: 14px; }
-.cc-arr { width: 34px; height: 34px; border-radius: 50%; background: var(--pr); display: flex; align-items: center; justify-content: center; margin-top: auto; transition: var(--ease); }
-.cc:hover .cc-arr { transform: translateX(3px); }
-
-/* ══════════════════════
-   WHY CHOOSE US
-══════════════════════ */
-.why-hdr { text-align: center; margin-bottom: 48px; }
-.why-sub { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.82); letter-spacing: 0.05em; display: block; margin-bottom: 10px; }
-.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.wcard { background: #fff; border-radius: var(--rc); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.10); transition: var(--ease); }
-.wcard:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.16); }
-.wcard-img { height: 210px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 72px; }
-.wcard-body { padding: 22px; text-align: center; }
-.wcard-body h3 { font-family: var(--fh); font-size: 18px; font-weight: 700; color: var(--tx); margin-bottom: 8px; }
-.wcard-body p { font-size: 13px; line-height: 1.72; color: var(--sub); }
-
-/* ══════════════════════
-   PROMOTIONS
-══════════════════════ */
-.promo-layout { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
-.promo-intro p { font-size: 15px; color: var(--sub); margin-bottom: 22px; }
-.promo-deco { width: 110px; height: 110px; border-radius: 50%; background: var(--pr); display: flex; align-items: center; justify-content: center; font-size: 52px; margin-top: 28px; box-shadow: 0 6px 22px rgba(238,122,51,0.3); }
-.pg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.pc { background: #fff; border-radius: var(--rc); padding: 26px; border: 1px solid var(--bdr); box-shadow: var(--sh); transition: var(--ease); display: flex; flex-direction: column; gap: 10px; }
-.pc:hover { transform: translateY(-4px); box-shadow: var(--sh-h); border-color: rgba(238,122,51,0.3); }
-.pc-tag { display: inline-flex; padding: 4px 12px; border-radius: var(--pill); font-size: 11px; font-weight: 700; background: var(--pr-lt); color: var(--pr); }
-.pc h3 { font-family: var(--fh); font-size: 15px; font-weight: 700; color: var(--tx); }
-.pc p { font-size: 13px; color: var(--sub); line-height: 1.65; }
-.pc-price { font-family: var(--fh); font-size: 20px; font-weight: 800; color: var(--pr); }
-.pc-price s { font-size: 12px; color: var(--mut); font-weight: 400; margin-left: 5px; }
-
-/* ══════════════════════
-   TESTIMONIALS
-══════════════════════ */
-.tg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.tc { background: #fff; border-radius: var(--rc); padding: 28px 22px 22px; box-shadow: var(--sh); border: 1px solid var(--bdr); transition: var(--ease); display: flex; flex-direction: column; align-items: center; text-align: center; }
-.tc:hover { transform: translateY(-4px); box-shadow: var(--sh-h); }
-.tc-av { width: 62px; height: 62px; border-radius: 50%; background: #E0D8D0; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden; }
-.tc-av svg { width: 34px; height: 34px; }
-.tc-qq { font-size: 28px; color: var(--pr); margin-bottom: 6px; line-height: 1; }
-.tc-text { font-size: 13px; line-height: 1.8; color: var(--sub); flex: 1; margin-bottom: 16px; }
-.tc-name { font-family: var(--fh); font-size: 14px; font-weight: 700; color: var(--pr); margin-bottom: 3px; }
-.tc-role { font-size: 11px; color: var(--mut); }
-
-/* ══════════════════════
-   BOOK JOURNEY BANNER
-══════════════════════ */
-.book { background: var(--pr); padding: 60px 28px; position: relative; overflow: hidden; }
-.book::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
-.book-deco { position: absolute; font-size: 28px; color: rgba(255,255,255,0.22); pointer-events: none; }
-.book-in { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; position: relative; z-index: 1; }
-.book-in h2 { font-family: var(--fh); font-size: clamp(26px, 3.2vw, 40px); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 6px; }
-.book-in p { font-size: 15px; color: rgba(255,255,255,0.8); }
-
-/* ══════════════════════
-   FOOTER
-══════════════════════ */
-.footer { background: var(--dark); padding: 64px 28px 0; border-top: 1px solid rgba(255,255,255,0.06); }
-.fg { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.5fr; gap: 48px; padding-bottom: 52px; }
-.footer-logo img { height: 48px; width: auto; margin-bottom: 14px; opacity: 0.88; }
-.fdesc { color: rgba(255,255,255,0.48); font-size: 14px; line-height: 1.8; margin-bottom: 18px; }
-.fcon a { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.48); font-size: 14px; margin-bottom: 8px; transition: color var(--ease); }
-.fcon a:hover { color: var(--pr); }
-.fcol h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 14px; }
-.fcol ul li { margin-bottom: 8px; }
-.fcol ul li a { color: rgba(255,255,255,0.52); font-size: 14px; transition: color var(--ease); }
-.fcol ul li a:hover { color: var(--pr); }
-.sub-row { display: flex; }
-.sub-input { flex: 1; padding: 10px 14px; border: 1px solid rgba(255,255,255,0.15); border-right: none; border-radius: var(--pill) 0 0 var(--pill); background: rgba(255,255,255,0.08); color: #fff; font-size: 13px; outline: none; }
-.sub-input::placeholder { color: rgba(255,255,255,0.38); }
-.sub-btn { padding: 10px 14px; background: var(--pr); border: none; border-radius: 0 var(--pill) var(--pill) 0; cursor: pointer; color: #fff; display: flex; align-items: center; transition: var(--ease); }
-.sub-btn:hover { background: var(--pr-h); }
-.floc { display: flex; gap: 8px; margin-bottom: 10px; }
-.fln { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 500; }
-.fls { color: rgba(255,255,255,0.3); font-size: 11px; }
-.fbot { max-width: var(--max); margin: 0 auto; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
-.fbot p { color: rgba(255,255,255,0.28); font-size: 13px; }
-.fbot-l { display: flex; gap: 18px; }
-.fbot-l a { color: rgba(255,255,255,0.28); font-size: 13px; transition: color var(--ease); }
-.fbot-l a:hover { color: rgba(255,255,255,0.65); }
-
-/* ══════════════════════
-   FLOATING ELEMENTS
-══════════════════════ */
-.fab { position: fixed; bottom: 84px; right: 20px; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.4); z-index: 800; transition: var(--ease); overflow: visible; }
-.fab::before { content: ''; position: absolute; inset: -7px; border-radius: 50%; border: 2px solid rgba(37,211,102,0.4); animation: pulseRing 2s ease-in-out infinite; }
-.fab:hover { transform: scale(1.1); }
-.mob-sticky { position: fixed; bottom: 0; left: 0; right: 0; z-index: 799; background: rgba(255,250,245,0.97); backdrop-filter: blur(12px); border-top: 1px solid var(--bdr); box-shadow: 0 -2px 16px rgba(238,122,51,0.08); padding: 10px 16px; padding-bottom: max(10px, env(safe-area-inset-bottom)); display: none; }
-.mob-sticky-in { max-width: 400px; margin: 0 auto; display: flex; gap: 10px; }
-.mob-sticky .btn { flex: 1; border-radius: var(--pill); font-size: 14px; padding: 12px 16px; justify-content: center; }
-
-/* ══════════════════════
-   KEYFRAMES
-══════════════════════ */
-@keyframes blob { 0%,100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; } 33% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; } 66% { border-radius: 50% 60% 30% 60%/30% 60% 70% 40%; } }
-@keyframes noteFloat { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 15% { opacity: 0.55; } 85% { opacity: 0.2; } 100% { opacity: 0; transform: translateY(-130px) rotate(14deg); } }
-@keyframes pulseDot { 0%,100% { transform: scale(1); } 50% { transform: scale(1.6); opacity: 0.6; } }
-@keyframes pulseRing { 0%,100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.3); opacity: 0; } }
-
-/* ══════════════════════
-   RESPONSIVE
-══════════════════════ */
-@media (max-width: 1024px) {
-  .about-grid, .course-layout, .promo-layout { grid-template-columns: 1fr; gap: 40px; }
-  .about-img-wrap { max-width: 300px; margin: 0 auto; }
-  .cg { grid-template-columns: 1fr 1fr; }
-  .why-grid { grid-template-columns: 1fr 1fr; }
-  .fg { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .book-in { grid-template-columns: 1fr; text-align: center; }
-}
-@media (max-width: 768px) {
-  .sec { padding: 60px 0; }
-  .hero { padding: 96px 20px 48px; }
-  .cg, .why-grid, .tg, .pg { grid-template-columns: 1fr; }
-  .strip-in { flex-direction: column; align-items: flex-start; }
-  .strip-btns { width: 100%; }
-  .nav-links, .nav-act { display: none; }
-  .hamburger { display: flex; }
-  .mob-sticky { display: block; }
-  .fab { bottom: 74px; }
-  .fg { grid-template-columns: 1fr; gap: 28px; }
-  .fbot { flex-direction: column; text-align: center; }
-  .hero-btns { flex-direction: column; align-items: center; gap: 12px; }
-}
-@media (max-width: 480px) {
-  .about-grid { gap: 48px; }
+  --sp:   cubic-bezier(.22,1,.36,1);
+  --ea:   cubic-bezier(.4,0,.2,1);
+  --t:    .22s;
+  --ts:   .48s;
 }
 
-/* ══ HERO DECORATIVE SVG ══ */
-.hero-deco-svg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 3;
-  overflow: visible;
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  RESET                                                ║
+   ╚═══════════════════════════════════════════════════════╝ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Quicksand',system-ui,sans-serif;
+  color:var(--body);background:var(--w);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
-.deco-el {
-  opacity: 0;
-  animation:
-    decoElIn  0.6s cubic-bezier(0.34,1.56,0.64,1) var(--di, 0.5s) both,
-    decoFloat var(--df, 5s) ease-in-out calc(var(--di, 0.5s) + 0.6s) infinite;
-}
-@keyframes decoElIn {
-  from { opacity: 0; transform: scale(0.4); transform-box: fill-box; transform-origin: center; }
-  to   { opacity: 1; transform: scale(1);   transform-box: fill-box; transform-origin: center; }
-}
-@keyframes decoFloat {
-  0%,100% { transform: translateY(0);   }
-  50%     { transform: translateY(-8px);}
-}
-@media (max-width: 900px) { .hero-deco-svg { display: none; } }
+h1,h2,h3,h4{font-family:'Nunito',sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+address{font-style:normal}
+ul{list-style:none}
 
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  LAYOUT                                               ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.W{max-width:1240px;margin:0 auto;padding:0 32px}
 
-/* ══ COURSE CARDS — Orange square, white icon+label ══ */
-.cg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.cc {
-  background: var(--pr);
-  border-radius: 18px;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 0 20px 0;
-  position: relative;
-  cursor: pointer;
-  text-decoration: none;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(238,122,51,0.25);
-  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease, background 0.22s ease;
-}
-.cc:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 12px 36px rgba(238,122,51,0.40); background: var(--pr-h); }
-.cc-icon-wrap {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 44px;
-  display: flex; align-items: center; justify-content: center;
-  padding: 16px 14px 8px;
-}
-.cc-icon-wrap svg { width: 100%; height: 100%; max-width: 110px; max-height: 90px; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-.cc:hover .cc-icon-wrap svg { transform: scale(1.1) translateY(-4px); }
-.cc-label { position: relative; z-index: 2; color: #fff; font-family: var(--fh); font-size: 15px; font-weight: 700; text-align: center; letter-spacing: 0.01em; line-height: 1.2; padding: 0 8px; }
+section{padding:100px 0}
 
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  TYPE HELPERS                                         ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.pill-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:11.5px;
+  text-transform:uppercase;letter-spacing:1.4px;
+  padding:7px 16px;border-radius:999px;margin-bottom:20px;
+}
+.pt-or  {background:var(--or-lt);color:var(--or)}
+.pt-tl  {background:var(--teal); color:#1a7058}
+.pt-sk  {background:var(--sky);  color:#1a5a9a}
+.pt-lv  {background:var(--lav);  color:#4a3a9a}
+.pt-bl  {background:var(--blush);color:#9a2050}
 
-/* ══ SECTION DOTS ══ */
-#about, #courses, #promotions, #testimonials { position: relative; overflow: visible; }
-.sdot {
-  position: absolute; border-radius: 50%; pointer-events: none; z-index: 1;
-  opacity: 0; transform: scale(0.2);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
-}
-.sdot.on {
-  opacity: 1; transform: scale(1);
-  animation: sdPop 0.5s cubic-bezier(0.34,1.56,0.64,1) var(--dd,0s) both,
-             sdFloat var(--df,5s) ease-in-out calc(var(--dd,0s) + 0.5s) infinite;
-}
-@keyframes sdPop  { 0%{opacity:0;transform:scale(0.2) translateY(10px)} 65%{transform:scale(1.15) translateY(-3px)} 100%{opacity:1;transform:scale(1) translateY(0)} }
-@keyframes sdFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
-@media (max-width: 900px) { .sdot { display: none; } }
+.h2{font-size:clamp(2rem,3.8vw,3rem);letter-spacing:-.5px;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.78;color:var(--body);max-width:560px}
 
+.sec-head{margin-bottom:64px}
+.sec-head.cx{text-align:center}
+.sec-head.cx .lead{margin:0 auto}
 
-.btn-pr:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 32px rgba(238,122,51,.45); }
-.btn-explore svg { transition: transform .22s cubic-bezier(.34,1.56,.64,1); }
-.btn-explore:hover svg { transform: translateX(6px); }
-.wcard:hover { transform: translateY(-8px) scale(1.01); }
-.pc:hover { transform: translateY(-5px); border-color: var(--pr) !important; }
-.tc:hover { transform: translateY(-5px); }
-.stat-bubble { transition: transform .3s cubic-bezier(.34,1.56,.64,1); cursor: default; }
-.stat-bubble:hover { transform: scale(1.08); }
-.fcol ul li a { transition: color .18s ease, padding-left .18s ease; display: inline-block; }
-.fcol ul li a:hover { padding-left: 5px; }
-@keyframes playPulse { 0%,100%{filter:drop-shadow(0 4px 14px rgba(0,0,0,.28))} 50%{filter:drop-shadow(0 6px 26px rgba(238,122,51,.55))} }
-.vid-play { animation: playPulse 2.5s ease-in-out infinite; }
-.vid-thumb:hover .vid-play { animation: none; transform: translate(-50%,-50%) scale(1.14); }
-@media (max-width: 900px) {
-  .hero-h1 { white-space: normal !important; font-size: clamp(24px, 5.5vw, 38px); }
-  .hero-text { max-width: 100% !important; }
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  BUTTONS — orange = ACTION ONLY                       ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;
+  border-radius:999px;padding:13px 28px;white-space:nowrap;
+  transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp);
+}
+.btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh)}
+.btn-cta:hover{background:var(--or-dk);box-shadow:var(--or-shh);transform:translateY(-2px) scale(1.04)}
+.btn-cta:active{transform:scale(.98)}
+.btn-outline{background:transparent;color:var(--ink);border:2px solid #DDE6F2}
+.btn-outline:hover{border-color:var(--or);color:var(--or);transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:0 8px 24px rgba(31,42,68,.22)}
+.btn-dark:hover{background:#243258;transform:translateY(-2px)}
+.btn-lg{font-size:17px;padding:17px 40px}
+.btn-sm{font-size:13px;padding:9px 20px}
+
+/* Pulse ring on main hero CTA */
+.btn-ring{position:relative}
+.btn-ring::before{
+  content:'';position:absolute;inset:-4px;border-radius:999px;
+  border:2.5px solid var(--or);opacity:0;
+  animation:ring-p 2.8s ease-in-out infinite 1.6s;
+}
+@keyframes ring-p{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.12);opacity:0}100%{transform:scale(1.12);opacity:0}}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  SCROLL REVEAL                                        ║
+   ╚═══════════════════════════════════════════════════════╝ */
+/* Default: VISIBLE. JS adds data-reveal to opt-in to animation */
+.sr, .sl, .sfr { opacity:1; transform:none; }
+/* JS adds .reveal-ready to <body> once it's safe to animate */
+body.reveal-ready .sr  { opacity:0; transform:translateY(22px); transition:opacity .65s var(--sp),transform .65s var(--sp); }
+body.reveal-ready .sl  { opacity:0; transform:translateX(-22px);transition:opacity .65s var(--sp),transform .65s var(--sp); }
+body.reveal-ready .sfr { opacity:0; transform:translateX(22px); transition:opacity .65s var(--sp),transform .65s var(--sp); }
+body.reveal-ready .sr.in,
+body.reveal-ready .sl.in,
+body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
+.d1{transition-delay:.07s} .d2{transition-delay:.14s}
+.d3{transition-delay:.21s} .d4{transition-delay:.28s} .d5{transition-delay:.35s}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  NAVBAR                                               ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px) saturate(1.6);
+  -webkit-backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid rgba(221,230,245,.4);
+  transition:box-shadow .3s,background .3s;
+}
+.nav.scrolled{
+  background:rgba(255,255,255,.98);
+  box-shadow:0 1px 0 rgba(221,230,245,.8),0 6px 30px rgba(31,42,68,.07);
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+
+/* LOGO — image only, no text label */
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:42px;width:auto}
+
+/* Nav links — exact order: Home | About | Courses | Teachers | Review | Blog | Contact */
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{
+  display:block;padding:8px 14px;border-radius:var(--r);
+  font-weight:600;font-size:14px;color:var(--body);
+  transition:color var(--t),background var(--t);
+}
+.nav-links a:hover{color:var(--or);background:var(--or-lt)}
+.nav-links a.active{color:var(--or)}
+
+.nav-end{display:flex;align-items:center;gap:10px}
+.nav-lang{
+  font-size:13px;font-weight:700;color:var(--muted);
+  background:var(--s2);border:1.5px solid #DDE6F2;
+  padding:7px 14px;border-radius:999px;cursor:pointer;
+  transition:all var(--t);
+}
+.nav-lang:hover{border-color:var(--or);color:var(--or)}
+
+.nav-ham{
+  display:none;flex-direction:column;gap:5px;
+  padding:7px;border-radius:var(--r);transition:background var(--t);
+}
+.nav-ham:hover{background:var(--or-lt)}
+.nav-ham span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .32s var(--sp),opacity .24s}
+.nav-ham.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-ham.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.nav-drawer{
+  display:none;position:fixed;top:72px;left:0;right:0;z-index:999;
+  background:var(--w);border-bottom:1px solid #EEF2F8;
+  padding:16px 28px 28px;flex-direction:column;gap:4px;
+  box-shadow:0 18px 52px rgba(31,42,68,.12);
+}
+.nav-drawer.on{display:flex}
+.nav-drawer a{
+  display:block;padding:13px 14px;border-radius:var(--r);
+  font-weight:700;font-size:15.5px;color:var(--ink);
+  transition:background var(--t),color var(--t);
+}
+.nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
+.nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:12px}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  1. HERO                                              ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:110px 0 90px;position:relative;overflow:hidden;
+  background:var(--w);
+}
+.hero-mesh{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 900px 700px at 96% -8%, rgba(255,185,110,.19) 0%,transparent 62%),
+    radial-gradient(ellipse 650px 540px at 100% 96%,rgba(255,102,0,.07)   0%,transparent 60%),
+    radial-gradient(ellipse 750px 620px at -8%  94%,rgba(184,242,230,.30) 0%,transparent 58%),
+    radial-gradient(ellipse 500px 400px at 46%  58%,rgba(255,224,196,.14) 0%,transparent 65%);
+}
+/* Orbs */
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(46px);animation:orb-d var(--dur,9s) ease-in-out infinite alternate}
+.o1{width:360px;height:360px;background:radial-gradient(circle,rgba(255,102,0,.13),transparent 70%);top:-70px;right:5%;--dur:9s}
+.o2{width:270px;height:270px;background:radial-gradient(circle,rgba(184,242,230,.38),transparent 70%);bottom:10%;left:-55px;--dur:11s;animation-delay:-4s}
+.o3{width:200px;height:200px;background:radial-gradient(circle,rgba(255,243,176,.52),transparent 70%);top:38%;right:29%;--dur:13s;animation-delay:-7s}
+@keyframes orb-d{0%{transform:translate(0,0) scale(1)}100%{transform:translate(14px,-16px) scale(1.07)}}
+/* Ring decor */
+.hero-ring{position:absolute;top:-90px;right:-110px;width:700px;height:700px;border-radius:50%;border:1.5px solid rgba(255,102,0,.07);pointer-events:none;z-index:0}
+.hero-ring::after{content:'';position:absolute;inset:58px;border-radius:50%;border:1px solid rgba(255,102,0,.04)}
+/* Notes */
+.hero-notes{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.note{position:absolute;font-size:22px;opacity:0;animation:note-r var(--nd,12s) ease-in infinite;animation-delay:var(--dl,0s)}
+.note:nth-child(1){left:7%;  --nd:14s;--dl:0s}
+.note:nth-child(2){left:18%; --nd:11s;--dl:3s; font-size:16px}
+.note:nth-child(3){left:84%; --nd:16s;--dl:6s}
+.note:nth-child(4){left:72%; --nd:12s;--dl:1.5s;font-size:18px}
+.note:nth-child(5){left:93%; --nd:15s;--dl:9s; font-size:14px}
+.note:nth-child(6){left:3%;  --nd:18s;--dl:4s; font-size:20px}
+@keyframes note-r{0%{transform:translateY(100vh) rotate(-10deg);opacity:0}8%{opacity:.18}85%{opacity:.12}100%{transform:translateY(-100px) rotate(15deg);opacity:0}}
+
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:55fr 45fr;gap:72px;align-items:center}
+
+/* Copy */
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--or-lt);color:var(--or);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:12.5px;
+  padding:8px 20px;border-radius:999px;margin-bottom:28px;
+  border:1.5px solid rgba(255,102,0,.16);box-shadow:0 3px 14px rgba(255,102,0,.13);
+}
+.hero h1{font-size:clamp(2.8rem,6vw,4.6rem);letter-spacing:-1.3px;line-height:1.04;margin-bottom:24px}
+.kw{position:relative;display:inline-block;color:var(--or)}
+.kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:var(--lem);border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+@keyframes kw{to{transform:scaleX(1)}}
+.hero-desc{font-size:18px;line-height:1.84;color:var(--body);max-width:500px;margin-bottom:30px}
+
+/* Instrument pills */
+.i-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.i-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--w);border:1.5px solid #E0EAF5;
+  padding:8px 17px;border-radius:999px;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:var(--ink);
+  box-shadow:var(--sh-s);transition:all var(--t) var(--sp);
+}
+.i-pill:hover{border-color:var(--or);color:var(--or);background:var(--or-lt);transform:translateY(-2px)}
+
+.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+
+/* Play button */
+.play{display:flex;align-items:center;gap:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14.5px;color:var(--ink);background:none;border:none;cursor:pointer;transition:color var(--t)}
+.play:hover{color:var(--or)}
+.play-ring{width:50px;height:50px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;padding-left:3px;flex-shrink:0;box-shadow:var(--sh);transition:background var(--t),transform var(--t) var(--sp)}
+.play:hover .play-ring{background:var(--or);transform:scale(1.12)}
+
+/* Proof */
+.proof{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.pf-stack{display:flex}
+.pf{width:34px;height:34px;border-radius:50%;border:2.5px solid var(--w);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--sh-s)}
+.pf:first-child{margin-left:0}
+.pf-a{background:linear-gradient(135deg,var(--teal),var(--sky))}
+.pf-b{background:linear-gradient(135deg,#FFE0C4,var(--lem))}
+.pf-c{background:linear-gradient(135deg,var(--blush),var(--lav))}
+.pf-ct{background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:9.5px}
+.proof-txt strong{font-family:'Nunito',sans-serif;font-weight:800;font-size:13.5px;color:var(--ink)}
+.proof-txt span{display:block;font-size:12px;color:var(--muted)}
+.proof-sep{width:1px;height:30px;background:#DDE6F2}
+.proof-star .stars{color:#F0A500;font-size:14px;letter-spacing:2px}
+.proof-star span{font-size:12px;color:var(--muted)}
+
+/* Hero visual */
+.hero-vis{position:relative}
+.vis-a{position:absolute;bottom:-28px;right:-28px;z-index:0;width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,var(--or-lt),#FFE0C4);opacity:.75}
+.vis-b{position:absolute;top:-22px;left:-22px;z-index:0;width:130px;height:130px;border-radius:50%;background:var(--teal);opacity:.4;filter:blur(3px)}
+.hero-frame{position:relative;z-index:1;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/5;background:linear-gradient(148deg,#FFE8D0,#FFCF9E,#FFB870);box-shadow:0 40px 96px rgba(255,102,0,.18),0 10px 28px rgba(31,42,68,.08),0 0 0 1px rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;transition:transform var(--ts) var(--sp);will-change:transform}
+.hero-frame img{width:100%;height:100%;object-fit:cover;transition:transform 6s var(--ea)}
+.hero-frame:hover img{transform:scale(1.06)}
+.hero-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,.45)}
+.hero-ph .big{font-size:72px;animation:sway 3s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.05)}}
+.hero-ph p{font-size:13px;font-weight:600;letter-spacing:.3px}
+/* Float cards */
+.fc{position:absolute;z-index:2;background:var(--w);border-radius:20px;box-shadow:var(--sh-l);padding:14px 18px;display:flex;align-items:center;gap:12px;border:1px solid rgba(221,230,240,.5);animation:bob 5.5s ease-in-out infinite}
+.fc-a{bottom:60px;left:-44px;animation-delay:0s}
+.fc-b{top:52px;right:-44px;animation-delay:1.9s}
+.fc-c{top:46%;left:-30px;animation-delay:1s;max-width:160px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.fc-ico{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:19px}
+.fi-or{background:var(--or-lt)}.fi-tl{background:var(--teal)}.fi-lm{background:var(--lem)}
+.fc strong{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--ink);line-height:1}
+.fc span{font-size:11px;color:var(--muted);font-weight:500}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  2. WHY PARENTS CHOOSE LIBERAL (TRUST)               ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.trust{background:var(--s1)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.trust-card{
+  background:var(--w);border-radius:var(--r-l);padding:32px 28px;
+  box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);
+  text-align:center;
+  transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp);
+}
+.trust-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow)}
+/* Orange top accent — reveals on hover */
+.trust-card::before{content:'';display:block;height:4px;margin:-32px -28px 20px;border-radius:var(--r-l) var(--r-l) 0 0;background:linear-gradient(90deg,var(--or),#FF9940);transform:scaleX(0);transform-origin:left;transition:transform var(--t) var(--sp)}
+.trust-card:hover::before{transform:scaleX(1)}
+.trust-icon{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px}
+.ti-1{background:var(--teal)}  .ti-2{background:var(--lem)}
+.ti-3{background:var(--blush)} .ti-4{background:var(--lav)}
+.trust-card h3{font-size:17px;font-weight:800;margin-bottom:10px}
+.trust-card p{font-size:14px;line-height:1.68}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  STATS STRIP                                          ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.stats-strip{
+  background:#1F2A44;          /* same dark navy as footer */
+  padding:0;
+  position:relative;
+}
+/* Diagonal top-left slice into strip */
+.stats-strip::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:28px;
+  background:var(--s1);        /* matches "Why Parents" section above */
+  clip-path:polygon(0 0,100% 0,100% 100%,0 0);
+  pointer-events:none;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.stat-cell{
+  text-align:center;
+  padding:52px 24px 48px;
+  border-right:1px solid rgba(255,255,255,.07);
+  transition:background .22s;
+  position:relative;
+}
+.stat-cell:last-child{border-right:none}
+.stat-cell:hover{background:rgba(255,255,255,.04)}
+.stat-icon{font-size:2rem;margin-bottom:12px;display:block}
+.stat-num{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:clamp(2.4rem,4vw,3.2rem);
+  line-height:1;color:#fff;
+  margin-bottom:10px;display:block;
+}
+.stat-num .acc{color:var(--or)}  /* orange + and % only */
+.stat-label{
+  font-family:'Nunito',sans-serif;font-weight:700;
+  font-size:15px;color:rgba(255,255,255,.85);
+  display:block;margin-bottom:4px;
+}
+.stat-sub{
+  font-size:13px;color:rgba(255,255,255,.40);
+  font-weight:500;
 }
 
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  3. COURSES                                           ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.courses{background:var(--s2)}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.course-card{
+  background:var(--w);border-radius:var(--r-l);overflow:hidden;
+  box-shadow:var(--sh);border:1px solid rgba(221,230,245,.45);
+  display:flex;flex-direction:column;position:relative;
+  transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp);
+}
+.course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--or),#FF9940);border-radius:var(--r-l) var(--r-l) 0 0;transform:scaleX(0);transform-origin:left;transition:transform var(--t) var(--sp)}
+.course-card:hover::before{transform:scaleX(1)}
+.course-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow),0 8px 22px rgba(31,42,68,.07)}
+.course-thumb{aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:52px}
+.course-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--sp)}
+.course-card:hover .course-thumb img{transform:scale(1.05)}
+.course-age{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;color:var(--ink);padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.6)}
+.ct1{background:linear-gradient(135deg,#FFE8D0,#FFCFA0)}
+.ct2{background:linear-gradient(135deg,#FFD6E0,#FFF3B0)}
+.ct3{background:linear-gradient(135deg,#E8E4FF,#D4EDFF)}
+.ct4{background:linear-gradient(135deg,#D4EDFF,#B8F2E6)}
+.ct5{background:linear-gradient(135deg,#B8F2E6,#D4EDFF)}
+.ct6{background:linear-gradient(135deg,#FFF3B0,#FFD6E0)}
+.course-body{padding:24px 26px 26px;flex:1;display:flex;flex-direction:column}
+.course-tag{font-family:'Nunito',sans-serif;font-weight:800;font-size:10.5px;text-transform:uppercase;letter-spacing:1.1px;color:var(--or);margin-bottom:7px}
+.course-body h3{font-size:20px;font-weight:900;margin-bottom:8px}
+.course-body p{font-size:14px;line-height:1.67;flex:1;margin-bottom:20px}
+.course-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid #EEF3FA}
+.course-meta{font-size:12.5px;font-weight:600;color:var(--muted)}
+.course-meta strong{display:block;font-size:14px;color:var(--ink);margin-bottom:2px}
 
-/* ══════════════════════
-   HERO TRUST BADGES
-══════════════════════ */
-.hero-trust {
-  position: relative; z-index: 2;
-  max-width: 960px; margin: 20px auto 0;
-  display: flex; align-items: center; justify-content: center;
-  gap: 0; flex-wrap: wrap;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(10px);
-  border-radius: 14px;
-  border: 1px solid var(--bdr);
-  box-shadow: 0 2px 16px rgba(238,122,51,0.08);
-  overflow: hidden;
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  4. TEACHERS                                          ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.teachers{background:var(--s1)}
+.teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.tc{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp)}
+.tc:hover{transform:translateY(-7px);box-shadow:0 24px 52px var(--or-glow)}
+.tc-photo{aspect-ratio:1;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:70px}
+.tc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--sp)}
+.tc:hover .tc-photo img{transform:scale(1.05)}
+.tc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,68,.24) 0%,transparent 55%);opacity:0;transition:opacity var(--t)}
+.tc:hover .tc-ov{opacity:1}
+.tp1{background:linear-gradient(135deg,var(--teal),var(--sky))}
+.tp2{background:linear-gradient(135deg,var(--lem),var(--teal))}
+.tp3{background:linear-gradient(135deg,var(--blush),var(--lav))}
+.tp4{background:linear-gradient(135deg,var(--sky),var(--teal))}
+.tc-body{padding:18px 20px 22px}
+.tc-chip{display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--or);background:var(--or-lt);padding:4px 11px;border-radius:999px;margin-bottom:8px}
+.tc-body h3{font-size:17px;font-weight:900;margin-bottom:5px}
+.tc-body p{font-size:13px;line-height:1.6}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  5. BRANCHES                                          ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.branches{background:#fff7f2;padding:100px 0}
+
+/* 5-card layout: 3 top row, 2 bottom row centred */
+.branch-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
-.hero-trust-item {
-  display: flex; align-items: center; gap: 8px;
-  padding: 14px 28px;
-  font-family: var(--fh); font-size: 14px; font-weight: 600;
-  color: var(--tx);
-  flex: 1; justify-content: center; white-space: nowrap;
-}
-.hero-trust-item + .hero-trust-item {
-  border-left: 1px solid var(--bdr);
-}
-.hero-trust-check {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--pr); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; flex-shrink: 0;
-}
-@media (max-width: 768px) {
-  .hero-trust { flex-direction: column; gap: 0; }
-  .hero-trust-item + .hero-trust-item { border-left: none; border-top: 1px solid var(--bdr); }
-  .hero-trust-item { width: 100%; }
+.branch-grid-row2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  margin-top:24px;
+  max-width:66.5%;
+  margin-left:auto;
+  margin-right:auto;
 }
 
+/* Base card */
+.bc{
+  background:#fff;
+  border-radius:22px;
+  padding:32px 28px;
+  box-shadow:0 6px 24px rgba(31,42,68,.07),0 1px 4px rgba(31,42,68,.04);
+  border:1.5px solid rgba(255,102,0,.08);
+  display:flex;flex-direction:column;gap:0;
+  transition:transform .22s var(--sp),box-shadow .22s var(--sp),border-color .18s;
+  position:relative;overflow:hidden;
+}
+/* Subtle top-edge orange line */
+.bc::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--or),#ffaa66);
+  border-radius:22px 22px 0 0;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s var(--sp);
+}
+.bc:hover::after{transform:scaleX(1)}
+.bc:hover{
+  transform:translateY(-7px);
+  box-shadow:0 16px 40px rgba(255,102,0,.13),0 4px 12px rgba(31,42,68,.06);
+  border-color:rgba(255,102,0,.22);
+}
+
+/* Pin + name row */
+.bc-pin-row{
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:16px;
+}
+.bc-pin{
+  width:42px;height:42px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  transition:transform .22s var(--sp);
+}
+.bc:hover .bc-pin{transform:scale(1.1)}
+.bi-1{background:linear-gradient(135deg,#B8F2E6,#8ae8d0)}
+.bi-2{background:linear-gradient(135deg,#FFF3B0,#f5d85a)}
+.bi-3{background:linear-gradient(135deg,#FFD6E0,#ffaabf)}
+.bi-4{background:linear-gradient(135deg,#E8E4FF,#c4bdff)}
+.bi-5{background:linear-gradient(135deg,#FFE8D0,#FFD0AA)}
+
+/* Orange school name */
+.bc h3{
+  font-family:'Nunito',sans-serif;
+  font-size:16.5px;font-weight:900;
+  color:var(--or);
+  line-height:1.25;margin:0;
+}
+
+/* Clean address block */
+.bc-addr{
+  margin:14px 0 0;
+  display:flex;flex-direction:column;gap:4px;
+}
+.bc-addr-line{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13.5px;line-height:1.55;color:var(--body);
+}
+.bc-addr-line svg{
+  flex-shrink:0;margin-top:2px;
+  color:var(--or);opacity:.7;
+}
+
+/* WhatsApp CTA */
+.bc-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#E8FFF1;color:#1a8a45;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;
+  padding:9px 18px;border-radius:999px;
+  transition:background .18s,transform .18s var(--sp);
+  margin-top:22px;align-self:flex-start;
+  border:1px solid rgba(37,211,102,.2);
+}
+.bc-wa:hover{background:#C2FFDB;transform:translateY(-1px)}
+.bc-wa::before{content:'💬';font-size:14px}
+
+/* ── Coming Soon card ── */
+.bc.coming-soon{
+  background:#fff3ea;
+  border:2px dashed rgba(255,102,0,.45);
+}
+.bc.coming-soon:hover{
+  background:#ffe8d4;
+  border-color:var(--or);
+  transform:translateY(-7px);
+  box-shadow:0 16px 40px rgba(255,102,0,.16);
+}
+.bc.coming-soon::after{display:none}
+.bc-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--or);color:#fff;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:1.1px;
+  padding:5px 13px;border-radius:999px;
+  margin-bottom:16px;align-self:flex-start;
+  box-shadow:0 3px 10px rgba(255,102,0,.28);
+}
+.bc-soon-note{
+  font-size:13px;color:var(--or-dk);font-weight:600;
+  line-height:1.6;margin-top:14px;
+}
+.bc-notify{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--or);color:#fff;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;
+  padding:9px 18px;border-radius:999px;
+  transition:background .18s,transform .18s var(--sp),box-shadow .18s;
+  margin-top:18px;align-self:flex-start;
+  box-shadow:0 4px 14px rgba(255,102,0,.30);
+}
+.bc-notify:hover{background:var(--or-dk);transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,102,0,.38)}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  6. PARENT REVIEWS                                    ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.reviews{background:var(--or-lt)}
+.reviews::before{content:'';display:block;height:60px;margin:-100px 0 0;background:var(--s2);clip-path:ellipse(55% 100% at 50% 0%)}
+.reviews .W{padding-top:40px}
+
+/* Carousel */
+.rev-carousel{position:relative}
+.rev-track-wrap{overflow:hidden;border-radius:var(--r-l)}
+.rev-track{display:flex;transition:transform .5s var(--sp);will-change:transform}
+.rev-slide{min-width:100%}
+.rev-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev-card{background:var(--w);border-radius:var(--r-l);padding:28px;box-shadow:var(--sh);border:1px solid rgba(255,102,0,.07);display:flex;flex-direction:column;transition:transform var(--t) var(--sp),box-shadow var(--t)}
+.rev-card:hover{transform:translateY(-5px);box-shadow:var(--or-sh)}
+.rev-card.feat{border-top:4px solid var(--or)}
+.rev-stars{color:#F0A500;font-size:15px;letter-spacing:2px;margin-bottom:14px}
+.rev-q{font-size:15.5px;line-height:1.78;color:var(--body);font-style:italic;flex:1;margin-bottom:22px}
+.rev-person{display:flex;align-items:center;gap:12px}
+.rev-av{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:21px}
+.ra1{background:var(--teal)}.ra2{background:var(--lem)}.ra3{background:var(--blush)}.ra4{background:var(--lav)}.ra5{background:var(--sky)}.ra6{background:linear-gradient(135deg,var(--teal),var(--sky))}
+.rev-info strong{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;color:var(--ink)}
+.rev-info span{font-size:12px;color:var(--muted)}
+/* Carousel controls */
+.rev-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--w);border:none;cursor:pointer;box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink);transition:all var(--t) var(--sp)}
+.rev-arrow:hover{background:var(--or);color:#fff;transform:translateY(-50%) scale(1.1);box-shadow:var(--or-sh)}
+.rev-prev{left:-22px}.rev-next{right:-22px}
+.rev-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:28px}
+.rev-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,102,0,.25);border:none;cursor:pointer;transition:all .2s var(--sp);padding:0}
+.rev-dot.on{width:24px;border-radius:4px;background:var(--or)}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  7. FINAL CTA BANNER                                  ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.cta-banner{
+  background:linear-gradient(135deg,var(--or-pale) 0%,#FFF7EE 40%,#FFEEDD 100%);
+  text-align:center;padding:100px 0;position:relative;overflow:hidden;
+}
+.cta-banner::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 800px 560px at 50% 50%,rgba(255,102,0,.07) 0%,transparent 65%)}
+.cta-banner::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,102,0,.07);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:660px;margin:0 auto}
+.cta-inner h2{font-size:clamp(2.2rem,5.2vw,3.5rem);letter-spacing:-.7px;margin-bottom:18px}
+.cta-inner h2 .or{color:var(--or)}
+.cta-inner>p{font-size:18.5px;line-height:1.72;margin-bottom:44px;color:var(--body)}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.cta-checks{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.chk{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.chk::before{content:'✓';color:var(--or);font-weight:900;font-size:15px}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  8. FOOTER                                            ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.footer{
+  background:#1F2A44;          /* dark navy — matches screenshot */
+  border-top:none;
+  padding:80px 0 0;
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns:1.8fr 1fr 1.7fr;
+  gap:60px;
+  padding-bottom:60px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:0;
+}
+/* Col 1 — brand */
+.foot-brand img{
+  height:56px;width:auto;
+  margin-bottom:22px;display:block;
+}
+.foot-brand p{
+  font-size:14px;line-height:1.82;
+  color:rgba(255,255,255,.52);max-width:300px;
+  margin-bottom:8px;
+}
+.foot-brand-contact{
+  display:flex;flex-direction:column;gap:7px;
+  margin-top:20px;
+}
+.foot-brand-contact a{
+  display:flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:600;
+  color:rgba(255,255,255,.48);
+  transition:color .18s;
+}
+.foot-brand-contact a:hover{color:var(--or)}
+.foot-brand-contact a::before{ font-size:14px;flex-shrink:0; }
+.foot-brand-contact a.email::before{content:'✉️'}
+.foot-brand-contact a.phone::before{content:'📞'}
+.foot-soc{display:flex;gap:9px;margin-top:24px}
+.foot-soc a{
+  width:38px;height:38px;border-radius:12px;
+  background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.10);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  transition:background .18s,border-color .18s,transform .18s var(--sp);
+}
+.foot-soc a:hover{background:rgba(255,102,0,.30);border-color:var(--or);transform:translateY(-2px)}
+
+/* Col 2 & 3 headings — white, uppercase */
+.foot-col h5{
+  font-family:'Nunito',sans-serif;font-weight:900;font-size:12.5px;
+  text-transform:uppercase;letter-spacing:1.4px;
+  color:#fff;margin-bottom:22px;
+  display:flex;align-items:center;gap:7px;
+}
+.foot-col h5::after{
+  content:'';flex:1;height:1px;
+  background:rgba(255,255,255,.12);
+}
+/* Nav column */
+.foot-col ul{display:flex;flex-direction:column;gap:10px}
+.foot-col a{
+  font-size:14px;
+  color:rgba(255,255,255,.52);
+  transition:color .18s,padding-left .18s;
+  display:block;
+}
+.foot-col a:hover{color:#fff;padding-left:4px}
+
+/* Locations list */
+.foot-locs{display:flex;flex-direction:column;gap:8px}
+.foot-loc{
+  display:grid;
+  grid-template-columns:18px 1fr;
+  gap:9px;
+  align-items:flex-start;
+  padding:11px 13px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.07);
+  transition:background .18s,border-color .18s,transform .18s var(--sp);
+}
+.foot-loc:hover{
+  background:rgba(255,102,0,.12);
+  border-color:rgba(255,102,0,.30);
+  transform:translateX(3px);
+}
+.foot-loc-pin{
+  color:var(--or);font-size:12px;
+  line-height:1.6;margin-top:1px;flex-shrink:0;
+}
+.foot-loc-text strong{
+  display:block;
+  font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:13px;color:rgba(255,255,255,.88);
+  margin-bottom:2px;
+}
+.foot-loc-text span{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.5}
+.foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
+.foot-loc.soon .foot-loc-text strong{color:var(--or)}
+.foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
+
+/* Bottom bar */
+.foot-btm{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+  padding:22px 0;
+  background:transparent;
+}
+.foot-btm p{font-size:13px;color:rgba(255,255,255,.35)}
+.foot-btm-links{display:flex;gap:20px;align-items:center}
+.foot-btm a{font-size:13px;color:rgba(255,255,255,.35);transition:color .18s}
+.foot-btm a:hover{color:#fff}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  FLOATING WHATSAPP                                    ║
+   ╚═══════════════════════════════════════════════════════╝ */
+.wa{position:fixed;bottom:28px;right:28px;z-index:900}
+.wa-fab{width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer}
+.wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
+.wa-panel{position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
+.wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
+.wa-panel h4{font-size:14.5px;font-weight:900;color:var(--ink);margin-bottom:4px}
+.wa-panel p{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);transition:all var(--t)}
+.wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}
+.wa-row span{font-size:11.5px;font-weight:500;color:var(--muted)}
+.wa-row:hover span{color:#1a8a45}
+
+/* Mobile sticky */
+.mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
+.mob-bar .btn-cta{width:100%;justify-content:center;font-size:16px;padding:15px}
+
+/* Video modal */
+.modal{display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(31,42,68,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.modal.on{display:flex}
+.modal-box{position:relative;width:min(800px,94vw);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh-l);background:#000;aspect-ratio:16/9}
+.modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:10;transition:background var(--t)}
+.modal-close:hover{background:rgba(255,255,255,.30)}
+.modal-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:rgba(255,255,255,.55);font-size:52px}
+.modal-ph p{font-size:16px;font-weight:600}
+
+/* ╔═══════════════════════════════════════════════════════╗
+   ║  RESPONSIVE                                           ║
+   ╚═══════════════════════════════════════════════════════╝ */
+@media(max-width:1100px){
+  .course-grid{grid-template-columns:repeat(2,1fr)}
+  .teacher-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-vis{order:-1;max-width:460px;margin:0 auto}
+  .fc-a{left:-8px}.fc-b{right:-8px}
+  /* Stats strip: 2x2 on tablet */
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  /* Branches — all 5 in 2-col on tablet */
+  .branch-grid{grid-template-columns:repeat(2,1fr)}
+  .branch-grid-row2{grid-template-columns:repeat(2,1fr);max-width:100%;margin-left:0;margin-right:0}
+  /* Footer — stack to 2-col */
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .rev-inner{grid-template-columns:1fr}
+  .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
+  .nav-ham{display:flex}
+  .mob-bar{display:block}
+  .wa{bottom:84px}
+  .course-grid{grid-template-columns:1fr}
+  .rev-arrow{display:none}
+}
+@media(max-width:700px){
+  .foot-grid{grid-template-columns:1fr}
+  .foot-brand{border-bottom:1px solid rgba(255,102,0,.1);padding-bottom:28px}
+}
+@media(max-width:540px){
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .branch-grid{grid-template-columns:1fr}
+  .branch-grid-row2{grid-template-columns:1fr}
+  .teacher-grid{grid-template-columns:1fr}
+  .fc-c{display:none}
+  .vis-b{display:none}
+  .cta-checks{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="nav" id="navbar">
-  <div class="nav-in">
-    <a href="index.html" class="nav-logo"><img src="data:image/webp;base64,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" alt="Liberal Music &amp; Arts School"/></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-a active">Home</a></li>
-      <li><a href="pages/about.html" class="nav-a">About Us</a></li>
-      <li><a href="pages/courses.html" class="nav-a">Courses</a></li>
-      <li><a href="pages/instructors.html" class="nav-a">Our Instructors</a></li>
-      <li><a href="pages/blog.html" class="nav-a">Blog</a></li>
-      <li><a href="pages/testimonial.html" class="nav-a">Testimonial</a></li>
-      <li><a href="pages/career.html" class="nav-a">Career</a></li>
-    </ul>
-    <div class="nav-act">
-      <button class="lang-btn" style="display:none" onclick="switchLang('zh')">中文</button>
-      <a href="pages/trial.html" class="btn-contact">Contact Us</a>
+<!-- ════════ NAVBAR ════════ -->
+<nav class="nav" id="nav">
+  <div class="W">
+    <div class="nav-row">
+
+      <!-- Logo only — no text label per instruction #1 -->
+      <a href="index.html" class="nav-logo" aria-label="Liberal Music &amp; Arts Home">
+        <img src="assets/logo.webp" alt="Liberal Music &amp; Arts"
+             onerror="this.style.display='none'"/>
+      </a>
+
+      <!-- Nav order: Home | About | Courses | Teachers | Review | Blog | Contact -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/courses.html">Courses</a></li>
+        <li><a href="pages/instructors.html">Teachers</a></li>
+        <li><a href="pages/testimonial.html">Review</a></li>
+        <li><a href="pages/blog.html">Blog</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-end">
+        <a href="index-zh.html" class="nav-lang">中文</a>
+        <a href="pages/trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+      </div>
+
+      <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mob-nav" id="mobile-nav">
-  <a href="index.html" class="nav-a">Home</a>
-  <a href="pages/about.html" class="nav-a">About Us</a>
-  <a href="pages/courses.html" class="nav-a">Courses</a>
-  <a href="pages/instructors.html" class="nav-a">Our Instructors</a>
-  <a href="pages/testimonial.html" class="nav-a">Testimonial</a>
-  <a href="pages/contact.html" class="nav-a">Contact</a>
-  <div class="nav-act">
-    <button class="lang-btn" style="display:none" onclick="switchLang('zh')">中文</button>
-    <a href="pages/trial.html" class="btn-contact">Contact Us</a>
-  </div>
-</div>
 
-<!-- HERO -->
+<nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="pages/about.html">About</a>
+  <a href="pages/courses.html">Courses</a>
+  <a href="pages/instructors.html">Teachers</a>
+  <a href="pages/testimonial.html">Review</a>
+  <a href="pages/blog.html">Blog</a>
+  <a href="pages/contact.html">Contact</a>
+  <a href="pages/trial.html" class="btn btn-cta">Book Trial Class</a>
+</nav>
+
+
+<!-- ════════ 1. HERO ════════ -->
 <section class="hero" id="home">
-  <div class="blob b1"></div><div class="blob b2"></div>
-  <div class="blob b3"></div><div class="blob b4"></div>
-  <!-- Hero decorative dots — 222.webp positions -->
-  <svg class="hero-deco-svg" viewBox="0 0 1203 293" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
-    <circle class="deco-el" cx="59"   cy="27"  r="6"  fill="#00B7C0" style="--di:.50s;--df:5.0s"/>
-    <circle class="deco-el" cx="1184" cy="6"   r="6"  fill="#00B7C0" style="--di:.60s;--df:4.2s"/>
-    <circle class="deco-el" cx="984"  cy="87"  r="6"  fill="#00B7C0" style="--di:.55s;--df:5.5s"/>
-    <circle class="deco-el" cx="244"  cy="133" r="5"  fill="#00B7C0" style="--di:.70s;--df:4.8s"/>
-    <circle class="deco-el" cx="200"  cy="118" r="13" fill="#FF7465" style="--di:.60s;--df:5.5s"/>
-    <circle class="deco-el" cx="822"  cy="192" r="7"  fill="#FF7465" style="--di:.80s;--df:4.6s"/>
-    <circle class="deco-el" cx="307"  cy="105" r="4"  fill="#E57E3E" style="--di:.65s;--df:3.8s"/>
-    <circle class="deco-el" cx="166"  cy="190" r="4"  fill="#E57E3E" style="--di:.75s;--df:5.2s"/>
-  </svg>
-  <span class="deco-note" style="left:6%;top:44%;color:rgba(238,122,51,0.5);font-size:22px">&#9834;</span>
-  <span class="deco-note" style="right:5%;top:40%;color:rgba(238,122,51,0.55);font-size:32px">&#9835;</span>
-  <span class="deco-note" style="right:8%;top:54%;color:rgba(220,80,80,0.5);font-size:22px">&#9834;</span>
-
-  <div class="hero-text">
-    <h1 class="hero-h1" data-anim="up">
-      Professional Music Education for All Ages
-    </h1>
-    <p class="hero-sub" data-anim="up" data-delay="2">
-      Experience quality music education with international instructors.
-    </p>
-    <div class="hero-btns" data-anim="up" data-delay="3">
-      <a href="pages/trial.html" class="btn btn-pr" style="font-size:17px;padding:16px 38px">
-        Book A Trial &nbsp;<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="pages/courses.html" class="btn-explore">
-        Explore Courses &nbsp;<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
+  <div class="hero-mesh"  aria-hidden="true"></div>
+  <div class="hero-ring"  aria-hidden="true"></div>
+  <div class="orb o1"     aria-hidden="true"></div>
+  <div class="orb o2"     aria-hidden="true"></div>
+  <div class="orb o3"     aria-hidden="true"></div>
+  <div class="hero-notes" aria-hidden="true">
+    <span class="note">🎵</span><span class="note">🎶</span>
+    <span class="note">♪</span><span class="note">🎵</span>
+    <span class="note">♩</span><span class="note">🎶</span>
   </div>
 
-  <div class="hero-vid" data-anim="zoom" data-delay="4">
-    <div class="vid-frame">
-      <div class="vid-thumb" id="vid-thumb" onclick="loadVideo()">
-        <img
-          src="https://img.youtube.com/vi/Yh8Z6yca-28/maxresdefault.jpg"
-          alt="Liberal Music &amp; Arts School — Student Performance"
-          onerror="this.src='https://img.youtube.com/vi/Yh8Z6yca-28/hqdefault.jpg'"
-        />
-        <div class="vid-play">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="40" fill="rgba(238,122,51,0.90)"/>
-            <polygon points="32,24 60,40 32,56" fill="white"/>
-          </svg>
+  <div class="W">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <div class="hero-kicker sr">✦ Singapore's Most Trusted Music School</div>
+        <h1 class="sr d1">
+          Build <span class="kw">Confidence</span>,<br>
+          Creativity &amp; Joy<br>Through Music
+        </h1>
+        <p class="hero-desc sr d2">
+          Expert-led classes for children aged 4–16. We nurture creativity,
+          sharpen focus, and grow the courage to perform — for life.
+        </p>
+        <div class="i-pills sr d2">
+          <span class="i-pill">🎹 Piano</span>
+          <span class="i-pill">🎻 Violin</span>
+          <span class="i-pill">🎸 Guitar</span>
+          <span class="i-pill">🎨 Art</span>
+          <span class="i-pill">💃 Dance</span>
+          <span class="i-pill">🥁 Drums</span>
         </div>
-        <div class="vid-label"><span class="live-dot"></span> Student Performance — Click to Play</div>
-      </div>
-      <div class="vid-iframe-wrap" id="vid-iframe-wrap"></div>
-    </div>
-
-  <!-- Trust badges — below video -->
-  <div class="hero-trust" data-anim="up" data-delay="5">
-    <div class="hero-trust-item">
-      <span class="hero-trust-check">&#10003;</span>
-      15+ Years Experience
-    </div>
-    <div class="hero-trust-item">
-      <span class="hero-trust-check">&#10003;</span>
-      4 Locations Across Singapore
-    </div>
-    <div class="hero-trust-item">
-      <span class="hero-trust-check">&#10003;</span>
-      Trusted by 20,000+ Students
-    </div>
-  </div>
-  </div>
-</section>
-
-<!-- CTA STRIP -->
-<section class="cta-strip">
-  <div class="strip-in" data-anim="up">
-    <div>
-      <h3>Start Your Musical Journey Today</h3>
-      <p>Limited trial slots available this month — secure yours now</p>
-    </div>
-    <div class="strip-btns">
-      <a href="pages/trial.html" class="s-btn-w">&#127925; Book Trial — From $30</a>
-      <a href="https://wa.me/6591234567" target="_blank" rel="noopener noreferrer" class="s-btn-g"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT US -->
-<section class="sec sec-white" id="about">
-  <div class="sdot" style="left:91.4%;top:45.4%;width:10px;height:10px;background:#00B7C0;--dd:0.3s;--df:5.0s"></div>
-  <div class="sdot" style="left:25.9%;top:98.0%;width:9px;height:9px;background:#00B7C0;--dd:0.5s;--df:4.2s"></div>
-  <div class="sdot" style="left:87.0%;top:22.3%;width:12px;height:12px;background:#E57E3E;--dd:0.2s;--df:5.5s"></div>
-  <div class="sdot" style="left:39.7%;top:52.3%;width:10px;height:10px;background:#FF7465;--dd:0.6s;--df:4.6s"></div>
-  <div class="sdot" style="left:16.8%;top:52.0%;width:8px;height:8px;background:#E57E3E;--dd:0.4s;--df:3.8s"></div>
-  <div class="sdot" style="left:15.4%;top:63.4%;width:8px;height:8px;background:#E57E3E;--dd:0.5s;--df:5.2s"></div>
-
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-img-outer" data-anim="right">
-        <div class="about-img-wrap">
-          <div class="about-circle">&#127929;</div>
-          <div class="stat-bubble sb-tl" data-anim="zoom" data-delay="2">
-            <span class="bnum">20,000+</span>
-            <span class="blbl">students</span>
+        <div class="hero-btns sr d3">
+          <a href="pages/trial.html" class="btn btn-cta btn-lg btn-ring">✦ Book Free Trial Class</a>
+          <a href="pages/courses.html" class="btn btn-outline btn-lg">View Courses</a>
+        </div>
+        <div class="proof sr d4">
+          <div class="pf-stack">
+            <div class="pf pf-a">👧</div>
+            <div class="pf pf-b">👦</div>
+            <div class="pf pf-c">🧒</div>
+            <div class="pf pf-a">👧</div>
+            <div class="pf pf-ct">500+</div>
           </div>
-          <div class="stat-bubble sb-tr" data-anim="zoom" data-delay="3">
-            <span class="blbl" style="font-size:11px">Since</span>
-            <span class="bnum" style="font-size:20px">2009</span>
+          <div class="proof-txt">
+            <strong>500+ Happy Students</strong>
+            <span>growing every term</span>
           </div>
-          <div class="dec-dot dd1"></div>
-          <div class="dec-dot dd2"></div>
-          <span style="position:absolute;bottom:14%;left:6%;font-size:32px;color:rgba(238,122,51,0.35)">&#9834;</span>
-          <span style="position:absolute;top:36%;right:2%;font-size:24px;color:rgba(238,122,51,0.28)">&#9835;</span>
+          <div class="proof-sep"></div>
+          <div class="proof-star">
+            <div class="stars">★★★★★</div>
+            <span>5.0 on Google</span>
+          </div>
         </div>
       </div>
-      <div data-anim="left" data-delay="2">
-        <span class="tag-lbl">About Us</span>
-        <h2 class="sh2">Singapore's Leading Private<br>Music Academy</h2>
-        <svg viewBox="0 0 120 12" fill="none" style="width:100px;height:14px;display:block;margin:8px 0 22px"><path d="M2 8 C20 2, 40 12, 60 6 S100 2, 118 8" stroke="#EE7A33" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
-        <p class="about-body">Liberal Music &amp; Arts School established in 2009, is one of Singapore's leading private music academies, offering structured and professional music courses for all ages and skill levels. Our programmes include piano, violin, drums, guitar, ukulele, vocals and Chinese instruments, taught by highly qualified international instructors from countries such as Russia, China, Ukraine and Canada.</p>
-        <p class="about-body">With over 20,000 students served across our four locations Jurong West, Bukit Batok, Tengah and Tampines. We have built a strong reputation for excellence. Many of our students have grown in both confidence and skill, with some successfully progressing to top institutions such as SOTA, NAFA and LASALLE.</p>
-        <a href="pages/contact.html" class="btn btn-pr" style="margin-top:8px">Explore More &nbsp;<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-<hr style="border:none;border-top:1px solid var(--bdr)"/>
 
-<!-- COURSES -->
-<section class="sec sec-white" id="courses">
-  <div class="sdot" style="left:22.0%;top:86.9%;width:10px;height:10px;background:#00B7C0;--dd:0.3s;--df:5.0s"></div>
-  <div class="sdot" style="left:36.5%;top:11.4%;width:12px;height:12px;background:#FF7465;--dd:0.2s;--df:4.8s"></div>
-
-  <div class="wrap">
-    <div class="course-layout">
-      <div data-anim="right">
-        <span class="tag-lbl">Programs We Offer</span>
-        <h2 class="sh2">Our Course</h2>
-        <svg viewBox="0 0 120 12" fill="none" style="width:100px;height:14px;display:block;margin:8px 0 22px"><path d="M2 8 C20 2, 40 12, 60 6 S100 2, 118 8" stroke="#EE7A33" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
-        <p class="sp">Lessons for all ages, led by expert instructors.</p>
-        <a href="pages/courses.html" class="btn btn-dark" style="margin-top:8px">View All &nbsp;<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="cg">
-        <a href="pages/courses.html" class="cc" data-anim="zoom" data-delay="1">
-          <div class="cc-icon-wrap"><svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="20" y1="38" x2="70" y2="10" stroke="white" stroke-width="4" stroke-linecap="round"/>
-            <rect x="12" y="38" width="76" height="22" rx="3" fill="white" fill-opacity="0.95"/>
-            <rect x="16" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="26" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="36" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="46" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="56" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="66" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="76" y="41" width="8" height="14" rx="1.5" fill="white" stroke="rgba(200,100,30,0.3)" stroke-width="0.8"/>
-            <rect x="22" y="41" width="5" height="9" rx="1" fill="rgba(220,100,30,0.65)"/>
-            <rect x="32" y="41" width="5" height="9" rx="1" fill="rgba(220,100,30,0.65)"/>
-            <rect x="52" y="41" width="5" height="9" rx="1" fill="rgba(220,100,30,0.65)"/>
-            <rect x="62" y="41" width="5" height="9" rx="1" fill="rgba(220,100,30,0.65)"/>
-            <rect x="72" y="41" width="5" height="9" rx="1" fill="rgba(220,100,30,0.65)"/>
-            <rect x="20" y="60" width="5" height="12" rx="1.5" fill="white" fill-opacity="0.9"/>
-            <rect x="75" y="60" width="5" height="12" rx="1.5" fill="white" fill-opacity="0.9"/>
-            <text x="62" y="28" font-size="13" fill="white" opacity="0.9">&#9834;</text>
-            <text x="74" y="20" font-size="10" fill="white" opacity="0.75">&#9835;</text>
-          </svg></div>
-          <div class="cc-label">Piano Lessons</div>
-        </a>
-        <a href="pages/courses.html" class="cc" data-anim="zoom" data-delay="2">
-          <div class="cc-icon-wrap"><svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="56" rx="22" ry="18" fill="white" fill-opacity="0.95"/>
-            <circle cx="50" cy="56" r="6" fill="rgba(220,100,30,0.5)"/>
-            <rect x="47" y="10" width="6" height="32" rx="3" fill="white" fill-opacity="0.95"/>
-            <rect x="44" y="8" width="12" height="7" rx="3" fill="white" fill-opacity="0.9"/>
-            <circle cx="45" cy="12" r="2.5" fill="rgba(220,100,30,0.6)"/>
-            <circle cx="55" cy="12" r="2.5" fill="rgba(220,100,30,0.6)"/>
-            <line x1="46" y1="13" x2="46" y2="70" stroke="rgba(220,100,30,0.4)" stroke-width="1"/>
-            <line x1="50" y1="13" x2="50" y2="70" stroke="rgba(220,100,30,0.4)" stroke-width="1"/>
-            <line x1="54" y1="13" x2="54" y2="70" stroke="rgba(220,100,30,0.4)" stroke-width="1"/>
-            <text x="66" y="26" font-size="12" fill="white" opacity="0.85">&#9834;</text>
-          </svg></div>
-          <div class="cc-label">Guitar Lessons</div>
-        </a>
-        <a href="pages/courses.html" class="cc" data-anim="zoom" data-delay="3">
-          <div class="cc-icon-wrap"><svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="58" rx="18" ry="15" fill="white" fill-opacity="0.95"/>
-            <circle cx="50" cy="58" r="5" fill="rgba(220,100,30,0.5)"/>
-            <rect x="47.5" y="12" width="5" height="34" rx="2.5" fill="white" fill-opacity="0.95"/>
-            <rect x="44" y="8" width="12" height="8" rx="3" fill="white" fill-opacity="0.9"/>
-            <circle cx="46" cy="11" r="2" fill="rgba(220,100,30,0.6)"/>
-            <circle cx="54" cy="11" r="2" fill="rgba(220,100,30,0.6)"/>
-            <line x1="47" y1="14" x2="47" y2="70" stroke="rgba(220,100,30,0.4)" stroke-width="1"/>
-            <line x1="50" y1="14" x2="50" y2="70" stroke="rgba(220,100,30,0.4)" stroke-width="1"/>
-            <line x1="53" y1="14" x2="53" y2="70" stroke="rgba(220,100,30,0.4)" stroke-width="1"/>
-            <line x1="46" y1="28" x2="54" y2="28" stroke="rgba(220,100,30,0.35)" stroke-width="1"/>
-            <line x1="46" y1="36" x2="54" y2="36" stroke="rgba(220,100,30,0.35)" stroke-width="1"/>
-            <text x="66" y="24" font-size="12" fill="white" opacity="0.85">&#9835;</text>
-          </svg></div>
-          <div class="cc-label">Ukulele Lessons</div>
-        </a>
-        <a href="pages/courses.html" class="cc" data-anim="zoom" data-delay="1">
-          <div class="cc-icon-wrap"><svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="50" rx="28" ry="14" fill="white" fill-opacity="0.85"/>
-            <ellipse cx="50" cy="55" rx="28" ry="14" fill="white" fill-opacity="0.95"/>
-            <ellipse cx="26" cy="36" rx="14" ry="6" fill="white" fill-opacity="0.95"/>
-            <rect x="12" y="36" width="28" height="10" fill="white" fill-opacity="0.8"/>
-            <ellipse cx="26" cy="46" rx="14" ry="6" fill="white" fill-opacity="0.7"/>
-            <line x1="76" y1="18" x2="72" y2="58" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-            <ellipse cx="76" cy="20" rx="10" ry="3" fill="white" fill-opacity="0.9"/>
-            <ellipse cx="76" cy="24" rx="10" ry="3" fill="white" fill-opacity="0.75"/>
-            <line x1="35" y1="14" x2="50" y2="35" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
-            <line x1="65" y1="14" x2="52" y2="33" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
-          </svg></div>
-          <div class="cc-label">Drum Lessons</div>
-        </a>
-        <a href="pages/courses.html" class="cc" data-anim="zoom" data-delay="2">
-          <div class="cc-icon-wrap"><svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="38" y="8" width="24" height="34" rx="12" fill="white" fill-opacity="0.95"/>
-            <line x1="38" y1="20" x2="62" y2="20" stroke="rgba(220,100,30,0.3)" stroke-width="1"/>
-            <line x1="38" y1="27" x2="62" y2="27" stroke="rgba(220,100,30,0.3)" stroke-width="1"/>
-            <line x1="38" y1="34" x2="62" y2="34" stroke="rgba(220,100,30,0.3)" stroke-width="1"/>
-            <rect x="47" y="40" width="6" height="22" rx="3" fill="white" fill-opacity="0.9"/>
-            <path d="M40 42 Q30 52 32 62" stroke="white" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
-            <path d="M60 42 Q70 52 68 62" stroke="white" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
-            <rect x="28" y="62" width="44" height="5" rx="2.5" fill="white" fill-opacity="0.9"/>
-            <text x="68" y="24" font-size="13" fill="white" opacity="0.9">&#9834;</text>
-            <text x="18" y="20" font-size="10" fill="white" opacity="0.75">&#9835;</text>
-          </svg></div>
-          <div class="cc-label">Vocal Lessons</div>
-        </a>
-        <a href="pages/courses.html" class="cc" data-anim="zoom" data-delay="3">
-          <div class="cc-icon-wrap"><svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="22" y="60" font-size="52" fill="white" fill-opacity="0.95">&#9835;</text>
-            <circle cx="72" cy="16" r="4" fill="white" fill-opacity="0.85"/>
-            <circle cx="80" cy="28" r="2.5" fill="white" fill-opacity="0.7"/>
-            <circle cx="66" cy="26" r="2" fill="white" fill-opacity="0.65"/>
-            <line x1="72" y1="10" x2="72" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-            <line x1="66" y1="16" x2="78" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-            <text x="62" y="48" font-size="18" fill="white" opacity="0.7">&#9834;</text>
-          </svg></div>
-          <div class="cc-label">Music For Kids</div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-<hr style="border:none;border-top:1px solid var(--bdr)"/>
-
-<!-- WHY CHOOSE US -->
-<section class="sec sec-orange" id="why">
-  <div class="wrap">
-    <div class="why-hdr">
-      <span class="why-sub">Our Advantages</span>
-      <h2 class="sh2 sh2-w">Why Choose Liberal Music &amp; Arts School?</h2>
-      <svg viewBox="0 0 120 12" fill="none" style="width:100px;height:14px;display:block;margin:8px auto 24px"><path d="M2 8 C20 2, 40 12, 60 6 S100 2, 118 8" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
-    </div>
-    <div class="why-grid">
-      <div class="wcard" data-anim="up" data-delay="1">
-        <div class="wcard-img" style="background:linear-gradient(135deg,#f5e6d3,#fde8cc)">&#127931;</div>
-        <div class="wcard-body"><h3>Professional Programs</h3><p>We offer specialized courses including DSA preparation and professional training programs to help students reach their full potential.</p></div>
-      </div>
-      <div class="wcard" data-anim="up" data-delay="2">
-        <div class="wcard-img" style="background:linear-gradient(135deg,#e8f0fe,#d0e2ff)">&#127929;</div>
-        <div class="wcard-body"><h3>Diverse Course Offerings</h3><p>From early childhood music classes to adult interest courses and programs for children with special needs, our diverse offerings cater to all learners.</p></div>
-      </div>
-      <div class="wcard" data-anim="up" data-delay="3">
-        <div class="wcard-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">&#127908;</div>
-        <div class="wcard-body"><h3>Performance Opportunities</h3><p>We provide students with regular performance opportunities from annual concerts at iconic venues to build real-world stage confidence.</p></div>
+      <div class="hero-vis sr d2">
+        <div class="vis-a" aria-hidden="true"></div>
+        <div class="vis-b" aria-hidden="true"></div>
+        <div class="hero-frame" id="heroFrame">
+          <!--✏️ Replace: <img src="assets/hero-student.webp" alt="Student at Liberal Music School">-->
+          <div class="hero-ph">
+            <div class="big">🎵</div>
+            <p>Add hero image here</p>
+          </div>
+        </div>
+        <div class="fc fc-a"><div class="fc-ico fi-or">🌟</div><div><strong>500+</strong><span>Happy Students</span></div></div>
+        <div class="fc fc-b"><div class="fc-ico fi-tl">🏆</div><div><strong>#1 Rated</strong><span>Music School SG</span></div></div>
+        <div class="fc fc-c"><div class="fc-ico fi-lm">🎓</div><div><strong>10+ Yrs</strong><span>Experience</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROMOTIONS -->
-<section class="sec sec-white" id="promotions">
-  <div class="sdot" style="left:9.5%;top:33.9%;width:12px;height:12px;background:#FF7465;--dd:0.2s;--df:5.5s"></div>
-  <div class="sdot" style="left:79.9%;top:36.1%;width:8px;height:8px;background:#E57E3E;--dd:0.4s;--df:4.0s"></div>
-  <div class="sdot" style="left:10.0%;top:89.0%;width:12px;height:12px;background:#FF7465;--dd:0.5s;--df:6.0s"></div>
 
-  <div class="wrap">
-    <div class="promo-layout">
-      <div data-anim="right">
-        <span class="tag-lbl">Get Updates</span>
-        <h2 class="sh2">Our Promotions</h2>
-        <svg viewBox="0 0 120 12" fill="none" style="width:100px;height:14px;display:block;margin:8px 0 22px"><path d="M2 8 C20 2, 40 12, 60 6 S100 2, 118 8" stroke="#EE7A33" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
-        <a href="pages/trial.html" class="btn btn-dark">View All &nbsp;<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <div class="promo-deco">&#9835;</div>
+<!-- ════════ 2. WHY PARENTS CHOOSE LIBERAL ════════ -->
+<section class="trust" id="trust">
+  <div class="W">
+    <div class="sec-head cx sr">
+      <div class="pill-tag pt-tl">💙 Why Parents Choose Liberal</div>
+      <h2 class="h2">A School Parents Trust,<br>Kids Love</h2>
+      <p class="lead">We combine certified teaching, a nurturing environment, and a curriculum designed around your child's unique learning journey.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card sr">
+        <div class="trust-icon ti-1">🛡️</div>
+        <h3>Safe &amp; Nurturing</h3>
+        <p>Every class is a warm, encouraging space where children feel confident to explore, make mistakes, and grow.</p>
       </div>
-      <div class="pg" data-anim="left" data-delay="1">
-        <div class="pc" data-anim="up" data-delay="1"><span class="pc-tag">&#127881; New Student</span><h3>Trial Class Special</h3><p>First lesson trial for new students. No commitment required.</p><div class="pc-price">From $30 <s>$60</s></div><a href="pages/trial.html" class="btn btn-pr btn-sm" style="align-self:flex-start">Book Now</a></div>
-        <div class="pc" data-anim="up" data-delay="2"><span class="pc-tag">&#128106; Family Bundle</span><h3>Sibling Discount</h3><p>Enroll two or more family members and enjoy exclusive discounts on monthly fees.</p><div class="pc-price">10% Off</div><a href="pages/contact.html" class="btn btn-pr btn-sm" style="align-self:flex-start">Enquire</a></div>
-        <div class="pc" data-anim="up" data-delay="3"><span class="pc-tag">&#128197; School Holiday</span><h3>Holiday Intensive</h3><p>Intensive holiday music workshops for children during school breaks. Limited slots.</p><div class="pc-price">From $120</div><a href="pages/trial.html" class="btn btn-pr btn-sm" style="align-self:flex-start">Register</a></div>
-        <div class="pc" data-anim="up" data-delay="4"><span class="pc-tag">&#127942; Exam Prep</span><h3>ABRSM Prep Bundle</h3><p>Structured exam preparation package including mock exams, theory coaching, and practice.</p><div class="pc-price">Ask Us</div><a href="pages/contact.html" class="btn btn-pr btn-sm" style="align-self:flex-start">Learn More</a></div>
+      <div class="trust-card sr d1">
+        <div class="trust-icon ti-2">🎓</div>
+        <h3>Certified Teachers</h3>
+        <p>All instructors hold internationally recognised qualifications — ABRSM, Trinity, Berklee, and more.</p>
+      </div>
+      <div class="trust-card sr d2">
+        <div class="trust-icon ti-3">📍</div>
+        <h3>4 Convenient Branches</h3>
+        <p>Tengah, Tampines, Jurong West, and Jurong Point — always a studio close to your home or school.</p>
+      </div>
+      <div class="trust-card sr d3">
+        <div class="trust-icon ti-4">🌟</div>
+        <h3>Holistic Learning</h3>
+        <p>We don't just teach notes — we build discipline, confidence, stage presence, and a lifelong love of the arts.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="sec sec-cream" id="testimonials">
-  <div class="sdot" style="left:72.8%;top:41.3%;width:10px;height:10px;background:#00B7C0;--dd:0.3s;--df:5.0s"></div>
-  <div class="sdot" style="left:85.4%;top:8.9%;width:12px;height:12px;background:#FF7465;--dd:0.2s;--df:4.5s"></div>
-  <div class="sdot" style="left:14.5%;top:52.9%;width:12px;height:12px;background:#FF7465;--dd:0.4s;--df:5.5s"></div>
 
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="tag-lbl" style="display:block;text-align:center;margin-bottom:6px">Testimonial</span>
-      <h2 class="sh2 center" data-anim="up">Here's What Our Student Say About Us</h2>
-      <svg viewBox="0 0 120 12" fill="none" style="width:100px;height:14px;display:block;margin:8px auto 0"><path d="M2 8 C20 2, 40 12, 60 6 S100 2, 118 8" stroke="#EE7A33" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
-    </div>
-    <div class="tg">
-      <div class="tc" data-anim="up" data-delay="1"><div class="tc-av"><svg viewBox="0 0 24 24" fill="#b0a090"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div><div class="tc-qq">&#10077;</div><p class="tc-text">My daughter, Victoria Tan, is 9 years old. Two and a half years ago, she took a keen interest in Chinese music, and so began her musical journey with Liberal Music and Arts School. After merely 4 months of lessons she was already performing confidently.</p><div class="tc-name">Confident &amp; Excellent</div><div class="tc-role">Victoria Tan's Parent (Guzheng Student)</div></div>
-      <div class="tc" data-anim="up" data-delay="2"><div class="tc-av"><svg viewBox="0 0 24 24" fill="#b0a090"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div><div class="tc-qq">&#10077;</div><p class="tc-text">I find the time learning violin at Liberal Music &amp; Arts School a meaningful and worthwhile experience. The school is very flexible and accommodating in planning the schedules for every lesson, including make up lessons.</p><div class="tc-name">Very Satisfied!</div><div class="tc-role">Ms. Li Boya (Grade 6 Violin Student)</div></div>
-      <div class="tc" data-anim="up" data-delay="3"><div class="tc-av"><svg viewBox="0 0 24 24" fill="#b0a090"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div><div class="tc-qq">&#10077;</div><p class="tc-text">LIBERAL MUSIC &amp; ARTS SCHOOL has played a significant role in helping me discover my passion for music. There are always qualified instructors who conduct lessons in an engaging manner, helping students look forward to every lesson.</p><div class="tc-name">Believing &amp; Fun</div><div class="tc-role">Ms. Kok (Grade 5 Erhu Student)</div></div>
+<!-- ════════ STATS STRIP ════════ -->
+<section class="stats-strip" aria-label="Key statistics">
+  <div class="W">
+    <div class="stats-grid">
+
+      <div class="stat-cell sr">
+        <span class="stat-icon">🎓</span>
+        <span class="stat-num" data-count="500">500<span class="acc">+</span></span>
+        <span class="stat-label">Students Enrolled</span>
+        <span class="stat-sub">and growing every term</span>
+      </div>
+
+      <div class="stat-cell sr d1">
+        <span class="stat-icon">📅</span>
+        <span class="stat-num">10<span class="acc">+</span></span>
+        <span class="stat-label">Years of Excellence</span>
+        <span class="stat-sub">trusted since 2014</span>
+      </div>
+
+      <div class="stat-cell sr d2">
+        <span class="stat-icon">📍</span>
+        <span class="stat-num">4</span>
+        <span class="stat-label">Branches in Singapore</span>
+        <span class="stat-sub">always close to you</span>
+      </div>
+
+      <div class="stat-cell sr d3">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-num">98<span class="acc">%</span></span>
+        <span class="stat-label">Parent Satisfaction</span>
+        <span class="stat-sub">5-star rated school</span>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- BOOK YOUR JOURNEY -->
-<section class="book" id="book">
-  <span class="book-deco" style="top:15%;left:10%;font-size:52px">&#9834;</span>
-  <span class="book-deco" style="bottom:18%;left:20%;font-size:34px">&#9835;</span>
-  <span class="book-deco" style="top:22%;left:34%;font-size:60px">&#9836;</span>
-  <span class="book-deco" style="top:35%;left:44%;font-size:42px">&#9837;</span>
-  <span class="book-deco" style="top:20%;right:20%;font-size:38px">&#9834;</span>
-  <span class="book-deco" style="bottom:22%;right:12%;font-size:28px">&#9835;</span>
-  <div class="book-in">
-    <div data-anim="right">
-      <h2>Book Your<br>Musical Journey Now</h2>
-      <p>Join thousands of students across Jurong West, Bukit Batok, Tengah &amp; Tampines.</p>
+
+<!-- ════════ 3. COURSES ════════ -->
+<section class="courses" id="programs">
+  <div class="W">
+    <div class="sec-head cx sr">
+      <div class="pill-tag pt-or">🎓 Our Courses</div>
+      <h2 class="h2">Find the Perfect Class<br>for Your Child</h2>
+      <p class="lead">Structured, joyful, and expertly designed for ages 4–16. All skill levels welcome — from complete beginners to advanced performers.</p>
     </div>
-    <div data-anim="left" data-delay="2">
-      <a href="pages/trial.html" class="btn btn-outline-w" style="font-size:16px;padding:15px 32px;gap:12px">
-        <span style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">&#127925;</span>
-        Contact Us
-      </a>
+    <div class="course-grid">
+
+      <div class="course-card sl">
+        <div class="course-thumb ct1">🎹<!--✏️ <img src="assets/prog-piano.webp" alt="Piano">-->
+          <span class="course-age">Ages 4–16</span></div>
+        <div class="course-body">
+          <div class="course-tag">⭐ Most Popular</div>
+          <h3>Piano</h3>
+          <p>From first notes to concert pieces — build technique, theory, and unstoppable confidence at the keys.</p>
+          <div class="course-foot">
+            <div class="course-meta"><strong>1-to-1 &amp; Group</strong>All levels</div>
+            <a href="pages/trial.html" class="btn btn-cta btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card sr">
+        <div class="course-thumb ct2">🎻<!--✏️ <img src="assets/prog-violin.webp" alt="Violin">-->
+          <span class="course-age">Ages 5–16</span></div>
+        <div class="course-body">
+          <div class="course-tag">🎯 Builds Focus</div>
+          <h3>Violin</h3>
+          <p>Develop beautiful tone, sharp ear training, and the poise of a true musician.</p>
+          <div class="course-foot">
+            <div class="course-meta"><strong>1-to-1 &amp; Group</strong>All levels</div>
+            <a href="pages/trial.html" class="btn btn-cta btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card sfr">
+        <div class="course-thumb ct3">🎸<!--✏️ <img src="assets/prog-guitar.webp" alt="Guitar">-->
+          <span class="course-age">Ages 6–16</span></div>
+        <div class="course-body">
+          <div class="course-tag">🌱 Beginner Friendly</div>
+          <h3>Guitar</h3>
+          <p>Acoustic, classical, or electric — spark a lifelong love of music from the very first chord.</p>
+          <div class="course-foot">
+            <div class="course-meta"><strong>1-to-1 &amp; Group</strong>All levels</div>
+            <a href="pages/trial.html" class="btn btn-cta btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card sl d2">
+        <div class="course-thumb ct4">🥁<!--✏️ <img src="assets/prog-drums.webp" alt="Drums">-->
+          <span class="course-age">Ages 6–16</span></div>
+        <div class="course-body">
+          <div class="course-tag">🔥 High Energy</div>
+          <h3>Drums</h3>
+          <p>Build coordination, timing, and explosive rhythm. Turns restless kids into focused, confident musicians.</p>
+          <div class="course-foot">
+            <div class="course-meta"><strong>1-to-1 &amp; Group</strong>All levels</div>
+            <a href="pages/trial.html" class="btn btn-cta btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card sr d2">
+        <div class="course-thumb ct5">🎨<!--✏️ <img src="assets/prog-art.webp" alt="Art">-->
+          <span class="course-age">Ages 4–16</span></div>
+        <div class="course-body">
+          <div class="course-tag">🎨 Creative Expression</div>
+          <h3>Visual Art</h3>
+          <p>Drawing, painting, and mixed media — building creative confidence that shines through everything.</p>
+          <div class="course-foot">
+            <div class="course-meta"><strong>Group Classes</strong>Project-based</div>
+            <a href="pages/trial.html" class="btn btn-cta btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card sfr d2">
+        <div class="course-thumb ct6">💃<!--✏️ <img src="assets/prog-dance.webp" alt="Dance">-->
+          <span class="course-age">Ages 4–14</span></div>
+        <div class="course-body">
+          <div class="course-tag">💃 Joyful Movement</div>
+          <h3>Dance</h3>
+          <p>Ballet, hip-hop, and contemporary in a warm, encouraging space. Watch your child blossom on stage.</p>
+          <div class="course-foot">
+            <div class="course-meta"><strong>Group Classes</strong>Annual showcase</div>
+            <a href="pages/trial.html" class="btn btn-cta btn-sm">Try Free →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:44px" class="sr">
+      <a href="pages/courses.html" class="btn btn-outline">View All Courses →</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+
+<!-- ════════ 4. TEACHERS ════════ -->
+<section class="teachers" id="teachers">
+  <div class="W">
+    <div class="sec-head cx sr">
+      <div class="pill-tag pt-lv">👩‍🏫 Our Teachers</div>
+      <h2 class="h2">Passionate Educators,<br>Extraordinary Results</h2>
+      <p class="lead">Degree-holders, performers, and genuine child-lovers — our teachers are the heartbeat of Liberal.</p>
+    </div>
+    <div class="teacher-grid">
+      <div class="tc sr">
+        <div class="tc-photo tp1">🎹<div class="tc-ov"></div><!--✏️ <img src="assets/teacher-sarah.webp" alt="Ms Sarah Tan">--></div>
+        <div class="tc-body">
+          <span class="tc-chip">Piano</span>
+          <h3>Ms Sarah Tan</h3>
+          <p>ABRSM Grade 8 Distinction · Trinity College London Diploma · 8 years teaching ages 4–16</p>
+        </div>
+      </div>
+      <div class="tc sr d1">
+        <div class="tc-photo tp2">🎻<div class="tc-ov"></div></div>
+        <div class="tc-body">
+          <span class="tc-chip">Violin</span>
+          <h3>Mr David Lee</h3>
+          <p>NUS Yong Siew Toh Conservatory · Former Singapore Youth Orchestra · Suzuki certified</p>
+        </div>
+      </div>
+      <div class="tc sr d2">
+        <div class="tc-photo tp3">🎸<div class="tc-ov"></div></div>
+        <div class="tc-body">
+          <span class="tc-chip">Guitar &amp; Ukulele</span>
+          <h3>Ms Rachel Ng</h3>
+          <p>Berklee Online Certified · 6 years specialising in children's guitar · RSL accredited</p>
+        </div>
+      </div>
+      <div class="tc sr d3">
+        <div class="tc-photo tp4">🎨<div class="tc-ov"></div></div>
+        <div class="tc-body">
+          <span class="tc-chip">Visual Art</span>
+          <h3>Mr James Lim</h3>
+          <p>LASALLE College of the Arts · Child-led creative development specialist · Exhibition artist</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px" class="sr">
+      <a href="pages/instructors.html" class="btn btn-outline">Meet All Our Teachers →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 5. BRANCHES ════════ -->
+<section class="branches" id="branches">
+  <div class="W">
+    <div class="sec-head cx sr">
+      <div class="pill-tag pt-sk">📍 Our Locations</div>
+      <h2 class="h2">5 Locations Across Singapore</h2>
+      <p class="lead">We're always close to home. Find your nearest branch and say hello today.</p>
+    </div>
+
+    <!-- Row 1: 3 cards -->
+    <div class="branch-grid">
+
+      <div class="bc sr">
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-1">🏡</div>
+          <h3>Tengah Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+          </div>
+        </div>
+        <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
+      </div>
+
+      <div class="bc sr d1">
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-2">🌅</div>
+          <h3>Tampines Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Blk 139 Tampines Street 11, #01-60<br>Singapore 521139</span>
+          </div>
+        </div>
+        <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
+      </div>
+
+      <div class="bc sr d2">
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-3">🌿</div>
+          <h3>Jurong West Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Blk 492 Jurong West Street 41, #01-10<br>Singapore 640492</span>
+          </div>
+        </div>
+        <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
+      </div>
+
+    </div>
+
+    <!-- Row 2: 2 cards centred -->
+    <div class="branch-grid-row2">
+
+      <div class="bc sr d1">
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-4">🏢</div>
+          <h3>Le Quest Mall Music School</h3>
+        </div>
+        <div class="bc-addr">
+          <div class="bc-addr-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>4 Bukit Batok Street 41, #01-83<br>Singapore 657991</span>
+          </div>
+        </div>
+        <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
+      </div>
+
+      <!-- Jurong Point — Coming Soon -->
+      <div class="bc coming-soon sr d2">
+        <span class="bc-badge">✦ Opening Soon</span>
+        <div class="bc-pin-row">
+          <div class="bc-pin bi-5">🎵</div>
+          <h3>Jurong Point Music School</h3>
+        </div>
+        <p class="bc-soon-note">We're coming to Jurong Point! Register your interest and be the first to know when we open.</p>
+        <a href="pages/contact.html" class="bc-notify">Get Notified →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 6. PARENT REVIEWS ════════ -->
+<section class="reviews" id="reviews">
+  <div class="W">
+    <div class="sec-head cx sr">
+      <div class="pill-tag pt-or">💛 Parent Reviews</div>
+      <h2 class="h2">Real Parents, Real Stories</h2>
+      <p class="lead">See what Singapore families say about the Liberal difference.</p>
+    </div>
+
+    <div class="rev-carousel">
+      <button class="rev-arrow rev-prev" id="revPrev" aria-label="Previous">◀</button>
+      <div class="rev-track-wrap">
+        <div class="rev-track" id="revTrack">
+
+          <!-- Slide 1 -->
+          <div class="rev-slide">
+            <div class="rev-inner">
+              <div class="rev-card feat">
+                <div class="rev-stars">★★★★★</div>
+                <p class="rev-q">"My daughter was so shy she wouldn't speak up in class. Six months at Liberal and she played a solo at her school concert — and cried happy tears. We will never forget it."</p>
+                <div class="rev-person"><div class="rev-av ra1">👩</div><div class="rev-info"><strong>Mrs Chen Wei</strong><span>Parent of 8-year-old pianist</span></div></div>
+              </div>
+              <div class="rev-card">
+                <div class="rev-stars">★★★★★</div>
+                <p class="rev-q">"The teachers genuinely learn each child's learning style. My son actually begs to go to violin class — we never expected that!"</p>
+                <div class="rev-person"><div class="rev-av ra2">👨</div><div class="rev-info"><strong>Mr Amir Hassan</strong><span>Parent of 6-year-old violinist</span></div></div>
+              </div>
+              <div class="rev-card">
+                <div class="rev-stars">★★★★★</div>
+                <p class="rev-q">"We tried two other schools before Liberal. The warmth, structure, and communication here is completely different. My twins are thriving."</p>
+                <div class="rev-person"><div class="rev-av ra3">👩</div><div class="rev-info"><strong>Ms Priya Nair</strong><span>Parent of twin guitar students</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="rev-slide">
+            <div class="rev-inner">
+              <div class="rev-card feat">
+                <div class="rev-stars">★★★★★</div>
+                <p class="rev-q">"I love the monthly progress reports — I always know how my child is doing and what to encourage at home. It feels like a true partnership."</p>
+                <div class="rev-person"><div class="rev-av ra4">👩</div><div class="rev-info"><strong>Mrs Tan Mei Ling</strong><span>Parent of art student, age 10</span></div></div>
+              </div>
+              <div class="rev-card">
+                <div class="rev-stars">★★★★★</div>
+                <p class="rev-q">"My son passed ABRSM Grade 5 with Distinction after just 2 years. Professional, patient, and somehow made practice feel fun. Remarkable."</p>
+                <div class="rev-person"><div class="rev-av ra5">👨</div><div class="rev-info"><strong>Mr Kevin Goh</strong><span>Parent of 12-year-old pianist</span></div></div>
+              </div>
+              <div class="rev-card">
+                <div class="rev-stars">★★★★★</div>
+                <p class="rev-q">"The annual recital is the highlight of our year. Watching the children perform with such pride teaches far more than music. It truly builds character."</p>
+                <div class="rev-person"><div class="rev-av ra6">👩</div><div class="rev-info"><strong>Ms Lily Wong</strong><span>Parent of dance student, age 7</span></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="rev-arrow rev-next" id="revNext" aria-label="Next">▶</button>
+      <div class="rev-dots" id="revDots">
+        <button class="rev-dot on" data-i="0" aria-label="Slide 1"></button>
+        <button class="rev-dot"    data-i="1" aria-label="Slide 2"></button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px" class="sr">
+      <a href="pages/testimonial.html" class="btn btn-outline">Read All Reviews →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 7. FINAL CTA BANNER ════════ -->
+<section class="cta-banner">
+  <div class="cta-inner sr">
+    <div class="pill-tag pt-or" style="margin:0 auto 20px;">✦ Start Today — It's Free</div>
+    <h2>Start Your Child's <span class="or">Musical Journey</span> Today</h2>
+    <p>The first lesson is completely free. No pressure. No commitment. Come meet our teachers and discover why over 500 Singapore families trust Liberal.</p>
+    <div class="cta-btns">
+      <a href="pages/trial.html" class="btn btn-cta btn-lg btn-ring">✦ Book Free Trial Class</a>
+      <a href="pages/contact.html" class="btn btn-outline btn-lg">Ask a Question</a>
+    </div>
+    <div class="cta-checks">
+      <span class="chk">Free, no-obligation trial</span>
+      <span class="chk">Ages 4–16 welcome</span>
+      <span class="chk">All skill levels</span>
+      <span class="chk">4 locations</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 8. FOOTER ════════ -->
 <footer class="footer">
-  <div class="fg" data-anim="up">
-    <div>
-      <div class="footer-logo"><img src="data:image/webp;base64,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" alt="Liberal Music &amp; Arts School"/></div>
-      <p class="fdesc">Liberal Music &amp; Arts School offers music lessons in Singapore, including piano, violin, drums, guitar, ukulele, vocals and Chinese instruments, taught by expert instructors for all ages and skill levels.</p>
-      <div class="fcon">
-        <a href="tel:+6591234567"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.93a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+65 9123 4567</a>
-        <a href="mailto:hello@liberalmusic.sg"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@liberalmusic.sg</a>
+  <div class="W">
+    <div class="foot-grid">
+
+      <!-- Column 1: School intro + contact -->
+      <div class="foot-brand">
+        <img src="assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
+             onerror="this.src='assets/logo.webp'"/>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+        <div class="foot-brand-contact">
+          <a href="/cdn-cgi/l/email-protection#6b030e0707042b0702090e190a07061e18020845180c" class="email"><span class="__cf_email__" data-cfemail="deb6bbb2b2b19eb2b7bcbbacbfb2b3abadb7bdf0adb9">[email&#160;protected]</span></a>
+          <a href="tel:+6589222848" class="phone">+65 8922 2848</a>
+        </div>
+        <div class="foot-soc">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <div class="foot-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/courses.html">Courses</a></li>
+          <li><a href="pages/instructors.html">Teachers</a></li>
+          <li><a href="pages/testimonial.html">Review</a></li>
+          <li><a href="pages/blog.html">Blog</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="pages/trial.html" style="color:var(--or);font-weight:700;">✦ Free Trial Class</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: All 5 locations with pin icons -->
+      <div class="foot-col">
+        <h5>Our Locations</h5>
+        <div class="foot-locs">
+
+          <div class="foot-loc">
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Tengah Music School</strong>
+              <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+            </div>
+          </div>
+
+          <div class="foot-loc">
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Tampines Music School</strong>
+              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+            </div>
+          </div>
+
+          <div class="foot-loc">
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Jurong West Music School</strong>
+              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+            </div>
+          </div>
+
+          <div class="foot-loc">
+            <span class="foot-loc-pin">📍</span>
+            <div class="foot-loc-text">
+              <strong>Le Quest Mall Music School</strong>
+              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+            </div>
+          </div>
+
+          <div class="foot-loc soon">
+            <span class="foot-loc-pin">✦</span>
+            <div class="foot-loc-text">
+              <strong>Jurong Point Music School</strong>
+              <span>Opening Soon — Register Interest</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot-btm">
+      <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
+      <div class="foot-btm-links">
+        <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="index-zh.html">中文版本</a>
       </div>
     </div>
-    <div class="fcol"><h4>Discover</h4><ul><li><a href="index.html">Home</a></li><li><a href="pages/about.html">About Us</a></li><li><a href="pages/courses.html">Courses</a></li><li><a href="pages/instructors.html">Our Instructors</a></li><li><a href="#">News</a></li><li><a href="pages/blog.html">Blog</a></li><li><a href="pages/testimonial.html">Testimonial</a></li></ul></div>
-    <div class="fcol"><h4>Services</h4><ul><li><a href="pages/courses.html">Piano Lessons</a></li><li><a href="pages/courses.html">Violin Lessons</a></li><li><a href="#">Guitar Lessons</a></li><li><a href="#">Ukulele Lessons</a></li><li><a href="pages/courses.html">Drum Lessons</a></li><li><a href="#">Vocal Lessons</a></li><li><a href="#">Little Artist (Ages 3-6)</a></li></ul></div>
-    <div class="fcol">
-      <h4>Subscribe News</h4>
-      <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:10px">Get latest updates &amp; promotions.</p>
-      <div class="sub-row">
-        <input type="email" class="sub-input" placeholder="Please enter your email address"/>
-        <button class="sub-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></button>
-      </div>
-      <div style="margin-top:20px">
-        <div class="floc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Jurong West</div><div class="fls">Blk 505 Jurong West St 52</div></div></div>
-        <div class="floc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Bukit Batok</div><div class="fls">4 Bukit Batok St 41 (Le Quest)</div></div></div>
-        <div class="floc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Tengah</div><div class="fls">Tengah Plantation Loop</div></div></div>
-        <div class="floc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EE7A33" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><div class="fln">Jurong Point</div><div class="fls">1 Jurong West Central 2</div></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="fbot">
-    <p>&copy; 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
-    <div class="fbot-l"><a href="index.html">English</a><a href="index-zh.html">&#20013;&#25991;</a></div>
   </div>
 </footer>
 
-<!-- FLOATING -->
-<a href="https://wa.me/6591234567?text=Hi!%20I'm%20interested%20in%20music%20lessons." target="_blank" rel="noopener noreferrer" class="fab" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
-<div class="mob-sticky">
-  <div class="mob-sticky-in">
-    <a href="https://wa.me/6591234567" target="_blank" rel="noopener noreferrer" class="btn btn-wa">WhatsApp</a>
-    <a href="pages/trial.html" class="btn btn-pr">Book Trial</a>
+
+<!-- ════════ FLOATING WHATSAPP ════════ -->
+<div class="wa">
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp us">
+    <h4>💬 Chat with Us!</h4>
+    <p>Pick your nearest branch to WhatsApp directly.</p>
+    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">🏡 Tengah <span>8922 2848</span></a>
+    <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
+    <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West / JP <span>9627 7582</span></a>
+  </div>
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
+</div>
+
+<!-- Mobile sticky CTA -->
+<div class="mob-bar">
+  <a href="pages/trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
+</div>
+
+<!-- Video modal -->
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Watch a class">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <!--✏️ Replace: <iframe src="https://www.youtube.com/embed/YOUR_ID?autoplay=1" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>-->
+    <div class="modal-ph">▶<p>Add your class video here</p></div>
   </div>
 </div>
 
-<script>
-// ── Hamburger ──
-var hb = document.getElementById('hamburger');
-var mn = document.getElementById('mobile-nav');
-var nav = document.getElementById('navbar');
-if (hb && mn) {
-  hb.addEventListener('click', function() { mn.classList.toggle('open'); });
-  document.addEventListener('click', function(e) {
-    if (nav && !nav.contains(e.target) && !mn.contains(e.target)) mn.classList.remove('open');
-  });
-  mn.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { mn.classList.remove('open'); });
-  });
-}
 
-// ── Navbar shadow on scroll ──
-window.addEventListener('scroll', function() {
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+<!-- ════════ JS ════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function () {
+  'use strict';
 
-// ── Scroll animations ──
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+  /* Navbar scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true });
+
+  /* Hamburger */
+  const ham = document.getElementById('navHam');
+  const drw = document.getElementById('navDrawer');
+  ham.addEventListener('click', () => {
+    const o = drw.classList.toggle('on');
+    ham.classList.toggle('open', o);
+    ham.setAttribute('aria-expanded', String(o));
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav') && !e.target.closest('.nav-drawer')) {
+      drw.classList.remove('on'); ham.classList.remove('open');
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
 
-document.querySelectorAll('[data-anim]').forEach(function(el) {
-  observer.observe(el);
-});
+  /* WA popup */
+  const waFab   = document.getElementById('waFab');
+  const waPanel = document.getElementById('waPanel');
+  waFab.addEventListener('click', e => { e.stopPropagation(); waPanel.classList.toggle('on'); });
+  document.addEventListener('click', e => { if (!e.target.closest('.wa')) waPanel.classList.remove('on'); });
 
-// ── Number counters ──
-function animCount(el, target, suffix) {
-  var dur = 1400, t0 = performance.now();
-  function run(now) {
-    var p = Math.min((now - t0) / dur, 1);
-    el.textContent = Math.floor(target * (1 - Math.pow(1 - p, 3))) + suffix;
-    if (p < 1) requestAnimationFrame(run);
-  }
-  requestAnimationFrame(run);
-}
-var cntObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting && !e.target.dataset.counted) {
-      e.target.dataset.counted = '1';
-      var el = e.target.querySelector('.bnum');
-      if (!el) return;
-      var raw = el.textContent.trim();
-      var num = parseInt(raw.replace(/[^0-9]/g, ''), 10);
-      var suf = raw.replace(/[0-9]/g, '');
-      if (!isNaN(num)) animCount(el, num, suf);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-bubble').forEach(function(c) { cntObs.observe(c); });
+  /* Scroll reveal — add class to body first so CSS hides elements only after JS is ready */
+  document.body.classList.add('reveal-ready');
 
-// ── Video click to play ──
-window.loadVideo = function() {
-  var thumb = document.getElementById('vid-thumb');
-  var wrap  = document.getElementById('vid-iframe-wrap');
-  if (!thumb || !wrap) return;
-  thumb.style.transition = 'opacity 0.4s';
-  thumb.style.opacity = '0';
-  thumb.style.pointerEvents = 'none';
-  setTimeout(function() { thumb.style.display = 'none'; }, 400);
-  wrap.style.display = 'block';
-  wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/Yh8Z6yca-28?autoplay=1&mute=0&loop=1&playlist=Yh8Z6yca-28&controls=1&rel=0&modestbranding=1&playsinline=1&start=10" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-};
-
-// ── Floating music notes in hero ──
-(function() {
-  var hero = document.querySelector('.hero');
-  if (!hero) return;
-  var notes = ['♪','♫','♬','♭'];
-  [8, 20, 36, 54, 68, 80].forEach(function(left, i) {
-    var el = document.createElement('span');
-    el.className = 'mnote';
-    el.textContent = notes[i % notes.length];
-    el.style.left = left + '%';
-    el.style.bottom = (5 + Math.random() * 14) + '%';
-    el.style.animationDuration = (7 + Math.random() * 7) + 's';
-    el.style.animationDelay = (Math.random() * 5) + 's';
-    el.style.fontSize = (16 + Math.random() * 12) + 'px';
-    el.style.color = 'rgba(238,122,51,0.5)';
-    hero.appendChild(el);
-  });
-})();
-
-// ── Smooth anchor scroll ──
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    var t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-
-
-// Hero SVG parallax
-(function() {
-  var el = document.querySelector('.hero-deco-svg');
-  if (!el) return;
-  window.addEventListener('scroll', function() {
-    el.style.transform = 'translateY(' + (window.scrollY * -0.05) + 'px)';
-  }, {passive:true});
-})();
-
-// Section dots scroll-in + parallax
-(function() {
-  var IDS = ['about','courses','promotions','testimonials'];
-  var spd = [0.06,0.10,0.08,0.12,0.07,0.09];
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.sdot').forEach(function(d,i){
-          setTimeout(function(){ d.classList.add('on'); }, i*130);
-        });
-        obs.unobserve(e.target);
-      }
+  const rvIO = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); rvIO.unobserve(en.target); }
     });
-  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
-  IDS.forEach(function(id){ var el=document.getElementById(id); if(el) obs.observe(el); });
+  }, { threshold: .05, rootMargin: '0px 0px -10px 0px' });
+  document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
 
-  window.addEventListener('scroll', function() {
-    var sy = window.scrollY;
-    IDS.forEach(function(id) {
-      var sec = document.getElementById(id);
-      if (!sec) return;
-      var secTop = sec.getBoundingClientRect().top + sy;
-      sec.querySelectorAll('.sdot').forEach(function(d,i) {
-        if (!d.classList.contains('on')) return;
-        d.style.transform = 'translateY(' + (-(sy-secTop)*spd[i%spd.length]) + 'px) scale(1)';
+  /* Hero stagger — double rAF ensures paint cycle has started */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.hero-copy .sr').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in'), i * 110);
       });
     });
-  }, {passive:true});
-})();
+  });
 
-// ── Lang switch ──
-window.switchLang = function(l) { window.location.href = l === 'zh' ? 'index-zh.html' : 'index.html'; };
-</script>
-</body>
-</html>
+  /* Hero 3D tilt */
+  const frame = document.getElementById('heroFrame');
+  const vis   = frame?.closest('.hero-vis');
+  if (frame && vis && window.matchMedia('(pointer:fine)').matches) {
+    vis.addEventListener('mousemove', e => {
+      const r = frame.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  - .5) *  8;
+      const y = ((e.clientY - r.top)  / r.height - .5) * -8;
+      frame.style.transform = `perspective(900px) rotateX(${y}deg) rotateY(${x}deg) scale(1.018)`;
+    });
+    vis.addEventListener('mouseleave', () => {
+      frame.style.transform = 'perspective(900px) rotateX(0) rotateY(0) scale(1)';
+    });
+  }
+
+  /* Reviews carousel */
+  const track = document.getElementById('revTrack');
+  const dots  = document.querySelectorAll('.rev-dot');
+  const prev  = document.getElementById('revPrev');
+  const next  = document.getElementById('revNext');
+  let cur = 0, total = document.querySelectorAll('.rev-slide').length;
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('on', i === cur));
+  }
+  prev?.addEventListener('click', () => goTo(cur - 1));
+  next?.addEventListener('click', () => goTo(cur + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+  let auto = setInterval(() => goTo(cur + 1), 6000);
+  document.querySelector('.rev-carousel')?.addEventListener('mouseenter', () => clearInterval(auto));
+  document.querySelector('.rev-carousel')?.addEventListener('mouseleave', () => {
+    auto = setInterval(() => goTo(cur + 1), 6000);
+  });
+
+  /* Video modal */
+  const modal   = document.getElementById('videoModal');
+  const playBtn = document.querySelector('.play');
+  const closeB  = document.getElementById('modalClose');
+  const openM   = () => modal.classList.add('on');
+  const closeM  = () => modal.classList.remove('on');
+  playBtn?.addEventListener('click', openM);
+  closeB?.addEventListener('click', closeM);
+  modal?.addEventListener('click', e => { if (e.target === modal) closeM(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
+  window.openVideo = openM;
+
+  /* Count-up for stats strip */
+  function countUp(el, target, dur) {
+    const acc = el.querySelector('.acc');
+    if (!acc) return;
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = p < .5 ? 2*p*p : -1+(4-2*p)*p; // ease-in-out quad
+      el.firstChild.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.firstChild.textContent = target;
+    })(t0);
+  }
+  const cntIO = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const t = parseInt(en.target.d
