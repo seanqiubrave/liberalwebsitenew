@@ -133,14 +133,17 @@ section{padding:100px 0}
 /* ╔═══════════════════════════════════════════════════════╗
    ║  SCROLL REVEAL                                        ║
    ╚═══════════════════════════════════════════════════════╝ */
-.sr  {opacity:0;transform:translateY(28px); transition:opacity .7s var(--sp),transform .7s var(--sp)}
-.sl  {opacity:0;transform:translateX(-28px);transition:opacity .7s var(--sp),transform .7s var(--sp)}
-.sfr {opacity:0;transform:translateX(28px); transition:opacity .7s var(--sp),transform .7s var(--sp)}
-.sr.in  {opacity:1 !important;transform:none !important}
-.sl.in  {opacity:1 !important;transform:none !important}
-.sfr.in {opacity:1 !important;transform:none !important}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}
-.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+/* Default: VISIBLE. JS adds data-reveal to opt-in to animation */
+.sr, .sl, .sfr { opacity:1; transform:none; }
+/* JS adds .reveal-ready to <body> once it's safe to animate */
+body.reveal-ready .sr  { opacity:0; transform:translateY(22px); transition:opacity .65s var(--sp),transform .65s var(--sp); }
+body.reveal-ready .sl  { opacity:0; transform:translateX(-22px);transition:opacity .65s var(--sp),transform .65s var(--sp); }
+body.reveal-ready .sfr { opacity:0; transform:translateX(22px); transition:opacity .65s var(--sp),transform .65s var(--sp); }
+body.reveal-ready .sr.in,
+body.reveal-ready .sl.in,
+body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
+.d1{transition-delay:.07s} .d2{transition-delay:.14s}
+.d3{transition-delay:.21s} .d4{transition-delay:.28s} .d5{transition-delay:.35s}
 
 /* ╔═══════════════════════════════════════════════════════╗
    ║  NAVBAR                                               ║
@@ -1494,7 +1497,9 @@ section{padding:100px 0}
   waFab.addEventListener('click', e => { e.stopPropagation(); waPanel.classList.toggle('on'); });
   document.addEventListener('click', e => { if (!e.target.closest('.wa')) waPanel.classList.remove('on'); });
 
-  /* Unified scroll reveal */
+  /* Scroll reveal — add class to body first so CSS hides elements only after JS is ready */
+  document.body.classList.add('reveal-ready');
+
   const rvIO = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (en.isIntersecting) { en.target.classList.add('in'); rvIO.unobserve(en.target); }
@@ -1502,7 +1507,7 @@ section{padding:100px 0}
   }, { threshold: .05, rootMargin: '0px 0px -10px 0px' });
   document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
 
-  /* Hero stagger — fire immediately via rAF chain (DOMContentLoaded already past) */
+  /* Hero stagger — double rAF ensures paint cycle has started */
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       document.querySelectorAll('.hero-copy .sr').forEach((el, i) => {
