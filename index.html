@@ -606,7 +606,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .pf:first-child{margin-left:0}
 .pf:hover{transform:translateY(-4px) scale(1.12);z-index:10}
 .pf img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.pf-shifting img{transition:opacity 0.4s ease}
+.pf-shifting img{transition:opacity 0.4s ease;transform:translateX(0)}
 .pf-ct{background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size: 19.5px;overflow:visible}
 .proof-txt strong{font-family:'Nunito',sans-serif;font-weight:800;font-size: 23.5px;color:var(--ink)}
 .proof-txt span{display:block;font-size: 22px;color:var(--muted)}
@@ -627,7 +627,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .hero-ph p{font-size: 23px;font-weight:600;letter-spacing:.3px}
 .fc{position:absolute;z-index:2;background:var(--w);border-radius:14px;box-shadow:var(--sh-l);padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;border:1px solid rgba(221,230,240,.5);animation:bob 5.5s ease-in-out infinite;width:80px;text-align:center}
 .fc-a{bottom:30px;left:-20px;animation-delay:0s}
-.fc-b{top:28px;right:-20px;animation-delay:1.9s}
+.fc-b{top:-800px;right:-300px;animation-delay:1.9s}
 .fc-c{top:46%;left:-30px;animation-delay:1s;max-width:160px}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .fc-ico{width:45px;height:45px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;overflow:hidden;background:#f0f4f8}
@@ -1406,11 +1406,6 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
           <div class="proof-txt">
             <strong>20,000+ Happy Students</strong>
             <span>Growing Every Day</span>
-          </div>
-          <div class="proof-sep"></div>
-          <div class="proof-star">
-            <div class="stars">★★★★★</div>
-            <span>5.0 on Google</span>
           </div>
         </div>
       </div>
@@ -2270,48 +2265,90 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
       return img;
     }
 
-    // Proof stack — 5 face circles with shifting animation
+    // Proof stack — slide one icon in at a time, pushing others right
     const stack = document.getElementById('proofStack');
     if (stack) {
-      const icons = shuffle([1,2,3,4,5,6,7,8,9]);
-      // We'll cycle through groups of 5 with a smooth shift
-      let activeBatch = 0;
-      const batchSize = 5;
-      const pfEls = [];
+      // Show 5 slots; each slot has one visible icon
+      // New icon slides in from the left, others shift right, last drops off
+      const slotCount = 5;
+      const allIcons = shuffle([1,2,3,4,5,6,7,8,9]);
+      const iconSize = 38;
+      const overlap = 10; // overlap between icons
 
-      for (let i = 0; i < batchSize; i++) {
-        const div = document.createElement('div');
-        div.className = 'pf pf-shifting';
+      // Inline CSS for the stack container
+      stack.style.cssText = 'position:relative;display:flex;align-items:center;';
+
+      // Create slot divs
+      const slots = [];
+      for (let i = 0; i < slotCount; i++) {
+        const slot = document.createElement('div');
+        slot.className = 'pf';
+        slot.style.cssText = [
+          'width:' + iconSize + 'px',
+          'height:' + iconSize + 'px',
+          'border-radius:50%',
+          'overflow:hidden',
+          'border:2.5px solid #fff',
+          'margin-left:' + (i === 0 ? '0' : '-' + overlap + 'px'),
+          'flex-shrink:0',
+          'position:relative',
+          'transition:transform 0.45s cubic-bezier(.22,1,.36,1), opacity 0.35s ease',
+          'box-shadow:0 2px 10px rgba(31,42,68,.08)'
+        ].join(';');
         const img = document.createElement('img');
-        img.alt = 'Student';
-        img.style.cssText = 'width:38px;height:38px;object-fit:cover;border-radius:50%;display:block;transition:opacity 0.4s ease;';
+        img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;';
         img.onerror = function(){ this.style.display='none'; };
-        div.appendChild(img);
-        stack.appendChild(div);
-        pfEls.push(img);
+        img.src = 'assets/studenticon' + allIcons[i % allIcons.length] + '.webp';
+        slot.appendChild(img);
+        stack.appendChild(slot);
+        slots.push(slot);
       }
 
-      // Initial icons
-      const allIcons = [1,2,3,4,5,6,7,8,9];
-      let batchStart = 0;
+      let iconIdx = slotCount; // next icon index to slide in
 
-      function loadBatch() {
-        const batch = [];
-        for (let i = 0; i < batchSize; i++) {
-          batch.push(allIcons[(batchStart + i) % allIcons.length]);
-        }
-        pfEls.forEach((img, i) => {
-          img.style.opacity = '0';
-          setTimeout(() => {
-            img.src = 'assets/studenticon' + batch[i] + '.webp';
-            img.style.opacity = '1';
-          }, i * 80);
-        });
-        batchStart = (batchStart + batchSize) % allIcons.length;
+      function slideNext() {
+        // Animate: each slot slides slightly to the right (shift effect)
+        // The last slot fades and shrinks out, first slot gets new icon sliding in from left
+        
+        // Step 1: fade + shrink last slot out
+        const last = slots[slotCount - 1];
+        last.style.opacity = '0';
+        last.style.transform = 'translateX(12px) scale(0.7)';
+
+        // Step 2: after brief delay, reorder DOM — move last to front with new icon
+        setTimeout(function() {
+          // Update last slot's image to new icon
+          const nextIconNum = allIcons[iconIdx % allIcons.length];
+          iconIdx++;
+          last.querySelector('img').src = 'assets/studenticon' + nextIconNum + '.webp';
+
+          // Instantly move it before first slot, off-screen left
+          last.style.transition = 'none';
+          last.style.transform = 'translateX(-' + (iconSize + 8) + 'px) scale(0.7)';
+          last.style.opacity = '0';
+          last.style.marginLeft = '0';
+          stack.insertBefore(last, slots[0]);
+
+          // Update slots array order
+          slots.pop();
+          slots.unshift(last);
+
+          // Fix margin-left for what is now the second slot
+          slots[1].style.marginLeft = '-' + overlap + 'px';
+
+          // Step 3: trigger slide-in animation on next frame
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              last.style.transition = 'transform 0.45s cubic-bezier(.22,1,.36,1), opacity 0.35s ease';
+              last.style.transform = 'translateX(0) scale(1)';
+              last.style.opacity = '1';
+            });
+          });
+        }, 320);
       }
 
-      loadBatch();
-      setInterval(loadBatch, 3200);
+      // Start cycling every 1.4s
+      setInterval(slideNext, 5000);
     }
 
     // Floating card A — 20,000+ Success Stories (bottom-left of video)
