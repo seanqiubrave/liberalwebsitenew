@@ -569,13 +569,13 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .hero-kicker{
   display:inline-flex;align-items:center;gap:8px;
   background:var(--or-lt);color:var(--or);
-  font-family:'Nunito',sans-serif;font-weight:800;font-size:12.5px;
-  padding:8px 20px;border-radius:999px;margin-bottom:28px;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;
+  padding:11px 26px;border-radius:999px;margin-bottom:28px;
   border:1.5px solid rgba(255,102,0,.16);box-shadow:0 3px 14px rgba(255,102,0,.13);
 }
 .hero h1{font-size:clamp(2.8rem,6vw,4.6rem);letter-spacing:-1.3px;line-height:1.04;margin-bottom:24px}
 .kw{position:relative;display:inline-block;color:var(--or)}
-.kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:var(--lem);border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+.kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
 @keyframes kw{to{transform:scaleX(1)}}
 .hero-desc{font-size:18px;line-height:1.84;color:var(--body);max-width:500px;margin-bottom:30px}
 
@@ -602,16 +602,16 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 /* Proof */
 .proof{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .pf-stack{display:flex}
-.pf{width:34px;height:34px;border-radius:50%;border:2.5px solid var(--w);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--sh-s)}
+.pf{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--w);margin-left:-10px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--sh-s);overflow:hidden;background:#f0f0f0;flex-shrink:0;transition:transform .3s var(--sp)}
 .pf:first-child{margin-left:0}
-.pf-a{background:linear-gradient(135deg,var(--teal),var(--sky))}
-.pf-b{background:linear-gradient(135deg,#FFE0C4,var(--lem))}
-.pf-c{background:linear-gradient(135deg,var(--blush),var(--lav))}
-.pf-ct{background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:9.5px}
+.pf:hover{transform:translateY(-4px) scale(1.12);z-index:10}
+.pf img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.pf-shifting img{transition:opacity 0.4s ease}
+.pf-ct{background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:9.5px;overflow:visible}
 .proof-txt strong{font-family:'Nunito',sans-serif;font-weight:800;font-size:13.5px;color:var(--ink)}
 .proof-txt span{display:block;font-size:12px;color:var(--muted)}
 .proof-sep{width:1px;height:30px;background:#DDE6F2}
-.proof-star .stars{color:#F0A500;font-size:14px;letter-spacing:2px}
+.proof-star .stars{color:#F0A500;font-size:20px;letter-spacing:3px}
 .proof-star span{font-size:12px;color:var(--muted)}
 
 /* Hero visual */
@@ -625,13 +625,13 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .hero-ph .big{font-size:72px;animation:sway 3s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.05)}}
 .hero-ph p{font-size:13px;font-weight:600;letter-spacing:.3px}
-/* Float cards */
 .fc{position:absolute;z-index:2;background:var(--w);border-radius:20px;box-shadow:var(--sh-l);padding:14px 18px;display:flex;align-items:center;gap:12px;border:1px solid rgba(221,230,240,.5);animation:bob 5.5s ease-in-out infinite}
-.fc-a{bottom:60px;left:-44px;animation-delay:0s}
-.fc-b{top:52px;right:-44px;animation-delay:1.9s}
+.fc-a{bottom:40px;left:-44px;animation-delay:0s}
+.fc-b{top:36px;right:-44px;animation-delay:1.9s}
 .fc-c{top:46%;left:-30px;animation-delay:1s;max-width:160px}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.fc-ico{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:19px}
+.fc-ico{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:19px;overflow:hidden;background:#f0f4f8}
+.fc-student-ico img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .fi-or{background:var(--or-lt)}.fi-tl{background:var(--teal)}.fi-lm{background:var(--lem)}
 .fc strong{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--ink);line-height:1}
 .fc span{font-size:11px;color:var(--muted);font-weight:500}
@@ -1316,7 +1316,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
     <div class="hero-grid">
 
       <div class="hero-copy">
-        <div class="hero-kicker sr">✦ Singapore's Most Trusted Music School</div>
+        <div class="hero-kicker sr">✦ Singapore's Most Trusted ABRSM Specialist</div>
 
         <!-- School at a Glance — slim pill, machine-readable for AI scrapers -->
         <div class="glance-card sr" role="note" aria-label="School at a glance">
@@ -1346,17 +1346,17 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 
         </div>
         <h1 class="sr d1">
-          Play. <span class="kw">Perform.</span><br>
-          Shine!
+          Proven. <span class="kw">Trusted.</span><br>
+          ABRSM Success!
         </h1>
         <p class="hero-desc sr d2">
-          Expert Music Coaching for Every Stage<br>From first sounds to confident performances — we help young musicians flourish.
+          Empowering 20,000+ students through 17 years of expert coaching. Master Piano, Violin, Drums, or Vocals with our proven ABRSM curriculum at 5 premier Singapore locations.
         </p>
         <div class="i-pills sr d2">
-          <a href="pages/courses.html#piano" class="i-pill">🎹 Piano</a>
-          <a href="pages/courses.html#violin" class="i-pill">🎻 Violin</a>
-          <a href="pages/courses.html#drums" class="i-pill">🥁 Drums</a>
-          <a href="pages/courses.html#vocal" class="i-pill">🎤 Vocal</a>
+          <a href="pages/courses.html#piano" class="i-pill">Piano</a>
+          <a href="pages/courses.html#violin" class="i-pill">Violin</a>
+          <a href="pages/courses.html#drums" class="i-pill">Drums</a>
+          <a href="pages/courses.html#vocal" class="i-pill">Vocal</a>
           <a href="pages/courses.html" class="i-pill">More →</a>
         </div>
         <div class="hero-btns sr d3">
@@ -1364,16 +1364,12 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
           <a href="pages/courses.html" class="btn btn-outline btn-lg">View Courses</a>
         </div>
         <div class="proof sr d4">
-          <div class="pf-stack">
-            <div class="pf pf-a">👧</div>
-            <div class="pf pf-b">👦</div>
-            <div class="pf pf-c">🧒</div>
-            <div class="pf pf-a">👧</div>
-            <div class="pf pf-ct">500+</div>
+          <div class="pf-stack" id="proofStack">
+            <!-- JS injects randomised student icons -->
           </div>
           <div class="proof-txt">
-            <strong>500+ Happy Students</strong>
-            <span>growing every term</span>
+            <strong>20,000+ Happy Students</strong>
+            <span>Growing Every Day</span>
           </div>
           <div class="proof-sep"></div>
           <div class="proof-star">
@@ -1396,8 +1392,14 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
             loading="eager"
           ></iframe>
         </div>
-        <div class="fc fc-a"><div class="fc-ico fi-or">🌟</div><div><strong>500+</strong><span>Happy Students</span></div></div>
-        <div class="fc fc-b"><div class="fc-ico fi-tl">🏆</div><div><strong>#1 Rated</strong><span>Music School SG</span></div></div>
+        <div class="fc fc-a" id="fcSuccessCard">
+          <div class="fc-ico fc-student-ico" id="fcStudentIcoA"></div>
+          <div><strong>20,000+</strong><span>Success Stories</span></div>
+        </div>
+        <div class="fc fc-b" id="fcAbrsm">
+          <div class="fc-ico fc-student-ico" id="fcStudentIcoB"></div>
+          <div><strong>ABRSM</strong><span>99% Pass Rate</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -2210,7 +2212,82 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
   window.openVideo = openM;
 
-  /* Count-up for stats strip */
+  /* ── Student Icons: randomise across proof stack + floating cards ── */
+  (function () {
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+    const pool = shuffle([1,2,3,4,5,6,7,8,9]);
+    let idx = 0;
+    function nextIcon() { return pool[idx++ % pool.length]; }
+
+    function makeImg(n, size) {
+      const img = document.createElement('img');
+      img.src = 'assets/studenticon' + n + '.webp';
+      img.alt = 'Student ' + n;
+      img.style.cssText = 'width:' + size + 'px;height:' + size + 'px;object-fit:cover;border-radius:50%;display:block;';
+      img.onerror = function(){ this.style.display='none'; };
+      return img;
+    }
+
+    // Proof stack — 5 face circles with shifting animation
+    const stack = document.getElementById('proofStack');
+    if (stack) {
+      const icons = shuffle([1,2,3,4,5,6,7,8,9]);
+      // We'll cycle through groups of 5 with a smooth shift
+      let activeBatch = 0;
+      const batchSize = 5;
+      const pfEls = [];
+
+      for (let i = 0; i < batchSize; i++) {
+        const div = document.createElement('div');
+        div.className = 'pf pf-shifting';
+        const img = document.createElement('img');
+        img.alt = 'Student';
+        img.style.cssText = 'width:38px;height:38px;object-fit:cover;border-radius:50%;display:block;transition:opacity 0.4s ease;';
+        img.onerror = function(){ this.style.display='none'; };
+        div.appendChild(img);
+        stack.appendChild(div);
+        pfEls.push(img);
+      }
+
+      // Initial icons
+      const allIcons = [1,2,3,4,5,6,7,8,9];
+      let batchStart = 0;
+
+      function loadBatch() {
+        const batch = [];
+        for (let i = 0; i < batchSize; i++) {
+          batch.push(allIcons[(batchStart + i) % allIcons.length]);
+        }
+        pfEls.forEach((img, i) => {
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.src = 'assets/studenticon' + batch[i] + '.webp';
+            img.style.opacity = '1';
+          }, i * 80);
+        });
+        batchStart = (batchStart + batchSize) % allIcons.length;
+      }
+
+      loadBatch();
+      setInterval(loadBatch, 3200);
+    }
+
+    // Floating card A — 20,000+ Success Stories (bottom-left of video)
+    const icoA = document.getElementById('fcStudentIcoA');
+    if (icoA) icoA.appendChild(makeImg(nextIcon(), 44));
+
+    // Floating card B — ABRSM 99% pass rate (top-right of video)
+    const icoB = document.getElementById('fcStudentIcoB');
+    if (icoB) icoB.appendChild(makeImg(nextIcon(), 44));
+  })();
+
+
   function countUp(el, target, dur) {
     const acc = el.querySelector('.acc');
     if (!acc) return;
