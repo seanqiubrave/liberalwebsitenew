@@ -104,7 +104,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-logo{display:flex;align-items:center;flex-shrink:0}
 .nav-logo img{height:42px;width:auto}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{display:block;padding:8px 13px;border-radius:var(--r);font-weight:600;font-size:14px;color:var(--body);transition:color var(--t),background var(--t)}
+.nav-links a{display:block;padding:8px 13px;border-radius:var(--r);font-weight:600;font-size:18px;color:var(--body);transition:color var(--t),background var(--t)}
 .nav-links a:hover{color:var(--or);background:var(--or-lt)}
 .nav-links a.active{color:var(--or)}
 .nav-end{display:flex;align-items:center;gap:10px}
@@ -730,7 +730,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
         <img src="../assets/logofooter.webp" alt="Liberal Music & Arts School" onerror="this.src='../assets/logo.webp'"/>
         <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music in children aged 2.5–16. Trusted by over 20,000 Singapore families since 2009.</p>
         <div class="foot-contact">
-          <a href="mailto:liberalmusicarts@gmail.com">✉️ liberalmusicarts@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#0864616a6d7a6964657d7b616b697a7c7b486f65696164266b6765">✉️ <span class="__cf_email__" data-cfemail="b8d4d1daddcad9d4d5cdcbd1dbd9cacccbf8dfd5d9d1d496dbd7d5">[email&#160;protected]</span></a>
           <a href="tel:+6589222848">📞 +65 8922 2848</a>
         </div>
         <div class="foot-soc">
@@ -828,7 +828,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 
 
 <!-- ════════ JS ════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   'use strict';
 
@@ -864,15 +864,3 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
     });
   }, { threshold:.05, rootMargin:'0px 0px -10px 0px' });
   document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
-
-  /* Hero stagger */
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.querySelectorAll('.page-hero .sr').forEach((el, i) => {
-      setTimeout(() => el.classList.add('in'), i * 110);
-    });
-  }));
-
-})();
-</script>
-</body>
-</html>
