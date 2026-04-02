@@ -381,8 +381,8 @@ html{font-size:18px;scroll-behavior:smooth;-webkit-text-size-adjust:100%;backgro
 body{
   font-family:'Quicksand',system-ui,sans-serif;
   color:var(--body);background:#1F2A44;
-  overflow-x:hidden;overflow-y:auto;-webkit-font-smoothing:antialiased;
-  margin:0;padding:0;min-height:100%;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  margin:0;padding:0;
 }
 h1,h2,h3,h4{font-family:'Nunito',sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
 a{text-decoration:none;color:inherit}
@@ -1094,13 +1094,14 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .foot-brand-contact a.phone::before{content:'📞'}
 .foot-soc{display:flex;gap:9px;margin-top:24px}
 .foot-soc a{
-  width:38px;height:38px;border-radius:12px;
-  background:rgba(255,255,255,.07);
-  border:1.5px solid rgba(255,255,255,.10);
-  display:flex;align-items:center;justify-content:center;font-size: 26px;
-  transition:background .18s,border-color .18s,transform .18s var(--sp);
+  width:36px;height:36px;border-radius:0;
+  background:transparent;
+  border:none;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  padding:0;
+  transition:opacity .18s,transform .18s var(--sp);
 }
-.foot-soc a:hover{background:rgba(255,102,0,.30);border-color:var(--or);transform:translateY(-2px)}
+.foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
 
 /* Col 2 & 3 headings — white, uppercase */
 .foot-col h5{
@@ -1318,6 +1319,12 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .stats-strip-2::after{
   clip-path:polygon(0% 100%, 10% 0, 100% 10%, 100% 10%);
 }
+
+
+/* ── Kill bottom gap ── */
+html, body { margin-bottom: 0 !important; padding-bottom: 0 !important; height:auto !important; }
+footer { margin-bottom: 0 !important; }
+.footer { padding-bottom: 0 !important; }
 
 </style>
 </head>
@@ -1722,8 +1729,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
       <a href="pages/instructors.html" class="btn btn-outline">Meet All Our Teachers →</a>
     </div>
   </div>
-
-
+</section>
 
 <!-- ════════ STATS STRIP 2 — under Teachers ════════ -->
 <div style="height:60px;background:var(--s1);"></div>
@@ -1977,7 +1983,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
         <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
 
         <div class="foot-soc">
-          <a href="#" aria-label="Instagram"><img src="assets/Instagram.webp" alt="Instagram" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
+          <a href="#" aria-label="Instagram"><img src="assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
           <a href="#" aria-label="Facebook"><img src="assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
           <a href="#" aria-label="YouTube"><img src="assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
           <a href="#" aria-label="Xiaohongshu"><img src="assets/xiaohongshu.webp" alt="Xiaohongshu" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
@@ -2062,29 +2068,6 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 </footer>
 
 
-<!-- ════════ FLOATING WHATSAPP ════════ -->
-<div class="wa">
-  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp us">
-    <h4>💬 Chat with Us!</h4>
-    <p>Pick your nearest branch to WhatsApp directly.</p>
-    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">🏡 Tengah <span>8922 2848</span></a>
-    <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
-    <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West / JP <span>9627 7582</span></a>
-  </div>
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
-</div>
-
-
-<!-- Video modal -->
-<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Watch a class">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-    <!--✏️ Replace: <iframe src="https://www.youtube.com/embed/YOUR_ID?autoplay=1" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>-->
-    <div class="modal-ph">▶<p>Add your class video here</p></div>
-  </div>
-</div>
-
-
 <!-- ════════ JS ════════ -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function () {
@@ -2108,11 +2091,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
     }
   });
 
-  /* WA popup */
-  const waFab   = document.getElementById('waFab');
-  const waPanel = document.getElementById('waPanel');
-  waFab.addEventListener('click', e => { e.stopPropagation(); waPanel.classList.toggle('on'); });
-  document.addEventListener('click', e => { if (!e.target.closest('.wa')) waPanel.classList.remove('on'); });
+  /* WA popup — handled inline via onclick */
 
   /* Scroll reveal — add class to body first so CSS hides elements only after JS is ready */
   document.body.classList.add('reveal-ready');
@@ -2414,5 +2393,17 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 
 })();
 </script>
+
+<!-- WHATSAPP FAB -->
+<div id="waWrap" style="position:fixed;bottom:28px;right:28px;z-index:9999;isolation:isolate;">
+  <div id="waPanel" style="display:none;position:absolute;bottom:68px;right:0;background:#fff;border-radius:16px;box-shadow:0 20px 56px rgba(31,42,68,.11);width:290px;padding:22px;border:1px solid #EEF2F8;">
+    <h4 style="font-size:14.5px;font-weight:900;color:#1F2A44;margin-bottom:4px;">💬 Chat with Us!</h4>
+    <p style="font-size:12.5px;color:#8FA2BC;margin-bottom:14px;">Pick your nearest branch to WhatsApp directly.</p>
+    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🏡 Tengah <span style="font-size:11.5px;color:#8FA2BC;">8922 2848</span></a>
+    <a href="https://wa.me/6588921198" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌅 Tampines <span style="font-size:11.5px;color:#8FA2BC;">8892 1198</span></a>
+    <a href="https://wa.me/6596277582" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌸 Jurong West / JP <span style="font-size:11.5px;color:#8FA2BC;">9627 7582</span></a>
+  </div>
+  <button onclick="var p=document.getElementById('waPanel');p.style.display=p.style.display==='none'?'block':'none';" style="width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;border:none;cursor:pointer;font-size:26px;box-shadow:0 8px 28px rgba(37,211,102,.42);display:flex;align-items:center;justify-content:center;">💬</button>
+</div>
 </body>
 </html>
