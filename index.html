@@ -1202,22 +1202,22 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .faq-section::before{content:'';position:absolute;top:0;left:0;right:0;height:56px;background:var(--s2);clip-path:ellipse(55% 100% at 50% 0%)}
 .faq-header{text-align:center;margin-bottom:56px;padding-top:16px}
 .faq-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.8rem);color:#1F2A44;letter-spacing:-.4px;line-height:1.18;margin-bottom:14px}
-.faq-sub{font-size: 27px;line-height:1.78;color:#5A6B85;max-width:520px;margin:0 auto}
+.faq-sub{font-size:16px;line-height:1.78;color:#5A6B85;max-width:520px;margin:0 auto}
 
 /* Carousel — same structure as .rev-carousel */
 .faq-carousel{position:relative}
 .faq-track-wrap{overflow:hidden;border-radius:var(--r-l)}
 .faq-track{display:flex;transition:transform .5s var(--sp);will-change:transform}
 .faq-slide{min-width:100%}
-.faq-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.faq-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
 
 /* FAQ card — same base as .rev-card */
 .faq-card{
-  background:var(--w);border-radius:var(--r-l);padding:28px;
+  background:var(--w);border-radius:var(--r-l);padding:18px;
   box-shadow:var(--sh);border:1px solid rgba(255,102,0,.07);
   display:flex;flex-direction:column;
   transition:transform var(--t) var(--sp),box-shadow var(--t);
-  min-height:220px;
+  height:280px;
 }
 .faq-card:hover{transform:translateY(-5px);box-shadow:var(--or-sh)}
 .faq-card.feat{border-top:4px solid var(--or)}
@@ -1227,25 +1227,25 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   display:inline-flex;align-items:center;justify-content:center;
   width:32px;height:32px;border-radius:10px;
   background:var(--or-lt);color:var(--or);
-  font-family:'Nunito',sans-serif;font-weight:900;font-size: 24px;
-  margin-bottom:16px;flex-shrink:0;
+  font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;
+  margin-bottom:12px;flex-shrink:0;
 }
 /* Question */
 .faq-card-q{
   font-family:'Nunito',sans-serif;font-weight:800;
-  font-size: 26px;color:#1F2A44;line-height:1.4;
-  margin-bottom:14px;
+  font-size:14px;color:#1F2A44;line-height:1.35;
+  margin-bottom:10px;
 }
 /* Answer */
 .faq-card-a{
-  font-size: 24px;line-height:1.78;color:#5A6B85;
-  flex:1;margin-bottom:0;
+  font-size:13px;line-height:1.65;color:#5A6B85;
+  flex:1;margin-bottom:0;overflow:hidden;
 }
 .faq-card-a strong{color:#1F2A44;font-weight:700}
 /* In-card CTA */
 .faq-card-cta{
   display:inline-flex;align-items:center;gap:6px;
-  font-family:'Nunito',sans-serif;font-weight:800;font-size: 23px;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;
   color:#FF6600;background:#FFF4ED;padding:8px 16px;border-radius:999px;
   border:1.5px solid rgba(255,102,0,.22);margin-top:16px;align-self:flex-start;
   transition:background .18s,transform .18s var(--sp);text-decoration:none;
@@ -1291,7 +1291,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   /* Footer — stack to 2-col */
   .foot-grid{grid-template-columns:1fr 1fr}
   .rev-inner{grid-template-columns:1fr}
-  .faq-inner{grid-template-columns:1fr}
+  .faq-inner{grid-template-columns:repeat(2,1fr)}
   .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
   .nav-ham{display:flex}
   .mob-bar{display:block}
@@ -1720,95 +1720,6 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 </section>
 
 
-<!-- ════════ 5. BRANCHES ════════ -->
-<section class="branches" id="branches">
-  <div class="W">
-    <div class="sec-head cx sr">
-      <div class="pill-tag pt-sk">📍 Our Locations</div>
-      <h2 class="h2">5 Locations Across Singapore</h2>
-      <p class="lead">We're always close to home. Find your nearest branch and say hello today.</p>
-    </div>
-
-    <!-- Row 1: 3 cards -->
-    <div class="branch-grid">
-
-      <div class="bc sr">
-        <div class="bc-pin-row">
-          <div class="bc-pin bi-1">🏡</div>
-          <h3>Tengah Music School</h3>
-        </div>
-        <div class="bc-addr">
-          <div class="bc-addr-line">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
-          </div>
-        </div>
-        <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
-      </div>
-
-      <div class="bc sr d1">
-        <div class="bc-pin-row">
-          <div class="bc-pin bi-2">🌅</div>
-          <h3>Tampines Music School</h3>
-        </div>
-        <div class="bc-addr">
-          <div class="bc-addr-line">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Blk 139 Tampines Street 11, #01-60<br>Singapore 521139</span>
-          </div>
-        </div>
-        <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
-      </div>
-
-      <div class="bc sr d2">
-        <div class="bc-pin-row">
-          <div class="bc-pin bi-3">🌿</div>
-          <h3>Jurong West Music School</h3>
-        </div>
-        <div class="bc-addr">
-          <div class="bc-addr-line">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Blk 492 Jurong West Street 41, #01-10<br>Singapore 640492</span>
-          </div>
-        </div>
-        <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
-      </div>
-
-    </div>
-
-    <!-- Row 2: 2 cards centred -->
-    <div class="branch-grid-row2">
-
-      <div class="bc sr d1">
-        <div class="bc-pin-row">
-          <div class="bc-pin bi-4">🏢</div>
-          <h3>Le Quest Mall Music School</h3>
-        </div>
-        <div class="bc-addr">
-          <div class="bc-addr-line">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>4 Bukit Batok Street 41, #01-83<br>Singapore 657991</span>
-          </div>
-        </div>
-        <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="bc-wa">WhatsApp Us</a>
-      </div>
-
-      <!-- Jurong Point — Coming Soon -->
-      <div class="bc coming-soon sr d2">
-        <span class="bc-badge">✦ Opening Soon</span>
-        <div class="bc-pin-row">
-          <div class="bc-pin bi-5">🎵</div>
-          <h3>Jurong Point Music School</h3>
-        </div>
-        <p class="bc-soon-note">We're coming to Jurong Point! Register your interest and be the first to know when we open.</p>
-        <a href="pages/contact.html" class="bc-notify">Get Notified →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
 <!-- ════════ 6. PARENT REVIEWS ════════ -->
 <section class="reviews" id="reviews">
   <div class="W">
@@ -1915,6 +1826,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
         <div class="faq-track" id="faqTrack">
 
           <!-- Slide 1: Q1 Q2 Q3 -->
+          <!-- Slide 1: Q1 Q2 Q3 Q4 -->
           <div class="faq-slide">
             <div class="faq-inner">
 
@@ -1937,56 +1849,42 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
                 <a href="pages/trial.html" class="faq-card-cta">Book Free Trial →</a>
               </div>
 
+              <div class="faq-card sr d3">
+                <div class="faq-card-num">4</div>
+                <p class="faq-card-q">Do I need to buy an instrument first?</p>
+                <p class="faq-card-a"><strong>No</strong> — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months our teachers can advise on budget-friendly starter options.</p>
+              </div>
+
             </div>
           </div>
 
-          <!-- Slide 2: Q4 Q5 Q6 -->
+          <!-- Slide 2: Q5 Q6 Q7 + CTA -->
           <div class="faq-slide">
             <div class="faq-inner">
 
               <div class="faq-card feat sr">
-                <div class="faq-card-num">4</div>
-                <p class="faq-card-q">Do I need to buy an instrument first?</p>
-                <p class="faq-card-a"><strong>No</strong> — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months, once your child is committed, our teachers can advise on budget-friendly starter options.</p>
+                <div class="faq-card-num">5</div>
+                <p class="faq-card-q">What's the difference between group and private lessons?</p>
+                <p class="faq-card-a"><strong>Private (1-to-1)</strong> gives undivided attention and faster progression. <strong>Group classes</strong> (2–4 students) are more affordable and great for younger beginners aged 4–7.</p>
               </div>
 
               <div class="faq-card sr d1">
-                <div class="faq-card-num">5</div>
-                <p class="faq-card-q">What's the difference between group and private lessons?</p>
-                <p class="faq-card-a"><strong>Private (1-to-1)</strong> gives undivided attention and faster progression. <strong>Group classes</strong> (2–4 students) are more affordable and great for younger beginners aged 4–7. Most families start group, then switch to private for ABRSM prep.</p>
-              </div>
-
-              <div class="faq-card sr d2">
                 <div class="faq-card-num">6</div>
                 <p class="faq-card-q">Where are your Singapore branches?</p>
                 <p class="faq-card-a">We have <strong>5 locations</strong>: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Jurong Point (opening soon). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance.</p>
               </div>
 
-            </div>
-          </div>
-
-          <!-- Slide 3: Q7 + CTA card -->
-          <div class="faq-slide">
-            <div class="faq-inner">
-
-              <div class="faq-card feat sr">
-                <div class="faq-card-num">7</div>
-                <p class="faq-card-q">When is the Jurong Point branch opening?</p>
-                <p class="faq-card-a">The <strong>Jurong Point</strong> branch is opening soon. Families in Jurong, Boon Lay, and Lakeside can register interest now for <strong>priority enrolment</strong> and early-bird offers. WhatsApp us at +65 9627 7582 to join the waitlist.</p>
-                <a href="pages/trial.html" class="faq-card-cta">Register Interest →</a>
-              </div>
-
-              <div class="faq-card sr d1" style="background:var(--or-lt);border:1.5px solid rgba(255,102,0,.18);">
+              <div class="faq-card sr d2" style="background:var(--or-lt);border:1.5px solid rgba(255,102,0,.18);">
                 <div class="faq-card-num" style="background:var(--or);color:#fff;">✦</div>
                 <p class="faq-card-q" style="color:var(--or);">Still have questions?</p>
                 <p class="faq-card-a">Our team is happy to answer anything — from scheduling to instrument choices to exam pathways. WhatsApp us directly or book a free visit to any branch.</p>
                 <a href="pages/contact.html" class="faq-card-cta">Ask Us Anything →</a>
               </div>
 
-              <div class="faq-card sr d2" style="background:var(--ink);border-color:transparent;">
+              <div class="faq-card sr d3" style="background:var(--ink);border-color:transparent;">
                 <div class="faq-card-num" style="background:rgba(255,255,255,.12);color:#fff;">🎵</div>
                 <p class="faq-card-q" style="color:#fff;">Ready to start?</p>
-                <p class="faq-card-a" style="color:rgba(255,255,255,.65);">The first class is free. No forms to fill, no contracts to sign. Just bring your child, meet their teacher, and experience the Liberal difference.</p>
+                <p class="faq-card-a" style="color:rgba(255,255,255,.65);">The first class is free. No forms to fill, no contracts to sign. Just bring your child and experience the Liberal difference.</p>
                 <a href="pages/trial.html" class="btn btn-cta btn-sm" style="margin-top:16px;">✦ Book Free Trial</a>
               </div>
 
@@ -2001,7 +1899,6 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
       <div class="faq-dots" id="faqDots">
         <button class="faq-dot on" data-i="0" aria-label="Slide 1"></button>
         <button class="faq-dot"    data-i="1" aria-label="Slide 2"></button>
-        <button class="faq-dot"    data-i="2" aria-label="Slide 3"></button>
       </div>
     </div><!-- /faq-carousel -->
 
