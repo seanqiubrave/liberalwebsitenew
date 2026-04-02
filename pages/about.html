@@ -263,35 +263,36 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .chk::before{content:'✓';color:var(--or);font-weight:900;font-size:15px}
 
 /* ══ FOOTER ══ */
-.footer{background:#1F2A44;padding:80px 0 0;border-top:none}
-.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
-.foot-brand img{height:52px;width:auto;margin-bottom:22px;display:block}
-.foot-brand p{font-size:14px;line-height:1.82;color:rgba(255,255,255,.52);max-width:300px;margin-bottom:8px}
-.foot-contact{display:flex;flex-direction:column;gap:7px;margin-top:20px}
-.foot-contact a{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.48);transition:color .18s}
-.foot-contact a:hover{color:var(--or)}
+/* ── Footer ── */
+.footer{background:#1F2A44;margin:0;padding-bottom:0;border-top:none;padding:80px 0 0}
+.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
+.foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
+.foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
 .foot-soc{display:flex;gap:9px;margin-top:24px}
-.foot-soc a{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .18s,border-color .18s,transform .18s var(--sp)}
-.foot-soc a:hover{background:rgba(255,102,0,.30);border-color:var(--or);transform:translateY(-2px)}
-.foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:12.5px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
+.foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
+.foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
+.foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
 .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
 .foot-col ul{display:flex;flex-direction:column;gap:10px}
-.foot-col a{font-size:14px;color:rgba(255,255,255,.52);transition:color .18s,padding-left .18s;display:block}
+.foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block}
 .foot-col a:hover{color:#fff;padding-left:4px}
 .foot-locs{display:flex;flex-direction:column;gap:8px}
 .foot-loc{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:flex-start;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:background .18s,border-color .18s,transform .18s var(--sp)}
 .foot-loc:hover{background:rgba(255,102,0,.12);border-color:rgba(255,102,0,.30);transform:translateX(3px)}
-.foot-loc-pin{color:var(--or);font-size:12px;line-height:1.6;margin-top:1px;flex-shrink:0}
-.foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:rgba(255,255,255,.88);margin-bottom:2px}
-.foot-loc-text span{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.5}
+.foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}
+.foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}
+.foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
 .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
 .foot-loc.soon .foot-loc-text strong{color:var(--or)}
 .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
-.foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0}
-.foot-btm p{font-size:13px;color:rgba(255,255,255,.35)}
-.foot-btm-links{display:flex;gap:20px}
-.foot-btm a{font-size:13px;color:rgba(255,255,255,.35);transition:color .18s}
+.foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}
+.foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}
+.foot-btm-links{display:flex;gap:20px;align-items:center}
+.foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s}
 .foot-btm a:hover{color:#fff}
+html,body{margin-bottom:0!important;padding-bottom:0!important;height:auto!important}
+footer{margin-bottom:0!important}
+.footer{padding-bottom:0!important}
 
 /* ══ WA FAB ══ */
 .wa{position:fixed;bottom:28px;right:28px;z-index:900}
@@ -723,24 +724,33 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 
 
 <!-- ════════ FOOTER ════════ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="W">
     <div class="foot-grid">
+
+      <!-- Col 1: Brand -->
       <div class="foot-brand">
-        <img src="../assets/logofooter.webp" alt="Liberal Music & Arts School" onerror="this.src='../assets/logo.webp'"/>
-        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music in children aged 2.5–16. Trusted by over 20,000 Singapore families since 2009.</p>
-        <div class="foot-contact">
-          <a href="/cdn-cgi/l/email-protection#f29e9b909780939e9f87819b9193808681b2959f939b9edc919d9f">✉️ <span class="__cf_email__" data-cfemail="bfd3d6dddacdded3d2caccd6dcdecdcbccffd8d2ded6d391dcd0d2">[email&#160;protected]</span></a>
-          <a href="tel:+6589222848">📞 +65 8922 2848</a>
-        </div>
+        <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
+             onerror="this.src='../assets/logo.webp'"/>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
         <div class="foot-soc">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="TikTok">🎵</a>
-          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Instagram">
+            <img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <img src="../assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
+          </a>
+          <a href="#" aria-label="Xiaohongshu">
+            <img src="../assets/xiaohongshu.webp" alt="Xiaohongshu" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
+          </a>
         </div>
       </div>
 
+      <!-- Col 2: Navigation -->
       <div class="foot-col">
         <h5>Navigation</h5>
         <ul>
@@ -751,55 +761,76 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
           <li><a href="testimonial.html">Review</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="trial.html" style="color:var(--or);font-weight:700;">✦ Free Trial Class</a></li>
         </ul>
       </div>
 
+      <!-- Col 3: Locations — ALL 5, never remove any -->
       <div class="foot-col">
         <h5>Our Locations</h5>
         <div class="foot-locs">
+
           <div class="foot-loc">
-            <span class="foot-loc-pin">📍</span>
+            <span class="foot-loc-pin">
+              <img src="../assets/address.webp" alt="location"
+                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+            </span>
             <div class="foot-loc-text">
-              <strong>Tengah</strong>
-              <span>127A Plantation Crescent, #01-381<br>Singapore 691127 · +65 8922 2848</span>
+              <strong>Tengah Music School</strong>
+              <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
             </div>
           </div>
+
           <div class="foot-loc">
-            <span class="foot-loc-pin">📍</span>
+            <span class="foot-loc-pin">
+              <img src="../assets/address.webp" alt="location"
+                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+            </span>
             <div class="foot-loc-text">
-              <strong>Tampines</strong>
-              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139 · +65 8892 1198</span>
+              <strong>Tampines Music School</strong>
+              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
             </div>
           </div>
+
           <div class="foot-loc">
-            <span class="foot-loc-pin">📍</span>
+            <span class="foot-loc-pin">
+              <img src="../assets/address.webp" alt="location"
+                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+            </span>
             <div class="foot-loc-text">
-              <strong>Jurong West</strong>
-              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492 · +65 9627 7582</span>
+              <strong>Jurong West Music School</strong>
+              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
             </div>
           </div>
+
           <div class="foot-loc">
-            <span class="foot-loc-pin">📍</span>
+            <span class="foot-loc-pin">
+              <img src="../assets/address.webp" alt="location"
+                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+            </span>
             <div class="foot-loc-text">
-              <strong>Le Quest Mall, Bukit Batok</strong>
-              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991 · +65 9627 7582</span>
+              <strong>Le Quest Mall Music School</strong>
+              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
             </div>
           </div>
+
           <div class="foot-loc soon">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
-              <strong>Jurong Point</strong>
+              <strong>Jurong Point Music School</strong>
               <span>Opening Soon — Register Interest</span>
             </div>
           </div>
+
         </div>
       </div>
+
     </div>
 
+    <!-- Bottom bar -->
     <div class="foot-btm">
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
+        <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
         <a href="../index-zh.html">中文版本</a>
