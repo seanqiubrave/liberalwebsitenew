@@ -133,16 +133,23 @@
     .sec-head p{font-size:18px;color:var(--body);max-width:540px;line-height:1.75}
 
     /* ── 11. Music Cards ── */
-    .music-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
-    .mcard{background:var(--w);border-radius:var(--r-l);padding:28px 20px 24px;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;align-items:center;gap:14px;text-decoration:none;transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp);position:relative;overflow:hidden}
-    .mcard::before{content:'';position:absolute;inset:0;background:var(--or-lt);opacity:0;transition:opacity var(--t)}
-    .mcard:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow)}
-    .mcard:hover::before{opacity:1}
-    .mcard-icon{font-size:44px;line-height:1;position:relative;z-index:1;transition:transform var(--t) var(--sp)}
-    .mcard:hover .mcard-icon{transform:scale(1.15)}
-    .mcard-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--ink);text-align:center;line-height:1.3;position:relative;z-index:1}
-    .mcard-tag{font-size:12px;font-weight:700;color:var(--or);background:var(--or-lt);padding:3px 10px;border-radius:999px;position:relative;z-index:1}
+    .music-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .mcard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;text-decoration:none;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t)}
+    .mcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.18)}
     .mcard.featured{border-top:4px solid var(--or)}
+    .mcard-photo{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+    .mcard-icon{font-size:64px;line-height:1;transition:transform .35s var(--sp)}
+    .mcard:hover .mcard-icon{transform:scale(1.18)}
+    .mcard-badge{position:absolute;top:12px;left:12px;background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.8px;padding:4px 10px;border-radius:999px}
+    .mcard-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:10px}
+    .mcard-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:18px;color:var(--ink);line-height:1.2}
+    .mcard-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .mtag{padding:4px 11px;border-radius:999px;font-size:11px;font-weight:700;font-family:'Nunito',sans-serif}
+    .mtag-or{background:var(--or-lt);color:var(--or)}
+    .mtag-tl{background:var(--teal);color:#1a7058}
+    .mtag-lv{background:var(--lav);color:#5550c8}
+    .mtag-sk{background:var(--sky);color:#2472a4}
+    .mcard-desc{font-size:14px;color:var(--body);line-height:1.68}
 
     /* ── 12. Dance Cards ── */
     .dance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -244,10 +251,10 @@
     @media(max-width:900px){.mob-bar{display:block}.wa{bottom:84px}}
 
     /* ── 19. Responsive ── */
-    @media(max-width:1100px){.music-grid{grid-template-columns:repeat(4,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:900px){.music-grid{grid-template-columns:repeat(3,1fr)}.dance-grid{grid-template-columns:repeat(2,1fr)}.art-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:20px}}
+    @media(max-width:1100px){.music-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.music-grid{grid-template-columns:repeat(2,1fr)}.dance-grid{grid-template-columns:repeat(2,1fr)}.art-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:20px}}
     @media(max-width:600px){.music-grid{grid-template-columns:repeat(2,1fr)}.dance-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:400px){.music-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:400px){.music-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -346,47 +353,165 @@
           <p>Individual lessons tailored to your child's pace, interest, and goals — from casual exploration to ABRSM certification.</p>
         </div>
         <div class="music-grid">
+
+          <!-- Piano -->
           <a href="trial.html" class="mcard featured sr d1">
-            <div class="mcard-icon">🎹</div>
-            <div class="mcard-name">Piano<br>Lessons</div>
-            <div class="mcard-tag">Most Popular</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#FFF4ED,#FFFAF5)">
+              <div class="mcard-icon">🎹</div>
+              <span class="mcard-badge">Most Popular</span>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Piano Lessons</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-or">Age 4+</span>
+                <span class="mtag mtag-lv">All Levels</span>
+                <span class="mtag mtag-tl">ABRSM</span>
+              </div>
+              <p class="mcard-desc">Our most sought-after programme. Students learn classical and contemporary piano with structured lesson plans, building solid technique and preparing for ABRSM graded exams.</p>
+            </div>
           </a>
+
+          <!-- Violin -->
           <a href="trial.html" class="mcard sr d2">
-            <div class="mcard-icon">🎻</div>
-            <div class="mcard-name">Violin<br>Lessons</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--sky),#e8f4ff)">
+              <div class="mcard-icon">🎻</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Violin Lessons</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-sk">Age 5+</span>
+                <span class="mtag mtag-lv">All Levels</span>
+                <span class="mtag mtag-tl">ABRSM</span>
+              </div>
+              <p class="mcard-desc">From posture and bow technique to performing pieces with confidence — our violin lessons nurture discipline, listening skills, and a lifelong love of strings.</p>
+            </div>
           </a>
+
+          <!-- Guitar -->
           <a href="trial.html" class="mcard sr d3">
-            <div class="mcard-icon">🎸</div>
-            <div class="mcard-name">Guitar<br>Lessons</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--lem),#fffde0)">
+              <div class="mcard-icon">🎸</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Guitar Lessons</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-or">Age 6+</span>
+                <span class="mtag mtag-sk">Classical</span>
+                <span class="mtag mtag-sk">Pop</span>
+              </div>
+              <p class="mcard-desc">Acoustic, classical, and pop styles taught for all ages. Students learn chords, strumming patterns, and finger-picking — perfect for those who love contemporary music.</p>
+            </div>
           </a>
+
+          <!-- Ukulele -->
           <a href="trial.html" class="mcard sr d4">
-            <div class="mcard-icon">🪗</div>
-            <div class="mcard-name">Ukulele<br>Lessons</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--blush),#ffe8f0)">
+              <div class="mcard-icon">🪗</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Ukulele Lessons</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-or">Age 4+</span>
+                <span class="mtag mtag-lv">Beginner Friendly</span>
+              </div>
+              <p class="mcard-desc">A wonderful first instrument! Ukulele lessons are fun, accessible, and build early musical confidence — ideal for young children starting their music journey.</p>
+            </div>
           </a>
-          <a href="trial.html" class="mcard sr d5">
-            <div class="mcard-icon">🥁</div>
-            <div class="mcard-name">Drum<br>Lessons</div>
-          </a>
+
+          <!-- Drums -->
           <a href="trial.html" class="mcard sr d1">
-            <div class="mcard-icon">🎤</div>
-            <div class="mcard-name">Vocal<br>Lessons</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#ffe8d6,#fff3ec)">
+              <div class="mcard-icon">🥁</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Drum Lessons</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-or">Age 5+</span>
+                <span class="mtag mtag-sk">Rhythm</span>
+                <span class="mtag mtag-sk">All Genres</span>
+              </div>
+              <p class="mcard-desc">Build incredible rhythm, coordination, and musical timing. Our drum lessons cover everything from basic beats to complex patterns — taught in a high-energy, structured environment.</p>
+            </div>
           </a>
+
+          <!-- Vocal -->
           <a href="trial.html" class="mcard sr d2">
-            <div class="mcard-icon">🎵</div>
-            <div class="mcard-name">Music for<br>Kids</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--lav),#f0eeff)">
+              <div class="mcard-icon">🎤</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Vocal Lessons</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-or">Age 6+</span>
+                <span class="mtag mtag-lv">Technique</span>
+                <span class="mtag mtag-lv">Performance</span>
+              </div>
+              <p class="mcard-desc">Develop breath control, vocal range, and stage presence. Whether your child dreams of performing or simply loves to sing, our vocal coaches nurture every voice with care.</p>
+            </div>
           </a>
+
+          <!-- Music for Kids -->
           <a href="trial.html" class="mcard sr d3">
-            <div class="mcard-icon">🪘</div>
-            <div class="mcard-name">Chinese<br>Instruments</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#d4f5e0,#eafff3)">
+              <div class="mcard-icon">🎵</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Music for Kids</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-tl">Age 2.5–6</span>
+                <span class="mtag mtag-tl">Early Childhood</span>
+              </div>
+              <p class="mcard-desc">A playful music exploration programme for our youngest learners. Through songs, movement, and instruments, toddlers develop listening, coordination, and early music foundations.</p>
+            </div>
           </a>
+
+          <!-- Chinese Instruments -->
           <a href="trial.html" class="mcard sr d4">
-            <div class="mcard-icon">📝</div>
-            <div class="mcard-name">Music<br>Theory</div>
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--teal),#d4fff6)">
+              <div class="mcard-icon">🪘</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Chinese Instruments</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-tl">Erhu</span>
+                <span class="mtag mtag-tl">Guzheng</span>
+                <span class="mtag mtag-tl">Guqin</span>
+              </div>
+              <p class="mcard-desc">Connect with cultural heritage through traditional Chinese instruments. Our specialist instructors teach Erhu, Guzheng, and Guqin with authentic technique and deep musical tradition.</p>
+            </div>
           </a>
-          <a href="trial.html" class="mcard sr d5">
-            <div class="mcard-icon">👂</div>
-            <div class="mcard-name">Aural<br>Training</div>
+
+          <!-- Music Theory -->
+          <a href="trial.html" class="mcard sr d1">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#e8eaff,#f3f4ff)">
+              <div class="mcard-icon">📝</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Music Theory</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-lv">All Ages</span>
+                <span class="mtag mtag-lv">ABRSM</span>
+                <span class="mtag mtag-lv">Trinity</span>
+              </div>
+              <p class="mcard-desc">Understand the language of music. Our theory classes prepare students for graded music theory examinations — a vital complement to practical instrument lessons.</p>
+            </div>
           </a>
+
+          <!-- Aural Training -->
+          <a href="trial.html" class="mcard sr d2">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#fce4d6,#fff0e8)">
+              <div class="mcard-icon">👂</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">Aural Training</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-or">All Ages</span>
+                <span class="mtag mtag-tl">Ear Training</span>
+              </div>
+              <p class="mcard-desc">Train your ear to identify rhythms, intervals, and melodies by listening. Aural skills are essential for exam success and becoming a well-rounded, instinctive musician.</p>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
