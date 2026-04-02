@@ -75,14 +75,13 @@ section{padding:100px 0}
 .sec-head.cx .lead{margin:0 auto}
 
 /* ══ BUTTONS ══ */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:25px;border-radius:999px;padding:13px 28px;white-space:nowrap;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}
-.btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:800;border-radius:999px;white-space:nowrap;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}
+.btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh);font-size:15px;padding:13px 28px}
 .btn-cta:hover{background:var(--or-dk);box-shadow:var(--or-shh);transform:translateY(-2px) scale(1.04)}
 .btn-cta:active{transform:scale(.98)}
-.btn-outline{background:transparent;color:var(--ink);border:2px solid #DDE6F2}
+.btn-outline{background:transparent;color:var(--ink);border:2px solid #DDE6F2;font-size:15px;padding:13px 28px}
 .btn-outline:hover{border-color:var(--or);color:var(--or);transform:translateY(-2px)}
-.btn-lg{font-size:18px;padding:17px 40px}
-.btn-sm{font-size:15px;padding:9px 20px}
+.btn-lg{font-size:17px;padding:17px 40px}
 
 /* ══ SCROLL REVEAL ══ */
 .sr,.sl,.sfr{opacity:1;transform:none}
@@ -93,10 +92,10 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
 
 /* ══ ANNOUNCEMENT BAR ══ */
-.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
-.ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
-.ann-bar a:hover{opacity:.85}
-.ann-bar svg{flex-shrink:0}
+.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:36px;background:#f56c22;display:flex;align-items:center;justify-content:center;gap:16px}
+.ann-bar p{font-family:'Nunito',sans-serif;font-weight:700;font-size:12.5px;color:#fff;letter-spacing:.2px;white-space:nowrap}
+.ann-bar a{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:#fff;background:rgba(255,255,255,.22);padding:3px 12px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);transition:background .18s;white-space:nowrap;flex-shrink:0}
+.ann-bar a:hover{background:rgba(255,255,255,.38)}
 
 /* ══ NAVBAR ══ */
 .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
@@ -105,13 +104,13 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-logo{display:flex;align-items:center;flex-shrink:0}
 .nav-logo img{height:42px;width:auto}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{display:block;padding:8px 14px;border-radius:var(--r);font-weight:600;font-size:18px;color:var(--body);transition:color var(--t),background var(--t)}
+.nav-links a{display:block;padding:8px 13px;border-radius:var(--r);font-weight:600;font-size:14px;color:var(--body);transition:color var(--t),background var(--t)}
 .nav-links a:hover{color:var(--or);background:var(--or-lt)}
 .nav-links a.active{color:var(--or)}
 .nav-end{display:flex;align-items:center;gap:10px}
-.nav-lang{font-size:15.5px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:5px 12px;border-radius:999px;cursor:pointer;transition:all var(--t);text-decoration:none}
+.nav-lang{font-size:13px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all var(--t)}
 .nav-lang:hover{border-color:var(--or);color:var(--or)}
-.nav-ham{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:var(--r);transition:background var(--t);background:none;border:none;cursor:pointer}
+.nav-ham{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:var(--r);transition:background var(--t)}
 .nav-ham:hover{background:var(--or-lt)}
 .nav-ham span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .32s var(--sp),opacity .24s}
 .nav-ham.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -119,7 +118,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-ham.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .nav-drawer{display:none;position:fixed;top:108px;left:0;right:0;z-index:999;background:var(--w);border-bottom:1px solid #EEF2F8;padding:16px 28px 28px;flex-direction:column;gap:4px;box-shadow:0 18px 52px rgba(31,42,68,.12)}
 .nav-drawer.on{display:flex}
-.nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:25.5px;color:var(--ink);transition:background var(--t),color var(--t)}
+.nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:15.5px;color:var(--ink);transition:background var(--t),color var(--t)}
 .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
 .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:12px}
 
@@ -199,8 +198,8 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .stat-cell{text-align:center;padding:56px 24px 48px;border-right:1px solid rgba(255,255,255,.07);transition:background .22s;position:relative}
 .stat-cell:last-child{border-right:none}
 .stat-cell:hover{background:rgba(255,255,255,.04)}
-.stat-icon{display:block;width:64px;height:64px;margin:0 auto 18px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));transition:transform .22s var(--sp)}
-.stat-cell:hover .stat-icon{transform:scale(1.1) translateY(-2px)}
+.stat-ico{font-size:40px;margin-bottom:16px;display:block;transition:transform .22s var(--sp)}
+.stat-cell:hover .stat-ico{transform:scale(1.15) translateY(-3px)}
 .stat-num{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.2rem);line-height:1;color:#fff;margin-bottom:10px;display:block}
 .stat-num .acc{color:var(--or)}
 .stat-label{font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:rgba(255,255,255,.85);display:block;margin-bottom:4px}
@@ -220,8 +219,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 
 /* ══ FOUNDERS / TEAM ══ */
 .team{background:var(--s1)}
-.team-grid{display:flex;justify-content:center;max-width:100%;margin:0 auto}
-.team-card{max-width:680px;width:100%}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:860px;margin:0 auto}
 .team-card{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);display:flex;transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp)}
 .team-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow)}
 .team-photo{width:140px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--sky));display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
@@ -265,49 +263,52 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .chk::before{content:'✓';color:var(--or);font-weight:900;font-size:15px}
 
 /* ══ FOOTER ══ */
-.footer{background:#1F2A44;margin:0;padding-bottom:0;border-top:none;padding:80px 0 0}
-.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
-.foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
-.foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
+.footer{background:#1F2A44;padding:80px 0 0;border-top:none}
+.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand img{height:52px;width:auto;margin-bottom:22px;display:block}
+.foot-brand p{font-size:14px;line-height:1.82;color:rgba(255,255,255,.52);max-width:300px;margin-bottom:8px}
+.foot-contact{display:flex;flex-direction:column;gap:7px;margin-top:20px}
+.foot-contact a{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.48);transition:color .18s}
+.foot-contact a:hover{color:var(--or)}
 .foot-soc{display:flex;gap:9px;margin-top:24px}
-.foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
-.foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
-.foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
+.foot-soc a{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .18s,border-color .18s,transform .18s var(--sp)}
+.foot-soc a:hover{background:rgba(255,102,0,.30);border-color:var(--or);transform:translateY(-2px)}
+.foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:12.5px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
 .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
 .foot-col ul{display:flex;flex-direction:column;gap:10px}
-.foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block}
+.foot-col a{font-size:14px;color:rgba(255,255,255,.52);transition:color .18s,padding-left .18s;display:block}
 .foot-col a:hover{color:#fff;padding-left:4px}
 .foot-locs{display:flex;flex-direction:column;gap:8px}
 .foot-loc{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:flex-start;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:background .18s,border-color .18s,transform .18s var(--sp)}
 .foot-loc:hover{background:rgba(255,102,0,.12);border-color:rgba(255,102,0,.30);transform:translateX(3px)}
-.foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}
-.foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}
-.foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+.foot-loc-pin{color:var(--or);font-size:12px;line-height:1.6;margin-top:1px;flex-shrink:0}
+.foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:rgba(255,255,255,.88);margin-bottom:2px}
+.foot-loc-text span{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.5}
 .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
 .foot-loc.soon .foot-loc-text strong{color:var(--or)}
 .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
-.foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}
-.foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}
-.foot-btm-links{display:flex;gap:20px;align-items:center}
-.foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s}
+.foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0}
+.foot-btm p{font-size:13px;color:rgba(255,255,255,.35)}
+.foot-btm-links{display:flex;gap:20px}
+.foot-btm a{font-size:13px;color:rgba(255,255,255,.35);transition:color .18s}
 .foot-btm a:hover{color:#fff}
 
 /* ══ WA FAB ══ */
-.wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
-.wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer}
+.wa{position:fixed;bottom:28px;right:28px;z-index:900}
+.wa-fab{width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer}
 .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
-.wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
+.wa-panel{position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
 .wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
-.wa-panel h4{font-family:'Nunito',sans-serif;font-size:24.5px;font-weight:900;color:var(--ink);margin-bottom:4px}
-.wa-panel p{font-size:22.5px;color:var(--muted);margin-bottom:14px}
-.wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:23.5px;color:var(--ink);transition:all var(--t);text-decoration:none}
+.wa-panel h4{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:900;color:var(--ink);margin-bottom:4px}
+.wa-panel p{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);transition:all var(--t)}
 .wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}
-.wa-row span{font-size:21.5px;font-weight:500;color:var(--muted)}
+.wa-row span{font-size:11.5px;font-weight:500;color:var(--muted)}
 .wa-row:hover span{color:#1a8a45}
 
 /* Mobile sticky */
 .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
-.mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
+.mob-bar .btn-cta{width:100%;justify-content:center;font-size:16px;padding:15px}
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:1100px){.vals-grid{grid-template-columns:repeat(2,1fr)}}
@@ -331,7 +332,6 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 }
 @media(max-width:700px){
   .foot-grid{grid-template-columns:1fr}
-  .foot-brand{border-bottom:1px solid rgba(255,102,0,.1);padding-bottom:28px}
   .hero-stat-row{grid-template-columns:1fr 1fr}
 }
 @media(max-width:540px){
@@ -341,21 +341,14 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
   .team-photo{width:100%;height:180px}
   .cta-checks{flex-direction:column;gap:10px}
 }
-
-/* Kill bottom gap */
-html,body{margin-bottom:0!important;padding-bottom:0!important;height:auto!important}
-footer{margin-bottom:0!important}
-.footer{padding-bottom:0!important}
 </style>
 </head>
 <body>
 
 <!-- ════════ ANNOUNCEMENT BAR ════════ -->
 <div class="ann-bar">
-  <a href="trial.html">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/><path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/><line x1="12" y1="12" x2="12" y2="19"/></svg>
-    Liberal Music &amp; Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!
-  </a>
+  <p>🎵 First Trial Class is FREE — No Commitment Needed!</p>
+  <a href="trial.html">Book Now →</a>
 </div>
 
 <!-- ════════ NAVBAR ════════ -->
@@ -377,6 +370,8 @@ footer{margin-bottom:0!important}
       <div class="nav-end">
         <a href="../index-zh.html" class="nav-lang">中文</a>
         <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+      </div>
+      <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -504,7 +499,37 @@ footer{margin-bottom:0!important}
 </section>
 
 
-
+<!-- ════════ STATS STRIP ════════ -->
+<section class="stats-strip" aria-label="School statistics">
+  <div class="W">
+    <div class="stats-grid">
+      <div class="stat-cell sr">
+        <span class="stat-ico">🎓</span>
+        <span class="stat-num">20,000<span class="acc">+</span></span>
+        <span class="stat-label">Students Taught</span>
+        <span class="stat-sub">and growing every term</span>
+      </div>
+      <div class="stat-cell sr d1">
+        <span class="stat-ico">⭐</span>
+        <span class="stat-num">15<span class="acc">+</span></span>
+        <span class="stat-label">Years of Excellence</span>
+        <span class="stat-sub">Est. 2009, Singapore</span>
+      </div>
+      <div class="stat-cell sr d2">
+        <span class="stat-ico">📍</span>
+        <span class="stat-num">5</span>
+        <span class="stat-label">Singapore Branches</span>
+        <span class="stat-sub">always close to home</span>
+      </div>
+      <div class="stat-cell sr d3">
+        <span class="stat-ico">🏆</span>
+        <span class="stat-num">99<span class="acc">%</span></span>
+        <span class="stat-label">Exam Pass Rate</span>
+        <span class="stat-sub">ABRSM &amp; Trinity</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ════════ OUR VALUES ════════ -->
@@ -562,12 +587,11 @@ footer{margin-bottom:0!important}
     <div class="team-grid">
 
       <div class="team-card sl">
-        <div class="team-photo tp-c" style="width:200px;min-height:320px;">
-          <img src="../assets/cecily.webp" alt="Ms. Cecily" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
-        </div>
+        <div class="team-photo tp-c">🎹</div>
         <div class="team-body">
           <span class="team-chip">Principal &amp; Founder</span>
           <h3>Ms. Cecily</h3>
+          <span class="role">Piano · Erhu · Guzheng</span>
           <p>Cecily founded Liberal Music &amp; Arts School in 2009 with a vision to create Singapore's warmest music school. With 15+ years of teaching experience and qualifications from ABRSM, Trinity College London, and Singapore Chinese Orchestra, she leads every teacher to put the child's confidence first.</p>
           <div class="team-creds">
             <span class="cred">ABRSM Grade 8 Distinction</span>
@@ -577,7 +601,20 @@ footer{margin-bottom:0!important}
         </div>
       </div>
 
-
+      <div class="team-card sfr">
+        <div class="team-photo tp-k">🥁</div>
+        <div class="team-body">
+          <span class="team-chip">Vice Principal</span>
+          <h3>Mr. Calvin</h3>
+          <span class="role">Drums · Guitar · Ukulele</span>
+          <p>Calvin joined as co-founder and leads the school's creative direction. An RSL-certified drummer and guitarist with 10+ years teaching children, his high-energy approach transforms even the most restless kids into focused, passionate musicians.</p>
+          <div class="team-creds">
+            <span class="cred">RSL Certified</span>
+            <span class="cred">Trinity Rock &amp; Pop Grade 8</span>
+            <span class="cred">10+ Years Teaching</span>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -689,21 +726,21 @@ footer{margin-bottom:0!important}
 <footer class="footer">
   <div class="W">
     <div class="foot-grid">
-
-      <!-- Column 1: School intro + contact -->
       <div class="foot-brand">
-        <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
-             onerror="this.src='../assets/logo.webp'"/>
-        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+        <img src="../assets/logofooter.webp" alt="Liberal Music & Arts School" onerror="this.src='../assets/logo.webp'"/>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music in children aged 2.5–16. Trusted by over 20,000 Singapore families since 2009.</p>
+        <div class="foot-contact">
+          <a href="mailto:liberalmusicarts@gmail.com">✉️ liberalmusicarts@gmail.com</a>
+          <a href="tel:+6589222848">📞 +65 8922 2848</a>
+        </div>
         <div class="foot-soc">
-          <a href="#" aria-label="Instagram"><img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
-          <a href="#" aria-label="Facebook"><img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
-          <a href="#" aria-label="YouTube"><img src="../assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
-          <a href="#" aria-label="Xiaohongshu"><img src="../assets/xiaohongshu.webp" alt="Xiaohongshu" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="YouTube">▶️</a>
         </div>
       </div>
 
-      <!-- Column 2: Navigation -->
       <div class="foot-col">
         <h5>Navigation</h5>
         <ul>
@@ -714,63 +751,55 @@ footer{margin-bottom:0!important}
           <li><a href="testimonial.html">Review</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="trial.html" style="color:var(--or);font-weight:700;">✦ Free Trial Class</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: All 5 locations with pin icons -->
       <div class="foot-col">
         <h5>Our Locations</h5>
         <div class="foot-locs">
-
           <div class="foot-loc">
-            <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Tengah Music School</strong>
-              <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+              <strong>Tengah</strong>
+              <span>127A Plantation Crescent, #01-381<br>Singapore 691127 · +65 8922 2848</span>
             </div>
           </div>
-
           <div class="foot-loc">
-            <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Tampines Music School</strong>
-              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+              <strong>Tampines</strong>
+              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139 · +65 8892 1198</span>
             </div>
           </div>
-
           <div class="foot-loc">
-            <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Jurong West Music School</strong>
-              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+              <strong>Jurong West</strong>
+              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492 · +65 9627 7582</span>
             </div>
           </div>
-
           <div class="foot-loc">
-            <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Le Quest Mall Music School</strong>
-              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+              <strong>Le Quest Mall, Bukit Batok</strong>
+              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991 · +65 9627 7582</span>
             </div>
           </div>
-
           <div class="foot-loc soon">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
-              <strong>Jurong Point Music School</strong>
+              <strong>Jurong Point</strong>
               <span>Opening Soon — Register Interest</span>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
 
     <div class="foot-btm">
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
-        <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
         <a href="../index-zh.html">中文版本</a>
@@ -803,34 +832,29 @@ footer{margin-bottom:0!important}
 (function(){
   'use strict';
 
-  /* Navbar scroll shadow */
+  /* Navbar scroll */
   const nav = document.getElementById('nav');
-  if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), {passive:true});
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), {passive:true});
 
-  /* Hamburger toggle */
+  /* Hamburger */
   const ham = document.getElementById('navHam');
   const drw = document.getElementById('navDrawer');
-  if (ham && drw) {
-    ham.addEventListener('click', () => {
-      const o = drw.classList.toggle('on');
-      ham.classList.toggle('open', o);
-      ham.setAttribute('aria-expanded', String(o));
-    });
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.nav') && !e.target.closest('.nav-drawer')) {
-        drw.classList.remove('on');
-        ham.classList.remove('open');
-      }
-    });
-  }
+  ham.addEventListener('click', () => {
+    const o = drw.classList.toggle('on');
+    ham.classList.toggle('open', o);
+    ham.setAttribute('aria-expanded', String(o));
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav') && !e.target.closest('.nav-drawer')) {
+      drw.classList.remove('on'); ham.classList.remove('open');
+    }
+  });
 
-  /* WhatsApp popup */
+  /* WA popup */
   const waFab   = document.getElementById('waFab');
   const waPanel = document.getElementById('waPanel');
-  if (waFab && waPanel) {
-    waFab.addEventListener('click', e => { e.stopPropagation(); waPanel.classList.toggle('on'); });
-    document.addEventListener('click', e => { if (!e.target.closest('.wa')) waPanel.classList.remove('on'); });
-  }
+  waFab.addEventListener('click', e => { e.stopPropagation(); waPanel.classList.toggle('on'); });
+  document.addEventListener('click', e => { if (!e.target.closest('.wa')) waPanel.classList.remove('on'); });
 
   /* Scroll reveal */
   document.body.classList.add('reveal-ready');
