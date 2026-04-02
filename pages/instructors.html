@@ -130,14 +130,14 @@
     .sec-head.center p{margin:0 auto}
 
     /* ── 11. Instructor grid ── */
-    .ig{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+    .ig{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 
     /* Instructor card */
     .icard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t)}
     .icard:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.18)}
 
     /* Photo area */
-    .icard-photo{height:240px;background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+    .icard-photo{height:280px;background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
     .icard-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--sp)}
     .icard:hover .icard-photo img{transform:scale(1.05)}
     .icard-photo-icon{font-size:80px;opacity:.35}
@@ -234,8 +234,8 @@
 
     /* ── 17. Responsive ── */
     @media(max-width:1100px){.ig{grid-template-columns:repeat(3,1fr)}.join-grid{grid-template-columns:1fr}}
-    @media(max-width:900px){.ig{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:540px){.ig{grid-template-columns:1fr}}
+    @media(max-width:700px){.ig{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.ig{grid-template-columns:1fr}}
   </style>
 </head>
 <body>

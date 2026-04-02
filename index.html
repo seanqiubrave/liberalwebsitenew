@@ -849,10 +849,12 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
    ║  4. TEACHERS                                          ║
    ╚═══════════════════════════════════════════════════════╝ */
 .teachers{background:var(--s1)}
-.teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.tc{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp)}
+.tc-carousel-wrap{position:relative;padding:0 4px}
+.tc-carousel{overflow:hidden}
+.teacher-grid{display:flex;gap:24px;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.tc{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp);flex:0 0 calc((100% - 72px)/4);min-width:0}
 .tc:hover{transform:translateY(-7px);box-shadow:0 24px 52px var(--or-glow)}
-.tc-photo{aspect-ratio:1;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size: 80px}
+.tc-photo{aspect-ratio:1;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:80px}
 .tc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--sp)}
 .tc:hover .tc-photo img{transform:scale(1.05)}
 .tc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,68,.24) 0%,transparent 55%);opacity:0;transition:opacity var(--t)}
@@ -861,10 +863,22 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .tp2{background:linear-gradient(135deg,var(--lem),var(--teal))}
 .tp3{background:linear-gradient(135deg,var(--blush),var(--lav))}
 .tp4{background:linear-gradient(135deg,var(--sky),var(--teal))}
+.tp5{background:linear-gradient(135deg,var(--lav),var(--blush))}
+.tp6{background:linear-gradient(135deg,#d4edff,var(--teal))}
+.tp7{background:linear-gradient(135deg,var(--lem),var(--lav))}
+.tp8{background:linear-gradient(135deg,var(--blush),var(--sky))}
+.tp9{background:linear-gradient(135deg,var(--teal),var(--lem))}
+.tp10{background:linear-gradient(135deg,var(--sky),var(--blush))}
 .tc-body{padding:18px 20px 22px}
-.tc-chip{display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size: 20.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--or);background:var(--or-lt);padding:4px 11px;border-radius:999px;margin-bottom:8px}
-.tc-body h3{font-size: 27px;font-weight:900;margin-bottom:5px}
-.tc-body p{font-size: 23px;line-height:1.6}
+.tc-chip{display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.9px;color:var(--or);background:var(--or-lt);padding:4px 11px;border-radius:999px;margin-bottom:8px}
+.tc-body h3{font-size:18px;font-weight:900;margin-bottom:5px}
+.tc-body p{font-size:14px;line-height:1.6}
+.tc-arrow{position:absolute;top:42%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:var(--w);border:1.5px solid rgba(221,230,245,.8);box-shadow:0 4px 16px rgba(31,42,68,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all .22s cubic-bezier(.22,1,.36,1);color:var(--ink)}
+.tc-arrow:hover{background:var(--or);border-color:var(--or);color:#fff;transform:translateY(-50%) scale(1.1);box-shadow:0 8px 24px rgba(255,102,0,.35)}
+.tc-arrow:disabled{opacity:.3;cursor:default;pointer-events:none}
+.tc-arrow-prev{left:-28px}
+.tc-arrow-next{right:-28px}
+.tc-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 
 /* ╔═══════════════════════════════════════════════════════╗
    ║  5. BRANCHES                                          ║
@@ -1272,7 +1286,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
    ╚═══════════════════════════════════════════════════════╝ */
 @media(max-width:1100px){
   .course-grid{grid-template-columns:repeat(2,1fr)}
-  .teacher-grid{grid-template-columns:repeat(2,1fr)}
+  .tc{flex:0 0 calc((100% - 48px)/3)}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:900px){
@@ -1296,6 +1310,9 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   .course-grid{grid-template-columns:1fr}
   .rev-arrow{display:none}
   .faq-arrow{display:none}
+  .tc{flex:0 0 calc((100% - 24px)/2)}
+  .tc-arrow-prev{left:-14px}
+  .tc-arrow-next{right:-14px}
 }
 @media(max-width:700px){
   .foot-grid{grid-template-columns:1fr}
@@ -1306,7 +1323,8 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   .stats-grid{grid-template-columns:1fr 1fr}
   .branch-grid{grid-template-columns:1fr}
   .branch-grid-row2{grid-template-columns:1fr}
-  .teacher-grid{grid-template-columns:1fr}
+  .tc{flex:0 0 100%}
+  .tc-arrow{display:none}
   .fc-c{display:none}
   .vis-b{display:none}
   .cta-checks{flex-direction:column;gap:10px}
@@ -1445,7 +1463,7 @@ footer { margin-bottom: 0 !important; }
           <a href="pages/courses.html" class="i-pill">More →</a>
         </div>
         <div class="hero-btns sr d3">
-          <a href="pages/trial.html" class="btn btn-cta btn-lg btn-ring">✦ Book Free Trial Class</a>
+          <a href="pages/trial.html" class="btn btn-cta btn-lg btn-ring">✦ Book Trial Class</a>
           <a href="pages/courses.html" class="btn btn-outline btn-lg">View Courses</a>
         </div>
         <div class="proof sr d4">
@@ -1691,39 +1709,142 @@ footer { margin-bottom: 0 !important; }
       <h2 class="h2">Passionate Educators,<br>Extraordinary Results</h2>
       <p class="lead">Degree-holders, performers, and genuine child-lovers — our teachers are the heartbeat of Liberal.</p>
     </div>
-    <div class="teacher-grid">
-      <div class="tc sr">
-        <div class="tc-photo tp1">🎹<div class="tc-ov"></div><!--✏️ <img src="assets/teacher-sarah.webp" alt="Ms Sarah Tan">--></div>
-        <div class="tc-body">
-          <span class="tc-chip">Piano</span>
-          <h3>Ms Sarah Tan</h3>
-          <p>ABRSM Grade 8 Distinction · Trinity College London Diploma · 8 years teaching ages 4–16</p>
+    <div class="tc-carousel-wrap sr">
+      <!-- Prev arrow -->
+      <button class="tc-arrow tc-arrow-prev" id="tcPrev" aria-label="Previous teachers" disabled>
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <!-- Carousel track -->
+      <div class="tc-carousel">
+        <div class="teacher-grid" id="tcGrid">
+
+          <!-- 1. Ms Cecily — Principal -->
+          <div class="tc">
+            <div class="tc-photo tp1">
+              <img src="assets/cecily.webp" alt="Ms Cecily" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Principal · Erhu</span>
+              <h3>Ms Cecily</h3>
+              <p>Principal &amp; founder with 15+ years of teaching. Erhu specialist leading Liberal's vision of confident, creative young musicians.</p>
+            </div>
+          </div>
+
+          <!-- 2. Mr Calvin — Vice Principal -->
+          <div class="tc">
+            <div class="tc-photo tp2">
+              <img src="assets/calvin.webp" alt="Mr Calvin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Drums · Guitar</span>
+              <h3>Mr Calvin</h3>
+              <p>Vice Principal with expertise in drums, guitar and ukulele. Energetic, fun lessons that are surprisingly effective for all ages.</p>
+            </div>
+          </div>
+
+          <!-- 3. Ms Kate -->
+          <div class="tc">
+            <div class="tc-photo tp3">
+              <img src="assets/kate.webp" alt="Ms Kate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Piano · ABRSM</span>
+              <h3>Ms Kate</h3>
+              <p>ABRSM-certified piano instructor teaching classical and contemporary to students from complete beginners to distinction-level.</p>
+            </div>
+          </div>
+
+          <!-- 4. Ms Feng -->
+          <div class="tc">
+            <div class="tc-photo tp4">🎹<div class="tc-ov"></div></div>
+            <div class="tc-body">
+              <span class="tc-chip">Piano · Theory</span>
+              <h3>Ms Feng</h3>
+              <p>Piano and music theory specialist excelling at ABRSM &amp; Trinity exam prep with structured, confidence-building lesson plans.</p>
+            </div>
+          </div>
+
+          <!-- 5. Ms Gabrielle -->
+          <div class="tc">
+            <div class="tc-photo tp5">🎤<div class="tc-ov"></div></div>
+            <div class="tc-body">
+              <span class="tc-chip">Piano · Vocal</span>
+              <h3>Ms Gabrielle</h3>
+              <p>Accomplished pianist and vocal coach helping students find and develop their unique voice in a supportive environment.</p>
+            </div>
+          </div>
+
+          <!-- 6. Ms Jiang -->
+          <div class="tc">
+            <div class="tc-photo tp6">
+              <img src="assets/jiang.webp" alt="Ms Jiang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Erhu · Guqin</span>
+              <h3>Ms Jiang</h3>
+              <p>Conservatory-trained Chinese string specialist with 10+ years of performance and teaching experience in cultural depth and technique.</p>
+            </div>
+          </div>
+
+          <!-- 7. Ms Cheng -->
+          <div class="tc">
+            <div class="tc-photo tp7">
+              <img src="assets/cheng.webp" alt="Ms Cheng" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Piano · Violin</span>
+              <h3>Ms Cheng</h3>
+              <p>Versatile multi-instrumentalist teaching piano, violin and viola with deep experience in graded exams and stage performance.</p>
+            </div>
+          </div>
+
+          <!-- 8. Mr Leonard -->
+          <div class="tc">
+            <div class="tc-photo tp8">
+              <img src="assets/leonard.webp" alt="Mr Leonard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Drums · Guitar</span>
+              <h3>Mr Leonard</h3>
+              <p>Multi-instrumentalist passionate about rhythm and groove. Takes students from zero to performing in remarkably little time.</p>
+            </div>
+          </div>
+
+          <!-- 9. Mr Loy -->
+          <div class="tc">
+            <div class="tc-photo tp9">
+              <img src="assets/loy.webp" alt="Mr Loy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Guitar · Ukulele</span>
+              <h3>Mr Loy</h3>
+              <p>Enthusiastic, patient guitar teacher with a gift for making string instruments approachable for absolute beginners of all ages.</p>
+            </div>
+          </div>
+
+          <!-- 10. Ms Huang -->
+          <div class="tc">
+            <div class="tc-photo tp10">🎶<div class="tc-ov"></div></div>
+            <div class="tc-body">
+              <span class="tc-chip">Guzheng</span>
+              <h3>Ms Huang</h3>
+              <p>Dedicated Guzheng specialist steeped in classical Chinese music traditions, offering a rare connection to this beautiful instrument.</p>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="tc sr d1">
-        <div class="tc-photo tp2">🎻<div class="tc-ov"></div></div>
-        <div class="tc-body">
-          <span class="tc-chip">Violin</span>
-          <h3>Mr David Lee</h3>
-          <p>NUS Yong Siew Toh Conservatory · Former Singapore Youth Orchestra · Suzuki certified</p>
-        </div>
-      </div>
-      <div class="tc sr d2">
-        <div class="tc-photo tp3">🎸<div class="tc-ov"></div></div>
-        <div class="tc-body">
-          <span class="tc-chip">Guitar &amp; Ukulele</span>
-          <h3>Ms Rachel Ng</h3>
-          <p>Berklee Online Certified · 6 years specialising in children's guitar · RSL accredited</p>
-        </div>
-      </div>
-      <div class="tc sr d3">
-        <div class="tc-photo tp4">🎨<div class="tc-ov"></div></div>
-        <div class="tc-body">
-          <span class="tc-chip">Visual Art</span>
-          <h3>Mr James Lim</h3>
-          <p>LASALLE College of the Arts · Child-led creative development specialist · Exhibition artist</p>
-        </div>
-      </div>
+      <!-- Next arrow -->
+      <button class="tc-arrow tc-arrow-next" id="tcNext" aria-label="Next teachers">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
     <div style="text-align:center;margin-top:44px" class="sr">
       <a href="pages/instructors.html" class="btn btn-outline">Meet All Our Teachers →</a>
@@ -1891,7 +2012,7 @@ footer { margin-bottom: 0 !important; }
                 <div class="faq-card-num">3</div>
                 <p class="faq-card-q">Is the trial class really free?</p>
                 <p class="faq-card-a">Yes — completely free, no commitment required. Your child meets the teacher, tries the instrument, and we assess the best starting level. Parents are welcome to observe. No pressure to enrol.</p>
-                <a href="pages/trial.html" class="faq-card-cta">Book Free Trial →</a>
+                <a href="pages/trial.html" class="faq-card-cta">Book Trial →</a>
               </div>
 
               <div class="faq-card sr d3">
@@ -1930,7 +2051,7 @@ footer { margin-bottom: 0 !important; }
                 <div class="faq-card-num" style="background:rgba(255,255,255,.12);color:#fff;">🎵</div>
                 <p class="faq-card-q" style="color:#fff;">Ready to start?</p>
                 <p class="faq-card-a" style="color:rgba(255,255,255,.65);">The first class is free. No forms to fill, no contracts to sign. Just bring your child and experience the Liberal difference.</p>
-                <a href="pages/trial.html" class="btn btn-cta btn-sm" style="margin-top:16px;">✦ Book Free Trial</a>
+                <a href="pages/trial.html" class="btn btn-cta btn-sm" style="margin-top:16px;">✦ Book Trial</a>
               </div>
 
             </div>
@@ -1958,7 +2079,7 @@ footer { margin-bottom: 0 !important; }
     <h2>Start Your Child's <span class="or">Musical Journey</span> Today</h2>
     <p>The first lesson is completely free. No pressure. No commitment. Come meet our teachers and discover why over 500 Singapore families trust Liberal.</p>
     <div class="cta-btns">
-      <a href="pages/trial.html" class="btn btn-cta btn-lg btn-ring">✦ Book Free Trial Class</a>
+      <a href="pages/trial.html" class="btn btn-cta btn-lg btn-ring">✦ Book Trial Class</a>
       <a href="pages/contact.html" class="btn btn-outline btn-lg">Ask a Question</a>
     </div>
     <div class="cta-checks">
@@ -2388,6 +2509,42 @@ footer { margin-bottom: 0 !important; }
     // Initial delay so page loads first
     setTimeout(scheduleA, 1800);
     setTimeout(scheduleB, 3200);
+  })();
+
+  /* ── Teacher Carousel ── */
+  (function(){
+    var grid = document.getElementById('tcGrid');
+    var prev = document.getElementById('tcPrev');
+    var next = document.getElementById('tcNext');
+    if (!grid || !prev || !next) return;
+
+    var cards = grid.children.length; // 10
+    var visible = 4;
+    var idx = 0; // current first-visible index
+
+    function cardsVisible() {
+      var w = grid.parentElement.offsetWidth;
+      if (w < 540) return 1;
+      if (w < 900) return 2;
+      if (w < 1100) return 3;
+      return 4;
+    }
+
+    function update() {
+      visible = cardsVisible();
+      var cardW = grid.parentElement.offsetWidth;
+      var gap = 24;
+      var singleW = (cardW - gap * (visible - 1)) / visible;
+      var offset = idx * (singleW + gap);
+      grid.style.transform = 'translateX(-' + offset + 'px)';
+      prev.disabled = idx === 0;
+      next.disabled = idx >= cards - visible;
+    }
+
+    prev.addEventListener('click', function(){ if (idx > 0) { idx--; update(); } });
+    next.addEventListener('click', function(){ if (idx < cards - cardsVisible()) { idx++; update(); } });
+    window.addEventListener('resize', function(){ idx = Math.min(idx, cards - cardsVisible()); update(); });
+    update();
   })();
 
 })();
