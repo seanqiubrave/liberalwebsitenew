@@ -219,10 +219,10 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 
 /* ══ FOUNDERS / TEAM ══ */
 .team{background:var(--s1)}
-.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:860px;margin:0 auto}
+.team-grid{display:grid;grid-template-columns:1fr;gap:32px;max-width:760px;margin:0 auto}
 .team-card{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);display:flex;transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp)}
 .team-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow)}
-.team-photo{width:140px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--sky));display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
+.team-photo{width:210px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--sky));display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
 .team-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .tp-c{background:linear-gradient(135deg,var(--teal),var(--sky))}
 .tp-k{background:linear-gradient(135deg,var(--blush),var(--lav))}
@@ -410,7 +410,7 @@ footer{margin-bottom:0!important}
           Liberal Music &amp; Arts School is Singapore's most trusted children's music academy — built on a simple belief: every child deserves to grow through the joy of music.
         </p>
         <div class="hero-btns sr d3">
-          <a href="trial.html" class="btn btn-cta btn-lg">✦ Book Free Trial Class</a>
+          <a href="trial.html" class="btn btn-cta btn-lg">✦ Book Trial Class</a>
           <a href="instructors.html" class="btn btn-outline btn-lg">Meet Our Teachers</a>
         </div>
       </div>
@@ -464,9 +464,15 @@ footer{margin-bottom:0!important}
 
       <!-- Visual -->
       <div class="story-vis sl">
-        <div class="story-img-wrap">
-          🎹
-          <img src="../assets/about-story.webp" alt="Liberal Music School story" onerror="this.style.display='none'"/>
+        <div class="story-img-wrap" style="font-size:0">
+          <iframe
+            src="https://www.youtube.com/embed/zPbrWgIKGC8?start=7046&autoplay=0&rel=0&modestbranding=1"
+            title="Liberal Music & Arts School"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="width:100%;height:100%;position:absolute;inset:0;border:none;">
+          </iframe>
           <span class="story-tag-float">❤️ 15 Years of Music</span>
         </div>
         <div class="story-badge">
@@ -501,37 +507,6 @@ footer{margin-bottom:0!important}
 
 
 <!-- ════════ STATS STRIP ════════ -->
-<section class="stats-strip" aria-label="School statistics">
-  <div class="W">
-    <div class="stats-grid">
-      <div class="stat-cell sr">
-        <span class="stat-ico">🎓</span>
-        <span class="stat-num">20,000<span class="acc">+</span></span>
-        <span class="stat-label">Students Taught</span>
-        <span class="stat-sub">and growing every term</span>
-      </div>
-      <div class="stat-cell sr d1">
-        <span class="stat-ico">⭐</span>
-        <span class="stat-num">15<span class="acc">+</span></span>
-        <span class="stat-label">Years of Excellence</span>
-        <span class="stat-sub">Est. 2009, Singapore</span>
-      </div>
-      <div class="stat-cell sr d2">
-        <span class="stat-ico">📍</span>
-        <span class="stat-num">5</span>
-        <span class="stat-label">Singapore Branches</span>
-        <span class="stat-sub">always close to home</span>
-      </div>
-      <div class="stat-cell sr d3">
-        <span class="stat-ico">🏆</span>
-        <span class="stat-num">99<span class="acc">%</span></span>
-        <span class="stat-label">Exam Pass Rate</span>
-        <span class="stat-sub">ABRSM &amp; Trinity</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- ════════ OUR VALUES ════════ -->
 <section class="values">
@@ -588,7 +563,10 @@ footer{margin-bottom:0!important}
     <div class="team-grid">
 
       <div class="team-card sl">
-        <div class="team-photo tp-c">🎹</div>
+        <div class="team-photo tp-c">
+          <img src="../assets/cecily.webp" alt="Ms. Cecily" onerror="this.style.display='none'"/>
+          🎹
+        </div>
         <div class="team-body">
           <span class="team-chip">Principal &amp; Founder</span>
           <h3>Ms. Cecily</h3>
@@ -598,21 +576,6 @@ footer{margin-bottom:0!important}
             <span class="cred">ABRSM Grade 8 Distinction</span>
             <span class="cred">Trinity Diploma</span>
             <span class="cred">SCC Certified</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="team-card sfr">
-        <div class="team-photo tp-k">🥁</div>
-        <div class="team-body">
-          <span class="team-chip">Vice Principal</span>
-          <h3>Mr. Calvin</h3>
-          <span class="role">Drums · Guitar · Ukulele</span>
-          <p>Calvin joined as co-founder and leads the school's creative direction. An RSL-certified drummer and guitarist with 10+ years teaching children, his high-energy approach transforms even the most restless kids into focused, passionate musicians.</p>
-          <div class="team-creds">
-            <span class="cred">RSL Certified</span>
-            <span class="cred">Trinity Rock &amp; Pop Grade 8</span>
-            <span class="cred">10+ Years Teaching</span>
           </div>
         </div>
       </div>
@@ -710,7 +673,7 @@ footer{margin-bottom:0!important}
     <h2>Come See the <span class="or">Liberal Difference</span> for Yourself</h2>
     <p>The first trial class is completely free. No pressure, no commitment. Just bring your child, meet our teachers, and experience what 20,000 families already know.</p>
     <div class="cta-btns">
-      <a href="trial.html" class="btn btn-cta btn-lg">✦ Book Free Trial Class</a>
+      <a href="trial.html" class="btn btn-cta btn-lg">✦ Book Trial Class</a>
       <a href="contact.html" class="btn btn-outline btn-lg">Ask a Question</a>
     </div>
     <div class="cta-checks">
@@ -849,12 +812,14 @@ footer{margin-bottom:0!important}
     <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
     <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West / JP <span>9627 7582</span></a>
   </div>
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">
+    <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+  </button>
 </div>
 
 <!-- Mobile sticky -->
 <div class="mob-bar">
-  <a href="trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
+  <a href="trial.html" class="btn btn-cta">✦ Book Trial Class</a>
 </div>
 
 
