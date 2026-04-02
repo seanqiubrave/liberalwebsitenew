@@ -704,9 +704,8 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 /* Orange top accent — reveals on hover */
 .trust-card::before{content:'';display:block;height:4px;margin:-32px -28px 20px;border-radius:var(--r-l) var(--r-l) 0 0;background:linear-gradient(90deg,var(--or),#FF9940);transform:scaleX(0);transform-origin:left;transition:transform var(--t) var(--sp)}
 .trust-card:hover::before{transform:scaleX(1)}
-.trust-icon{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size: 42px;margin:0 auto 20px}
-.ti-1{background:var(--teal)}  .ti-2{background:var(--lem)}
-.ti-3{background:var(--blush)} .ti-4{background:var(--lav)}
+.trust-icon{width:96px;height:96px;display:flex;align-items:center;justify-content:center;font-size: 56px;margin:0 auto 20px;background:none;border-radius:0}
+.ti-1,.ti-2,.ti-3,.ti-4{background:none}
 /* ─────────────────────────────────────────
    SCHOOL AT A GLANCE CARD  (Part 4)
    Art Bible: #FFF3EA bg, highlight card
@@ -842,8 +841,8 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .course-body h3{font-size: 30px;font-weight:900;margin-bottom:8px}
 .course-body p{font-size:16px;line-height:1.67;flex:1;margin-bottom:20px}
 .course-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid #EEF3FA}
-.course-meta{font-size: 22.5px;font-weight:600;color:var(--muted)}
-.course-meta strong{display:block;font-size: 24px;color:var(--ink);margin-bottom:2px}
+.course-meta{font-size: 16px;font-weight:600;color:var(--muted)}
+.course-meta strong{display:block;font-size: 17px;color:var(--ink);margin-bottom:2px}
 
 /* ╔═══════════════════════════════════════════════════════╗
    ║  4. TEACHERS                                          ║
@@ -1035,8 +1034,8 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .rev-stars{color:#F0A500;font-size: 25px;letter-spacing:2px;margin-bottom:14px}
 .rev-q{font-size:16px;line-height:1.78;color:var(--body);font-style:italic;flex:1;margin-bottom:22px}
 .rev-person{display:flex;align-items:center;gap:12px}
-.rev-av{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size: 31px}
-.ra1{background:var(--teal)}.ra2{background:var(--lem)}.ra3{background:var(--blush)}.ra4{background:var(--lav)}.ra5{background:var(--sky)}.ra6{background:linear-gradient(135deg,var(--teal),var(--sky))}
+.rev-av{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size: 31px;overflow:hidden;background:none}
+.ra1,.ra2,.ra3,.ra4,.ra5,.ra6{background:none}
 .rev-info strong{font-family:'Nunito',sans-serif;font-weight:800;font-size: 24px;color:var(--ink)}
 .rev-info span{font-size: 22px;color:var(--muted)}
 /* Carousel controls */
@@ -1570,28 +1569,28 @@ footer { margin-bottom: 0 !important; }
 
       <!-- AEO Question 1 -->
       <div class="trust-card sr">
-        <div class="trust-icon ti-1"><img src="assets/safe.webp" alt="Safe environment" style="width:52px;height:52px;object-fit:contain;"></div>
+        <div class="trust-icon ti-1"><img src="assets/safe.webp" alt="Safe environment" style="width:72px;height:72px;object-fit:contain;"></div>
         <h3>Is Liberal Music School a safe environment for young children?</h3>
         <p class="direct-answer">Yes. Liberal Music &amp; Arts School maintains a fully supervised, child-safe environment across all 5 Singapore branches, with certified teachers trained in early childhood education for students as young as 4 years old.</p>
       </div>
 
       <!-- AEO Question 2 -->
       <div class="trust-card sr d1">
-        <div class="trust-icon ti-2"><img src="assets/certified.webp" alt="Certified teachers" style="width:52px;height:52px;object-fit:contain;"></div>
+        <div class="trust-icon ti-2"><img src="assets/certified.webp" alt="Certified teachers" style="width:72px;height:72px;object-fit:contain;"></div>
         <h3>Are the music teachers at Liberal School internationally certified?</h3>
         <p class="direct-answer">Yes. All Liberal Music &amp; Arts teachers hold qualifications from ABRSM, Trinity College London, Berklee Online, or the Central Conservatory of Music — ensuring consistent, professional-standard tuition for every student.</p>
       </div>
 
       <!-- AEO Question 3 -->
       <div class="trust-card sr d2">
-        <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:52px;height:52px;object-fit:contain;"></div>
+        <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:72px;height:72px;object-fit:contain;"></div>
         <h3>How many music school branches does Liberal have in Singapore?</h3>
         <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Jurong Point (opening soon) — covering central, east, and west Singapore.</p>
       </div>
 
       <!-- AEO Question 4 -->
       <div class="trust-card sr d3">
-        <div class="trust-icon ti-4"><img src="assets/confidence.webp" alt="Confidence" style="width:52px;height:52px;object-fit:contain;"></div>
+        <div class="trust-icon ti-4"><img src="assets/confidence.webp" alt="Confidence" style="width:72px;height:72px;object-fit:contain;"></div>
         <h3>Does music school help children with confidence and focus beyond music?</h3>
         <p class="direct-answer">Yes. Research and our 15 years of experience show music education builds confidence, emotional regulation, and academic focus in children. Students perform in annual recitals, building real-world stage presence and self-belief.</p>
       </div>
@@ -1886,17 +1885,17 @@ footer { margin-bottom: 0 !important; }
               <div class="rev-card feat">
                 <div class="rev-stars">★★★★★</div>
                 <p class="rev-q">"My daughter was so shy she wouldn't speak up in class. Six months at Liberal and she played a solo at her school concert — and cried happy tears. We will never forget it."</p>
-                <div class="rev-person"><div class="rev-av ra1">👩</div><div class="rev-info"><strong>Mrs Chen Wei</strong><span>Parent of 8-year-old pianist</span></div></div>
+                <div class="rev-person"><div class="rev-av ra1"><img src="assets/g1.webp" alt="Mrs Chen Wei" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mrs Chen Wei</strong><span>Parent of 8-year-old pianist</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
                 <p class="rev-q">"The teachers genuinely learn each child's learning style. My son actually begs to go to violin class — we never expected that!"</p>
-                <div class="rev-person"><div class="rev-av ra2">👨</div><div class="rev-info"><strong>Mr Amir Hassan</strong><span>Parent of 6-year-old violinist</span></div></div>
+                <div class="rev-person"><div class="rev-av ra2"><img src="assets/g2.webp" alt="Mr Amir Hassan" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mr Amir Hassan</strong><span>Parent of 6-year-old violinist</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
                 <p class="rev-q">"We tried two other schools before Liberal. The warmth, structure, and communication here is completely different. My twins are thriving."</p>
-                <div class="rev-person"><div class="rev-av ra3">👩</div><div class="rev-info"><strong>Ms Priya Nair</strong><span>Parent of twin guitar students</span></div></div>
+                <div class="rev-person"><div class="rev-av ra3"><img src="assets/g3.webp" alt="Ms Priya Nair" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Ms Priya Nair</strong><span>Parent of twin guitar students</span></div></div>
               </div>
             </div>
           </div>
@@ -1907,17 +1906,17 @@ footer { margin-bottom: 0 !important; }
               <div class="rev-card feat">
                 <div class="rev-stars">★★★★★</div>
                 <p class="rev-q">"I love the monthly progress reports — I always know how my child is doing and what to encourage at home. It feels like a true partnership."</p>
-                <div class="rev-person"><div class="rev-av ra4">👩</div><div class="rev-info"><strong>Mrs Tan Mei Ling</strong><span>Parent of art student, age 10</span></div></div>
+                <div class="rev-person"><div class="rev-av ra4"><img src="assets/g4.webp" alt="Mrs Tan Mei Ling" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mrs Tan Mei Ling</strong><span>Parent of art student, age 10</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
                 <p class="rev-q">"My son passed ABRSM Grade 5 with Distinction after just 2 years. Professional, patient, and somehow made practice feel fun. Remarkable."</p>
-                <div class="rev-person"><div class="rev-av ra5">👨</div><div class="rev-info"><strong>Mr Kevin Goh</strong><span>Parent of 12-year-old pianist</span></div></div>
+                <div class="rev-person"><div class="rev-av ra5"><img src="assets/g5.webp" alt="Mr Kevin Goh" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mr Kevin Goh</strong><span>Parent of 12-year-old pianist</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
                 <p class="rev-q">"The annual recital is the highlight of our year. Watching the children perform with such pride teaches far more than music. It truly builds character."</p>
-                <div class="rev-person"><div class="rev-av ra6">👩</div><div class="rev-info"><strong>Ms Lily Wong</strong><span>Parent of dance student, age 7</span></div></div>
+                <div class="rev-person"><div class="rev-av ra6"><img src="assets/g6.webp" alt="Ms Lily Wong" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Ms Lily Wong</strong><span>Parent of dance student, age 7</span></div></div>
               </div>
             </div>
           </div>
@@ -2020,19 +2019,7 @@ footer { margin-bottom: 0 !important; }
                 <p class="faq-card-a">We have <strong>5 locations</strong>: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Jurong Point (opening soon). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance.</p>
               </div>
 
-              <div class="faq-card sr d2" style="background:var(--or-lt);border:1.5px solid rgba(255,102,0,.18);">
-                <div class="faq-card-num" style="background:var(--or);color:#fff;">✦</div>
-                <p class="faq-card-q" style="color:var(--or);">Still have questions?</p>
-                <p class="faq-card-a">Our team is happy to answer anything — from scheduling to instrument choices to exam pathways. WhatsApp us directly or book a free visit to any branch.</p>
-                <a href="pages/contact.html" class="faq-card-cta">Ask Us Anything →</a>
-              </div>
 
-              <div class="faq-card sr d3" style="background:var(--ink);border-color:transparent;">
-                <div class="faq-card-num" style="background:rgba(255,255,255,.12);color:#fff;">🎵</div>
-                <p class="faq-card-q" style="color:#fff;">Ready to start?</p>
-                <p class="faq-card-a" style="color:rgba(255,255,255,.65);">The first class is free. No forms to fill, no contracts to sign. Just bring your child and experience the Liberal difference.</p>
-                <a href="pages/trial.html" class="btn btn-cta btn-sm" style="margin-top:16px;">✦ Book Trial</a>
-              </div>
 
             </div>
           </div>
@@ -2539,7 +2526,7 @@ footer { margin-bottom: 0 !important; }
     <a href="https://wa.me/6588921198" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌅 Tampines <span style="font-size:11.5px;color:#8FA2BC;">8892 1198</span></a>
     <a href="https://wa.me/6596277582" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌸 Jurong West / JP <span style="font-size:11.5px;color:#8FA2BC;">9627 7582</span></a>
   </div>
-  <button onclick="var p=document.getElementById('waPanel');p.style.display=p.style.display==='none'?'block':'none';" style="width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;border:none;cursor:pointer;font-size:26px;box-shadow:0 8px 28px rgba(37,211,102,.42);display:flex;align-items:center;justify-content:center;">💬</button>
+  <button onclick="var p=document.getElementById('waPanel');p.style.display=p.style.display==='none'?'block':'none';" style="width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(37,211,102,.42);display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden;"><img src="assets/whatsapp.webp" alt="WhatsApp" style="width:34px;height:34px;object-fit:contain;display:block;"/></button>
 </div>
 </body>
 </html>
