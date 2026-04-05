@@ -194,6 +194,7 @@ Copy verbatim into every page `<style>`:
 ```
 
 > **Active page:** Add `class="active"` to the `<a>` matching the current page.  
+> **Instructor profile pages** (cecily.html, calvin.html, etc.): set `class="active"` on the **Instructors** nav link — they are sub-pages of Instructors.  
 > **`<main>` padding-top:** Always `padding-top:108px` (36px bar + 72px nav).
 
 ---
@@ -365,15 +366,15 @@ footer{margin-bottom:0!important}
 ```css
 /* WA FAB */
 .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
-.wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer}
+.wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
 .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
 .wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
 .wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
-.wa-panel h4{font-family:'Nunito',sans-serif;font-size:24.5px;font-weight:900;color:var(--ink);margin-bottom:4px}
-.wa-panel p{font-size:22.5px;color:var(--muted);margin-bottom:14px}
-.wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:23.5px;color:var(--ink);transition:all var(--t);text-decoration:none}
+.wa-panel h4{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:var(--ink);margin-bottom:4px}
+.wa-panel p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--ink);transition:all var(--t);text-decoration:none}
 .wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}
-.wa-row span{font-size:21.5px;font-weight:500;color:var(--muted)}
+.wa-row span{font-size:12px;font-weight:500;color:var(--muted)}
 .wa-row:hover span{color:#1a8a45}
 
 /* Mobile sticky bar */
@@ -529,7 +530,91 @@ footer{margin-bottom:0!important}
 
 ---
 
-## 11. QUICK CHECKLIST
+## 11. INSTRUCTOR PROFILE PAGE PATTERN
+
+All instructor profile pages (cecily, calvin, kate, jiang, cheng, leonard, loy) follow a fixed structure.  
+**Always use the most recently edited `cecily.html` as the copy base** — it is the canonical template.
+
+### File locations
+```
+pages/cecily.html
+pages/calvin.html
+pages/kate.html
+pages/jiang.html
+pages/cheng.html
+pages/leonard.html
+pages/loy.html
+```
+
+### Active nav link rule
+Instructor profile pages are sub-pages of Instructors. Always set `class="active"` on the **Instructors** link:
+```html
+<li><a href="instructors.html" class="active">Instructors</a></li>
+```
+
+### Breadcrumb pattern (below nav, above profile)
+```html
+<div class="breadcrumb sr">
+  <a href="../index.html">Home</a>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  <a href="instructors.html">Our Instructors</a>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  <span>INSTRUCTOR NAME</span>
+</div>
+```
+
+### Layout: 2-column profile grid
+```
+Left col (380px sticky): photo card → tags → book card
+Right col (1fr):         back link → pill tag → name → title → stat pills → lead → education → achievements
+```
+
+### Photo card badge colours by role
+| Role | Badge background |
+|---|---|
+| Principal | `var(--or)` #FF6600 (default orange) |
+| Vice Principal | `#2472a4` (blue) |
+| Instructor (Chinese instruments) | `#1a7058` (teal) |
+| Instructor (Piano/Western) | `var(--lav)` / `#5550c8` (lavender) |
+| Instructor (Strings) | `#c75b8a` (pink) |
+| Instructor (Guitar/Drums) | `#2472a4` (blue) |
+| Instructor (Guitar/Ukulele) | `#5b8a3c` (green) |
+
+### Book card CTA text
+Always: `Book Trial Class` — **never** "Book Free Trial Class" on the photo card button.
+
+### "Other Instructors" strip
+Each instructor profile shows the **other 6** instructors at the bottom — the current page's instructor must be **excluded**. Cards use portrait shape (4:5 ratio, `object-position:top center`), name at 18px Nunito 900.
+
+### Current instructor roster (7 total)
+| File | Name | Speciality |
+|---|---|---|
+| `cecily.html` | Ms Cecily | Erhu · Chinese Instruments |
+| `calvin.html` | Mr Calvin | Drums · Guitar · Ukulele |
+| `kate.html` | Ms Kate | Piano · ABRSM |
+| `jiang.html` | Ms Jiang | Erhu · Chinese Instruments |
+| `cheng.html` | Ms Cheng | Violin · Piano |
+| `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele |
+| `loy.html` | Mr Loy | Guitar · Ukulele |
+
+### Pill tag colours used on profile pages
+```css
+.pill-tag { font-family:'Nunito'; font-weight:800; font-size:13px; text-transform:uppercase; letter-spacing:1.4px; padding:6px 14px; border-radius:999px; display:inline-block; }
+.pt-lv    { background:#98a3f8; color:#fff; }           /* section label — purple */
+.pt-tl    { background:var(--teal); color:#1a7058; }    /* Chinese/strings — teal */
+.pt-or    { background:var(--or-lt); color:var(--or); } /* orange highlight */
+```
+
+### Instructor page — adding a new one
+1. Copy `cecily.html` → rename to `newname.html`
+2. Update: `<title>`, breadcrumb `<span>`, photo `src` + `alt`, badge colour + text, tags, book-card text, name `h1`, title `p`, stat pills, lead paragraph, education items, achievements text
+3. Set `class="active"` on Instructors nav link
+4. In the "Other Instructors" strip: remove the new instructor's card, add all others with correct `href` and speciality labels
+5. Add the new page to `instructors.html` grid with a clickable `<a class="icard">` wrapper
+
+---
+
+## 12. QUICK CHECKLIST
 
 Before finalising any page, verify:
 
@@ -541,7 +626,7 @@ Before finalising any page, verify:
 - [ ] Nav logo height: `42px`, using `logo.webp` (never base64)
 - [ ] Nav links font-size: `18px`, font-weight: `600`
 - [ ] Nav link order: **Home | About | Courses | Instructors | Review | Blog | Contact**
-- [ ] Active page has `class="active"` on its nav link
+- [ ] Active page has `class="active"` on its nav link (instructor profiles → active on Instructors)
 - [ ] 中文 button: `nav-lang` class, `font-size:15.5px`
 - [ ] Book Trial button: `class="btn btn-cta"` + `style="padding:10px 22px;font-size:14px;"`
 - [ ] Mobile drawer font-size: `25.5px`
@@ -557,10 +642,11 @@ Before finalising any page, verify:
 - [ ] WA FAB present, all 3 WhatsApp numbers correct
 - [ ] Mobile sticky bar present with trial link
 - [ ] All asset paths use `../assets/` for `pages/` files, `assets/` for root files
+- [ ] **Instructor profile pages only:** breadcrumb present · "Other Instructors" strip excludes self · book card says "Book Trial Class" (no "Free")
 
 ---
 
-## 12. WHATSAPP NUMBERS (never change)
+## 13. WHATSAPP NUMBERS (never change)
 
 | Branch | Number | wa.me link |
 |---|---|---|

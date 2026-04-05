@@ -64,7 +64,15 @@ liberalwebsiteredo/
     ├── courses.html
     ├── instructors.html
     ├── testimonial.html
-    └── trial.html
+    ├── trial.html
+    │
+    ├── cecily.html      ← Instructor profile (CANONICAL TEMPLATE)
+    ├── calvin.html      ← Instructor profile
+    ├── kate.html        ← Instructor profile
+    ├── jiang.html       ← Instructor profile
+    ├── cheng.html       ← Instructor profile
+    ├── leonard.html     ← Instructor profile
+    └── loy.html         ← Instructor profile
 ```
 
 **Path rules (CRITICAL):**
@@ -119,6 +127,30 @@ Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 
 ---
 
+## 👩‍🏫 INSTRUCTOR PROFILE PAGES
+
+7 profile pages live in `pages/`. All follow the same template — **`cecily.html` is the canonical base**.
+
+| File | Instructor | Speciality |
+|---|---|---|
+| `cecily.html` | Ms Cecily | Erhu · Chinese Instruments |
+| `calvin.html` | Mr Calvin | Drums · Guitar · Ukulele |
+| `kate.html` | Ms Kate | Piano · ABRSM |
+| `jiang.html` | Ms Jiang | Erhu · Chinese Instruments |
+| `cheng.html` | Ms Cheng | Violin · Piano |
+| `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele |
+| `loy.html` | Mr Loy | Guitar · Ukulele |
+
+**To add a new instructor:** copy `cecily.html`, update all instructor-specific content, set `class="active"` on the Instructors nav link, and update the "Other Instructors" strip to exclude the new instructor. See `HEADER-FOOTER-GUIDE.md` Section 11 for full details.
+
+**Key rules for instructor pages:**
+- Book card button: `Book Trial Class` (no "Free")
+- Nav active link: always **Instructors**, not the instructor's own name
+- "Other Instructors" strip: always shows the other 6, never the current page's instructor
+- Add new page to `instructors.html` grid as a clickable `<a class="icard">` wrapper
+
+---
+
 ## 📍 WHATSAPP NUMBERS (never change)
 | Branch | Number | Link |
 |---|---|---|
@@ -156,6 +188,12 @@ Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 - [ ] WhatsApp FAB (all 3 numbers correct)
 - [ ] Mobile sticky CTA bar with trial link
 
+**Instructor profile pages only**
+- [ ] Breadcrumb: Home → Our Instructors → Instructor Name
+- [ ] Active nav link set to **Instructors**
+- [ ] Book card button says `Book Trial Class` (not "Free")
+- [ ] "Other Instructors" strip excludes the current page's instructor
+
 ---
 
 ## 🗂 PROJECT KNOWLEDGE FILES
@@ -175,3 +213,10 @@ Keep these files uploaded and current in Claude Project Knowledge:
 | `pages/blog.html` | Re-upload after each edit |
 | `pages/contact.html` | Re-upload after each edit |
 | `pages/trial.html` | Re-upload after each edit |
+| `pages/cecily.html` | Canonical instructor template — re-upload after any edit |
+| `pages/calvin.html` | Re-upload after each edit |
+| `pages/kate.html` | Re-upload after each edit |
+| `pages/jiang.html` | Re-upload after each edit |
+| `pages/cheng.html` | Re-upload after each edit |
+| `pages/leonard.html` | Re-upload after each edit |
+| `pages/loy.html` | Re-upload after each edit |
