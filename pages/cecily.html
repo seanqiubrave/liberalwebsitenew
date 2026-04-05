@@ -183,11 +183,14 @@
     /* ── Other Instructors Strip ── */
     .other-strip{background:var(--s1);padding:80px 0}
     .other-strip h2{font-size:clamp(1.6rem,2.8vw,2.2rem);margin-bottom:40px;text-align:center}
-    .other-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
-    .other-card{background:var(--w);border-radius:var(--r-l);padding:20px;text-align:center;box-shadow:var(--sh-s);border:1px solid rgba(221,230,245,.5);transition:all var(--t);cursor:pointer;text-decoration:none;color:inherit;display:block}
+    .other-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px}
+    .other-card{background:var(--w);border-radius:var(--r-l);overflow:hidden;text-align:center;box-shadow:var(--sh-s);border:1px solid rgba(221,230,245,.5);transition:all var(--t);cursor:pointer;text-decoration:none;color:inherit;display:block}
     .other-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow);border-color:rgba(255,102,0,.2)}
-    .other-card img{width:108px;height:108px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 12px;border:2px solid rgba(221,230,245,.8)}
-    .other-card strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--ink);margin-bottom:4px}
+    .other-card-photo{width:100%;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,var(--s2),var(--s1))}
+    .other-card-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s var(--sp)}
+    .other-card:hover .other-card-photo img{transform:scale(1.05)}
+    .other-card-body{padding:14px 12px 18px}
+    .other-card strong{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:18px;color:var(--ink);margin-bottom:4px}
     .other-card span{font-size:13px;color:var(--muted)}
 
     /* ── CTA Banner ── */
@@ -450,35 +453,29 @@
         <h2 class="sr" style="text-align:center;margin-bottom:12px;">Meet Our Other Instructors</h2>
         <p class="sr" style="text-align:center;color:var(--body);font-size:17px;margin-bottom:40px;">Every instructor at Liberal brings exceptional skill, passion, and dedication to their students.</p>
         <div class="other-grid">
-          <a href="instructor-calvin.html" class="other-card sr d1">
-            <img src="../assets/calvin.webp" alt="Calvin" onerror="this.style.display='none'"/>
-            <strong>Calvin</strong>
-            <span>Piano · Guitar</span>
+          <a href="calvin.html" class="other-card sr d1">
+            <div class="other-card-photo"><img src="../assets/calvin.webp" alt="Calvin" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Calvin</strong><span>Piano · Guitar</span></div>
           </a>
-          <a href="instructor-kate.html" class="other-card sr d2">
-            <img src="../assets/kate.webp" alt="Kate" onerror="this.style.display='none'"/>
-            <strong>Kate</strong>
-            <span>Violin · Piano</span>
+          <a href="kate.html" class="other-card sr d2">
+            <div class="other-card-photo"><img src="../assets/kate.webp" alt="Kate" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Kate</strong><span>Violin · Piano</span></div>
           </a>
-          <a href="instructor-jiang.html" class="other-card sr d3">
-            <img src="../assets/jiang.webp" alt="Jiang" onerror="this.style.display='none'"/>
-            <strong>Jiang</strong>
-            <span>Chinese Instruments</span>
+          <a href="jiang.html" class="other-card sr d3">
+            <div class="other-card-photo"><img src="../assets/jiang.webp" alt="Jiang" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Jiang</strong><span>Chinese Instruments</span></div>
           </a>
-          <a href="instructor-cheng.html" class="other-card sr d4">
-            <img src="../assets/cheng.webp" alt="Cheng" onerror="this.style.display='none'"/>
-            <strong>Cheng</strong>
-            <span>Drums · Percussion</span>
+          <a href="cheng.html" class="other-card sr d4">
+            <div class="other-card-photo"><img src="../assets/cheng.webp" alt="Cheng" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Cheng</strong><span>Drums · Percussion</span></div>
           </a>
-          <a href="instructor-leonard.html" class="other-card sr d5">
-            <img src="../assets/leonard.webp" alt="Leonard" onerror="this.style.display='none'"/>
-            <strong>Leonard</strong>
-            <span>Guitar · Ukulele</span>
+          <a href="leonard.html" class="other-card sr d5">
+            <div class="other-card-photo"><img src="../assets/leonard.webp" alt="Leonard" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Leonard</strong><span>Guitar · Ukulele</span></div>
           </a>
-          <a href="instructor-loy.html" class="other-card sr">
-            <img src="../assets/loy.webp" alt="Loy" onerror="this.style.display='none'"/>
-            <strong>Loy</strong>
-            <span>Art · Drawing</span>
+          <a href="loy.html" class="other-card sr">
+            <div class="other-card-photo"><img src="../assets/loy.webp" alt="Loy" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Loy</strong><span>Art · Drawing</span></div>
           </a>
         </div>
       </div>
