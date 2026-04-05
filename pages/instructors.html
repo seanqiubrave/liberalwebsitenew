@@ -155,6 +155,13 @@
     .itag.sk{background:var(--sky);color:#2472a4}
     .icard-desc{font-size:15px;color:var(--body);line-height:1.72}
 
+    /* ── 11b. Instructor card as link ── */
+    a.icard{display:block;color:inherit;text-decoration:none}
+    .icard-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;opacity:0;transition:opacity var(--t) var(--sp);background:linear-gradient(to top,rgba(255,102,0,.72) 0%,transparent 55%);pointer-events:none}
+    .icard-overlay span{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;color:#fff;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+    .icard:hover .icard-overlay{opacity:1}
+    .icard-photo{position:relative}
+
     /* ── 12. Stats strip ── */
     .stats-strip{background:#1F2A44;overflow:hidden;position:relative;padding:70px 0}
     .stats-strip::before{content:'';position:absolute;top:-48px;left:0;right:0;height:48px;background:var(--or);clip-path:polygon(0% 100%,10% 0,100% 10%,100% 100%)}
@@ -325,11 +332,12 @@
         <div class="ig">
 
           <!-- Ms Cecily -->
-          <div class="icard sr d1">
+          <a href="cecily.html" class="icard sr d1">
             <div class="icard-photo">
               <img src="../assets/cecily.webp" alt="Ms Cecily" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🎵</div>
               <span class="icard-role-badge">Principal</span>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Ms Cecily</div>
@@ -340,14 +348,15 @@
               </div>
               <p class="icard-desc">Principal of Liberal Music &amp; Arts School. An Erhu specialist with 15+ years of teaching experience, Ms Cecily leads the school's vision of nurturing confident, creative young musicians across Singapore.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Mr Calvin -->
-          <div class="icard sr d2">
+          <a href="calvin.html" class="icard sr d2">
             <div class="icard-photo">
               <img src="../assets/calvin.webp" alt="Mr Calvin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🥁</div>
               <span class="icard-role-badge">Vice Principal</span>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Mr Calvin</div>
@@ -359,13 +368,14 @@
               </div>
               <p class="icard-desc">Vice Principal with expertise in drums, guitar and ukulele. Known for his engaging, energetic style that makes every lesson fun — and surprisingly effective — for learners of all ages.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Ms Kate -->
-          <div class="icard sr d3">
+          <a href="kate.html" class="icard sr d3">
             <div class="icard-photo">
               <img src="../assets/kate.webp" alt="Ms Kate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🎹</div>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Ms Kate</div>
@@ -375,12 +385,13 @@
               </div>
               <p class="icard-desc">A qualified and ABRSM-certified piano instructor, Ms Kate teaches classical and contemporary piano to students at all levels — from complete beginners through to distinction-level candidates.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Ms Gabrielle -->
-          <div class="icard sr d1">
+          <a href="gabrielle.html" class="icard sr d1">
             <div class="icard-photo" style="background:linear-gradient(135deg,var(--blush),#f5e6ff)">
               <div class="icard-photo-icon">🎤</div>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Ms Gabrielle</div>
@@ -390,13 +401,14 @@
               </div>
               <p class="icard-desc">An accomplished pianist and warm vocal coach, Ms Gabrielle helps students find and develop their unique voice — combining technique with genuine self-expression in a supportive, encouraging environment.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Ms Jiang -->
-          <div class="icard sr d2">
+          <a href="jiang.html" class="icard sr d2">
             <div class="icard-photo">
               <img src="../assets/jiang.webp" alt="Ms Jiang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🎵</div>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Ms Jiang</div>
@@ -407,13 +419,14 @@
               </div>
               <p class="icard-desc">A conservatory-trained specialist in traditional Chinese string instruments, Ms Jiang brings 10+ years of performance and teaching experience, offering lessons steeped in both cultural depth and technical rigour.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Ms Cheng -->
-          <div class="icard sr d3">
+          <a href="cheng.html" class="icard sr d3">
             <div class="icard-photo">
               <img src="../assets/cheng.webp" alt="Ms Cheng" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🎻</div>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Ms Cheng</div>
@@ -424,13 +437,14 @@
               </div>
               <p class="icard-desc">A versatile multi-instrumentalist teaching piano, violin and viola with equal skill. Ms Cheng has deep experience preparing students for graded examinations and stage performances across all levels.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Mr Leonard -->
-          <div class="icard sr d4">
+          <a href="leonard.html" class="icard sr d4">
             <div class="icard-photo">
               <img src="../assets/leonard.webp" alt="Mr Leonard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🥁</div>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Mr Leonard</div>
@@ -442,13 +456,14 @@
               </div>
               <p class="icard-desc">A multi-instrumentalist with a passion for rhythm and groove. Mr Leonard makes drum lessons thrilling and accessible, taking students from zero to performing in remarkably little time.</p>
             </div>
-          </div>
+          </a>
 
           <!-- Mr Loy -->
-          <div class="icard sr d1">
+          <a href="loy.html" class="icard sr d1">
             <div class="icard-photo">
               <img src="../assets/loy.webp" alt="Mr Loy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="icard-photo-icon" style="display:none">🎸</div>
+              <div class="icard-overlay"><span>View Profile →</span></div>
             </div>
             <div class="icard-body">
               <div class="icard-name">Mr Loy</div>
@@ -459,7 +474,7 @@
               </div>
               <p class="icard-desc">An enthusiastic, patient guitar teacher with a gift for making string instruments approachable for absolute beginners — whether they're 5 or 55. Students love his relaxed, encouraging approach.</p>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
