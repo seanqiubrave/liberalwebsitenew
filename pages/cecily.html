@@ -156,7 +156,7 @@
     .ach-grid{display:flex;flex-direction:column;gap:14px}
     .ach-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px 20px;background:var(--w);border-radius:var(--r);border:1px solid rgba(221,230,245,.6);box-shadow:var(--sh-s);transition:all var(--t)}
     .ach-item:hover{border-color:rgba(255,102,0,.3);box-shadow:0 8px 28px var(--or-glow);transform:translateX(4px)}
-    .ach-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .ach-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:33px;flex-shrink:0}
     .ach-icon.gold{background:#FFF8E1}
     .ach-icon.blue{background:var(--sky)}
     .ach-icon.green{background:var(--teal)}
@@ -186,7 +186,7 @@
     .other-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
     .other-card{background:var(--w);border-radius:var(--r-l);padding:20px;text-align:center;box-shadow:var(--sh-s);border:1px solid rgba(221,230,245,.5);transition:all var(--t);cursor:pointer;text-decoration:none;color:inherit;display:block}
     .other-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow);border-color:rgba(255,102,0,.2)}
-    .other-card img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 12px;border:2px solid rgba(221,230,245,.8)}
+    .other-card img{width:108px;height:108px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 12px;border:2px solid rgba(221,230,245,.8)}
     .other-card strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--ink);margin-bottom:4px}
     .other-card span{font-size:13px;color:var(--muted)}
 
@@ -344,7 +344,7 @@
             </div>
             <div class="book-card">
               <p>Learn from Singapore's most experienced Erhu educator. Book a trial class with Ms Cecily today.</p>
-              <a href="trial.html" class="btn btn-cta">Book Free Trial Class</a>
+              <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
             </div>
           </div>
 
@@ -423,58 +423,19 @@
               <div class="prof-section-label">
                 <h2>Achievements &amp; Career Highlights</h2>
               </div>
-              <div class="ach-grid">
-
-                <div class="ach-item highlight sr d1">
-                  <div class="ach-icon gold">🏫</div>
-                  <div class="ach-text"><strong>Principal of Liberal Music &amp; Arts School since 2009</strong><br>Building one of Singapore's leading music schools for children aged 2.5–16.</div>
-                </div>
-
-                <div class="ach-item sr d2">
-                  <div class="ach-icon blue">🎶</div>
-                  <div class="ach-text"><strong>Musician at the Macau Chinese Orchestra (2004–2006)</strong><br>Also served as Erhu and Theory teacher at Macau Conservatory.</div>
-                </div>
-
-                <div class="ach-item highlight sr d3">
-                  <div class="ach-icon gold">⭐</div>
-                  <div class="ach-text"><strong>Performed for China's former President Hu Jintao (2004)</strong><br>A rare honour representing the highest level of artistic recognition.</div>
-                </div>
-
-                <div class="ach-item sr d4">
-                  <div class="ach-icon green">🎻</div>
-                  <div class="ach-text"><strong>Singapore Chinese Orchestra (2003–2004)</strong><br>Contributed as a professional musician at one of Asia's premier orchestras.</div>
-                </div>
-
-                <div class="ach-item sr d5">
-                  <div class="ach-icon purple">✈️</div>
-                  <div class="ach-text"><strong>International Erhu &amp; Gaohu Soloist across Europe</strong><br>Invited to perform in Austria (2001); Holland, Britain &amp; Belgium (2002); Britain, France, Germany, Holland, Belgium &amp; Malaysia (2003).</div>
-                </div>
-
-                <div class="ach-item sr">
-                  <div class="ach-icon gold">💿</div>
-                  <div class="ach-text"><strong>Featured in HKAPA Commemorative CD (2000)</strong><br>Celebrating the 15th Anniversary of the Hong Kong Academy for Performing Arts and the new millennium.</div>
-                </div>
-
-                <div class="ach-item highlight sr">
-                  <div class="ach-icon gold">⭐</div>
-                  <div class="ach-text"><strong>Performed for China's former President Jiang Zemin (2000)</strong><br>At the Hong Kong Convention and Exhibition Centre — a landmark presidential performance.</div>
-                </div>
-
-                <div class="ach-item sr">
-                  <div class="ach-icon blue">📀</div>
-                  <div class="ach-text"><strong>Featured in Education Department CD-ROM for HK Primary Schools</strong><br>Invited as Erhu and Gaohu soloist in an educational multimedia production reaching thousands of students.</div>
-                </div>
-
-                <div class="ach-item highlight sr">
-                  <div class="ach-icon gold">🥈</div>
-                  <div class="ach-text"><strong>Second Prize — "Liu Tian-hua Cup" National Youth Erhu Competition (1999)</strong><br>One of the most prestigious youth competitions in Chinese instrumental music.</div>
-                </div>
-
-                <div class="ach-item sr">
-                  <div class="ach-icon pink">🎤</div>
-                  <div class="ach-text"><strong>Frequent Soloist at HKAPA Concerts</strong><br>Regularly performed at prestigious venues including the former Governor's House, representing the Academy's finest performers.</div>
-                </div>
-
+              <div class="sr" style="font-size:16px;line-height:1.9;color:var(--body);">
+                <p style="margin-bottom:16px;">
+                  Ms Cecily has served as Principal of Liberal Music &amp; Arts School since 2009, building one of Singapore's most trusted music education programmes for children aged 2.5–16. Her professional career began with the <strong style="color:var(--ink);">Singapore Chinese Orchestra (2003–2004)</strong>, followed by her role as a musician and theory instructor at the <strong style="color:var(--ink);">Macau Chinese Orchestra and Macau Conservatory (2004–2006)</strong>.
+                </p>
+                <p style="margin-bottom:16px;">
+                  An internationally recognised soloist, Ms Cecily was invited to perform across Europe — in <strong style="color:var(--ink);">Austria (2001), Holland, Britain and Belgium (2002)</strong>, and <strong style="color:var(--ink);">Britain, France, Germany, Holland, Belgium and Malaysia (2003)</strong>. She has performed at the highest levels of public life, appearing before <strong style="color:var(--ink);">China's former President Jiang Zemin</strong> at the Hong Kong Convention and Exhibition Centre in 2000, and again before <strong style="color:var(--ink);">former President Hu Jintao</strong> in 2004.
+                </p>
+                <p style="margin-bottom:16px;">
+                  Her artistry was featured in a <strong style="color:var(--ink);">commemorative CD by the Hong Kong Academy for Performing Arts</strong> marking its 15th Anniversary, and she was selected as Erhu and Gaohu soloist for an <strong style="color:var(--ink);">educational CD-ROM produced by the Hong Kong Education Department</strong> for primary schools across the city.
+                </p>
+                <p>
+                  In 1999, she was awarded <strong style="color:var(--ink);">Second Prize at the "Liu Tian-hua Cup" National Youth Erhu Competition</strong> — one of the most prestigious youth competitions in Chinese instrumental music — and was a frequent soloist in HKAPA concerts, including performances at the former Governor's House.
+                </p>
               </div>
             </div>
 
