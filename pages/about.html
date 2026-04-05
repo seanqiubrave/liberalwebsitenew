@@ -92,10 +92,10 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
 
 /* ══ ANNOUNCEMENT BAR ══ */
-.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:36px;background:#f56c22;display:flex;align-items:center;justify-content:center;gap:16px}
-.ann-bar p{font-family:'Nunito',sans-serif;font-weight:700;font-size:12.5px;color:#fff;letter-spacing:.2px;white-space:nowrap}
-.ann-bar a{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:#fff;background:rgba(255,255,255,.22);padding:3px 12px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);transition:background .18s;white-space:nowrap;flex-shrink:0}
-.ann-bar a:hover{background:rgba(255,255,255,.38)}
+.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
+.ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.ann-bar a:hover{opacity:.85}
+.ann-bar svg{flex-shrink:0}
 
 /* ══ NAVBAR ══ */
 .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
@@ -118,7 +118,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-ham.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .nav-drawer{display:none;position:fixed;top:108px;left:0;right:0;z-index:999;background:var(--w);border-bottom:1px solid #EEF2F8;padding:16px 28px 28px;flex-direction:column;gap:4px;box-shadow:0 18px 52px rgba(31,42,68,.12)}
 .nav-drawer.on{display:flex}
-.nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:15.5px;color:var(--ink);transition:background var(--t),color var(--t)}
+.nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:25.5px;color:var(--ink);transition:background var(--t),color var(--t)}
 .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
 .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:12px}
 
@@ -348,8 +348,14 @@ footer{margin-bottom:0!important}
 
 <!-- ════════ ANNOUNCEMENT BAR ════════ -->
 <div class="ann-bar">
-  <p>🎵 First Trial Class is FREE — No Commitment Needed!</p>
-  <a href="trial.html">Book Now →</a>
+  <a href="trial.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+      <path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/>
+      <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
+      <line x1="12" y1="12" x2="12" y2="19"/>
+    </svg>
+    Liberal Music &amp; Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!
+  </a>
 </div>
 
 <!-- ════════ NAVBAR ════════ -->
@@ -364,7 +370,7 @@ footer{margin-bottom:0!important}
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="instructors.html">Instructors</a></li>
-        <li><a href="review.html">Review</a></li>
+        <li><a href="testimonial.html">Review</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -383,7 +389,7 @@ footer{margin-bottom:0!important}
   <a href="about.html">About</a>
   <a href="courses.html">Courses</a>
   <a href="instructors.html">Instructors</a>
-  <a href="review.html">Review</a>
+  <a href="testimonial.html">Review</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
   <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
@@ -402,7 +408,7 @@ footer{margin-bottom:0!important}
           <span>›</span>
           <span>About Us</span>
         </div>
-        <div class="pill-tag pt-tl sr">💙 Est. 2009 · Trusted by 20,000+ Families</div>
+        <div class="pill-tag pt-tl sr" style="font-size:16px;padding:11px 24px;">Trusted by 20,000+ Students</div>
         <h1 class="sr d1">
           Raising Confident,<br><em>Creative</em> Musicians<br>Since 2009.
         </h1>
@@ -442,7 +448,7 @@ footer{margin-bottom:0!important}
           <div class="hero-quote">
             <p>"My daughter went from refusing to perform in front of anyone, to confidently playing a solo at the school concert. Liberal changed everything."</p>
             <div class="hero-quote-attr">
-              <div class="hero-quote-av">👩</div>
+              <div class="hero-quote-av" style="background:none;overflow:hidden;padding:0"><img src="../assets/g3.webp" alt="Parent" style="width:36px;height:36px;object-fit:cover;border-radius:50%;display:block;"/></div>
               <div>
                 <strong>Mrs Chen Wei</strong>
                 <span>Parent · Tengah Branch</span>
@@ -632,7 +638,7 @@ footer{margin-bottom:0!important}
           <li><a href="about.html">About</a></li>
           <li><a href="courses.html">Courses</a></li>
           <li><a href="instructors.html">Instructors</a></li>
-          <li><a href="review.html">Review</a></li>
+          <li><a href="testimonial.html">Review</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
