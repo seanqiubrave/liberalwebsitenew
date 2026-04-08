@@ -61,7 +61,7 @@
     .btn-ink:hover{background:#2d3f5e;transform:translateY(-2px) scale(1.04);box-shadow:0 12px 32px rgba(31,42,68,.25)}
 
     /* ── 5. Pill tags ── */
-    .pill-tag{font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.4px;padding:7px 16px;border-radius:999px;margin-bottom:20px;display:inline-block}
+    .pill-tag{font-family:'Nunito',sans-serif;font-weight:800;font-size:21.5px;text-transform:uppercase;letter-spacing:1.4px;padding:7px 16px;border-radius:999px;margin-bottom:20px;display:inline-block}
     .pt-or{background:var(--or-lt);color:var(--or)}
     .pt-tl{background:var(--teal);color:#1a7058}
     .pt-lv{background:#98a3f8;color:#fff}
@@ -115,41 +115,47 @@
     .page-hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(212,237,255,.35) 0%,transparent 70%);pointer-events:none}
     .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-weight:600}
     .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
-    .hero-headline{font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:18px}
+    .hero-headline{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:18px}
     .hero-headline .kw{color:var(--or);position:relative;display:inline-block}
     .hero-headline .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.6s forwards}
     @keyframes kw{to{transform:scaleX(1)}}
-    .hero-lead{font-size:20px;color:var(--body);max-width:580px;line-height:1.75}
+    .hero-lead{font-size:20px;color:var(--body);max-width:580px;line-height:1.75;font-family:'Quicksand',sans-serif;font-weight:400}
 
-    /* ── 10. Filter tabs ── */
+    /* ── 10. Section header ── */
+    .sec-head{text-align:center;margin-bottom:56px}
+    .sec-head h2{font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--ink);margin-bottom:14px}
+    .sec-head p{font-size:18px;color:var(--body);max-width:560px;margin:0 auto;font-weight:400}
+
+    /* ── 11. Filter tabs ── */
     .filter-row{display:flex;gap:10px;margin-bottom:48px;flex-wrap:wrap}
     .ftab{padding:10px 24px;border-radius:999px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;border:2px solid rgba(221,230,245,.8);background:var(--w);color:var(--body);cursor:pointer;transition:all var(--t) var(--sp);box-shadow:var(--sh-s)}
     .ftab:hover{border-color:var(--or);color:var(--or);background:var(--or-lt)}
     .ftab.active{background:var(--or);color:#fff;border-color:var(--or);box-shadow:var(--or-sh)}
 
-    /* ── 11. Blog grid ── */
+    /* ── 12. Blog grid ── */
     .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 
-    .bcard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t);text-decoration:none}
-    .bcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.15)}
+    /* Card base */
+    .bcard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t);text-decoration:none;color:inherit}
+    .bcard:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow);border-color:rgba(255,102,0,.15)}
 
     /* Card image/thumb */
     .bcard-img{height:200px;overflow:hidden;background:var(--s1);display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;flex-shrink:0}
     .bcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--sp)}
     .bcard:hover .bcard-img img{transform:scale(1.05)}
 
-    /* Category badge */
+    /* Category badge — orange for Blog, ink for News, lav for Events */
     .bcard-cat{position:absolute;top:14px;left:14px;padding:5px 14px;border-radius:999px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;z-index:2}
     .bcard-cat.blog{background:var(--or);color:#fff}
     .bcard-cat.news{background:var(--ink);color:#fff}
     .bcard-cat.event{background:#98a3f8;color:#fff}
 
     /* Card body */
-    .bcard-body{padding:24px;flex:1;display:flex;flex-direction:column}
-    .bcard-date{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .bcard-body{padding:28px;flex:1;display:flex;flex-direction:column}
+    .bcard-date{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif}
     .bcard-date::before{content:'';width:16px;height:2px;background:var(--or);border-radius:1px;display:inline-block}
-    .bcard-title{font-family:'Nunito',sans-serif;font-size:19px;font-weight:900;color:var(--ink);margin-bottom:12px;line-height:1.3}
-    .bcard-text{font-size:15px;color:var(--body);line-height:1.78;flex:1;margin-bottom:20px}
+    .bcard-title{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:var(--ink);margin-bottom:12px;line-height:1.3}
+    .bcard-text{font-size:16px;color:var(--body);line-height:1.78;flex:1;margin-bottom:20px;font-family:'Quicksand',sans-serif;font-weight:400}
     .bcard-cta{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--or);display:inline-flex;align-items:center;gap:6px;margin-top:auto;transition:gap var(--t)}
     .bcard:hover .bcard-cta{gap:10px}
     .bcard-cta svg{transition:transform var(--t) var(--sp)}
@@ -160,53 +166,53 @@
     .bcard.featured .bcard-img{height:280px}
     .bcard.featured .bcard-title{font-size:24px}
 
-    /* ── 12. Newsletter strip ── */
+    /* ── 13. Newsletter strip ── */
     .newsletter{background:var(--s2);padding:80px 0}
     .newsletter-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-    .newsletter-text h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--ink);margin-bottom:12px}
-    .newsletter-text p{font-size:18px;color:var(--body);line-height:1.75}
+    .newsletter-text h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--ink);margin-bottom:12px;font-family:'Nunito',sans-serif}
+    .newsletter-text p{font-size:18px;color:var(--body);line-height:1.75;font-family:'Quicksand',sans-serif;font-weight:400}
     .newsletter-form{display:flex;flex-direction:column;gap:12px}
     .nf-row{display:flex;gap:0;border-radius:999px;overflow:hidden;box-shadow:var(--sh);border:1.5px solid rgba(221,230,245,.8)}
     .nf-input{flex:1;padding:16px 22px;border:none;outline:none;font-family:'Quicksand',sans-serif;font-size:16px;font-weight:600;color:var(--ink);background:var(--w)}
     .nf-input::placeholder{color:var(--muted)}
     .nf-btn{padding:16px 28px;background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;border:none;cursor:pointer;white-space:nowrap;transition:background var(--t)}
     .nf-btn:hover{background:var(--or-dk)}
-    .nf-note{font-size:13px;color:var(--muted);font-weight:600}
+    .nf-note{font-size:13px;color:var(--muted);font-weight:600;font-family:'Quicksand',sans-serif}
 
-    /* ── 13. CTA Banner ── */
+    /* ── 14. CTA Banner ── */
     .cta-band{background:linear-gradient(135deg,#FFF7F2 0%,#FFF7EE 50%,#FFEEDD 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
     .cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,102,0,.10) 0%,transparent 70%)}
     .cta-band::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.30) 0%,transparent 70%)}
-    .cta-band h2{font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--ink);margin-bottom:14px;position:relative;z-index:1}
-    .cta-band p{font-size:20px;color:var(--body);max-width:520px;margin:0 auto 40px;line-height:1.75;position:relative;z-index:1}
+    .cta-band h2{font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--ink);margin-bottom:14px;position:relative;z-index:1;font-family:'Nunito',sans-serif}
+    .cta-band p{font-size:20px;color:var(--body);max-width:520px;margin:0 auto 40px;line-height:1.75;position:relative;z-index:1;font-family:'Quicksand',sans-serif;font-weight:400}
     .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
 
-    /* ── 14. Footer ── */
+    /* ── 15. Footer ── */
     .footer{background:#1F2A44;margin:0;border-top:none;padding:80px 0 0}
-    .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
     .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
-    .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
+    .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px;font-family:'Quicksand',sans-serif;font-weight:400}
     .foot-soc{display:flex;gap:9px;margin-top:24px}
     .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
     .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
     .foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
     .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
     .foot-col ul{display:flex;flex-direction:column;gap:10px}
-    .foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block}
+    .foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block;font-family:'Quicksand',sans-serif;font-weight:500}
     .foot-col a:hover{color:#fff;padding-left:4px}
     .foot-locs{display:flex;flex-direction:column;gap:8px}
     .foot-loc{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:flex-start;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:background .18s,border-color .18s,transform .18s var(--sp)}
     .foot-loc:hover{background:rgba(255,102,0,.12);border-color:rgba(255,102,0,.30);transform:translateX(3px)}
     .foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}
     .foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}
-    .foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+    .foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5;font-family:'Quicksand',sans-serif}
     .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
     .foot-loc.soon .foot-loc-text strong{color:var(--or)}
     .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
     .foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}
-    .foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}
+    .foot-btm p{font-size:15px;color:rgba(255,255,255,.35);font-family:'Quicksand',sans-serif}
     .foot-btm-links{display:flex;gap:20px;align-items:center}
-    .foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s}
+    .foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s;font-family:'Quicksand',sans-serif}
     .foot-btm a:hover{color:#fff}
     @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:700px){.foot-grid{grid-template-columns:1fr}.foot-brand{border-bottom:1px solid rgba(255,102,0,.1);padding-bottom:28px}}
@@ -214,28 +220,24 @@
     footer{margin-bottom:0!important}
     .footer{padding-bottom:0!important}
 
-    /* ── 15. WA FAB ── */
+    /* ── 16. WA FAB ── */
     .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
     .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
     .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
     .wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
     .wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
-    .wa-panel h4{font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px}
-    .wa-panel p{font-size:14px;color:var(--muted);margin-bottom:14px}
-    .wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:var(--ink);transition:all var(--t);text-decoration:none}
+    .wa-panel h4{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:var(--ink);margin-bottom:4px}
+    .wa-panel p{font-size:13px;color:var(--muted);margin-bottom:14px;font-family:'Quicksand',sans-serif}
+    .wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--ink);transition:all var(--t);text-decoration:none}
     .wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}
-    .wa-row span{font-size:13px;font-weight:500;color:var(--muted)}
+    .wa-row span{font-size:12px;font-weight:500;color:var(--muted);font-family:'Quicksand',sans-serif}
     .wa-row:hover span{color:#1a8a45}
     .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
     .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
     @media(max-width:900px){.mob-bar{display:block}.wa{bottom:84px}}
 
-    /* ── 16. Responsive ── */
-    @media(max-width:1024px){
-      .blog-grid{grid-template-columns:repeat(2,1fr)}
-      .bcard.featured{grid-column:span 2}
-      .newsletter-inner{grid-template-columns:1fr}
-    }
+    /* ── 17. Responsive ── */
+    @media(max-width:1100px){.blog-grid{grid-template-columns:repeat(2,1fr)}.bcard.featured{grid-column:span 2}.newsletter-inner{grid-template-columns:1fr}}
     @media(max-width:640px){
       .blog-grid{grid-template-columns:1fr}
       .bcard.featured{grid-column:span 1}
@@ -267,12 +269,13 @@
         <a href="../index.html" class="nav-logo" aria-label="Liberal Music & Arts Home">
           <img src="../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display='none'"/>
         </a>
+        <!-- Nav order: Home | About | Courses | Instructors | Review | Blog | Contact — NEVER change -->
         <ul class="nav-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="courses.html">Courses</a></li>
           <li><a href="instructors.html">Instructors</a></li>
-          <li><a href="review.html">Review</a></li>
+          <li><a href="testimonial.html">Review</a></li>
           <li><a href="blog.html" class="active">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -293,7 +296,7 @@
     <a href="about.html">About</a>
     <a href="courses.html">Courses</a>
     <a href="instructors.html">Instructors</a>
-    <a href="review.html">Review</a>
+    <a href="testimonial.html">Review</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
     <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
@@ -316,8 +319,14 @@
     </section>
 
     <!-- ── BLOG GRID ── -->
-    <section style="background:var(--w)">
+    <section style="background:var(--s1)">
       <div class="W">
+
+        <div class="sec-head sr">
+          <span class="pill-tag pt-lv">Our Articles</span>
+          <h2>School News &amp; Stories</h2>
+          <p>Events, milestones, and insights from our teachers and community across all our Singapore branches.</p>
+        </div>
 
         <!-- Filter tabs -->
         <div class="filter-row sr">
@@ -328,6 +337,8 @@
         </div>
 
         <div class="blog-grid">
+
+          <!-- ▼ PASTE NEW CARD HERE (top of grid = newest first) ▼ -->
 
           <!-- Post 1 — Featured -->
           <a href="#" class="bcard featured sr d1" data-category="event">
@@ -431,7 +442,7 @@
               <input class="nf-input" type="email" placeholder="Enter your email address"/>
               <button class="nf-btn">Subscribe →</button>
             </div>
-            <p class="nf-note">✓ No spam · ✓ Unsubscribe anytime · ✓ Singapore families only</p>
+            <p class="nf-note">✓ No spam &nbsp;·&nbsp; ✓ Unsubscribe anytime &nbsp;·&nbsp; ✓ Singapore families only</p>
           </div>
         </div>
       </div>
@@ -460,6 +471,7 @@
     <div class="W">
       <div class="foot-grid">
 
+        <!-- Col 1: Brand -->
         <div class="foot-brand">
           <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School" onerror="this.src='../assets/logo.webp'"/>
           <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
@@ -479,6 +491,7 @@
           </div>
         </div>
 
+        <!-- Col 2: Navigation -->
         <div class="foot-col">
           <h5>Navigation</h5>
           <ul>
@@ -486,43 +499,57 @@
             <li><a href="about.html">About</a></li>
             <li><a href="courses.html">Courses</a></li>
             <li><a href="instructors.html">Instructors</a></li>
-            <li><a href="review.html">Review</a></li>
+            <li><a href="testimonial.html">Review</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
+        <!-- Col 3: Locations — ALL 5, never remove any -->
         <div class="foot-col">
           <h5>Our Locations</h5>
           <div class="foot-locs">
+
             <div class="foot-loc">
-              <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
               <div class="foot-loc-text">
                 <strong>Tengah Music School</strong>
                 <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
               </div>
             </div>
+
             <div class="foot-loc">
-              <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
               <div class="foot-loc-text">
                 <strong>Tampines Music School</strong>
                 <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
               </div>
             </div>
+
             <div class="foot-loc">
-              <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
               <div class="foot-loc-text">
                 <strong>Jurong West Music School</strong>
                 <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
               </div>
             </div>
+
             <div class="foot-loc">
-              <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
               <div class="foot-loc-text">
                 <strong>Le Quest Mall Music School</strong>
                 <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
               </div>
             </div>
+
             <div class="foot-loc soon">
               <span class="foot-loc-pin">✦</span>
               <div class="foot-loc-text">
@@ -530,11 +557,13 @@
                 <span>Opening Soon — Register Interest</span>
               </div>
             </div>
+
           </div>
         </div>
 
       </div>
 
+      <!-- Bottom bar -->
       <div class="foot-btm">
         <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
         <div class="foot-btm-links">
@@ -552,9 +581,15 @@
     <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp us">
       <h4>💬 Chat with Us!</h4>
       <p>Pick your nearest branch to WhatsApp directly.</p>
-      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">🏡 Tengah <span>8922 2848</span></a>
-      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
-      <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West / JP <span>9627 7582</span></a>
+      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">
+        🏡 Tengah <span>8922 2848</span>
+      </a>
+      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">
+        🌅 Tampines <span>8892 1198</span>
+      </a>
+      <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">
+        🌸 Jurong West / JP <span>9627 7582</span>
+      </a>
     </div>
     <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
   </div>
@@ -611,7 +646,6 @@
         cards.forEach(card => {
           const match = filter === 'all' || card.dataset.category === filter;
           card.style.display = match ? '' : 'none';
-          /* Reset featured span when filtering */
           if (filter !== 'all') {
             card.style.gridColumn = '';
           } else {
