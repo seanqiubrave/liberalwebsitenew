@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Generator — Liberal Music &amp; Arts School</title>
+<style>
+  :root {
+    --or: #FF6600; --or-dk: #E55900; --or-lt: #FFF4ED;
+    --ink: #1F2A44; --body: #5A6B85; --muted: #8FA2BC;
+    --bg: #F8FBFF; --surface: #ffffff; --border: #DDE6F2;
+    --teal: #B8F2E6; --lav: #E8E4FF;
+    --r: 12px; --sh: 0 2px 12px rgba(31,42,68,.07); --sh-l: 0 8px 32px rgba(31,42,68,.11);
+    --green: #25D366; --green-lt: #E6FBF3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+  header{background:var(--ink);color:#fff;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(31,42,68,.18)}
+  .hd-left{display:flex;align-items:center;gap:12px}
+  .hd-logo{font-size:26px;line-height:1}
+  header h1{font-size:16px;font-weight:700;line-height:1.2;color:#fff}
+  header p{font-size:12px;opacity:.5;margin-top:2px}
+  .hd-badge{background:var(--or);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.4px;white-space:nowrap}
+  .layout{display:grid;grid-template-columns:1fr 420px;gap:0;min-height:calc(100vh - 64px)}
+  .panel-left{padding:28px 28px 80px;border-right:1px solid var(--border);overflow-y:auto}
+  .panel-right{padding:24px;background:#F0F4FB;overflow-y:auto;position:sticky;top:64px;height:calc(100vh - 64px);display:flex;flex-direction:column;gap:0}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:18px;box-shadow:var(--sh)}
+  .sec-title{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+  .sec-title .icon{background:var(--or-lt);color:var(--or);font-size:13px;padding:2px 6px;border-radius:6px;font-style:normal}
+  .repo-bar{background:var(--ink);border-radius:10px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  .repo-bar label{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;flex-shrink:0}
+  .repo-bar input{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:7px;color:#fff;font-family:'Courier New',monospace;font-size:13px;padding:8px 12px;width:100%;outline:none}
+  .repo-bar input:focus{border-color:var(--or);background:rgba(255,255,255,.12)}
+  .repo-bar input::placeholder{color:rgba(255,255,255,.3)}
+  .grid{display:grid;gap:14px;margin-bottom:14px}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  .g2{grid-template-columns:1fr 1fr}
+  .g1{grid-template-columns:1fr}
+  .field{display:flex;flex-direction:column;gap:5px}
+  label{font-size:12px;font-weight:600;color:var(--body)}
+  label .opt{font-weight:400;color:var(--muted);font-size:11px}
+  input:not(.repo-bar input),select,textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--ink);background:#fafbff;outline:none;font-family:inherit;transition:border-color .15s,box-shadow .15s}
+  input:not(.repo-bar input):focus,select:focus,textarea:focus{border-color:var(--or);box-shadow:0 0 0 3px rgba(255,102,0,.10);background:#fff}
+  textarea{min-height:160px;resize:vertical;line-height:1.65;font-size:13.5px}
+  .date-preview{background:var(--or-lt);border:1.5px solid rgba(255,102,0,.2);border-radius:8px;padding:10px 13px;font-size:14px;color:var(--or);font-weight:600;min-height:42px;display:flex;align-items:center}
+  .today-btn{font-size:11px;font-weight:700;color:var(--or);background:var(--or-lt);border:1px solid rgba(255,102,0,.25);padding:3px 9px;border-radius:999px;cursor:pointer;margin-left:6px;transition:all .15s}
+  .today-btn:hover{background:var(--or);color:#fff}
+  .emoji-grid{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .ep{font-size:19px;padding:4px 7px;border-radius:7px;cursor:pointer;border:1.5px solid transparent;transition:all .12s;background:#f4f4f8;line-height:1}
+  .ep:hover{background:var(--or-lt);border-color:rgba(255,102,0,.3);transform:scale(1.15)}
+  .ep.selected{background:var(--or-lt);border-color:var(--or)}
+  .field-footer{display:flex;justify-content:flex-end;margin-top:4px}
+  .char-count{font-size:11px;color:var(--muted)}
+  .char-count.warn{color:#e55900;font-weight:700}
+  /* Field error state */
+  .field-error input,.field-error select,.field-error textarea{border-color:#e03030!important;box-shadow:0 0 0 3px rgba(224,48,48,.12)!important;background:#fff8f8!important;animation:shake .35s ease}
+  .field-error-msg{font-size:11px;color:#e03030;font-weight:700;margin-top:4px;display:flex;align-items:center;gap:4px}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .toggle-row{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg);border-radius:8px;border:1.5px solid var(--border)}
+  .toggle-label{font-size:13px;color:var(--ink);font-weight:600;flex:1}
+  .toggle-sub{font-size:11px;color:var(--muted);display:block;margin-top:1px;font-weight:400}
+  .toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+  .toggle input{opacity:0;width:0;height:0}
+  .toggle-track{position:absolute;inset:0;background:var(--border);border-radius:999px;cursor:pointer;transition:background .2s}
+  .toggle input:checked+.toggle-track{background:var(--or)}
+  .toggle-track::after{content:'';position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+  .toggle input:checked+.toggle-track::after{transform:translateX(18px)}
+  .hint{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:10px}
+  .hint code{background:var(--lav);color:#5550c8;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px}
+  .actions{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;align-items:center}
+  .btn{padding:11px 22px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .btn-publish{background:#1a8a45;color:#fff;box-shadow:0 4px 18px rgba(26,138,69,.32);font-size:15px;padding:13px 28px}
+  .btn-publish:hover{background:#157a3c;transform:translateY(-1px);box-shadow:0 6px 24px rgba(26,138,69,.42)}
+  .btn-orange{background:var(--or);color:#fff;box-shadow:0 4px 14px rgba(255,102,0,.28)}
+  .btn-orange:hover{background:var(--or-dk);transform:translateY(-1px)}
+  .btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
+  .btn-outline:hover{border-color:var(--or);color:var(--or);background:var(--or-lt)}
+  .btn-ghost{background:transparent;color:var(--body);padding:11px 14px}
+  .btn-ghost:hover{background:var(--bg);color:var(--ink)}
+  .publish-box{background:var(--green-lt);border:1.5px solid rgba(37,211,102,.25);border-radius:10px;padding:14px 16px;margin-top:16px;display:none}
+  .publish-box.on{display:block}
+  .publish-box h4{font-size:13px;font-weight:700;color:#1a7058;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+  .publish-steps{list-style:none;counter-reset:ps;display:flex;flex-direction:column;gap:7px}
+  .publish-steps li{counter-increment:ps;display:flex;gap:10px;font-size:13px;color:var(--body);line-height:1.55}
+  .publish-steps li::before{content:counter(ps);min-width:20px;height:20px;border-radius:50%;background:#1a8a45;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .publish-steps code{background:var(--lav);color:#5550c8;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px}
+  .publish-steps strong{color:var(--ink)}
+  .preview-header{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+  .preview-tabs{display:flex;gap:0;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:14px;flex-shrink:0}
+  .ptab{flex:1;padding:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:#fff;color:var(--muted);transition:all .15s;text-align:center}
+  .ptab.on{background:var(--ink);color:#fff}
+  .status{display:flex;align-items:center;gap:8px;padding:9px 13px;border-radius:8px;font-size:12px;font-weight:600;margin-bottom:12px;flex-shrink:0}
+  .status.ok{background:var(--green-lt);color:#1a7058;border:1px solid rgba(26,112,88,.2)}
+  .status.warn{background:var(--or-lt);color:var(--or);border:1px solid rgba(255,102,0,.2)}
+  .status.empty{background:var(--bg);color:var(--muted);border:1px solid var(--border)}
+  .vdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .vdot.ok{background:#25D366}.vdot.warn{background:var(--or)}.vdot.empty{background:var(--muted)}
+  .mock-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(221,230,245,.6);box-shadow:0 6px 20px rgba(31,42,68,.09);margin-bottom:14px;flex-shrink:0}
+  .mock-img{height:140px;background:#FFFAF5;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+  .mock-cat{position:absolute;top:10px;left:10px;padding:3px 11px;border-radius:999px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.4px}
+  .mock-cat.blog{background:#FF6600;color:#fff}.mock-cat.news{background:#1F2A44;color:#fff}.mock-cat.event{background:#98a3f8;color:#fff}
+  .mock-body{padding:16px}
+  .mock-date{font-size:11px;color:#8FA2BC;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+  .mock-date::before{content:'';width:12px;height:2px;background:#FF6600;border-radius:1px;display:inline-block;flex-shrink:0}
+  .mock-title{font-size:15px;font-weight:900;color:#1F2A44;margin-bottom:7px;line-height:1.3}
+  .mock-text{font-size:13px;color:#5A6B85;line-height:1.65;margin-bottom:12px}
+  .mock-cta{font-size:12px;font-weight:700;color:#FF6600}
+  .mock-featured-badge{background:linear-gradient(90deg,#FF6600,#ff8533);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;display:inline-block;margin-bottom:6px;border-radius:4px}
+  .out-block{display:none;flex:1;flex-direction:column;min-height:0}
+  .out-block.on{display:flex}
+  .out-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-shrink:0}
+  pre{background:#1F2A44;color:#B8F2E6;padding:13px;border-radius:8px;font-size:11.5px;line-height:1.6;overflow:auto;white-space:pre-wrap;word-break:break-all;flex:1;min-height:100px}
+  .copy-btn{font-size:11px;padding:4px 11px;border-radius:5px;cursor:pointer;background:rgba(184,242,230,.15);color:#B8F2E6;border:1px solid rgba(184,242,230,.3);transition:all .15s}
+  .copy-btn:hover{background:rgba(184,242,230,.25)}
+  .copy-btn.ok{background:#1a7058;color:#fff;border-color:transparent}
+  .steps{list-style:none}
+  .steps li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;line-height:1.6;color:var(--body)}
+  .steps li:last-child{border-bottom:none}
+  .step-n{min-width:22px;height:22px;border-radius:50%;background:var(--or);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .steps li code{background:var(--lav);color:#5550c8;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px}
+  .tag-new{background:#1a8a45;color:#fff;font-size:9px;font-weight:800;padding:1px 6px;border-radius:999px;text-transform:uppercase;letter-spacing:.4px;vertical-align:middle;margin-left:4px}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}.panel-right{position:static;height:auto;border-top:1px solid var(--border)}.g3{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.g3,.g2{grid-template-columns:1fr}header{padding:0 16px}.panel-left,.panel-right{padding:16px}}
+  footer{text-align:center;font-size:12px;color:var(--muted);padding:20px;border-top:1px solid var(--border);background:#fff}
+</style>
+</head>
+<body>
+<header>
+  <div class="hd-left">
+    <div class="hd-logo">🎵</div>
+    <div>
+      <h1>Blog Generator — Liberal Music &amp; Arts School</h1>
+      <p>Fill in → click Publish → run the script in Terminal · That's it.</p>
+    </div>
+  </div>
+  <span class="hd-badge">v3.0</span>
+</header>
+<div class="layout">
+  <div class="panel-left">
+    <div class="repo-bar">
+      <label>Repo path</label>
+      <input type="text" id="repo-path" value="/Users/qiu/Downloads/liberalwebsiteredo" spellcheck="false"/>
+    </div>
+    <div class="card">
+      <div class="sec-title"><i class="icon">ℹ</i> How to Use</div>
+      <ul class="steps">
+        <li><div class="step-n">1</div><div>Fill in the article details below. The live preview on the right updates as you type.</div></li>
+        <li><div class="step-n">2</div><div>Click <strong>🚀 Publish to Website</strong> <span class="tag-new">new</span> — it downloads a <code>publish-blog-[slug].sh</code> script to your Downloads.</div></li>
+        <li><div class="step-n">3</div><div>Open <strong>Terminal</strong> (⌘ Space → type Terminal → Enter). Drag the <code>.sh</code> file into Terminal. Press <strong>Enter</strong>. Done.</div></li>
+        <li><div class="step-n">4</div><div>The script inserts the card into blog.html, saves the article page, commits, and pushes to GitHub automatically — no VS Code needed.</div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="sec-title"><i class="icon">✏</i> Article Details</div>
+      <div class="grid g3">
+        <div class="field">
+          <label>Category</label>
+          <select id="cat" oninput="livePreview()">
+            <option value="blog">Blog</option>
+            <option value="news">News</option>
+            <option value="event">Events</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Date <button class="today-btn" type="button" onclick="setToday()">Today</button></label>
+          <input type="date" id="date-picker" oninput="onDateChange()"/>
+          <div class="date-preview" id="date-display">—</div>
+        </div>
+        <div class="field">
+          <label>Emoji</label>
+          <input id="emoji" value="🎵" maxlength="4" oninput="livePreview()" style="font-size:22px;text-align:center"/>
+          <div class="emoji-grid" id="emoji-grid"></div>
+        </div>
+      </div>
+      <div class="grid g1">
+        <div class="field" id="field-title">
+          <label>Title <span style="color:#e03030;font-size:13px">*</span></label>
+          <input id="title" placeholder="Summer Concert Highlights 2026" oninput="onTitleInput();clearError('field-title')"/>
+          <div class="field-error-msg" id="err-title" style="display:none">⚠ Please enter a title</div>
+        </div>
+      </div>
+      <div class="grid g1">
+        <div class="field" id="field-excerpt">
+          <label>Excerpt <span style="color:#e03030;font-size:13px">*</span> <span class="opt">(1–2 sentences shown on the card)</span></label>
+          <input id="excerpt" placeholder="e.g. Students from our Tengah branch performed a stunning duet at our weekly music session..." oninput="livePreview();clearError('field-excerpt')" maxlength="200"/>
+          <div class="field-footer">
+            <div class="field-error-msg" id="err-excerpt" style="display:none">⚠ Please write a short excerpt (1–2 sentences)</div>
+            <span class="char-count" id="excerpt-count">0 / 200</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid g2">
+        <div class="field">
+          <label>Link URL <span class="opt">(auto-set when article body is present)</span></label>
+          <input id="link" value="#" oninput="livePreview()"/>
+        </div>
+        <div class="field">
+          <label>Slug <span class="opt">(auto-filled from title)</span></label>
+          <input id="slug" placeholder="summer-concert-2026" oninput="livePreview()"/>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <div class="toggle-label">
+          Featured card
+          <span class="toggle-sub">Spans 2 columns — use for the newest / most important post only</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="featured" onchange="livePreview()"/>
+          <span class="toggle-track"></span>
+        </label>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-title"><i class="icon">📝</i> Article Body <span style="font-weight:400;text-transform:none;font-size:11px;color:var(--muted)">&nbsp;optional</span></div>
+      <p class="hint"><code>## Heading</code> → section title &nbsp;·&nbsp; <code>- item</code> → bullet &nbsp;·&nbsp; everything else → paragraph &nbsp;·&nbsp; blank line = new block</p>
+      <textarea id="body" oninput="onBodyInput()" placeholder="## Event Highlights&#10;&#10;Students performed to a packed audience...&#10;&#10;- Piano recital by Level 3 students&#10;- Erhu ensemble featuring 8 performers&#10;&#10;## What's Next&#10;&#10;Registration for our next semester is now open."></textarea>
+      <div class="field-footer"><span class="char-count" id="body-count">0 chars</span></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-publish" onclick="doPublish()">🚀 Publish to Website</button>
+      <button class="btn btn-orange"  onclick="doGenerate()">⚡ Generate HTML</button>
+      <button class="btn btn-outline" onclick="doDownloadHtml()">⬇ Download HTML</button>
+      <button class="btn btn-ghost"   onclick="doClear()">🗑 Clear</button>
+    </div>
+    <div class="publish-box" id="publish-box">
+      <h4>✅ Script downloaded — 3 steps to publish:</h4>
+      <ul class="publish-steps">
+        <li>Open <strong>Terminal</strong> on your Mac (press <strong>⌘ Space</strong>, type Terminal, press Enter)</li>
+        <li>Drag the downloaded <code id="publish-filename">publish-blog-slug.sh</code> into the Terminal window</li>
+        <li>Press <strong>Enter</strong> — the script inserts the card, saves the article, commits and pushes to GitHub automatically</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel-right">
+    <div class="preview-header">
+      <span>Live Preview</span>
+      <span id="preview-status-text" style="font-size:11px;color:var(--muted)">Fill in details</span>
+    </div>
+    <div class="status empty" id="val-status">
+      <span class="vdot empty" id="val-dot"></span>
+      <span id="val-msg">Fill in Title and Excerpt to get started.</span>
+    </div>
+    <div class="mock-card">
+      <div class="mock-img">
+        <span id="mock-emoji">🎵</span>
+        <span class="mock-cat blog" id="mock-cat">Blog</span>
+      </div>
+      <div class="mock-body">
+        <div id="mock-featured-badge" style="display:none"><span class="mock-featured-badge">⭐ Featured — spans 2 columns</span></div>
+        <div class="mock-date"  id="mock-date">—</div>
+        <div class="mock-title" id="mock-title">Your title will appear here</div>
+        <div class="mock-text"  id="mock-text">Your excerpt will appear here…</div>
+        <div class="mock-cta">Read More →</div>
+      </div>
+    </div>
+    <div class="preview-tabs">
+      <button class="ptab on" id="tab-card"    onclick="switchTab('card')">Card HTML</button>
+      <button class="ptab"    id="tab-article" onclick="switchTab('article')">Article Page</button>
+      <button class="ptab"    id="tab-script"  onclick="switchTab('script')">Publish Script</button>
+    </div>
+    <div id="out-card-block" class="out-block on">
+      <div class="out-label">Card HTML — inserted at top of .blog-grid <button class="copy-btn" id="copy-card" onclick="copyOut('out-card','copy-card')">Copy</button></div>
+      <pre id="out-card">&lt;!-- Click Generate or Publish to see output --&gt;</pre>
+    </div>
+    <div id="out-article-block" class="out-block">
+      <div class="out-label">Article page — pages/articles/&lt;slug&gt;.html <button class="copy-btn" id="copy-article" onclick="copyOut('out-article','copy-article')">Copy</button></div>
+      <pre id="out-article">&lt;!-- Click Generate or Publish to see output --&gt;</pre>
+    </div>
+    <div id="out-script-block" class="out-block">
+      <div class="out-label">Shell script — drag into Terminal &amp; press Enter <button class="copy-btn" id="copy-script" onclick="copyOut('out-script','copy-script')">Copy</button></div>
+      <pre id="out-script">&lt;!-- Click Publish to see the shell script --&gt;</pre>
+    </div>
+  </div>
+</div>
+<footer>Liberal Music &amp; Arts School — Blog Generator v3.0 · Save to Desktop · Do not share publicly</footer>
+
+<script>
+const EMOJIS=['🎵','🎶','🎹','🎻','🥁','🎸','🎺','🎷','🎤','🎨','🖌','🎓','📢','📅','🏆','⭐','✦','🎊','🎉','🌟','📍','📜','🎭','🌸'];
+
+function initEmojiGrid(){
+  const g=document.getElementById('emoji-grid');
+  EMOJIS.forEach((e,i)=>{
+    const btn=document.createElement('button');
+    btn.className='ep'+(i===0?' selected':'');
+    btn.textContent=e;
+    btn.onclick=()=>{
+      document.getElementById('emoji').value=e;
+      document.querySelectorAll('.ep').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      livePreview();
+    };
+    g.appendChild(btn);
+  });
+}
+
+function fmtDate(d){
+  const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return String(d.getDate()).padStart(2,'0')+' '+M[d.getMonth()]+' '+d.getFullYear();
+}
+function setToday(){
+  const iso=new Date().toISOString().slice(0,10);
+  document.getElementById('date-picker').value=iso;
+  onDateChange();
+}
+function onDateChange(){
+  const val=document.getElementById('date-picker').value;
+  const disp=document.getElementById('date-display');
+  if(val){const[y,m,d]=val.split('-').map(Number);disp.textContent=fmtDate(new Date(y,m-1,d));disp.style.color='var(--or)';}
+  else{disp.textContent='—';disp.style.color='var(--muted)';}
+  livePreview();
+}
+function getFormattedDate(){
+  const val=document.getElementById('date-picker').value;
+  if(!val)return'';
+  const[y,m,d]=val.split('-').map(Number);
+  return fmtDate(new Date(y,m-1,d));
+}
+
+function onTitleInput(){
+  const slugEl=document.getElementById('slug');
+  if(!slugEl.dataset.manual)
+    slugEl.value=document.getElementById('title').value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  livePreview();
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('slug').addEventListener('input',function(){this.dataset.manual='1';});
+  document.getElementById('excerpt').addEventListener('input',()=>{
+    const n=document.getElementById('excerpt').value.length;
+    const cnt=document.getElementById('excerpt-count');
+    cnt.textContent=n+' / 200';
+    cnt.className='char-count'+(n>170?' warn':'');
+    clearError('field-excerpt');
+  });
+});
+
+function onBodyInput(){
+  const n=document.getElementById('body').value.length;
+  document.getElementById('body-count').textContent=n.toLocaleString()+' chars';
+  const slug=document.getElementById('slug').value.trim();
+  const linkEl=document.getElementById('link');
+  if(n>0&&slug&&(linkEl.value==='#'||linkEl.value.startsWith('articles/')))
+    linkEl.value='articles/'+slug+'.html';
+  else if(n===0&&linkEl.value.startsWith('articles/'))
+    linkEl.value='#';
+  livePreview();
+}
+
+function validate(){
+  const missing=[];
+  if(!document.getElementById('title').value.trim())missing.push('Title');
+  if(!document.getElementById('excerpt').value.trim())missing.push('Excerpt');
+  if(!getFormattedDate())missing.push('Date');
+  return{ok:missing.length===0,missing};
+}
+function updateValidationUI(){
+  const{ok,missing}=validate();
+  const s=document.getElementById('val-status'),d=document.getElementById('val-dot'),m=document.getElementById('val-msg');
+  if(ok){s.className='status ok';d.className='vdot ok';m.textContent='Ready — click Publish to go live!';}
+  else{s.className='status warn';d.className='vdot warn';m.textContent='Missing: '+missing.join(', ');}
+}
+
+function livePreview(){
+  const title=document.getElementById('title').value.trim()||'Your title will appear here';
+  const excerpt=document.getElementById('excerpt').value.trim()||'Your excerpt will appear here…';
+  const emoji=document.getElementById('emoji').value.trim()||'🎵';
+  const cat=document.getElementById('cat').value;
+  const date=getFormattedDate()||'—';
+  const featured=document.getElementById('featured').checked;
+  document.getElementById('mock-emoji').textContent=emoji;
+  document.getElementById('mock-date').textContent=date;
+  document.getElementById('mock-title').textContent=title;
+  document.getElementById('mock-text').textContent=excerpt;
+  const catEl=document.getElementById('mock-cat');
+  catEl.textContent=cat==='event'?'Event':cat.charAt(0).toUpperCase()+cat.slice(1);
+  catEl.className='mock-cat '+cat;
+  document.getElementById('mock-featured-badge').style.display=featured?'block':'none';
+  document.getElementById('preview-status-text').textContent=featured?'⭐ Featured card':'Standard card';
+  updateValidationUI();
+}
+
+function v(id){return(document.getElementById(id)?.value||'').trim();}
+function he(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function toHtml(text){
+  if(!text)return'';
+  const lines=text.split('\n'),out=[];let inUl=false;
+  for(const raw of lines){
+    const line=raw.trim();
+    if(!line){if(inUl){out.push('</ul>');inUl=false;}continue;}
+    if(line.startsWith('## ')){if(inUl){out.push('</ul>');inUl=false;}out.push('<h2>'+he(line.slice(3))+'</h2>');}
+    else if(line.startsWith('- ')){if(!inUl){out.push('<ul>');inUl=true;}out.push('<li>'+he(line.slice(2))+'</li>');}
+    else{if(inUl){out.push('</ul>');inUl=false;}out.push('<p>'+he(line)+'</p>');}
+  }
+  if(inUl)out.push('</ul>');
+  return out.join('\n');
+}
+
+function buildCard(){
+  const emoji=v('emoji')||'🎵',cat=v('cat')||'blog',date=getFormattedDate()||'',title=v('title')||'Untitled',excerpt=v('excerpt')||'',link=v('link')||'#';
+  const featured=document.getElementById('featured').checked;
+  const catLabel=cat==='event'?'Event':cat.charAt(0).toUpperCase()+cat.slice(1);
+  return `<a href="${link}" class="bcard${featured?' featured':''} sr" data-category="${cat}">
+  <div class="bcard-img">
+    ${emoji}
+    <span class="bcard-cat ${cat}">${catLabel}</span>
+  </div>
+  <div class="bcard-body">
+    <div class="bcard-date">${date}</div>
+    <h3 class="bcard-title">${he(title)}</h3>
+    <p class="bcard-text">${he(excerpt)}</p>
+    <span class="bcard-cta">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>`;
+}
+
+function buildArticlePage(){
+  const title=v('title')||'Untitled',cat=v('cat')||'blog',date=getFormattedDate()||'',excerpt=v('excerpt')||'',body=toHtml(v('body'));
+  const catLabel=cat==='event'?'Events':cat.charAt(0).toUpperCase()+cat.slice(1);
+  const catBg=cat==='blog'?'#FFF4ED':cat==='news'?'#EEF2F8':'#E8E4FF';
+  const catTxt=cat==='blog'?'#FF6600':cat==='news'?'#1F2A44':'#5550c8';
+  const indent=body?body.split('\n').map(l=>'      '+l).join('\n'):'      <!-- Add article body here -->';
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>${he(title)} | Liberal Music &amp; Arts School</title>
+  <meta name="description" content="${he(excerpt)}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--or:#FF6600;--ink:#1F2A44;--body:#5A6B85;--muted:#8FA2BC;--border:#DDE6F2}
+    *{box-sizing:border-box;margin:0;padding:0}html{background:#1F2A44}
+    body{font-family:'Quicksand',system-ui,sans-serif;color:var(--body);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.65}
+    h1,h2,h3{font-family:'Nunito',sans-serif;color:var(--ink);font-weight:900;line-height:1.2}
+    a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+    .article-wrap{max-width:760px;margin:0 auto;padding:60px 24px 100px}
+    .article-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+    .art-cat{padding:4px 14px;border-radius:999px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;background:${catBg};color:${catTxt}}
+    .art-date{font-size:13px;color:var(--muted);font-weight:600}
+    .article-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--ink);margin-bottom:16px}
+    .article-lead{font-size:18px;color:var(--body);line-height:1.75;padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:36px}
+    .article-body{font-size:17px;line-height:1.85;color:var(--body)}
+    .article-body h2{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:900;color:var(--ink);margin:36px 0 12px}
+    .article-body p{margin-bottom:18px}
+    .article-body ul{list-style:disc;margin:12px 0 18px 20px;display:flex;flex-direction:column;gap:8px}
+    .article-body li{color:var(--body);line-height:1.7}.article-body li::marker{color:var(--or)}
+    .back-link{display:inline-flex;align-items:center;gap:7px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--muted);margin-bottom:32px;transition:color .2s}
+    .back-link:hover{color:var(--or)}
+    .cta-band{background:linear-gradient(135deg,#FFF7F2,#FFEEDD);padding:60px 24px;text-align:center;margin-top:60px;border-radius:20px}
+    .cta-band h3{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;color:var(--ink);margin-bottom:10px}
+    .cta-band p{font-size:16px;color:var(--body);margin-bottom:24px}
+    .btn-cta{background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;padding:14px 32px;border-radius:999px;display:inline-block;box-shadow:0 8px 24px rgba(255,102,0,.28);transition:background .2s,transform .2s}
+    .btn-cta:hover{background:#E55900;transform:translateY(-2px)}
+  </style>
+</head>
+<body>
+  <!-- PASTE SITE NAV HERE -->
+  <main style="padding-top:108px">
+    <div class="article-wrap">
+      <a href="../blog.html" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back to Blog</a>
+      <div class="article-meta"><span class="art-cat">${catLabel}</span><span class="art-date">${date}</span></div>
+      <h1 class="article-title">${he(title)}</h1>
+      <p class="article-lead">${he(excerpt)}</p>
+      <div class="article-body">
+${indent}
+      </div>
+      <div class="cta-band">
+        <h3>Ready to Start Your Child's Musical Journey?</h3>
+        <p>Book a free trial class at any of our 5 Singapore locations.</p>
+        <a href="../trial.html" class="btn-cta">Book Free Trial Class</a>
+      </div>
+    </div>
+  </main>
+  <!-- PASTE SITE FOOTER HERE -->
+</body>
+</html>`;
+}
+
+function buildScript(){
+  const repo=document.getElementById('repo-path').value.trim()||'/Users/qiu/Downloads/liberalwebsiteredo';
+  const slug=v('slug')||'article';
+  const hasBody=v('body').length>0;
+  const title=v('title')||'new article';
+  const cardHtml=buildCard();
+  const artHtml=buildArticlePage();
+
+  // Escape for use inside Python heredoc string
+  function pyStr(s){return s.replace(/\\/g,'\\\\').replace(/"""/g,'\\"\\"\\"');}
+
+  return `#!/bin/bash
+# ═══════════════════════════════════════════════════════════════
+#  Liberal Blog Publisher — Blog Generator v3.0
+#  Article : ${title}
+#  Slug    : ${slug}
+#  ─────────────────────────────────────────────────────────────
+#  HOW TO RUN:
+#  1. Open Terminal  (⌘ Space → Terminal → Enter)
+#  2. Drag this file into Terminal
+#  3. Press Enter
+# ═══════════════════════════════════════════════════════════════
+set -e
+
+REPO="${repo}"
+BLOG="$REPO/pages/blog.html"
+${hasBody?`ARTICLE="$REPO/pages/articles/${slug}.html"`:''}
+
+echo ""
+echo "🎵 Liberal Blog Publisher"
+echo "   Article : ${title}"
+echo "   Slug    : ${slug}"
+echo ""
+
+# ── Check repo exists ──────────────────────────────────────────
+if [ ! -f "$BLOG" ]; then
+  echo "❌  ERROR: Cannot find $BLOG"
+  echo "    Make sure the Repo Path in the Blog Generator is correct:"
+  echo "    ${repo}"
+  exit 1
+fi
+
+# ── Pull latest ────────────────────────────────────────────────
+echo "📥  Pulling latest from GitHub..."
+cd "$REPO" && git pull origin master --quiet 2>&1 || echo "    (pull skipped — no remote changes)"
+
+# ── Insert card into blog.html using Python ────────────────────
+echo "✍️   Inserting card into blog.html..."
+python3 << 'PYEOF'
+import sys
+
+blog_path = "${repo}/pages/blog.html"
+marker    = "<!-- \\u25bc PASTE NEW CARD HERE (top of grid = newest first) \\u25bc -->"
+
+card = """${pyStr(cardHtml)}"""
+
+with open(blog_path, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Try exact marker first
+if marker in content:
+    new_content = content.replace(marker + "\\n", marker + "\\n\\n" + card + "\\n", 1)
+    print("   Marker found — card inserted.")
+else:
+    # Fallback: insert after opening of .blog-grid
+    fallback = '<div class="blog-grid">'
+    if fallback in content:
+        new_content = content.replace(fallback, fallback + "\\n\\n          " + marker + "\\n\\n" + card, 1)
+        print("   Marker not found — used fallback insertion. Please add the marker comment to blog.html for future posts.")
+    else:
+        print("ERROR: Could not find insertion point in blog.html")
+        sys.exit(1)
+
+with open(blog_path, 'w', encoding='utf-8') as f:
+    f.write(new_content)
+
+print("   blog.html updated.")
+PYEOF
+
+${hasBody?`
+# ── Save article page ──────────────────────────────────────────
+echo "📄  Saving article page..."
+mkdir -p "$REPO/pages/articles"
+cat > "$ARTICLE" << 'ARTICLEEOF'
+${artHtml}
+ARTICLEEOF
+echo "   Saved: pages/articles/${slug}.html"`:`echo "ℹ️   No article body — skipping article page."`}
+
+# ── Git commit & push ──────────────────────────────────────────
+echo "📤  Committing and pushing to GitHub..."
+cd "$REPO"
+git add pages/blog.html${hasBody?` pages/articles/${slug}.html`:''}
+git commit -m "blog: add ${slug}"
+git push origin master
+
+echo ""
+echo "🎉  Published successfully!"
+echo "    Article : ${title}"
+echo "    Live in ~30 seconds:"
+echo "    https://seanqiubrave.github.io/liberalwebsitenew/pages/blog.html"
+echo ""
+`;
+}
+
+function switchTab(tab){
+  ['card','article','script'].forEach(t=>{
+    document.getElementById('tab-'+t).className='ptab'+(t===tab?' on':'');
+    document.getElementById('out-'+t+'-block').className='out-block'+(t===tab?' on':'');
+  });
+}
+
+function ensureSlug(){
+  const el=document.getElementById('slug');
+  if(!el.value.trim()&&v('title'))el.value=v('title').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+function showErrors(missing){
+  // Clear all previous errors first
+  ['field-title','field-excerpt'].forEach(id=>{
+    document.getElementById(id).classList.remove('field-error');
+  });
+  document.getElementById('err-title').style.display='none';
+  document.getElementById('err-excerpt').style.display='none';
+  // Highlight each missing field
+  let firstEl=null;
+  if(missing.includes('Title')){
+    const wrap=document.getElementById('field-title');
+    wrap.classList.add('field-error');
+    document.getElementById('err-title').style.display='flex';
+    if(!firstEl)firstEl=document.getElementById('title');
+  }
+  if(missing.includes('Excerpt')){
+    const wrap=document.getElementById('field-excerpt');
+    wrap.classList.add('field-error');
+    document.getElementById('err-excerpt').style.display='flex';
+    if(!firstEl)firstEl=document.getElementById('excerpt');
+  }
+  if(missing.includes('Date')){
+    // Date already shows in validation bar — just scroll to top of form
+    if(!firstEl)firstEl=document.getElementById('date-picker');
+  }
+  if(firstEl){firstEl.scrollIntoView({behavior:'smooth',block:'center'});firstEl.focus();}
+}
+function clearError(fieldId){
+  document.getElementById(fieldId)?.classList.remove('field-error');
+  const errId=fieldId.replace('field-','err-');
+  const errEl=document.getElementById(errId);
+  if(errEl)errEl.style.display='none';
+}
+
+function doGenerate(){
+  const{ok,missing}=validate();
+  if(!ok){showErrors(missing);return;}
+  ensureSlug();
+  document.getElementById('out-card').textContent=buildCard();
+  document.getElementById('out-article').textContent=buildArticlePage();
+  document.getElementById('out-script').textContent=buildScript();
+}
+
+function doPublish(){
+  const{ok,missing}=validate();
+  if(!ok){showErrors(missing);return;}
+  ensureSlug();
+  document.getElementById('out-card').textContent=buildCard();
+  document.getElementById('out-article').textContent=buildArticlePage();
+  const script=buildScript();
+  document.getElementById('out-script').textContent=script;
+  const slug=v('slug')||'article';
+  const filename='publish-blog-'+slug+'.sh';
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([script],{type:'text/x-sh'}));
+  a.download=filename;a.click();URL.revokeObjectURL(a.href);
+  document.getElementById('publish-filename').textContent=filename;
+  document.getElementById('publish-box').classList.add('on');
+  document.getElementById('publish-box').scrollIntoView({behavior:'smooth',block:'nearest'});
+  switchTab('script');
+}
+
+function doDownloadHtml(){
+  const{ok,missing}=validate();
+  if(!ok){showErrors(missing);return;}
+  ensureSlug();
+  const slug=v('slug')||'article';
+  const content='<!-- CARD HTML -->\n'+buildCard()+'\n\n\n<!-- ARTICLE PAGE -->\n'+buildArticlePage();
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([content],{type:'text/html'}));
+  a.download='liberal-blog-'+slug+'.html';a.click();URL.revokeObjectURL(a.href);
+}
+
+function copyOut(preId,btnId){
+  const text=document.getElementById(preId)?.textContent||'';
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById(btnId);
+    btn.textContent='✓ Copied!';btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('ok');},2000);
+  });
+}
+
+function doClear(){
+  if(!confirm('Clear all fields?'))return;
+  ['title','excerpt','body'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('link').value='#';
+  const sl=document.getElementById('slug');sl.value='';delete sl.dataset.manual;
+  document.getElementById('emoji').value='🎵';
+  document.getElementById('cat').value='blog';
+  document.getElementById('featured').checked=false;
+  document.getElementById('date-picker').value='';
+  document.getElementById('date-display').textContent='—';
+  document.getElementById('date-display').style.color='var(--muted)';
+  document.querySelectorAll('.ep').forEach((b,i)=>b.classList.toggle('selected',i===0));
+  document.getElementById('out-card').textContent='<!-- Click Generate or Publish to see output -->';
+  document.getElementById('out-article').textContent='<!-- Click Generate or Publish to see output -->';
+  document.getElementById('out-script').textContent='<!-- Click Publish to see the shell script -->';
+  document.getElementById('publish-box').classList.remove('on');
+  document.getElementById('excerpt-count').textContent='0 / 200';
+  document.getElementById('body-count').textContent='0 chars';
+  ['field-title','field-excerpt'].forEach(id=>document.getElementById(id)?.classList.remove('field-error'));
+  document.getElementById('err-title').style.display='none';
+  document.getElementById('err-excerpt').style.display='none';
+  setToday();livePreview();
+}
+
+document.addEventListener('DOMContentLoaded',()=>{initEmojiGrid();setToday();livePreview();});
+</script>
+</body>
+</html>
