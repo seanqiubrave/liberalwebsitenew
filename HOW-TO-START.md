@@ -1,13 +1,15 @@
 # Liberal Music & Arts School — How To Start
 > Stack: Pure HTML · Bilingual EN/ZH · No framework · Branch: `master`
+> OS: **Windows** · Shell: **PowerShell** · Repo: `C:\Users\immor\Downloads\liberalwebsitenew`
 
 ---
 
 ## ⚡ EVERY NEW CHAT — DO THIS FIRST
 
-### 1. Pull latest from GitHub (on your Mac)
-```bash
-cd /Users/qiu/Downloads/liberalwebsiteredo && git pull origin master
+### 1. Pull latest from GitHub (PowerShell)
+```powershell
+cd C:\Users\immor\Downloads\liberalwebsitenew
+git pull origin master
 ```
 
 ### 2. Upload files to this chat
@@ -17,24 +19,26 @@ Upload **all** pages you want edited in **one go** at the start.
 ### 3. Tell Claude everything to fix in one message
 List all changes needed. Claude will edit all files in one pass.
 
-### 4. Download all outputs → replace on Mac
-```bash
-# Pages subfolder
-cp ~/Downloads/about.html /Users/qiu/Downloads/liberalwebsiteredo/pages/about.html
-cp ~/Downloads/courses.html /Users/qiu/Downloads/liberalwebsiteredo/pages/courses.html
-# repeat for each file
-
-# Root files
-cp ~/Downloads/index.html /Users/qiu/Downloads/liberalwebsiteredo/index.html
+### 4. Download all outputs → replace local files
+```powershell
+copy "C:\Users\immor\Downloads\filename.html" "C:\Users\immor\Downloads\liberalwebsitenew\pages\filename.html"
+# For root files:
+copy "C:\Users\immor\Downloads\index.html" "C:\Users\immor\Downloads\liberalwebsitenew\index.html"
+# For assets:
+copy "C:\Users\immor\Downloads\image.webp" "C:\Users\immor\Downloads\liberalwebsitenew\assets\"
 ```
 
 ### 5. Push once at the end
-```bash
-cd /Users/qiu/Downloads/liberalwebsiteredo
+```powershell
+cd C:\Users\immor\Downloads\liberalwebsitenew
 git add .
 git commit -m "describe changes"
 git push origin master
-# If rejected: git push origin master --force
+# If rejected (non-fast-forward):
+git pull origin master --rebase
+git push origin master
+# If still rejected:
+git push origin master --force
 ```
 
 ### 6. Re-upload changed files to Claude Project Knowledge
@@ -45,43 +49,112 @@ Keep project knowledge in sync so next chat Claude always reads the latest versi
 ## 📁 FILE STRUCTURE
 
 ```
-liberalwebsiteredo/
-├── index.html           ← English homepage
-├── index-zh.html        ← Chinese homepage
+liberalwebsitenew/
+├── index.html              ← English homepage
+├── index-zh.html           ← Chinese homepage
 ├── assets/
-│   ├── logo.webp        ← Navbar logo (NEVER inline base64)
-│   ├── logofooter.webp  ← Footer logo
-│   ├── address.webp     ← Location pin icon
+│   ├── logo.webp           ← Navbar logo (NEVER inline base64)
+│   ├── logofooter.webp     ← Footer logo
+│   ├── address.webp        ← Location pin icon
+│   ├── whatsapp.webp       ← WhatsApp FAB icon
 │   ├── Instagram.webp
 │   ├── facebook.webp
 │   ├── youtube.webp
-│   └── xiaohongshu.webp
-└── pages/
-    ├── about.html
-    ├── blog.html
-    ├── career.html
-    ├── contact.html
-    ├── courses.html
-    ├── instructors.html
-    ├── testimonial.html
-    ├── trial.html
-    │
-    ├── cecily.html      ← Instructor profile (CANONICAL TEMPLATE)
-    ├── calvin.html      ← Instructor profile
-    ├── kate.html        ← Instructor profile
-    ├── jiang.html       ← Instructor profile
-    ├── cheng.html       ← Instructor profile
-    ├── leonard.html     ← Instructor profile
-    └── loy.html         ← Instructor profile
+│   ├── xiaohongshu.webp
+│   └── blog-*.webp         ← Blog images (card + hero, one pair per article)
+├── pages/
+│   ├── about.html
+│   ├── blog.html           ← Blog grid page (cards only)
+│   ├── career.html
+│   ├── contact.html
+│   ├── courses.html
+│   ├── instructors.html
+│   ├── testimonial.html
+│   ├── trial.html
+│   ├── articles/           ← One .html per blog article
+│   │   └── liberal-blog-*.html
+│   ├── cecily.html         ← Instructor profile (CANONICAL TEMPLATE)
+│   ├── calvin.html
+│   ├── kate.html
+│   ├── jiang.html
+│   ├── cheng.html
+│   ├── leonard.html
+│   └── loy.html
+├── pages-zh/               ← Chinese pages (mirrors pages/)
+│   └── articles/
+└── tools/                  ← Internal tools, never linked from site
+    ├── Liberal_blog-generator.html   ← Blog generator (open in Chrome)
+    ├── publish-blog-*.ps1            ← Auto-generated publish scripts
+    ├── card-*.html                   ← Auto-generated card HTML
+    └── article-*.html                ← Auto-generated article HTML
 ```
 
 **Path rules (CRITICAL):**
 | File location | Logo src | Asset prefix |
 |---|---|---|
 | Root (`index.html`) | `assets/logo.webp` | `assets/` |
-| Subfolder (`pages/*.html`) | `../assets/logo.webp` | `../assets/` |
+| `pages/*.html` | `../assets/logo.webp` | `../assets/` |
+| `pages/articles/*.html` | `../../assets/logo.webp` | `../../assets/` |
 
-**Local test server:** `python3 -m http.server 8888` ← port 8888, NOT 8080
+**Local test server:**
+```powershell
+cd C:\Users\immor\Downloads\liberalwebsitenew
+python -m http.server 8888
+```
+Then open `http://localhost:8888` in Chrome.
+
+---
+
+## 📝 BLOG WORKFLOW (adding a new article)
+
+### Full auto-publish (recommended)
+
+1. Open `tools\Liberal_blog-generator.html` in Chrome
+2. Fill in: Title, Excerpt, Date, Category, Emoji, Article Body
+3. Optionally add image filenames (card image + hero image)
+4. Click **🚀 Publish to Website** — downloads 3 files:
+   - `publish-blog-[slug].ps1`
+   - `card-[slug].html`
+   - `article-[slug].html`
+5. Move all 3 files into `tools\`
+6. Also copy any blog images into `assets\`
+7. Open PowerShell and run:
+
+```powershell
+cd C:\Users\immor\Downloads\liberalwebsitenew
+Get-ChildItem "C:\Users\immor\Downloads\liberalwebsitenew\tools\*.ps1" | Unblock-File; Get-ChildItem "C:\Users\immor\Downloads\liberalwebsitenew\tools\publish-blog-*.ps1" | Select-Object -Last 1 | ForEach-Object { & $_.FullName }
+```
+
+The script automatically: pulls latest → inserts card into blog.html → saves article page → git add → commit → push.
+
+### First time setup (one-time only)
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+Press **Y** when prompted. Never needed again.
+
+### If push is rejected after running the script
+```powershell
+cd C:\Users\immor\Downloads\liberalwebsitenew
+git pull origin master --rebase
+git push origin master
+# If still failing:
+git push origin master --force
+```
+
+### Blog image sizes
+| Image | Size | Filename pattern | Location |
+|---|---|---|---|
+| Card thumbnail | 800 × 500 px | `blogname_card.webp` | `assets/` |
+| Article hero | 1200 × 600 px | `blogname.webp` | `assets/` |
+| Target file size | Card < 150KB, Hero < 300KB | Use [squoosh.app](https://squoosh.app) to compress |
+
+### blog.html marker (must be present)
+The publish script looks for this exact comment inside `.blog-grid`:
+```html
+<!-- PASTE NEW CARD HERE (top of grid = newest first) -->
+```
+If missing, the script will warn you. Add it manually above the first card.
 
 ---
 
@@ -129,7 +202,7 @@ Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 
 ## 👩‍🏫 INSTRUCTOR PROFILE PAGES
 
-7 profile pages live in `pages/`. All follow the same template — **`cecily.html` is the canonical base**.
+All follow the same template — **`cecily.html` is the canonical base**.
 
 | File | Instructor | Speciality |
 |---|---|---|
@@ -141,13 +214,11 @@ Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 | `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele |
 | `loy.html` | Mr Loy | Guitar · Ukulele |
 
-**To add a new instructor:** copy `cecily.html`, update all instructor-specific content, set `class="active"` on the Instructors nav link, and update the "Other Instructors" strip to exclude the new instructor. See `HEADER-FOOTER-GUIDE.md` Section 11 for full details.
-
 **Key rules for instructor pages:**
 - Book card button: `Book Trial Class` (no "Free")
-- Nav active link: always **Instructors**, not the instructor's own name
-- "Other Instructors" strip: always shows the other 6, never the current page's instructor
-- Add new page to `instructors.html` grid as a clickable `<a class="icard">` wrapper
+- Nav active link: always **Instructors**
+- "Other Instructors" strip: always shows the other 6, never the current instructor
+- Add new page to `instructors.html` grid as `<a class="icard">` wrapper
 
 ---
 
@@ -169,7 +240,7 @@ Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 **Header**
 - [ ] Announcement bar: `#f56c22`, correct trial link
 - [ ] Nav `top:36px`, `<main>` `padding-top:108px`
-- [ ] Logo: `../assets/logo.webp`, height `42px` (never base64)
+- [ ] Logo: correct asset path for file depth, height `42px` (never base64)
 - [ ] Nav link order correct, active page has `class="active"`
 - [ ] Book Trial button: `class="btn btn-cta"` + `style="padding:10px 22px;font-size:14px;"`
 - [ ] Mobile drawer present
@@ -178,15 +249,22 @@ Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 - [ ] Background `#1F2A44`, logo `logofooter.webp` height `56px`
 - [ ] Brand text: `color:#fff`, `font-size:15px`
 - [ ] Social icons: `.webp` assets with `filter:brightness(0) invert(1)`, no borders/boxes
-- [ ] All 5 locations with full names (Tengah/Tampines/Jurong West/Le Quest/Jurong Point Music School)
+- [ ] All 5 locations with full names
 - [ ] Location pins: `address.webp` white filter (Jurong Point uses `✦`)
-- [ ] Nav links: `color:#fff`, `font-size:15px`, no extra "Free Trial" item
+- [ ] Nav links: `color:#fff`, `font-size:15px`
 - [ ] Bottom bar has `v1.0.1` version tag
 - [ ] Kill-bottom-gap rules present
 
 **Floating**
-- [ ] WhatsApp FAB (all 3 numbers correct)
+- [ ] WhatsApp FAB uses `whatsapp.webp` icon (all 3 numbers correct)
 - [ ] Mobile sticky CTA bar with trial link
+
+**Article pages only (`pages/articles/*.html`)**
+- [ ] Asset paths use `../../assets/` (two levels up)
+- [ ] Nav links use `../../pages/` prefix
+- [ ] Hero image present (1200×600px, `../../assets/blogname.webp`)
+- [ ] Back to Blog link points to `../../pages/blog.html`
+- [ ] CTA band at bottom links to `../../pages/trial.html`
 
 **Instructor profile pages only**
 - [ ] Breadcrumb: Home → Our Instructors → Instructor Name
