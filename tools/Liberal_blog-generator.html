@@ -139,15 +139,15 @@
   <div class="panel-left">
     <div class="repo-bar">
       <label>Repo path</label>
-      <input type="text" id="repo-path" value="/Users/qiu/Downloads/liberalwebsiteredo" spellcheck="false"/>
+      <input type="text" id="repo-path" value="C:\Users\immor\Downloads\liberalwebsitenew" spellcheck="false"/>
     </div>
     <div class="card">
       <div class="sec-title"><i class="icon">ℹ</i> How to Use</div>
       <ul class="steps">
         <li><div class="step-n">1</div><div>Fill in the article details below. The live preview on the right updates as you type.</div></li>
-        <li><div class="step-n">2</div><div>Click <strong>🚀 Publish to Website</strong> <span class="tag-new">new</span> — it downloads a <code>publish-blog-[slug].sh</code> script to your Downloads.</div></li>
-        <li><div class="step-n">3</div><div>Open <strong>Terminal</strong> (⌘ Space → type Terminal → Enter). Drag the <code>.sh</code> file into Terminal. Press <strong>Enter</strong>. Done.</div></li>
-        <li><div class="step-n">4</div><div>The script inserts the card into blog.html, saves the article page, commits, and pushes to GitHub automatically — no VS Code needed.</div></li>
+        <li><div class="step-n">2</div><div>Click <strong>🚀 Publish to Website</strong> <span class="tag-new">new</span> — it downloads 3 files: a <code>.ps1</code> PowerShell script, <code>card-slug.html</code>, and <code>article-slug.html</code>.</div></li>
+        <li><div class="step-n">3</div><div>Move all 3 files into your <code>tools\</code> folder inside the project.</div></li>
+        <li><div class="step-n">4</div><div>Open <strong>PowerShell</strong> (Win+R → type <code>powershell</code> → Enter). Run: <code>&amp; "C:\Users\immor\Downloads\liberalwebsitenew\tools\publish-blog-slug.ps1"</code>. The script inserts the card, saves the article, commits and pushes automatically.</div></li>
       </ul>
     </div>
     <div class="card">
@@ -223,11 +223,13 @@
       <button class="btn btn-ghost"   onclick="doClear()">🗑 Clear</button>
     </div>
     <div class="publish-box" id="publish-box">
-      <h4>✅ Script downloaded — 3 steps to publish:</h4>
+      <h4>✅ Files downloaded — follow these steps:</h4>
       <ul class="publish-steps">
-        <li>Open <strong>Terminal</strong> on your Mac (press <strong>⌘ Space</strong>, type Terminal, press Enter)</li>
-        <li>Drag the downloaded <code id="publish-filename">publish-blog-slug.sh</code> into the Terminal window</li>
-        <li>Press <strong>Enter</strong> — the script inserts the card, saves the article, commits and pushes to GitHub automatically</li>
+        <li>Move all 3 downloaded files into your <strong>tools\</strong> folder:<br><code id="publish-filename">publish-blog-slug.ps1</code>, <code>card-slug.html</code>, <code>article-slug.html</code></li>
+        <li>Open <strong>PowerShell</strong> (press <strong>Win+R</strong>, type <code>powershell</code>, press Enter)</li>
+        <li>First time only — run: <code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code> then press <strong>Y</strong></li>
+        <li>Run the script: <code>&amp; "C:\Users\immor\Downloads\liberalwebsitenew\tools\<span id='publish-filename2'>publish-blog-slug.ps1</span>"</code></li>
+        <li>Done ✓ — live in ~30 seconds at your GitHub Pages URL</li>
       </ul>
     </div>
   </div>
@@ -257,7 +259,7 @@
     <div class="preview-tabs">
       <button class="ptab on" id="tab-card"    onclick="switchTab('card')">Card HTML</button>
       <button class="ptab"    id="tab-article" onclick="switchTab('article')">Article Page</button>
-      <button class="ptab"    id="tab-script"  onclick="switchTab('script')">Publish Script</button>
+      <button class="ptab"    id="tab-script"  onclick="switchTab('script')">PowerShell Script</button>
     </div>
     <div id="out-card-block" class="out-block on">
       <div class="out-label">Card HTML — inserted at top of .blog-grid <button class="copy-btn" id="copy-card" onclick="copyOut('out-card','copy-card')">Copy</button></div>
@@ -415,173 +417,282 @@ function buildCard(){
 }
 
 function buildArticlePage(){
-  const title=v('title')||'Untitled',cat=v('cat')||'blog',date=getFormattedDate()||'',excerpt=v('excerpt')||'',body=toHtml(v('body'));
+  const title=v('title')||'Untitled';
+  const cat=v('cat')||'blog';
+  const date=getFormattedDate()||'';
+  const excerpt=v('excerpt')||'';
+  const body=toHtml(v('body'));
   const catLabel=cat==='event'?'Events':cat.charAt(0).toUpperCase()+cat.slice(1);
-  const catBg=cat==='blog'?'#FFF4ED':cat==='news'?'#EEF2F8':'#E8E4FF';
-  const catTxt=cat==='blog'?'#FF6600':cat==='news'?'#1F2A44':'#5550c8';
-  const indent=body?body.split('\n').map(l=>'      '+l).join('\n'):'      <!-- Add article body here -->';
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>${he(title)} | Liberal Music &amp; Arts School</title>
-  <meta name="description" content="${he(excerpt)}"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root{--or:#FF6600;--ink:#1F2A44;--body:#5A6B85;--muted:#8FA2BC;--border:#DDE6F2}
-    *{box-sizing:border-box;margin:0;padding:0}html{background:#1F2A44}
-    body{font-family:'Quicksand',system-ui,sans-serif;color:var(--body);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.65}
-    h1,h2,h3{font-family:'Nunito',sans-serif;color:var(--ink);font-weight:900;line-height:1.2}
-    a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
-    .article-wrap{max-width:760px;margin:0 auto;padding:60px 24px 100px}
-    .article-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
-    .art-cat{padding:4px 14px;border-radius:999px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;background:${catBg};color:${catTxt}}
-    .art-date{font-size:13px;color:var(--muted);font-weight:600}
-    .article-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--ink);margin-bottom:16px}
-    .article-lead{font-size:18px;color:var(--body);line-height:1.75;padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:36px}
-    .article-body{font-size:17px;line-height:1.85;color:var(--body)}
-    .article-body h2{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:900;color:var(--ink);margin:36px 0 12px}
-    .article-body p{margin-bottom:18px}
-    .article-body ul{list-style:disc;margin:12px 0 18px 20px;display:flex;flex-direction:column;gap:8px}
-    .article-body li{color:var(--body);line-height:1.7}.article-body li::marker{color:var(--or)}
-    .back-link{display:inline-flex;align-items:center;gap:7px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--muted);margin-bottom:32px;transition:color .2s}
-    .back-link:hover{color:var(--or)}
-    .cta-band{background:linear-gradient(135deg,#FFF7F2,#FFEEDD);padding:60px 24px;text-align:center;margin-top:60px;border-radius:20px}
-    .cta-band h3{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;color:var(--ink);margin-bottom:10px}
-    .cta-band p{font-size:16px;color:var(--body);margin-bottom:24px}
-    .btn-cta{background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;padding:14px 32px;border-radius:999px;display:inline-block;box-shadow:0 8px 24px rgba(255,102,0,.28);transition:background .2s,transform .2s}
-    .btn-cta:hover{background:#E55900;transform:translateY(-2px)}
-  </style>
-</head>
-<body>
-  <!-- PASTE SITE NAV HERE -->
-  <main style="padding-top:108px">
-    <div class="article-wrap">
-      <a href="../blog.html" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back to Blog</a>
-      <div class="article-meta"><span class="art-cat">${catLabel}</span><span class="art-date">${date}</span></div>
-      <h1 class="article-title">${he(title)}</h1>
-      <p class="article-lead">${he(excerpt)}</p>
-      <div class="article-body">
-${indent}
-      </div>
-      <div class="cta-band">
-        <h3>Ready to Start Your Child's Musical Journey?</h3>
-        <p>Book a free trial class at any of our 5 Singapore locations.</p>
-        <a href="../trial.html" class="btn-cta">Book Free Trial Class</a>
-      </div>
-    </div>
-  </main>
-  <!-- PASTE SITE FOOTER HERE -->
-</body>
-</html>`;
+  const catColor=cat==='blog'?'var(--or)':cat==='news'?'#1F2A44':'#5550c8';
+  const catBg=cat==='blog'?'var(--or-lt)':cat==='news'?'#EEF2F8':'#E8E4FF';
+  const indent=body?body.split('\n').map(function(l){return'            '+l;}).join('\n'):'            <!-- Article body goes here -->';
+
+  // Built with string concat to avoid backtick conflicts inside <script> tags
+  var H='';
+  H+='<!DOCTYPE html>\n';
+  H+='<html lang="en">\n';
+  H+='<head>\n';
+  H+='  <meta charset="UTF-8"/>\n';
+  H+='  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>\n';
+  H+='  <title>'+he(title)+' | Liberal Music &amp; Arts School</title>\n';
+  H+='  <meta name="description" content="'+he(excerpt)+'"/>\n';
+  H+='  <link rel="preconnect" href="https://fonts.googleapis.com"/>\n';
+  H+='  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n';
+  H+='  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>\n';
+  H+='  <style>\n';
+  H+='    :root{--or:#FF6600;--or-dk:#E55900;--or-lt:#FFF4ED;--or-pale:#FFF7F2;--or-glow:rgba(255,102,0,.16);--or-sh:0 12px 32px rgba(255,102,0,.22);--or-shh:0 16px 40px rgba(255,102,0,.34);--w:#FFFFFF;--s1:#FFFAF5;--s2:#F8FBFF;--ink:#1F2A44;--body:#5A6B85;--muted:#8FA2BC;--teal:#B8F2E6;--lav:#E8E4FF;--r:16px;--r-l:20px;--sh:0 8px 28px rgba(31,42,68,.09);--sh-l:0 20px 56px rgba(31,42,68,.11);--sp:cubic-bezier(.22,1,.36,1);--ea:cubic-bezier(.4,0,.2,1);--t:.22s}\n';
+  H+='    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}\n';
+  H+='    html{scroll-behavior:smooth;background:#1F2A44}\n';
+  H+='    body{font-family:\'Quicksand\',system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}\n';
+  H+='    h1,h2,h3,h4{font-family:\'Nunito\',sans-serif;color:var(--ink);line-height:1.18;font-weight:900}\n';
+  H+='    a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-style:none}\n';
+  H+='    .W{max-width:1240px;margin:0 auto;padding:0 32px}\n';
+  H+='    section{padding:100px 0}\n';
+  H+='    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:\'Nunito\',sans-serif;font-weight:800;border-radius:999px;white-space:nowrap;border:none;cursor:pointer;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}\n';
+  H+='    .btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh);font-size:18px;padding:13px 28px}\n';
+  H+='    .btn-cta:hover{background:var(--or-dk);box-shadow:var(--or-shh);transform:translateY(-2px) scale(1.04)}\n';
+  H+='    .btn-lg{font-size:18px;padding:17px 40px}\n';
+  H+='    .btn-ink{background:var(--ink);color:#fff;font-family:\'Nunito\',sans-serif;font-weight:800;font-size:18px;padding:15px 36px;border-radius:999px;border:none;cursor:pointer;transition:all var(--t) var(--sp);display:inline-flex;align-items:center;gap:8px;text-decoration:none}\n';
+  H+='    .btn-ink:hover{background:#2d3f5e;transform:translateY(-2px) scale(1.04);box-shadow:0 12px 32px rgba(31,42,68,.25)}\n';
+  H+='    .pill-tag{font-family:\'Nunito\',sans-serif;font-weight:800;font-size:21.5px;text-transform:uppercase;letter-spacing:1.4px;padding:7px 16px;border-radius:999px;margin-bottom:20px;display:inline-block}\n';
+  H+='    .pt-lv{background:#98a3f8;color:#fff}\n';
+  H+='    .sr,.sl,.sfr{opacity:1;transform:none}\n';
+  H+='    body.reveal-ready .sr{opacity:0;transform:translateY(22px);transition:opacity .65s var(--sp),transform .65s var(--sp)}\n';
+  H+='    body.reveal-ready .sr.in{opacity:1!important;transform:none!important}\n';
+  H+='    .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}\n';
+  H+='    .ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}\n';
+  H+='    .ann-bar a{display:flex;align-items:center;gap:8px;font-family:\'Nunito\',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}\n';
+  H+='    .ann-bar a:hover{opacity:.85}\n';
+  H+='    .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}\n';
+  H+='    .nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 0 rgba(221,230,245,.8),0 6px 30px rgba(31,42,68,.07)}\n';
+  H+='    .nav-row{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}\n';
+  H+='    .nav-logo{display:flex;align-items:center;flex-shrink:0}.nav-logo img{height:42px;width:auto}\n';
+  H+='    .nav-links{display:flex;align-items:center;gap:2px}\n';
+  H+='    .nav-links a{display:block;padding:8px 14px;border-radius:var(--r);font-weight:600;font-size:18px;color:var(--body);transition:color var(--t),background var(--t)}\n';
+  H+='    .nav-links a:hover{color:var(--or);background:var(--or-lt)}.nav-links a.active{color:var(--or)}\n';
+  H+='    .nav-end{display:flex;align-items:center;gap:10px}\n';
+  H+='    .nav-lang{font-size:15.5px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:5px 12px;border-radius:999px;cursor:pointer;transition:all var(--t);text-decoration:none}\n';
+  H+='    .nav-lang:hover{border-color:var(--or);color:var(--or)}\n';
+  H+='    .nav-ham{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:var(--r);background:none;border:none;cursor:pointer;transition:background var(--t)}\n';
+  H+='    .nav-ham:hover{background:var(--or-lt)}\n';
+  H+='    .nav-ham span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .32s var(--sp),opacity .24s}\n';
+  H+='    .nav-ham.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}\n';
+  H+='    .nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}\n';
+  H+='    .nav-ham.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}\n';
+  H+='    .nav-drawer{display:none;position:fixed;top:108px;left:0;right:0;z-index:999;background:var(--w);border-bottom:1px solid #EEF2F8;padding:16px 28px 28px;flex-direction:column;gap:4px;box-shadow:0 18px 52px rgba(31,42,68,.12)}\n';
+  H+='    .nav-drawer.on{display:flex}\n';
+  H+='    .nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:25.5px;color:var(--ink);transition:background var(--t),color var(--t);text-decoration:none}\n';
+  H+='    .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}.nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:12px}\n';
+  H+='    @media(max-width:900px){.nav-links,.nav-lang,.nav-end .btn-cta{display:none}.nav-ham{display:flex}}\n';
+  H+='    .article-hero{background:linear-gradient(160deg,#FFF6EE 0%,#FFFAF5 55%,#F8FBFF 100%);padding:60px 0 70px;position:relative;overflow:hidden}\n';
+  H+='    .article-hero::before{content:\'\';position:absolute;top:-80px;right:-80px;width:440px;height:440px;background:radial-gradient(circle,rgba(255,102,0,.08) 0%,transparent 70%);pointer-events:none}\n';
+  H+='    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:6px;font-weight:600}\n';
+  H+='    .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}\n';
+  H+='    .art-meta{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}\n';
+  H+='    .art-cat{padding:5px 16px;border-radius:999px;font-family:\'Nunito\',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;background:'+catBg+';color:'+catColor+'}\n';
+  H+='    .art-date{font-size:14px;color:var(--muted);font-weight:600}\n';
+  H+='    .article-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--ink);line-height:1.12;margin-bottom:20px}\n';
+  H+='    .article-lead{font-size:20px;color:var(--body);line-height:1.75;max-width:700px;font-weight:400}\n';
+  H+='    .article-wrap{max-width:760px;margin:0 auto}\n';
+  H+='    .back-link{display:inline-flex;align-items:center;gap:8px;font-family:\'Nunito\',sans-serif;font-size:15px;font-weight:800;color:var(--muted);margin-bottom:40px;padding:9px 18px;border-radius:999px;border:1.5px solid #DDE6F2;background:var(--w);transition:all var(--t)}\n';
+  H+='    .back-link:hover{border-color:var(--or);color:var(--or);background:var(--or-lt)}\n';
+  H+='    .art-divider{width:60px;height:4px;background:var(--or);border-radius:2px;margin:40px 0}\n';
+  H+='    .article-body{font-size:18px;line-height:1.85;color:var(--body);font-weight:400}\n';
+  H+='    .article-body p{margin-bottom:22px}\n';
+  H+='    .article-body h2{font-family:\'Nunito\',sans-serif;font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:900;color:var(--ink);margin:48px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--or-lt)}\n';
+  H+='    .article-body ul{list-style:disc;margin:0 0 22px 24px;display:flex;flex-direction:column;gap:10px}\n';
+  H+='    .article-body li{color:var(--body);line-height:1.75;font-size:18px}.article-body li::marker{color:var(--or)}\n';
+  H+='    .article-body blockquote{background:var(--or-lt);border-left:4px solid var(--or);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin:32px 0;font-style:italic;font-size:18px;color:var(--ink)}\n';
+  H+='    .cta-band{background:linear-gradient(135deg,#FFF7F2 0%,#FFF7EE 50%,#FFEEDD 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}\n';
+  H+='    .cta-band::before{content:\'\';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,102,0,.10) 0%,transparent 70%)}\n';
+  H+='    .cta-band h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--ink);margin-bottom:14px;position:relative;z-index:1}\n';
+  H+='    .cta-band p{font-size:18px;color:var(--body);max-width:480px;margin:0 auto 36px;line-height:1.75;position:relative;z-index:1;font-weight:400}\n';
+  H+='    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}\n';
+  H+='    .footer{background:#1F2A44;margin:0;border-top:none;padding:80px 0 0}\n';
+  H+='    .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}\n';
+  H+='    .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}\n';
+  H+='    .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;font-weight:400}\n';
+  H+='    .foot-soc{display:flex;gap:9px;margin-top:24px}\n';
+  H+='    .foot-soc a{width:36px;height:36px;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}\n';
+  H+='    .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}\n';
+  H+='    .foot-col h5{font-family:\'Nunito\',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}\n';
+  H+='    .foot-col h5::after{content:\'\';flex:1;height:1px;background:rgba(255,255,255,.12)}\n';
+  H+='    .foot-col ul{display:flex;flex-direction:column;gap:10px}\n';
+  H+='    .foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block;font-weight:500}\n';
+  H+='    .foot-col a:hover{color:#fff;padding-left:4px}\n';
+  H+='    .foot-locs{display:flex;flex-direction:column;gap:8px}\n';
+  H+='    .foot-loc{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:flex-start;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:background .18s,border-color .18s,transform .18s var(--sp)}\n';
+  H+='    .foot-loc:hover{background:rgba(255,102,0,.12);border-color:rgba(255,102,0,.30);transform:translateX(3px)}\n';
+  H+='    .foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}\n';
+  H+='    .foot-loc-text strong{display:block;font-family:\'Nunito\',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}\n';
+  H+='    .foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}\n';
+  H+='    .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}\n';
+  H+='    .foot-loc.soon .foot-loc-text strong{color:var(--or)}.foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}\n';
+  H+='    .foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}\n';
+  H+='    .foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}.foot-btm-links{display:flex;gap:20px;align-items:center}\n';
+  H+='    .foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s}.foot-btm a:hover{color:#fff}\n';
+  H+='    @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}\n';
+  H+='    @media(max-width:700px){.foot-grid{grid-template-columns:1fr}.foot-brand{border-bottom:1px solid rgba(255,102,0,.1);padding-bottom:28px}}\n';
+  H+='    html,body{margin-bottom:0!important;padding-bottom:0!important;height:auto!important}\n';
+  H+='    footer{margin-bottom:0!important}.footer{padding-bottom:0!important}\n';
+  H+='    .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}\n';
+  H+='    .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}\n';
+  H+='    .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}\n';
+  H+='    .wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}\n';
+  H+='    .wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}\n';
+  H+='    .wa-panel h4{font-family:\'Nunito\',sans-serif;font-size:16px;font-weight:900;color:var(--ink);margin-bottom:4px}\n';
+  H+='    .wa-panel p{font-size:13px;color:var(--muted);margin-bottom:14px}\n';
+  H+='    .wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:\'Nunito\',sans-serif;font-weight:700;font-size:14px;color:var(--ink);transition:all var(--t);text-decoration:none}\n';
+  H+='    .wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}\n';
+  H+='    .wa-row span{font-size:12px;font-weight:500;color:var(--muted)}.wa-row:hover span{color:#1a8a45}\n';
+  H+='    .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}\n';
+  H+='    .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}\n';
+  H+='    @media(max-width:900px){.mob-bar{display:block}.wa{bottom:84px}}\n';
+  H+='    @media(max-width:600px){.W{padding:0 20px}.article-body{font-size:16px}}\n';
+  H+='  </style>\n';
+  H+='</head>\n';
+  H+='<body>\n';
+  H+='  <div class="ann-bar"><a href="../../pages/trial.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/><path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/><line x1="12" y1="12" x2="12" y2="19"/></svg>Liberal Music &amp; Arts School \u2014 Book your FREE Trial Class today at any of our 5 Singapore locations!</a></div>\n';
+  H+='  <nav class="nav" id="nav"><div class="W"><div class="nav-row">\n';
+  H+='    <a href="../../index.html" class="nav-logo" aria-label="Liberal Music &amp; Arts Home"><img src="../../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display=\'none\'"/></a>\n';
+  H+='    <ul class="nav-links"><li><a href="../../index.html">Home</a></li><li><a href="../../pages/about.html">About</a></li><li><a href="../../pages/courses.html">Courses</a></li><li><a href="../../pages/instructors.html">Instructors</a></li><li><a href="../../pages/testimonial.html">Review</a></li><li><a href="../../pages/blog.html" class="active">Blog</a></li><li><a href="../../pages/contact.html">Contact</a></li></ul>\n';
+  H+='    <div class="nav-end"><a href="../../index-zh.html" class="nav-lang">\u4e2d\u6587</a><a href="../../pages/trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a></div>\n';
+  H+='    <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>\n';
+  H+='  </div></div></nav>\n';
+  H+='  <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation"><a href="../../index.html">Home</a><a href="../../pages/about.html">About</a><a href="../../pages/courses.html">Courses</a><a href="../../pages/instructors.html">Instructors</a><a href="../../pages/testimonial.html">Review</a><a href="../../pages/blog.html">Blog</a><a href="../../pages/contact.html">Contact</a><a href="../../pages/trial.html" class="btn btn-cta">Book Trial Class</a></nav>\n';
+  H+='  <main style="padding-top:108px">\n';
+  H+='    <section class="article-hero"><div class="W">\n';
+  H+='      <div class="breadcrumb sr"><a href="../../index.html">Home</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg><a href="../../pages/blog.html">Blog</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg><span style="color:var(--or);font-weight:700">'+he(title)+'</span></div>\n';
+  H+='      <div class="art-meta sr d1"><span class="art-cat">'+catLabel+'</span><span class="art-date">'+date+'</span></div>\n';
+  H+='      <h1 class="article-title sr d2">'+he(title)+'</h1>\n';
+  H+='      <p class="article-lead sr d3">'+he(excerpt)+'</p>\n';
+  H+='    </div></section>\n';
+  H+='    <section style="background:var(--w);padding:80px 0 60px"><div class="W"><div class="article-wrap">\n';
+  H+='      <a href="../../pages/blog.html" class="back-link sr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back to Blog</a>\n';
+  H+='      <div class="article-body sr d1">\n';
+  H+=indent+'\n';
+  H+='      </div>\n';
+  H+='    </div></div></section>\n';
+  H+='    <section class="cta-band"><div class="W">\n';
+  H+='      <span class="pill-tag pt-lv sr">Start Today</span>\n';
+  H+='      <h2 class="sr d1">Ready to Begin Your Child\'s Journey?</h2>\n';
+  H+='      <p class="sr d2">Book a free trial class and let us show you what makes Liberal Music &amp; Arts School so special.</p>\n';
+  H+='      <div class="cta-btns sr d3"><a href="../../pages/trial.html" class="btn btn-cta btn-lg">Book Free Trial Class</a><a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="btn-ink"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp Us</a></div>\n';
+  H+='    </div></section>\n';
+  H+='  </main>\n';
+  H+='  <footer class="footer"><div class="W">\n';
+  H+='    <div class="foot-grid">\n';
+  H+='      <div class="foot-brand"><img src="../../assets/logofooter.webp" alt="Liberal Music &amp; Arts School" onerror="this.src=\'../../assets/logo.webp\'"/><p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4&#8211;16. Expert teachers, holistic learning, and real results &#8212; trusted by over 500 Singapore families since 2014.</p><div class="foot-soc"><a href="#" aria-label="Instagram"><img src="../../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a><a href="#" aria-label="Facebook"><img src="../../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a><a href="#" aria-label="YouTube"><img src="../../assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a><a href="#" aria-label="Xiaohongshu"><img src="../../assets/xiaohongshu.webp" alt="Xiaohongshu" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a></div></div>\n';
+  H+='      <div class="foot-col"><h5>Navigation</h5><ul><li><a href="../../index.html">Home</a></li><li><a href="../../pages/about.html">About</a></li><li><a href="../../pages/courses.html">Courses</a></li><li><a href="../../pages/instructors.html">Instructors</a></li><li><a href="../../pages/testimonial.html">Review</a></li><li><a href="../../pages/blog.html">Blog</a></li><li><a href="../../pages/contact.html">Contact</a></li></ul></div>\n';
+  H+='      <div class="foot-col"><h5>Our Locations</h5><div class="foot-locs">\n';
+  H+='        <div class="foot-loc"><span class="foot-loc-pin"><img src="../../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span><div class="foot-loc-text"><strong>Tengah Music School</strong><span>127A Plantation Crescent, #01-381<br>Singapore 691127</span></div></div>\n';
+  H+='        <div class="foot-loc"><span class="foot-loc-pin"><img src="../../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span><div class="foot-loc-text"><strong>Tampines Music School</strong><span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span></div></div>\n';
+  H+='        <div class="foot-loc"><span class="foot-loc-pin"><img src="../../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span><div class="foot-loc-text"><strong>Jurong West Music School</strong><span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span></div></div>\n';
+  H+='        <div class="foot-loc"><span class="foot-loc-pin"><img src="../../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span><div class="foot-loc-text"><strong>Le Quest Mall Music School</strong><span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span></div></div>\n';
+  H+='        <div class="foot-loc soon"><span class="foot-loc-pin">&#10022;</span><div class="foot-loc-text"><strong>Jurong Point Music School</strong><span>Opening Soon &#8212; Register Interest</span></div></div>\n';
+  H+='      </div></div>\n';
+  H+='    </div>\n';
+  H+='    <div class="foot-btm"><p>&#169; 2025 Liberal Music &amp; Arts School. All rights reserved.</p><div class="foot-btm-links"><span style="font-size:12px;color:rgba(255,255,255,.22);font-family:\'Nunito\',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="../../index-zh.html">\u4e2d\u6587\u7248\u672c</a></div></div>\n';
+  H+='  </div></footer>\n';
+  H+='  <div class="wa"><div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp us"><h4>\ud83d\udcac Chat with Us!</h4><p>Pick your nearest branch to WhatsApp directly.</p><a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">\ud83c\udfe1 Tengah <span>8922 2848</span></a><a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">\ud83c\udf05 Tampines <span>8892 1198</span></a><a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">\ud83c\udf38 Jurong West / JP <span>9627 7582</span></a></div><button class="wa-fab" id="waFab" aria-label="Open WhatsApp"><img src="../../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;" onerror="this.outerHTML=\'\ud83d\udcac\'"/></button></div>\n';
+  H+='  <div class="mob-bar"><a href="../../pages/trial.html" class="btn btn-cta">&#10022; Book Free Trial Class</a></div>\n';
+  H+='  <script>\n';
+  H+='  (function(){\n';
+  H+='    var nav=document.getElementById(\'nav\');\n';
+  H+='    window.addEventListener(\'scroll\',function(){nav.classList.toggle(\'scrolled\',scrollY>20);},{passive:true});\n';
+  H+='    var ham=document.getElementById(\'navHam\'),drw=document.getElementById(\'navDrawer\');\n';
+  H+='    ham.addEventListener(\'click\',function(){var o=drw.classList.toggle(\'on\');ham.classList.toggle(\'open\',o);ham.setAttribute(\'aria-expanded\',String(o));});\n';
+  H+='    document.addEventListener(\'click\',function(e){if(!e.target.closest(\'.nav\')&&!e.target.closest(\'.nav-drawer\')){drw.classList.remove(\'on\');ham.classList.remove(\'open\');}});\n';
+  H+='    var waFab=document.getElementById(\'waFab\'),waPanel=document.getElementById(\'waPanel\');\n';
+  H+='    waFab.addEventListener(\'click\',function(e){e.stopPropagation();waPanel.classList.toggle(\'on\');});\n';
+  H+='    document.addEventListener(\'click\',function(e){if(!e.target.closest(\'.wa\'))waPanel.classList.remove(\'on\');});\n';
+  H+='    document.body.classList.add(\'reveal-ready\');\n';
+  H+='    var rvIO=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add(\'in\');rvIO.unobserve(en.target);}});},{threshold:.05,rootMargin:\'0px 0px -10px 0px\'});\n';
+  H+='    document.querySelectorAll(\'.sr,.sl,.sfr\').forEach(function(el){rvIO.observe(el);});\n';
+  H+='  })();\n';
+  H+='  <\/script>\n';
+  H+='</body>\n';
+  H+='</html>';
+  return H;
 }
 
 function buildScript(){
-  const repo=document.getElementById('repo-path').value.trim()||'/Users/qiu/Downloads/liberalwebsiteredo';
-  const slug=v('slug')||'article';
-  const hasBody=v('body').length>0;
-  const title=v('title')||'new article';
-  const cardHtml=buildCard();
-  const artHtml=buildArticlePage();
-
-  // Escape for use inside Python heredoc string
-  function pyStr(s){return s.replace(/\\/g,'\\\\').replace(/"""/g,'\\"\\"\\"');}
-
-  return `#!/bin/bash
-# ═══════════════════════════════════════════════════════════════
-#  Liberal Blog Publisher — Blog Generator v3.0
-#  Article : ${title}
-#  Slug    : ${slug}
-#  ─────────────────────────────────────────────────────────────
-#  HOW TO RUN:
-#  1. Open Terminal  (⌘ Space → Terminal → Enter)
-#  2. Drag this file into Terminal
-#  3. Press Enter
-# ═══════════════════════════════════════════════════════════════
-set -e
-
-REPO="${repo}"
-BLOG="$REPO/pages/blog.html"
-${hasBody?`ARTICLE="$REPO/pages/articles/${slug}.html"`:''}
-
-echo ""
-echo "🎵 Liberal Blog Publisher"
-echo "   Article : ${title}"
-echo "   Slug    : ${slug}"
-echo ""
-
-# ── Check repo exists ──────────────────────────────────────────
-if [ ! -f "$BLOG" ]; then
-  echo "❌  ERROR: Cannot find $BLOG"
-  echo "    Make sure the Repo Path in the Blog Generator is correct:"
-  echo "    ${repo}"
-  exit 1
-fi
-
-# ── Pull latest ────────────────────────────────────────────────
-echo "📥  Pulling latest from GitHub..."
-cd "$REPO" && git pull origin master --quiet 2>&1 || echo "    (pull skipped — no remote changes)"
-
-# ── Insert card into blog.html using Python ────────────────────
-echo "✍️   Inserting card into blog.html..."
-python3 << 'PYEOF'
-import sys
-
-blog_path = "${repo}/pages/blog.html"
-marker    = "<!-- \\u25bc PASTE NEW CARD HERE (top of grid = newest first) \\u25bc -->"
-
-card = """${pyStr(cardHtml)}"""
-
-with open(blog_path, 'r', encoding='utf-8') as f:
-    content = f.read()
-
-# Try exact marker first
-if marker in content:
-    new_content = content.replace(marker + "\\n", marker + "\\n\\n" + card + "\\n", 1)
-    print("   Marker found — card inserted.")
-else:
-    # Fallback: insert after opening of .blog-grid
-    fallback = '<div class="blog-grid">'
-    if fallback in content:
-        new_content = content.replace(fallback, fallback + "\\n\\n          " + marker + "\\n\\n" + card, 1)
-        print("   Marker not found — used fallback insertion. Please add the marker comment to blog.html for future posts.")
-    else:
-        print("ERROR: Could not find insertion point in blog.html")
-        sys.exit(1)
-
-with open(blog_path, 'w', encoding='utf-8') as f:
-    f.write(new_content)
-
-print("   blog.html updated.")
-PYEOF
-
-${hasBody?`
-# ── Save article page ──────────────────────────────────────────
-echo "📄  Saving article page..."
-mkdir -p "$REPO/pages/articles"
-cat > "$ARTICLE" << 'ARTICLEEOF'
-${artHtml}
-ARTICLEEOF
-echo "   Saved: pages/articles/${slug}.html"`:`echo "ℹ️   No article body — skipping article page."`}
-
-# ── Git commit & push ──────────────────────────────────────────
-echo "📤  Committing and pushing to GitHub..."
-cd "$REPO"
-git add pages/blog.html${hasBody?` pages/articles/${slug}.html`:''}
-git commit -m "blog: add ${slug}"
-git push origin master
-
-echo ""
-echo "🎉  Published successfully!"
-echo "    Article : ${title}"
-echo "    Live in ~30 seconds:"
-echo "    https://seanqiubrave.github.io/liberalwebsitenew/pages/blog.html"
-echo ""
-`;
+  var repo=document.getElementById('repo-path').value.trim()||'C:\\Users\\immor\\Downloads\\liberalwebsitenew';
+  var slug=v('slug')||'article';
+  var hasBody=v('body').length>0;
+  var title=v('title')||'new article';
+  var repoEsc=repo.replace(/\\/g,'\\\\');
+  var S='';
+  S+='# ================================================================\n';
+  S+='# Liberal Blog Publisher — PowerShell (Windows)\n';
+  S+='# Article : '+title+'\n';
+  S+='# Slug    : '+slug+'\n';
+  S+='# ----------------------------------------------------------------\n';
+  S+='# HOW TO RUN:\n';
+  S+='#   1. Move all 3 downloaded files into your tools\\ folder\n';
+  S+='#   2. Open PowerShell (Win+R -> powershell -> Enter)\n';
+  S+='#   3. First time only: Set-ExecutionPolicy -Scope CurrentUser RemoteSigned\n';
+  S+='#   4. Run: & "'+repo+'\\tools\\publish-blog-'+slug+'.ps1"\n';
+  S+='# ================================================================\n\n';
+  S+='$ErrorActionPreference = "Stop"\n';
+  S+='$repo = "'+repo+'"\n';
+  S+='$slug = "'+slug+'"\n';
+  S+='$blog = "$repo\\pages\\blog.html"\n';
+  if(hasBody) S+='$article = "$repo\\pages\\articles\\'+slug+'.html"\n';
+  S+='\nWrite-Host "" \nWrite-Host "  Liberal Blog Publisher" -ForegroundColor Cyan\n';
+  S+='Write-Host "  Article : '+title+'" -ForegroundColor White\n';
+  S+='Write-Host "  Slug    : '+slug+'" -ForegroundColor White\nWrite-Host ""\n\n';
+  S+='if (-not (Test-Path $blog)) {\n';
+  S+='  Write-Host "ERROR: Cannot find $blog" -ForegroundColor Red\n';
+  S+='  Write-Host "Check the Repo Path in the Blog Generator." -ForegroundColor Yellow\n';
+  S+='  exit 1\n}\n\n';
+  S+='Write-Host "Pulling latest from GitHub..." -ForegroundColor Yellow\n';
+  S+='Set-Location $repo\n';
+  S+='git pull origin master --quiet\n';
+  S+='Write-Host "Pull done." -ForegroundColor Green\n\n';
+  S+='Write-Host "Inserting card into blog.html..." -ForegroundColor Yellow\n';
+  S+='$marker = "<!-- PASTE NEW CARD HERE (top of grid = newest first) -->"\n';
+  S+='$content = Get-Content $blog -Raw -Encoding UTF8\n';
+  S+='$cardFile = "$repo\\tools\\card-'+slug+'.html"\n\n';
+  S+='if (-not (Test-Path $cardFile)) {\n';
+  S+='  Write-Host "ERROR: card-'+slug+'.html not found in tools\\ folder." -ForegroundColor Red\n';
+  S+='  Write-Host "Download it from the generator and move it to: $repo\\tools\\" -ForegroundColor Yellow\n';
+  S+='  exit 1\n}\n\n';
+  S+='if ($content.Contains($marker)) {\n';
+  S+='  $card = Get-Content $cardFile -Raw -Encoding UTF8\n';
+  S+='  $newContent = $content.Replace($marker, $marker + "`r`n`r`n" + $card + "`r`n")\n';
+  S+='  [System.IO.File]::WriteAllText($blog, $newContent, [System.Text.Encoding]::UTF8)\n';
+  S+='  Write-Host "blog.html updated." -ForegroundColor Green\n';
+  S+='} else {\n';
+  S+='  Write-Host "WARNING: Marker not found in blog.html" -ForegroundColor Yellow\n';
+  S+='  Write-Host "Add this line inside .blog-grid in blog.html:" -ForegroundColor Yellow\n';
+  S+='  Write-Host "  $marker" -ForegroundColor Cyan\n';
+  S+='  exit 1\n}\n\n';
+  if(hasBody){
+    S+='Write-Host "Saving article page..." -ForegroundColor Yellow\n';
+    S+='$articleFile = "$repo\\tools\\article-'+slug+'.html"\n';
+    S+='if (-not (Test-Path $articleFile)) {\n';
+    S+='  Write-Host "ERROR: article-'+slug+'.html not found in tools\\ folder." -ForegroundColor Red\n';
+    S+='  exit 1\n}\n';
+    S+='$null = New-Item -ItemType Directory -Force -Path "$repo\\pages\\articles"\n';
+    S+='Copy-Item $articleFile $article -Force\n';
+    S+='Write-Host "Article saved: pages/articles/'+slug+'.html" -ForegroundColor Green\n\n';
+  }
+  S+='Write-Host "Committing and pushing to GitHub..." -ForegroundColor Yellow\n';
+  S+='Set-Location $repo\n';
+  S+='git add "pages/blog.html"'+(hasBody?' "pages/articles/'+slug+'.html"':'')+'\n';
+  S+='git commit -m "blog: add '+slug+'"\n';
+  S+='git push origin master\n\n';
+  S+='Write-Host "" \nWrite-Host "Published!" -ForegroundColor Green\n';
+  S+='Write-Host "Article: '+title+'" -ForegroundColor White\n';
+  S+='Write-Host "Live in ~30 seconds at:" -ForegroundColor White\n';
+  S+='Write-Host "https://seanqiubrave.github.io/liberalwebsitenew/pages/blog.html" -ForegroundColor Cyan\n';
+  S+='Write-Host ""\n';
+  return S;
 }
+
+function buildCardFile(){ return buildCard(); }
+function buildArticleFile(){ return buildArticlePage(); }
 
 function switchTab(tab){
   ['card','article','script'].forEach(t=>{
@@ -642,19 +753,30 @@ function doPublish(){
   const{ok,missing}=validate();
   if(!ok){showErrors(missing);return;}
   ensureSlug();
+  const slug=v('slug')||'article';
   document.getElementById('out-card').textContent=buildCard();
   document.getElementById('out-article').textContent=buildArticlePage();
   const script=buildScript();
   document.getElementById('out-script').textContent=script;
-  const slug=v('slug')||'article';
-  const filename='publish-blog-'+slug+'.sh';
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([script],{type:'text/x-sh'}));
-  a.download=filename;a.click();URL.revokeObjectURL(a.href);
-  document.getElementById('publish-filename').textContent=filename;
+
+  // Download 1: PowerShell script
+  dl(script,'publish-blog-'+slug+'.ps1','text/plain');
+  // Download 2: card HTML (script reads this)
+  setTimeout(()=>dl(buildCard(),'card-'+slug+'.html','text/html'),400);
+  // Download 3: article HTML (script reads this, only if body exists)
+  if(v('body').length>0) setTimeout(()=>dl(buildArticlePage(),'article-'+slug+'.html','text/html'),800);
+
+  document.getElementById('publish-filename').textContent='publish-blog-'+slug+'.ps1';
+  if(document.getElementById('publish-filename2'))document.getElementById('publish-filename2').textContent='publish-blog-'+slug+'.ps1';
   document.getElementById('publish-box').classList.add('on');
   document.getElementById('publish-box').scrollIntoView({behavior:'smooth',block:'nearest'});
   switchTab('script');
+}
+
+function dl(content,filename,type){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([content],{type}));
+  a.download=filename;a.click();URL.revokeObjectURL(a.href);
 }
 
 function doDownloadHtml(){
