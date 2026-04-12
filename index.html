@@ -704,7 +704,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 /* Orange top accent — reveals on hover */
 .trust-card::before{content:'';display:block;height:4px;margin:-32px -28px 20px;border-radius:var(--r-l) var(--r-l) 0 0;background:linear-gradient(90deg,var(--or),#FF9940);transform:scaleX(0);transform-origin:left;transition:transform var(--t) var(--sp)}
 .trust-card:hover::before{transform:scaleX(1)}
-.trust-icon{width:96px;height:96px;display:flex;align-items:center;justify-content:center;font-size: 56px;margin:0 auto 20px;background:none;border-radius:0}
+.trust-icon{width:110px;height:110px;display:flex;align-items:center;justify-content:center;font-size: 56px;margin:0 auto 20px;background:none;border-radius:0}
 .ti-1,.ti-2,.ti-3,.ti-4{background:none}
 /* ─────────────────────────────────────────
    SCHOOL AT A GLANCE CARD  (Part 4)
@@ -1105,12 +1105,12 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .foot-brand-contact a::before{ font-size:15px;flex-shrink:0; }
 .foot-brand-contact a.email::before{content:'✉️'}
 .foot-brand-contact a.phone::before{content:'📞'}
-.foot-soc{display:flex;gap:9px;margin-top:24px}
+.foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
 .foot-soc a{
   width:36px;height:36px;border-radius:0;
   background:transparent;
   border:none;
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
   padding:0;
   transition:opacity .18s,transform .18s var(--sp);
 }
@@ -1569,28 +1569,28 @@ footer { margin-bottom: 0 !important; }
 
       <!-- AEO Question 1 -->
       <div class="trust-card sr">
-        <div class="trust-icon ti-1"><img src="assets/safe.webp" alt="Safe environment" style="width:72px;height:72px;object-fit:contain;"></div>
+        <div class="trust-icon ti-1"><img src="assets/safe.webp" alt="Safe environment" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>Is Liberal Music School a safe environment for young children?</h3>
         <p class="direct-answer">Yes. Liberal Music &amp; Arts School maintains a fully supervised, child-safe environment across all 5 Singapore branches, with certified teachers trained in early childhood education for students as young as 4 years old.</p>
       </div>
 
       <!-- AEO Question 2 -->
       <div class="trust-card sr d1">
-        <div class="trust-icon ti-2"><img src="assets/certified.webp" alt="Certified teachers" style="width:72px;height:72px;object-fit:contain;"></div>
+        <div class="trust-icon ti-2"><img src="assets/certified.webp" alt="Certified teachers" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>Are the music teachers at Liberal School internationally certified?</h3>
         <p class="direct-answer">Yes. All Liberal Music &amp; Arts teachers hold qualifications from ABRSM, Trinity College London, Berklee Online, or the Central Conservatory of Music — ensuring consistent, professional-standard tuition for every student.</p>
       </div>
 
       <!-- AEO Question 3 -->
       <div class="trust-card sr d2">
-        <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:72px;height:72px;object-fit:contain;"></div>
+        <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>How many music school branches does Liberal have in Singapore?</h3>
         <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Jurong Point (opening soon) — covering central, east, and west Singapore.</p>
       </div>
 
       <!-- AEO Question 4 -->
       <div class="trust-card sr d3">
-        <div class="trust-icon ti-4"><img src="assets/confidence.webp" alt="Confidence" style="width:72px;height:72px;object-fit:contain;"></div>
+        <div class="trust-icon ti-4"><img src="assets/confidence.webp" alt="Confidence" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>Does music school help children with confidence and focus beyond music?</h3>
         <p class="direct-answer">Yes. Research and our 15 years of experience show music education builds confidence, emotional regulation, and academic focus in children. Students perform in annual recitals, building real-world stage presence and self-belief.</p>
       </div>
@@ -1726,7 +1726,7 @@ footer { margin-bottom: 0 !important; }
             <div class="tc-body">
               <span class="tc-chip">Principal · Erhu</span>
               <h3>Ms Cecily</h3>
-              <p>Principal &amp; founder with 15+ years of teaching. Erhu specialist leading Liberal's vision of confident, creative young musicians.</p>
+              <p>Principal with 20+ years of teaching. Erhu specialist and HKAPA graduate leading Liberal's vision of confident, creative musicians of all ages.</p>
             </div>
           </div>
 
@@ -1756,19 +1756,48 @@ footer { margin-bottom: 0 !important; }
             </div>
           </div>
 
-          <!-- 5. Ms Gabrielle -->
+          <!-- 4. Ms Jescelyn -->
           <div class="tc">
-            <div class="tc-photo tp5">🎤<div class="tc-ov"></div></div>
+            <div class="tc-photo tp4">
+              <img src="assets/Jescelyn.webp" alt="Ms Jescelyn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
             <div class="tc-body">
-              <span class="tc-chip">Piano · Vocal</span>
-              <h3>Ms Gabrielle</h3>
-              <p>Accomplished pianist and vocal coach helping students find and develop their unique voice in a supportive environment.</p>
+              <span class="tc-chip">Piano · Composition</span>
+              <h3>Ms Jescelyn</h3>
+              <p>MA in Music, Florida State University (Summa Cum Laude). International performer and composer with an internationally released piano collection on Neuma Records.</p>
             </div>
           </div>
 
-          <!-- 6. Ms Jiang -->
+          <!-- 5. Ms Tina -->
+          <div class="tc">
+            <div class="tc-photo tp5">
+              <img src="assets/Tina.webp" alt="Ms Tina" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Piano · Performance</span>
+              <h3>Ms Tina</h3>
+              <p>MM in Piano Performance, National Pingtung University. Multi-award winner at the Prague National Competition with a distinguished competitive record.</p>
+            </div>
+          </div>
+
+          <!-- 6. Ms Verginia -->
           <div class="tc">
             <div class="tc-photo tp6">
+              <img src="assets/Verginia.webp" alt="Ms Verginia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Piano · Early Childhood</span>
+              <h3>Ms Verginia</h3>
+              <p>Top Graduate, South China University of Technology. Double Gold Prize winner at the Singapore Performing Arts Festival. Music for Little Mozarts certified.</p>
+            </div>
+          </div>
+
+          <!-- 7. Ms Jiang -->
+          <div class="tc">
+            <div class="tc-photo tp7">
               <img src="assets/jiang.webp" alt="Ms Jiang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
@@ -1779,9 +1808,9 @@ footer { margin-bottom: 0 !important; }
             </div>
           </div>
 
-          <!-- 7. Ms Cheng -->
+          <!-- 8. Ms Cheng -->
           <div class="tc">
-            <div class="tc-photo tp7">
+            <div class="tc-photo tp8">
               <img src="assets/cheng.webp" alt="Ms Cheng" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
@@ -1792,9 +1821,48 @@ footer { margin-bottom: 0 !important; }
             </div>
           </div>
 
-          <!-- 8. Mr Leonard -->
+          <!-- 9. Ms Aliona -->
           <div class="tc">
-            <div class="tc-photo tp8">
+            <div class="tc-photo tp9">
+              <img src="assets/Aliona.webp" alt="Ms Aliona" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Violin · ABRSM</span>
+              <h3>Ms Aliona</h3>
+              <p>Master's in Violin Performance, Petrozavodsk State Conservatory. Former first violinist with the Veliky Novgorod Philharmonic. Strong ABRSM and DSA results.</p>
+            </div>
+          </div>
+
+          <!-- 10. Ms Teresa -->
+          <div class="tc">
+            <div class="tc-photo tp10">
+              <img src="assets/Teresa.webp" alt="Ms Teresa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Violin · Ensemble</span>
+              <h3>Ms Teresa</h3>
+              <p>BA in Violin Performance, Soochow University. Multi-award winner across Malaysia, Singapore and Europe. Performed at Taiwan's National Music Hall.</p>
+            </div>
+          </div>
+
+          <!-- 11. Ms Mindy -->
+          <div class="tc">
+            <div class="tc-photo tp1">
+              <img src="assets/Mindy.webp" alt="Ms Mindy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="tc-ov"></div>
+            </div>
+            <div class="tc-body">
+              <span class="tc-chip">Vocals · Classical</span>
+              <h3>Ms Mindy</h3>
+              <p>BMus (Hons), Royal College of Music. 3rd Prize at the Claude Debussy Competition, Paris (2025). International competition prizewinner across Singapore and Malaysia.</p>
+            </div>
+          </div>
+
+          <!-- 12. Mr Leonard -->
+          <div class="tc">
+            <div class="tc-photo tp2">
               <img src="assets/leonard.webp" alt="Mr Leonard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
@@ -1805,9 +1873,9 @@ footer { margin-bottom: 0 !important; }
             </div>
           </div>
 
-          <!-- 9. Mr Loy -->
+          <!-- 13. Mr Loy -->
           <div class="tc">
-            <div class="tc-photo tp9">
+            <div class="tc-photo tp3">
               <img src="assets/loy.webp" alt="Mr Loy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
