@@ -851,6 +851,9 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .tc-carousel-wrap{position:relative;padding:0 4px}
 .tc-carousel{overflow:hidden}
 .teacher-grid{display:flex;gap:24px;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+a.tc{text-decoration:none;color:inherit;display:block;cursor:pointer}
+a.tc .tc-ov::after{content:'View Profile →';position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;padding:5px 14px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity var(--t)}
+a.tc:hover .tc-ov::after{opacity:1}
 .tc{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp);flex:0 0 calc((100% - 72px)/4);min-width:0}
 .tc:hover{transform:translateY(-7px);box-shadow:0 24px 52px var(--or-glow)}
 .tc-photo{aspect-ratio:1;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:80px}
@@ -1571,7 +1574,7 @@ footer { margin-bottom: 0 !important; }
       <div class="trust-card sr">
         <div class="trust-icon ti-1"><img src="assets/safe.webp" alt="Safe environment" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>Is Liberal Music School a safe environment for young children?</h3>
-        <p class="direct-answer">Yes. Liberal Music &amp; Arts School maintains a fully supervised, child-safe environment across all 5 Singapore branches, with certified teachers trained in early childhood education for students as young as 4 years old.</p>
+        <p class="direct-answer">Yes. Liberal Music &amp; Arts School maintains a fully supervised, child-safe environment across all 5 Singapore branches, with certified teachers trained in early childhood education for students from Ages 2.5+.</p>
       </div>
 
       <!-- AEO Question 2 -->
@@ -1585,14 +1588,14 @@ footer { margin-bottom: 0 !important; }
       <div class="trust-card sr d2">
         <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>How many music school branches does Liberal have in Singapore?</h3>
-        <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Jurong Point (opening soon) — covering central, east, and west Singapore.</p>
+        <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Jurong Point (opening soon) — covering east and west Singapore.</p>
       </div>
 
       <!-- AEO Question 4 -->
       <div class="trust-card sr d3">
         <div class="trust-icon ti-4"><img src="assets/confidence.webp" alt="Confidence" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>Does music school help children with confidence and focus beyond music?</h3>
-        <p class="direct-answer">Yes. Research and our 15 years of experience show music education builds confidence, emotional regulation, and academic focus in children. Students perform in annual recitals, building real-world stage presence and self-belief.</p>
+        <p class="direct-answer">Yes. Research and our 15+ years of experience show music education builds confidence, emotional regulation, and academic focus in children. Students perform in annual recitals, building real-world stage presence and self-belief.</p>
       </div>
 
     </div>
@@ -1606,10 +1609,10 @@ footer { margin-bottom: 0 !important; }
     <div class="sec-head cx sr">
       <div class="pill-tag pt-or">Our Programmes</div>
       <!-- AEO H2: Direct question captures "best music lessons for kids Singapore" searches -->
-      <h2 class="h2">What Are the Best Music Lessons<br>for My Child Aged 4–16?</h2>
+      <h2 class="h2">What Are the Best Music Lessons<br>for My Child Aged 2.5–16?</h2>
       <!-- Direct Answer — 45 words, confidence-first, legacy-led -->
       <p class="lead" itemprop="description">
-        Liberal Music &amp; Arts School offers Piano, Violin, Guitar, Drums, Erhu, Visual Art, and Dance for children aged 4–16. Every course is designed around your child's natural learning pace, building genuine confidence long before exam grades — taught by certified specialists across 5 Singapore branches since 2009.
+        Liberal Music &amp; Arts School offers Piano, Violin, Guitar, Drums, Vocal, Music for kids, Chinese instruments, Visual Art, and Dance for children aged 2.5–16. Every course is designed around your child's natural learning pace, building genuine confidence long before exam grades — taught by certified specialists across 5 Singapore branches since 2009.
       </p>
     </div>
     <div class="course-grid">
@@ -1718,20 +1721,20 @@ footer { margin-bottom: 0 !important; }
         <div class="teacher-grid" id="tcGrid">
 
           <!-- 1. Ms Cecily — Principal -->
-          <div class="tc">
+          <a class="tc" href="pages/cecily.html">
             <div class="tc-photo tp1">
               <img src="assets/cecily.webp" alt="Ms Cecily" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">Principal · Erhu</span>
+              <span class="tc-chip">Principal · Musician · Educator</span>
               <h3>Ms Cecily</h3>
               <p>Principal with 20+ years of teaching. Erhu specialist and HKAPA graduate leading Liberal's vision of confident, creative musicians of all ages.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 2. Mr Calvin — Vice Principal -->
-          <div class="tc">
+          <a class="tc" href="pages/calvin.html">
             <div class="tc-photo tp2">
               <img src="assets/calvin.webp" alt="Mr Calvin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1741,23 +1744,23 @@ footer { margin-bottom: 0 !important; }
               <h3>Mr Calvin</h3>
               <p>Vice Principal with expertise in drums, guitar and ukulele. Energetic, fun lessons that are surprisingly effective for all ages.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 3. Ms Kate -->
-          <div class="tc">
+          <a class="tc" href="pages/kate.html">
             <div class="tc-photo tp3">
               <img src="assets/kate.webp" alt="Ms Kate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">Piano · ABRSM</span>
+              <span class="tc-chip">Piano</span>
               <h3>Ms Kate</h3>
               <p>ABRSM-certified piano instructor teaching classical and contemporary to students from complete beginners to distinction-level.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 4. Ms Jescelyn -->
-          <div class="tc">
+          <a class="tc" href="pages/instructors.html">
             <div class="tc-photo tp4">
               <img src="assets/Jescelyn.webp" alt="Ms Jescelyn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1767,10 +1770,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Jescelyn</h3>
               <p>MA in Music, Florida State University (Summa Cum Laude). International performer and composer with an internationally released piano collection on Neuma Records.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 5. Ms Tina -->
-          <div class="tc">
+          <a class="tc" href="pages/instructors.html">
             <div class="tc-photo tp5">
               <img src="assets/Tina.webp" alt="Ms Tina" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1780,10 +1783,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Tina</h3>
               <p>MM in Piano Performance, National Pingtung University. Multi-award winner at the Prague National Competition with a distinguished competitive record.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 6. Ms Verginia -->
-          <div class="tc">
+          <a class="tc" href="pages/instructors.html">
             <div class="tc-photo tp6">
               <img src="assets/Verginia.webp" alt="Ms Verginia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1793,10 +1796,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Verginia</h3>
               <p>Top Graduate, South China University of Technology. Double Gold Prize winner at the Singapore Performing Arts Festival. Music for Little Mozarts certified.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 7. Ms Jiang -->
-          <div class="tc">
+          <a class="tc" href="pages/jiang.html">
             <div class="tc-photo tp7">
               <img src="assets/jiang.webp" alt="Ms Jiang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1806,10 +1809,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Jiang</h3>
               <p>Conservatory-trained Chinese string specialist with 10+ years of performance and teaching experience in cultural depth and technique.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 8. Ms Cheng -->
-          <div class="tc">
+          <a class="tc" href="pages/cheng.html">
             <div class="tc-photo tp8">
               <img src="assets/cheng.webp" alt="Ms Cheng" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1819,10 +1822,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Cheng</h3>
               <p>Versatile multi-instrumentalist teaching piano, violin and viola with deep experience in graded exams and stage performance.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 9. Ms Aliona -->
-          <div class="tc">
+          <a class="tc" href="pages/instructors.html">
             <div class="tc-photo tp9">
               <img src="assets/Aliona.webp" alt="Ms Aliona" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1832,10 +1835,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Aliona</h3>
               <p>Master's in Violin Performance, Petrozavodsk State Conservatory. Former first violinist with the Veliky Novgorod Philharmonic. Strong ABRSM and DSA results.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 10. Ms Teresa -->
-          <div class="tc">
+          <a class="tc" href="pages/instructors.html">
             <div class="tc-photo tp10">
               <img src="assets/Teresa.webp" alt="Ms Teresa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1845,10 +1848,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Teresa</h3>
               <p>BA in Violin Performance, Soochow University. Multi-award winner across Malaysia, Singapore and Europe. Performed at Taiwan's National Music Hall.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 11. Ms Mindy -->
-          <div class="tc">
+          <a class="tc" href="pages/instructors.html">
             <div class="tc-photo tp1">
               <img src="assets/Mindy.webp" alt="Ms Mindy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1858,10 +1861,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Ms Mindy</h3>
               <p>BMus (Hons), Royal College of Music. 3rd Prize at the Claude Debussy Competition, Paris (2025). International competition prizewinner across Singapore and Malaysia.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 12. Mr Leonard -->
-          <div class="tc">
+          <a class="tc" href="pages/leonard.html">
             <div class="tc-photo tp2">
               <img src="assets/leonard.webp" alt="Mr Leonard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1871,10 +1874,10 @@ footer { margin-bottom: 0 !important; }
               <h3>Mr Leonard</h3>
               <p>Multi-instrumentalist passionate about rhythm and groove. Takes students from zero to performing in remarkably little time.</p>
             </div>
-          </div>
+          </a>
 
           <!-- 13. Mr Loy -->
-          <div class="tc">
+          <a class="tc" href="pages/loy.html">
             <div class="tc-photo tp3">
               <img src="assets/loy.webp" alt="Mr Loy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1884,7 +1887,7 @@ footer { margin-bottom: 0 !important; }
               <h3>Mr Loy</h3>
               <p>Enthusiastic, patient guitar teacher with a gift for making string instruments approachable for absolute beginners of all ages.</p>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
@@ -1918,7 +1921,7 @@ footer { margin-bottom: 0 !important; }
       </div>
 
       <div class="stat-cell sr d2">
-        <span class="stat-num">10<span class="acc">+</span></span>
+        <span class="stat-num">30<span class="acc">+</span></span>
         <span class="stat-label">Expert Teachers</span>
         <span class="stat-sub">internationally certified</span>
       </div>
