@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/png" href="assets/liberalfavicon.png"/>
+<link rel="apple-touch-icon" href="assets/liberalfavicon.png"/>
 <meta name="description" content="Singapore's trusted music school since 2009. Expert lessons in Piano, Violin, Guitar, Drums, and Art across 5 locations. Book a free trial today!"/>
 <link rel="canonical" href="https://liberalmusicschool.com/"/>
 <!-- hreflang bilingual -->
-<link rel="alternate" hreflang="en" href="https://seanqiubrave.github.io/liberalwebsitenew/"/>
+<link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/"/>
 <link rel="alternate" hreflang="zh" href="https://seanqiubrave.github.io/liberalwebsitenew/index-zh.html"/>
-<link rel="alternate" hreflang="x-default" href="https://seanqiubrave.github.io/liberalwebsitenew/"/>
+<link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/"/>
 
 <title>Liberal Music & Arts School | Singapore Music Lessons</title>
 
@@ -1331,6 +1333,11 @@ a.tc:hover .tc-ov::after{opacity:1}
   .fc-c{display:none}
   .vis-b{display:none}
   .cta-checks{flex-direction:column;gap:10px}
+  /* Hero heading — 75px overflows narrow screens; scale down with clamp */
+  .hero h1{font-size:clamp(2.2rem, 10.5vw, 3rem); letter-spacing:-1px}
+  /* Announcement bar — prevent horizontal overflow on small phones */
+  .ann-bar{padding:6px 12px; height:auto; min-height:36px}
+  .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
 }
 
 
@@ -2227,7 +2234,7 @@ footer { margin-bottom: 0 !important; }
 
 
 <!-- ════════ JS ════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function () {
   'use strict';
 
