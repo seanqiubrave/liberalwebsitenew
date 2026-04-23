@@ -349,28 +349,36 @@
               <h2>Send Us a Message</h2>
               <p>Fill in the form and we'll get back to you within 24 hours.</p>
 
-              <div id="formArea">
+              <form id="formArea" action="https://formsubmit.co/colouryartsg@gmail.com" method="POST">
+                <!-- FormSubmit settings -->
+                <input type="hidden" name="_subject" value="New enquiry from Liberal Music website"/>
+                <input type="hidden" name="_template" value="table"/>
+                <input type="hidden" name="_captcha" value="false"/>
+                <input type="hidden" name="_next" value="https://liberal.edu.sg/pages/contact.html?sent=1"/>
+                <!-- Honeypot anti-spam -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
+
                 <div class="form-row">
                   <div class="fgroup">
                     <label>First Name *</label>
-                    <input type="text" id="fname" placeholder="e.g. Wei Ming" required/>
+                    <input type="text" id="fname" name="First Name" placeholder="e.g. Wei Ming" required/>
                   </div>
                   <div class="fgroup">
                     <label>Last Name *</label>
-                    <input type="text" id="lname" placeholder="e.g. Tan" required/>
+                    <input type="text" id="lname" name="Last Name" placeholder="e.g. Tan" required/>
                   </div>
                 </div>
                 <div class="fgroup">
                   <label>Email Address *</label>
-                  <input type="email" id="email" placeholder="you@email.com" required/>
+                  <input type="email" id="email" name="email" placeholder="you@email.com" required/>
                 </div>
                 <div class="fgroup">
                   <label>Phone Number</label>
-                  <input type="tel" placeholder="+65 9XXX XXXX"/>
+                  <input type="tel" name="Phone" placeholder="+65 9XXX XXXX"/>
                 </div>
                 <div class="fgroup">
                   <label>Course Interest</label>
-                  <select>
+                  <select name="Course Interest">
                     <option value="">Select a course...</option>
                     <option>Piano</option>
                     <option>Violin</option>
@@ -389,7 +397,7 @@
                 </div>
                 <div class="fgroup">
                   <label>Preferred Branch</label>
-                  <select>
+                  <select name="Preferred Branch">
                     <option value="">Select a branch...</option>
                     <option>Tengah</option>
                     <option>Tampines</option>
@@ -400,10 +408,10 @@
                 </div>
                 <div class="fgroup">
                   <label>Message</label>
-                  <textarea placeholder="Tell us more about what you're looking for — your child's age, experience level, or any questions you have..."></textarea>
+                  <textarea name="Message" placeholder="Tell us more about what you're looking for — your child's age, experience level, or any questions you have..."></textarea>
                 </div>
-                <button class="btn-submit" onclick="handleSubmit(event)">✦ Send Message</button>
-              </div>
+                <button type="submit" class="btn-submit">✦ Send Message</button>
+              </form>
 
               <div class="form-success" id="formSuccess">
                 <div class="tick">🎉</div>
@@ -638,11 +646,14 @@
 
   })();
 
-  /* Form submit */
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('formArea').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+  /* Show success message when FormSubmit redirects back with ?sent=1 */
+  if (location.search.indexOf('sent=1') !== -1) {
+    var fa = document.getElementById('formArea');
+    var fs = document.getElementById('formSuccess');
+    if (fa) fa.style.display = 'none';
+    if (fs) fs.style.display = 'block';
+    /* Scroll success into view */
+    if (fs) fs.scrollIntoView({behavior:'smooth', block:'center'});
   }
   </script>
 </body>
