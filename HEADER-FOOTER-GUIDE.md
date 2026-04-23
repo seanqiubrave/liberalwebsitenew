@@ -162,13 +162,14 @@ Copy verbatim into every page `<style>`:
         <li><a href="about.html">About</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="instructors.html">Instructors</a></li>
-        <li><a href="testimonial.html">Review</a></li>
+        <li><a href="review.html">Review</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <div class="nav-end">
-        <a href="../index-zh.html" class="nav-lang">中文</a>
+        <!-- 中文 is DISABLED while bilingual site is paused — use span, not <a> -->
+        <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
         <!-- Book Trial button — exact padding/size must match -->
         <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
       </div>
@@ -186,7 +187,7 @@ Copy verbatim into every page `<style>`:
   <a href="about.html">About</a>
   <a href="courses.html">Courses</a>
   <a href="instructors.html">Instructors</a>
-  <a href="testimonial.html">Review</a>
+  <a href="review.html">Review</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
   <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
@@ -209,8 +210,8 @@ Copy verbatim into every page `<style>`:
 .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
 .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
 .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
-.foot-soc{display:flex;gap:9px;margin-top:24px}
-.foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
+.foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
+.foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .18s,transform .18s var(--sp)}
 .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
 .foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
 .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
@@ -252,7 +253,7 @@ footer{margin-bottom:0!important}
       <div class="foot-brand">
         <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
              onerror="this.src='../assets/logo.webp'"/>
-        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — Ages 2.5+ to Adult. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
         <div class="foot-soc">
           <a href="#" aria-label="Instagram">
             <img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
@@ -277,7 +278,7 @@ footer{margin-bottom:0!important}
           <li><a href="about.html">About</a></li>
           <li><a href="courses.html">Courses</a></li>
           <li><a href="instructors.html">Instructors</a></li>
-          <li><a href="testimonial.html">Review</a></li>
+          <li><a href="review.html">Review</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -332,13 +333,14 @@ footer{margin-bottom:0!important}
             </div>
           </div>
 
-          <div class="foot-loc soon">
+          <!-- 5th slot: Coloury Art By Liberal — clickable card linking to colouryart.com -->
+          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
-              <strong>Jurong Point Music School</strong>
-              <span>Opening Soon — Register Interest</span>
+              <strong>Coloury Art By Liberal</strong>
+              <span>colouryart.com</span>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
@@ -350,9 +352,10 @@ footer{margin-bottom:0!important}
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="../index-zh.html">中文版本</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <!-- 中文版本 DISABLED while bilingual site is paused — use span, not <a> -->
+        <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
       </div>
     </div>
   </div>
@@ -626,18 +629,26 @@ Before finalising any page, verify:
 - [ ] Nav logo height: `42px`, using `logo.webp` (never base64)
 - [ ] Nav links font-size: `18px`, font-weight: `600`
 - [ ] Nav link order: **Home | About | Courses | Instructors | Review | Blog | Contact**
+- [ ] **Review link points to `review.html`** (NOT `testimonial.html` — deprecated)
 - [ ] Active page has `class="active"` on its nav link (instructor profiles → active on Instructors)
-- [ ] 中文 button: `nav-lang` class, `font-size:15.5px`
+- [ ] **中文 button is DISABLED** (use `<span>` with `opacity:0.35;cursor:not-allowed;pointer-events:none;` — NOT `<a href="../index-zh.html">`) while bilingual site is paused
 - [ ] Book Trial button: `class="btn btn-cta"` + `style="padding:10px 22px;font-size:14px;"`
 - [ ] Mobile drawer font-size: `25.5px`
 - [ ] Footer background: `#1F2A44`
 - [ ] Footer logo: `logofooter.webp`, height `56px`
 - [ ] Footer description text: `color:#fff` (solid white), `font-size:15px`
+- [ ] **Footer description ends with `— Ages 2.5+ to Adult`** (NOT "in children aged 4–16")
 - [ ] Social icons: `Instagram.webp` (26px), `facebook.webp`, `youtube.webp`, `xiaohongshu.webp` (22px each) — `filter:brightness(0) invert(1)`, no borders, no rounded box
+- [ ] **`.foot-soc` has `padding-bottom:4px`**; `.foot-soc a` must NOT have `overflow:hidden` (otherwise icons render as solid white blocks)
 - [ ] No `.foot-contact` email/phone block in footer (removed)
 - [ ] All 5 locations listed with full names: "Tengah Music School", "Tampines Music School", etc.
-- [ ] Location pin icons: `address.webp` with `filter:brightness(0) invert(1);opacity:.7` (except Jurong Point which uses `✦`)
+- [ ] Location pin icons: `address.webp` with `filter:brightness(0) invert(1);opacity:.7`
+- [ ] **5th location is Coloury Art By Liberal**: clickable `<a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">`, pin = `✦`, title = `Coloury Art By Liberal`, subtitle = `colouryart.com` (replaces the deprecated "Jurong Point Music School · Opening Soon" div)
+- [ ] Footer navigation Review link also points to `review.html`
 - [ ] Nav links in footer: `font-size:15px`, `color:#fff` — no "✦ Free Trial Class" item
+- [ ] **Privacy Policy link** → `privacy.html` (from `pages/`) or `pages/privacy.html` (from root) — NEVER `#`
+- [ ] **Terms of Use link** → `terms.html` (from `pages/`) or `pages/terms.html` (from root) — NEVER `#`
+- [ ] **中文版本 footer link is DISABLED** (use `<span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>` — NOT `<a>`)
 - [ ] Bottom bar includes `v1.0.1` version tag
 - [ ] WA FAB present, all 3 WhatsApp numbers correct
 - [ ] Mobile sticky bar present with trial link

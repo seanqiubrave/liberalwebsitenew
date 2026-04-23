@@ -66,18 +66,26 @@ liberalwebsitenew/
 │   ├── about.html
 │   ├── blog.html           ← Blog grid page (cards only)
 │   ├── career.html
-│   ├── contact.html
+│   ├── contact.html        ← Wired to FormSubmit → colouryartsg@gmail.com
 │   ├── courses.html
 │   ├── instructors.html
-│   ├── testimonial.html
+│   ├── review.html         ← Parent reviews (replaces old testimonial.html)
 │   ├── trial.html
+│   ├── privacy.html        ← Privacy Policy (PDPA compliant)
+│   ├── terms.html          ← Terms of Use
 │   ├── articles/           ← One .html per blog article
 │   │   └── liberal-blog-*.html
 │   ├── cecily.html         ← Instructor profile (CANONICAL TEMPLATE)
 │   ├── calvin.html
 │   ├── kate.html
-│   ├── jiang.html
+│   ├── jescelyn.html
+│   ├── tina.html
+│   ├── verginia.html
 │   ├── cheng.html
+│   ├── aliona.html
+│   ├── teresa.html
+│   ├── jiang.html
+│   ├── mindy.html
 │   ├── leonard.html
 │   └── loy.html
 ├── pages-zh/               ← Chinese pages (mirrors pages/)
@@ -198,6 +206,9 @@ Home | About | Courses | Instructors | Review | Blog | Contact
 ```
 Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 
+> **Review link target is `review.html`** (`testimonial.html` is deprecated).  
+> **中文 is currently disabled** while the bilingual site is paused — render as a grey `<span>`, not a live `<a href>`. See HEADER-FOOTER-GUIDE.md for exact markup.
+
 ---
 
 ## 👩‍🏫 INSTRUCTOR PROFILE PAGES
@@ -206,18 +217,24 @@ All follow the same template — **`cecily.html` is the canonical base**.
 
 | File | Instructor | Speciality |
 |---|---|---|
-| `cecily.html` | Ms Cecily | Erhu · Chinese Instruments |
-| `calvin.html` | Mr Calvin | Drums · Guitar · Ukulele |
+| `cecily.html` | Ms Cecily | Principal · Erhu · Chinese Instruments |
+| `calvin.html` | Mr Calvin | Vice Principal · Drums · Guitar · Ukulele |
 | `kate.html` | Ms Kate | Piano · ABRSM |
-| `jiang.html` | Ms Jiang | Erhu · Chinese Instruments |
+| `jescelyn.html` | Ms Jescelyn | Piano · ABRSM |
+| `tina.html` | Ms Tina | Piano · Vocal |
+| `verginia.html` | Ms Verginia | Piano · Vocal |
 | `cheng.html` | Ms Cheng | Violin · Piano |
-| `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele |
-| `loy.html` | Mr Loy | Guitar · Ukulele |
+| `aliona.html` | Ms Aliona | Violin · Strings |
+| `teresa.html` | Ms Teresa | Violin |
+| `jiang.html` | Ms Jiang | Erhu · Chinese Instruments · Violin · Guqin |
+| `mindy.html` | Ms Mindy | Vocal · Music for Kids |
+| `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele · Piano |
+| `loy.html` | Mr Loy | Guitar · Drums · Ukulele |
 
 **Key rules for instructor pages:**
 - Book card button: `Book Trial Class` (no "Free")
 - Nav active link: always **Instructors**
-- "Other Instructors" strip: always shows the other 6, never the current instructor
+- "Other Instructors" strip: always shows the others, never the current instructor
 - Add new page to `instructors.html` grid as `<a class="icard">` wrapper
 
 ---
@@ -247,13 +264,17 @@ All follow the same template — **`cecily.html` is the canonical base**.
 
 **Footer**
 - [ ] Background `#1F2A44`, logo `logofooter.webp` height `56px`
-- [ ] Brand text: `color:#fff`, `font-size:15px`
+- [ ] Brand text: `color:#fff`, `font-size:15px`, ends with `— Ages 2.5+ to Adult`
 - [ ] Social icons: `.webp` assets with `filter:brightness(0) invert(1)`, no borders/boxes
 - [ ] All 5 locations with full names
-- [ ] Location pins: `address.webp` white filter (Jurong Point uses `✦`)
-- [ ] Nav links: `color:#fff`, `font-size:15px`
+- [ ] 5th location = **Coloury Art By Liberal** (clickable → colouryart.com, pin `✦`)
+- [ ] Nav links: `color:#fff`, `font-size:15px` — Review link → `review.html`
+- [ ] **Privacy Policy** → `privacy.html` (or `pages/privacy.html` from root), **Terms of Use** → `terms.html` (or `pages/terms.html` from root) — never `#`
+- [ ] **中文版本 is disabled** (grey `<span>`, not a live `<a>`)
 - [ ] Bottom bar has `v1.0.1` version tag
 - [ ] Kill-bottom-gap rules present
+
+> For exact HTML/CSS of every footer element, see **HEADER-FOOTER-GUIDE.md**.
 
 **Floating**
 - [ ] WhatsApp FAB uses `whatsapp.webp` icon (all 3 numbers correct)
@@ -287,14 +308,22 @@ Keep these files uploaded and current in Claude Project Knowledge:
 | `pages/about.html` | Re-upload after each edit |
 | `pages/courses.html` | Re-upload after each edit |
 | `pages/instructors.html` | Re-upload after each edit |
-| `pages/testimonial.html` | Re-upload after each edit |
+| `pages/review.html` | Parent reviews page (replaces old testimonial.html) |
 | `pages/blog.html` | Re-upload after each edit |
-| `pages/contact.html` | Re-upload after each edit |
+| `pages/contact.html` | FormSubmit wired to colouryartsg@gmail.com |
 | `pages/trial.html` | Re-upload after each edit |
+| `pages/privacy.html` | Privacy Policy (PDPA) |
+| `pages/terms.html` | Terms of Use |
 | `pages/cecily.html` | Canonical instructor template — re-upload after any edit |
 | `pages/calvin.html` | Re-upload after each edit |
 | `pages/kate.html` | Re-upload after each edit |
-| `pages/jiang.html` | Re-upload after each edit |
+| `pages/jescelyn.html` | Re-upload after each edit |
+| `pages/tina.html` | Re-upload after each edit |
+| `pages/verginia.html` | Re-upload after each edit |
 | `pages/cheng.html` | Re-upload after each edit |
+| `pages/aliona.html` | Re-upload after each edit |
+| `pages/teresa.html` | Re-upload after each edit |
+| `pages/jiang.html` | Re-upload after each edit |
+| `pages/mindy.html` | Re-upload after each edit |
 | `pages/leonard.html` | Re-upload after each edit |
 | `pages/loy.html` | Re-upload after each edit |
