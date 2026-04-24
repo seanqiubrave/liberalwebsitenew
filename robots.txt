@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Don't index internal tooling
+Disallow: /tools/
+
+Sitemap: https://liberalmusicschool.com/sitemap.xml
