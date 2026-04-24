@@ -1409,6 +1409,14 @@ a.tc:hover .tc-ov::after{opacity:1}
   .hero{min-height:0; align-items:flex-start; padding-bottom:40px}
   .hero-grid{gap:20px}
   .hero-vis{margin-top:0}
+  /* Hide floating cards on mobile — they were being pushed below the video
+     into normal flow (due to .fc{position:relative} set for the reaction
+     animation), creating a large empty gap. Same info is shown in the
+     Stats strip below anyway. */
+  .fc-a, .fc-b{display:none}
+  /* Hide decorative music notes + ring on mobile — they float in empty space */
+  .hero-notes{display:none}
+  .hero-ring{display:none}
 }
 
 
