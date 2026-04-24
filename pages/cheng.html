@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Ms Cheng – Violin &amp; Piano Instructor | Liberal Music &amp; Arts School</title>
+  <title>Ms Cheng – Violin & Piano Instructor | Liberal Music Singapore</title>
+<meta name="description" content="Study violin or piano with Ms Cheng, a First Class Honours graduate and versatile orchestral performer. Book a trial class today."/>
+<link rel="canonical" href="https://liberalmusicschool.com/pages/cheng"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -72,6 +74,11 @@
     .ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
     .ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
     .ann-bar a:hover{opacity:.85}
+    /* Announcement bar — prevent horizontal overflow on small phones */
+    @media(max-width:540px){
+      .ann-bar{padding:6px 12px; height:auto; min-height:36px}
+      .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
+    }
 
     /* ── Navbar ── */
     .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
@@ -203,8 +210,8 @@
     .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
     .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
     .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
-    .foot-soc{display:flex;gap:9px;margin-top:24px}
-    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
+    .foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
+    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .18s,transform .18s var(--sp)}
     .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
     .foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
     .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
@@ -266,13 +273,13 @@
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="ann-bar">
-    <a href="trial.html">
+    <a href="trial">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
         <path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/>
         <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
         <line x1="12" y1="12" x2="12" y2="19"/>
       </svg>
-      Liberal Music &amp; Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!
+      Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!
     </a>
   </div>
 
@@ -280,21 +287,21 @@
   <nav class="nav" id="nav">
     <div class="W">
       <div class="nav-row">
-        <a href="../index.html" class="nav-logo" aria-label="Liberal Music & Arts Home">
+        <a href="../index" class="nav-logo" aria-label="Liberal Music & Arts Home">
           <img src="../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display='none'"/>
         </a>
         <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="instructors.html" class="active">Instructors</a></li>
-          <li><a href="testimonial.html">Review</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../index">Home</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="courses">Courses</a></li>
+          <li><a href="instructors" class="active">Instructors</a></li>
+          <li><a href="review">Review</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="contact">Contact</a></li>
         </ul>
         <div class="nav-end">
-          <a href="../index-zh.html" class="nav-lang">中文</a>
-          <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+          <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
+          <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
         </div>
         <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -305,14 +312,14 @@
 
   <!-- MOBILE DRAWER -->
   <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-    <a href="../index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="courses.html">Courses</a>
-    <a href="instructors.html">Instructors</a>
-    <a href="testimonial.html">Review</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
+    <a href="../index">Home</a>
+    <a href="about">About</a>
+    <a href="courses">Courses</a>
+    <a href="instructors">Instructors</a>
+    <a href="review">Review</a>
+    <a href="blog">Blog</a>
+    <a href="contact">Contact</a>
+    <a href="trial" class="btn btn-cta">Book Trial Class</a>
   </nav>
 
   <main style="padding-top:108px">
@@ -323,9 +330,9 @@
 
         <!-- Breadcrumb -->
         <div class="breadcrumb sr">
-          <a href="../index.html">Home</a>
+          <a href="../index">Home</a>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          <a href="instructors.html">Our Instructors</a>
+          <a href="instructors">Our Instructors</a>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           <span>Ms Cheng</span>
         </div>
@@ -347,7 +354,7 @@
             </div>
             <div class="book-card">
               <p>Study violin or piano with a First Class Honours graduate and versatile orchestral performer. Book a trial class with Ms Cheng today.</p>
-              <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
+              <a href="trial" class="btn btn-cta">Book Trial Class</a>
             </div>
           </div>
 
@@ -355,7 +362,7 @@
           <div class="sfr">
 
             <!-- Back link -->
-            <a href="instructors.html" class="back-link">
+            <a href="instructors" class="back-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
               Back to Instructors
             </a>
@@ -483,27 +490,27 @@
         <h2 class="sr" style="text-align:center;margin-bottom:12px;">Meet Our Other Instructors</h2>
         <p class="sr" style="text-align:center;color:var(--body);font-size:17px;margin-bottom:40px;">Every instructor at Liberal brings exceptional skill, passion, and dedication to their students.</p>
         <div class="other-grid">
-          <a href="cecily.html" class="other-card sr d1">
+          <a href="cecily" class="other-card sr d1">
             <div class="other-card-photo"><img src="../assets/cecily.webp" alt="Cecily" onerror="this.style.display='none'"/></div>
             <div class="other-card-body"><strong>Ms Cecily</strong><span>Erhu · Chinese Instruments</span></div>
           </a>
-          <a href="calvin.html" class="other-card sr d2">
+          <a href="calvin" class="other-card sr d2">
             <div class="other-card-photo"><img src="../assets/calvin.webp" alt="Calvin" onerror="this.style.display='none'"/></div>
             <div class="other-card-body"><strong>Mr Calvin</strong><span>Drums · Guitar</span></div>
           </a>
-          <a href="kate.html" class="other-card sr d3">
+          <a href="kate" class="other-card sr d3">
             <div class="other-card-photo"><img src="../assets/kate.webp" alt="Kate" onerror="this.style.display='none'"/></div>
             <div class="other-card-body"><strong>Ms Kate</strong><span>Piano · ABRSM</span></div>
           </a>
-          <a href="jiang.html" class="other-card sr d4">
+          <a href="jiang" class="other-card sr d4">
             <div class="other-card-photo"><img src="../assets/jiang.webp" alt="Jiang" onerror="this.style.display='none'"/></div>
             <div class="other-card-body"><strong>Ms Jiang</strong><span>Erhu · Chinese Instruments</span></div>
           </a>
-          <a href="leonard.html" class="other-card sr d5">
+          <a href="leonard" class="other-card sr d5">
             <div class="other-card-photo"><img src="../assets/leonard.webp" alt="Leonard" onerror="this.style.display='none'"/></div>
             <div class="other-card-body"><strong>Leonard</strong><span>Guitar · Ukulele</span></div>
           </a>
-          <a href="loy.html" class="other-card sr">
+          <a href="loy" class="other-card sr">
             <div class="other-card-photo"><img src="../assets/loy.webp" alt="Loy" onerror="this.style.display='none'"/></div>
             <div class="other-card-body"><strong>Loy</strong><span>Art · Drawing</span></div>
           </a>
@@ -516,10 +523,10 @@
       <div class="W">
         <div class="pill-tag pt-lv sr" style="font-size:13px;padding:6px 14px;margin-bottom:20px;">Start Today</div>
         <h2 class="sr d1">Learn from Singapore's Best</h2>
-        <p class="sr d2">Join over 500 families who trust Liberal Music &amp; Arts School. Book a free trial class with Ms Cecily or any of our expert instructors.</p>
+        <p class="sr d2">Join over 500 families who trust Liberal Music &amp; Arts School. Book a free trial class with Ms Cheng or any of our expert instructors.</p>
         <div class="sr d3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-          <a href="trial.html" class="btn btn-cta btn-lg">Book Free Trial Class</a>
-          <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+          <a href="trial" class="btn btn-cta btn-lg">Book Trial Class</a>
+          <a href="contact" class="btn btn-outline btn-lg">Contact Us</a>
         </div>
       </div>
     </section>
@@ -530,7 +537,7 @@
         <div class="foot-grid">
           <div class="foot-brand">
             <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School" onerror="this.src='../assets/logo.webp'"/>
-            <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+            <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — Ages 2.5+ to Adult. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
             <div class="foot-soc">
               <a href="#" aria-label="Instagram"><img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
               <a href="#" aria-label="Facebook"><img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
@@ -541,13 +548,13 @@
           <div class="foot-col">
             <h5>Navigation</h5>
             <ul>
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="courses.html">Courses</a></li>
-              <li><a href="instructors.html">Instructors</a></li>
-              <li><a href="testimonial.html">Review</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="../index">Home</a></li>
+              <li><a href="about">About</a></li>
+              <li><a href="courses">Courses</a></li>
+              <li><a href="instructors">Instructors</a></li>
+              <li><a href="review">Review</a></li>
+              <li><a href="blog">Blog</a></li>
+              <li><a href="contact">Contact</a></li>
             </ul>
           </div>
           <div class="foot-col">
@@ -569,10 +576,10 @@
                 <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
                 <div class="foot-loc-text"><strong>Le Quest Mall Music School</strong><span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span></div>
               </div>
-              <div class="foot-loc soon">
+              <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
                 <span class="foot-loc-pin">✦</span>
-                <div class="foot-loc-text"><strong>Jurong Point Music School</strong><span>Opening Soon — Register Interest</span></div>
-              </div>
+                <div class="foot-loc-text"><strong>Coloury Art By Liberal</strong><span>colouryart.com</span></div>
+              </a>
             </div>
           </div>
         </div>
@@ -580,9 +587,9 @@
           <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
           <div class="foot-btm-links">
             <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="../index-zh.html">中文版本</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="terms">Terms of Use</a>
+            <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
           </div>
         </div>
       </div>
@@ -603,7 +610,7 @@
 
   <!-- MOBILE STICKY BAR -->
   <div class="mob-bar">
-    <a href="trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
+    <a href="trial" class="btn btn-cta">✦ Book Trial Class</a>
   </div>
 
   <script>

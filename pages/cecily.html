@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Ms Cecily – Principal | Liberal Music &amp; Arts School</title>
+  <title>Ms Cecily – Principal & Erhu Instructor | Liberal Music Singapore</title>
+<meta name="description" content="Learn Erhu and Chinese instruments from Singapore's most experienced Erhu educator and our Principal, Ms Cecily. Book a trial class today."/>
+<link rel="canonical" href="https://liberalmusicschool.com/pages/cecily"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -72,6 +74,11 @@
     .ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
     .ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
     .ann-bar a:hover{opacity:.85}
+    /* Announcement bar — prevent horizontal overflow on small phones */
+    @media(max-width:540px){
+      .ann-bar{padding:6px 12px; height:auto; min-height:36px}
+      .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
+    }
 
     /* ── Navbar ── */
     .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
@@ -156,7 +163,7 @@
     .ach-grid{display:flex;flex-direction:column;gap:14px}
     .ach-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px 20px;background:var(--w);border-radius:var(--r);border:1px solid rgba(221,230,245,.6);box-shadow:var(--sh-s);transition:all var(--t)}
     .ach-item:hover{border-color:rgba(255,102,0,.3);box-shadow:0 8px 28px var(--or-glow);transform:translateX(4px)}
-    .ach-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .ach-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:33px;flex-shrink:0}
     .ach-icon.gold{background:#FFF8E1}
     .ach-icon.blue{background:var(--sky)}
     .ach-icon.green{background:var(--teal)}
@@ -183,11 +190,14 @@
     /* ── Other Instructors Strip ── */
     .other-strip{background:var(--s1);padding:80px 0}
     .other-strip h2{font-size:clamp(1.6rem,2.8vw,2.2rem);margin-bottom:40px;text-align:center}
-    .other-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
-    .other-card{background:var(--w);border-radius:var(--r-l);padding:20px;text-align:center;box-shadow:var(--sh-s);border:1px solid rgba(221,230,245,.5);transition:all var(--t);cursor:pointer;text-decoration:none;color:inherit;display:block}
+    .other-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px}
+    .other-card{background:var(--w);border-radius:var(--r-l);overflow:hidden;text-align:center;box-shadow:var(--sh-s);border:1px solid rgba(221,230,245,.5);transition:all var(--t);cursor:pointer;text-decoration:none;color:inherit;display:block}
     .other-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow);border-color:rgba(255,102,0,.2)}
-    .other-card img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 12px;border:2px solid rgba(221,230,245,.8)}
-    .other-card strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--ink);margin-bottom:4px}
+    .other-card-photo{width:100%;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,var(--s2),var(--s1))}
+    .other-card-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s var(--sp)}
+    .other-card:hover .other-card-photo img{transform:scale(1.05)}
+    .other-card-body{padding:14px 12px 18px}
+    .other-card strong{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:18px;color:var(--ink);margin-bottom:4px}
     .other-card span{font-size:13px;color:var(--muted)}
 
     /* ── CTA Banner ── */
@@ -200,8 +210,8 @@
     .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
     .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
     .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
-    .foot-soc{display:flex;gap:9px;margin-top:24px}
-    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
+    .foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
+    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .18s,transform .18s var(--sp)}
     .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
     .foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
     .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
@@ -263,13 +273,13 @@
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="ann-bar">
-    <a href="trial.html">
+    <a href="trial">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
         <path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/>
         <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
         <line x1="12" y1="12" x2="12" y2="19"/>
       </svg>
-      Liberal Music &amp; Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!
+      Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!
     </a>
   </div>
 
@@ -277,21 +287,21 @@
   <nav class="nav" id="nav">
     <div class="W">
       <div class="nav-row">
-        <a href="../index.html" class="nav-logo" aria-label="Liberal Music & Arts Home">
+        <a href="../index" class="nav-logo" aria-label="Liberal Music & Arts Home">
           <img src="../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display='none'"/>
         </a>
         <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="instructors.html" class="active">Instructors</a></li>
-          <li><a href="testimonial.html">Review</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../index">Home</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="courses">Courses</a></li>
+          <li><a href="instructors" class="active">Instructors</a></li>
+          <li><a href="review">Review</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="contact">Contact</a></li>
         </ul>
         <div class="nav-end">
-          <a href="../index-zh.html" class="nav-lang">中文</a>
-          <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+          <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
+          <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
         </div>
         <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -302,14 +312,14 @@
 
   <!-- MOBILE DRAWER -->
   <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-    <a href="../index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="courses.html">Courses</a>
-    <a href="instructors.html">Instructors</a>
-    <a href="testimonial.html">Review</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
+    <a href="../index">Home</a>
+    <a href="about">About</a>
+    <a href="courses">Courses</a>
+    <a href="instructors">Instructors</a>
+    <a href="review">Review</a>
+    <a href="blog">Blog</a>
+    <a href="contact">Contact</a>
+    <a href="trial" class="btn btn-cta">Book Trial Class</a>
   </nav>
 
   <main style="padding-top:108px">
@@ -320,9 +330,9 @@
 
         <!-- Breadcrumb -->
         <div class="breadcrumb sr">
-          <a href="../index.html">Home</a>
+          <a href="../index">Home</a>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          <a href="instructors.html">Our Instructors</a>
+          <a href="instructors">Our Instructors</a>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           <span>Ms Cecily</span>
         </div>
@@ -338,13 +348,13 @@
             </div>
             <div class="tags-row">
               <span class="tag tag-or">Principal</span>
-              <span class="tag tag-tl">Erhu</span>
-              <span class="tag tag-lv">Chinese Instruments</span>
+              <span class="tag tag-tl">Musician</span>
+              <span class="tag tag-lv">Educator</span>
               <span class="tag tag-tl">Music Theory</span>
             </div>
             <div class="book-card">
               <p>Learn from Singapore's most experienced Erhu educator. Book a trial class with Ms Cecily today.</p>
-              <a href="trial.html" class="btn btn-cta">Book Free Trial Class</a>
+              <a href="trial" class="btn btn-cta">Book Trial Class</a>
             </div>
           </div>
 
@@ -352,25 +362,25 @@
           <div class="sfr">
 
             <!-- Back link -->
-            <a href="instructors.html" class="back-link">
+            <a href="instructors" class="back-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
               Back to Instructors
             </a>
 
             <div class="pill-tag pt-lv" style="font-size:13px;padding:6px 14px;margin-bottom:18px;">Our Instructors</div>
             <h1 class="profile-name">Ms Cecily</h1>
-            <p class="profile-title">Principal · Erhu Specialist · Chinese Instruments</p>
+            <p class="profile-title">Principal · Musician · Educator</p>
 
             <!-- Quick Stats -->
             <div class="stat-pills">
-              <div class="stat-pill"><span>15+</span> Years of Teaching</div>
+              <div class="stat-pill"><span>20+</span> Years of Teaching</div>
               <div class="stat-pill"><span>Since</span> 2009 Principal</div>
               <div class="stat-pill"><span>HKAPA</span> Trained</div>
               <div class="stat-pill"><span>International</span> Performer</div>
             </div>
 
             <p class="profile-lead">
-              Principal of Liberal Music &amp; Arts School since 2009, Ms Cecily is a world-class Erhu specialist trained at the Hong Kong Academy for Performing Arts. With over 15 years of teaching experience and an international performance career, she leads the school's vision of nurturing confident, creative young musicians across Singapore.
+              Principal of Liberal Music &amp; Arts School since 2009, Ms Cecily is a world-class Erhu specialist trained at the Hong Kong Academy for Performing Arts. With over 20 years of teaching experience spanning Singapore, Macao, and Hong Kong, and an extensive international performance career, she leads the school's vision of nurturing confident, creative musicians of all ages across Singapore.
             </p>
 
             <!-- Education Background -->
@@ -384,7 +394,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                   </div>
                   <div class="edu-text">
-                    <strong>Master's Degree in Music Education (Erhu)</strong>
+                    <strong>Master's Degree in Music Education</strong>
                     Central China Normal University
                   </div>
                 </div>
@@ -393,8 +403,8 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                   </div>
                   <div class="edu-text">
-                    <strong>Professional Diploma in Music (Erhu, Piano, Guzheng, Vocal)</strong>
-                    Hong Kong Academy for Performing Arts · Studied under Professor Wang Guo-tong, Head of Chinese Music Department
+                    <strong>Bachelor's Degree in Music (Erhu major, Piano minor)</strong>
+                    Hong Kong Academy for Performing Arts
                   </div>
                 </div>
                 <div class="edu-item sr d3">
@@ -402,17 +412,8 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                   </div>
                   <div class="edu-text">
-                    <strong>Bachelor's Degree in Music (Erhu, Piano)</strong>
-                    Hong Kong Academy for Performing Arts
-                  </div>
-                </div>
-                <div class="edu-item sr d4">
-                  <div class="edu-dot">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  </div>
-                  <div class="edu-text">
-                    <strong>Began Erhu training at age seven</strong>
-                    Over 30 years of dedicated Erhu practice and mastery
+                    <strong>Professional Diploma in Music (Piano &amp; Erhu double major, Guzheng &amp; Vocal)</strong>
+                    Hong Kong Academy for Performing Arts · Studied under Professor Wang Guo-tong (Head of Chinese Music Dept) and Professor Ma Cong (international pianist)
                   </div>
                 </div>
               </div>
@@ -423,58 +424,19 @@
               <div class="prof-section-label">
                 <h2>Achievements &amp; Career Highlights</h2>
               </div>
-              <div class="ach-grid">
-
-                <div class="ach-item highlight sr d1">
-                  <div class="ach-icon gold">🏫</div>
-                  <div class="ach-text"><strong>Principal of Liberal Music &amp; Arts School since 2009</strong><br>Building one of Singapore's leading music schools for children aged 2.5–16.</div>
-                </div>
-
-                <div class="ach-item sr d2">
-                  <div class="ach-icon blue">🎶</div>
-                  <div class="ach-text"><strong>Musician at the Macau Chinese Orchestra (2004–2006)</strong><br>Also served as Erhu and Theory teacher at Macau Conservatory.</div>
-                </div>
-
-                <div class="ach-item highlight sr d3">
-                  <div class="ach-icon gold">⭐</div>
-                  <div class="ach-text"><strong>Performed for China's former President Hu Jintao (2004)</strong><br>A rare honour representing the highest level of artistic recognition.</div>
-                </div>
-
-                <div class="ach-item sr d4">
-                  <div class="ach-icon green">🎻</div>
-                  <div class="ach-text"><strong>Singapore Chinese Orchestra (2003–2004)</strong><br>Contributed as a professional musician at one of Asia's premier orchestras.</div>
-                </div>
-
-                <div class="ach-item sr d5">
-                  <div class="ach-icon purple">✈️</div>
-                  <div class="ach-text"><strong>International Erhu &amp; Gaohu Soloist across Europe</strong><br>Invited to perform in Austria (2001); Holland, Britain &amp; Belgium (2002); Britain, France, Germany, Holland, Belgium &amp; Malaysia (2003).</div>
-                </div>
-
-                <div class="ach-item sr">
-                  <div class="ach-icon gold">💿</div>
-                  <div class="ach-text"><strong>Featured in HKAPA Commemorative CD (2000)</strong><br>Celebrating the 15th Anniversary of the Hong Kong Academy for Performing Arts and the new millennium.</div>
-                </div>
-
-                <div class="ach-item highlight sr">
-                  <div class="ach-icon gold">⭐</div>
-                  <div class="ach-text"><strong>Performed for China's former President Jiang Zemin (2000)</strong><br>At the Hong Kong Convention and Exhibition Centre — a landmark presidential performance.</div>
-                </div>
-
-                <div class="ach-item sr">
-                  <div class="ach-icon blue">📀</div>
-                  <div class="ach-text"><strong>Featured in Education Department CD-ROM for HK Primary Schools</strong><br>Invited as Erhu and Gaohu soloist in an educational multimedia production reaching thousands of students.</div>
-                </div>
-
-                <div class="ach-item highlight sr">
-                  <div class="ach-icon gold">🥈</div>
-                  <div class="ach-text"><strong>Second Prize — "Liu Tian-hua Cup" National Youth Erhu Competition (1999)</strong><br>One of the most prestigious youth competitions in Chinese instrumental music.</div>
-                </div>
-
-                <div class="ach-item sr">
-                  <div class="ach-icon pink">🎤</div>
-                  <div class="ach-text"><strong>Frequent Soloist at HKAPA Concerts</strong><br>Regularly performed at prestigious venues including the former Governor's House, representing the Academy's finest performers.</div>
-                </div>
-
+              <div class="sr" style="font-size:16px;line-height:1.9;color:var(--body);">
+                <p style="margin-bottom:16px;">
+                  Ms Cecily has served as Principal of Liberal Music &amp; Arts School since 2009, building one of Singapore's most trusted music education programmes for children aged 2.5–Adult. She previously taught at the <strong style="color:var(--ink);">Macao Conservatory (2004–2006)</strong>, where she further strengthened her academic and pedagogical background.
+                </p>
+                <p style="margin-bottom:16px;">
+                  An internationally recognised soloist, Ms Cecily was invited to perform across Europe — in <strong style="color:var(--ink);">Austria (2001), Holland, Britain and Belgium (2002)</strong>, and <strong style="color:var(--ink);">Britain, France, Germany, Holland, Belgium and Malaysia (2003)</strong>. She has performed at the highest levels of public life, appearing before <strong style="color:var(--ink);">China's former President Jiang Zemin</strong> at the Hong Kong Convention and Exhibition Centre in 2000, and again before <strong style="color:var(--ink);">former President Hu Jintao</strong> in 2004.
+                </p>
+                <p style="margin-bottom:16px;">
+                  Her artistry was featured in a <strong style="color:var(--ink);">commemorative CD by the Hong Kong Academy for Performing Arts</strong> marking its 15th Anniversary and the new millennium (2000), and she was selected as Erhu and Gaohu soloist for an <strong style="color:var(--ink);">educational CD-ROM produced by the Hong Kong Education Department</strong> for primary schools across the city.
+                </p>
+                <p>
+                  In 1999, she was awarded <strong style="color:var(--ink);">Second Prize at the "Liu Tian-hua Cup" National Youth Erhu Competition</strong> — one of the most prestigious youth competitions in Chinese instrumental music. She was a frequent soloist in HKAPA concerts, including performances at the former Governor's House, and has been invited multiple times to give music lectures at <strong style="color:var(--ink);">SMU (Singapore Management University)</strong>.
+                </p>
               </div>
             </div>
 
@@ -489,35 +451,29 @@
         <h2 class="sr" style="text-align:center;margin-bottom:12px;">Meet Our Other Instructors</h2>
         <p class="sr" style="text-align:center;color:var(--body);font-size:17px;margin-bottom:40px;">Every instructor at Liberal brings exceptional skill, passion, and dedication to their students.</p>
         <div class="other-grid">
-          <a href="instructor-calvin.html" class="other-card sr d1">
-            <img src="../assets/calvin.webp" alt="Calvin" onerror="this.style.display='none'"/>
-            <strong>Calvin</strong>
-            <span>Piano · Guitar</span>
+          <a href="calvin" class="other-card sr d1">
+            <div class="other-card-photo"><img src="../assets/calvin.webp" alt="Calvin" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Calvin</strong><span>Piano · Guitar</span></div>
           </a>
-          <a href="instructor-kate.html" class="other-card sr d2">
-            <img src="../assets/kate.webp" alt="Kate" onerror="this.style.display='none'"/>
-            <strong>Kate</strong>
-            <span>Violin · Piano</span>
+          <a href="kate" class="other-card sr d2">
+            <div class="other-card-photo"><img src="../assets/kate.webp" alt="Kate" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Kate</strong><span>Violin · Piano</span></div>
           </a>
-          <a href="instructor-jiang.html" class="other-card sr d3">
-            <img src="../assets/jiang.webp" alt="Jiang" onerror="this.style.display='none'"/>
-            <strong>Jiang</strong>
-            <span>Chinese Instruments</span>
+          <a href="jiang" class="other-card sr d3">
+            <div class="other-card-photo"><img src="../assets/jiang.webp" alt="Jiang" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Jiang</strong><span>Chinese Instruments</span></div>
           </a>
-          <a href="instructor-cheng.html" class="other-card sr d4">
-            <img src="../assets/cheng.webp" alt="Cheng" onerror="this.style.display='none'"/>
-            <strong>Cheng</strong>
-            <span>Drums · Percussion</span>
+          <a href="cheng" class="other-card sr d4">
+            <div class="other-card-photo"><img src="../assets/cheng.webp" alt="Cheng" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Cheng</strong><span>Drums · Percussion</span></div>
           </a>
-          <a href="instructor-leonard.html" class="other-card sr d5">
-            <img src="../assets/leonard.webp" alt="Leonard" onerror="this.style.display='none'"/>
-            <strong>Leonard</strong>
-            <span>Guitar · Ukulele</span>
+          <a href="leonard" class="other-card sr d5">
+            <div class="other-card-photo"><img src="../assets/leonard.webp" alt="Leonard" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Leonard</strong><span>Guitar · Ukulele</span></div>
           </a>
-          <a href="instructor-loy.html" class="other-card sr">
-            <img src="../assets/loy.webp" alt="Loy" onerror="this.style.display='none'"/>
-            <strong>Loy</strong>
-            <span>Art · Drawing</span>
+          <a href="loy" class="other-card sr">
+            <div class="other-card-photo"><img src="../assets/loy.webp" alt="Loy" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Loy</strong><span>Art · Drawing</span></div>
           </a>
         </div>
       </div>
@@ -530,8 +486,8 @@
         <h2 class="sr d1">Learn from Singapore's Best</h2>
         <p class="sr d2">Join over 500 families who trust Liberal Music &amp; Arts School. Book a free trial class with Ms Cecily or any of our expert instructors.</p>
         <div class="sr d3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-          <a href="trial.html" class="btn btn-cta btn-lg">Book Free Trial Class</a>
-          <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+          <a href="trial" class="btn btn-cta btn-lg">Book Trial Class</a>
+          <a href="contact" class="btn btn-outline btn-lg">Contact Us</a>
         </div>
       </div>
     </section>
@@ -542,7 +498,7 @@
         <div class="foot-grid">
           <div class="foot-brand">
             <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School" onerror="this.src='../assets/logo.webp'"/>
-            <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+            <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — Ages 2.5+ to Adult. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
             <div class="foot-soc">
               <a href="#" aria-label="Instagram"><img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
               <a href="#" aria-label="Facebook"><img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
@@ -553,13 +509,13 @@
           <div class="foot-col">
             <h5>Navigation</h5>
             <ul>
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="courses.html">Courses</a></li>
-              <li><a href="instructors.html">Instructors</a></li>
-              <li><a href="testimonial.html">Review</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="../index">Home</a></li>
+              <li><a href="about">About</a></li>
+              <li><a href="courses">Courses</a></li>
+              <li><a href="instructors">Instructors</a></li>
+              <li><a href="review">Review</a></li>
+              <li><a href="blog">Blog</a></li>
+              <li><a href="contact">Contact</a></li>
             </ul>
           </div>
           <div class="foot-col">
@@ -581,10 +537,10 @@
                 <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
                 <div class="foot-loc-text"><strong>Le Quest Mall Music School</strong><span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span></div>
               </div>
-              <div class="foot-loc soon">
+              <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
                 <span class="foot-loc-pin">✦</span>
-                <div class="foot-loc-text"><strong>Jurong Point Music School</strong><span>Opening Soon — Register Interest</span></div>
-              </div>
+                <div class="foot-loc-text"><strong>Coloury Art By Liberal</strong><span>colouryart.com</span></div>
+              </a>
             </div>
           </div>
         </div>
@@ -592,9 +548,9 @@
           <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
           <div class="foot-btm-links">
             <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="../index-zh.html">中文版本</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="terms">Terms of Use</a>
+            <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
           </div>
         </div>
       </div>
@@ -610,12 +566,12 @@
       <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
       <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West / JP <span>9627 7582</span></a>
     </div>
-    <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
+    <button class="wa-fab" id="waFab" aria-label="Open WhatsApp"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/></button>
   </div>
 
   <!-- MOBILE STICKY BAR -->
   <div class="mob-bar">
-    <a href="trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
+    <a href="trial" class="btn btn-cta">✦ Book Trial Class</a>
   </div>
 
   <script>
