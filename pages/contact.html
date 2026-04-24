@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Contact Us | Liberal Music & Arts School Singapore</title>
-<meta name="description" content="Reach us at our 5 Singapore locations: Tengah, Tampines, Jurong West, Le Quest, and Jurong Point. WhatsApp, email, or book a free trial online."/>
-<link rel="canonical" href="https://liberalmusicschool.com/pages/contact"/>
+  <title>Contact Us | Liberal Music &amp; Arts School</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -80,11 +78,6 @@
     .ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
     .ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
     .ann-bar a:hover{opacity:.85}
-    /* Announcement bar — prevent horizontal overflow on small phones */
-    @media(max-width:540px){
-      .ann-bar{padding:6px 12px; height:auto; min-height:36px}
-      .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
-    }
 
     /* ── 8. Navbar ── */
     .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
@@ -202,8 +195,8 @@
     .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
     .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
     .foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
-    .foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
-    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .18s,transform .18s var(--sp)}
+    .foot-soc{display:flex;gap:9px;margin-top:24px}
+    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;transition:opacity .18s,transform .18s var(--sp)}
     .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
     .foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
     .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
@@ -263,13 +256,13 @@
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="ann-bar">
-    <a href="trial">
+    <a href="trial.html">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
         <path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/>
         <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
         <line x1="12" y1="12" x2="12" y2="19"/>
       </svg>
-      Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!
+      Liberal Music &amp; Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!
     </a>
   </div>
 
@@ -277,21 +270,21 @@
   <nav class="nav" id="nav">
     <div class="W">
       <div class="nav-row">
-        <a href="../index" class="nav-logo" aria-label="Liberal Music & Arts Home">
+        <a href="../index.html" class="nav-logo" aria-label="Liberal Music & Arts Home">
           <img src="../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display='none'"/>
         </a>
         <ul class="nav-links">
-          <li><a href="../index">Home</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="courses">Courses</a></li>
-          <li><a href="instructors">Instructors</a></li>
-          <li><a href="review">Review</a></li>
-          <li><a href="blog">Blog</a></li>
-          <li><a href="contact" class="active">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="instructors.html">Instructors</a></li>
+          <li><a href="review.html">Review</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
         <div class="nav-end">
-          <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
-          <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+          <a href="../index-zh.html" class="nav-lang">中文</a>
+          <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
         </div>
         <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -302,14 +295,14 @@
 
   <!-- MOBILE DRAWER -->
   <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-    <a href="../index">Home</a>
-    <a href="about">About</a>
-    <a href="courses">Courses</a>
-    <a href="instructors">Instructors</a>
-    <a href="review">Review</a>
-    <a href="blog">Blog</a>
-    <a href="contact">Contact</a>
-    <a href="trial" class="btn btn-cta">Book Trial Class</a>
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="courses.html">Courses</a>
+    <a href="instructors.html">Instructors</a>
+    <a href="review.html">Review</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
   </nav>
 
   <main style="padding-top:108px">
@@ -318,7 +311,7 @@
     <section class="page-hero">
       <div class="W">
         <div class="breadcrumb sr">
-          <a href="../index">Home</a>
+          <a href="../index.html">Home</a>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
           <span style="color:var(--or);font-weight:700">Contact</span>
         </div>
@@ -327,17 +320,49 @@
         <p class="hero-lead sr d3">Have a question, want to book a trial, or just want to say hello? Reach out to any of our 5 branches — we respond within 24 hours.</p>
         <div class="hero-quick sr d4">
           <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="hquick">
-            <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:20px;height:20px;object-fit:contain;display:block;"/> WhatsApp Tengah
+            <span>💬</span> WhatsApp Tengah
           </a>
           <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="hquick">
-            <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:20px;height:20px;object-fit:contain;display:block;"/> WhatsApp Tampines
+            <span>💬</span> WhatsApp Tampines
           </a>
           <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="hquick">
-            <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:20px;height:20px;object-fit:contain;display:block;"/> WhatsApp Jurong West
+            <span>💬</span> WhatsApp Jurong
           </a>
-          <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="hquick">
-            <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:20px;height:20px;object-fit:contain;display:block;"/> WhatsApp Le Quest
-          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUICK CONTACT STRIP ── -->
+    <section class="contact-strip">
+      <div class="W">
+        <div class="strip-grid">
+          <div class="strip-card sr d1">
+            <div class="strip-icon">💬</div>
+            <h3>WhatsApp Us</h3>
+            <p>The fastest way to reach us. Chat with your nearest branch directly — we reply within the hour.</p>
+            <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="strip-link">
+              Message Now
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="strip-card sr d2">
+            <div class="strip-icon">🗓️</div>
+            <h3>Book a Trial Class</h3>
+            <p>Ready to start? Book a free trial lesson — no commitment needed. Choose your instrument and branch.</p>
+            <a href="trial.html" class="strip-link">
+              Book Trial
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="strip-card sr d3">
+            <div class="strip-icon">📍</div>
+            <h3>Visit a Branch</h3>
+            <p>Walk-ins are always welcome. Find us at 5 convenient locations across Singapore — open 7 days a week.</p>
+            <a href="#branches" class="strip-link">
+              See Locations
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -353,36 +378,28 @@
               <h2>Send Us a Message</h2>
               <p>Fill in the form and we'll get back to you within 24 hours.</p>
 
-              <form id="formArea" action="https://formsubmit.co/colouryartsg@gmail.com" method="POST">
-                <!-- FormSubmit settings -->
-                <input type="hidden" name="_subject" value="New enquiry from Liberal Music website"/>
-                <input type="hidden" name="_template" value="table"/>
-                <input type="hidden" name="_captcha" value="false"/>
-                <input type="hidden" name="_next" value="https://seanqiubrave.github.io/liberalwebsitenew/pages/contact.html?sent=1"/>
-                <!-- Honeypot anti-spam -->
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
-
+              <div id="formArea">
                 <div class="form-row">
                   <div class="fgroup">
                     <label>First Name *</label>
-                    <input type="text" id="fname" name="First Name" placeholder="e.g. Wei Ming" required/>
+                    <input type="text" id="fname" placeholder="e.g. Wei Ming" required/>
                   </div>
                   <div class="fgroup">
                     <label>Last Name *</label>
-                    <input type="text" id="lname" name="Last Name" placeholder="e.g. Tan" required/>
+                    <input type="text" id="lname" placeholder="e.g. Tan" required/>
                   </div>
                 </div>
                 <div class="fgroup">
                   <label>Email Address *</label>
-                  <input type="email" id="email" name="email" placeholder="you@email.com" required/>
+                  <input type="email" id="email" placeholder="you@email.com" required/>
                 </div>
                 <div class="fgroup">
                   <label>Phone Number</label>
-                  <input type="tel" name="Phone" placeholder="+65 9XXX XXXX"/>
+                  <input type="tel" placeholder="+65 9XXX XXXX"/>
                 </div>
                 <div class="fgroup">
                   <label>Course Interest</label>
-                  <select name="Course Interest">
+                  <select>
                     <option value="">Select a course...</option>
                     <option>Piano</option>
                     <option>Violin</option>
@@ -401,21 +418,21 @@
                 </div>
                 <div class="fgroup">
                   <label>Preferred Branch</label>
-                  <select name="Preferred Branch">
+                  <select>
                     <option value="">Select a branch...</option>
                     <option>Tengah</option>
                     <option>Tampines</option>
                     <option>Jurong West</option>
                     <option>Le Quest Mall (Bukit Batok)</option>
-                    <option>Coloury Art By Liberal (Jurong Point)</option>
+                    <option>Jurong Point (Opening Soon)</option>
                   </select>
                 </div>
                 <div class="fgroup">
                   <label>Message</label>
-                  <textarea name="Message" placeholder="Tell us more about what you're looking for — your child's age, experience level, or any questions you have..."></textarea>
+                  <textarea placeholder="Tell us more about what you're looking for — your child's age, experience level, or any questions you have..."></textarea>
                 </div>
-                <button type="submit" class="btn-submit">✦ Send Message</button>
-              </form>
+                <button class="btn-submit" onclick="handleSubmit(event)">✦ Send Message</button>
+              </div>
 
               <div class="form-success" id="formSuccess">
                 <div class="tick">🎉</div>
@@ -489,17 +506,17 @@
               </a>
             </div>
 
-            <!-- Coloury Art By Liberal -->
-            <div class="branch-card soon" style="cursor:pointer;" onclick="window.open('https://colouryart.com/', '_blank', 'noopener');">
+            <!-- Jurong Point — Coming Soon -->
+            <div class="branch-card soon">
               <div class="branch-top">
-                <div class="branch-name">✦ Coloury Art By Liberal</div>
+                <div class="branch-name">✦ Jurong Point Music School</div>
                 <span class="branch-badge soon-badge">Opening Soon</span>
               </div>
-              <div class="branch-addr">#03-07C Level 3, Jurong Point<br>Singapore 648886</div>
-              <div class="branch-hours">Visit colouryart.com</div>
-              <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-btn" onclick="event.stopPropagation();">
+              <div class="branch-addr">1 Jurong West Central 2, Jurong Point Shopping Centre<br>Singapore · Near Boon Lay MRT</div>
+              <div class="branch-hours">Hours to be announced</div>
+              <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                WhatsApp · 8922 2848
+                Register Interest
               </a>
             </div>
 
@@ -513,9 +530,9 @@
       <div class="W">
         <span class="pill-tag pt-lv sr">Start Today</span>
         <h2 class="sr d1">Ready for Your First Lesson?</h2>
-        <p class="sr d2">Book a trial class — no commitment, no pressure. Just great music and a warm welcome.</p>
+        <p class="sr d2">Book a free trial class — no commitment, no pressure. Just great music and a warm welcome.</p>
         <div class="cta-btns sr d3">
-          <a href="trial" class="btn btn-cta btn-lg">Book Trial Class</a>
+          <a href="trial.html" class="btn btn-cta btn-lg">Book Free Trial Class</a>
           <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="btn-ink">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             WhatsApp Us
@@ -533,7 +550,7 @@
 
         <div class="foot-brand">
           <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School" onerror="this.src='../assets/logo.webp'"/>
-          <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — Ages 2.5+ to Adult. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+          <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts in children aged 4–16. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
           <div class="foot-soc">
             <a href="#" aria-label="Instagram"><img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
             <a href="#" aria-label="Facebook"><img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
@@ -545,13 +562,13 @@
         <div class="foot-col">
           <h5>Navigation</h5>
           <ul>
-            <li><a href="../index">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="courses">Courses</a></li>
-            <li><a href="instructors">Instructors</a></li>
-            <li><a href="review">Review</a></li>
-            <li><a href="blog">Blog</a></li>
-            <li><a href="contact">Contact</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="review.html">Review</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
@@ -574,10 +591,10 @@
               <span class="foot-loc-pin"><img src="../assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
               <div class="foot-loc-text"><strong>Le Quest Mall Music School</strong><span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span></div>
             </div>
-                        <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
+            <div class="foot-loc soon">
               <span class="foot-loc-pin">✦</span>
-              <div class="foot-loc-text"><strong>Coloury Art By Liberal</strong><span>colouryart.com</span></div>
-            </a>
+              <div class="foot-loc-text"><strong>Jurong Point Music School</strong><span>Opening Soon — Register Interest</span></div>
+            </div>
           </div>
         </div>
 
@@ -589,7 +606,7 @@
           <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
-          <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
+          <a href="../index-zh.html">中文版本</a>
         </div>
       </div>
     </div>
@@ -609,7 +626,7 @@
 
   <!-- MOBILE STICKY CTA BAR -->
   <div class="mob-bar">
-    <a href="trial" class="btn btn-cta">✦ Book Trial Class</a>
+    <a href="trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
   </div>
 
   <script>
@@ -650,14 +667,11 @@
 
   })();
 
-  /* Show success message when FormSubmit redirects back with ?sent=1 */
-  if (location.search.indexOf('sent=1') !== -1) {
-    var fa = document.getElementById('formArea');
-    var fs = document.getElementById('formSuccess');
-    if (fa) fa.style.display = 'none';
-    if (fs) fs.style.display = 'block';
-    /* Scroll success into view */
-    if (fs) fs.scrollIntoView({behavior:'smooth', block:'center'});
+  /* Form submit */
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('formArea').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
   }
   </script>
 </body>

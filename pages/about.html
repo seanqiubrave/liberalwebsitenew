@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Learn about our passionate educators, our 99% ABRSM pass rate, and why over 20,000 students trust Liberal Music & Arts School for their musical journey."/>
-<link rel="canonical" href="https://liberalmusicschool.com/pages/about"/>
-<title>About Us | Liberal Music & Arts School Singapore</title>
+<meta name="description" content="About Liberal Music & Arts School — Singapore's most trusted children's music school since 2009. 20,000+ students, 5 locations, 99% ABRSM pass rate."/>
+<title>About Us | Liberal Music &amp; Arts School</title>
 
 <!-- ── Fonts: Nunito (display) + Quicksand (body) ── -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -54,7 +53,7 @@
 /* ══ RESET ══ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#1F2A44}
-body{font-family:'Quicksand',system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
+body{font-family:'Quicksand',system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Nunito',sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
 a{text-decoration:none;color:inherit}img{display:block;max-width:100%}button{font-family:inherit;cursor:pointer;border:none;background:none}ul{list-style:none}
 
@@ -63,7 +62,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}button{fon
 section{padding:100px 0}
 
 /* ══ TYPOGRAPHY ══ */
-.pill-tag{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:1.4px;padding:9px 20px;border-radius:999px;margin-bottom:20px}
+.pill-tag{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:1.4px;padding:7px 16px;border-radius:999px;margin-bottom:20px}
 .pt-or{background:var(--or-lt);color:var(--or)}
 .pt-tl{background:var(--teal);color:#1a7058}
 .pt-lv{background:#98a3f8;color:#fff}
@@ -76,8 +75,8 @@ section{padding:100px 0}
 .sec-head.cx .lead{margin:0 auto}
 
 /* ══ BUTTONS ══ */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:800;border-radius:999px;white-space:nowrap;border:none;cursor:pointer;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}
-.btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh);font-size:18px;padding:13px 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:800;border-radius:999px;white-space:nowrap;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}
+.btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh);font-size:15px;padding:13px 28px}
 .btn-cta:hover{background:var(--or-dk);box-shadow:var(--or-shh);transform:translateY(-2px) scale(1.04)}
 .btn-cta:active{transform:scale(.98)}
 .btn-outline{background:transparent;color:var(--ink);border:2px solid #DDE6F2;font-size:15px;padding:13px 28px}
@@ -93,15 +92,10 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
 
 /* ══ ANNOUNCEMENT BAR ══ */
-.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
-.ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
-.ann-bar a:hover{opacity:.85}
-.ann-bar svg{flex-shrink:0}
-/* Announcement bar — prevent horizontal overflow on small phones */
-@media(max-width:540px){
-  .ann-bar{padding:6px 12px; height:auto; min-height:36px}
-  .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
-}
+.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:36px;background:#f56c22;display:flex;align-items:center;justify-content:center;gap:16px}
+.ann-bar p{font-family:'Nunito',sans-serif;font-weight:700;font-size:12.5px;color:#fff;letter-spacing:.2px;white-space:nowrap}
+.ann-bar a{font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;color:#fff;background:rgba(255,255,255,.22);padding:3px 12px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);transition:background .18s;white-space:nowrap;flex-shrink:0}
+.ann-bar a:hover{background:rgba(255,255,255,.38)}
 
 /* ══ NAVBAR ══ */
 .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
@@ -110,11 +104,11 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-logo{display:flex;align-items:center;flex-shrink:0}
 .nav-logo img{height:42px;width:auto}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{display:block;padding:8px 14px;border-radius:var(--r);font-weight:600;font-size:18px;color:var(--body);transition:color var(--t),background var(--t)}
+.nav-links a{display:block;padding:8px 13px;border-radius:var(--r);font-weight:600;font-size:14px;color:var(--body);transition:color var(--t),background var(--t)}
 .nav-links a:hover{color:var(--or);background:var(--or-lt)}
 .nav-links a.active{color:var(--or)}
 .nav-end{display:flex;align-items:center;gap:10px}
-.nav-lang{font-size:15.5px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:5px 12px;border-radius:999px;cursor:pointer;transition:all var(--t);text-decoration:none}
+.nav-lang{font-size:13px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all var(--t)}
 .nav-lang:hover{border-color:var(--or);color:var(--or)}
 .nav-ham{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:var(--r);transition:background var(--t)}
 .nav-ham:hover{background:var(--or-lt)}
@@ -124,7 +118,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-ham.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .nav-drawer{display:none;position:fixed;top:108px;left:0;right:0;z-index:999;background:var(--w);border-bottom:1px solid #EEF2F8;padding:16px 28px 28px;flex-direction:column;gap:4px;box-shadow:0 18px 52px rgba(31,42,68,.12)}
 .nav-drawer.on{display:flex}
-.nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:25.5px;color:var(--ink);transition:background var(--t),color var(--t)}
+.nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:15.5px;color:var(--ink);transition:background var(--t),color var(--t)}
 .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
 .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:12px}
 
@@ -218,17 +212,17 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .val-card::before{content:'';display:block;height:4px;margin:-32px -28px 24px;border-radius:var(--r-l) var(--r-l) 0 0;background:linear-gradient(90deg,var(--or),#FF9940);transform:scaleX(0);transform-origin:left;transition:transform var(--t) var(--sp)}
 .val-card:hover::before{transform:scaleX(1)}
 .val-card:hover{transform:translateY(-7px);box-shadow:0 24px 52px var(--or-glow)}
-.val-ico{width:90px;height:90px;border-radius:0;background:transparent!important;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px}
-.vi-1,.vi-2,.vi-3,.vi-4,.vi-5,.vi-6{background:transparent}
+.val-ico{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px}
+.vi-1{background:var(--teal)}.vi-2{background:var(--lem)}.vi-3{background:var(--blush)}.vi-4{background:var(--lav)}.vi-5{background:var(--sky)}.vi-6{background:var(--or-lt)}
 .val-card h3{font-size:19px;font-weight:900;margin-bottom:10px;color:var(--ink)}
 .val-card p{font-size:15px;line-height:1.72;color:var(--body)}
 
 /* ══ FOUNDERS / TEAM ══ */
 .team{background:var(--s1)}
-.team-grid{display:grid;grid-template-columns:1fr;gap:32px;max-width:760px;margin:0 auto}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:860px;margin:0 auto}
 .team-card{background:var(--w);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.4);display:flex;transition:transform var(--t) var(--sp),box-shadow var(--t) var(--sp)}
 .team-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow)}
-.team-photo{width:210px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--sky));display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
+.team-photo{width:140px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--sky));display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
 .team-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .tp-c{background:linear-gradient(135deg,var(--teal),var(--sky))}
 .tp-k{background:linear-gradient(135deg,var(--blush),var(--lav))}
@@ -269,36 +263,35 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .chk::before{content:'✓';color:var(--or);font-weight:900;font-size:15px}
 
 /* ══ FOOTER ══ */
-/* ── Footer ── */
-.footer{background:#1F2A44;margin:0;padding-bottom:0;border-top:none;padding:80px 0 0}
-.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
-.foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
-.foot-brand p{font-size:15px;line-height:1.82;color:#fff;max-width:300px;margin-bottom:8px}
-.foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
-.foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .18s,transform .18s var(--sp)}
-.foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
-.foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
+.footer{background:#1F2A44;padding:80px 0 0;border-top:none}
+.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand img{height:52px;width:auto;margin-bottom:22px;display:block}
+.foot-brand p{font-size:14px;line-height:1.82;color:rgba(255,255,255,.52);max-width:300px;margin-bottom:8px}
+.foot-contact{display:flex;flex-direction:column;gap:7px;margin-top:20px}
+.foot-contact a{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.48);transition:color .18s}
+.foot-contact a:hover{color:var(--or)}
+.foot-soc{display:flex;gap:9px;margin-top:24px}
+.foot-soc a{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .18s,border-color .18s,transform .18s var(--sp)}
+.foot-soc a:hover{background:rgba(255,102,0,.30);border-color:var(--or);transform:translateY(-2px)}
+.foot-col h5{font-family:'Nunito',sans-serif;font-weight:900;font-size:12.5px;text-transform:uppercase;letter-spacing:1.4px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
 .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
 .foot-col ul{display:flex;flex-direction:column;gap:10px}
-.foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block}
+.foot-col a{font-size:14px;color:rgba(255,255,255,.52);transition:color .18s,padding-left .18s;display:block}
 .foot-col a:hover{color:#fff;padding-left:4px}
 .foot-locs{display:flex;flex-direction:column;gap:8px}
 .foot-loc{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:flex-start;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:background .18s,border-color .18s,transform .18s var(--sp)}
 .foot-loc:hover{background:rgba(255,102,0,.12);border-color:rgba(255,102,0,.30);transform:translateX(3px)}
-.foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}
-.foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}
-.foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+.foot-loc-pin{color:var(--or);font-size:12px;line-height:1.6;margin-top:1px;flex-shrink:0}
+.foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:rgba(255,255,255,.88);margin-bottom:2px}
+.foot-loc-text span{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.5}
 .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
 .foot-loc.soon .foot-loc-text strong{color:var(--or)}
 .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
-.foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}
-.foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}
-.foot-btm-links{display:flex;gap:20px;align-items:center}
-.foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s}
+.foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0}
+.foot-btm p{font-size:13px;color:rgba(255,255,255,.35)}
+.foot-btm-links{display:flex;gap:20px}
+.foot-btm a{font-size:13px;color:rgba(255,255,255,.35);transition:color .18s}
 .foot-btm a:hover{color:#fff}
-html,body{margin-bottom:0!important;padding-bottom:0!important;height:auto!important}
-footer{margin-bottom:0!important}
-.footer{padding-bottom:0!important}
 
 /* ══ WA FAB ══ */
 .wa{position:fixed;bottom:28px;right:28px;z-index:900}
@@ -315,7 +308,7 @@ footer{margin-bottom:0!important}
 
 /* Mobile sticky */
 .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
-.mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
+.mob-bar .btn-cta{width:100%;justify-content:center;font-size:16px;padding:15px}
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:1100px){.vals-grid{grid-template-columns:repeat(2,1fr)}}
@@ -354,35 +347,29 @@ footer{margin-bottom:0!important}
 
 <!-- ════════ ANNOUNCEMENT BAR ════════ -->
 <div class="ann-bar">
-  <a href="trial">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
-      <path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/>
-      <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
-      <line x1="12" y1="12" x2="12" y2="19"/>
-    </svg>
-    Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!
-  </a>
+  <p>🎵 First Trial Class is FREE — No Commitment Needed!</p>
+  <a href="trial.html">Book Now →</a>
 </div>
 
 <!-- ════════ NAVBAR ════════ -->
 <nav class="nav" id="nav">
   <div class="W">
     <div class="nav-row">
-      <a href="../index" class="nav-logo" aria-label="Liberal Music & Arts Home">
+      <a href="../index.html" class="nav-logo" aria-label="Liberal Music & Arts Home">
         <img src="../assets/logo.webp" alt="Liberal Music & Arts" onerror="this.style.display='none'"/>
       </a>
       <ul class="nav-links">
-        <li><a href="../index">Home</a></li>
-        <li><a href="about" class="active">About</a></li>
-        <li><a href="courses">Courses</a></li>
-        <li><a href="instructors">Instructors</a></li>
-        <li><a href="review">Review</a></li>
-        <li><a href="blog">Blog</a></li>
-        <li><a href="contact">Contact</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="instructors.html">Instructors</a></li>
+        <li><a href="testimonial.html">Review</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-end">
-        <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
-        <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+        <a href="../index-zh.html" class="nav-lang">中文</a>
+        <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
       </div>
       <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -391,14 +378,14 @@ footer{margin-bottom:0!important}
   </div>
 </nav>
 <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-  <a href="../index">Home</a>
-  <a href="about">About</a>
-  <a href="courses">Courses</a>
-  <a href="instructors">Instructors</a>
-  <a href="review">Review</a>
-  <a href="blog">Blog</a>
-  <a href="contact">Contact</a>
-  <a href="trial" class="btn btn-cta">Book Trial Class</a>
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="courses.html">Courses</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="testimonial.html">Review</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
 </nav>
 
 
@@ -410,11 +397,11 @@ footer{margin-bottom:0!important}
       <!-- Copy -->
       <div>
         <div class="breadcrumb sr">
-          <a href="../index">Home</a>
+          <a href="../index.html">Home</a>
           <span>›</span>
           <span>About Us</span>
         </div>
-        <div class="pill-tag pt-tl sr" style="font-size:16px;padding:11px 24px;">Trusted by 20,000+ Students</div>
+        <div class="pill-tag pt-tl sr">💙 Est. 2009 · Trusted by 20,000+ Families</div>
         <h1 class="sr d1">
           Raising Confident,<br><em>Creative</em> Musicians<br>Since 2009.
         </h1>
@@ -422,8 +409,8 @@ footer{margin-bottom:0!important}
           Liberal Music &amp; Arts School is Singapore's most trusted children's music academy — built on a simple belief: every child deserves to grow through the joy of music.
         </p>
         <div class="hero-btns sr d3">
-          <a href="trial" class="btn btn-cta btn-lg">✦ Book Trial Class</a>
-          <a href="instructors" class="btn btn-outline btn-lg">Meet Our Teachers</a>
+          <a href="trial.html" class="btn btn-cta btn-lg">✦ Book Free Trial Class</a>
+          <a href="instructors.html" class="btn btn-outline btn-lg">Meet Our Teachers</a>
         </div>
       </div>
 
@@ -454,7 +441,7 @@ footer{margin-bottom:0!important}
           <div class="hero-quote">
             <p>"My daughter went from refusing to perform in front of anyone, to confidently playing a solo at the school concert. Liberal changed everything."</p>
             <div class="hero-quote-attr">
-              <div class="hero-quote-av" style="background:none;overflow:hidden;padding:0"><img src="../assets/g3.webp" alt="Parent" style="width:36px;height:36px;object-fit:cover;border-radius:50%;display:block;"/></div>
+              <div class="hero-quote-av">👩</div>
               <div>
                 <strong>Mrs Chen Wei</strong>
                 <span>Parent · Tengah Branch</span>
@@ -476,34 +463,35 @@ footer{margin-bottom:0!important}
 
       <!-- Visual -->
       <div class="story-vis sl">
-        <div class="story-img-wrap" style="font-size:0">
-          <iframe
-            src="https://www.youtube.com/embed/zPbrWgIKGC8?start=7046&autoplay=0&rel=0&modestbranding=1"
-            title="Liberal Music & Arts School"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="width:100%;height:100%;position:absolute;inset:0;border:none;">
-          </iframe>
+        <div class="story-img-wrap">
+          🎹
+          <img src="../assets/about-story.webp" alt="Liberal Music School story" onerror="this.style.display='none'"/>
           <span class="story-tag-float">❤️ 15 Years of Music</span>
         </div>
-
+        <div class="story-badge">
+          <div class="story-badge-ico">🏆</div>
+          <div>
+            <strong>200+</strong>
+            <span>ABRSM Distinctions</span>
+          </div>
+        </div>
       </div>
 
       <!-- Text -->
       <div class="sfr">
-        <div class="pill-tag pt-or">Our Story</div>
+        <div class="pill-tag pt-or">📖 Our Story</div>
         <h2 class="h2">Singapore's Most-Loved<br>Music School for Families</h2>
         <div class="story-text">
-          <p>Liberal Music &amp; Arts School, established in 2009, is Singapore's premier private institution offering comprehensive and professional courses for enthusiasts of all ages and skill levels.</p>
-          <p>Our extensive curriculum includes music courses covering Western and Chinese instruments, art courses focused on creative development, professional skill training and Direct School Admission (DSA) preparation, as well as dance courses ranging from ballet and hip hop to traditional Chinese dance.</p>
+          <p>Liberal Music &amp; Arts School was founded in 2009 with a mission to make music education joyful, meaningful, and accessible for every child in Singapore.</p>
+          <p>Over 15 years, we've grown from a single studio to 5 branches across Singapore — yet our philosophy has never changed: put the child first. Build confidence before grades. Celebrate every small win.</p>
         </div>
         <div class="story-highlights">
-          <div class="sh-row"><div class="sh-dot"></div><p>World-class faculty comprising <span>highly qualified instructors from Russia, China, Ukraine, Canada and beyond.</span></p></div>
-          <div class="sh-row"><div class="sh-dot"></div><p>Four strategically located branches across <span>Jurong West, Bukit Batok, Tengah, and Tampines.</span></p></div>
-          <div class="sh-row"><div class="sh-dot"></div><p>Over <span>20,000 students taught</span> — with graduates progressing to SOTA, NAFA, and LASALLE College of the Arts.</p></div>
+          <div class="sh-row"><div class="sh-dot"></div><p>Programmes for children <span>aged 2.5 to 16</span> — from first sounds to concert performances.</p></div>
+          <div class="sh-row"><div class="sh-dot"></div><p>Internationally certified teachers <span>from ABRSM, Trinity College London, Berklee &amp; the Central Conservatory of Music.</span></p></div>
+          <div class="sh-row"><div class="sh-dot"></div><p>Many graduates have progressed to <span>SOTA, NAFA, and LASALLE College of the Arts.</span></p></div>
+          <div class="sh-row"><div class="sh-dot"></div><p><span>99% ABRSM &amp; Trinity exam pass rate</span> — with over 200 Distinctions awarded since 2009.</p></div>
         </div>
-        <a href="trial" class="btn btn-cta">Start Your Child's Journey →</a>
+        <a href="trial.html" class="btn btn-cta">Start Your Child's Journey →</a>
       </div>
 
     </div>
@@ -512,43 +500,74 @@ footer{margin-bottom:0!important}
 
 
 <!-- ════════ STATS STRIP ════════ -->
+<section class="stats-strip" aria-label="School statistics">
+  <div class="W">
+    <div class="stats-grid">
+      <div class="stat-cell sr">
+        <span class="stat-ico">🎓</span>
+        <span class="stat-num">20,000<span class="acc">+</span></span>
+        <span class="stat-label">Students Taught</span>
+        <span class="stat-sub">and growing every term</span>
+      </div>
+      <div class="stat-cell sr d1">
+        <span class="stat-ico">⭐</span>
+        <span class="stat-num">15<span class="acc">+</span></span>
+        <span class="stat-label">Years of Excellence</span>
+        <span class="stat-sub">Est. 2009, Singapore</span>
+      </div>
+      <div class="stat-cell sr d2">
+        <span class="stat-ico">📍</span>
+        <span class="stat-num">5</span>
+        <span class="stat-label">Singapore Branches</span>
+        <span class="stat-sub">always close to home</span>
+      </div>
+      <div class="stat-cell sr d3">
+        <span class="stat-ico">🏆</span>
+        <span class="stat-num">99<span class="acc">%</span></span>
+        <span class="stat-label">Exam Pass Rate</span>
+        <span class="stat-sub">ABRSM &amp; Trinity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ════════ OUR VALUES ════════ -->
 <section class="values">
   <div class="W">
     <div class="sec-head cx sr">
-      <div class="pill-tag pt-lv">Our Philosophy</div>
+      <div class="pill-tag pt-lv">💜 Our Philosophy</div>
       <h2 class="h2">What Makes Liberal Different?</h2>
-      <p class="lead">At Liberal Music &amp; Arts School, our mission is to inspire, educate, and nurture a lifelong passion for music, art and dance. We believe in fostering a supportive environment where students can explore their artistic potential, foster creativity and lay a solid foundation for future success. Upholding the rich educational tradition of Liberal Arts schools, we aspire for every student to have a vibrant and promising future.</p>
+      <p class="lead">Six core values that guide every class, every teacher, and every child's journey with us.</p>
     </div>
     <div class="vals-grid">
       <div class="val-card sl">
-        <div class="val-ico vi-1"><img src="../assets/confidence.webp" alt="Confidence" style="width:80px;height:80px;object-fit:contain;"/></div>
+        <div class="val-ico vi-1">🌟</div>
         <h3>Confidence First</h3>
         <p>We build courage and self-belief before exam grades. Children learn to love performing because they feel safe to try, fail, and try again.</p>
       </div>
       <div class="val-card sr">
-        <div class="val-ico vi-2"><img src="../assets/certified.webp" alt="Certified" style="width:80px;height:80px;object-fit:contain;"/></div>
+        <div class="val-ico vi-2">🎓</div>
         <h3>Certified Excellence</h3>
         <p>Every teacher holds internationally recognised qualifications — ABRSM, Trinity, Berklee, or the Central Conservatory of Music. No exceptions.</p>
       </div>
       <div class="val-card sfr">
-        <div class="val-ico vi-3"><img src="../assets/safe.webp" alt="Safe" style="width:80px;height:80px;object-fit:contain;"/></div>
+        <div class="val-ico vi-3">❤️</div>
         <h3>Warm &amp; Safe</h3>
         <p>Our studios are fully supervised, child-safe environments. Parents trust us because we treat every child like our own.</p>
       </div>
       <div class="val-card sl d2">
-        <div class="val-ico vi-4"><img src="../assets/growth.webp" alt="Growth" style="width:80px;height:80px;object-fit:contain;"/></div>
+        <div class="val-ico vi-4">🎵</div>
         <h3>Holistic Growth</h3>
         <p>Beyond music — we develop focus, discipline, emotional regulation, and a lifelong love of the arts that benefits children in every area of life.</p>
       </div>
       <div class="val-card sr d2">
-        <div class="val-ico vi-5"><img src="../assets/results.webp" alt="Results" style="width:80px;height:80px;object-fit:contain;"/></div>
+        <div class="val-ico vi-5">🌏</div>
         <h3>Proven Results</h3>
         <p>200+ ABRSM Distinctions. 50+ competition awards. Many alumni now study at SOTA, NAFA, and LASALLE — the results speak for themselves.</p>
       </div>
       <div class="val-card sfr d2">
-        <div class="val-ico vi-6"><img src="../assets/community.webp" alt="Community" style="width:80px;height:80px;object-fit:contain;"/></div>
+        <div class="val-ico vi-6">📍</div>
         <h3>Community Rooted</h3>
         <p>5 branches across Singapore — Tengah, Tampines, Jurong West, Le Quest, and Jurong Point — always a studio close to your family.</p>
       </div>
@@ -561,26 +580,119 @@ footer{margin-bottom:0!important}
 <section class="team">
   <div class="W">
     <div class="sec-head cx sr">
-      <div class="pill-tag pt-sk">Leadership</div>
+      <div class="pill-tag pt-sk">👩‍🏫 Leadership</div>
       <h2 class="h2">Meet Our Founders</h2>
       <p class="lead">The hearts behind Liberal — two passionate educators who started this school with a dream to change children's lives through music.</p>
     </div>
     <div class="team-grid">
 
       <div class="team-card sl">
-        <div class="team-photo tp-c">
-          <img src="../assets/cecily.webp" alt="Ms. Cecily" onerror="this.style.display='none'"/>
-          🎹
-        </div>
+        <div class="team-photo tp-c">🎹</div>
         <div class="team-body">
           <span class="team-chip">Principal &amp; Founder</span>
           <h3>Ms. Cecily</h3>
-          <span class="role">Erhu · Chinese Instruments · Music Theory</span>
-          <p>Cecily founded Liberal Music &amp; Arts School in 2009 with a vision to create Singapore's most trusted music school. A world-class Erhu specialist trained at the Hong Kong Academy for Performing Arts (Bachelor's, Erhu major, Piano minor) and holding a Master's in Music Education from Central China Normal University — with over 20 years of teaching experience spanning Singapore, Macao, and Hong Kong. She has performed before China's former Presidents Jiang Zemin and Hu Jintao, and toured internationally across Europe and Asia.</p>
+          <span class="role">Piano · Erhu · Guzheng</span>
+          <p>Cecily founded Liberal Music &amp; Arts School in 2009 with a vision to create Singapore's warmest music school. With 15+ years of teaching experience and qualifications from ABRSM, Trinity College London, and Singapore Chinese Orchestra, she leads every teacher to put the child's confidence first.</p>
           <div class="team-creds">
-            <span class="cred">HKAPA Graduate</span>
-            <span class="cred">Master's in Music Education</span>
-            <span class="cred">20+ Years Teaching</span>
+            <span class="cred">ABRSM Grade 8 Distinction</span>
+            <span class="cred">Trinity Diploma</span>
+            <span class="cred">SCC Certified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card sfr">
+        <div class="team-photo tp-k">🥁</div>
+        <div class="team-body">
+          <span class="team-chip">Vice Principal</span>
+          <h3>Mr. Calvin</h3>
+          <span class="role">Drums · Guitar · Ukulele</span>
+          <p>Calvin joined as co-founder and leads the school's creative direction. An RSL-certified drummer and guitarist with 10+ years teaching children, his high-energy approach transforms even the most restless kids into focused, passionate musicians.</p>
+          <div class="team-creds">
+            <span class="cred">RSL Certified</span>
+            <span class="cred">Trinity Rock &amp; Pop Grade 8</span>
+            <span class="cred">10+ Years Teaching</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ TIMELINE / MILESTONES ════════ -->
+<section class="milestones">
+  <div class="W">
+    <div class="sec-head cx sr">
+      <div class="pill-tag pt-or">🗓 Our Journey</div>
+      <h2 class="h2">15 Years of Growing Together</h2>
+      <p class="lead">From a single studio to 5 locations — a story of dedication, community, and music.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item left sr">
+        <div class="tl-content">
+          <div class="tl-card">
+            <span class="tl-year">2009</span>
+            <h4>The First Studio</h4>
+            <p>Liberal Music & Arts School opens its first studio in Jurong West with a handful of piano and violin students — and a big dream.</p>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+
+      <div class="tl-item right sr d1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-card">
+            <span class="tl-year">2013</span>
+            <h4>First ABRSM Distinctions</h4>
+            <p>Our students achieve their first batch of ABRSM Distinctions — proving the Liberal method delivers real, lasting results.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item left sr d2">
+        <div class="tl-content">
+          <div class="tl-card">
+            <span class="tl-year">2017</span>
+            <h4>Le Quest Branch Opens</h4>
+            <p>Expansion to Bukit Batok's Le Quest Mall brings Liberal closer to families in the west. 5,000+ students served by this milestone.</p>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+
+      <div class="tl-item right sr d3">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-card">
+            <span class="tl-year">2021</span>
+            <h4>Tengah &amp; Tampines</h4>
+            <p>Two new branches open, bringing Liberal to Singapore's newest towns. Our growing family now covers east and west.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item left sr d4">
+        <div class="tl-content">
+          <div class="tl-card">
+            <span class="tl-year">2024</span>
+            <h4>200+ ABRSM Distinctions</h4>
+            <p>A landmark year — 200+ ABRSM Distinctions and 50+ competition awards. Students accepted to SOTA, NAFA, and LASALLE.</p>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+
+      <div class="tl-item right sr d5">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-card" style="border:2px dashed rgba(255,102,0,.35);background:rgba(255,244,237,.6)">
+            <span class="tl-year" style="color:var(--or)">Coming Soon</span>
+            <h4>Jurong Point — Opening Soon</h4>
+            <p>Our 5th branch at Jurong Point Shopping Mall — bringing Liberal to even more families in Jurong, Boon Lay, and Lakeside.</p>
           </div>
         </div>
       </div>
@@ -593,15 +705,16 @@ footer{margin-bottom:0!important}
 <!-- ════════ CTA BANNER ════════ -->
 <section class="cta-banner">
   <div class="cta-inner sr">
-    <div style="font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--or);text-transform:uppercase;letter-spacing:2px;margin:0 auto 24px;text-align:center;">✦ Start Today — It's Free</div>
+    <div class="pill-tag pt-or" style="margin:0 auto 20px;">✦ Start Today — It's Free</div>
     <h2>Come See the <span class="or">Liberal Difference</span> for Yourself</h2>
     <p>The first trial class is completely free. No pressure, no commitment. Just bring your child, meet our teachers, and experience what 20,000 families already know.</p>
     <div class="cta-btns">
-      <a href="trial" class="btn btn-cta btn-lg">✦ Book Trial Class</a>
-      <a href="contact" class="btn btn-outline btn-lg">Ask a Question</a>
+      <a href="trial.html" class="btn btn-cta btn-lg">✦ Book Free Trial Class</a>
+      <a href="contact.html" class="btn btn-outline btn-lg">Ask a Question</a>
     </div>
-    <div class="cta-checks" style="justify-content:center">
-      <span class="chk">Ages 2.5–Adult welcome</span>
+    <div class="cta-checks">
+      <span class="chk">Free, no-obligation trial</span>
+      <span class="chk">Ages 2.5–16 welcome</span>
       <span class="chk">All skill levels</span>
       <span class="chk">5 locations</span>
     </div>
@@ -610,116 +723,86 @@ footer{margin-bottom:0!important}
 
 
 <!-- ════════ FOOTER ════════ -->
-<!-- FOOTER -->
 <footer class="footer">
   <div class="W">
     <div class="foot-grid">
-
-      <!-- Col 1: Brand -->
       <div class="foot-brand">
-        <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
-             onerror="this.src='../assets/logo.webp'"/>
-        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — Ages 2.5+ to Adult. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+        <img src="../assets/logofooter.webp" alt="Liberal Music & Arts School" onerror="this.src='../assets/logo.webp'"/>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music in children aged 2.5–16. Trusted by over 20,000 Singapore families since 2009.</p>
+        <div class="foot-contact">
+          <a href="mailto:liberalmusicarts@gmail.com">✉️ liberalmusicarts@gmail.com</a>
+          <a href="tel:+6589222848">📞 +65 8922 2848</a>
+        </div>
         <div class="foot-soc">
-          <a href="#" aria-label="Instagram">
-            <img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
-          </a>
-          <a href="#" aria-label="YouTube">
-            <img src="../assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
-          </a>
-          <a href="#" aria-label="Xiaohongshu">
-            <img src="../assets/xiaohongshu.webp" alt="Xiaohongshu" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
-          </a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="YouTube">▶️</a>
         </div>
       </div>
 
-      <!-- Col 2: Navigation -->
       <div class="foot-col">
         <h5>Navigation</h5>
         <ul>
-          <li><a href="../index">Home</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="courses">Courses</a></li>
-          <li><a href="instructors">Instructors</a></li>
-          <li><a href="review">Review</a></li>
-          <li><a href="blog">Blog</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="instructors.html">Instructors</a></li>
+          <li><a href="testimonial.html">Review</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="trial.html" style="color:var(--or);font-weight:700;">✦ Free Trial Class</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Locations — ALL 5, never remove any -->
       <div class="foot-col">
         <h5>Our Locations</h5>
         <div class="foot-locs">
-
           <div class="foot-loc">
-            <span class="foot-loc-pin">
-              <img src="../assets/address.webp" alt="location"
-                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
-            </span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Tengah Music School</strong>
-              <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+              <strong>Tengah</strong>
+              <span>127A Plantation Crescent, #01-381<br>Singapore 691127 · +65 8922 2848</span>
             </div>
           </div>
-
           <div class="foot-loc">
-            <span class="foot-loc-pin">
-              <img src="../assets/address.webp" alt="location"
-                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
-            </span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Tampines Music School</strong>
-              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+              <strong>Tampines</strong>
+              <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139 · +65 8892 1198</span>
             </div>
           </div>
-
           <div class="foot-loc">
-            <span class="foot-loc-pin">
-              <img src="../assets/address.webp" alt="location"
-                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
-            </span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Jurong West Music School</strong>
-              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+              <strong>Jurong West</strong>
+              <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492 · +65 9627 7582</span>
             </div>
           </div>
-
           <div class="foot-loc">
-            <span class="foot-loc-pin">
-              <img src="../assets/address.webp" alt="location"
-                   style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
-            </span>
+            <span class="foot-loc-pin">📍</span>
             <div class="foot-loc-text">
-              <strong>Le Quest Mall Music School</strong>
-              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+              <strong>Le Quest Mall, Bukit Batok</strong>
+              <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991 · +65 9627 7582</span>
             </div>
           </div>
-
-          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
+          <div class="foot-loc soon">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
-              <strong>Coloury Art By Liberal</strong>
-              <span>colouryart.com</span>
+              <strong>Jurong Point</strong>
+              <span>Opening Soon — Register Interest</span>
             </div>
-          </a>
-
+          </div>
         </div>
       </div>
-
     </div>
 
-    <!-- Bottom bar -->
     <div class="foot-btm">
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
-        <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
-        <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
+        <a href="../index-zh.html">中文版本</a>
       </div>
     </div>
   </div>
@@ -735,14 +818,12 @@ footer{margin-bottom:0!important}
     <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
     <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West / JP <span>9627 7582</span></a>
   </div>
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">
-    <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/>
-  </button>
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
 </div>
 
 <!-- Mobile sticky -->
 <div class="mob-bar">
-  <a href="trial" class="btn btn-cta">✦ Book Trial Class</a>
+  <a href="trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
 </div>
 
 
@@ -783,11 +864,14 @@ footer{margin-bottom:0!important}
     });
   }, { threshold:.05, rootMargin:'0px 0px -10px 0px' });
   document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
-  /* Random student icon */
-  const icons = ['studenticon1','studenticon2','studenticon3','studenticon4','studenticon5','studenticon6','studenticon7','studenticon8','studenticon9'];
-  const pick = icons[Math.floor(Math.random() * icons.length)];
-  const el = document.getElementById('storyStudentIcon');
-  if (el) el.src = '../assets/' + pick + '.webp';
+
+  /* Hero stagger */
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('.page-hero .sr').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), i * 110);
+    });
+  }));
+
 })();
 </script>
 </body>
