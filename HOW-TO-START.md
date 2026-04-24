@@ -1,6 +1,8 @@
 # Liberal Music & Arts School — How To Start
-> Stack: Pure HTML · Bilingual EN/ZH · No framework · Branch: `master`
+> Stack: Pure HTML · Bilingual EN/ZH · No framework · Hosted on **Vercel** · Clean URLs (no `.html`) · Branch: `master`
 > OS: **Windows** · Shell: **PowerShell** · Repo: `C:\Users\immor\Downloads\liberalwebsitenew`
+> Production domain (in progress): `https://liberalmusicschool.com`
+> Temporary preview URL: `https://liberalwebsitenew.vercel.app` (currently protected — see Vercel settings)
 
 ---
 
@@ -50,11 +52,13 @@ Keep project knowledge in sync so next chat Claude always reads the latest versi
 
 ```
 liberalwebsitenew/
+├── vercel.json             ← Vercel config (cleanUrls + 301 redirects)
 ├── index.html              ← English homepage
-├── index-zh.html           ← Chinese homepage
+├── index-zh.html           ← Chinese homepage (paused)
 ├── assets/
 │   ├── logo.webp           ← Navbar logo (NEVER inline base64)
 │   ├── logofooter.webp     ← Footer logo
+│   ├── liberalfavicon.png  ← Favicon (referenced from every page <head>)
 │   ├── address.webp        ← Location pin icon
 │   ├── whatsapp.webp       ← WhatsApp FAB icon
 │   ├── Instagram.webp
@@ -88,7 +92,7 @@ liberalwebsitenew/
 │   ├── mindy.html
 │   ├── leonard.html
 │   └── loy.html
-├── pages-zh/               ← Chinese pages (mirrors pages/)
+├── pages-zh/               ← Chinese pages (mirrors pages/) — PAUSED
 │   └── articles/
 └── tools/                  ← Internal tools, never linked from site
     ├── Liberal_blog-generator.html   ← Blog generator (open in Chrome)
@@ -96,6 +100,8 @@ liberalwebsitenew/
     ├── card-*.html                   ← Auto-generated card HTML
     └── article-*.html                ← Auto-generated article HTML
 ```
+
+> **Note:** `pages/testimonial.html` was deleted in the Vercel migration (April 2026). All links to `/testimonial` and `/pages/testimonial` are now 301-redirected to `/pages/review` via `vercel.json`.
 
 **Path rules (CRITICAL):**
 | File location | Logo src | Asset prefix |
@@ -110,6 +116,75 @@ cd C:\Users\immor\Downloads\liberalwebsitenew
 python -m http.server 8888
 ```
 Then open `http://localhost:8888` in Chrome.
+
+> ⚠️ Local server does NOT respect `vercel.json`. Clean URLs (like `/pages/about`) will 404 locally — append `.html` when testing locally. They work correctly on Vercel in production.
+
+---
+
+## 🚀 VERCEL DEPLOYMENT & CLEAN URLS
+
+Since April 2026 the site is hosted on **Vercel** and uses **clean URLs** (no `.html` in addresses).
+
+### `vercel.json` (repo root, never delete)
+```json
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/about-us", "destination": "/pages/about", "permanent": true },
+    { "source": "/music/:path*", "destination": "/pages/courses", "permanent": true },
+    { "source": "/%E6%97%A5%E6%9C%AC%E4%BA%BA%E3%81%AE%E6%96%B9%E3%81%B8", "destination": "/", "permanent": true },
+    { "source": "/pages/testimonial", "destination": "/pages/review", "permanent": true },
+    { "source": "/testimonial", "destination": "/pages/review", "permanent": true }
+  ]
+}
+```
+
+### Internal link rules (CRITICAL)
+- **All internal `<a href>` values MUST omit `.html`**
+  - ✅ `href="pages/about"`, `href="pages/courses#piano"`, `href="../pages/trial"`
+  - ❌ `href="pages/about.html"`, `href="../trial.html"`
+- Anchors preserved: `pages/courses#piano` stays as-is (the `#piano` is fine)
+- External URLs untouched: `https://wa.me/...`, Google Fonts CDN, etc.
+- **Blog generator (`tools/Liberal_blog-generator.html`) still writes `.html` links — UPDATE THE TEMPLATES before publishing any new article, or strip `.html` from generated output manually.**
+
+### SEO tags required on every new page
+```html
+<!-- Every page <head> must have these three -->
+<title>[Page-specific title] | Liberal Music & Arts School</title>
+<meta name="description" content="[Under 160 chars, page-specific]"/>
+<link rel="canonical" href="https://liberalmusicschool.com/pages/[slug]"/>
+
+<!-- Favicon (universal) -->
+<link rel="icon" type="image/png" href="../assets/liberalfavicon.png"/>
+<link rel="apple-touch-icon" href="../assets/liberalfavicon.png"/>
+```
+
+Adjust favicon path per file depth: `assets/` from root, `../assets/` from `pages/`, `../../assets/` from `pages/articles/`.
+
+### Article pages — broken path rule (fixed April 2026)
+Articles in `pages/articles/*.html` must link to other pages using `../../pages/[name]` (two levels up), **not** `../[name]`. One article (`liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah`) had 27 broken links using the wrong depth — all fixed.
+
+### Do NOT inject these scripts
+- **Cloudflare `email-decode.min.js`** — site is not on Cloudflare; the script 404s. Previously embedded in `index.html` and `about.html` — both removed April 2026. If any page-generator tool adds it back, strip it out.
+
+### Pre-DNS-switch checklist (before pointing liberalmusicschool.com at Vercel)
+- [ ] `vercel.json` present at repo root and committed
+- [ ] Deployment Protection: set to "Only Preview Deployments" (so production is public)
+- [ ] `contact.html` FormSubmit `_next` URL points to `https://liberalmusicschool.com/pages/contact?sent=1` (not the GitHub Pages URL)
+- [ ] All canonical tags use `liberalmusicschool.com`
+- [ ] Sitemap generated + submitted to Google Search Console
+- [ ] Old GitHub Pages URL tested for 301 to new domain
+
+### DNS at GoDaddy (when ready to switch)
+1. GoDaddy → Profile → My Products → `liberalmusicschool.com` → three-dot menu → **Manage DNS**
+2. Delete the 4 GitHub Pages `A` records (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`)
+3. Delete the `www` CNAME pointing to `seanqiubrave.github.io`
+4. Add:
+   - `A` record: name `@`, value `76.76.21.21`
+   - `CNAME`: name `www`, value `cname.vercel-dns.com`
+5. Leave MX/TXT/SPF records alone
+6. Wait 15 min — 48h for propagation
 
 ---
 
@@ -253,6 +328,9 @@ All follow the same template — **`cecily.html` is the canonical base**.
 **Head**
 - [ ] Nunito + Quicksand fonts imported
 - [ ] `:root` CSS variables present and unmodified
+- [ ] `<title>`, `<meta name="description">`, `<link rel="canonical">` all present and page-specific
+- [ ] Favicon: `<link rel="icon" type="image/png" href="assets/liberalfavicon.png"/>` + `<link rel="apple-touch-icon" ...>` (adjust path per file depth)
+- [ ] NO Cloudflare email-decode script (`cdn-cgi/scripts/.../email-decode.min.js`)
 
 **Header**
 - [ ] Announcement bar: `#f56c22`, correct trial link
@@ -268,8 +346,8 @@ All follow the same template — **`cecily.html` is the canonical base**.
 - [ ] Social icons: `.webp` assets with `filter:brightness(0) invert(1)`, no borders/boxes
 - [ ] All 5 locations with full names
 - [ ] 5th location = **Coloury Art By Liberal** (clickable → colouryart.com, pin `✦`)
-- [ ] Nav links: `color:#fff`, `font-size:15px` — Review link → `review.html`
-- [ ] **Privacy Policy** → `privacy.html` (or `pages/privacy.html` from root), **Terms of Use** → `terms.html` (or `pages/terms.html` from root) — never `#`
+- [ ] Nav links: `color:#fff`, `font-size:15px` — Review link → `pages/review` (no `.html`)
+- [ ] **Privacy Policy** → `pages/privacy` (or `privacy` from inside `pages/`), **Terms of Use** → `pages/terms` — never `#`, never `.html`
 - [ ] **中文版本 is disabled** (grey `<span>`, not a live `<a>`)
 - [ ] Bottom bar has `v1.0.1` version tag
 - [ ] Kill-bottom-gap rules present
@@ -282,10 +360,12 @@ All follow the same template — **`cecily.html` is the canonical base**.
 
 **Article pages only (`pages/articles/*.html`)**
 - [ ] Asset paths use `../../assets/` (two levels up)
-- [ ] Nav links use `../../pages/` prefix
+- [ ] Nav links use `../../pages/` prefix — example `href="../../pages/about"` (no `.html`)
 - [ ] Hero image present (1200×600px, `../../assets/blogname.webp`)
-- [ ] Back to Blog link points to `../../pages/blog.html`
-- [ ] CTA band at bottom links to `../../pages/trial.html`
+- [ ] Back to Blog link points to `../../pages/blog` (no `.html`)
+- [ ] CTA band at bottom links to `../../pages/trial` (no `.html`)
+- [ ] Canonical tag: `https://liberalmusicschool.com/pages/articles/[slug]`
+- [ ] Favicon tag: `<link rel="icon" href="../../assets/liberalfavicon.png"/>`
 
 **Instructor profile pages only**
 - [ ] Breadcrumb: Home → Our Instructors → Instructor Name
@@ -295,7 +375,56 @@ All follow the same template — **`cecily.html` is the canonical base**.
 
 ---
 
-## 🗂 PROJECT KNOWLEDGE FILES
+## 📱 MOBILE OVERRIDES — `@media(max-width:540px)`
+
+Applied on `index.html` as of April 2026. The other 24 pages need the same treatment in a future batch. All rules live ONLY inside the `@media(max-width:540px)` block — desktop and tablet layouts are 100% preserved.
+
+### What's hidden on mobile
+- `#trust` (entire "Why is Liberal the Most Trusted..." section)
+- `.fc-a` and `.fc-b` (floating Success Stories + ABRSM Pass Rate cards)
+- `.hero-notes` (animated music-note emojis in hero)
+- `.hero-ring` (decorative ring outline)
+- `.vis-a` and `.vis-b` (peach + teal decorative circles)
+- `.fc-c` (floating proof card)
+- `.glance-sep` (`·` separators between glance items)
+- `#heroIframe` (iframe hidden — replaced by tap-to-play poster)
+
+### What's resized on mobile
+- `.hero h1`: `clamp(2.2rem, 10.5vw, 3rem)` (was 75px)
+- `.hero-kicker` pill: `font-size:13px; padding:7px 14px; white-space:normal`
+- `.glance-card`: `font-size:13px; flex-wrap:wrap; justify-content:center`
+- `.hero-desc`: `font-size:16px; padding-right:56px` (clears WhatsApp FAB)
+- `.ann-bar`: `height:auto; min-height:36px; padding:6px 12px`
+- `.ann-bar a`: `white-space:normal; font-size:12px`
+- `.stat-cell`: `padding:32px 12px 28px`; `.stat-label`: 15px; `.stat-sub`: 13px
+- `.stat-icon`: 48px × 48px; `.stat-num`: 2rem
+
+### Layout rules on mobile
+- `.hero{min-height:0; align-items:flex-start; padding-bottom:40px}` — no forced 100vh height
+- `.hero-grid{gap:20px}` — tight spacing between video and copy
+- `.hero-frame{width:100%; min-width:0; background:#000}` — forces frame to render at full width
+- `.hero-vis{width:100%; max-width:420px}` — caps video width
+- `.hero-mobile-play{display:flex}` — shows tap-to-play YouTube poster
+- `.faq-inner{grid-template-columns:1fr}` + `.faq-card{height:auto}` — FAQ stacks to 1 column
+
+### Mobile hero video (new pattern)
+On mobile, the autoplay YouTube iframe is replaced by a **tap-to-play poster**:
+```html
+<div class="hero-frame" id="heroFrame">
+  <iframe id="heroIframe" src="..." ...></iframe>
+  <button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="Play video">
+    <img src="https://img.youtube.com/vi/[VIDEO_ID]/hqdefault.jpg" alt="Video preview" loading="lazy"/>
+    <span class="hero-mobile-play-btn" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+    </span>
+  </button>
+</div>
+```
+Plus JS: tap the button, it swaps itself out for a freshly-injected iframe with `autoplay=1` (works because it's in response to a user gesture — bypasses mobile autoplay blockers).
+
+Rationale: mobile Chrome's Data Saver and Battery Saver modes silently block autoplay YouTube embeds. The tap-to-play pattern is reliable, faster-loading, and is what Apple.com / Stripe use.
+
+---
 
 Keep these files uploaded and current in Claude Project Knowledge:
 
@@ -304,11 +433,12 @@ Keep these files uploaded and current in Claude Project Knowledge:
 | `HOW-TO-START.md` | This file — workflow + design system summary |
 | `HEADER-FOOTER-GUIDE.md` | Full CSS/HTML source of truth for header & footer |
 | `LIBERAL_ART_BIBLE.md` | Design philosophy & art direction |
+| `vercel.json` | Vercel config — cleanUrls + 301 redirects (NEVER delete) |
 | `index.html` | English homepage (reference) |
 | `pages/about.html` | Re-upload after each edit |
 | `pages/courses.html` | Re-upload after each edit |
 | `pages/instructors.html` | Re-upload after each edit |
-| `pages/review.html` | Parent reviews page (replaces old testimonial.html) |
+| `pages/review.html` | Parent reviews page (replaces old testimonial.html — testimonial.html DELETED April 2026) |
 | `pages/blog.html` | Re-upload after each edit |
 | `pages/contact.html` | FormSubmit wired to colouryartsg@gmail.com |
 | `pages/trial.html` | Re-upload after each edit |

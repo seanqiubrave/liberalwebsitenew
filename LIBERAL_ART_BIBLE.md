@@ -1,5 +1,5 @@
-# Liberal Music & Arts School — Art Bible v1.0
-> Extracted from `index.html` (master reference) · April 2026
+# Liberal Music & Arts School — Art Bible v1.1
+> Extracted from `index.html` (master reference) · April 2026 · Revised April 2026 (Vercel migration + mobile overrides)
 > Use this document to standardize ALL pages across the website.
 
 ---
@@ -169,6 +169,11 @@ Announcement bar: 36px tall, #f56c22, fixed above navbar (z-index: 1001)
 Home | About | Courses | Instructors | Review | Blog | Contact
 ```
 
+All nav `href` values use **clean URLs** (no `.html` extension — Vercel `cleanUrls:true`):
+- `href="/"` (Home from root) or `href="../index"` (Home from `pages/`) — actually use `/` for root reference
+- `href="pages/about"` or `href="about"` from inside `pages/`
+- Never `href="pages/about.html"` — all `.html` extensions were stripped in April 2026 migration
+
 ### Right Side
 ```
 [中文]  →  DISABLED (grey span, opacity 0.35) — bilingual site paused
@@ -227,12 +232,16 @@ All section labels use `.pill-tag` class with colour variants:
 ```
 
 ### CTA Text — ONLY use:
-- `Book Free Trial Class`
-- `Book Trial Class`
+- `Book Trial Class` (primary — use everywhere the trial is the next step)
+- `✦ Book Trial Class` (with leading diamond, used on instructor profile book cards)
+- `Try Now →` (homepage course cards)
 - `Try a Class`
 - `Start Learning`
+- `View Courses` (secondary to Book Trial)
 
-**❌ NEVER: Submit, Click Here, Learn More**
+**❌ NEVER: Submit, Click Here, Learn More, Book Free Trial Class, Try Free**
+
+> The word "Free" was removed from all CTAs and the announcement bar as of April 2026. Body copy that mentions the trial being free ("the first lesson is free", "book a free trial class with Ms X") is preserved — the removal applies to action-oriented buttons and bars only.
 
 ---
 
@@ -354,6 +363,7 @@ Panel opens upward with 3 branch links (Tengah, Tampines, Jurong West/JP).
 |---|---|---|
 | Logo | `assets/logo.webp` | `../assets/logo.webp` |
 | Footer logo | `assets/logofooter.webp` | `../assets/logofooter.webp` |
+| Favicon | `assets/liberalfavicon.png` | `../assets/liberalfavicon.png` |
 | Student icons | `assets/studenticon1–9.webp` | `../assets/studenticon1–9.webp` |
 | Stats icons | `assets/students.webp`, `15years.webp`, `locations.webp`, `passrate.webp` | `../assets/` prefix |
 | Trust icons | `assets/safe.webp`, `certified.webp`, `findus.webp`, `confidence.webp` | `../assets/` prefix |
@@ -363,6 +373,13 @@ Panel opens upward with 3 branch links (Tengah, Tampines, Jurong West/JP).
 | Address icon | `assets/address.webp` | `../assets/` prefix |
 
 **❌ NEVER use inline base64 for images — always reference asset files**
+
+**Favicon HTML (place in every page `<head>`):**
+```html
+<link rel="icon" type="image/png" href="assets/liberalfavicon.png"/>
+<link rel="apple-touch-icon" href="assets/liberalfavicon.png"/>
+```
+Adjust path depth: `assets/` from root, `../assets/` from `pages/*`, `../../assets/` from `pages/articles/*`.
 
 ---
 
@@ -463,7 +480,163 @@ Right side: `[中文]` lang button (currently **disabled** — grey span while b
 - [ ] Footer background `#1F2A44`, no bottom gap
 - [ ] WhatsApp FAB: `position:fixed, bottom:28px, right:28px`
 - [ ] `html` background: `#1F2A44` (prevents white gap below footer)
+- [ ] Favicon link present (`liberalfavicon.png`)
+- [ ] Canonical, title, meta-description all page-specific
+- [ ] No Cloudflare `email-decode.min.js` script injection
 
 ---
 
-*Last updated: April 2026 · Source of truth: `index.html`*
+## 20. MOBILE OVERRIDES (@media max-width:540px)
+
+Applied to `index.html` April 2026. Rollout to other pages pending. All rules scoped inside a single `@media(max-width:540px){}` block — desktop + tablet are 100% untouched.
+
+### Principles
+- **Preserve desktop design 100%** — all mobile rules live inside the media query
+- **Hide decorative elements** that become noise on small screens
+- **Shrink oversized typography** that was designed for desktop
+- **Remove elements duplicated elsewhere** (e.g. floating stat cards when the stats strip says the same thing)
+
+### Elements HIDDEN on mobile
+
+| Selector | Why |
+|---|---|
+| `#trust` | Entire "Why is Liberal the Most Trusted..." section — too dense for small screens; messaging carried by stats + reviews |
+| `.fc-a`, `.fc-b` | Floating stat cards (20,000+ Success Stories, ABRSM 99%) — info duplicated in stats strip below |
+| `.fc-c` | Floating proof card |
+| `.hero-notes` | Animated music-note emojis in hero |
+| `.hero-ring` | Decorative concentric ring |
+| `.vis-a`, `.vis-b` | Peach + teal decorative circles behind video |
+| `.glance-sep` | `·` separators between glance items (items wrap to multiple lines) |
+| `#heroIframe` | Autoplay iframe replaced by tap-to-play poster (see below) |
+| `.tc-arrow` | Teacher carousel arrows (touch-swipe works fine without) |
+| `.rev-arrow`, `.faq-arrow` | Review + FAQ carousel arrows |
+| `.nav-links`, `.nav-lang`, `.nav-end .btn-cta` | Replaced by hamburger drawer |
+
+### Elements RESIZED on mobile
+
+| Selector | Desktop | Mobile |
+|---|---|---|
+| `.hero h1` | `font-size:75px` | `font-size:clamp(2.2rem, 10.5vw, 3rem); letter-spacing:-1px` |
+| `.hero-kicker` pill | `font-size:16px; padding:9px 22px` | `font-size:13px; padding:7px 14px; white-space:normal; text-align:center` |
+| `.glance-card` | inline-flex with `·` separators | `font-size:13px; flex-wrap:wrap; justify-content:center; gap:6px 10px` |
+| `.hero-desc` | `font-size:20px` | `font-size:16px; line-height:1.6; padding-right:56px` (clears WhatsApp FAB) |
+| `.ann-bar` | `height:36px` nowrap | `height:auto; min-height:36px; padding:6px 12px` |
+| `.ann-bar a` | `font-size:13px; white-space:nowrap` | `font-size:12px; white-space:normal; text-align:center; line-height:1.25` |
+| `.stat-cell` | `padding:52px 24px 48px` | `padding:32px 12px 28px` |
+| `.stat-icon` | 64×64 | 48×48, `margin-bottom:12px` |
+| `.stat-num` | `clamp(2.4rem, 4vw, 3.2rem)` | `font-size:2rem` |
+| `.stat-label` | `font-size:25px` | `font-size:15px; line-height:1.25; margin-bottom:2px` |
+| `.stat-sub` | `font-size:23px` | `font-size:13px; line-height:1.35` |
+| `.faq-card-q` | `font-size:17px` | `font-size:16px; margin-bottom:8px` |
+| `.faq-card-a` | `font-size:15px` | `font-size:14.5px; line-height:1.6` |
+
+### Layout overrides on mobile
+
+| Selector | Desktop | Mobile |
+|---|---|---|
+| `.hero` | `min-height:100vh; align-items:center; padding:110px 0 90px` | `min-height:0; align-items:flex-start; padding-bottom:40px` |
+| `.hero-grid` | `gap:48px` | `gap:20px` |
+| `.hero-vis` | `margin-top:30px` | `margin-top:0; width:100%; max-width:420px` |
+| `.hero-frame` | peach gradient | `width:100%; min-width:0; background:#000` |
+| `.faq-inner` | `grid-template-columns:repeat(4,1fr)` | `grid-template-columns:1fr` (stack to 1-col) |
+| `.faq-card` | `height:280px` | `height:auto; min-height:0; padding:20px` |
+| `.stats-grid` | `repeat(4,1fr)` | `1fr 1fr` |
+| `.branch-grid` | `repeat(5,1fr)` | `1fr` |
+| `.course-grid` | `repeat(3,1fr)` | `1fr` |
+| `.tc` (teacher card) | `flex:0 0 calc((100% - 72px)/4)` | `flex:0 0 100%` |
+
+### Hero video — tap-to-play poster pattern (mobile only)
+
+Autoplay YouTube iframes are unreliable on mobile Chrome (Data Saver blocks them, Battery Saver blocks them, various ad-blockers block them). The mobile pattern replaces the iframe with a tap-to-play poster:
+
+**Markup** (inside `.hero-frame`):
+```html
+<iframe id="heroIframe" src="..." ...></iframe>
+<button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="Play video">
+  <img src="https://img.youtube.com/vi/[VIDEO_ID]/hqdefault.jpg" alt="Video preview" loading="lazy"/>
+  <span class="hero-mobile-play-btn" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="36" height="36" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+  </span>
+</button>
+```
+
+**CSS** (base rules placed next to `.hero-frame` in the CSS, BEFORE any media query — otherwise specificity breaks):
+```css
+.hero-mobile-play{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  padding:0;border:none;cursor:pointer;
+  background:#000;
+  align-items:center;justify-content:center;
+  overflow:hidden; z-index:3;
+}
+.hero-mobile-play img{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  opacity:.92;
+}
+.hero-mobile-play-btn{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(255,102,0,.96);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.35), 0 0 0 6px rgba(255,255,255,.12);
+}
+@media(max-width:540px){
+  #heroIframe{display:none}
+  .hero-mobile-play{display:flex}
+}
+```
+
+**JS** — click handler swaps poster for iframe on user gesture (this bypasses mobile autoplay restrictions):
+```javascript
+document.getElementById('heroMobilePlay')?.addEventListener('click', () => {
+  const newIframe = document.createElement('iframe');
+  newIframe.src = 'https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1&mute=0&playsinline=1&rel=0&modestbranding=1';
+  newIframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
+  newIframe.setAttribute('allowfullscreen', '');
+  newIframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;display:block;';
+  document.getElementById('heroMobilePlay').replaceWith(newIframe);
+});
+```
+
+> ⚠️ CSS specificity gotcha: base `.hero-mobile-play{display:none}` MUST come BEFORE the `@media(max-width:540px){.hero-mobile-play{display:flex}}` override in source order. Same specificity means source order decides — base AFTER the media query would mean mobile never shows the poster.
+
+---
+
+## 21. SEO & VERCEL CLEAN URLS
+
+### Clean URL convention (active since April 2026)
+All internal `<a href>` values omit `.html`. Vercel's `cleanUrls: true` serves `/pages/about` from `pages/about.html` automatically.
+
+- ✅ `href="pages/about"`, `href="pages/courses#piano"`, `href="../../pages/trial"`
+- ❌ `href="pages/about.html"`, `href="../trial.html"`
+
+### Required `<head>` tags per page
+```html
+<!-- SEO trio — every page -->
+<title>[Page-specific] | Liberal Music & Arts School</title>
+<meta name="description" content="[Under 160 chars]"/>
+<link rel="canonical" href="https://liberalmusicschool.com/pages/[slug]"/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/liberalfavicon.png"/>
+<link rel="apple-touch-icon" href="assets/liberalfavicon.png"/>
+```
+
+### `vercel.json` redirects (SEO-preserving 301s)
+- `/about-us` → `/pages/about`
+- `/music/:path*` → `/pages/courses`
+- `/testimonial` → `/pages/review`
+- `/pages/testimonial` → `/pages/review`
+- `/日本人の方へ` (percent-encoded) → `/`
+
+### Canonical domain
+`https://liberalmusicschool.com` — always with `https`, no `www`, no trailing slash (except root).
+
+### Never inject
+- Cloudflare `email-decode.min.js` (site is on Vercel, not Cloudflare)
+- `.html` inline in navigation or footer hrefs
+
+---
+
+*Last updated: April 2026 (v1.1 — Vercel migration + mobile overrides) · Source of truth: `index.html`*
