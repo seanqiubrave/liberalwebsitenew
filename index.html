@@ -1380,8 +1380,23 @@ a.tc:hover .tc-ov::after{opacity:1}
      (autoplay is unreliable on mobile Chrome, blocked by data saver, etc.) */
   #heroIframe{display:none}
   .hero-mobile-play{display:flex}
-  /* Ensure peach gradient doesn't show gaps behind poster */
-  .hero-frame{background:#000}
+  /* Force hero-frame to render at full width of .hero-vis on mobile.
+     Without this, min-width:90% collapses to 0 because absolute-positioned
+     children (iframe, poster button) contribute no intrinsic width. */
+  .hero-frame{background:#000; width:100%; min-width:0}
+  .hero-vis{width:100%; max-width:420px}
+  /* "Singapore's Most Trusted" hero-kicker pill — shrink to fit narrow phones */
+  .hero-kicker{font-size:13px; padding:7px 14px; line-height:1.3; white-space:normal; text-align:center}
+  /* Glance bar (Ages 2.5+ / Est 2009 / 5 Locations) — prevent clipping by WhatsApp FAB */
+  .glance-card{font-size:13px; flex-wrap:wrap; justify-content:center; padding:10px 14px; gap:6px 10px}
+  .glance-sep{display:none}
+  /* Hero description — add right padding so it doesn't sit under WhatsApp FAB */
+  .hero-desc{font-size:16px; line-height:1.6; padding-right:56px}
+  /* FAQ cards — stack to single column on mobile for better readability */
+  .faq-inner{grid-template-columns:1fr}
+  .faq-card{height:auto; min-height:0; padding:20px}
+  .faq-card-q{font-size:16px; margin-bottom:8px}
+  .faq-card-a{font-size:14.5px; line-height:1.6}
 }
 
 
