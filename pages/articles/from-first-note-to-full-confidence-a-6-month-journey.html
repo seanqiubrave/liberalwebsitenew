@@ -33,6 +33,11 @@
     .ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
     .ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
     .ann-bar a:hover{opacity:.85}
+    /* Announcement bar — prevent horizontal overflow on small phones */
+    @media(max-width:540px){
+      .ann-bar{padding:6px 12px; height:auto; min-height:36px}
+      .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
+    }
     .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
     .nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 0 rgba(221,230,245,.8),0 6px 30px rgba(31,42,68,.07)}
     .nav-row{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
