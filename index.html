@@ -1402,6 +1402,13 @@ a.tc:hover .tc-ov::after{opacity:1}
      The content is too dense for small screens; key messaging is carried
      elsewhere by the Stats strip and Reviews section. */
   #trust{display:none}
+  /* Reduce hero section vertical space on mobile.
+     min-height:100vh + align-items:center was forcing a huge gap between
+     video and hero-copy because content is shorter than full viewport.
+     Keep 110px top padding (matches desktop) to clear fixed nav + ann-bar. */
+  .hero{min-height:0; align-items:flex-start; padding-bottom:40px}
+  .hero-grid{gap:20px}
+  .hero-vis{margin-top:0}
 }
 
 
