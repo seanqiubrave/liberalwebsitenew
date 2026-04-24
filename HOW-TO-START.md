@@ -14,39 +14,134 @@ cd C:\Users\immor\Downloads\liberalwebsitenew
 git pull origin master
 ```
 
-### 2. Upload files to this chat
-Upload **all** pages you want edited in **one go** at the start.  
-**Never upload a file mid-session** — it overwrites Claude's edits with the old version.
+### 2. Drop the newest files into the chat
+**At the START of every new chat**, Claude should ask me to drag-and-drop the **newest versions** of the pages I want edited.  
+- Pull from GitHub first (step 1), then upload **straight from the local repo** (`C:\Users\immor\Downloads\liberalwebsitenew\pages\`), NOT from some older copy in Downloads.
+- Upload **all pages needed in one batch** at the start — don't dribble uploads in mid-conversation.
+- **Exception:** if the chat gets long and Claude's edits may have drifted, Claude should **ask me to re-upload the newest file** before continuing. The most recent version on disk (after a git pull) is always the source of truth.
 
 ### 3. Tell Claude everything to fix in one message
-List all changes needed. Claude will edit all files in one pass.
+List all changes needed. Claude will edit all files in one pass and present them for download.
 
-### 4. Download all outputs → replace local files
+### 4. Download outputs → extract if zipped → verify with script
+Claude's "Download all" button packages files as `files.zip` (or `files (N).zip`). **Always extract to a clean folder before copying**, otherwise stale loose files in `Downloads\` get copied instead.
+
 ```powershell
-copy "C:\Users\immor\Downloads\filename.html" "C:\Users\immor\Downloads\liberalwebsitenew\pages\filename.html"
-# For root files:
-copy "C:\Users\immor\Downloads\index.html" "C:\Users\immor\Downloads\liberalwebsitenew\index.html"
-# For assets:
-copy "C:\Users\immor\Downloads\image.webp" "C:\Users\immor\Downloads\liberalwebsitenew\assets\"
+# Extract the zip to a fresh folder
+$zipPath = "C:\Users\immor\Downloads\files.zip"   # adjust (N) as needed
+$extractPath = "C:\Users\immor\Downloads\claude-fix"
+if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
+Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
 ```
 
-### 5. Push once at the end
+Then copy + **verify-before-push** in one go. Example for the `pages/` folder:
+
 ```powershell
 cd C:\Users\immor\Downloads\liberalwebsitenew
-git add .
-git commit -m "describe changes"
-git push origin master
-# If rejected (non-fast-forward):
-git pull origin master --rebase
-git push origin master
-# If still rejected:
+$src = "C:\Users\immor\Downloads\claude-fix"
+# List the page names Claude edited — adjust per session
+$allFiles = @('about','blog','contact','courses','instructors','review','trial','privacy','terms')
+
+# The marker is a distinctive string from THIS session's edit (e.g. a comment Claude added).
+# Pick something guaranteed unique to this change so the check is meaningful.
+$marker = "prevent horizontal overflow"   # CHANGE THIS per session
+
+$failures = @()
+foreach ($p in $allFiles) {
+  $srcFile = "$src\$p.html"
+  $dstFile = "pages\$p.html"
+  if (-not (Test-Path $srcFile)) { Write-Host "MISSING SOURCE: $srcFile" -ForegroundColor Red; $failures += $p; continue }
+  copy $srcFile $dstFile -Force
+  if (Select-String -Path $dstFile -Pattern $marker -Quiet) {
+    Write-Host "OK  $p.html" -ForegroundColor Green
+  } else {
+    Write-Host "FAIL $p.html - marker missing after copy" -ForegroundColor Red
+    $failures += $p
+  }
+}
+
+Write-Host ""
+if ($failures.Count -eq 0) {
+  Write-Host "ALL FILES VERIFIED - proceeding to commit" -ForegroundColor Green
+  git add .
+  git commit -m "describe changes"
+  git push origin master
+} else {
+  Write-Host "DO NOT PUSH - $($failures.Count) files failed:" -ForegroundColor Red
+  $failures | ForEach-Object { Write-Host "  - $_" -ForegroundColor Red }
+}
+```
+
+> **Why the verify-first pattern?** In the April 24 2026 session, a push "succeeded" (20 files changed, pushed to GitHub) but Vercel was still serving the old CSS — because the files being copied were older versions without the edit. Adding `Select-String -Pattern $marker -Quiet` catches this **before** the commit, not after. Always use a distinctive marker string for each session.
+
+### 5. After the chat is done — update this file in the Claude Project only
+I push code changes to GitHub (step 4). But **`HOW-TO-START.md` lives in the Claude Project Knowledge, not the repo** — so after the chat ends I just re-upload the latest version of this file to the Project so the next chat loads it automatically. No git push needed for HOW-TO-START.md itself.
+
+### 6. Re-upload other changed HTML files to Project Knowledge
+Keep project knowledge in sync so next chat Claude always reads the latest version. Priority: files I'm likely to edit again soon (the ones in the table at the bottom of this doc).
+
+---
+
+## 🛡️ VERCEL DEPLOYMENT CHECKS (after every push)
+
+Vercel can silently block deployments even though `git push` succeeds. Always verify after pushing.
+
+### Git author email must match a GitHub-registered email
+Vercel cross-checks the commit author's email against GitHub. If the email is wrong (even a typo), the deployment is **Blocked** and the site keeps serving the old version.
+
+**Check your global git config** (do this once per machine):
+```powershell
+git config --global user.email
+git config --global user.name
+```
+
+Should print `immortalsapp@gmail.com` and `Sean Qiu`. If either is wrong, reset:
+```powershell
+git config --global user.email "immortalsapp@gmail.com"
+git config --global user.name "Sean Qiu"
+```
+
+**If a commit was made with the wrong email**, amend it:
+```powershell
+git commit --amend --author="Sean Qiu <immortalsapp@gmail.com>" --no-edit
 git push origin master --force
 ```
 
-### 6. Re-upload changed files to Claude Project Knowledge
-Keep project knowledge in sync so next chat Claude always reads the latest version.
+> Note: `immortalsapp@gmail.com` is the GitHub account email. Vercel key is `colouryartsg@gmail.com` but commit emails must match GitHub, not Vercel.
+
+### Verify the fix is actually live (not just pushed)
+Always sanity-check the deployed site for a distinctive marker string from the session's edits:
+
+```powershell
+Start-Sleep -Seconds 30   # give Vercel time to redeploy
+$pages = @('about','blog','contact','courses','instructors','review','trial','privacy','terms')
+$marker = "prevent horizontal overflow"   # CHANGE THIS per session
+
+$failed = 0
+foreach ($p in $pages) {
+  try {
+    $resp = Invoke-WebRequest -Uri "https://liberalwebsitenew.vercel.app/pages/$p" -UseBasicParsing -ErrorAction Stop
+    if ($resp.Content -match $marker) {
+      Write-Host "LIVE  $p" -ForegroundColor Green
+    } else {
+      Write-Host "STALE $p" -ForegroundColor Yellow
+      $failed++
+    }
+  } catch {
+    Write-Host "ERROR $p - $($_.Exception.Message)" -ForegroundColor Red
+    $failed++
+  }
+}
+
+Write-Host ""
+if ($failed -eq 0) { Write-Host "ALL PAGES LIVE" -ForegroundColor Green }
+else { Write-Host "$failed pages not live yet" -ForegroundColor Yellow }
+```
+
+If pages are `STALE`, check the Vercel dashboard for a "Blocked" or "Failed" deployment — most commonly due to the email issue above.
 
 ---
+
 
 ## 📁 FILE STRUCTURE
 
