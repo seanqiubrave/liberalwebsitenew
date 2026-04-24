@@ -1363,6 +1363,7 @@ a.tc:hover .tc-ov::after{opacity:1}
   .tc{flex:0 0 100%}
   .tc-arrow{display:none}
   .fc-c{display:none}
+  .vis-a{display:none}
   .vis-b{display:none}
   .cta-checks{flex-direction:column;gap:10px}
   /* Hero heading — 75px overflows narrow screens; scale down with clamp */
@@ -1397,6 +1398,10 @@ a.tc:hover .tc-ov::after{opacity:1}
   .faq-card{height:auto; min-height:0; padding:20px}
   .faq-card-q{font-size:16px; margin-bottom:8px}
   .faq-card-a{font-size:14.5px; line-height:1.6}
+  /* Hide entire Trust section on mobile (heading + description + 4 cards).
+     The content is too dense for small screens; key messaging is carried
+     elsewhere by the Stats strip and Reviews section. */
+  #trust{display:none}
 }
 
 
