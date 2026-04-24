@@ -645,6 +645,38 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .hero-ph .big{font-size: 82px;animation:sway 3s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.05)}}
 .hero-ph p{font-size: 23px;font-weight:600;letter-spacing:.3px}
+/* Hero mobile play button — hidden on desktop, shown on mobile via media query */
+.hero-mobile-play{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  padding:0;border:none;cursor:pointer;
+  background:#000;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+  z-index:3;
+}
+.hero-mobile-play img{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  opacity:.92;
+  transition:opacity .2s ease, transform .4s ease;
+}
+.hero-mobile-play:hover img,
+.hero-mobile-play:focus-visible img{opacity:1;transform:scale(1.02)}
+.hero-mobile-play-btn{
+  position:relative;z-index:1;
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(255,102,0,.96);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.35), 0 0 0 6px rgba(255,255,255,.12);
+  transition:transform .2s var(--sp), background .2s;
+}
+.hero-mobile-play:hover .hero-mobile-play-btn,
+.hero-mobile-play:focus-visible .hero-mobile-play-btn{
+  transform:scale(1.08);
+  background:var(--or-dk);
+}
+.hero-mobile-play-btn svg{margin-left:4px}
 .fc{position:absolute;z-index:2;background:var(--w);border-radius:14px;box-shadow:var(--sh-l);padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;border:1px solid rgba(221,230,240,.5);animation:bob 5.5s ease-in-out infinite;width:80px;text-align:center}
 .fc-a{bottom:30px;left:-20px;animation-delay:0s}
 .fc-b{top:-800px;right:-500px;animation-delay:1.9s}
@@ -1338,6 +1370,18 @@ a.tc:hover .tc-ov::after{opacity:1}
   /* Announcement bar — prevent horizontal overflow on small phones */
   .ann-bar{padding:6px 12px; height:auto; min-height:36px}
   .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
+  /* Stats strip — tighten padding + shrink oversized labels for 2-col mobile layout */
+  .stat-cell{padding:32px 12px 28px}
+  .stat-icon{width:48px;height:48px;margin-bottom:12px}
+  .stat-num{font-size:2rem}
+  .stat-label{font-size:15px;line-height:1.25;margin-bottom:2px}
+  .stat-sub{font-size:13px;line-height:1.35}
+  /* Hero video — swap autoplay iframe for tap-to-play poster on mobile
+     (autoplay is unreliable on mobile Chrome, blocked by data saver, etc.) */
+  #heroIframe{display:none}
+  .hero-mobile-play{display:flex}
+  /* Ensure peach gradient doesn't show gaps behind poster */
+  .hero-frame{background:#000}
 }
 
 
@@ -1492,6 +1536,7 @@ footer { margin-bottom: 0 !important; }
         <div class="vis-b" aria-hidden="true"></div>
         <div class="hero-frame" id="heroFrame">
           <iframe
+            id="heroIframe"
             src="https://www.youtube.com/embed/Yh8Z6yca-28?autoplay=1&mute=1&loop=1&playlist=Yh8Z6yca-28&controls=0&modestbranding=1&rel=0&showinfo=0&playsinline=1&start=5"
             title="Liberal Music &amp; Arts School"
             allow="autoplay; encrypted-media; picture-in-picture"
@@ -1499,6 +1544,13 @@ footer { margin-bottom: 0 !important; }
             style="position:absolute;inset:0;width:100%;height:100%;border:none;"
             loading="eager"
           ></iframe>
+          <!-- Mobile-only poster + play button. Hidden on desktop via CSS. -->
+          <button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="Play video">
+            <img src="https://img.youtube.com/vi/Yh8Z6yca-28/hqdefault.jpg" alt="Video preview" loading="lazy"/>
+            <span class="hero-mobile-play-btn" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
         </div>
         <div class="fc fc-a" id="fcSuccessCard">
           <div class="fc-ico fc-student-ico" id="fcStudentIcoA"></div>
@@ -2291,6 +2343,20 @@ footer { margin-bottom: 0 !important; }
       frame.style.transform = 'perspective(900px) rotateX(0) rotateY(0) scale(1)';
     });
   }
+
+  /* Mobile hero video — tap poster to play video in-place.
+     Creating iframe in response to user gesture bypasses mobile
+     autoplay restrictions that silently block the desktop iframe. */
+  const mobilePlay = document.getElementById('heroMobilePlay');
+  mobilePlay?.addEventListener('click', () => {
+    const newIframe = document.createElement('iframe');
+    newIframe.src = 'https://www.youtube.com/embed/Yh8Z6yca-28?autoplay=1&mute=0&playsinline=1&rel=0&modestbranding=1';
+    newIframe.title = 'Liberal Music & Arts School';
+    newIframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
+    newIframe.setAttribute('allowfullscreen', '');
+    newIframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;display:block;';
+    mobilePlay.replaceWith(newIframe);
+  });
 
   /* Reviews carousel */
   const track = document.getElementById('revTrack');
