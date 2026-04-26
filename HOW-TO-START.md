@@ -205,6 +205,14 @@ liberalwebsitenew/
 | `pages/*.html` | `../assets/logo.webp` | `../assets/` |
 | `pages/articles/*.html` | `../../assets/logo.webp` | `../../assets/` |
 
+> ⚠️ **Asset filename casing is INCONSISTENT — and Vercel is case-sensitive.** Local Windows is case-insensitive so `Jescelyn.webp` and `jescelyn.webp` work the same on disk, but on Vercel (Linux) the wrong case returns 404. This caused 6 broken instructor photos in April 2026.
+>
+> **Instructor photo filenames as they actually exist in `assets/`:**
+> - **Lowercase:** `cecily.webp`, `calvin.webp`, `kate.webp`, `cheng.webp`, `jiang.webp`, `leonard.webp`, `loy.webp`
+> - **Capitalized:** `Jescelyn.webp`, `Tina.webp`, `Verginia.webp`, `Aliona.webp`, `Teresa.webp`, `Mindy.webp`
+>
+> When referencing instructor photos in `<img src="...">`, copy the exact case from the filename. The canonical source-of-truth for these references is `pages/instructors.html` — when in doubt, `grep` it. Future cleanup: rename the 6 capitalized files to lowercase and update all references.
+
 **Local test server:**
 ```powershell
 cd C:\Users\immor\Downloads\liberalwebsitenew
@@ -410,11 +418,15 @@ All follow the same template — **`cecily.html` is the canonical base**.
 ---
 
 ## 📍 WHATSAPP NUMBERS (never change)
-| Branch | Number | Link |
+| Branch | Number | wa.me link |
 |---|---|---|
 | Tengah | +65 8922 2848 | `https://wa.me/6589222848` |
 | Tampines | +65 8892 1198 | `https://wa.me/6588921198` |
-| Jurong West / Le Quest / Jurong Point | +65 9627 7582 | `https://wa.me/6596277582` |
+| Jurong West | +65 9627 7588 | `https://wa.me/6596277588` |
+| Le Quest | +65 9627 7582 | `https://wa.me/6596277582` |
+| Coloury Art | +65 8922 2848 *(shares Tengah's number)* | `https://wa.me/6589222848` |
+
+> **Changed April 2026:** Jurong West got its own dedicated number (`9627 7588`). Previously it was grouped with Le Quest / Jurong Point under `9627 7582`. Le Quest still uses `7582`. Coloury Art (the 5th location, opening soon) routes to Tengah's number. The FAB popup on every page now shows **5 separate rows**.
 
 ---
 
@@ -450,7 +462,9 @@ All follow the same template — **`cecily.html` is the canonical base**.
 > For exact HTML/CSS of every footer element, see **HEADER-FOOTER-GUIDE.md**.
 
 **Floating**
-- [ ] WhatsApp FAB uses `whatsapp.webp` icon (all 3 numbers correct)
+- [ ] WhatsApp FAB uses `whatsapp.webp` image (32px, no filter — green-on-green blends so the white phone silhouette shows through). NOT the 💬 emoji.
+- [ ] WhatsApp popup shows **5 branches** in this exact order: 🏡 Tengah · 🌅 Tampines · 🌸 Jurong West · 🏬 Le Quest · ✦ Coloury Art
+- [ ] All 5 numbers correct (see WHATSAPP NUMBERS table above)
 - [ ] Mobile sticky CTA bar with trial link
 
 **Article pages only (`pages/articles/*.html`)**
@@ -466,7 +480,9 @@ All follow the same template — **`cecily.html` is the canonical base**.
 - [ ] Breadcrumb: Home → Our Instructors → Instructor Name
 - [ ] Active nav link set to **Instructors**
 - [ ] Book card button says `Book Trial Class` (not "Free")
-- [ ] "Other Instructors" strip excludes the current page's instructor
+- [ ] "Other Instructors" strip at bottom shows **all 12 other instructors** (excludes the current page's instructor) — each card uses prefixed names (`Mr Calvin`, `Ms Kate`, etc.)
+- [ ] Strip cards in canonical order: Cecily → Calvin → Kate → Jescelyn → Tina → Verginia → Cheng → Aliona → Teresa → Jiang → Mindy → Leonard → Loy *(skip self)*
+- [ ] Each card image uses **correct filename casing** — see asset casing note in File Structure section
 
 ---
 

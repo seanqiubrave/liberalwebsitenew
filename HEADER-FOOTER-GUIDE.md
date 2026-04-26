@@ -406,12 +406,26 @@ footer{margin-bottom:0!important}
     <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">
       🌅 Tampines <span>8892 1198</span>
     </a>
+    <a href="https://wa.me/6596277588" target="_blank" rel="noopener" class="wa-row">
+      🌸 Jurong West <span>9627 7588</span>
+    </a>
     <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">
-      🌸 Jurong West / JP <span>9627 7582</span>
+      🏬 Le Quest <span>9627 7582</span>
+    </a>
+    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">
+      ✦ Coloury Art <span>8922 2848</span>
     </a>
   </div>
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp">💬</button>
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/></button>
 </div>
+```
+
+> **FAB icon notes:**
+> - Use `whatsapp.webp` (NOT the 💬 emoji — emoji renders inconsistently across platforms).
+> - **Do NOT apply `filter:brightness(0) invert(1)`** to the icon. The image is already a green WhatsApp logo with a white phone inside. The green blends invisibly into the FAB's `#25D366` background, leaving only the recognizable white phone silhouette visible. Applying the filter merges everything into a featureless white blob.
+> - Asset path is `../assets/whatsapp.webp` from `pages/`, `assets/whatsapp.webp` from root, `../../assets/whatsapp.webp` from `pages/articles/`.
+
+> **Popup row order (always exactly 5):** Tengah → Tampines → Jurong West → Le Quest → Coloury Art. See `HOW-TO-START.md` for the WhatsApp number table and history of the April 2026 number split.
 
 <!-- MOBILE STICKY CTA BAR -->
 <div class="mob-bar">
@@ -650,7 +664,7 @@ Before finalising any page, verify:
 - [ ] **Terms of Use link** → `terms.html` (from `pages/`) or `pages/terms.html` (from root) — NEVER `#`
 - [ ] **中文版本 footer link is DISABLED** (use `<span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>` — NOT `<a>`)
 - [ ] Bottom bar includes `v1.0.1` version tag
-- [ ] WA FAB present, all 3 WhatsApp numbers correct
+- [ ] WA FAB present, uses `whatsapp.webp` image (NOT 💬 emoji), all 5 WhatsApp numbers correct (5-row popup: Tengah · Tampines · Jurong West · Le Quest · Coloury Art)
 - [ ] Mobile sticky bar present with trial link
 - [ ] All asset paths use `../assets/` for `pages/` files, `assets/` for root files
 - [ ] **Instructor profile pages only:** breadcrumb present · "Other Instructors" strip excludes self · book card says "Book Trial Class" (no "Free")
@@ -663,4 +677,6 @@ Before finalising any page, verify:
 |---|---|---|
 | Tengah | +65 8922 2848 | `https://wa.me/6589222848` |
 | Tampines | +65 8892 1198 | `https://wa.me/6588921198` |
-| Jurong West / Le Quest / Jurong Point | +65 9627 7582 | `https://wa.me/6596277582` |
+| Jurong West | +65 9627 7588 | `https://wa.me/6596277588` |
+| Le Quest | +65 9627 7582 | `https://wa.me/6596277582` |
+| Coloury Art | +65 8922 2848 *(shares Tengah's number)* | `https://wa.me/6589222848` |
