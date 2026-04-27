@@ -430,6 +430,24 @@ All follow the same template — **`cecily.html` is the canonical base**.
 
 ---
 
+## 📱 SOCIAL MEDIA LINKS
+
+Wire these into the footer `.foot-soc` block on every page. All open in new tabs with `target="_blank" rel="noopener noreferrer"`.
+
+| Platform | URL |
+|---|---|
+| Instagram | `https://www.instagram.com/liberalmusic_arts/` |
+| Facebook | `https://www.facebook.com/liberalmusicandarts/` |
+| YouTube | `https://youtube.com/@liberalmusicartsschoolsingapor?si=0EdJLdRw-WoXKxOR` |
+| Xiaohongshu | *pending — currently `href="#"` site-wide* |
+
+> All 25 main pages (index + 9 pages + 13 instructor profiles + 2 articles) had their social links wired up on **April 27, 2026** — they were `href="#"` placeholders before that.
+> When the Xiaohongshu URL is supplied, run a single regex sweep across every page that has `aria-label="Xiaohongshu"`.
+
+> Note on the YouTube `?si=…` parameter: it's a YouTube share-tracking session ID. Stripping it makes for a cleaner URL but is harmless either way. The version above is what was wired live.
+
+---
+
 ## ✅ QUICK CHECKLIST (every page)
 
 **Head**
@@ -449,8 +467,11 @@ All follow the same template — **`cecily.html` is the canonical base**.
 
 **Footer**
 - [ ] Background `#1F2A44`, logo `logofooter.webp` height `56px`
-- [ ] Brand text: `color:#fff`, `font-size:15px`, ends with `— Ages 2.5+ to Adult`
+- [ ] Brand text: `color:#fff`, `font-size:15px`, ends with `trusted by over 20,000 families in Singapore since 2009.`
+- [ ] **Footer brand paragraph (canonical copy — use verbatim across all pages):**
+      `Liberal Music & Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — for ages 2.5 to adult. With expert teachers, holistic learning, and proven results, we are proud to be trusted by over 20,000 families in Singapore since 2009.`
 - [ ] Social icons: `.webp` assets with `filter:brightness(0) invert(1)`, no borders/boxes
+- [ ] Social link `href` values point to the live URLs (see SOCIAL MEDIA LINKS table above): Instagram, Facebook, YouTube wired with `target="_blank" rel="noopener noreferrer"`. Xiaohongshu is still `href="#"` until a URL is supplied.
 - [ ] All 5 locations with full names
 - [ ] 5th location = **Coloury Art By Liberal** (clickable → colouryart.com, pin `✦`)
 - [ ] Nav links: `color:#fff`, `font-size:15px` — Review link → `pages/review` (no `.html`)
@@ -537,7 +558,30 @@ Rationale: mobile Chrome's Data Saver and Battery Saver modes silently block aut
 
 ---
 
-Keep these files uploaded and current in Claude Project Knowledge:
+## 📝 PAGE-SPECIFIC NOTES (April 27, 2026 session)
+
+Captures changes that don't fit the cross-page checklists above. Treat these as the current state when re-editing these pages.
+
+### `pages/contact.html`
+- **Branch hours unified to `Daily: 1pm–9pm`** for all 4 Liberal branches (Tengah, Tampines, Jurong West, Le Quest). Replaced the old `Mon–Fri: 2pm–9pm  ·  Sat–Sun: 9am–6pm` split. Coloury Art card still shows `Visit colouryart.com` — left untouched since it's not a Liberal branch.
+- **Address cards no longer carry the `· Near X MRT` suffix.** Postal code now closes the address line directly. Don't reintroduce the MRT suffix.
+
+### `pages/review.html`
+- **Removed two sections** in this session:
+  1. The "Trust Numbers" strip headed *"The Results Speak for Themselves"* (the four stat tiles: 20,000+ Students Enrolled, 99% ABRSM & Trinity Pass Rate, 5★ Google Rating, 15yr Teaching Experience).
+  2. The "Leave a Review" CTA section headed *"Had a Great Experience?"* with the Google Review button.
+- The CTA Banner (`Start Today`) now follows directly after the parent reviews grid.
+- Dead CSS rules `.trust-strip`, `.trust-grid`, `.trust-item`, `.trust-num`, `.trust-lbl`, `.review-cta`, `.google-btn` are still in the `<style>` block — harmless but pruneable.
+
+### `pages/instructors.html`
+- **"5 Convenient Locations" perk** in the recruitment section now reads:
+  *"Teach at a branch close to home — across Tengah, Tampines, Jurong West and Le Quest, plus Coloury Art By Liberal at Jurong Point **(Opening Soon)**"* with `(Opening Soon)` styled in brand orange (`#FF6600`, `<strong>`).
+- **`View Open Positions` button is disabled.** Rendered as a `<span class="btn btn-cta" aria-disabled="true">` with grey background `#CBD5E1`, `cursor:not-allowed`, `pointer-events:none`, `box-shadow:none`. Same approach as the disabled 中文 nav button.
+
+### `pages/articles/*.html`
+- The 2 existing article pages (`liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html`, `from-first-note-to-full-confidence-a-6-month-journey.html`) were upgraded from the older 3-row WhatsApp panel (`Tengah / Tampines / Jurong West / JP`) to the canonical 5-row layout. New articles must use the 5-row format.
+
+---
 
 | File | Purpose |
 |---|---|
@@ -568,3 +612,5 @@ Keep these files uploaded and current in Claude Project Knowledge:
 | `pages/mindy.html` | Re-upload after each edit |
 | `pages/leonard.html` | Re-upload after each edit |
 | `pages/loy.html` | Re-upload after each edit |
+| `pages/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html` | Article page — re-upload after each edit |
+| `pages/articles/from-first-note-to-full-confidence-a-6-month-journey.html` | Article page — re-upload after each edit |

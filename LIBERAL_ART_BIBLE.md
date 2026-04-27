@@ -1,5 +1,5 @@
-# Liberal Music & Arts School — Art Bible v1.1
-> Extracted from `index.html` (master reference) · April 2026 · Revised April 2026 (Vercel migration + mobile overrides)
+# Liberal Music & Arts School — Art Bible v1.2
+> Extracted from `index.html` (master reference) · April 2026 · Revised April 27, 2026 (footer copy + social links wiring + working hours unified + WhatsApp panel 5-row across articles)
 > Use this document to standardize ALL pages across the website.
 
 ---
@@ -322,11 +322,13 @@ Background: #1F2A44 (dark navy)
 Columns: Brand + Social | Navigation | Our Locations
 ```
 
+- **Brand paragraph (canonical copy, April 27 2026):**
+  *"Liberal Music & Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — for ages 2.5 to adult. With expert teachers, holistic learning, and proven results, we are proud to be trusted by over 20,000 families in Singapore since 2009."*
 - All footer text: **white** (`#fff` or `rgba(255,255,255,0.8)`)
 - Nav links: `15px`, white, hover → left-shift + orange
 - Location addresses use `assets/address.webp` icon (white filtered)
-- Social icons: `assets/Instagram.webp`, `facebook.webp`, `youtube.webp`, `xiaohongshu.webp` (white filtered, no frame borders)
-- Bottom bar: `© 2025 Liberal Music & Arts School · Privacy Policy → privacy.html · Terms of Use → terms.html · 中文版本 (disabled grey span)`
+- Social icons: `assets/Instagram.webp`, `facebook.webp`, `youtube.webp`, `xiaohongshu.webp` (white filtered, no frame borders). **`href` values are wired live** for Instagram, Facebook, YouTube — see Section 15 / `HOW-TO-START.md` for URLs. Xiaohongshu still `href="#"` until URL supplied.
+- Bottom bar: `© 2025 Liberal Music & Arts School · Privacy Policy → privacy · Terms of Use → terms · 中文版本 (disabled grey span)`. **Use clean URLs (no `.html`)** per Vercel cleanUrls convention.
 
 ---
 
@@ -353,7 +355,10 @@ background: #25D366; color: #fff;
 box-shadow: 0 8px 28px rgba(37,211,102,.42);
 ```
 
-Panel opens upward with 3 branch links (Tengah, Tampines, Jurong West/JP).
+Panel opens upward with **5 branch links** (canonical order):
+🏡 Tengah · 🌅 Tampines · 🌸 Jurong West · 🏬 Le Quest · ✦ Coloury Art
+
+Use `whatsapp.webp` icon (NOT 💬 emoji). See `HEADER-FOOTER-GUIDE.md` Section 8 for the exact HTML and `HOW-TO-START.md` for the WhatsApp number table.
 
 ---
 
@@ -389,11 +394,26 @@ Adjust path depth: `assets/` from root, `../assets/` from `pages/*`, `../../asse
 |---|---|---|
 | Tengah | 127A Plantation Crescent, #01-381, S691127 | +65 8922 2848 |
 | Tampines | Blk 139 Tampines Street 11, #01-60, S521139 | +65 8892 1198 |
-| Jurong West | Blk 492 Jurong West Street 41, #01-10, S640492 | +65 9627 7582 |
+| Jurong West | Blk 492 Jurong West Street 41, #01-10, S640492 | +65 9627 7588 |
 | Le Quest Mall | 4 Bukit Batok Street 41, #01-83, S657991 | +65 9627 7582 |
-| Coloury Art By Liberal | #03-07C Level 3, Jurong Point, S648886 · [colouryart.com](https://colouryart.com/) | +65 8922 2848 |
+| Coloury Art By Liberal | #03-07C Level 3, Jurong Point, S648886 · [colouryart.com](https://colouryart.com/) · *(Opening Soon)* | +65 8922 2848 *(shares Tengah's number)* |
 
 WhatsApp link format: `https://wa.me/65XXXXXXXX`
+
+**Branch hours (April 27 2026):** All 4 Liberal branches operate `Daily: 1pm–9pm` — replaced the older `Mon–Fri: 2pm–9pm  ·  Sat–Sun: 9am–6pm` split. Coloury Art card on contact.html shows `Visit colouryart.com` instead of hours.
+
+**Address format:** Postal code closes the address line. Do **NOT** append `· Near X MRT` — this suffix was removed from contact.html on April 27 2026.
+
+### Social media URLs (footer links — wired live April 27 2026)
+
+| Platform | URL |
+|---|---|
+| Instagram | `https://www.instagram.com/liberalmusic_arts/` |
+| Facebook | `https://www.facebook.com/liberalmusicandarts/` |
+| YouTube | `https://youtube.com/@liberalmusicartsschoolsingapor?si=0EdJLdRw-WoXKxOR` |
+| Xiaohongshu | *pending — `href="#"` site-wide until URL supplied* |
+
+All open in new tabs with `target="_blank" rel="noopener noreferrer"`.
 
 ---
 
@@ -639,4 +659,4 @@ All internal `<a href>` values omit `.html`. Vercel's `cleanUrls: true` serves `
 
 ---
 
-*Last updated: April 2026 (v1.1 — Vercel migration + mobile overrides) · Source of truth: `index.html`*
+*Last updated: April 27, 2026 (v1.2 — footer copy + social links wiring + working hours unified + WhatsApp 5-row across articles + cleanUrls for privacy/terms) · Source of truth: `index.html`*

@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: April 2026  
+> Source of truth: `index.html` (master) · Last updated: April 27, 2026  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -253,17 +253,18 @@ footer{margin-bottom:0!important}
       <div class="foot-brand">
         <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
              onerror="this.src='../assets/logo.webp'"/>
-        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — Ages 2.5+ to Adult. Expert teachers, holistic learning, and real results — trusted by over 500 Singapore families since 2014.</p>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — for ages 2.5 to adult. With expert teachers, holistic learning, and proven results, we are proud to be trusted by over 20,000 families in Singapore since 2009.</p>
         <div class="foot-soc">
-          <a href="#" aria-label="Instagram">
+          <a href="https://www.instagram.com/liberalmusic_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
           </a>
-          <a href="#" aria-label="Facebook">
+          <a href="https://www.facebook.com/liberalmusicandarts/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
           </a>
-          <a href="#" aria-label="YouTube">
+          <a href="https://youtube.com/@liberalmusicartsschoolsingapor?si=0EdJLdRw-WoXKxOR" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <img src="../assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
           </a>
+          <!-- Xiaohongshu URL not yet supplied — keep href="#" until provided, then wire up site-wide -->
           <a href="#" aria-label="Xiaohongshu">
             <img src="../assets/xiaohongshu.webp" alt="Xiaohongshu" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
           </a>
@@ -352,8 +353,8 @@ footer{margin-bottom:0!important}
       <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
+        <a href="privacy">Privacy Policy</a>
+        <a href="terms">Terms of Use</a>
         <!-- 中文版本 DISABLED while bilingual site is paused — use span, not <a> -->
         <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
       </div>
@@ -549,7 +550,7 @@ footer{margin-bottom:0!important}
 
 ## 11. INSTRUCTOR PROFILE PAGE PATTERN
 
-All instructor profile pages (cecily, calvin, kate, jiang, cheng, leonard, loy) follow a fixed structure.  
+All instructor profile pages (cecily, calvin, kate, jescelyn, tina, verginia, cheng, aliona, teresa, jiang, mindy, leonard, loy) follow a fixed structure.  
 **Always use the most recently edited `cecily.html` as the copy base** — it is the canonical template.
 
 ### File locations
@@ -557,8 +558,14 @@ All instructor profile pages (cecily, calvin, kate, jiang, cheng, leonard, loy) 
 pages/cecily.html
 pages/calvin.html
 pages/kate.html
-pages/jiang.html
+pages/jescelyn.html
+pages/tina.html
+pages/verginia.html
 pages/cheng.html
+pages/aliona.html
+pages/teresa.html
+pages/jiang.html
+pages/mindy.html
 pages/leonard.html
 pages/loy.html
 ```
@@ -601,18 +608,24 @@ Right col (1fr):         back link → pill tag → name → title → stat pill
 Always: `Book Trial Class` — **never** "Book Free Trial Class" on the photo card button.
 
 ### "Other Instructors" strip
-Each instructor profile shows the **other 6** instructors at the bottom — the current page's instructor must be **excluded**. Cards use portrait shape (4:5 ratio, `object-position:top center`), name at 18px Nunito 900.
+Each instructor profile shows the **other 12** instructors at the bottom — the current page's instructor must be **excluded**. Cards use portrait shape (4:5 ratio, `object-position:top center`), name at 18px Nunito 900.
 
-### Current instructor roster (7 total)
+### Current instructor roster (13 total)
 | File | Name | Speciality |
 |---|---|---|
-| `cecily.html` | Ms Cecily | Erhu · Chinese Instruments |
-| `calvin.html` | Mr Calvin | Drums · Guitar · Ukulele |
+| `cecily.html` | Ms Cecily | Principal · Erhu · Chinese Instruments |
+| `calvin.html` | Mr Calvin | Vice Principal · Drums · Guitar · Ukulele |
 | `kate.html` | Ms Kate | Piano · ABRSM |
-| `jiang.html` | Ms Jiang | Erhu · Chinese Instruments |
+| `jescelyn.html` | Ms Jescelyn | Piano · ABRSM |
+| `tina.html` | Ms Tina | Piano · Vocal |
+| `verginia.html` | Ms Verginia | Piano · Vocal |
 | `cheng.html` | Ms Cheng | Violin · Piano |
-| `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele |
-| `loy.html` | Mr Loy | Guitar · Ukulele |
+| `aliona.html` | Ms Aliona | Violin · Strings |
+| `teresa.html` | Ms Teresa | Violin |
+| `jiang.html` | Ms Jiang | Erhu · Chinese Instruments · Violin · Guqin |
+| `mindy.html` | Ms Mindy | Vocal · Music for Kids |
+| `leonard.html` | Mr Leonard | Drums · Guitar · Ukulele · Piano |
+| `loy.html` | Mr Loy | Guitar · Drums · Ukulele |
 
 ### Pill tag colours used on profile pages
 ```css
@@ -651,8 +664,9 @@ Before finalising any page, verify:
 - [ ] Footer background: `#1F2A44`
 - [ ] Footer logo: `logofooter.webp`, height `56px`
 - [ ] Footer description text: `color:#fff` (solid white), `font-size:15px`
-- [ ] **Footer description ends with `— Ages 2.5+ to Adult`** (NOT "in children aged 4–16")
+- [ ] **Footer description ends with `trusted by over 20,000 families in Singapore since 2009.`** Canonical copy: `Liberal Music & Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — for ages 2.5 to adult. With expert teachers, holistic learning, and proven results, we are proud to be trusted by over 20,000 families in Singapore since 2009.` (April 27, 2026 update — replaced the older "Ages 2.5+ to Adult / 500 families since 2014" copy.)
 - [ ] Social icons: `Instagram.webp` (26px), `facebook.webp`, `youtube.webp`, `xiaohongshu.webp` (22px each) — `filter:brightness(0) invert(1)`, no borders, no rounded box
+- [ ] **Social link `href` values are wired to live URLs** (April 27, 2026 — was `href="#"` placeholders before): Instagram → `https://www.instagram.com/liberalmusic_arts/`, Facebook → `https://www.facebook.com/liberalmusicandarts/`, YouTube → `https://youtube.com/@liberalmusicartsschoolsingapor?si=0EdJLdRw-WoXKxOR`. Each carries `target="_blank" rel="noopener noreferrer"`. **Xiaohongshu still `href="#"`** until the URL is supplied.
 - [ ] **`.foot-soc` has `padding-bottom:4px`**; `.foot-soc a` must NOT have `overflow:hidden` (otherwise icons render as solid white blocks)
 - [ ] No `.foot-contact` email/phone block in footer (removed)
 - [ ] All 5 locations listed with full names: "Tengah Music School", "Tampines Music School", etc.
@@ -660,8 +674,8 @@ Before finalising any page, verify:
 - [ ] **5th location is Coloury Art By Liberal**: clickable `<a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">`, pin = `✦`, title = `Coloury Art By Liberal`, subtitle = `colouryart.com` (replaces the deprecated "Jurong Point Music School · Opening Soon" div)
 - [ ] Footer navigation Review link also points to `review.html`
 - [ ] Nav links in footer: `font-size:15px`, `color:#fff` — no "✦ Free Trial Class" item
-- [ ] **Privacy Policy link** → `privacy.html` (from `pages/`) or `pages/privacy.html` (from root) — NEVER `#`
-- [ ] **Terms of Use link** → `terms.html` (from `pages/`) or `pages/terms.html` (from root) — NEVER `#`
+- [ ] **Privacy Policy link** → `privacy` (from `pages/`) or `pages/privacy` (from root) or `../../pages/privacy` (from `pages/articles/`) — NEVER `#`, NEVER `.html`
+- [ ] **Terms of Use link** → `terms` (from `pages/`) or `pages/terms` (from root) or `../../pages/terms` (from `pages/articles/`) — NEVER `#`, NEVER `.html`
 - [ ] **中文版本 footer link is DISABLED** (use `<span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>` — NOT `<a>`)
 - [ ] Bottom bar includes `v1.0.1` version tag
 - [ ] WA FAB present, uses `whatsapp.webp` image (NOT 💬 emoji), all 5 WhatsApp numbers correct (5-row popup: Tengah · Tampines · Jurong West · Le Quest · Coloury Art)
