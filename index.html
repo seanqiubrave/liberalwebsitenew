@@ -268,63 +268,10 @@
 }
 </script>
 
-<!-- ═══ EMBEDDED FAQPage — Voice Search & AI Answer Engine ═══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the best age to start music lessons in Singapore?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Children can start music lessons as young as 2.5+ years old at Liberal Music & Arts School in Singapore. Our early childhood programme uses play-based learning to build rhythm, pitch, and confidence. Piano and Drums are most popular for beginners aged 4–7."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are the music teachers at Liberal Music School certified?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All teachers at Liberal Music & Arts School hold internationally recognised qualifications including ABRSM (Royal Schools of Music), Trinity College London, Berklee Online certification, and Central Conservatory of Music degrees. Our Principal Ms. Cecily has taught since 2009."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Liberal Music School offer ABRSM exam preparation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Liberal Music & Arts School has a 99% ABRSM and Trinity exam pass rate since its founding in 2009. Over 200 ABRSM Distinctions have been awarded to our students. Exam preparation for Grades 1–8 is included in our standard curriculum at no extra cost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is Liberal the most trusted music school in Singapore?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Liberal Music & Arts School has been Singapore's most trusted children's music school since 2009. With 5 branches across Singapore, internationally certified teachers, a 99% ABRSM pass rate, and a unique confidence-first teaching method, over 20,000 students have grown through music with us."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What music lessons are best for children aged 4–16 in Singapore?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For children aged 4–16, Liberal Music & Arts School offers Piano, Violin, Guitar, Drums, Erhu, Guzheng, Visual Art, and Dance. Piano is most popular for ages 4–8. Guitar and Drums suit ages 6+. Erhu and Violin build discipline and focus for all ages. All classes are available at 5 Singapore locations."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where are the Liberal Music School branches in Singapore?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Liberal Music & Arts School has 5 locations in Singapore: Tengah (127A Plantation Crescent #01-381), Tampines (Blk 139 Tampines Street 11 #01-60), Jurong West (Blk 492 Jurong West Street 41 #01-10), Le Quest Mall Bukit Batok (#01-83), and Coloury Art Jurong Point (By Liberal)."
-      }
-    }
-  ]
-}
-</script>
+<!-- NOTE: Duplicate FAQPage JSON-LD removed (Apr 28 2026) to fix
+     Google Search Console "Duplicate field 'FAQPage'" error.
+     The single canonical FAQPage block now lives directly above the
+     visible #faq section (~line 2050) so the schema matches the on-page Q&A. -->
 
 <!-- Nunito: joyful display · Quicksand: round, friendly body -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -1204,9 +1151,20 @@ a.tc:hover .tc-ov::after{opacity:1}
   margin-bottom:2px;
 }
 .foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+.foot-loc-meta{
+  display:block;
+  margin-top:6px;
+  font-size:11.5px;
+  color:rgba(255,255,255,.55);
+  line-height:1.5;
+  letter-spacing:.1px;
+}
+.foot-loc-meta .sep{margin:0 6px;color:rgba(255,255,255,.3)}
 .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
 .foot-loc.soon .foot-loc-text strong{color:var(--or)}
 .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
+.foot-loc.soon .foot-loc-meta{color:rgba(255,170,90,.7)}
+.foot-loc.soon .foot-loc-meta .sep{color:rgba(255,170,90,.4)}
 
 /* Bottom bar */
 .foot-btm{
@@ -1538,11 +1496,11 @@ footer { margin-bottom: 0 !important; }
 
         </div>
         <h1 class="sr d1">
-          Proven. <span class="kw">Trusted.</span><br>
-          ABRSM Success!
+          Singapore's <span class="kw">Top-Rated</span> Music School<br>
+          for ABRSM Success
         </h1>
         <p class="hero-desc sr d2">
-          Empowering 20,000+ students through 17 years of expert coaching. Master Piano, Violin, Drums, or Vocals with our proven ABRSM curriculum at 5 premier Singapore locations.
+          Empowering 20,000+ students since 2009. We specialize in fast-track ABRSM preparation with a proven 99% pass rate, helping students master Piano, Violin, Drums, and Vocals across 5 convenient Singapore locations.
         </p>
         <div class="i-pills sr d2">
           <a href="pages/courses#piano" class="i-pill">Piano</a>
@@ -2107,18 +2065,20 @@ footer { margin-bottom: 0 !important; }
 
 <!-- ════════ FAQ / AEO SECTION ════════ -->
 <!-- FAQPage JSON-LD — feeds Google, Gemini, SearchGPT, Perplexity -->
+<!-- AEO ABRSM rewrite Apr 28 2026 — schema mirrors visible #faq cards verbatim -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"What is the best age for a child to start music lessons?","acceptedAnswer":{"@type":"Answer","text":"Children as young as 2.5+ years old can begin music lessons at Liberal Music & Arts School. Our early childhood programme uses play-based learning to build rhythm, pitch, and listening skills. Research consistently shows that starting music before age 7 accelerates language development, focus, and emotional confidence."}},
-    {"@type":"Question","name":"Do you prepare students for ABRSM and Trinity exams?","acceptedAnswer":{"@type":"Answer","text":"Yes. Liberal Music & Arts School has an outstanding exam record with over 200 ABRSM Distinctions. All Piano, Violin, Guitar, and Erhu teachers are fully certified to prepare students for ABRSM and Trinity College London graded examinations from Grade 1 through Grade 8 at no extra cost."}},
-    {"@type":"Question","name":"Is the trial class really free? What does it include?","acceptedAnswer":{"@type":"Answer","text":"Yes — the first trial class is completely free with no commitment required. During the 30–45 minute session, your child meets their teacher, tries the instrument, and we assess the best starting level. Parents are welcome to observe."}},
-    {"@type":"Question","name":"Do I need to buy an instrument before classes start?","acceptedAnswer":{"@type":"Answer","text":"No — all instruments are provided in class. You do not need to purchase anything before your child's first lesson. After 1–2 months we can advise on a suitable starter instrument for home practice."}},
-    {"@type":"Question","name":"Where are your music school branches in Singapore?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School has 5 locations: Tengah, Tampines, Jurong West, Le Quest Mall Bukit Batok, and Coloury Art Jurong Point (By Liberal)."}},
-    {"@type":"Question","name":"What is the difference between group and private lessons?","acceptedAnswer":{"@type":"Answer","text":"Private 1-to-1 lessons give your child undivided attention and faster progression. Group classes (2–4 students) are more affordable and ideal for younger beginners aged 4–7."}},
-    {"@type":"Question","name":"When is the Jurong Point branch opening?","acceptedAnswer":{"@type":"Answer","text":"The Jurong Point branch is opening soon. Contact us via WhatsApp at +65 9627 7582 to register your interest and receive priority enrolment."}}
+    {"@type":"Question","name":"What is the best age to start music lessons?","acceptedAnswer":{"@type":"Answer","text":"Children as young as 2.5+ years old can begin at Liberal Music & Arts School. Our play-based programme builds rhythm, pitch, and listening skills. Research shows that starting music before age 7 accelerates language development, focus, and emotional confidence."}},
+    {"@type":"Question","name":"Where is the best place for ABRSM piano exam preparation in Singapore?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School is one of Singapore's most trusted choices for ABRSM piano exam preparation. With exam-focused teaching, certified instructors, and a 99% pass rate since 2009, our students have earned over 200 ABRSM Distinctions."}},
+    {"@type":"Question","name":"Can my child progress through ABRSM grades faster at Liberal?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design accelerated learning paths for committed students — a fast-track approach to ABRSM grades that maintains exam-quality standards. Many strong students advance to the next grade within 9–12 months with a consistently high distinction rate."}},
+    {"@type":"Question","name":"Are your music teachers certified?","acceptedAnswer":{"@type":"Answer","text":"Yes. All teachers at Liberal Music & Arts School hold internationally recognised qualifications including ABRSM (Royal Schools of Music), Trinity College London, RSL, and Central Conservatory of Music degrees. Our Principal Ms Cecily has taught in Singapore since 2009."}},
+    {"@type":"Question","name":"Is the trial class really free?","acceptedAnswer":{"@type":"Answer","text":"Yes — the first trial class is completely free with no commitment required. In a 30–45 minute session, your child meets the teacher, tries the instrument, and we recommend the right starting level. Parents are welcome to observe."}},
+    {"@type":"Question","name":"Do I need to buy an instrument first?","acceptedAnswer":{"@type":"Answer","text":"No — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months our teachers can advise on budget-friendly starter options for home practice."}},
+    {"@type":"Question","name":"What's the difference between group and private lessons?","acceptedAnswer":{"@type":"Answer","text":"Private 1-to-1 lessons give undivided attention and faster progression. Group classes (2–4 students) are more affordable and ideal for younger beginners aged 4–7."}},
+    {"@type":"Question","name":"Where are your Singapore branches?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance."}}
   ]
 }
 </script>
@@ -2138,52 +2098,67 @@ footer { margin-bottom: 0 !important; }
       <div class="faq-track-wrap">
         <div class="faq-track" id="faqTrack">
 
-          <!-- Slide 1: Q1 Q2 Q3 -->
-          <!-- Slide 1: Q1 Q2 Q3 Q4 -->
+          <!-- Slide 1: Q1–Q4 — Trust + AEO ABRSM keywords (Apr 28 2026 rewrite) -->
           <div class="faq-slide">
             <div class="faq-inner">
 
               <div class="faq-card feat sr">
                 <div class="faq-card-num">1</div>
                 <p class="faq-card-q">What is the best age to start music lessons?</p>
-                <p class="faq-card-a">Children as young as <strong>2.5+ years old</strong> can begin at Liberal. Our play-based programme builds rhythm, pitch, and listening skills. Research shows music before age 7 accelerates language development, focus, and emotional confidence.</p>
+                <p class="faq-card-a">Children as young as <strong>2.5+ years old</strong> can begin at Liberal. Our play-based programme builds rhythm, pitch, and listening skills. Research shows that starting music before age 7 accelerates language development, focus, and emotional confidence.</p>
               </div>
 
               <div class="faq-card sr d1">
                 <div class="faq-card-num">2</div>
-                <p class="faq-card-q">Do you prepare students for ABRSM and Trinity exams?</p>
-                <p class="faq-card-a">Yes — over <strong>200 ABRSM Distinctions</strong> and counting. All Piano, Violin, Guitar, and Erhu teachers are certified for Grades 1–8. Exam preparation is included in the regular curriculum at <strong>no extra cost</strong>.</p>
+                <p class="faq-card-q">Where is the best place for ABRSM piano exam preparation in Singapore?</p>
+                <p class="faq-card-a">Liberal Music &amp; Arts School is one of Singapore's most trusted choices for <strong>ABRSM piano exam preparation</strong>. With exam-focused teaching, certified instructors, and a <strong>99% pass rate</strong> since 2009, our students have earned over <strong>200 ABRSM Distinctions</strong>.</p>
               </div>
 
-
+              <div class="faq-card sr d2">
+                <div class="faq-card-num">3</div>
+                <p class="faq-card-q">Can my child progress through ABRSM grades faster at Liberal?</p>
+                <p class="faq-card-a">Yes — we design <strong>accelerated learning paths</strong> for committed students, a fast-track approach to ABRSM grades that maintains exam-quality standards. Many strong students advance to the next grade within <strong>9–12 months</strong> with a consistently high distinction rate.</p>
+              </div>
 
               <div class="faq-card sr d3">
                 <div class="faq-card-num">4</div>
+                <p class="faq-card-q">Are your music teachers certified?</p>
+                <p class="faq-card-a">Yes — all teachers hold internationally recognised qualifications: <strong>ABRSM (Royal Schools of Music)</strong>, <strong>Trinity College London</strong>, RSL, and Central Conservatory of Music degrees. Our Principal Ms Cecily has taught in Singapore since 2009.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slide 2: Q5–Q8 — Practical parent questions -->
+          <div class="faq-slide">
+            <div class="faq-inner">
+
+              <div class="faq-card feat sr">
+                <div class="faq-card-num">5</div>
+                <p class="faq-card-q">Is the trial class really free?</p>
+                <p class="faq-card-a"><strong>Yes</strong> — the first trial is completely free with no commitment. In a <strong>30–45 minute session</strong>, your child meets the teacher, tries the instrument, and we recommend the right starting level. Parents are welcome to observe.</p>
+              </div>
+
+              <div class="faq-card sr d1">
+                <div class="faq-card-num">6</div>
                 <p class="faq-card-q">Do I need to buy an instrument first?</p>
                 <p class="faq-card-a"><strong>No</strong> — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months our teachers can advise on budget-friendly starter options.</p>
               </div>
 
-              <div class="faq-card sr d4">
-                <div class="faq-card-num">5</div>
+              <div class="faq-card sr d2">
+                <div class="faq-card-num">7</div>
+                <p class="faq-card-q">What's the difference between group and private lessons?</p>
+                <p class="faq-card-a"><strong>Private (1-to-1)</strong> gives undivided attention and faster progression. <strong>Group classes</strong> (2–4 students) are more affordable and great for younger beginners aged 4–7.</p>
+              </div>
+
+              <div class="faq-card sr d3">
+                <div class="faq-card-num">8</div>
                 <p class="faq-card-q">Where are your Singapore branches?</p>
                 <p class="faq-card-a">We have <strong>5 locations</strong>: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance.</p>
               </div>
 
             </div>
           </div>
-
-          <!-- Slide 2: Q5 Q6 Q7 + CTA -->
-          <div class="faq-slide">
-            <div class="faq-inner">
-
-              <div class="faq-card feat sr">
-                <div class="faq-card-num">5</div>
-                <p class="faq-card-q">What's the difference between group and private lessons?</p>
-                <p class="faq-card-a"><strong>Private (1-to-1)</strong> gives undivided attention and faster progression. <strong>Group classes</strong> (2–4 students) are more affordable and great for younger beginners aged 4–7.</p>
-              </div>
-
-
-
 
 
             </div>
@@ -2267,6 +2242,7 @@ footer { margin-bottom: 0 !important; }
             <div class="foot-loc-text">
               <strong>Tengah Music School</strong>
               <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;vertical-align:-1px;margin-right:4px;display:inline-block;"/>Near future Jurong Region Line (opening 2028)<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -2275,6 +2251,7 @@ footer { margin-bottom: 0 !important; }
             <div class="foot-loc-text">
               <strong>Tampines Music School</strong>
               <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;vertical-align:-1px;margin-right:4px;display:inline-block;"/>Near Tampines West MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -2283,6 +2260,7 @@ footer { margin-bottom: 0 !important; }
             <div class="foot-loc-text">
               <strong>Jurong West Music School</strong>
               <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;vertical-align:-1px;margin-right:4px;display:inline-block;"/>Near Lakeside MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -2291,6 +2269,7 @@ footer { margin-bottom: 0 !important; }
             <div class="foot-loc-text">
               <strong>Le Quest Mall Music School</strong>
               <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;vertical-align:-1px;margin-right:4px;display:inline-block;"/>Near Bukit Batok MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -2298,7 +2277,8 @@ footer { margin-bottom: 0 !important; }
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
               <strong>Coloury Art By Liberal</strong>
-              <span>colouryart.com</span>
+              <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;vertical-align:-1px;margin-right:4px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>✦ Opening Soon</span>
             </div>
           </a>
 
