@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Music Courses | Piano, Violin, Guitar, Drums & More | Liberal Music Singapore</title>
-<meta name="description" content="Expert-led music courses for ages 2.5 to adult. Piano, Violin, Guitar, Drums, Vocal, Erhu, and Art. Small classes, ABRSM-aligned curriculum. Book a free trial."/>
-<link rel="canonical" href="https://liberalmusicschool.com/pages/courses"/>
+  <title>Piano Course | ABRSM Piano Lessons in Singapore | Liberal Music & Arts</title>
+  <meta name="description" content="ABRSM-aligned piano course for ages 4 to adult. Structured curriculum, expert teachers, scales, sight-reading, aural training, mock exams. 5 Singapore locations. Book a trial."/>
+  <link rel="canonical" href="https://liberalmusicschool.com/pages/piano-course"/>
+  <link rel="icon" type="image/png" href="../assets/liberalfavicon.png"/>
+  <link rel="apple-touch-icon" href="../assets/liberalfavicon.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -59,8 +61,8 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:800;border-radius:999px;white-space:nowrap;border:none;cursor:pointer;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}
     .btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh);font-size:18px;padding:13px 28px}
     .btn-cta:hover{background:var(--or-dk);box-shadow:var(--or-shh);transform:translateY(-2px) scale(1.04)}
-    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);font-size:18px;padding:13px 28px}
-    .btn-outline:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--ink);border:2px solid #DDE6F2;font-size:18px;padding:13px 28px}
+    .btn-outline:hover{border-color:var(--or);color:var(--or);transform:translateY(-2px)}
     .btn-lg{font-size:18px;padding:17px 40px}
 
     /* ── 5. Pill tags ── */
@@ -82,7 +84,6 @@
     .ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
     .ann-bar a:hover{opacity:.85}
     .ann-bar svg{flex-shrink:0}
-    /* Announcement bar — prevent horizontal overflow on small phones */
     @media(max-width:540px){
       .ann-bar{padding:6px 12px; height:auto; min-height:36px}
       .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
@@ -121,14 +122,15 @@
     .page-hero{background:linear-gradient(160deg,#FFF6EE 0%,#FFFAF5 55%,#F8FBFF 100%);padding:60px 0 80px;position:relative;overflow:hidden}
     .page-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,102,0,.09) 0%,transparent 70%);pointer-events:none}
     .page-hero::after{content:'';position:absolute;bottom:-60px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.25) 0%,transparent 70%);pointer-events:none}
-    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600}
+    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;flex-wrap:wrap}
     .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
     .breadcrumb svg{opacity:.5}
     .hero-headline{font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:18px}
     .hero-headline .kw{color:var(--or);position:relative;display:inline-block}
     .hero-headline .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.6s forwards}
     @keyframes kw{to{transform:scaleX(1)}}
-    .hero-lead{font-size:20px;color:var(--body);max-width:580px;line-height:1.75;margin-bottom:36px}
+    .hero-lead{font-size:20px;color:var(--body);max-width:580px;line-height:1.75;margin-bottom:32px}
+    .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
     .hero-stats{display:flex;gap:32px;flex-wrap:wrap}
     .hstat{display:flex;flex-direction:column}
     .hstat-num{font-family:'Nunito',sans-serif;font-weight:900;font-size:28px;color:var(--ink)}
@@ -140,47 +142,37 @@
     .sec-head h2{font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--ink);margin-bottom:12px}
     .sec-head p{font-size:18px;color:var(--body);max-width:540px;line-height:1.75}
 
-    /* ── 11. Music Cards ── */
-    .music-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    .mcard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;text-decoration:none;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t)}
-    .mcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.18)}
-    .mcard.featured{border-top:4px solid var(--or)}
-    .mcard-photo{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
-    .mcard-icon{font-size:64px;line-height:1;transition:transform .35s var(--sp)}
-    .mcard:hover .mcard-icon{transform:scale(1.18)}
-    .mcard-badge{position:absolute;top:12px;left:12px;background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.8px;padding:4px 10px;border-radius:999px}
-    .mcard-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:10px}
-    .mcard-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:18px;color:var(--ink);line-height:1.2}
-    .mcard-tags{display:flex;flex-wrap:wrap;gap:6px}
-    .mtag{padding:4px 11px;border-radius:999px;font-size:11px;font-weight:700;font-family:'Nunito',sans-serif}
-    .mtag-or{background:var(--or-lt);color:var(--or)}
-    .mtag-tl{background:var(--teal);color:#1a7058}
-    .mtag-lv{background:var(--lav);color:#5550c8}
-    .mtag-sk{background:var(--sky);color:#2472a4}
-    .mcard-desc{font-size:14px;color:var(--body);line-height:1.68}
+    /* ── 11. About the Course (two-column) ── */
+    .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+    .about-copy h2{font-size:clamp(2rem,3.6vw,2.6rem);margin-bottom:18px;line-height:1.15}
+    .about-copy p{font-size:17px;line-height:1.85;color:var(--body);margin-bottom:18px;max-width:560px}
+    .about-copy p:last-child{margin-bottom:0}
+    .about-copy strong{color:var(--ink);font-weight:700}
+    .about-visual{position:relative}
+    .about-visual img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;border-radius:var(--r-xl);box-shadow:var(--sh-l);display:block}
+    .about-badge{position:absolute;left:-20px;bottom:-24px;background:var(--w);border-radius:var(--r-l);padding:18px 22px;box-shadow:var(--sh-l);display:flex;align-items:center;gap:14px;border:1px solid rgba(221,230,245,.5)}
+    .about-badge-icon{width:46px;height:46px;border-radius:14px;background:var(--or-lt);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .about-badge-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:var(--ink);line-height:1.2}
+    .about-badge-text span{font-size:13px;color:var(--muted)}
 
-    /* ── 12. Dance Cards ── */
-    .dance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .dcard{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;position:relative;cursor:pointer;text-decoration:none;box-shadow:var(--sh-l);transition:transform var(--t) var(--sp),box-shadow var(--t)}
-    .dcard:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 32px 64px rgba(31,42,68,.18)}
-    .dcard-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:90px;transition:transform .4s var(--sp)}
-    .dcard:hover .dcard-bg{transform:scale(1.08)}
-    .dcard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,68,.82) 0%,rgba(31,42,68,.15) 55%,transparent 100%)}
-    .dcard-label{position:absolute;bottom:0;left:0;right:0;padding:24px 28px 28px;z-index:2}
-    .dcard-tag{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
-    .dcard-name{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:6px}
-    .dcard-sub{font-size:15px;color:rgba(255,255,255,.78)}
+    /* ── 12. Curriculum (4-card grid) ── */
+    .curr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .ccard{background:var(--w);border-radius:var(--r-xl);padding:32px 26px;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t);position:relative;overflow:hidden}
+    .ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--sp)}
+    .ccard:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow);border-color:rgba(255,102,0,.18)}
+    .ccard:hover::before{transform:scaleX(1)}
+    .ccard-icon{width:54px;height:54px;border-radius:16px;background:var(--or-lt);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;transition:transform .35s var(--sp)}
+    .ccard:hover .ccard-icon{transform:scale(1.08)}
+    .ccard h3{font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--ink);margin-bottom:10px;line-height:1.3}
+    .ccard p{font-size:14.5px;color:var(--body);line-height:1.7}
 
-    /* ── 13. Art Cards ── */
-    .art-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:24px;max-width:420px}
-    .acard{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;position:relative;text-decoration:none;box-shadow:var(--sh-l);transition:transform var(--t) var(--sp),box-shadow var(--t)}
-    .acard:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 32px 64px rgba(31,42,68,.18)}
-    .acard-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform .4s var(--sp)}
-    .acard:hover .acard-bg{transform:scale(1.08)}
-    .acard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,68,.80) 0%,rgba(31,42,68,.1) 60%,transparent 100%)}
-    .acard-label{position:absolute;bottom:0;left:0;right:0;padding:24px 28px 28px;z-index:2}
-    .acard-name{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;color:#fff;margin-bottom:6px}
-    .acard-sub{font-size:15px;color:rgba(255,255,255,.78)}
+    /* ── 13. Levels strip ── */
+    .levels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .lvl-card{background:var(--w);border-radius:var(--r-l);padding:28px 22px;border:1.5px solid #EEF2F8;text-align:center;transition:all var(--t) var(--sp)}
+    .lvl-card:hover{border-color:var(--or);background:var(--or-lt);transform:translateY(-3px)}
+    .lvl-icon{font-size:36px;margin-bottom:12px;line-height:1}
+    .lvl-card h4{font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:var(--ink);margin-bottom:6px}
+    .lvl-card p{font-size:13.5px;color:var(--body);line-height:1.55}
 
     /* ── 14. Why section ── */
     .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
@@ -190,7 +182,18 @@
     .why-card h3{font-size:18px;font-weight:900;color:var(--ink);margin-bottom:8px}
     .why-card p{font-size:15px;color:var(--body);line-height:1.7}
 
-    /* ── 15. CTA Banner ── */
+    /* ── 15. Other courses strip ── */
+    .other-strip{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .other-strip::-webkit-scrollbar{height:6px}
+    .other-strip::-webkit-scrollbar-track{background:#F1F5F9;border-radius:8px}
+    .other-strip::-webkit-scrollbar-thumb{background:rgba(255,102,0,.3);border-radius:8px}
+    .ocard{flex:0 0 220px;background:var(--w);border-radius:var(--r-l);padding:22px;box-shadow:var(--sh-s);border:1px solid #EEF2F8;text-decoration:none;transition:all var(--t) var(--sp);scroll-snap-align:start;display:flex;flex-direction:column;gap:8px}
+    .ocard:hover{transform:translateY(-4px);border-color:var(--or);box-shadow:var(--sh)}
+    .ocard-emoji{font-size:34px;line-height:1}
+    .ocard h4{font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:var(--ink);margin:0}
+    .ocard p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+
+    /* ── 16. CTA Banner ── */
     .cta-band{background:linear-gradient(135deg,#FFF7F2 0%,#FFF7EE 50%,#FFEEDD 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
     .cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,102,0,.10) 0%,transparent 70%)}
     .cta-band::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.30) 0%,transparent 70%)}
@@ -200,16 +203,15 @@
     .btn-cta-dk{background:var(--ink);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:18px;padding:15px 36px;border-radius:999px;border:none;cursor:pointer;transition:all var(--t) var(--sp);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
     .btn-cta-dk:hover{background:#2d3f5e;transform:translateY(-2px) scale(1.04);box-shadow:0 12px 32px rgba(31,42,68,.25)}
 
-    /* ── 16. Stats strip ── */
+    /* ── 17. Stats strip ── */
     .stats-strip{background:#1F2A44;overflow:hidden;position:relative;padding:70px 0}
     .stats-strip::before{content:'';position:absolute;top:-48px;left:0;right:0;height:48px;background:var(--or);clip-path:polygon(0% 100%,10% 0,100% 10%,100% 100%)}
     .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:32px}
-    .stat-item{}
     .stat-num{color:#fff;font-family:'Nunito',sans-serif;font-size:clamp(2.4rem,4vw,3.2rem);font-weight:900;line-height:1}
     .stat-num .acc{color:var(--or)}
     .stat-lbl{color:rgba(255,255,255,.65);font-size:15px;margin-top:8px;font-weight:600}
 
-    /* ── 17. Footer ── */
+    /* ── 18. Footer ── */
     .footer{background:#1F2A44;margin:0;border-top:none;padding:80px 0 0}
     .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
     .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
@@ -231,14 +233,7 @@
     .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
     .foot-loc.soon .foot-loc-text strong{color:var(--or)}
     .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
-    .foot-loc-meta{
-      display:block;
-      margin-top:6px;
-      font-size:11.5px;
-      color:rgba(255,255,255,.55);
-      line-height:1.5;
-      letter-spacing:.1px;
-    }
+    .foot-loc-meta{display:block;margin-top:6px;font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.5;letter-spacing:.1px}
     .foot-loc-meta .sep{margin:0 6px;color:rgba(255,255,255,.3)}
     .foot-loc.soon .foot-loc-meta{color:rgba(255,170,90,.7)}
     .foot-loc.soon .foot-loc-meta .sep{color:rgba(255,170,90,.4)}
@@ -253,7 +248,7 @@
     footer{margin-bottom:0!important}
     .footer{padding-bottom:0!important}
 
-    /* ── 18. WA FAB ── */
+    /* ── 19. WA FAB ── */
     .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
     .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
     .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
@@ -269,11 +264,27 @@
     .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
     @media(max-width:900px){.mob-bar{display:block}.wa{bottom:84px}}
 
-    /* ── 19. Responsive ── */
-    @media(max-width:1100px){.music-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:900px){.music-grid{grid-template-columns:repeat(2,1fr)}.dance-grid{grid-template-columns:repeat(2,1fr)}.art-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:20px}}
-    @media(max-width:600px){.music-grid{grid-template-columns:repeat(2,1fr)}.dance-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:400px){.music-grid{grid-template-columns:1fr}}
+    /* ── 20. Responsive ── */
+    @media(max-width:1100px){
+      .curr-grid{grid-template-columns:repeat(2,1fr)}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .levels-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:900px){
+      .about-grid{grid-template-columns:1fr;gap:48px}
+      .about-visual{order:-1;max-width:520px;margin:0 auto;width:100%}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-stats{gap:20px}
+    }
+    @media(max-width:600px){
+      section{padding:72px 0}
+      .curr-grid{grid-template-columns:1fr}
+      .levels-grid{grid-template-columns:repeat(2,1fr)}
+      .why-grid{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .about-badge{left:12px;bottom:-20px;padding:14px 18px}
+      .about-badge-icon{width:38px;height:38px;font-size:18px}
+    }
   </style>
 </head>
 <body>
@@ -337,201 +348,125 @@
         <div class="breadcrumb sr">
           <a href="../index">Home</a>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-          <span style="color:var(--or);font-weight:700">Courses</span>
+          <a href="courses">Courses</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <span style="color:var(--or);font-weight:700">Piano</span>
         </div>
-        <span class="pill-tag pt-or sr d1">Our Programmes</span>
-        <h1 class="hero-headline sr d2">Music &amp; Arts for Every <span class="kw">Child</span></h1>
-        <p class="hero-lead sr d3">From first-time beginners to ABRSM exam candidates — structured, joyful courses taught by our expert instructors across 5 Singapore locations.</p>
+        <span class="pill-tag pt-or sr d1">🎹 Piano Course · ABRSM Programme</span>
+        <h1 class="hero-headline sr d2">Piano <span class="kw">Course</span></h1>
+        <p class="hero-lead sr d3">Our most sought-after course — internationally-recognized ABRSM syllabus, expert instructors, and a clear path from your very first notes to graded exam success.</p>
+        <div class="hero-cta-row sr d3">
+          <a href="trial" class="btn btn-cta">Book Trial Class</a>
+          <a href="#about" class="btn btn-outline">About the Course</a>
+        </div>
         <div class="hero-stats sr d4">
           <div class="hstat">
-            <div class="hstat-num">20,000<span>+</span></div>
-            <div class="hstat-lbl">Students Enrolled</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-num">15<span>+</span></div>
-            <div class="hstat-lbl">Years Teaching</div>
+            <div class="hstat-num">Grade 1<span>–</span>8</div>
+            <div class="hstat-lbl">ABRSM Levels</div>
           </div>
           <div class="hstat">
             <div class="hstat-num">99<span>%</span></div>
-            <div class="hstat-lbl">ABRSM &amp; Trinity Pass Rate</div>
+            <div class="hstat-lbl">Pass Rate</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">Ages 4<span>+</span></div>
+            <div class="hstat-lbl">Beginners to Adults</div>
           </div>
           <div class="hstat">
             <div class="hstat-num">5</div>
-            <div class="hstat-lbl">Locations</div>
+            <div class="hstat-lbl">Singapore Locations</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── MUSIC COURSES ── -->
-    <section style="background:var(--w)">
+    <!-- ── ABOUT THE COURSE ── -->
+    <section id="about" style="background:var(--w)">
+      <div class="W">
+        <div class="about-grid">
+          <div class="about-copy sl">
+            <span class="pill-tag pt-or">Our Approach</span>
+            <h2>An ABRSM-Aligned Path<br/>Built for Real Progress</h2>
+            <p>Our piano course follows the internationally recognized <strong>ABRSM (Associated Board of the Royal Schools of Music)</strong> syllabus, offering a structured and comprehensive approach to piano education for students of all ages and levels — from complete beginners to advanced pianists. Students develop solid technique, musicality, and theoretical knowledge while preparing for graded ABRSM exams.</p>
+            <p>The curriculum includes <strong>scales, sight-reading, aural training, and a diverse repertoire</strong>, ensuring well-rounded musical development. Regular assessments, mock exams, and performance opportunities support student progress and build confidence.</p>
+            <p>Whether you're aiming for formal certification or simply want to learn to play with skill and expression, our experienced instructors provide personalized guidance to help each student reach their musical goals.</p>
+          </div>
+          <div class="about-visual sfr">
+            <img src="../assets/pianocourse.webp" alt="Student learning piano at Liberal Music & Arts School" onerror="this.style.background='linear-gradient(135deg,#FFF4ED,#FFFAF5)';this.alt='Piano Course'"/>
+            <div class="about-badge">
+              <div class="about-badge-icon">🏆</div>
+              <div class="about-badge-text">
+                <strong>ABRSM Certified</strong>
+                <span>Grade 1 to Grade 8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT YOU'LL LEARN ── -->
+    <section style="background:var(--s1)">
       <div class="W">
         <div class="sec-head sr">
-          <span class="pill-tag pt-or">Music</span>
-          <h2>Music Courses</h2>
-          <p>Individual courses tailored to your child's pace, interest, and goals — from casual exploration to ABRSM certification.</p>
+          <span class="pill-tag pt-tl">Curriculum</span>
+          <h2>What You'll Learn</h2>
+          <p>A complete, structured curriculum covering every component of the ABRSM exam — and the foundations of confident, expressive playing.</p>
         </div>
-        <div class="music-grid">
+        <div class="curr-grid">
+          <div class="ccard sr d1">
+            <div class="ccard-icon">📘</div>
+            <h3>ABRSM Syllabus</h3>
+            <p>Pieces and exercises drawn from the official ABRSM syllabus across all 8 grades — classical, jazz, and contemporary.</p>
+          </div>
+          <div class="ccard sr d2">
+            <div class="ccard-icon">🎯</div>
+            <h3>Technique &amp; Musicality</h3>
+            <p>Posture, hand position, finger control, dynamics, and phrasing — the building blocks of mature, expressive playing.</p>
+          </div>
+          <div class="ccard sr d3">
+            <div class="ccard-icon">🎼</div>
+            <h3>Sight-Reading &amp; Aural</h3>
+            <p>Scales, sight-reading exercises, and ear training built into every lesson — so exam day feels like any other day.</p>
+          </div>
+          <div class="ccard sr d4">
+            <div class="ccard-icon">🏆</div>
+            <h3>Mock Exams &amp; Performance</h3>
+            <p>Regular assessments, full mock exams, and recital opportunities to grow stage confidence and exam readiness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Piano -->
-          <a href="piano-course" class="mcard featured sr d1">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,#FFF4ED,#FFFAF5)">
-              <img src="../assets/pianocourse.webp" alt="Piano Course" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🎹</div>
-              <span class="mcard-badge">Most Popular</span>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Piano Course</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-lv">All Levels</span>
-                <span class="mtag mtag-tl">ABRSM</span>
-              </div>
-              <p class="mcard-desc">Our most sought-after programme. Students learn classical and contemporary piano with structured course plans, building solid technique and preparing for ABRSM graded exams.</p>
-            </div>
-          </a>
-
-          <!-- Violin -->
-          <a href="trial" class="mcard sr d2">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--sky),#e8f4ff)">
-              <img src="../assets/violincourse.webp" alt="Violin Course" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🎻</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Violin Course</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-lv">All Levels</span>
-                <span class="mtag mtag-tl">ABRSM</span>
-              </div>
-              <p class="mcard-desc">From posture and bow technique to performing pieces with confidence — our violin course nurtures discipline, listening skills, and a lifelong love of strings.</p>
-            </div>
-          </a>
-
-          <!-- Guitar -->
-          <a href="trial" class="mcard sr d3">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--lem),#fffde0)">
-              <img src="../assets/guitarcourse.webp" alt="Guitar Course" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🎸</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Guitar Course</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-sk">Classical</span>
-                <span class="mtag mtag-sk">Pop</span>
-              </div>
-              <p class="mcard-desc">Acoustic, classical, and pop styles taught for all ages. Students learn chords, strumming patterns, and finger-picking — perfect for those who love contemporary music.</p>
-            </div>
-          </a>
-
-          <!-- Ukulele -->
-          <a href="trial" class="mcard sr d4">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--blush),#ffe8f0)">
-              <img src="../assets/ukulelecourse.webp" alt="Ukulele Course" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🪗</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Ukulele Course</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-lv">Beginner Friendly</span>
-              </div>
-              <p class="mcard-desc">A wonderful first instrument! Our ukulele course is fun, accessible, and builds early musical confidence — ideal for young children starting their music journey.</p>
-            </div>
-          </a>
-
-          <!-- Drums -->
-          <a href="trial" class="mcard sr d1">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,#ffe8d6,#fff3ec)">
-              <img src="../assets/drumcourse.webp" alt="Drum Course" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🥁</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Drum Course</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-sk">Rhythm</span>
-                <span class="mtag mtag-sk">All Genres</span>
-              </div>
-              <p class="mcard-desc">Build incredible rhythm, coordination, and musical timing. Our drum course covers everything from basic beats to complex patterns — taught in a high-energy, structured environment.</p>
-            </div>
-          </a>
-
-          <!-- Vocal -->
-          <a href="trial" class="mcard sr d2">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--lav),#f0eeff)">
-              <img src="../assets/vocalcourse.webp" alt="Vocal Course" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🎤</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Vocal Course</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-lv">Technique</span>
-                <span class="mtag mtag-lv">Performance</span>
-              </div>
-              <p class="mcard-desc">Develop breath control, vocal range, and stage presence. Whether your child dreams of performing or simply loves to sing, our vocal coaches nurture every voice with care.</p>
-            </div>
-          </a>
-
-          <!-- Music for Kids -->
-          <a href="trial" class="mcard sr d3">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,#d4f5e0,#eafff3)">
-              <img src="../assets/musicforkidcourse.webp" alt="Music for Kids" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🎵</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Music for Kids</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-tl">Early Childhood</span>
-              </div>
-              <p class="mcard-desc">A playful music exploration programme for our youngest learners. Through songs, movement, and instruments, toddlers develop listening, coordination, and early music foundations.</p>
-            </div>
-          </a>
-
-          <!-- Chinese Instruments -->
-          <a href="trial" class="mcard sr d4">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--teal),#d4fff6)">
-              <img src="../assets/chineseinstrument.webp" alt="Chinese Instruments" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">🪘</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Chinese Instruments</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-tl">Erhu</span>
-                <span class="mtag mtag-tl">Guzheng</span>
-                <span class="mtag mtag-tl">Guqin</span>
-              </div>
-              <p class="mcard-desc">Connect with cultural heritage through traditional Chinese instruments. Our specialist instructors teach Erhu, Guzheng, and Guqin with authentic technique and deep musical tradition.</p>
-            </div>
-          </a>
-
-          <!-- Music Theory -->
-          <a href="trial" class="mcard sr d1">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,#e8eaff,#f3f4ff)">
-              <img src="../assets/musictheorycourse.webp" alt="Music Theory" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">📝</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Music Theory</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-lv">ABRSM</span>
-                <span class="mtag mtag-lv">Trinity</span>
-              </div>
-              <p class="mcard-desc">Understand the language of music. Our theory classes prepare students for graded music theory examinations — a vital complement to practical instrument courses.</p>
-            </div>
-          </a>
-
-          <!-- Aural Training -->
-          <a href="trial" class="mcard sr d2">
-            <div class="mcard-photo" style="background:linear-gradient(135deg,#fce4d6,#fff0e8)">
-              <img src="../assets/auralcourse.webp" alt="Aural Training" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="mcard-icon" style="display:none">👂</div>
-            </div>
-            <div class="mcard-body">
-              <div class="mcard-name">Aural Training</div>
-              <div class="mcard-tags">
-                <span class="mtag mtag-tl">Ear Training</span>
-              </div>
-              <p class="mcard-desc">Train your ear to identify rhythms, intervals, and melodies by listening. Aural skills are essential for exam success and becoming a well-rounded, instinctive musician.</p>
-            </div>
-          </a>
-
+    <!-- ── WHO IT'S FOR ── -->
+    <section style="background:var(--w)">
+      <div class="W">
+        <div class="sec-head sr" style="text-align:center;margin-left:auto;margin-right:auto">
+          <span class="pill-tag pt-or">All Levels Welcome</span>
+          <h2>Who This Course Is For</h2>
+          <p style="margin:0 auto">From the first time at the keyboard to advanced exam preparation — we meet every student exactly where they are.</p>
+        </div>
+        <div class="levels-grid">
+          <div class="lvl-card sr d1">
+            <div class="lvl-icon">🌱</div>
+            <h4>Beginners</h4>
+            <p>Ages 4+ starting from the very first note — no experience needed.</p>
+          </div>
+          <div class="lvl-card sr d2">
+            <div class="lvl-icon">🎵</div>
+            <h4>Intermediate</h4>
+            <p>Building on the basics with structured practice and confident reading.</p>
+          </div>
+          <div class="lvl-card sr d3">
+            <div class="lvl-icon">🎹</div>
+            <h4>ABRSM Candidates</h4>
+            <p>Targeted preparation for graded exams from Grade 1 to Grade 8.</p>
+          </div>
+          <div class="lvl-card sr d4">
+            <div class="lvl-icon">✨</div>
+            <h4>Adults &amp; Hobbyists</h4>
+            <p>Learn at your pace, for the joy of playing — exams optional.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -560,82 +495,88 @@
       </div>
     </div>
 
-    <!-- ── DANCE COURSES ── -->
-    <section style="background:var(--s1)">
-      <div class="W">
-        <div class="sec-head sr">
-          <span class="pill-tag pt-tl">Dance</span>
-          <h2>Dance Courses</h2>
-          <p>Build rhythm, grace, and confidence through professional dance training — for all levels and age groups.</p>
-        </div>
-        <div class="dance-grid">
-          <a href="trial" class="dcard sr d1">
-            <div class="dcard-bg" style="background:linear-gradient(135deg,#8B6B8B,#5C3D5C);padding:0;overflow:hidden">
-              <img src="../assets/dancecourse.webp" alt="Ballet" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-            </div>
-            <div class="dcard-grad"></div>
-            <div class="dcard-label">
-              <span class="dcard-tag">Ages 4+</span>
-              <div class="dcard-name">Ballet</div>
-              <div class="dcard-sub">Classical &amp; Contemporary</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── COLOURY ART ── -->
-    <section style="background:var(--s2)">
-      <div class="W">
-        <div class="sec-head sr">
-          <span class="pill-tag pt-lv">Arts</span>
-          <h2>Coloury Art</h2>
-          <p>Explore the World Through Color — Art School of Children's Art.</p>
-        </div>
-        <div class="dance-grid">
-          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="dcard sr d1">
-            <div class="dcard-bg" style="background:linear-gradient(135deg,#FF9A3C,#FF6600);padding:0;overflow:hidden">
-              <img src="../assets/colouryart.webp" alt="Coloury Art" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-            </div>
-            <div class="dcard-grad"></div>
-            <div class="dcard-label">
-              <div class="dcard-name">Coloury Art</div>
-              <div class="dcard-sub">DSA · Professional Art · Creative Art · Little Artist</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── WHY CHOOSE US ── -->
+    <!-- ── WHY LIBERAL FOR PIANO ── -->
     <section style="background:var(--s1)">
       <div class="W">
         <div class="sec-head sr" style="text-align:center;margin-left:auto;margin-right:auto">
-          <span class="pill-tag pt-tl">Trusted Since 2009</span>
-          <h2>Why Parents Choose Us</h2>
-          <p style="margin:0 auto">We go beyond courses — we build confidence, creativity, and a lifelong love of the arts.</p>
+          <span class="pill-tag pt-tl">Why Liberal</span>
+          <h2>Why Parents Choose Us for Piano</h2>
+          <p style="margin:0 auto">17 years of refined teaching, structured progress, and genuine care — for every child, every week.</p>
         </div>
         <div class="why-grid">
           <div class="why-card sr d1">
             <div class="why-icon">🏆</div>
-            <h3>ABRSM Certified</h3>
-            <p>Our teachers guide students to consistently achieve top grades in internationally recognised ABRSM examinations.</p>
+            <h3>Proven Exam Results</h3>
+            <p>A 99% pass rate across ABRSM grades — with consistent Distinction and Merit results across our branches.</p>
           </div>
           <div class="why-card sr d2">
-            <div class="why-icon">👨‍🏫</div>
-            <h3>Expert Instructors</h3>
-            <p>Every teacher holds a degree in music or performing arts and brings years of professional and teaching experience.</p>
+            <div class="why-icon">👩‍🏫</div>
+            <h3>Specialist Piano Teachers</h3>
+            <p>Every piano instructor holds a music degree and brings years of professional teaching and performance experience.</p>
           </div>
           <div class="why-card sr d3">
-            <div class="why-icon">📍</div>
-            <h3>5 Convenient Locations</h3>
-            <p>With branches across Tengah, Tampines, Jurong West, Le Quest, and Coloury Art (By Liberal) Jurong Point — we're always nearby.</p>
+            <div class="why-icon">📈</div>
+            <h3>Personalized Pacing</h3>
+            <p>Lesson plans adapt to each student's pace, goals, and personality — no one-size-fits-all curriculum.</p>
           </div>
           <div class="why-card sr d4">
-            <div class="why-icon">🎯</div>
-            <h3>Tailored to Each Child</h3>
-            <p>We match every student's pace and personality — whether they're exploring for fun or aiming for exams.</p>
+            <div class="why-icon">🎤</div>
+            <h3>Recitals &amp; Mock Exams</h3>
+            <p>Built-in performance opportunities and full mock exams keep students confident and exam-ready.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPLORE OTHER COURSES ── -->
+    <section style="background:var(--w);padding-bottom:80px">
+      <div class="W">
+        <div class="sec-head sr">
+          <span class="pill-tag pt-lv">More Programmes</span>
+          <h2>Explore Other Courses</h2>
+          <p>Beyond piano — discover all the ways your child can grow with Liberal Music &amp; Arts.</p>
+        </div>
+        <div class="other-strip sr d1">
+          <a href="courses#violin" class="ocard">
+            <span class="ocard-emoji">🎻</span>
+            <h4>Violin Course</h4>
+            <p>Posture, bow technique &amp; ABRSM strings</p>
+          </a>
+          <a href="courses#guitar" class="ocard">
+            <span class="ocard-emoji">🎸</span>
+            <h4>Guitar Course</h4>
+            <p>Acoustic, classical &amp; pop styles</p>
+          </a>
+          <a href="courses#drums" class="ocard">
+            <span class="ocard-emoji">🥁</span>
+            <h4>Drum Course</h4>
+            <p>Rhythm, timing &amp; all genres</p>
+          </a>
+          <a href="courses#vocal" class="ocard">
+            <span class="ocard-emoji">🎤</span>
+            <h4>Vocal Course</h4>
+            <p>Breath, range &amp; stage presence</p>
+          </a>
+          <a href="courses#ukulele" class="ocard">
+            <span class="ocard-emoji">🪗</span>
+            <h4>Ukulele Course</h4>
+            <p>Beginner-friendly &amp; fun</p>
+          </a>
+          <a href="courses#chinese" class="ocard">
+            <span class="ocard-emoji">🪘</span>
+            <h4>Chinese Instruments</h4>
+            <p>Erhu, Guzheng &amp; Guqin</p>
+          </a>
+          <a href="courses#kids" class="ocard">
+            <span class="ocard-emoji">🎵</span>
+            <h4>Music for Kids</h4>
+            <p>Playful early-childhood music</p>
+          </a>
+          <a href="courses" class="ocard" style="background:var(--or-lt);border-color:rgba(255,102,0,.25)">
+            <span class="ocard-emoji">→</span>
+            <h4 style="color:var(--or)">View All Courses</h4>
+            <p>See the full programme list</p>
+          </a>
         </div>
       </div>
     </section>
@@ -644,8 +585,8 @@
     <section class="cta-band">
       <div class="W">
         <span class="pill-tag pt-lv sr">Start Today</span>
-        <h2 class="sr d1">Ready to Begin?</h2>
-        <p class="sr d2">Book a trial class — no commitment needed. Let your child discover what they love.</p>
+        <h2 class="sr d1">Ready to Begin Your Piano Journey?</h2>
+        <p class="sr d2">Book a trial class — no commitment needed. Let's match your child with the right teacher and the right starting point.</p>
         <div class="cta-btns sr d3">
           <a href="trial" class="btn btn-cta btn-lg">Book Trial Class</a>
           <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="btn-cta-dk">
