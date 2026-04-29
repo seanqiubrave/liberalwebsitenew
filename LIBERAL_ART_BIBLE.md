@@ -396,13 +396,15 @@ Adjust path depth: `assets/` from root, `../assets/` from `pages/*`, `../../asse
 | Tampines | Blk 139 Tampines Street 11, #01-60, S521139 | +65 8892 1198 |
 | Jurong West | Blk 492 Jurong West Street 41, #01-10, S640492 | +65 9627 7588 |
 | Le Quest Mall | 4 Bukit Batok Street 41, #01-83, S657991 | +65 9627 7582 |
-| Coloury Art By Liberal | #03-07C Level 3, Jurong Point, S648886 · [colouryart.com](https://colouryart.com/) · *(Opening Soon)* | +65 8922 2848 *(shares Tengah's number)* |
+| Coloury Art By Liberal | #03-07C Level 3, Jurong Point, S648886 · [colouryart.com](https://colouryart.com/) · *(Opening Soon)* | +65 8995 1163 *(dedicated number from April 28 2026)* |
 
 WhatsApp link format: `https://wa.me/65XXXXXXXX`
 
 **Branch hours (April 27 2026):** All 4 Liberal branches operate `Daily: 1pm–9pm` — replaced the older `Mon–Fri: 2pm–9pm  ·  Sat–Sun: 9am–6pm` split. Coloury Art card on contact.html shows `Visit colouryart.com` instead of hours.
 
-**Address format:** Postal code closes the address line. Do **NOT** append `· Near X MRT` — this suffix was removed from contact.html on April 27 2026.
+**Address format on `contact.html` branch cards:** Postal code closes the address line. Do **NOT** append `· Near X MRT` to the address itself — this suffix was removed from contact.html on April 27 2026 to keep the address tight.
+
+**Footer `.foot-loc-meta` line (added April 28 2026):** Separately from the contact.html address rule above, every footer location card *does* now carry a small MRT proximity + hours line *below* the address — formatted as a distinct element (`<span class="foot-loc-meta">`), 11.5px muted text. This exists for AEO/local-search (Perplexity, SearchGPT, Gemini scrape it for "music school near {MRT}" queries). The two rules don't contradict: contact.html addresses stay clean, footer cards carry the MRT/hours metadata. See `HEADER-FOOTER-GUIDE.md` § 6 for the canonical pattern and `HOW-TO-START.md` for the exact text per branch.
 
 ### Social media URLs (footer links — wired live April 27 2026)
 

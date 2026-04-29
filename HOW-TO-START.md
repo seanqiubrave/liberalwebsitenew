@@ -156,6 +156,7 @@ liberalwebsitenew/
 │   ├── liberalfavicon.png  ← Favicon (referenced from every page <head>)
 │   ├── address.webp        ← Location pin icon
 │   ├── whatsapp.webp       ← WhatsApp FAB icon
+│   ├── mrt.webp            ← MRT icon for footer .foot-loc-meta lines (April 28 2026)
 │   ├── Instagram.webp
 │   ├── facebook.webp
 │   ├── youtube.webp
@@ -424,9 +425,11 @@ All follow the same template — **`cecily.html` is the canonical base**.
 | Tampines | +65 8892 1198 | `https://wa.me/6588921198` |
 | Jurong West | +65 9627 7588 | `https://wa.me/6596277588` |
 | Le Quest | +65 9627 7582 | `https://wa.me/6596277582` |
-| Coloury Art | +65 8922 2848 *(shares Tengah's number)* | `https://wa.me/6589222848` |
+| Coloury Art | +65 8995 1163 *(dedicated number from April 28 2026)* | `https://wa.me/6589951163` |
 
-> **Changed April 2026:** Jurong West got its own dedicated number (`9627 7588`). Previously it was grouped with Le Quest / Jurong Point under `9627 7582`. Le Quest still uses `7582`. Coloury Art (the 5th location, opening soon) routes to Tengah's number. The FAB popup on every page now shows **5 separate rows**.
+> **Changed April 2026:** Jurong West got its own dedicated number (`9627 7588`). Previously it was grouped with Le Quest / Jurong Point under `9627 7582`. Le Quest still uses `7582`. The FAB popup on every page now shows **5 separate rows**.
+>
+> **Changed April 28 2026:** Coloury Art (Jurong Point) now has its own dedicated number `8995 1163` (`wa.me/6589951163`). Previously it shared Tengah's `8922 2848`. Tengah's number is unchanged. The change was applied site-wide across all 25 pages in one batch — see "April 28 2026 session" notes below.
 
 ---
 
@@ -474,6 +477,8 @@ Wire these into the footer `.foot-soc` block on every page. All open in new tabs
 - [ ] Social link `href` values point to the live URLs (see SOCIAL MEDIA LINKS table above): Instagram, Facebook, YouTube wired with `target="_blank" rel="noopener noreferrer"`. Xiaohongshu is still `href="#"` until a URL is supplied.
 - [ ] All 5 locations with full names
 - [ ] 5th location = **Coloury Art By Liberal** (clickable → colouryart.com, pin `✦`)
+- [ ] Each location card carries a `.foot-loc-meta` line: 🚇 nearest MRT + 🕐 `Daily 1pm–9pm` (or `✦ Opening Soon` for Coloury Art) — see PAGE-SPECIFIC NOTES April 28 2026 section below for the exact text per branch
+- [ ] Coloury Art card subtitle = real address (`#03-07C Level 3, Jurong Point` + `Singapore 648886`), NOT `colouryart.com`
 - [ ] Nav links: `color:#fff`, `font-size:15px` — Review link → `pages/review` (no `.html`)
 - [ ] **Privacy Policy** → `pages/privacy` (or `privacy` from inside `pages/`), **Terms of Use** → `pages/terms` — never `#`, never `.html`
 - [ ] **中文版本 is disabled** (grey `<span>`, not a live `<a>`)
@@ -580,6 +585,61 @@ Captures changes that don't fit the cross-page checklists above. Treat these as 
 
 ### `pages/articles/*.html`
 - The 2 existing article pages (`liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html`, `from-first-note-to-full-confidence-a-6-month-journey.html`) were upgraded from the older 3-row WhatsApp panel (`Tengah / Tampines / Jurong West / JP`) to the canonical 5-row layout. New articles must use the 5-row format.
+
+---
+
+## 📝 PAGE-SPECIFIC NOTES (April 28–29, 2026 session — AEO + Footer + Coloury number)
+
+Big multi-page AEO push and a number swap. Treat these as the current state.
+
+### `index.html` — AEO/SEO rewrite
+- **Duplicate `FAQPage` JSON-LD removed.** The page previously had two `@type: "FAQPage"` blocks, triggering "Duplicate field 'FAQPage'" in Google Search Console. The voice-search/AI block (formerly above the fonts import) was deleted; the canonical block now sits directly above the visible `#faq` carousel and its 8 questions match the visible cards verbatim. **Never reintroduce a second FAQPage block.** A second JSON-LD `@type: "MusicSchool"` block at the top is fine — different `@type` doesn't trigger the duplicate error.
+- **FAQ carousel rewritten** with ABRSM-keyword questions for AEO (Perplexity, SearchGPT, Gemini). Now 8 questions across 2 slides × 4 cards each. Schema and visible card text must match exactly — if you edit one, edit both.
+- **FAQ card sizing changed:** `.faq-card` uses `min-height:280px` (was fixed `height:280px`) and `.faq-card-a` no longer has `overflow:hidden`. This lets longer answers grow without being clipped while keeping the visual rhythm. Mobile override `min-height:0` already in place.
+- **FAQ arrows moved inside the carousel:** `.faq-prev{left:12px}` / `.faq-next{right:12px}` (were `-22px` / `-22px` outside). Modern carousel pattern (Apple/NYT/BBC) — arrows hover over content edges, never clip on horizontal-overflow rules.
+- **Hero copy rewritten:** H1 was *"Proven. Trusted. ABRSM Success!"* → now *"Singapore's Top-Rated Music School for ABRSM Success"* with `<span class="kw">Top-Rated</span>` as the orange-keyword span. Subtitle was *"Empowering 20,000+ students through 17 years of expert coaching..."* → now *"Empowering 20,000+ students since 2009. We specialize in fast-track ABRSM preparation with a proven 99% pass rate, helping students master Piano, Violin, Drums, and Vocals across 5 convenient Singapore locations."* The new subtitle repeats the AEO terms baked into the FAQ schema (`fast-track ABRSM preparation`, `99% pass rate`, `5 Singapore locations`).
+- **Heads-up for future passes:** the `MusicSchool` JSON-LD at the top of `index.html` still uses old `seanqiubrave.github.io/liberalwebsitenew/` URLs in `@id`, `url`, `logo`, `image`, and employee `@id` fields. Once DNS cuts over to `liberalmusicschool.com`, sweep all of those. The `<meta name="description">` tag at line ~8 also still has the older "Singapore's trusted music school..." copy and could be aligned with the new hero positioning.
+
+### Footer locations — applied site-wide to ALL 25 pages
+Every page (root + 9 main pages + 13 instructor profiles + 2 articles) now carries an extra `.foot-loc-meta` line on each of the 5 location cards: 🚇 nearest MRT + 🕐 `Daily 1pm–9pm` (or `✦ Opening Soon` for Coloury Art). This is for AEO/local-search — Perplexity / SearchGPT / Gemini scrape the footer for "music school near {MRT}" queries.
+
+| Branch | Meta line |
+|---|---|
+| Tengah | 🚇 Near future Jurong Region Line (opening 2028) · 🕐 Daily 1pm–9pm |
+| Tampines | 🚇 Near Tampines West MRT · 🕐 Daily 1pm–9pm |
+| Jurong West | 🚇 Near Lakeside MRT · 🕐 Daily 1pm–9pm |
+| Le Quest | 🚇 Near Bukit Batok MRT · 🕐 Daily 1pm–9pm |
+| Coloury Art | 🚇 Near Boon Lay MRT · ✦ Opening Soon |
+
+The Coloury Art card also got its real address — `#03-07C Level 3, Jurong Point · Singapore 648886` (was previously just `colouryart.com` as the subtitle).
+
+The MRT icon uses `assets/mrt.webp` — purple/blue source rendered white via `filter:brightness(0) invert(1); opacity:0.8`. Asset path varies by file depth: `assets/mrt.webp` from root, `../assets/mrt.webp` from `pages/`, `../../assets/mrt.webp` from `pages/articles/`. **Vercel is case-sensitive — filename must be lowercase `mrt.webp`.**
+
+CSS rules added (inside the existing `<style>` block on every page, after `.foot-loc.soon .foot-loc-text span`):
+```css
+.foot-loc-meta{display:block;margin-top:6px;font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.5;letter-spacing:.1px}
+.foot-loc-meta .sep{margin:0 6px;color:rgba(255,255,255,.3)}
+.foot-loc.soon .foot-loc-meta{color:rgba(255,170,90,.7)}
+.foot-loc.soon .foot-loc-meta .sep{color:rgba(255,170,90,.4)}
+```
+
+> **Source-of-truth for the new footer cards is `HEADER-FOOTER-GUIDE.md` § 6** — copy from there when adding new pages.
+
+### Coloury Art WhatsApp number swap — site-wide
+- **Old number:** `8922 2848` (shared with Tengah) → **New number:** `8995 1163`
+- New `wa.me` link: `https://wa.me/6589951163`
+- Applied to all 10 main HTML files + 13 instructor pages + 2 articles = **25 pages**
+- Tengah's `8922 2848` is unchanged everywhere (regression-checked via grep before each push)
+- `contact.html` had two Coloury references: the FAB panel `wa-row` AND the branch-card `wa-btn` ("WhatsApp · 8995 1163") — both updated
+- `trial.html` has a green-button grid where the Coloury button is `grid-column:span 2` and shows only "Coloury Art By Liberal" with no visible number — link updated, no visible-number to change there
+- **`pages/privacy.html` + `pages/terms.html`** were rebuilt from a stale 3-row WhatsApp panel (Tengah / Tampines / Jurong West / JP) into the canonical 5-row layout — these were the last two files lagging behind
+
+### Verify-before-push markers used in this session
+For the verify pattern in HOW-TO-START.md step 4, distinctive marker strings to use:
+- Footer locations update: `Near future Jurong Region Line (opening 2028)`
+- Coloury number swap: `6589951163` (the new wa.me link, not in any pre-April-28 file)
+- AEO FAQ rewrite (index only): `AEO ABRSM rewrite Apr 28 2026`
+- Hero rewrite (index only): `Top-Rated Music School`
 
 ---
 

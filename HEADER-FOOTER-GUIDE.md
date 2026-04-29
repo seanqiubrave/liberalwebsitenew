@@ -224,9 +224,13 @@ Copy verbatim into every page `<style>`:
 .foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}
 .foot-loc-text strong{display:block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}
 .foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+.foot-loc-meta{display:block;margin-top:6px;font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.5;letter-spacing:.1px}
+.foot-loc-meta .sep{margin:0 6px;color:rgba(255,255,255,.3)}
 .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
 .foot-loc.soon .foot-loc-text strong{color:var(--or)}
 .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
+.foot-loc.soon .foot-loc-meta{color:rgba(255,170,90,.7)}
+.foot-loc.soon .foot-loc-meta .sep{color:rgba(255,170,90,.4)}
 .foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}
 .foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}
 .foot-btm-links{display:flex;gap:20px;align-items:center}
@@ -298,6 +302,7 @@ footer{margin-bottom:0!important}
             <div class="foot-loc-text">
               <strong>Tengah Music School</strong>
               <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+              <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near future Jurong Region Line (opening 2028)<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -309,6 +314,7 @@ footer{margin-bottom:0!important}
             <div class="foot-loc-text">
               <strong>Tampines Music School</strong>
               <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+              <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Tampines West MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -320,6 +326,7 @@ footer{margin-bottom:0!important}
             <div class="foot-loc-text">
               <strong>Jurong West Music School</strong>
               <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+              <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Lakeside MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -331,6 +338,7 @@ footer{margin-bottom:0!important}
             <div class="foot-loc-text">
               <strong>Le Quest Mall Music School</strong>
               <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+              <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Bukit Batok MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
@@ -339,7 +347,8 @@ footer{margin-bottom:0!important}
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
               <strong>Coloury Art By Liberal</strong>
-              <span>colouryart.com</span>
+              <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
+              <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>✦ Opening Soon</span>
             </div>
           </a>
 
@@ -362,6 +371,8 @@ footer{margin-bottom:0!important}
   </div>
 </footer>
 ```
+
+> **About the `.foot-loc-meta` line on each card** *(added April 28 2026 for AEO/local-search):* Every location card carries a third line beneath the address showing 🚇 nearest MRT + 🕐 hours (or "✦ Opening Soon" for Coloury Art). It exists so AI search engines (Perplexity, SearchGPT, Gemini) can answer queries like *"music school near Lakeside MRT"* or *"music school open now"* by scraping the footer text. The `.foot-loc-meta` rule is small (11.5px) and muted (`opacity .55`) so it sits visually quiet — bold enough for scrapers, light enough not to fight the address. The MRT icon uses `assets/mrt.webp` (purple/blue source, white-rendered via `filter:brightness(0) invert(1)`). The `.sep` `<span>·</span>` is a thin middot separator. The Coloury Art card auto-inherits an orange-tinted variant via `.foot-loc.soon .foot-loc-meta`.
 
 ---
 
@@ -413,8 +424,8 @@ footer{margin-bottom:0!important}
     <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">
       🏬 Le Quest <span>9627 7582</span>
     </a>
-    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">
-      ✦ Coloury Art <span>8922 2848</span>
+    <a href="https://wa.me/6589951163" target="_blank" rel="noopener" class="wa-row">
+      ✦ Coloury Art <span>8995 1163</span>
     </a>
   </div>
   <button class="wa-fab" id="waFab" aria-label="Open WhatsApp"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/></button>
@@ -671,7 +682,7 @@ Before finalising any page, verify:
 - [ ] No `.foot-contact` email/phone block in footer (removed)
 - [ ] All 5 locations listed with full names: "Tengah Music School", "Tampines Music School", etc.
 - [ ] Location pin icons: `address.webp` with `filter:brightness(0) invert(1);opacity:.7`
-- [ ] **5th location is Coloury Art By Liberal**: clickable `<a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">`, pin = `✦`, title = `Coloury Art By Liberal`, subtitle = `colouryart.com` (replaces the deprecated "Jurong Point Music School · Opening Soon" div)
+- [ ] **5th location is Coloury Art By Liberal**: clickable `<a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">`, pin = `✦`, title = `Coloury Art By Liberal`, subtitle line 1 = `#03-07C Level 3, Jurong Point` + `Singapore 648886`, meta line = `🚇 Near Boon Lay MRT · ✦ Opening Soon` (replaces the deprecated "Jurong Point Music School · Opening Soon" div, and also replaces the older `colouryart.com`-only subtitle from before April 28 2026)
 - [ ] Footer navigation Review link also points to `review.html`
 - [ ] Nav links in footer: `font-size:15px`, `color:#fff` — no "✦ Free Trial Class" item
 - [ ] **Privacy Policy link** → `privacy` (from `pages/`) or `pages/privacy` (from root) or `../../pages/privacy` (from `pages/articles/`) — NEVER `#`, NEVER `.html`
@@ -693,4 +704,4 @@ Before finalising any page, verify:
 | Tampines | +65 8892 1198 | `https://wa.me/6588921198` |
 | Jurong West | +65 9627 7588 | `https://wa.me/6596277588` |
 | Le Quest | +65 9627 7582 | `https://wa.me/6596277582` |
-| Coloury Art | +65 8922 2848 *(shares Tengah's number)* | `https://wa.me/6589222848` |
+| Coloury Art | +65 8995 1163 | `https://wa.me/6589951163` |
