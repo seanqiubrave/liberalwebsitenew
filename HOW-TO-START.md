@@ -157,6 +157,9 @@ liberalwebsitenew/
 │   ├── address.webp        ← Location pin icon
 │   ├── whatsapp.webp       ← WhatsApp FAB icon
 │   ├── mrt.webp            ← MRT icon for footer .foot-loc-meta lines (April 28 2026)
+│   ├── pianocourse.webp    ← Piano course page hero image
+│   ├── dancecourse.webp    ← Ballet course page hero image (also used on courses.html Ballet card)
+│   ├── hiphop.webp         ← Hip Hop course page hero image (added May 4 2026)
 │   ├── Instagram.webp
 │   ├── facebook.webp
 │   ├── youtube.webp
@@ -167,12 +170,15 @@ liberalwebsitenew/
 │   ├── blog.html           ← Blog grid page (cards only)
 │   ├── career.html
 │   ├── contact.html        ← Wired to FormSubmit → colouryartsg@gmail.com
-│   ├── courses.html
+│   ├── courses.html        ← Course-grid landing page; Dance grid links to ballet-course / hiphop-course
 │   ├── instructors.html
 │   ├── review.html         ← Parent reviews (replaces old testimonial.html)
 │   ├── trial.html
 │   ├── privacy.html        ← Privacy Policy (PDPA compliant)
 │   ├── terms.html          ← Terms of Use
+│   ├── piano-course.html   ← Course detail page — CANONICAL TEMPLATE for [subject]-course pages
+│   ├── ballet-course.html  ← Course detail page (RAD pathway · added May 4 2026)
+│   ├── hiphop-course.html  ← Course detail page (showcase performance · added May 4 2026)
 │   ├── articles/           ← One .html per blog article
 │   │   └── liberal-blog-*.html
 │   ├── cecily.html         ← Instructor profile (CANONICAL TEMPLATE)
@@ -643,6 +649,100 @@ For the verify pattern in HOW-TO-START.md step 4, distinctive marker strings to 
 
 ---
 
+## 📝 PAGE-SPECIFIC NOTES (May 4, 2026 session — Course detail pages + GSC schema fix)
+
+Big session covering a Google Search Console schema error fix + introduction of standalone course detail pages following a new canonical template (`piano-course.html`).
+
+### `index.html` — JSON-LD multi-type fix for GSC "Invalid object type" error
+Google Search Console reported **"Invalid object type for field '<parent_node>'"** in the Review snippets report, affecting `https://liberalmusicschool.com/`. The cause: the `aggregateRating` block (5.0/5.0, 200 ratings) was attached to a parent of `@type: "MusicSchool"`, but Google's review-snippet validator only accepts ratings attached to a specific allowlist of types (`LocalBusiness`, `Product`, `Course`, `Event`, `Organization`, etc.). `MusicSchool` alone is not on the list — even though it's a subtype of `Organization` via inheritance, Google's parser doesn't traverse that.
+
+**Fix applied:** changed `@type` from a single string to a multi-type array on the root entity AND on all 5 nested branch entities inside `location[]`:
+
+```json
+"@type": ["MusicSchool", "LocalBusiness"]
+```
+
+This keeps the music-school semantics AND lands the entity on Google's review-snippet allowlist via `LocalBusiness`. Bonus: the 5 branches are now also eligible for local-business rich results in Google Maps and "music school near me" queries.
+
+After pushing, click **VALIDATE FIX** in GSC → Review snippets report. Google recrawls and clears the issue (typically a few days).
+
+**Heads-up for a future cleanup pass:** the `aggregateRating` block currently shows `ratingValue: "5.0"` with `ratingCount: "200"` AND `reviewCount: "200"` (identical values). A perfect 5.0/5.0 with both counts identical at exactly 200 looks fabricated to Google's spam systems. Two suggestions:
+1. Use real numbers from each of your 5 Google Business Profile listings.
+2. Don't set `ratingCount` and `reviewCount` to the same value — `reviewCount` is written reviews; `ratingCount` is broader star-only ratings. They're rarely equal.
+
+Verify-before-push marker: `Fix May 4 2026: @type set to multi-type`
+
+### Course detail pages — new pattern (`[subject]-course.html`)
+Introduced standalone course detail pages following `piano-course.html` as the canonical template. URL slug convention is **`[subject]-course`** (e.g., `piano-course`, `ballet-course`, `hiphop-course`, `violin-course`) — matches what the "Other Courses" strip on `piano-course.html` already references (`violin-course`, `guitar-course`, `drum-course`, `vocal-course`, `ukulele-course`, etc.).
+
+**Canonical structure (8 sections):**
+1. **Hero** (`.page-hero`) — gradient bg, breadcrumb (Home → Courses → [Subject]), kicker pill `🎹 [Subject] Course · [Programme]`, headline with orange `.kw` underline animation on the word "Course", lead, 2 CTAs (Book Trial Class + About the Course), 4 hero-stats
+2. **About the Course** (`#about` anchor target, `.about-grid`) — 2-column: copy on left + image on right with floating `.about-badge` overlay (icon + 2-line text)
+3. **What You'll Learn** (`.curr-grid`) — 4 cards with icon, h3, p, animated orange top border on hover
+4. **Who This Course Is For** (`.levels-grid`) — 4 simple level cards
+5. **Stats Strip** (`.stats-strip`) — dark navy band with 4 large brand stats (20,000+ Students · 15+ Years · 5 Locations · 5★ Google Rating)
+6. **Why Liberal for [Subject]** (`.why-grid`) — 4 cards with icon, h3, p
+7. **Explore Other Courses** (`.other-strip`) — horizontal scroller of 9–10 sister course cards (excludes self, ends with orange "View All Courses" card)
+8. **CTA Banner** (`.cta-band`) — gradient bg, "Ready to Begin Your [Subject] Journey?" headline, Book Trial Class + WhatsApp button (`.btn-cta-dk` dark navy)
+
+**New course pages added this session:**
+| File | Subject | Hero image | Pill emoji | Programme tag |
+|---|---|---|---|---|
+| `pages/ballet-course.html` | Ballet (RAD pathway) | `dancecourse.webp` | 🩰 | RAD Programme |
+| `pages/hiphop-course.html` | Hip Hop (Showcase) | `hiphop.webp` | 💫 | Dance Programme |
+
+**Stats-strip swap for non-music subjects:** when adapting `piano-course.html` for dance/art/non-ABRSM subjects, swap the `99% ABRSM & Trinity Pass Rate` stat → `5★ Google Rating`. Other 3 stats (20,000+ Students, 15+ Years, 5 Locations) stay — they're brand-wide. RAD/dance/art students don't take ABRSM, so leaving the music-exam pass-rate stat in would be misleading.
+
+**Other Courses strip rule:** each course page's strip must EXCLUDE itself and INCLUDE all other courses. When adding a new course-detail page, also update the "Other Courses" strip on every existing course-detail page to include the new one.
+
+### `pages/courses.html` — Dance grid expanded
+The Dance section (`<!-- ── DANCE COURSES ── -->`) was previously a 1-card grid (Ballet only, linking to `trial`). It now has **2 cards** in the 3-column `.dance-grid`, both linking to dedicated course detail pages:
+
+| Card | Image | Gradient (fallback) | href |
+|---|---|---|---|
+| Ballet (Ages 4+) | `../assets/dancecourse.webp` | `linear-gradient(135deg,#8B6B8B,#5C3D5C)` plum | `ballet-course` |
+| Hip Hop (Ages 5+) | `../assets/hiphop.webp` | `linear-gradient(135deg,#FF6B9D,#7B2CBF)` pink/violet | `hiphop-course` |
+
+Both `<img>` tags carry `onerror="this.style.display='none'"` so the gradient parent shows through gracefully if the asset is ever missing or 404s on Vercel due to case-mismatch.
+
+### Asset additions
+- `assets/hiphop.webp` — Hip Hop hero image. Used on `pages/courses.html` Hip Hop card AND `pages/hiphop-course.html` About-section image. **Filename must be lowercase** (Vercel case-sensitive). Recommended size: ~1200×900px, compressed to <150KB.
+
+### Deprecated files (to delete)
+Earlier in this session, two interim standalone pages were created with bespoke layouts before settling on the `piano-course.html` template:
+- `pages/ballet.html` — superseded by `pages/ballet-course.html`
+- `pages/hiphop.html` — superseded by `pages/hiphop-course.html`
+
+These are now orphaned (nothing links to them). Delete from the repo:
+```powershell
+git rm pages/ballet.html pages/hiphop.html
+```
+
+Their interim URLs (`/pages/ballet`, `/pages/hiphop`) were never linked from production and are unlikely to be indexed, so no 301 redirect is needed. If they DO appear in GSC later, add to `vercel.json` redirects → `/pages/ballet-course` and `/pages/hiphop-course`.
+
+### GSC issues reviewed but NOT fixed (informational only)
+Two other GSC reports were reviewed this session and intentionally left untouched:
+
+1. **"URL is not on Google" — `https://piano.liberalmusicschool.com/`** (Excluded by 'noindex' tag).
+   - This is a SEPARATE subdomain, NOT in this repo. It's hosted somewhere else (possibly an old Wix/WordPress landing page or a different Vercel project — DNS lookup at GoDaddy will reveal the destination).
+   - Last GSC crawl: 12 Aug 2024 (very stale).
+   - **Decide before fixing:** is this subdomain still in use, or legacy? Cleanest options: (a) 301 redirect `piano.liberalmusicschool.com` → `liberalmusicschool.com/pages/piano-course` (consolidates SEO authority), or (b) delete the DNS record entirely. Removing the noindex on a stale subdomain is the worst option — it creates a duplicate that competes with `/pages/piano-course`.
+
+2. **"Video isn't on a watch page"** — affects `https://liberalmusicschool.com/` and `/pages/about`.
+   - **Not an error.** Google correctly identified the YouTube embeds as supplementary content (not the page's main subject). Both pages are indexed normally as web results — just not as standalone video results in the Search → Video tab.
+   - For a music-school marketing site, this is correct behaviour. Customers Google "piano lessons Tampines", not "Liberal music school video". No action needed; this report can be safely ignored.
+
+### Verify-before-push markers used in this session
+| File | Marker |
+|---|---|
+| `index.html` (JSON-LD fix) | `Fix May 4 2026: @type set to multi-type` |
+| `pages/courses.html` (Hip Hop card add) | `Hip Hop dance card added May 4 2026` |
+| `pages/courses.html` (link rewire) | `linked to course page May 4 2026` |
+| `pages/ballet-course.html` | `ballet-course page added May 4 2026` |
+| `pages/hiphop-course.html` | `hiphop-course page added May 4 2026` |
+
+---
+
 | File | Purpose |
 |---|---|
 | `HOW-TO-START.md` | This file — workflow + design system summary |
@@ -659,6 +759,9 @@ For the verify pattern in HOW-TO-START.md step 4, distinctive marker strings to 
 | `pages/trial.html` | Re-upload after each edit |
 | `pages/privacy.html` | Privacy Policy (PDPA) |
 | `pages/terms.html` | Terms of Use |
+| `pages/piano-course.html` | Course detail page — **CANONICAL TEMPLATE** for all `[subject]-course` pages |
+| `pages/ballet-course.html` | Course detail page (RAD pathway) — added May 4 2026 |
+| `pages/hiphop-course.html` | Course detail page (showcase performance) — added May 4 2026 |
 | `pages/cecily.html` | Canonical instructor template — re-upload after any edit |
 | `pages/calvin.html` | Re-upload after each edit |
 | `pages/kate.html` | Re-upload after each edit |
