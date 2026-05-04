@@ -168,7 +168,7 @@ Copy verbatim into every page `<style>`:
       </ul>
 
       <div class="nav-end">
-        <!-- 中文 is DISABLED while bilingual site is paused — use span, not <a> -->
+        <!-- 中文 toggle: ACTIVE on root index.html only (links to index-zh.html). On all other pages, the Chinese counterpart doesn't exist yet — keep the disabled <span> below until each page-zh is built out. See Section 14 for the active-state markup. -->
         <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
         <!-- Book Trial button — exact padding/size must match -->
         <a href="trial.html" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
@@ -364,7 +364,7 @@ footer{margin-bottom:0!important}
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="privacy">Privacy Policy</a>
         <a href="terms">Terms of Use</a>
-        <!-- 中文版本 DISABLED while bilingual site is paused — use span, not <a> -->
+        <!-- 中文版本 toggle: ACTIVE on root index.html only (links to index-zh.html). All other pages keep the disabled <span> below until each page-zh is built out. See Section 14. -->
         <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
       </div>
     </div>
@@ -669,7 +669,7 @@ Before finalising any page, verify:
 - [ ] Nav link order: **Home | About | Courses | Instructors | Review | Blog | Contact**
 - [ ] **Review link points to `review.html`** (NOT `testimonial.html` — deprecated)
 - [ ] Active page has `class="active"` on its nav link (instructor profiles → active on Instructors)
-- [ ] **中文 button is DISABLED** (use `<span>` with `opacity:0.35;cursor:not-allowed;pointer-events:none;` — NOT `<a href="../index-zh.html">`) while bilingual site is paused
+- [ ] **中文 button:** ACTIVE only on root `index.html` (links to `index-zh.html`). Disabled `<span>` everywhere else — keep `opacity:0.35;cursor:not-allowed;pointer-events:none;` until that page's Chinese counterpart is built. See Section 14 for the active-state markup.
 - [ ] Book Trial button: `class="btn btn-cta"` + `style="padding:10px 22px;font-size:14px;"`
 - [ ] Mobile drawer font-size: `25.5px`
 - [ ] Footer background: `#1F2A44`
@@ -687,7 +687,7 @@ Before finalising any page, verify:
 - [ ] Nav links in footer: `font-size:15px`, `color:#fff` — no "✦ Free Trial Class" item
 - [ ] **Privacy Policy link** → `privacy` (from `pages/`) or `pages/privacy` (from root) or `../../pages/privacy` (from `pages/articles/`) — NEVER `#`, NEVER `.html`
 - [ ] **Terms of Use link** → `terms` (from `pages/`) or `pages/terms` (from root) or `../../pages/terms` (from `pages/articles/`) — NEVER `#`, NEVER `.html`
-- [ ] **中文版本 footer link is DISABLED** (use `<span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>` — NOT `<a>`)
+- [ ] **中文版本 footer link:** ACTIVE only on root `index.html` (`<a href="index-zh.html" style="font-size:15px;color:rgba(255,255,255,.7);">中文版本</a>`). Disabled `<span>` everywhere else until that page's Chinese counterpart is built. See Section 14.
 - [ ] Bottom bar includes `v1.0.1` version tag
 - [ ] WA FAB present, uses `whatsapp.webp` image (NOT 💬 emoji), all 5 WhatsApp numbers correct (5-row popup: Tengah · Tampines · Jurong West · Le Quest · Coloury Art)
 - [ ] Mobile sticky bar present with trial link
@@ -705,3 +705,175 @@ Before finalising any page, verify:
 | Jurong West | +65 9627 7588 | `https://wa.me/6596277588` |
 | Le Quest | +65 9627 7582 | `https://wa.me/6596277582` |
 | Coloury Art | +65 8995 1163 | `https://wa.me/6589951163` |
+
+---
+
+## 14. CHINESE VERSION (中文版) — STRINGS REFERENCE
+
+> Source of truth: `index-zh.html` (root). Last updated: May 5, 2026.
+> 
+> **Pattern:** the English markup in Sections 1–8 above is the structural canonical. For Chinese pages, keep the markup, CSS classes, asset paths, IDs, and JSON-LD schemas identical — only swap the visible strings per the tables below. This keeps a single structural source of truth and avoids drift between EN and ZH.
+
+### 14.1 `<html>` lang attribute and head meta
+
+| Attribute | English page | Chinese page |
+|---|---|---|
+| `<html lang>` | `en` | `zh-CN` |
+| `<title>` | `… \| Liberal Music & Arts School` | `… \| 博雅音乐艺术学校` |
+| `<meta name="description">` | English copy | Localized Chinese copy |
+| `<link rel="canonical">` | `https://liberalmusicschool.com/[slug]` | `https://liberalmusicschool.com/[slug]-zh` |
+
+**Brand name:** Liberal Music & Arts School → 博雅音乐艺术学校.
+
+### 14.2 Path conventions for Chinese pages
+
+| File location | Logo src | Asset prefix | Link to root EN | Link to other ZH pages |
+|---|---|---|---|---|
+| Root (`index-zh.html`) | `assets/logo.webp` | `assets/` | `index` | `pages/[slug]` *(falls back to EN until pages-zh/ exists)* |
+| Subfolder (`pages-zh/*.html`) *(planned)* | `../assets/logo.webp` | `../assets/` | `../index` | `[slug]-zh` |
+
+> **Current state (May 2026):** only `index-zh.html` exists. Internal nav links from `index-zh.html` (e.g. About, Courses) point to `pages/about`, `pages/courses` — i.e. the English pages. Once a `pages-zh/about.html` is built, swap that single href to `pages-zh/about` and so on.
+
+### 14.3 Announcement bar
+
+| English | 中文 |
+|---|---|
+| `Liberal Music & Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!` | `博雅音乐艺术学校 — 立即在新加坡5个分校预约试课！` |
+
+### 14.4 Navbar — link order is identical, only text swaps
+
+| English label | 中文 label |
+|---|---|
+| Home | 首页 |
+| About | 关于我们 |
+| Courses | 课程 |
+| Instructors | 导师 |
+| Review | 评价 |
+| Blog | 博客 |
+| Contact | 联系我们 |
+| Book Trial Class *(button)* | 预约试课 |
+
+**Order is locked:** `首页 | 关于我们 | 课程 | 导师 | 评价 | 博客 | 联系我们` — never change.
+
+### 14.5 Language toggle — direction reverses on Chinese pages
+
+```html
+<!-- On English pages → toggle says 中文, links to Chinese -->
+<a class="nav-lang" href="index-zh">中文</a>
+
+<!-- On Chinese pages → toggle says EN, links back to English -->
+<a class="nav-lang" href="index" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>
+```
+
+The same reversal applies in the footer bottom bar (`中文版本` ↔ `English`) and the mobile drawer (where the toggle sits as a low-opacity row above the CTA button).
+
+### 14.6 Mobile drawer — Chinese version
+
+```html
+<nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
+  <a href="index-zh">首页</a>
+  <a href="pages/about">关于我们</a>
+  <a href="pages/courses">课程</a>
+  <a href="pages/instructors">导师</a>
+  <a href="pages/review">评价</a>
+  <a href="pages/blog">博客</a>
+  <a href="pages/contact">联系我们</a>
+  <a href="index" style="opacity:.7;">EN</a>
+  <a href="pages/trial" class="btn btn-cta">预约试课</a>
+</nav>
+```
+
+### 14.7 Footer — column headings
+
+| English `<h5>` | 中文 `<h5>` |
+|---|---|
+| `Navigation` | `网站导航` |
+| `Our Locations` | `我们的分校` |
+
+### 14.8 Footer — brand paragraph
+
+```text
+博雅音乐艺术学校致力于培养孩子的创造力、自信心，以及对音乐与艺术的终生热爱——服务2.5岁至成人各年龄段。我们拥有专业师资、全人教育的理念与可见的教学成果，自2009年起，已荣幸地获得新加坡20,000+家庭的信赖。
+```
+
+### 14.9 Footer — locations (all 5)
+
+| Branch (EN `<strong>`) | Branch (中文 `<strong>`) | Address line | MRT meta line |
+|---|---|---|---|
+| Tengah Music School | 登加（Tengah）分校 | unchanged | 邻近未来裕廊区域地铁线（2028年开通）`·` 🕐 每日1点-9点 |
+| Tampines Music School | 淡滨尼（Tampines）分校 | unchanged | 邻近淡滨尼西地铁站（Tampines West MRT）`·` 🕐 每日1点-9点 |
+| Jurong West Music School | 裕廊西（Jurong West）分校 | unchanged | 邻近 Lakeside 地铁站 `·` 🕐 每日1点-9点 |
+| Le Quest Mall Music School | Le Quest 商场分校 | unchanged | 邻近武吉巴督地铁站（Bukit Batok MRT）`·` 🕐 每日1点-9点 |
+| Coloury Art By Liberal | Coloury Art By Liberal（裕廊坊） | unchanged | 邻近文礼地铁站（Boon Lay MRT）`·` ✦ 即将开业 |
+
+> **Address lines stay in English** — postal addresses are easier to navigate to via Google Maps in their original form. Only the branch heading (the `<strong>`) and the `.foot-loc-meta` line are localized.
+
+### 14.10 Footer — bottom bar
+
+| English | 中文 |
+|---|---|
+| `© 2025 Liberal Music & Arts School. All rights reserved.` | `© 2025 博雅音乐艺术学校 版权所有` |
+| `Privacy Policy` | `隐私政策` |
+| `Terms of Use` | `使用条款` |
+| `中文版本` *(toggle)* | `English` *(toggle, links to `index`)* |
+
+### 14.11 WhatsApp FAB popup
+
+```html
+<h4 style="font-size:14.5px;font-weight:900;color:#1F2A44;margin-bottom:4px;">💬 与我们联系！</h4>
+<p style="font-size:12.5px;color:#8FA2BC;margin-bottom:14px;">选择就近分校，直接通过 WhatsApp 联系我们。</p>
+<!-- Then the 5 wa-row anchors with these labels (numbers and wa.me links unchanged): -->
+🏡 登加 <span>8922 2848</span>
+🌅 淡滨尼 <span>8892 1198</span>
+🌸 裕廊西 <span>9627 7588</span>
+🏬 Le Quest <span>9627 7582</span>
+✦ Coloury Art <span>8995 1163</span>
+```
+
+> **Le Quest** and **Coloury Art** keep their English names — they are mall/shop brand names, not branch descriptors.
+
+### 14.12 Mobile sticky CTA bar
+
+| English | 中文 |
+|---|---|
+| `✦ Book Free Trial Class` | `✦ 预约试课` *(or `✦ 免费预约试课` if you want to keep "Free")* |
+
+### 14.13 What stays in English on Chinese pages
+
+These should NOT be translated, even on Chinese pages:
+
+- **JSON-LD schemas** (`@type`, `name`, address fields, etc.) — search engines and AI scrapers index these primarily in English. Translating them loses AEO coverage and risks "duplicate object" warnings in Google Search Console.
+- **Brand names:** Liberal Music & Arts School, Coloury Art By Liberal, Le Quest, ABRSM, Trinity College London, RAD, MRT station English names.
+- **CSS class names, IDs, ARIA labels, asset filenames, `data-*` attributes** — purely structural.
+- **Postal addresses** (e.g. `127A Plantation Crescent, #01-381 Singapore 691127`) — keep raw so users can paste into Google Maps.
+- **WhatsApp numbers and `wa.me` links** — same numbers, same links, only the row label is localized.
+
+### 14.14 Building a new Chinese page — checklist
+
+When you're ready to build out `pages-zh/about.html`, `pages-zh/courses.html`, etc., follow this delta from the English template:
+
+1. Copy the English page (e.g. `pages/about.html`) → save as `pages-zh/about.html`.
+2. Change `<html lang="en">` → `<html lang="zh-CN">`.
+3. Update `<title>`, `<meta name="description">`, `<link rel="canonical">` per Section 14.1.
+4. Update logo path: `../assets/` → `../assets/` (same — both are one level deep).
+5. Swap announcement bar string per Section 14.3.
+6. Swap nav link labels per Section 14.4. **Update href to point to ZH counterparts** — e.g. `href="about"` → `href="about-zh"` only once `about-zh.html` exists; otherwise leave the href pointing at the English page as a fallback.
+7. Flip language toggle: `<a href="../index-zh">中文</a>` → `<a href="../index" style="...">EN</a>`.
+8. Mobile drawer: localize labels, flip the language toggle, keep all hrefs in sync with step 6.
+9. Footer: localize column headings (Section 14.7), brand paragraph (14.8), all 5 location headings + meta lines (14.9), bottom bar (14.10).
+10. WhatsApp FAB: localize panel headline, intro, and the 5 row labels (Section 14.11). Numbers and `wa.me` links must NOT change.
+11. Page body content: localize section headings, lead paragraphs, FAQ Q&As, CTAs. Keep brand terms in English per Section 14.13.
+12. JSON-LD: keep verbatim from English page.
+
+### 14.15 Verification markers (use in PowerShell verify-before-push)
+
+When pushing Chinese-page edits, use distinctive Chinese strings as verification markers — they cannot collide with English-page content:
+
+| Edit type | Suggested marker |
+|---|---|
+| Footer locations update | `每日1点-9点` |
+| Brand paragraph rewrite | `博雅音乐艺术学校致力于培养孩子的创造力` |
+| FAQ rewrite | `加速学习路径` (or another distinctive ZH phrase) |
+| WhatsApp panel rewrite | `选择就近分校` |
+
+---
