@@ -17,11 +17,15 @@
 <!-- ═══ MASTER ENTITY SCHEMA v2 — MusicSchool Knowledge Graph ═══
      Feeds: Google Knowledge Panel · Gemini · SearchGPT · Perplexity
      Entity: Liberal Music & Arts School | Singapore | Est. 2009
-     Upgrade: geo coords on all 5 branches + embedded FAQPage schema -->
+     Upgrade: geo coords on all 5 branches + embedded FAQPage schema
+     Fix May 4 2026: @type set to multi-type [MusicSchool, LocalBusiness] on
+     root + all 5 branches to fix GSC "Invalid object type for field
+     <parent_node>" error on aggregateRating (LocalBusiness is on Google's
+     review-snippet allowlist; MusicSchool alone is not). -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MusicSchool",
+  "@type": ["MusicSchool", "LocalBusiness"],
   "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#organization",
   "name": "Liberal Music & Arts School",
   "alternateName": ["博雅音乐艺术学校", "Liberal Music School Singapore", "Liberal Arts School Singapore"],
@@ -56,7 +60,7 @@
 
   "location": [
     {
-      "@type": "MusicSchool",
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#tengah",
       "name": "Liberal Music & Arts School — Tengah",
       "address": {
@@ -78,7 +82,7 @@
       "hasMap": "https://maps.google.com/?q=127A+Plantation+Crescent+Singapore+691127"
     },
     {
-      "@type": "MusicSchool",
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#tampines",
       "name": "Liberal Music & Arts School — Tampines",
       "address": {
@@ -100,7 +104,7 @@
       "hasMap": "https://maps.google.com/?q=Blk+139+Tampines+Street+11+Singapore+521139"
     },
     {
-      "@type": "MusicSchool",
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#jurong-west",
       "name": "Liberal Music & Arts School — Jurong West",
       "address": {
@@ -122,7 +126,7 @@
       "hasMap": "https://maps.google.com/?q=Blk+492+Jurong+West+Street+41+Singapore+640492"
     },
     {
-      "@type": "MusicSchool",
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#le-quest",
       "name": "Liberal Music & Arts School — Le Quest Mall, Bukit Batok",
       "address": {
@@ -144,7 +148,7 @@
       "hasMap": "https://maps.google.com/?q=4+Bukit+Batok+Street+41+Singapore+657991"
     },
     {
-      "@type": "MusicSchool",
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#jurong-point",
       "name": "Liberal Music & Arts School — Coloury Art Jurong Point (By Liberal)",
       "description": "New Liberal Music & Arts School branch opening soon at Jurong Point Shopping Mall, serving families in Jurong, Boon Lay, and Lakeside, Singapore.",
