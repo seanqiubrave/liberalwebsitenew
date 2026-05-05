@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<!-- pages-zh/courses.html · Chinese courses page · created May 5 2026 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>音乐与艺术课程 | 钢琴、小提琴、吉他、架子鼓 | 博雅音乐艺术学校 新加坡</title>
+  <meta name="description" content="新加坡专业音乐艺术课程 — 钢琴、小提琴、吉他、架子鼓、声乐、二胡与艺术，对接英皇 ABRSM 考级体系，2.5 岁至成人皆可报读。立即预约免费试课。"/>
+  <link rel="canonical" href="https://liberalmusicschool.com/pages-zh/courses"/>
+  <link rel="icon" type="image/png" href="../assets/liberalfavicon.png"/>
+  <link rel="apple-touch-icon" href="../assets/liberalfavicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── 1. CSS Variables ── */
+    :root {
+      --or:      #FF6600;
+      --or-dk:   #E55900;
+      --or-lt:   #FFF4ED;
+      --or-pale: #FFF7F2;
+      --or-glow: rgba(255,102,0,.16);
+      --or-sh:   0 12px 32px rgba(255,102,0,.22);
+      --or-shh:  0 16px 40px rgba(255,102,0,.34);
+      --w:    #FFFFFF;
+      --s1:   #FFFAF5;
+      --s2:   #F8FBFF;
+      --ink:   #1F2A44;
+      --body:  #5A6B85;
+      --muted: #8FA2BC;
+      --teal:  #B8F2E6;
+      --sky:   #D4EDFF;
+      --blush: #FFD6E0;
+      --lem:   #FFF3B0;
+      --lav:   #E8E4FF;
+      --r:    16px;
+      --r-l:  20px;
+      --r-xl: 28px;
+      --sh:   0 8px 28px rgba(31,42,68,.09);
+      --sh-l: 0 20px 56px rgba(31,42,68,.11);
+      --sh-s: 0 2px 10px rgba(31,42,68,.06);
+      --sp: cubic-bezier(.22,1,.36,1);
+      --ea: cubic-bezier(.4,0,.2,1);
+      --t:  .22s;
+      --zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
+    }
+
+    /* ── 2. Reset ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;background:#1F2A44}
+    body{font-family:'Quicksand',var(--zh),system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.78}
+    h1,h2,h3,h4{font-family:'Nunito',var(--zh),sans-serif;color:var(--ink);line-height:1.3;font-weight:900}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    ul{list-style:none}
+
+    /* ── 3. Layout ── */
+    .W{max-width:1240px;margin:0 auto;padding:0 32px}
+    section{padding:100px 0}
+
+    /* ── 4. Buttons ── */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;border-radius:999px;white-space:nowrap;border:none;cursor:pointer;transition:background var(--t) var(--ea),box-shadow var(--t) var(--sp),transform var(--t) var(--sp)}
+    .btn-cta{background:var(--or);color:#fff;box-shadow:var(--or-sh);font-size:18px;padding:13px 28px}
+    .btn-cta:hover{background:var(--or-dk);box-shadow:var(--or-shh);transform:translateY(-2px) scale(1.04)}
+    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);font-size:18px;padding:13px 28px}
+    .btn-outline:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+    .btn-lg{font-size:18px;padding:17px 40px}
+
+    /* ── 5. Pill tags ── */
+    .pill-tag{font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:13px;letter-spacing:1.4px;padding:7px 16px;border-radius:999px;margin-bottom:20px;display:inline-block}
+    .pt-or{background:var(--or-lt);color:var(--or)}
+    .pt-tl{background:var(--teal);color:#1a7058}
+    .pt-lv{background:#98a3f8;color:#fff}
+
+    /* ── 6. Scroll reveal ── */
+    .sr,.sl,.sfr{opacity:1;transform:none}
+    body.reveal-ready .sr{opacity:0;transform:translateY(22px);transition:opacity .65s var(--sp),transform .65s var(--sp)}
+    body.reveal-ready .sl{opacity:0;transform:translateX(-22px);transition:opacity .65s var(--sp),transform .65s var(--sp)}
+    body.reveal-ready .sfr{opacity:0;transform:translateX(22px);transition:opacity .65s var(--sp),transform .65s var(--sp)}
+    body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opacity:1!important;transform:none!important}
+    .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+
+    /* ── 7. Announcement Bar ── */
+    .ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:#f56c22;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 20px}
+    .ann-bar a{display:flex;align-items:center;gap:8px;font-family:'Nunito',var(--zh),sans-serif;font-weight:700;font-size:13px;color:#fff;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+    .ann-bar a:hover{opacity:.85}
+    .ann-bar svg{flex-shrink:0}
+    /* Announcement bar — prevent horizontal overflow on small phones */
+    @media(max-width:540px){
+      .ann-bar{padding:6px 12px; height:auto; min-height:36px}
+      .ann-bar a{white-space:normal; font-size:12px; text-align:center; line-height:1.25}
+    }
+
+    /* ── 8. Navbar ── */
+    .nav{position:fixed;top:36px;left:0;right:0;z-index:1000;height:72px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(221,230,245,.4);transition:box-shadow .3s,background .3s}
+    .nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 0 rgba(221,230,245,.8),0 6px 30px rgba(31,42,68,.07)}
+    .nav-row{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+    .nav-logo{display:flex;align-items:center;flex-shrink:0}
+    .nav-logo img{height:42px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:2px}
+    .nav-links a{display:block;padding:8px 14px;border-radius:var(--r);font-weight:700;font-size:17px;color:var(--body);transition:color var(--t),background var(--t);font-family:var(--zh),'Quicksand',sans-serif}
+    .nav-links a:hover{color:var(--or);background:var(--or-lt)}
+    .nav-links a.active{color:var(--or)}
+    .nav-end{display:flex;align-items:center;gap:10px}
+    .nav-lang{font-size:14px;font-weight:800;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:5px 12px;border-radius:999px;cursor:pointer;transition:all var(--t);text-decoration:none;letter-spacing:.5px}
+    .nav-lang:hover{border-color:var(--or);color:var(--or)}
+    .nav-ham{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:var(--r);transition:background var(--t);background:none;border:none;cursor:pointer}
+    .nav-ham:hover{background:var(--or-lt)}
+    .nav-ham span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .32s var(--sp),opacity .24s}
+    .nav-ham.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+    .nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .nav-ham.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+    .nav-drawer{display:none;position:fixed;top:108px;left:0;right:0;z-index:999;background:var(--w);border-bottom:1px solid #EEF2F8;padding:16px 28px 28px;flex-direction:column;gap:4px;box-shadow:0 18px 52px rgba(31,42,68,.12)}
+    .nav-drawer.on{display:flex}
+    .nav-drawer a{display:block;padding:13px 14px;border-radius:var(--r);font-weight:700;font-size:23px;color:var(--ink);transition:background var(--t),color var(--t);text-decoration:none;font-family:var(--zh),'Quicksand',sans-serif}
+    .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
+    .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:12px}
+    @media(max-width:900px){
+      .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
+      .nav-ham{display:flex}
+    }
+
+    /* ── 9. Hero ── */
+    .page-hero{background:linear-gradient(160deg,#FFF6EE 0%,#FFFAF5 55%,#F8FBFF 100%);padding:60px 0 80px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,102,0,.09) 0%,transparent 70%);pointer-events:none}
+    .page-hero::after{content:'';position:absolute;bottom:-60px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.25) 0%,transparent 70%);pointer-events:none}
+    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-family:var(--zh),'Quicksand',sans-serif;font-weight:600}
+    .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
+    .breadcrumb svg{opacity:.5}
+    .hero-headline{font-size:clamp(34px,4.8vw,60px);font-weight:900;line-height:1.25;color:var(--ink);margin-bottom:18px}
+    .hero-headline .kw{color:var(--or);position:relative;display:inline-block}
+    .hero-headline .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.6s forwards}
+    @keyframes kw{to{transform:scaleX(1)}}
+    .hero-lead{font-size:19px;color:var(--body);max-width:620px;line-height:1.85;margin-bottom:36px}
+    .hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+    .hstat{display:flex;flex-direction:column}
+    .hstat-num{font-family:'Nunito',var(--zh),sans-serif;font-weight:900;font-size:28px;color:var(--ink)}
+    .hstat-num span{color:var(--or)}
+    .hstat-lbl{font-size:14px;color:var(--muted);font-weight:600}
+
+    /* ── 10. Section headings ── */
+    .sec-head{margin-bottom:52px}
+    .sec-head h2{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;color:var(--ink);margin-bottom:14px;line-height:1.3}
+    .sec-head p{font-size:17px;color:var(--body);max-width:600px;line-height:1.85}
+
+    /* ── 11. Music Cards ── */
+    .music-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .mcard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;text-decoration:none;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t)}
+    .mcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.18)}
+    .mcard.featured{border-top:4px solid var(--or)}
+    .mcard-photo{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+    .mcard-icon{font-size:64px;line-height:1;transition:transform .35s var(--sp)}
+    .mcard:hover .mcard-icon{transform:scale(1.18)}
+    .mcard-badge{position:absolute;top:12px;left:12px;background:var(--or);color:#fff;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:11px;letter-spacing:.6px;padding:4px 10px;border-radius:999px}
+    .mcard-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:10px}
+    .mcard-name{font-family:'Nunito',var(--zh),sans-serif;font-weight:900;font-size:18px;color:var(--ink);line-height:1.3}
+    .mcard-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .mtag{padding:4px 11px;border-radius:999px;font-size:11px;font-weight:700;font-family:'Nunito',var(--zh),sans-serif}
+    .mtag-or{background:var(--or-lt);color:var(--or)}
+    .mtag-tl{background:var(--teal);color:#1a7058}
+    .mtag-lv{background:var(--lav);color:#5550c8}
+    .mtag-sk{background:var(--sky);color:#2472a4}
+    .mcard-desc{font-size:14px;color:var(--body);line-height:1.78}
+
+    /* ── 12. Dance Cards ── */
+    .dance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .dcard{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;position:relative;cursor:pointer;text-decoration:none;box-shadow:var(--sh-l);transition:transform var(--t) var(--sp),box-shadow var(--t)}
+    .dcard:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 32px 64px rgba(31,42,68,.18)}
+    .dcard-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:90px;transition:transform .4s var(--sp)}
+    .dcard:hover .dcard-bg{transform:scale(1.08)}
+    .dcard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,68,.82) 0%,rgba(31,42,68,.15) 55%,transparent 100%)}
+    .dcard-label{position:absolute;bottom:0;left:0;right:0;padding:24px 28px 28px;z-index:2}
+    .dcard-tag{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--or);color:#fff;font-family:'Nunito',var(--zh),sans-serif;font-size:12px;font-weight:800;letter-spacing:.5px;margin-bottom:10px}
+    .dcard-name{font-family:'Nunito',var(--zh),sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:6px}
+    .dcard-sub{font-size:15px;color:rgba(255,255,255,.78)}
+
+    /* ── 13. Art Cards ── */
+    .art-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:24px;max-width:420px}
+    .acard{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;position:relative;text-decoration:none;box-shadow:var(--sh-l);transition:transform var(--t) var(--sp),box-shadow var(--t)}
+    .acard:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 32px 64px rgba(31,42,68,.18)}
+    .acard-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform .4s var(--sp)}
+    .acard:hover .acard-bg{transform:scale(1.08)}
+    .acard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,42,68,.80) 0%,rgba(31,42,68,.1) 60%,transparent 100%)}
+    .acard-label{position:absolute;bottom:0;left:0;right:0;padding:24px 28px 28px;z-index:2}
+    .acard-name{font-family:'Nunito',var(--zh),sans-serif;font-size:26px;font-weight:900;color:#fff;margin-bottom:6px}
+    .acard-sub{font-size:15px;color:rgba(255,255,255,.78)}
+
+    /* ── 14. Why section ── */
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .why-card{background:var(--w);border-radius:var(--r-l);padding:32px 24px;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);transition:transform var(--t) var(--sp),box-shadow var(--t)}
+    .why-card:hover{transform:translateY(-6px);box-shadow:0 24px 52px var(--or-glow)}
+    .why-icon{font-size:36px;margin-bottom:16px}
+    .why-card h3{font-size:18px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.4}
+    .why-card p{font-size:15px;color:var(--body);line-height:1.8}
+
+    /* ── 15. CTA Banner ── */
+    .cta-band{background:linear-gradient(135deg,#FFF7F2 0%,#FFF7EE 50%,#FFEEDD 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+    .cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,102,0,.10) 0%,transparent 70%)}
+    .cta-band::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.30) 0%,transparent 70%)}
+    .cta-band h2{font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--ink);margin-bottom:14px;position:relative;z-index:1;line-height:1.3}
+    .cta-band p{font-size:19px;color:var(--body);max-width:560px;margin:0 auto 40px;line-height:1.85;position:relative;z-index:1}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+    .btn-cta-dk{background:var(--ink);color:#fff;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:18px;padding:15px 36px;border-radius:999px;border:none;cursor:pointer;transition:all var(--t) var(--sp);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+    .btn-cta-dk:hover{background:#2d3f5e;transform:translateY(-2px) scale(1.04);box-shadow:0 12px 32px rgba(31,42,68,.25)}
+
+    /* ── 16. Stats strip ── */
+    .stats-strip{background:#1F2A44;overflow:hidden;position:relative;padding:70px 0}
+    .stats-strip::before{content:'';position:absolute;top:-48px;left:0;right:0;height:48px;background:var(--or);clip-path:polygon(0% 100%,10% 0,100% 10%,100% 100%)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:32px}
+    .stat-item{}
+    .stat-num{color:#fff;font-family:'Nunito',var(--zh),sans-serif;font-size:clamp(2.4rem,4vw,3.2rem);font-weight:900;line-height:1.05}
+    .stat-num .acc{color:var(--or)}
+    .stat-lbl{color:rgba(255,255,255,.65);font-size:15px;margin-top:10px;font-weight:600}
+
+    /* ── 17. Footer ── */
+    .footer{background:#1F2A44;margin:0;border-top:none;padding:80px 0 0}
+    .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0}
+    .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
+    .foot-brand p{font-size:15px;line-height:1.92;color:#fff;max-width:330px;margin-bottom:8px}
+    .foot-soc{display:flex;gap:9px;margin-top:24px;padding-bottom:4px}
+    .foot-soc a{width:36px;height:36px;border-radius:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .18s,transform .18s var(--sp)}
+    .foot-soc a:hover{opacity:.75;transform:translateY(-2px)}
+    .foot-col h5{font-family:'Nunito',var(--zh),sans-serif;font-weight:900;font-size:15px;letter-spacing:1px;color:#fff;margin-bottom:22px;display:flex;align-items:center;gap:7px}
+    .foot-col h5::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
+    .foot-col ul{display:flex;flex-direction:column;gap:10px}
+    .foot-col a{font-size:15px;color:#fff;transition:color .18s,padding-left .18s;display:block}
+    .foot-col a:hover{color:#fff;padding-left:4px}
+    .foot-locs{display:flex;flex-direction:column;gap:8px}
+    .foot-loc{display:grid;grid-template-columns:18px 1fr;gap:9px;align-items:flex-start;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:background .18s,border-color .18s,transform .18s var(--sp)}
+    .foot-loc:hover{background:rgba(255,102,0,.12);border-color:rgba(255,102,0,.30);transform:translateX(3px)}
+    .foot-loc-pin{color:var(--or);font-size:22px;line-height:1.6;margin-top:1px;flex-shrink:0}
+    .foot-loc-text strong{display:block;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:2px}
+    .foot-loc-text span{font-size:13px;color:rgba(255,255,255,.8);line-height:1.6}
+    .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
+    .foot-loc.soon .foot-loc-text strong{color:var(--or)}
+    .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
+    .foot-loc-meta{
+      display:block;
+      margin-top:6px;
+      font-size:11.5px;
+      color:rgba(255,255,255,.55);
+      line-height:1.6;
+      letter-spacing:.1px;
+    }
+    .foot-loc-meta .sep{margin:0 6px;color:rgba(255,255,255,.3)}
+    .foot-loc.soon .foot-loc-meta{color:rgba(255,170,90,.7)}
+    .foot-loc.soon .foot-loc-meta .sep{color:rgba(255,170,90,.4)}
+    .foot-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:22px 0 30px;background:#1F2A44}
+    .foot-btm p{font-size:15px;color:rgba(255,255,255,.35)}
+    .foot-btm-links{display:flex;gap:20px;align-items:center}
+    .foot-btm a{font-size:15px;color:rgba(255,255,255,.35);transition:color .18s}
+    .foot-btm a:hover{color:#fff}
+    @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.foot-grid{grid-template-columns:1fr}.foot-brand{border-bottom:1px solid rgba(255,102,0,.1);padding-bottom:28px}}
+    html,body{margin-bottom:0!important;padding-bottom:0!important;height:auto!important}
+    footer{margin-bottom:0!important}
+    .footer{padding-bottom:0!important}
+
+    /* ── 18. WA FAB ── */
+    .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
+    .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
+    .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
+    .wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:300px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
+    .wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
+    .wa-panel h4{font-family:'Nunito',var(--zh),sans-serif;font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px}
+    .wa-panel p{font-size:14px;color:var(--muted);margin-bottom:14px}
+    .wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',var(--zh),sans-serif;font-weight:700;font-size:15px;color:var(--ink);transition:all var(--t);text-decoration:none}
+    .wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}
+    .wa-row span{font-size:13px;font-weight:500;color:var(--muted)}
+    .wa-row:hover span{color:#1a8a45}
+    .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
+    .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
+    @media(max-width:900px){.mob-bar{display:block}.wa{bottom:84px}}
+
+    /* ── 19. Responsive ── */
+    @media(max-width:1100px){.music-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.music-grid{grid-template-columns:repeat(2,1fr)}.dance-grid{grid-template-columns:repeat(2,1fr)}.art-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:20px}}
+    @media(max-width:600px){.music-grid{grid-template-columns:repeat(2,1fr)}.dance-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:400px){.music-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="ann-bar">
+    <a href="trial">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+        <path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/>
+        <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
+        <line x1="12" y1="12" x2="12" y2="19"/>
+      </svg>
+      博雅音乐艺术学校 — 立即在新加坡 5 家分校预约您的试课！
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="nav">
+    <div class="W">
+      <div class="nav-row">
+        <a href="../index-zh" class="nav-logo" aria-label="博雅音乐艺术学校 首页">
+          <img src="../assets/logo.webp" alt="博雅音乐艺术学校" onerror="this.style.display='none'"/>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index-zh">首页</a></li>
+          <li><a href="about">关于我们</a></li>
+          <li><a href="courses" class="active">课程</a></li>
+          <li><a href="instructors">师资团队</a></li>
+          <li><a href="review">学员评价</a></li>
+          <li><a href="blog">博客</a></li>
+          <li><a href="contact">联系我们</a></li>
+        </ul>
+        <div class="nav-end">
+          <a href="../pages/courses" class="nav-lang">EN</a>
+          <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">预约试课</a>
+        </div>
+        <button class="nav-ham" id="navHam" aria-label="菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <nav class="nav-drawer" id="navDrawer" aria-label="移动端导航">
+    <a href="../index-zh">首页</a>
+    <a href="about">关于我们</a>
+    <a href="courses">课程</a>
+    <a href="instructors">师资团队</a>
+    <a href="review">学员评价</a>
+    <a href="blog">博客</a>
+    <a href="contact">联系我们</a>
+    <a href="../pages/courses" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">EN · English Version</a>
+    <a href="trial" class="btn btn-cta">预约试课</a>
+  </nav>
+
+  <main style="padding-top:108px">
+
+    <!-- ── HERO ── -->
+    <section class="page-hero">
+      <div class="W">
+        <div class="breadcrumb sr">
+          <a href="../index-zh">首页</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <span style="color:var(--or);font-weight:700">课程</span>
+        </div>
+        <span class="pill-tag pt-or sr d1">我们的课程</span>
+        <h1 class="hero-headline sr d2">属于每一个<span class="kw">孩子</span>的音乐与艺术</h1>
+        <p class="hero-lead sr d3">从初学启蒙到冲刺英皇 (ABRSM) 考级 — 我们在全岛 5 家分校，由专业导师为您带来系统且充满乐趣的课程。</p>
+        <div class="hero-stats sr d4">
+          <div class="hstat">
+            <div class="hstat-num">20,000<span>+</span></div>
+            <div class="hstat-lbl">注册学生</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">15<span>+</span></div>
+            <div class="hstat-lbl">年教学积淀</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">99<span>%</span></div>
+            <div class="hstat-lbl">英皇 &amp; 圣三一通过率</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-num">5</div>
+            <div class="hstat-lbl">家分校</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MUSIC COURSES ── -->
+    <section style="background:var(--w)">
+      <div class="W">
+        <div class="sec-head sr">
+          <span class="pill-tag pt-or">音乐</span>
+          <h2>音乐课程</h2>
+          <p>贴合孩子学习步调、兴趣与目标的个性化课程 — 从轻松探索到考取 ABRSM 证书，因材施教。</p>
+        </div>
+        <div class="music-grid">
+
+          <!-- Piano -->
+          <a href="piano-course" class="mcard featured sr d1">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#FFF4ED,#FFFAF5)">
+              <img src="../assets/pianocourse.webp" alt="钢琴课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🎹</div>
+              <span class="mcard-badge">最受欢迎</span>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">钢琴课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-lv">所有水平</span>
+                <span class="mtag mtag-tl">ABRSM</span>
+              </div>
+              <p class="mcard-desc">我们最备受青睐的课程。学生将在系统的学习中掌握古典与现代钢琴技巧，为英皇 ABRSM 考级打下坚实基础。</p>
+            </div>
+          </a>
+
+          <!-- Violin -->
+          <a href="violin-course" class="mcard sr d2">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--sky),#e8f4ff)">
+              <img src="../assets/violincourse.webp" alt="小提琴课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🎻</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">小提琴课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-lv">所有水平</span>
+                <span class="mtag mtag-tl">ABRSM</span>
+              </div>
+              <p class="mcard-desc">从持琴姿势、运弓技巧到自信登台演奏 — 我们的小提琴课程致力于培养孩子的纪律性、聆听能力以及对弦乐的终身热爱。</p>
+            </div>
+          </a>
+
+          <!-- Guitar -->
+          <a href="guitar-course" class="mcard sr d3">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--lem),#fffde0)">
+              <img src="../assets/guitarcourse.webp" alt="吉他课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🎸</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">吉他课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-sk">古典</span>
+                <span class="mtag mtag-sk">流行</span>
+              </div>
+              <p class="mcard-desc">涵盖木吉他、古典与流行风格，适合所有年龄段。学生将学习和弦、扫弦节奏与指弹技巧 — 完美契合喜爱现代音乐的学习者。</p>
+            </div>
+          </a>
+
+          <!-- Ukulele -->
+          <a href="ukulele-course" class="mcard sr d4">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--blush),#ffe8f0)">
+              <img src="../assets/ukulelecourse.webp" alt="尤克里里课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🪗</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">尤克里里课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-lv">适合初学者</span>
+              </div>
+              <p class="mcard-desc">绝佳的启蒙乐器！我们的尤克里里课程充满乐趣、简单易学，能及早建立孩子的音乐自信 — 非常适合刚踏上音乐之旅的低龄儿童。</p>
+            </div>
+          </a>
+
+          <!-- Drums -->
+          <a href="drum-course" class="mcard sr d1">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#ffe8d6,#fff3ec)">
+              <img src="../assets/drumcourse.webp" alt="架子鼓课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🥁</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">架子鼓课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-sk">节奏感</span>
+                <span class="mtag mtag-sk">全风格</span>
+              </div>
+              <p class="mcard-desc">培养出色的节奏感、协调性与音乐卡点能力。从基础节拍到复杂节奏型，我们在充满活力的专业环境中为您倾囊相授。</p>
+            </div>
+          </a>
+
+          <!-- Vocal -->
+          <a href="vocal-course" class="mcard sr d2">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--lav),#f0eeff)">
+              <img src="../assets/vocalcourse.webp" alt="声乐课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🎤</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">声乐课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-lv">技巧</span>
+                <span class="mtag mtag-lv">表演</span>
+              </div>
+              <p class="mcard-desc">训练气息控制、拓展音域并提升舞台表现力。无论您的孩子是梦想登台，还是纯粹热爱唱歌，我们的声乐导师都会用心呵护每一个声音。</p>
+            </div>
+          </a>
+
+          <!-- Music for Kids -->
+          <a href="music-for-kids" class="mcard sr d3">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#d4f5e0,#eafff3)">
+              <img src="../assets/musicforkidcourse.webp" alt="幼儿音乐启蒙" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🎵</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">幼儿音乐启蒙</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-tl">早期教育</span>
+              </div>
+              <p class="mcard-desc">专为低龄儿童打造的趣味音乐探索课程。通过歌曲、律动和乐器，培养幼儿的聆听能力、协调性，打下早期的音乐基础。</p>
+            </div>
+          </a>
+
+          <!-- Chinese Instruments -->
+          <a href="chinese-instruments" class="mcard sr d4">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,var(--teal),#d4fff6)">
+              <img src="../assets/chineseinstrument.webp" alt="中国民乐课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">🪘</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">中国民乐课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-tl">二胡</span>
+                <span class="mtag mtag-tl">古筝</span>
+                <span class="mtag mtag-tl">古琴</span>
+              </div>
+              <p class="mcard-desc">通过传统民族乐器连接文化瑰宝。我们的专业导师将以纯正的技法和深厚的音乐底蕴，教授二胡、古筝与古琴。</p>
+            </div>
+          </a>
+
+          <!-- Music Theory -->
+          <a href="music-theory" class="mcard sr d1">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#e8eaff,#f3f4ff)">
+              <img src="../assets/musictheorycourse.webp" alt="乐理课程" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">📝</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">乐理课程</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-lv">ABRSM</span>
+                <span class="mtag mtag-lv">圣三一</span>
+              </div>
+              <p class="mcard-desc">读懂音乐的语言。我们的乐理课不仅为学生备考专业乐理等级考试保驾护航，更是器乐演奏不可或缺的基石。</p>
+            </div>
+          </a>
+
+          <!-- Aural Training -->
+          <a href="aural-training" class="mcard sr d2">
+            <div class="mcard-photo" style="background:linear-gradient(135deg,#fce4d6,#fff0e8)">
+              <img src="../assets/auralcourse.webp" alt="视唱练耳" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="mcard-icon" style="display:none">👂</div>
+            </div>
+            <div class="mcard-body">
+              <div class="mcard-name">视唱练耳</div>
+              <div class="mcard-tags">
+                <span class="mtag mtag-tl">听音训练</span>
+              </div>
+              <p class="mcard-desc">通过聆听训练耳朵辨别节奏、音程与旋律。视唱练耳不仅是顺利考级的关键，更是成为一名全面、具有敏锐直觉的音乐人的必经之路。</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS STRIP ── -->
+    <div class="stats-strip">
+      <div class="W">
+        <div class="stats-grid">
+          <div class="stat-item sr">
+            <div class="stat-num">20,000<span class="acc">+</span></div>
+            <div class="stat-lbl">注册学生</div>
+          </div>
+          <div class="stat-item sr d1">
+            <div class="stat-num">15<span class="acc">+</span></div>
+            <div class="stat-lbl">年专业教学</div>
+          </div>
+          <div class="stat-item sr d2">
+            <div class="stat-num">5</div>
+            <div class="stat-lbl">家新加坡分校</div>
+          </div>
+          <div class="stat-item sr d3">
+            <div class="stat-num">99<span class="acc">%</span></div>
+            <div class="stat-lbl">英皇 &amp; 圣三一通过率</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── DANCE COURSES ── -->
+    <section style="background:var(--s1)">
+      <div class="W">
+        <div class="sec-head sr">
+          <span class="pill-tag pt-tl">舞蹈</span>
+          <h2>舞蹈课程</h2>
+          <p>通过专业的舞蹈训练，培养节奏感、优雅气质与自信心 — 适合所有水平与年龄段。</p>
+        </div>
+        <div class="dance-grid">
+          <a href="ballet-course" class="dcard sr d1">
+            <div class="dcard-bg" style="background:linear-gradient(135deg,#8B6B8B,#5C3D5C);padding:0;overflow:hidden">
+              <img src="../assets/dancecourse.webp" alt="芭蕾舞" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            </div>
+            <div class="dcard-grad"></div>
+            <div class="dcard-label">
+              <span class="dcard-tag">4 岁以上</span>
+              <div class="dcard-name">芭蕾舞</div>
+              <div class="dcard-sub">古典 &amp; 现代</div>
+            </div>
+          </a>
+          <a href="hiphop-course" class="dcard sr d2">
+            <div class="dcard-bg" style="background:linear-gradient(135deg,#FF6B9D,#7B2CBF);padding:0;overflow:hidden">
+              <img src="../assets/hiphop.webp" alt="嘻哈街舞" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'"/>
+            </div>
+            <div class="dcard-grad"></div>
+            <div class="dcard-label">
+              <span class="dcard-tag">5 岁以上</span>
+              <div class="dcard-name">嘻哈街舞</div>
+              <div class="dcard-sub">街舞 &amp; 都市风格</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COLOURY ART ── -->
+    <section style="background:var(--s2)">
+      <div class="W">
+        <div class="sec-head sr">
+          <span class="pill-tag pt-lv">艺术</span>
+          <h2>Coloury Art 七彩美术</h2>
+          <p>让学生通过色彩来探索这个世界。</p>
+        </div>
+        <div class="dance-grid">
+          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="dcard sr d1">
+            <div class="dcard-bg" style="background:linear-gradient(135deg,#FF9A3C,#FF6600);padding:0;overflow:hidden">
+              <img src="../assets/colouryart.webp" alt="Coloury Art 七彩美术" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            </div>
+            <div class="dcard-grad"></div>
+            <div class="dcard-label">
+              <div class="dcard-name">Coloury Art</div>
+              <div class="dcard-sub">DSA · 专业艺术 · 创意艺术 · 小小艺术家</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY CHOOSE US ── -->
+    <section style="background:var(--s1)">
+      <div class="W">
+        <div class="sec-head sr" style="text-align:center;margin-left:auto;margin-right:auto">
+          <span class="pill-tag pt-tl">自 2009 年起备受信赖</span>
+          <h2>为什么家长们选择我们</h2>
+          <p style="margin:0 auto">我们提供的不仅是课程 — 更在培养孩子的自信、创造力以及对艺术的终身热爱。</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card sr d1">
+            <div class="why-icon">🏆</div>
+            <h3>英皇 ABRSM 认证</h3>
+            <p>我们的导师指导学生在国际认可的 ABRSM 考试中屡创佳绩。</p>
+          </div>
+          <div class="why-card sr d2">
+            <div class="why-icon">👨‍🏫</div>
+            <h3>资深专业导师</h3>
+            <p>每一位导师均持有音乐或表演艺术学位，并拥有多年的专业演奏与教学经验。</p>
+          </div>
+          <div class="why-card sr d3">
+            <div class="why-icon">📍</div>
+            <h3>5 家便捷分校</h3>
+            <p>我们的分校遍布登加、淡滨尼、裕廊西、Le Quest，以及位于 Jurong Point 的 Coloury Art (七彩美术) — 我们始终在您身边。</p>
+          </div>
+          <div class="why-card sr d4">
+            <div class="why-icon">🎯</div>
+            <h3>因材施教</h3>
+            <p>我们契合每个学生的学习节奏与个性 — 无论他们是为了兴趣探索，还是为了冲刺考级。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BANNER ── -->
+    <section class="cta-band">
+      <div class="W">
+        <span class="pill-tag pt-lv sr">即刻启程</span>
+        <h2 class="sr d1">准备好开始了吗？</h2>
+        <p class="sr d2">零压力，无顾虑，让孩子尽情探索美妙的音乐世界吧。</p>
+        <div class="cta-btns sr d3">
+          <a href="trial" class="btn btn-cta btn-lg">预约试课</a>
+          <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="btn-cta-dk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp 联系我们
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="W">
+      <div class="foot-grid">
+
+        <!-- Col 1: Brand -->
+        <div class="foot-brand">
+          <img src="../assets/logofooter.webp" alt="博雅音乐艺术学校" onerror="this.src='../assets/logo.webp'"/>
+          <p>博雅音乐艺术学校致力于培养创造力、自信心以及对音乐和艺术的终身热爱 — 招收 2.5 岁至成人学员。凭借专业的师资、全面的教学体系以及优异的成果，自 2009 年起，我们很荣幸获得了新加坡超过 20,000 个家庭的信赖。</p>
+          <div class="foot-soc">
+            <a href="https://www.instagram.com/liberalmusic_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/>
+            </a>
+            <a href="https://www.facebook.com/liberalmusicandarts/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
+            </a>
+            <a href="https://youtube.com/@liberalmusicartsschoolsingapor?si=0EdJLdRw-WoXKxOR" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <img src="../assets/youtube.webp" alt="YouTube" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
+            </a>
+            <a href="#" aria-label="小红书">
+              <img src="../assets/xiaohongshu.webp" alt="小红书" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="foot-col">
+          <h5>导航</h5>
+          <ul>
+            <li><a href="../index-zh">首页</a></li>
+            <li><a href="about">关于我们</a></li>
+            <li><a href="courses">课程</a></li>
+            <li><a href="instructors">师资团队</a></li>
+            <li><a href="review">学员评价</a></li>
+            <li><a href="blog">博客</a></li>
+            <li><a href="contact">联系我们</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Locations -->
+        <div class="foot-col">
+          <h5>我们的分校</h5>
+          <div class="foot-locs">
+
+            <div class="foot-loc">
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="位置"
+                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
+              <div class="foot-loc-text">
+                <strong>登加分校 Tengah</strong>
+                <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
+                <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近未来裕廊区域线 (2028 年开通)<span class="sep">·</span>🕐 每日 13:00–21:00</span>
+              </div>
+            </div>
+
+            <div class="foot-loc">
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="位置"
+                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
+              <div class="foot-loc-text">
+                <strong>淡滨尼分校 Tampines</strong>
+                <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
+                <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近淡滨尼西地铁站<span class="sep">·</span>🕐 每日 13:00–21:00</span>
+              </div>
+            </div>
+
+            <div class="foot-loc">
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="位置"
+                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
+              <div class="foot-loc-text">
+                <strong>裕廊西分校 Jurong West</strong>
+                <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
+                <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近湖畔地铁站<span class="sep">·</span>🕐 每日 13:00–21:00</span>
+              </div>
+            </div>
+
+            <div class="foot-loc">
+              <span class="foot-loc-pin">
+                <img src="../assets/address.webp" alt="位置"
+                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+              </span>
+              <div class="foot-loc-text">
+                <strong>Le Quest 商场分校</strong>
+                <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
+                <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近武吉巴督地铁站<span class="sep">·</span>🕐 每日 13:00–21:00</span>
+              </div>
+            </div>
+
+            <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
+              <span class="foot-loc-pin">✦</span>
+              <div class="foot-loc-text">
+                <strong>Coloury Art By Liberal 七彩美术</strong>
+                <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
+                <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近文礼地铁站<span class="sep">·</span>✦ 即将开业</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="foot-btm">
+        <p>© 2025 博雅音乐艺术学校 版权所有</p>
+        <div class="foot-btm-links">
+          <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
+          <a href="privacy">隐私政策</a>
+          <a href="terms">使用条款</a>
+          <a href="../pages/courses">English</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP FAB -->
+  <div class="wa">
+    <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp 联系我们">
+      <h4>💬 和我们聊聊!</h4>
+      <p>请选择您最近的分校，直接 WhatsApp 联系。</p>
+      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">
+        🏡 登加 Tengah <span>8922 2848</span>
+      </a>
+      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">
+        🌅 淡滨尼 Tampines <span>8892 1198</span>
+      </a>
+      <a href="https://wa.me/6596277588" target="_blank" rel="noopener" class="wa-row">
+        🌸 裕廊西 Jurong West <span>9627 7588</span>
+      </a>
+      <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">
+        🏬 Le Quest <span>9627 7582</span>
+      </a>
+      <a href="https://wa.me/6589951163" target="_blank" rel="noopener" class="wa-row">
+        ✦ Coloury Art 七彩美术 <span>8995 1163</span>
+      </a>
+    </div>
+    <button class="wa-fab" id="waFab" aria-label="打开 WhatsApp">
+      <img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/>
+    </button>
+  </div>
+
+  <!-- MOBILE STICKY CTA BAR -->
+  <div class="mob-bar">
+    <a href="trial" class="btn btn-cta">✦ 预约试课</a>
+  </div>
+
+  <script>
+  (function(){
+    'use strict';
+
+    /* Navbar scroll shadow */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), {passive:true});
+
+    /* Hamburger toggle */
+    const ham = document.getElementById('navHam');
+    const drw = document.getElementById('navDrawer');
+    ham.addEventListener('click', () => {
+      const o = drw.classList.toggle('on');
+      ham.classList.toggle('open', o);
+      ham.setAttribute('aria-expanded', String(o));
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.nav') && !e.target.closest('.nav-drawer')) {
+        drw.classList.remove('on');
+        ham.classList.remove('open');
+      }
+    });
+
+    /* WhatsApp popup */
+    const waFab   = document.getElementById('waFab');
+    const waPanel = document.getElementById('waPanel');
+    waFab.addEventListener('click', e => { e.stopPropagation(); waPanel.classList.toggle('on'); });
+    document.addEventListener('click', e => { if (!e.target.closest('.wa')) waPanel.classList.remove('on'); });
+
+    /* Scroll reveal */
+    document.body.classList.add('reveal-ready');
+    const rvIO = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('in'); rvIO.unobserve(en.target); }
+      });
+    }, { threshold:.05, rootMargin:'0px 0px -10px 0px' });
+    document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
+  })();
+  </script>
+</body>
+</html>
