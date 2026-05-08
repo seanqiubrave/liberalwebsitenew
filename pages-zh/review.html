@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- pages-zh/instructors.html · Chinese instructors page · created May 5 2026 -->
+<!-- pages-zh/review.html · Chinese review page · created May 5 2026 -->
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>师资团队 | 13+ 位科班出身的专业导师 | 博雅音乐艺术学校 新加坡</title>
-  <meta name="description" content="认识博雅 13+ 位充满热忱的科班音乐导师 — 钢琴、小提琴、吉他、架子鼓、声乐与更多课程，皆由毕业于全球顶尖音乐学院的专业老师悉心教授。"/>
-  <link rel="canonical" href="https://liberalmusicschool.com/pages-zh/instructors"/>
+  <title>家长评价 | 来自 500+ 真实家庭的故事 | 博雅音乐艺术学校 新加坡</title>
+  <meta name="description" content="阅读 500+ 个新加坡家庭对博雅音乐艺术学校的真实评价 — 关于孩子成长、自信建立与音乐之乐的真实故事。Google 与 Facebook 双平台 4.8 ★ 评分。"/>
+  <link rel="canonical" href="https://liberalmusicschool.com/pages-zh/review"/>
   <link rel="icon" type="image/png" href="../assets/liberalfavicon.png"/>
   <link rel="apple-touch-icon" href="../assets/liberalfavicon.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -118,61 +118,70 @@
     }
 
     /* ── 9. Page Hero ── */
-    .page-hero{background:linear-gradient(160deg,#FFF6EE 0%,#FFFAF5 55%,#F8FBFF 100%);padding:60px 0 80px;position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,102,0,.08) 0%,transparent 70%);pointer-events:none}
-    .page-hero::after{content:'';position:absolute;bottom:-60px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(152,163,248,.18) 0%,transparent 70%);pointer-events:none}
-    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-family:var(--zh),'Quicksand',sans-serif;font-weight:600}
+    .page-hero{background:linear-gradient(160deg,#FFF4ED 0%,#FFFAF5 55%,#F8FBFF 100%);padding:60px 0 80px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:440px;height:440px;background:radial-gradient(circle,rgba(255,102,0,.09) 0%,transparent 70%);pointer-events:none}
+    .page-hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.22) 0%,transparent 70%);pointer-events:none}
+    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-weight:600;font-family:var(--zh),'Quicksand',sans-serif}
     .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
     .hero-headline{font-size:clamp(34px,4.8vw,60px);font-weight:900;line-height:1.25;color:var(--ink);margin-bottom:18px}
     .hero-headline .kw{color:var(--or);position:relative;display:inline-block}
     .hero-headline .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.6s forwards}
     @keyframes kw{to{transform:scaleX(1)}}
-    .hero-lead{font-size:19px;color:var(--body);max-width:660px;line-height:1.85;margin-bottom:36px}
-    .hero-badges{display:flex;gap:12px;flex-wrap:wrap}
-    .hbadge{display:flex;align-items:center;gap:8px;background:var(--w);border:1.5px solid rgba(221,230,245,.8);border-radius:999px;padding:8px 18px;font-family:'Nunito',var(--zh),sans-serif;font-weight:700;font-size:14px;color:var(--ink);box-shadow:var(--sh-s)}
-    .hbadge span{font-size:18px}
+    .hero-lead{font-size:19px;color:var(--body);max-width:640px;line-height:1.85;margin-bottom:40px}
 
-    /* ── 10. Section headings ── */
-    .sec-head{margin-bottom:52px}
-    .sec-head h2{font-size:clamp(2rem,3.8vw,2.8rem);font-weight:900;color:var(--ink);margin-bottom:14px;line-height:1.3}
-    .sec-head p{font-size:17px;color:var(--body);max-width:660px;line-height:1.85}
-    .sec-head.center{text-align:center}
-    .sec-head.center p{margin:0 auto}
+    /* Rating summary row */
+    .rating-summary{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+    .rating-big{display:flex;flex-direction:column;align-items:flex-start}
+    .rating-num{font-family:'Nunito',var(--zh),sans-serif;font-size:72px;font-weight:900;color:var(--ink);line-height:1.05}
+    .rating-stars{display:flex;gap:4px;margin:6px 0 4px}
+    .rating-stars svg{width:22px;height:22px;fill:var(--or)}
+    .rating-count{font-size:14px;color:var(--muted);font-weight:600}
+    .rating-divider{width:1px;height:80px;background:rgba(31,42,68,.1)}
+    .rating-bars{display:flex;flex-direction:column;gap:7px;min-width:200px}
+    .rbar-row{display:flex;align-items:center;gap:10px}
+    .rbar-label{font-size:13px;font-weight:700;color:var(--body);width:14px;text-align:right}
+    .rbar-track{flex:1;height:8px;background:rgba(31,42,68,.08);border-radius:999px;overflow:hidden}
+    .rbar-fill{height:100%;background:var(--or);border-radius:999px}
+    .rbar-pct{font-size:12px;font-weight:700;color:var(--muted);width:32px}
+    .rating-platforms{display:flex;flex-direction:column;gap:10px}
+    .rplat{display:flex;align-items:center;gap:10px;background:var(--w);border:1.5px solid rgba(221,230,245,.8);border-radius:var(--r);padding:10px 16px;box-shadow:var(--sh-s)}
+    .rplat-name{font-family:'Nunito',var(--zh),sans-serif;font-size:13px;font-weight:800;color:var(--ink)}
+    .rplat-stars{font-size:13px;color:var(--or);letter-spacing:1px}
+    .rplat-score{font-size:13px;font-weight:700;color:var(--muted)}
 
-    /* ── 11. Instructor grid ── */
-    .ig{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    /* ── 10. Review cards ── */
+    .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 
-    /* Instructor card */
-    .icard{background:var(--w);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t)}
-    .icard:hover{transform:translateY(-8px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.18)}
+    .tcard{background:var(--w);border-radius:var(--r-xl);padding:32px 28px 28px;box-shadow:var(--sh);border:1px solid rgba(221,230,245,.5);display:flex;flex-direction:column;position:relative;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t)}
+    .tcard:hover{transform:translateY(-7px);box-shadow:0 28px 60px var(--or-glow);border-color:rgba(255,102,0,.15)}
 
-    /* Photo area */
-    .icard-photo{height:280px;background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
-    .icard-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--sp)}
-    .icard:hover .icard-photo img{transform:scale(1.05)}
-    .icard-photo-icon{font-size:80px;opacity:.35}
+    /* Quote mark decoration */
+    .tcard-quote{position:absolute;top:22px;right:26px;font-size:64px;line-height:1;font-family:'Nunito',sans-serif;font-weight:900;color:var(--or-lt);pointer-events:none;user-select:none}
 
-    /* Role badge overlaid on photo */
-    .icard-role-badge{position:absolute;top:14px;left:14px;background:var(--or);color:#fff;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:11px;letter-spacing:.6px;padding:4px 10px;border-radius:999px}
+    /* Stars */
+    .tstars{display:flex;gap:3px;margin-bottom:14px}
+    .tstars svg{width:18px;height:18px;fill:var(--or)}
 
-    /* Card body */
-    .icard-body{padding:22px 22px 26px}
-    .icard-name{font-family:'Nunito',var(--zh),sans-serif;font-size:20px;font-weight:900;color:var(--ink);margin-bottom:12px}
-    .itags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-    .itag{padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;font-family:'Nunito',var(--zh),sans-serif;background:var(--or-lt);color:var(--or)}
-    .itag.tl{background:var(--teal);color:#1a7058}
-    .itag.lv{background:var(--lav);color:#5550c8}
-    .itag.sk{background:var(--sky);color:#2472a4}
-    .icard-desc{font-size:15px;color:var(--body);line-height:1.85}
+    /* Review text */
+    .ttext{font-size:16px;line-height:1.95;color:var(--body);flex:1;margin-bottom:20px}
 
-    /* ── 11b. Instructor card as link ── */
-    a.icard{display:block;color:inherit;text-decoration:none}
-    .icard-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;opacity:0;transition:opacity var(--t) var(--sp);background:linear-gradient(to top,rgba(255,102,0,.72) 0%,transparent 55%);pointer-events:none}
-    .icard-overlay span{font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:14px;color:#fff;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
-    .icard:hover .icard-overlay{opacity:1}
-    .icard-photo{position:relative}
+    /* Author row */
+    .tauthor{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:18px;border-top:1px solid rgba(221,230,245,.6)}
+    .tavtr{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--or),#f5a062);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:#fff;flex-shrink:0}
+    .tauthor-info{}
+    .tauthor-name{font-family:'Nunito',var(--zh),sans-serif;font-size:15px;font-weight:800;color:var(--ink)}
+    .tauthor-role{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px}
 
-    /* ── 12. Stats strip ── */
+    /* Instrument tag */
+    .tinst{display:inline-block;padding:3px 11px;border-radius:999px;background:var(--or-lt);color:var(--or);font-family:'Nunito',var(--zh),sans-serif;font-size:12px;font-weight:800;letter-spacing:.5px;margin-top:10px;align-self:flex-start}
+    .tinst.tl{background:var(--teal);color:#1a7058}
+    .tinst.lv{background:var(--lav);color:#5550c8}
+    .tinst.sk{background:var(--sky);color:#2472a4}
+
+    /* Featured card */
+    .tcard.featured{border-top:4px solid var(--or)}
+
+    /* ── 11. Stats strip ── */
     .stats-strip{background:#1F2A44;overflow:hidden;position:relative;padding:70px 0}
     .stats-strip::before{content:'';position:absolute;top:-48px;left:0;right:0;height:48px;background:var(--or);clip-path:polygon(0% 100%,10% 0,100% 10%,100% 100%)}
     .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:32px}
@@ -180,17 +189,7 @@
     .stat-num .acc{color:var(--or)}
     .stat-lbl{color:rgba(255,255,255,.65);font-size:15px;margin-top:10px;font-weight:600}
 
-    /* ── 13. Join the team section ── */
-    .join-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-    .join-text h2{font-size:clamp(2rem,3.5vw,2.6rem);font-weight:900;color:var(--ink);margin-bottom:18px;line-height:1.3}
-    .join-text p{font-size:17px;color:var(--body);line-height:1.85;margin-bottom:28px}
-    .join-perks{display:flex;flex-direction:column;gap:14px}
-    .join-perk{display:flex;align-items:flex-start;gap:14px;background:var(--w);border-radius:var(--r-l);padding:18px 20px;box-shadow:var(--sh-s);border:1px solid rgba(221,230,245,.5)}
-    .join-perk-icon{font-size:26px;flex-shrink:0;margin-top:1px}
-    .join-perk-text strong{display:block;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:16px;color:var(--ink);margin-bottom:4px}
-    .join-perk-text span{font-size:14px;color:var(--body);line-height:1.75}
-
-    /* ── 14. CTA Banner ── */
+    /* ── 12. CTA Banner ── */
     .cta-band{background:linear-gradient(135deg,#FFF7F2 0%,#FFF7EE 50%,#FFEEDD 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
     .cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,102,0,.10) 0%,transparent 70%)}
     .cta-band::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.30) 0%,transparent 70%)}
@@ -200,7 +199,7 @@
     .btn-ink{background:var(--ink);color:#fff;font-family:'Nunito',var(--zh),sans-serif;font-weight:800;font-size:18px;padding:15px 36px;border-radius:999px;border:none;cursor:pointer;transition:all var(--t) var(--sp);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
     .btn-ink:hover{background:#2d3f5e;transform:translateY(-2px) scale(1.04);box-shadow:0 12px 32px rgba(31,42,68,.25)}
 
-    /* ── 15. Footer ── */
+    /* ── 13. Footer ── */
     .footer{background:#1F2A44;margin:0;border-top:none;padding:80px 0 0}
     .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.7fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.08)}
     .foot-brand img{height:56px;width:auto;margin-bottom:22px;display:block}
@@ -222,14 +221,7 @@
     .foot-loc.soon{background:rgba(255,102,0,.10);border-color:rgba(255,102,0,.25)}
     .foot-loc.soon .foot-loc-text strong{color:var(--or)}
     .foot-loc.soon .foot-loc-text span{color:rgba(255,150,50,.7);font-weight:700}
-    .foot-loc-meta{
-      display:block;
-      margin-top:6px;
-      font-size:11.5px;
-      color:rgba(255,255,255,.55);
-      line-height:1.6;
-      letter-spacing:.1px;
-    }
+    .foot-loc-meta{display:block;margin-top:6px;font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.6;letter-spacing:.1px}
     .foot-loc-meta .sep{margin:0 6px;color:rgba(255,255,255,.3)}
     .foot-loc.soon .foot-loc-meta{color:rgba(255,170,90,.7)}
     .foot-loc.soon .foot-loc-meta .sep{color:rgba(255,170,90,.4)}
@@ -244,7 +236,7 @@
     footer{margin-bottom:0!important}
     .footer{padding-bottom:0!important}
 
-    /* ── 16. WA FAB ── */
+    /* ── 14. WA FAB ── */
     .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
     .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
     .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
@@ -260,10 +252,10 @@
     .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
     @media(max-width:900px){.mob-bar{display:block}.wa{bottom:84px}}
 
-    /* ── 17. Responsive ── */
-    @media(max-width:1100px){.ig{grid-template-columns:repeat(3,1fr)}.join-grid{grid-template-columns:1fr}}
-    @media(max-width:700px){.ig{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.ig{grid-template-columns:1fr}}
+    /* ── 15. Responsive ── */
+    @media(max-width:1024px){.tg{grid-template-columns:repeat(2,1fr)}.rating-summary{gap:20px}.rating-divider{display:none}}
+    @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.tg{grid-template-columns:1fr}.rating-num{font-size:56px}.rating-bars{min-width:160px}}
   </style>
 </head>
 <body>
@@ -291,13 +283,13 @@
           <li><a href="../index-zh">首页</a></li>
           <li><a href="about">关于我们</a></li>
           <li><a href="courses">课程</a></li>
-          <li><a href="instructors" class="active">导师</a></li>
-          <li><a href="review">评价</a></li>
+          <li><a href="instructors">导师</a></li>
+          <li><a href="review" class="active">评价</a></li>
           <li><a href="blog">博客</a></li>
           <li><a href="contact">联系我们</a></li>
         </ul>
         <div class="nav-end">
-          <a href="../pages/instructors" class="nav-lang">EN</a>
+          <a href="../pages/review" class="nav-lang">EN</a>
           <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">预约试课</a>
         </div>
         <button class="nav-ham" id="navHam" aria-label="菜单" aria-expanded="false">
@@ -316,7 +308,7 @@
     <a href="review">评价</a>
     <a href="blog">博客</a>
     <a href="contact">联系我们</a>
-    <a href="../pages/instructors" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">EN · English Version</a>
+    <a href="../pages/review" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">EN · English Version</a>
     <a href="trial" class="btn btn-cta">预约试课</a>
   </nav>
 
@@ -328,254 +320,275 @@
         <div class="breadcrumb sr">
           <a href="../index-zh">首页</a>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-          <span style="color:var(--or);font-weight:700">师资团队</span>
+          <span style="color:var(--or);font-weight:700">学员评价</span>
         </div>
-        <span class="pill-tag pt-lv sr d1">我们的导师</span>
-        <h1 class="hero-headline sr d2">用心传递音乐 — 认识我们的<span class="kw">导师团队</span></h1>
-        <p class="hero-lead sr d3">我们的国际化导师团队 — 毕业于中国、俄罗斯、乌克兰等地的顶尖音乐学院 — 将世界级的专业水准与真挚的温暖融入到每一堂课中。</p>
-        <div class="hero-badges sr d4">
-          <div class="hbadge"><span>🎓</span> 科班出身</div>
-          <div class="hbadge"><span>🌍</span> 国际化师资</div>
-          <div class="hbadge"><span>🏆</span> 英皇考级专家</div>
-          <div class="hbadge"><span>❤️</span> 以孩子为中心</div>
+        <span class="pill-tag pt-tl sr d1">家长评价</span>
+        <h1 class="hero-headline sr d2">来自真实家庭的<span class="kw">真实故事</span></h1>
+        <p class="hero-lead sr d3">超过 500 个新加坡家庭将孩子的音乐与艺术之旅托付给我们。以下，是他们用自己的话写下的真实心声。</p>
+
+        <!-- Rating summary -->
+        <div class="rating-summary sr d4">
+          <div class="rating-big">
+            <div class="rating-num">4.8</div>
+            <div class="rating-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="rating-count">基于 500+ 个家庭的真实评价</div>
+          </div>
+
+          <div class="rating-divider"></div>
+
+          <div class="rating-bars">
+            <div class="rbar-row">
+              <div class="rbar-label">5</div>
+              <div class="rbar-track"><div class="rbar-fill" style="width:85%"></div></div>
+              <div class="rbar-pct">85%</div>
+            </div>
+            <div class="rbar-row">
+              <div class="rbar-label">4</div>
+              <div class="rbar-track"><div class="rbar-fill" style="width:12%;opacity:.6"></div></div>
+              <div class="rbar-pct">12%</div>
+            </div>
+            <div class="rbar-row">
+              <div class="rbar-label">3</div>
+              <div class="rbar-track"><div class="rbar-fill" style="width:2%;opacity:.3"></div></div>
+              <div class="rbar-pct">2%</div>
+            </div>
+            <div class="rbar-row">
+              <div class="rbar-label">2</div>
+              <div class="rbar-track"><div class="rbar-fill" style="width:1%;opacity:.3"></div></div>
+              <div class="rbar-pct">1%</div>
+            </div>
+            <div class="rbar-row">
+              <div class="rbar-label">1</div>
+              <div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div>
+              <div class="rbar-pct">0%</div>
+            </div>
+          </div>
+
+          <div class="rating-divider"></div>
+
+          <div class="rating-platforms">
+            <div class="rplat">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <div class="rplat-name">Google</div>
+              <div class="rplat-stars">★★★★★</div>
+              <div class="rplat-score">4.8</div>
+            </div>
+            <div class="rplat">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <div class="rplat-name">Facebook</div>
+              <div class="rplat-stars">★★★★★</div>
+              <div class="rplat-score">4.8</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── INSTRUCTOR GRID ── -->
+    <!-- ── REVIEW CARDS ── -->
     <section style="background:var(--w)">
       <div class="W">
-        <div class="sec-head sr">
-          <span class="pill-tag pt-lv">我们的团队</span>
-          <h2>充满热忱与奉献精神的教育者</h2>
-          <p>每一位导师都经过严格筛选，他们不仅专业精湛、教学经验丰富，更源于对孩子们满腔的热爱。</p>
+        <div style="text-align:center;margin-bottom:56px">
+          <span class="pill-tag pt-tl sr">20,000+ 个快乐家庭</span>
+          <h2 class="sr d1" style="font-size:clamp(2rem,3.8vw,2.8rem);line-height:1.3">家长们怎么说</h2>
+          <p class="sr d2" style="font-size:17px;color:var(--body);max-width:580px;margin:14px auto 0;line-height:1.85">以下每一条评价均来自真实的学生或家长 — 感谢他们将孩子的音乐之旅托付给我们。</p>
         </div>
 
-        <div class="ig">
+        <div class="tg">
 
-          <!-- Ms Cecily -->
-          <a href="cecily" class="icard sr d1">
-            <div class="icard-photo">
-              <img src="../assets/cecily.webp" alt="Cecily 校长" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎵</div>
-              <span class="icard-role-badge">校长</span>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 1 -->
+          <div class="tcard featured sr d1">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Cecily 校长</div>
-              <div class="itags">
-                <span class="itag">校长</span>
-                <span class="itag">音乐家</span>
-                <span class="itag">教育家</span>
+            <p class="ttext">我女儿对中国民乐产生了浓厚的兴趣，并在博雅开启了她的音乐之旅。短短 4 个月后，她就能自信地登台表演了 — 我从未想过这一切会发生得这么快。</p>
+            <span class="tinst tl">古筝</span>
+            <div class="tauthor">
+              <div class="tavtr">V</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Victoria Tan 的家长</div>
+                <div class="tauthor-role">古筝学生</div>
               </div>
-              <p class="icard-desc">博雅音乐艺术学校校长。作为一名拥有超过 15 年教学经验的二胡专家，Cecily 校长引领着学校的核心愿景：在新加坡培养自信、充满创造力的年轻音乐人才。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Mr Calvin -->
-          <a href="calvin" class="icard sr d2">
-            <div class="icard-photo">
-              <img src="../assets/calvin.webp" alt="Calvin 副校长" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🥁</div>
-              <span class="icard-role-badge">副校长</span>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 2 -->
+          <div class="tcard sr d2">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Calvin 副校长</div>
-              <div class="itags">
-                <span class="itag">副校长</span>
-                <span class="itag sk">架子鼓</span>
-                <span class="itag sk">吉他</span>
-                <span class="itag sk">尤克里里</span>
+            <p class="ttext">我觉得在博雅学小提琴是一段非常有意义且物超所值的经历。学校在课程安排上非常灵活，包括补课安排 — 这对于我们这样忙碌的家庭来说真的太重要了。</p>
+            <span class="tinst">小提琴</span>
+            <div class="tauthor">
+              <div class="tavtr">L</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Ms. Li Boya</div>
+                <div class="tauthor-role">小提琴 6 级学生</div>
               </div>
-              <p class="icard-desc">博雅副校长，精通架子鼓、吉他和尤克里里。他以极具感染力、活力四射的教学风格而闻名，让每一堂课都充满乐趣，并且对所有年龄段的学生都出奇地有效。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Kate -->
-          <a href="kate" class="icard sr d3">
-            <div class="icard-photo">
-              <img src="../assets/kate.webp" alt="Kate 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎹</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 3 -->
+          <div class="tcard sr d3">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Kate 老师</div>
-              <div class="itags">
-                <span class="itag">钢琴</span>
+            <p class="ttext">博雅在我发现自身音乐热爱的过程中扮演了极其重要的角色。资质深厚的导师们用极具感染力的方式授课 — 我从未想过学二胡可以如此享受。</p>
+            <span class="tinst tl">二胡</span>
+            <div class="tauthor">
+              <div class="tavtr">K</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Ms. Kok</div>
+                <div class="tauthor-role">二胡 5 级学生</div>
               </div>
-              <p class="icard-desc">资质深厚且受过 ABRSM (英皇) 官方认证的钢琴导师。Kate 老师教授各个水平的古典与现代钢琴课程 — 从零基础初学者，到冲刺优秀 (Distinction) 成绩的考级生，她都能因材施教。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Jescelyn -->
-          <a href="jescelyn" class="icard sr d1">
-            <div class="icard-photo">
-              <img src="../assets/Jescelyn.webp" alt="Jescelyn 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎹</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 4 -->
+          <div class="tcard sr d1">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Jescelyn 老师</div>
-              <div class="itags">
-                <span class="itag">钢琴</span>
+            <p class="ttext">自从加入博雅后，Stephanie 发现了拉二胡的乐趣。在最近两次新加坡国立大学艺术中心 (NUS) 的考级中，她都获得了特优 (High Distinction) 的绝佳成绩。我们为她感到无比自豪！</p>
+            <span class="tinst tl">二胡</span>
+            <div class="tauthor">
+              <div class="tavtr">O</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Mr. Ow</div>
+                <div class="tauthor-role">二胡学生家长</div>
               </div>
-              <p class="icard-desc">佛罗里达州立大学音乐文学硕士 (最高荣誉)；南佛罗里达大学音乐文学学士 (优等)。经验丰富的钢琴家和教育工作者，在欧洲、亚洲和美国均有国际演出经验。曾任教学助理和高级钢琴导师，在演奏与教学法方面拥有深厚造诣。热衷于指导学生备考和登台演出，在每个阶段悉心培养他们的自信心。以充满支持与启发性的教学风格而备受喜爱。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Tina -->
-          <a href="tina" class="icard sr d2">
-            <div class="icard-photo">
-              <img src="../assets/Tina.webp" alt="Tina 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎹</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 5 -->
+          <div class="tcard sr d2">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Tina 老师</div>
-              <div class="itags">
-                <span class="itag">钢琴</span>
+            <p class="ttext">我很享受在 Chen 老师指导下的二胡课。她平易近人、非常善解人意，总能让课堂变得生动有趣。我在这里学习已经超过 5 年了，依然热爱这里的每一堂课！</p>
+            <span class="tinst tl">二胡</span>
+            <div class="tauthor">
+              <div class="tavtr">S</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Ms. Siti Maryam</div>
+                <div class="tauthor-role">二胡文凭级学生 · 学习 5 年</div>
               </div>
-              <p class="icard-desc">国立屏东大学钢琴演奏音乐硕士；国立台湾艺术大学钢琴演奏文学学士。屡获殊荣的钢琴家，曾在国际比赛中斩获最高奖项。拥有超过 20 年的教学和演出经验，包括国际独奏演出和音乐学院任教经历。热衷于指导学生备考和登台演出，在每个阶段悉心培养他们的自信心。以充满支持与启发性的教学风格而备受喜爱。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Verginia -->
-          <a href="verginia" class="icard sr d3">
-            <div class="icard-photo">
-              <img src="../assets/Verginia.webp" alt="Verginia 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎹</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 6 -->
+          <div class="tcard sr d3">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Verginia 老师</div>
-              <div class="itags">
-                <span class="itag">钢琴</span>
+            <p class="ttext">我的两个孩子都在博雅学习。课程安排很灵活，老师们也非常棒。我女儿刚学了 8 个月就完成了她的首次汇报演出 — 全家人都激动坏了！</p>
+            <span class="tinst">钢琴</span>
+            <div class="tauthor">
+              <div class="tavtr">J</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Jennifer Wong</div>
+                <div class="tauthor-role">两位学生的家长</div>
               </div>
-              <p class="icard-desc">华南理工大学音乐表演文学学士 (优秀毕业生)。拥有"小莫扎特音乐 (Music for Little Mozarts)"幼儿钢琴教育认证。屡获殊荣的钢琴家，曾获新加坡表演艺术节金奖 (钢琴四手联弹与合奏) 以及香港国际钢琴比赛精英奖。她将扎实的古典训练与温暖、富有启发性的方式相结合，耐心呵护每一位小学员。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Cheng -->
-          <a href="cheng" class="icard sr d1">
-            <div class="icard-photo">
-              <img src="../assets/cheng.webp" alt="Cheng 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎻</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 7 -->
+          <div class="tcard sr d1">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Cheng 老师</div>
-              <div class="itags">
-                <span class="itag">钢琴</span>
-                <span class="itag">小提琴</span>
-                <span class="itag">中提琴</span>
+            <p class="ttext">我本以为 34 岁才开始学架子鼓太晚了。但老师们让我感到了无比的包容与欢迎。这是我今年做过最棒的决定 — 短短几个月后，我就已经能跟着我最喜欢的歌一起敲击了！</p>
+            <span class="tinst sk">架子鼓</span>
+            <div class="tauthor">
+              <div class="tavtr">M</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Marcus Lim</div>
+                <div class="tauthor-role">成人架子鼓学生</div>
               </div>
-              <p class="icard-desc">一位多才多艺的跨界导师，在钢琴、小提琴和中提琴的教学上均有极高造诣。Cheng 老师在指导各个水平的学生备考以及登台演出方面，拥有极其丰富的经验。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Aliona -->
-          <a href="aliona" class="icard sr d2">
-            <div class="icard-photo">
-              <img src="../assets/Aliona.webp" alt="Aliona 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎻</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 8 -->
+          <div class="tcard sr d2">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Aliona 老师</div>
-              <div class="itags">
-                <span class="itag">小提琴</span>
+            <p class="ttext">在决定留在这里之前，我们尝试过好几所学校。博雅的教学质量和稳定性真的是无与伦比的 — 系统、循序渐进，而且充满乐趣。我的孩子们现在每周都非常期待去上课。</p>
+            <span class="tinst">小提琴</span>
+            <div class="tauthor">
+              <div class="tavtr">P</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Priya Nair</div>
+                <div class="tauthor-role">两位学生的家长</div>
               </div>
-              <p class="icard-desc">俄罗斯彼得罗扎沃茨克国立音乐学院小提琴演奏硕士。曾任知名交响乐团第一小提琴手，并与国际知名独奏家同台献艺。在新加坡拥有丰富的教学经验，带领学生在 ABRSM 考级和 DSA (直接招生计划) 中屡创佳绩。热衷于指导学生备考和登台演出，在每个阶段悉心培养他们的自信心。以充满支持与启发性的教学风格而备受喜爱。</p>
             </div>
-          </a>
+          </div>
 
-          <!-- Ms Teresa -->
-          <a href="teresa" class="icard sr d3">
-            <div class="icard-photo">
-              <img src="../assets/Teresa.webp" alt="Teresa 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎻</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
+          <!-- Review 9 -->
+          <div class="tcard sr d3">
+            <div class="tcard-quote">"</div>
+            <div class="tstars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <div class="icard-body">
-              <div class="icard-name">Teresa 老师</div>
-              <div class="itags">
-                <span class="itag">小提琴</span>
+            <p class="ttext">我是个毫无经验的零基础初学者。六个月后，我参加了我的首次汇报演出。老师们非常温暖、专业，并且真心实意地投入到每一个学生的成长中。</p>
+            <span class="tinst">小提琴</span>
+            <div class="tauthor">
+              <div class="tavtr">B</div>
+              <div class="tauthor-info">
+                <div class="tauthor-name">Bryan Chng</div>
+                <div class="tauthor-role">小提琴学生</div>
               </div>
-              <p class="icard-desc">台湾东吴大学音乐文学学士 (小提琴演奏)。屡获殊荣的小提琴家，曾在多项国际比赛中斩获合奏奖项。经验丰富的管弦乐团演奏家，曾多次在台湾国家音乐厅登台演出。热衷于指导学生备考和登台演出，在每个阶段悉心培养他们的自信心。以充满支持与启发性的教学风格而备受喜爱。</p>
             </div>
-          </a>
-
-          <!-- Ms Jiang -->
-          <a href="jiang" class="icard sr d1">
-            <div class="icard-photo">
-              <img src="../assets/jiang.webp" alt="Jiang 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎵</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
-            </div>
-            <div class="icard-body">
-              <div class="icard-name">Jiang 老师</div>
-              <div class="itags">
-                <span class="itag tl">二胡</span>
-                <span class="itag tl">中国民乐</span>
-                <span class="itag tl">小提琴</span>
-                <span class="itag tl">古琴</span>
-              </div>
-              <p class="icard-desc">毕业于北京中央音乐学院的科班二胡专家。作为多项国内及国际比赛的获奖者，Jiang 老师自 2015 年起便在博雅倾心致力于培养年轻的音乐学子。</p>
-            </div>
-          </a>
-
-          <!-- Ms Mindy -->
-          <a href="mindy" class="icard sr d2">
-            <div class="icard-photo">
-              <img src="../assets/Mindy.webp" alt="Mindy 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎤</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
-            </div>
-            <div class="icard-body">
-              <div class="icard-name">Mindy 老师</div>
-              <div class="itags">
-                <span class="itag">声乐</span>
-                <span class="itag tl">幼儿启蒙</span>
-              </div>
-              <p class="icard-desc">英国皇家音乐学院音乐学士 (声乐荣誉学位)。屡获殊荣的声乐家，在国际比赛中斩获多项大奖。热衷于指导学生备考和登台演出，在每个阶段悉心培养他们的自信心。以充满支持与启发性的教学风格而备受喜爱。</p>
-            </div>
-          </a>
-
-          <!-- Mr Leonard -->
-          <a href="leonard" class="icard sr d3">
-            <div class="icard-photo">
-              <img src="../assets/leonard.webp" alt="Leonard 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🥁</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
-            </div>
-            <div class="icard-body">
-              <div class="icard-name">Leonard 老师</div>
-              <div class="itags">
-                <span class="itag sk">架子鼓</span>
-                <span class="itag">钢琴</span>
-              </div>
-              <p class="icard-desc">一位对节奏和律动充满热情的跨界导师。Leonard 老师能让架子鼓课程变得激动人心且易于上手，带领学生在极短的时间内实现从零基础到登台演奏的蜕变。</p>
-            </div>
-          </a>
-
-          <!-- Mr Loy -->
-          <a href="loy" class="icard sr d1">
-            <div class="icard-photo">
-              <img src="../assets/loy.webp" alt="Loy 老师" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="icard-photo-icon" style="display:none">🎸</div>
-              <div class="icard-overlay"><span>查看简介 →</span></div>
-            </div>
-            <div class="icard-body">
-              <div class="icard-name">Loy 老师</div>
-              <div class="itags">
-                <span class="itag sk">吉他</span>
-                <span class="itag sk">架子鼓</span>
-                <span class="itag sk">尤克里里</span>
-              </div>
-              <p class="icard-desc">一位充满热情且极其耐心的吉他导师，他擅长让弦乐器变得通俗易懂，无论学生是 5 岁还是 55 岁的零基础初学者，都能轻松入门。学生们非常喜欢他轻松、充满鼓励的教学方式。</p>
-            </div>
-          </a>
+          </div>
 
         </div>
       </div>
@@ -590,71 +603,27 @@
             <div class="stat-lbl">注册学生</div>
           </div>
           <div class="sr d1">
-            <div class="stat-num">15<span class="acc">+</span></div>
-            <div class="stat-lbl">年卓越历程</div>
+            <div class="stat-num">4.8</div>
+            <div class="stat-lbl">平均评分</div>
           </div>
           <div class="sr d2">
-            <div class="stat-num">5</div>
-            <div class="stat-lbl">家新加坡分校</div>
-          </div>
-          <div class="sr d3">
             <div class="stat-num">99<span class="acc">%</span></div>
             <div class="stat-lbl">英皇 &amp; 圣三一通过率</div>
+          </div>
+          <div class="sr d3">
+            <div class="stat-num">15<span class="acc">+</span></div>
+            <div class="stat-lbl">年卓越历程</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── JOIN THE TEAM ── -->
-    <section style="background:var(--s1)">
-      <div class="W">
-        <div class="join-grid">
-          <div class="join-text sl">
-            <span class="pill-tag pt-tl">加入我们</span>
-            <h2>您是一名音乐教育工作者吗？</h2>
-            <p>我们始终在寻找充满热情、资质优秀的导师加入我们不断壮大的大家庭。如果您热爱与孩子们相处，并坚信音乐与艺术教育的力量，我们非常期待听到您的声音。</p>
-            <span class="btn btn-cta" aria-disabled="true" style="background:#CBD5E1;color:#fff;cursor:not-allowed;pointer-events:none;box-shadow:none;opacity:.85;">查看在招职位</span>
-          </div>
-          <div class="join-perks sfr">
-            <div class="join-perk">
-              <div class="join-perk-icon">📍</div>
-              <div class="join-perk-text">
-                <strong>5 家交通便利的分校</strong>
-                <span>在离家近的分校教学 — 遍布 Tengah、Tampines、Jurong West 和 Le Quest，以及 Coloury Art By Liberal (位于 Jurong Point，<strong style="color:#FF6600;font-weight:700;">即将开业</strong>)。</span>
-              </div>
-            </div>
-            <div class="join-perk">
-              <div class="join-perk-icon">🕐</div>
-              <div class="join-perk-text">
-                <strong>灵活的排班安排</strong>
-                <span>全职或兼职均可 — 我们会根据您的空闲时间灵活安排。</span>
-              </div>
-            </div>
-            <div class="join-perk">
-              <div class="join-perk-icon">🌱</div>
-              <div class="join-perk-text">
-                <strong>职业成长空间</strong>
-                <span>提供持续的培训、丰富的资源，以及协作式的团队环境，助力您作为教育者的不断成长。</span>
-              </div>
-            </div>
-            <div class="join-perk">
-              <div class="join-perk-icon">❤️</div>
-              <div class="join-perk-text">
-                <strong>充满支持的文化氛围</strong>
-                <span>加入一个温暖、充满热情的团队，这里的人们真心相信音乐与艺术带来的改变力量。</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ── CTA BANNER ── -->
     <section class="cta-band">
       <div class="W">
         <span class="pill-tag pt-lv sr">即刻启程</span>
-        <h2 class="sr d1">认识您孩子的专属导师</h2>
-        <p class="sr d2">预约一次免费试课，让孩子与最契合他们的良师益友建立连接。</p>
+        <h2 class="sr d1">准备好书写您自己的成功故事了吗？</h2>
+        <p class="sr d2">加入数百个快乐家庭的行列。预约一次试课 — 零压力，无顾虑。</p>
         <div class="cta-btns sr d3">
           <a href="trial" class="btn btn-cta btn-lg">预约试课</a>
           <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="btn-ink">
@@ -713,8 +682,7 @@
 
             <div class="foot-loc">
               <span class="foot-loc-pin">
-                <img src="../assets/address.webp" alt="位置"
-                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+                <img src="../assets/address.webp" alt="位置" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
               </span>
               <div class="foot-loc-text">
                 <strong>登加分校 Tengah</strong>
@@ -725,8 +693,7 @@
 
             <div class="foot-loc">
               <span class="foot-loc-pin">
-                <img src="../assets/address.webp" alt="位置"
-                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+                <img src="../assets/address.webp" alt="位置" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
               </span>
               <div class="foot-loc-text">
                 <strong>淡滨尼分校 Tampines</strong>
@@ -737,8 +704,7 @@
 
             <div class="foot-loc">
               <span class="foot-loc-pin">
-                <img src="../assets/address.webp" alt="位置"
-                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+                <img src="../assets/address.webp" alt="位置" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
               </span>
               <div class="foot-loc-text">
                 <strong>裕廊西分校 Jurong West</strong>
@@ -749,8 +715,7 @@
 
             <div class="foot-loc">
               <span class="foot-loc-pin">
-                <img src="../assets/address.webp" alt="位置"
-                     style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
+                <img src="../assets/address.webp" alt="位置" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
               </span>
               <div class="foot-loc-text">
                 <strong>Le Quest 商场分校</strong>
@@ -780,7 +745,7 @@
           <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
           <a href="privacy">隐私政策</a>
           <a href="terms">使用条款</a>
-          <a href="../pages/instructors">English</a>
+          <a href="../pages/review">English</a>
         </div>
       </div>
     </div>
