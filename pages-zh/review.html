@@ -238,15 +238,15 @@
 
     /* ── 14. WA FAB ── */
     .wa{position:fixed;bottom:28px;right:28px;z-index:900;pointer-events:none}
-    .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
+    .wa-fab{pointer-events:all;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 28px rgba(37,211,102,.42);transition:transform var(--t) var(--sp),box-shadow var(--t);cursor:pointer;border:none}
     .wa-fab:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.54)}
-    .wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:300px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
+    .wa-panel{pointer-events:all;position:absolute;bottom:68px;right:0;background:var(--w);border-radius:var(--r-l);box-shadow:var(--sh-l);width:290px;padding:22px;border:1px solid #EEF2F8;opacity:0;transform:scale(.88) translateY(10px);transform-origin:bottom right;pointer-events:none;transition:opacity var(--t) var(--sp),transform var(--t) var(--sp)}
     .wa-panel.on{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
-    .wa-panel h4{font-family:'Nunito',var(--zh),sans-serif;font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px}
-    .wa-panel p{font-size:14px;color:var(--muted);margin-bottom:14px}
-    .wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',var(--zh),sans-serif;font-weight:700;font-size:15px;color:var(--ink);transition:all var(--t);text-decoration:none}
+    .wa-panel h4{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:900;color:var(--ink);margin-bottom:4px}
+    .wa-panel p{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+    .wa-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:12px;background:var(--s2);border:1.5px solid #EEF2F8;margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);transition:all var(--t);text-decoration:none}
     .wa-row:hover{border-color:#25D366;background:#E8FFF1;color:#1a8a45}
-    .wa-row span{font-size:13px;font-weight:500;color:var(--muted)}
+    .wa-row span{font-size:11.5px;font-weight:500;color:var(--muted)}
     .wa-row:hover span{color:#1a8a45}
     .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
     .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
@@ -283,8 +283,8 @@
           <li><a href="../index-zh">首页</a></li>
           <li><a href="about">关于我们</a></li>
           <li><a href="courses">课程</a></li>
-          <li><a href="instructors">导师</a></li>
-          <li><a href="review" class="active">评价</a></li>
+          <li><a href="instructors">师资团队</a></li>
+          <li><a href="review" class="active">学员评价</a></li>
           <li><a href="blog">博客</a></li>
           <li><a href="contact">联系我们</a></li>
         </ul>
@@ -304,8 +304,8 @@
     <a href="../index-zh">首页</a>
     <a href="about">关于我们</a>
     <a href="courses">课程</a>
-    <a href="instructors">导师</a>
-    <a href="review">评价</a>
+    <a href="instructors">师资团队</a>
+    <a href="review">学员评价</a>
     <a href="blog">博客</a>
     <a href="contact">联系我们</a>
     <a href="../pages/review" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">EN · English Version</a>
@@ -668,8 +668,8 @@
             <li><a href="../index-zh">首页</a></li>
             <li><a href="about">关于我们</a></li>
             <li><a href="courses">课程</a></li>
-            <li><a href="instructors">导师</a></li>
-            <li><a href="review">评价</a></li>
+            <li><a href="instructors">师资团队</a></li>
+            <li><a href="review">学员评价</a></li>
             <li><a href="blog">博客</a></li>
             <li><a href="contact">联系我们</a></li>
           </ul>
@@ -754,23 +754,13 @@
   <!-- FLOATING WHATSAPP FAB -->
   <div class="wa">
     <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp 联系我们">
-      <h4>💬 和我们聊聊!</h4>
-      <p>请选择您最近的分校，直接 WhatsApp 联系。</p>
-      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">
-        🏡 登加 Tengah <span>8922 2848</span>
-      </a>
-      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">
-        🌅 淡滨尼 Tampines <span>8892 1198</span>
-      </a>
-      <a href="https://wa.me/6596277588" target="_blank" rel="noopener" class="wa-row">
-        🌸 裕廊西 Jurong West <span>9627 7588</span>
-      </a>
-      <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">
-        🏬 Le Quest <span>9627 7582</span>
-      </a>
-      <a href="https://wa.me/6589951163" target="_blank" rel="noopener" class="wa-row">
-        ✦ Coloury Art 七彩美术 <span>8995 1163</span>
-      </a>
+      <h4>💬 与我们联系！</h4>
+      <p>选择就近分校，直接通过 WhatsApp 联系我们。</p>
+      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">🏡 登加 <span>8922 2848</span></a>
+      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 淡滨尼 <span>8892 1198</span></a>
+      <a href="https://wa.me/6596277588" target="_blank" rel="noopener" class="wa-row">🌸 裕廊西 <span>9627 7588</span></a>
+      <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🏬 Le Quest <span>9627 7582</span></a>
+      <a href="https://wa.me/6589951163" target="_blank" rel="noopener" class="wa-row">✦ Coloury Art <span>8995 1163</span></a>
     </div>
     <button class="wa-fab" id="waFab" aria-label="打开 WhatsApp"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/></button>
   </div>

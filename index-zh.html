@@ -281,7 +281,7 @@
 <!-- Nunito: joyful display · Quicksand: round, friendly body -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
 
 <style>
 /* ╔═══════════════════════════════════════════════════════╗
@@ -296,6 +296,9 @@
   --or-glow: rgba(255,102,0,.16);
   --or-sh:   0 12px 32px rgba(255,102,0,.22);
   --or-shh:  0 16px 40px rgba(255,102,0,.34);
+
+  /* Chinese font stack — used in nav, body, and any text mixing CN+EN */
+  --zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
 
   /* Surfaces */
   --w:       #FFFFFF;
@@ -459,8 +462,9 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .nav-links{display:flex;align-items:center;gap:2px}
 .nav-links a{
   display:block;padding:8px 14px;border-radius:var(--r);
-  font-weight:600;font-size:18px;color:var(--body);
+  font-weight:700;font-size:17px;color:var(--body);
   transition:color var(--t),background var(--t);
+  font-family:var(--zh),'Quicksand',sans-serif;
 }
 .nav-links a:hover{color:var(--or);background:var(--or-lt)}
 .nav-links a.active{color:var(--or)}
@@ -1405,7 +1409,7 @@ footer { margin-bottom: 0 !important; }
 <div class="ann-bar">
   <a href="pages/trial">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/><path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/><line x1="12" y1="12" x2="12" y2="19"/></svg>
-    博雅音乐艺术学校 — 立即在新加坡5个分校预约试课！
+    博雅音乐艺术学校 — 立即在新加坡 5 家分校预约您的试课！
   </a>
 </div>
 
@@ -1423,11 +1427,11 @@ footer { margin-bottom: 0 !important; }
       <ul class="nav-links">
         <li><a href="index-zh" class="active">首页</a></li>
         <li><a href="pages-zh/about">关于我们</a></li>
-        <li><a href="pages-zh/courses">课程</a></li>
-        <li><a href="pages-zh/instructors">导师</a></li>
-        <li><a href="pages-zh/review">评价</a></li>
-        <li><a href="pages-zh/blog">博客</a></li>
-        <li><a href="pages-zh/contact">联系我们</a></li>
+        <li><a href="pages/courses">课程</a></li>
+        <li><a href="pages/instructors">导师</a></li>
+        <li><a href="pages/review">评价</a></li>
+        <li><a href="pages/blog">博客</a></li>
+        <li><a href="pages/contact">联系我们</a></li>
       </ul>
 
       <div class="nav-end">
@@ -1445,11 +1449,11 @@ footer { margin-bottom: 0 !important; }
 <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
   <a href="index-zh">首页</a>
   <a href="pages-zh/about">关于我们</a>
-  <a href="pages-zh/courses">课程</a>
-  <a href="pages-zh/instructors">导师</a>
-  <a href="pages-zh/review">评价</a>
-  <a href="pages-zh/blog">博客</a>
-  <a href="pages-zh/contact">联系我们</a>
+  <a href="pages/courses">课程</a>
+  <a href="pages/instructors">导师</a>
+  <a href="pages/review">评价</a>
+  <a href="pages/blog">博客</a>
+  <a href="pages/contact">联系我们</a>
   <a href="index" style="opacity:.7;">EN</a>
   <a href="pages/trial" class="btn btn-cta">预约试课</a>
 </nav>
@@ -1513,11 +1517,11 @@ footer { margin-bottom: 0 !important; }
           <a href="pages/courses#violin" class="i-pill">小提琴</a>
           <a href="pages/courses#drums" class="i-pill">架子鼓</a>
           <a href="pages/courses#vocal" class="i-pill">声乐</a>
-          <a href="pages-zh/courses" class="i-pill">更多 →</a>
+          <a href="pages/courses" class="i-pill">更多 →</a>
         </div>
         <div class="hero-btns sr d3">
           <a href="pages/trial" class="btn btn-cta btn-lg btn-ring">✦ 预约试课</a>
-          <a href="pages-zh/courses" class="btn btn-outline btn-lg">查看课程</a>
+          <a href="pages/courses" class="btn btn-outline btn-lg">查看课程</a>
         </div>
         <div class="proof sr d4">
           <div class="pf-stack" id="proofStack">
@@ -1758,7 +1762,7 @@ footer { margin-bottom: 0 !important; }
 
     </div>
     <div style="text-align:center;margin-top:44px" class="sr">
-      <a href="pages-zh/courses" class="btn btn-outline">查看全部课程 →</a>
+      <a href="pages/courses" class="btn btn-outline">查看全部课程 →</a>
     </div>
   </div>
 </section>
@@ -1821,7 +1825,7 @@ footer { margin-bottom: 0 !important; }
           </a>
 
           <!-- 4. Ms Jescelyn -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp4">
               <img src="assets/Jescelyn.webp" alt="Ms Jescelyn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1834,7 +1838,7 @@ footer { margin-bottom: 0 !important; }
           </a>
 
           <!-- 5. Ms Tina -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp5">
               <img src="assets/Tina.webp" alt="Ms Tina" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1847,7 +1851,7 @@ footer { margin-bottom: 0 !important; }
           </a>
 
           <!-- 6. Ms Verginia -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp6">
               <img src="assets/Verginia.webp" alt="Ms Verginia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1886,7 +1890,7 @@ footer { margin-bottom: 0 !important; }
           </a>
 
           <!-- 9. Ms Aliona -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp9">
               <img src="assets/Aliona.webp" alt="Ms Aliona" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1899,7 +1903,7 @@ footer { margin-bottom: 0 !important; }
           </a>
 
           <!-- 10. Ms Teresa -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp10">
               <img src="assets/Teresa.webp" alt="Ms Teresa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1912,7 +1916,7 @@ footer { margin-bottom: 0 !important; }
           </a>
 
           <!-- 11. Ms Mindy -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp1">
               <img src="assets/Mindy.webp" alt="Ms Mindy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
@@ -1958,7 +1962,7 @@ footer { margin-bottom: 0 !important; }
       </button>
     </div>
     <div style="text-align:center;margin-top:44px" class="sr">
-      <a href="pages-zh/instructors" class="btn btn-outline">认识所有导师 →</a>
+      <a href="pages/instructors" class="btn btn-outline">认识所有导师 →</a>
     </div>
   </div>
 </section>
@@ -2063,7 +2067,7 @@ footer { margin-bottom: 0 !important; }
     </div>
 
     <div style="text-align:center;margin-top:36px" class="sr">
-      <a href="pages-zh/review" class="btn btn-outline">阅读全部评价 →</a>
+      <a href="pages/review" class="btn btn-outline">阅读全部评价 →</a>
     </div>
   </div>
 </section>
@@ -2182,7 +2186,7 @@ footer { margin-bottom: 0 !important; }
     <p>零压力体验教学魅力！走进课堂，享受音乐，开启沉浸式音乐之旅</p>
     <div class="cta-btns">
       <a href="pages/trial" class="btn btn-cta btn-lg btn-ring">✦ 预约试课</a>
-      <a href="pages-zh/contact" class="btn btn-outline btn-lg">咨询提问</a>
+      <a href="pages/contact" class="btn btn-outline btn-lg">咨询提问</a>
     </div>
     <div class="cta-checks">
       <span class="chk">ABRSM 与 Trinity 考级 99% 通过率</span>
@@ -2219,11 +2223,11 @@ footer { margin-bottom: 0 !important; }
         <ul>
           <li><a href="index-zh">首页</a></li>
           <li><a href="pages-zh/about">关于我们</a></li>
-          <li><a href="pages-zh/courses">课程</a></li>
-          <li><a href="pages-zh/instructors">导师</a></li>
-          <li><a href="pages-zh/review">评价</a></li>
-          <li><a href="pages-zh/blog">博客</a></li>
-          <li><a href="pages-zh/contact">联系我们</a></li>
+          <li><a href="pages/courses">课程</a></li>
+          <li><a href="pages/instructors">导师</a></li>
+          <li><a href="pages/review">评价</a></li>
+          <li><a href="pages/blog">博客</a></li>
+          <li><a href="pages/contact">联系我们</a></li>
         </ul>
       </div>
 
