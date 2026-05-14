@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/favicon.ico", "destination": "/assets/liberalfavicon.png" }
+  ],
   "redirects": [
     { "source": "/about-us", "destination": "/pages/about", "permanent": true },
     { "source": "/contact-us", "destination": "/pages/contact", "permanent": true },
