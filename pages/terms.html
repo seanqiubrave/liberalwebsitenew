@@ -104,10 +104,10 @@
     .nav-drawer a{display:block;padding:9px 14px;border-radius:var(--r);font-weight:700;font-size:16.5px;color:var(--ink);transition:background var(--t),color var(--t);text-decoration:none}
     .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
     .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:8px;font-size:15px;padding:11px 22px} /* mobile drawer compact May 14 2026 */
-    @media(max-width:900px){
+    @media(max-width:1024px){
       .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
       .nav-ham{display:flex}
-    }
+    }  /* nav collapse raised to 1024px for Nest Hub May 14 2026 */
 
     /* ── Pill Tags ── */
     .pill-tag{font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.4px;padding:7px 16px;border-radius:999px;display:inline-block}
@@ -347,7 +347,7 @@
           <li><a href="contact">Contact</a></li>
         </ul>
         <div class="nav-end">
-          <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
+          <a href="../pages-zh/terms" class="nav-lang">中文</a>
           <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
         </div>
         <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
@@ -366,6 +366,7 @@
     <a href="review">Review</a>
     <a href="blog">Blog</a>
     <a href="contact">Contact</a>
+    <a href="../pages-zh/terms" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">中文 · Chinese Version</a>
     <a href="trial" class="btn btn-cta">Book Trial Class</a>
   </nav>
 
@@ -575,7 +576,7 @@
             <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
             <a href="privacy">Privacy Policy</a>
             <a href="terms">Terms of Use</a>
-            <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
+            <a href="../pages-zh/terms">中文版本</a>
           </div>
         </div>
       </div>
