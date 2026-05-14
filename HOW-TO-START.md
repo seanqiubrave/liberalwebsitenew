@@ -743,25 +743,54 @@ Two other GSC reports were reviewed this session and intentionally left untouche
 
 ---
 
-## 📝 PAGE-SPECIFIC NOTES (May 14, 2026 session — Instructor "families" count bump)
+## 📝 PAGE-SPECIFIC NOTES (May 14, 2026 session — mobile drawer, families bump, bilingual legal/blog pages, nav fixes)
 
-Small copy-only change across all 13 instructor profile pages.
+Large multi-part session. Five distinct workstreams — treat all of the below as current state.
 
-### All 13 instructor pages — social-proof number updated
-The CTA paragraph (`<p class="sr d2">`) in the bottom "Start Today" / book-trial section read:
-> Join over **500** families who trust Liberal Music & Arts School. Book a free trial class with [Instructor] or any of our expert instructors.
+### A. Instructor "families" count bumped 500 → 20,000+
+The CTA paragraph (`<p class="sr d2">`) in the bottom "Start Today" section of every instructor page read *"Join over **500** families..."*. `500` was bumped to `20,000+` to match the brand-wide figure (footer paragraph, homepage hero, course pages all say 20,000).
+- Applied to all 13 instructor pages: `cecily, calvin, kate, jescelyn, tina, verginia, cheng, aliona, teresa, jiang, mindy, leonard, loy`
+- Only the `Join over 500 families` string was touched — `font-weight:500` CSS and the Quicksand `500` font-import weight were left alone.
+- Note: the 6 English instructor pages were later observed already cleaned to `Join 20,000+ families` (without the redundant "over"). Either phrasing is acceptable; not worth a re-sweep.
 
-`500` was bumped to `20,000+` to match the brand-wide figure used everywhere else on the site (footer brand paragraph, homepage hero, course pages all say "20,000 families since 2009").
+### B. Mobile nav drawer shrunk site-wide (the "see all buttons" fix)
+The `.nav-drawer` mobile menu had oversized links (`font-size:25.5px`, some pages `23px`) — on phones the menu items overflowed past the screen so you couldn't see all of them. Shrunk to a compact size across **every page**:
+- `.nav-drawer a` — `font-size` → `16.5px`, `padding` → `9px 14px`
+- `.nav-drawer` container — `gap` → `2px`, `padding` → `12px 28px 20px`
+- `.nav-drawer .btn-cta` → `margin-top:8px;font-size:15px;padding:11px 22px`
+- Applied to: 2 homepages + 9 main pages + 13 instructor pages + 13 course/legal/career-adjacent pages + 2 blog article pages. **`career.html` was skipped** — it uses an older `.mob-nav` template that was already compact (`font-size:15px`), no overflow problem.
+- Marker: `mobile drawer compact May 14 2026`
 
-- New text: `Join over 20,000+ families who trust Liberal Music & Arts School...`
-- Applied to all 13: `cecily, calvin, kate, jescelyn, tina, verginia, cheng, aliona, teresa, jiang, mindy, leonard, loy`
-- Only the `Join over 500 families` string was touched — the `font-weight:500` CSS rules (`.wa-row span`) and the Quicksand `500` font-import weight were left alone.
-- **Minor wording nit (not fixed):** "over 20,000+" is slightly redundant ("over" + "+"). Left as-is for now to keep the change a pure find-replace; can be cleaned to "Join 20,000+ families" or "Join over 20,000 families" in a future pass if desired.
+### C. New Chinese pages created (`pages-zh/`)
+Chinese versions built for 5 pages, header/footer matched to existing `pages-zh/` pages (used `courses.html` zh as the reference). Each adds the `Noto Sans SC` font import + `--zh` CSS variable, wires `var(--zh)` into the body/heading/nav/footer font stacks, and flips the language toggle to **EN** (linking back to the English page).
+- `pages-zh/privacy.html` — marker `pages-zh/privacy`
+- `pages-zh/terms.html` — marker `pages-zh/terms`
+- `pages-zh/contact.html` — Chinese contact page (FormSubmit also updated, see E)
+- `pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey.html`
+- `pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html`
+- **Article-page path rule reminder:** Chinese article pages live in `pages-zh/articles/` — internal links use `../../pages-zh/` and `../../index-zh` (two levels up). The two Chinese article pages also received the mobile-drawer shrink (C) since the article template still had the old 25.5px drawer.
 
-### Verify-before-push marker used in this session
-| File | Marker |
+### D. Bilingual linking + Nest Hub nav fix on legal + blog pages
+On the English `pages/privacy.html`, `pages/terms.html`, and both English blog articles:
+- **The `中文` button is now a LIVE LINK** (was a disabled grey `<span>`). Navbar pill, footer `中文版本` link, and a new mobile-drawer `中文 · Chinese Version` row all point to the matching `pages-zh/` page. **This is a deliberate exception to the site-wide "中文 disabled while bilingual site paused" rule** — these 4 pages now have working Chinese counterparts, so their toggles are live. The other English pages' `中文` buttons stay disabled until their Chinese versions exist.
+- **Nest Hub display fix:** the nav-collapse breakpoint was `@media(max-width:900px)`, but Nest Hub renders at 1024px — so 901–1024px showed a broken/overflowing desktop nav (the "Book Trial Class" button was clipped). Raised the breakpoint to `@media(max-width:1024px)` so the hamburger kicks in at Nest Hub width and below. Applied to privacy, terms, and both English articles. Marker: `nav collapse raised to 1024px for Nest Hub May 14 2026`.
+- **Still outstanding:** the other ~20 English pages still have the `900px` breakpoint and the same Nest Hub overflow. Sweep them in a future batch if needed.
+
+### E. Contact form receive-email changed
+`contact.html` (both EN and ZH) FormSubmit `action` changed from `https://formsubmit.co/colouryartsg@gmail.com` → `https://formsubmit.co/liberal_music@yahoo.com.sg`.
+- **FormSubmit needs a one-time activation** for the new address — the first form submission after deploy sends a confirmation email to `liberal_music@yahoo.com.sg`; someone must click the activation link or submissions won't arrive.
+- Marker: `formsubmit.co/liberal_music@yahoo.com.sg`
+
+### Verify-before-push markers used in this session
+| Change | Marker |
 |---|---|
-| All 13 instructor pages | `Join over 20,000+ families` |
+| Instructor families bump | `Join over 20,000+ families` (or `Join 20,000+ families`) |
+| Mobile drawer shrink (all pages) | `mobile drawer compact May 14 2026` |
+| Chinese privacy / terms | `pages-zh/privacy` / `pages-zh/terms` |
+| Nest Hub nav breakpoint | `nav collapse raised to 1024px for Nest Hub May 14 2026` |
+| Contact form email swap | `formsubmit.co/liberal_music@yahoo.com.sg` |
+
+> **Heads-up — same-filename collision risk:** the Chinese `privacy.html`, `terms.html`, `contact.html`, and the 2 article files share filenames with their English counterparts. When copying outputs into the repo, the English ones go in `pages/` (+ `pages/articles/`) and the Chinese ones go in `pages-zh/` (+ `pages-zh/articles/`). The Chinese files are identifiable by `lang="zh-CN"` and a `pages-zh/...` canonical tag.
 
 ---
 
@@ -777,7 +806,7 @@ The CTA paragraph (`<p class="sr d2">`) in the bottom "Start Today" / book-trial
 | `pages/instructors.html` | Re-upload after each edit |
 | `pages/review.html` | Parent reviews page (replaces old testimonial.html — testimonial.html DELETED April 2026) |
 | `pages/blog.html` | Re-upload after each edit |
-| `pages/contact.html` | FormSubmit wired to colouryartsg@gmail.com |
+| `pages/contact.html` | FormSubmit wired to liberal_music@yahoo.com.sg (changed May 14 2026) |
 | `pages/trial.html` | Re-upload after each edit |
 | `pages/privacy.html` | Privacy Policy (PDPA) |
 | `pages/terms.html` | Terms of Use |
@@ -799,3 +828,8 @@ The CTA paragraph (`<p class="sr d2">`) in the bottom "Start Today" / book-trial
 | `pages/loy.html` | Re-upload after each edit |
 | `pages/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html` | Article page — re-upload after each edit |
 | `pages/articles/from-first-note-to-full-confidence-a-6-month-journey.html` | Article page — re-upload after each edit |
+| `pages-zh/privacy.html` | Chinese Privacy Policy — created May 14 2026 |
+| `pages-zh/terms.html` | Chinese Terms of Use — created May 14 2026 |
+| `pages-zh/contact.html` | Chinese contact page — created May 14 2026 |
+| `pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey.html` | Chinese article page — created May 14 2026 |
+| `pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html` | Chinese article page — created May 14 2026 |
