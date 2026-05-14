@@ -471,6 +471,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   background:var(--s2);border:1.5px solid #DDE6F2;
   padding:5px 12px;border-radius:999px;cursor:pointer;
   transition:all var(--t);text-decoration:none;
+  white-space:nowrap;
 }
 .nav-lang:hover{border-color:var(--or);color:var(--or)}
 
@@ -1289,6 +1290,12 @@ a.tc:hover .tc-ov::after{opacity:1}
   .tc{flex:0 0 calc((100% - 48px)/3)}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
 }
+@media(max-width:1024px){
+  .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
+  .nav-ham{display:flex}
+  .mob-bar{display:block}
+  .wa{bottom:84px}
+}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:48px}
   .hero-vis{order:-1;max-width:460px;margin:0 auto}
@@ -1303,10 +1310,6 @@ a.tc:hover .tc-ov::after{opacity:1}
   .foot-grid{grid-template-columns:1fr 1fr}
   .rev-inner{grid-template-columns:1fr}
   .faq-inner{grid-template-columns:repeat(2,1fr)}
-  .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
-  .nav-ham{display:flex}
-  .mob-bar{display:block}
-  .wa{bottom:84px}
   .course-grid{grid-template-columns:1fr}
   .rev-arrow{display:none}
   .faq-arrow{display:none}
@@ -1677,6 +1680,7 @@ footer { margin-bottom: 0 !important; }
     <div class="course-grid">
 
       <div class="course-card sl">
+        <a href="pages/piano-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct1"><img src="assets/pianocourse.webp" alt="Piano"/></div>
         <div class="course-body">
           <div class="course-tag">Most Popular</div>
@@ -1684,12 +1688,14 @@ footer { margin-bottom: 0 !important; }
           <p>From first notes to concert pieces — build technique, theory, and unstoppable confidence at the keys.</p>
           <div class="course-foot">
             <div class="course-meta"><strong>1-to-1</strong>All levels</div>
-            <a href="pages/trial" class="btn btn-cta btn-sm">Try Now →</a>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
+        </a>
       </div>
 
       <div class="course-card sr">
+        <a href="pages/violin-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct2"><img src="assets/violincourse.webp" alt="Violin"/></div>
         <div class="course-body">
           <div class="course-tag">Builds Focus</div>
@@ -1697,12 +1703,14 @@ footer { margin-bottom: 0 !important; }
           <p>Develop beautiful tone, sharp ear training, and the poise of a true musician.</p>
           <div class="course-foot">
             <div class="course-meta"><strong>1-to-1</strong>All levels</div>
-            <a href="pages/trial" class="btn btn-cta btn-sm">Try Now →</a>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
+        </a>
       </div>
 
       <div class="course-card sfr">
+        <a href="pages/guitar-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct3"><img src="assets/guitarcourse.webp" alt="Guitar"/></div>
         <div class="course-body">
           <div class="course-tag">Beginner Friendly</div>
@@ -1710,12 +1718,14 @@ footer { margin-bottom: 0 !important; }
           <p>Acoustic, classical, or electric — spark a lifelong love of music from the very first chord.</p>
           <div class="course-foot">
             <div class="course-meta"><strong>1-to-1</strong>All levels</div>
-            <a href="pages/trial" class="btn btn-cta btn-sm">Try Now →</a>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
+        </a>
       </div>
 
       <div class="course-card sl d2">
+        <a href="pages/drum-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct4"><img src="assets/drumcourse.webp" alt="Drums"/></div>
         <div class="course-body">
           <div class="course-tag">High Energy</div>
@@ -1723,13 +1733,14 @@ footer { margin-bottom: 0 !important; }
           <p>Build coordination, timing, and explosive rhythm. Turns restless kids into focused, confident musicians.</p>
           <div class="course-foot">
             <div class="course-meta"><strong>1-to-1</strong>All levels</div>
-            <a href="pages/trial" class="btn btn-cta btn-sm">Try Now →</a>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
+        </a>
       </div>
 
       <div class="course-card sr d2">
-        <a href="https://colouryart.com/" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;">
+        <a href="https://colouryart.com/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct5"><img src="assets/colouryart.webp" alt="Visual Art"/></div>
         <div class="course-body">
           <div class="course-tag">Creative Expression</div>
@@ -1737,13 +1748,14 @@ footer { margin-bottom: 0 !important; }
           <p>Drawing, painting, and mixed media — building creative confidence that shines through everything.</p>
           <div class="course-foot">
             <div class="course-meta"><strong>Group Classes</strong>Project-based</div>
-            <a href="https://colouryart.com/" target="_blank" rel="noopener" class="btn btn-cta btn-sm">Learn More →</a>
+            <span class="btn btn-cta btn-sm">Learn More →</span>
           </div>
         </div>
         </a>
       </div>
 
       <div class="course-card sfr d2">
+        <a href="pages/courses" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct6"><img src="assets/dancecourse.webp" alt="Dance"/></div>
         <div class="course-body">
           <div class="course-tag">Joyful Movement</div>
@@ -1751,9 +1763,10 @@ footer { margin-bottom: 0 !important; }
           <p>Ballet, hip-hop, and contemporary in a warm, encouraging space. Watch your child blossom on stage.</p>
           <div class="course-foot">
             <div class="course-meta"><strong>Group Classes</strong>Annual showcase</div>
-            <a href="pages/trial" class="btn btn-cta btn-sm">Try Now →</a>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
+        </a>
       </div>
 
     </div>
