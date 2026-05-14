@@ -743,6 +743,28 @@ Two other GSC reports were reviewed this session and intentionally left untouche
 
 ---
 
+## 📝 PAGE-SPECIFIC NOTES (May 14, 2026 session — Instructor "families" count bump)
+
+Small copy-only change across all 13 instructor profile pages.
+
+### All 13 instructor pages — social-proof number updated
+The CTA paragraph (`<p class="sr d2">`) in the bottom "Start Today" / book-trial section read:
+> Join over **500** families who trust Liberal Music & Arts School. Book a free trial class with [Instructor] or any of our expert instructors.
+
+`500` was bumped to `20,000+` to match the brand-wide figure used everywhere else on the site (footer brand paragraph, homepage hero, course pages all say "20,000 families since 2009").
+
+- New text: `Join over 20,000+ families who trust Liberal Music & Arts School...`
+- Applied to all 13: `cecily, calvin, kate, jescelyn, tina, verginia, cheng, aliona, teresa, jiang, mindy, leonard, loy`
+- Only the `Join over 500 families` string was touched — the `font-weight:500` CSS rules (`.wa-row span`) and the Quicksand `500` font-import weight were left alone.
+- **Minor wording nit (not fixed):** "over 20,000+" is slightly redundant ("over" + "+"). Left as-is for now to keep the change a pure find-replace; can be cleaned to "Join 20,000+ families" or "Join over 20,000 families" in a future pass if desired.
+
+### Verify-before-push marker used in this session
+| File | Marker |
+|---|---|
+| All 13 instructor pages | `Join over 20,000+ families` |
+
+---
+
 | File | Purpose |
 |---|---|
 | `HOW-TO-START.md` | This file — workflow + design system summary |
