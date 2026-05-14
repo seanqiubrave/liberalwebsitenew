@@ -114,7 +114,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-links a:hover{color:var(--or);background:var(--or-lt)}
 .nav-links a.active{color:var(--or)}
 .nav-end{display:flex;align-items:center;gap:10px}
-.nav-lang{font-size:15.5px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:5px 12px;border-radius:999px;cursor:pointer;transition:all var(--t);text-decoration:none}
+.nav-lang{font-size:15.5px;font-weight:700;color:var(--muted);background:var(--s2);border:1.5px solid #DDE6F2;padding:5px 12px;border-radius:999px;cursor:pointer;transition:all var(--t);text-decoration:none;white-space:nowrap}
 .nav-lang:hover{border-color:var(--or);color:var(--or)}
 .nav-ham{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:var(--r);transition:background var(--t)}
 .nav-ham:hover{background:var(--or-lt)}
@@ -330,6 +330,12 @@ footer{margin-bottom:0!important}
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:1100px){.vals-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1024px){
+  .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
+  .nav-ham{display:flex}
+  .mob-bar{display:block}
+  .wa{bottom:84px}
+}
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:48px}
   .hero-vis{order:-1;max-width:500px;margin:0 auto}
@@ -392,7 +398,7 @@ footer{margin-bottom:0!important}
         <li><a href="contact">Contact</a></li>
       </ul>
       <div class="nav-end">
-        <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
+        <a class="nav-lang" href="../pages-zh/about">中文</a>
         <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
       </div>
       <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
@@ -409,6 +415,7 @@ footer{margin-bottom:0!important}
   <a href="review">Review</a>
   <a href="blog">Blog</a>
   <a href="contact">Contact</a>
+  <a href="../pages-zh/about" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">中文 · Chinese Version</a>
   <a href="trial" class="btn btn-cta">Book Trial Class</a>
 </nav>
 
@@ -735,7 +742,7 @@ footer{margin-bottom:0!important}
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="privacy">Privacy Policy</a>
         <a href="terms">Terms of Use</a>
-        <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
+        <a href="../pages-zh/about" style="font-size:15px;color:#fff;">中文版本</a>
       </div>
     </div>
   </div>
