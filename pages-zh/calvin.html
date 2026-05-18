@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+<!-- pages-zh/calvin.html · Chinese Calvin profile -->
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Mr Calvin – Vice Principal, Drums & Guitar | Liberal Music Singapore</title>
-<meta name="description" content="Learn drums, guitar or ukulele from an award-winning international artist and our Vice Principal, Mr Calvin. Book a trial class today."/>
-<link rel="canonical" href="https://liberalmusicschool.com/pages/calvin"/>
+  <title>Calvin 副校长 · 架子鼓 · 吉他 · 尤克里里导师 | 博雅音乐艺术学校 新加坡</title>
+<meta name="description" content="向博雅音乐艺术学校副校长、屡获殊荣的国际艺术家 Calvin 老师学习架子鼓、吉他或尤克里里。立即预约试课。"/>
+<link rel="canonical" href="https://liberalmusicschool.com/pages-zh/calvin"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
   <style>
     /* ── CSS Variables ── */
     :root {
@@ -19,6 +20,7 @@
       --or-glow: rgba(255,102,0,.16);
       --or-sh:   0 12px 32px rgba(255,102,0,.22);
       --or-shh:  0 16px 40px rgba(255,102,0,.34);
+      --zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
       --w:    #FFFFFF;
       --s1:   #FFFAF5;
       --s2:   #F8FBFF;
@@ -44,8 +46,8 @@
     /* ── Reset ── */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;background:#1F2A44}
-    body{font-family:'Quicksand',system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-    h1,h2,h3,h4{font-family:'Nunito',sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
+    body{font-family:'Quicksand',var(--zh),system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Nunito',var(--zh),sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
     ul{list-style:none}
@@ -190,7 +192,7 @@
         border-radius: 0;
         background: transparent;
         transition: all 0.2s ease;
-
+        font-family: var(--zh),'Quicksand',sans-serif;
       }
       .nav-links .dropdown-menu li a:hover {
         color: var(--or) !important;
@@ -422,7 +424,7 @@
         <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
         <line x1="12" y1="12" x2="12" y2="19"/>
       </svg>
-      Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!
+      博雅音乐艺术学校 — 立即在新加坡 5 家分校预约您的试课！
     </a>
   </div>
 
@@ -430,32 +432,33 @@
   <nav class="nav" id="nav">
     <div class="W">
       <div class="nav-row">
-        <a href="../index" class="nav-logo" aria-label="Liberal Music & Arts Home">
-          <img src="../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display='none'"/>
+        <a href="../index-zh" class="nav-logo" aria-label="博雅音乐艺术学校">
+          <img src="../assets/logo.webp" alt="博雅音乐艺术学校" onerror="this.style.display='none'"/>
         </a>
         <ul class="nav-links">
-          <li><a href="../index">Home</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="courses">Courses</a></li>
-          <li><a href="instructors" class="active">Instructors</a></li>
-          <li><a href="review">Review</a></li>
-          <li><a href="blog">Blog</a></li>
+          <li><a href="../index-zh">首页</a></li>
+          <li><a href="about">关于我们</a></li>
+          <li><a href="courses">课程</a></li>
+          <li><a href="instructors" class="active">导师</a></li>
+          <li><a href="review">评价</a></li>
+          <li><a href="blog">博客</a></li>
+
           <!-- Contact ▾ dropdown — REQUIRED on every page (added May 18 2026) -->
           <li class="nav-item-dropdown">
-            <a href="contact" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a>
+            <a href="contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
             <ul class="dropdown-menu">
-              <li><a href="/locations/jurong-west">Jurong West</a></li>
-              <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
-              <li><a href="/locations/tampines">Tampines</a></li>
-              <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+              <li><a href="/locations/jurong-west">裕廊西</a></li>
+              <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+              <li><a href="/locations/tampines">淡滨尼</a></li>
+              <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
             </ul>
           </li>
         </ul>
         <div class="nav-end">
-          <span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
-          <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
+          <a href="../pages/calvin" class="nav-lang" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>
+          <a href="trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">预约试课</a>
         </div>
-        <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
+        <button class="nav-ham" id="navHam" aria-label="菜单" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -463,24 +466,27 @@
   </nav>
 
   <!-- MOBILE DRAWER -->
-  <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-    <a href="../index">Home</a>
-    <a href="about">About</a>
-    <a href="courses">Courses</a>
-    <a href="instructors">Instructors</a>
-    <a href="review">Review</a>
-    <a href="blog">Blog</a>
+  <nav class="nav-drawer" id="navDrawer" aria-label="移动端导航">
+    <a href="../index-zh">首页</a>
+    <a href="about">关于我们</a>
+    <a href="courses">课程</a>
+    <a href="instructors">导师</a>
+    <a href="review">评价</a>
+    <a href="blog">博客</a>
+
     <!-- Contact dropdown — flat (always expanded) in drawer -->
     <div class="nav-item-dropdown">
-      <a href="contact" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a>
+      <a href="contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
       <ul class="dropdown-menu">
-        <li><a href="/locations/jurong-west">Jurong West</a></li>
-        <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
-        <li><a href="/locations/tampines">Tampines</a></li>
-        <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+        <li><a href="/locations/jurong-west">裕廊西</a></li>
+        <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+        <li><a href="/locations/tampines">淡滨尼</a></li>
+        <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
       </ul>
     </div>
-    <a href="trial" class="btn btn-cta">Book Trial Class</a>
+
+    <a href="../pages/calvin" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">EN · English Version</a>
+    <a href="trial" class="btn btn-cta">预约试课</a>
   </nav>
 
   <main style="padding-top:108px">
@@ -491,11 +497,11 @@
 
         <!-- Breadcrumb -->
         <div class="breadcrumb sr">
-          <a href="../index">Home</a>
+          <a href="../index-zh">首页</a>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          <a href="instructors">Our Instructors</a>
+          <a href="instructors">我们的导师</a>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          <span>Mr Calvin</span>
+          <span>Calvin 副校长</span>
         </div>
 
         <div class="profile-inner">
@@ -503,19 +509,19 @@
           <!-- Left: Photo Card -->
           <div class="photo-card sl">
             <div class="photo-wrap">
-              <img src="../assets/calvin.webp" alt="Mr Calvin – Vice Principal"
+              <img src="../assets/calvin.webp" alt="Calvin 副校长"
                    onerror="this.style.background='linear-gradient(135deg,#D4EDFF,#E8E4FF)';this.style.minHeight='480px'"/>
-              <div class="principal-badge">Vice Principal</div>
+              <div class="principal-badge">副校长</div>
             </div>
             <div class="tags-row">
-              <span class="tag tag-or">Vice Principal</span>
-              <span class="tag tag-sk" style="background:var(--sky);color:#2472a4;">Drums</span>
-              <span class="tag tag-sk" style="background:var(--sky);color:#2472a4;">Guitar</span>
-              <span class="tag tag-sk" style="background:var(--sky);color:#2472a4;">Ukulele</span>
+              <span class="tag tag-or">副校长</span>
+              <span class="tag tag-sk" style="background:var(--sky);color:#2472a4;">架子鼓</span>
+              <span class="tag tag-sk" style="background:var(--sky);color:#2472a4;">吉他</span>
+              <span class="tag tag-sk" style="background:var(--sky);color:#2472a4;">尤克里里</span>
             </div>
             <div class="book-card">
-              <p>Learn drums, guitar or ukulele from an award-winning international artist. Book a trial class with Mr Calvin today.</p>
-              <a href="trial" class="btn btn-cta">Book Trial Class</a>
+              <p>向一位屡获殊荣的国际艺术家学习架子鼓、吉他或尤克里里。立即预约 Calvin 老师的试课。</p>
+              <a href="trial" class="btn btn-cta">预约试课</a>
             </div>
           </div>
 
@@ -525,29 +531,29 @@
             <!-- Back link -->
             <a href="instructors" class="back-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-              Back to Instructors
+              返回导师团队
             </a>
 
-            <div class="pill-tag pt-lv" style="font-size:13px;padding:6px 14px;margin-bottom:18px;">Our Instructors</div>
-            <h1 class="profile-name">Mr Calvin</h1>
-            <p class="profile-title">Vice Principal · Drums · Guitar · Ukulele</p>
+            <div class="pill-tag pt-lv" style="font-size:13px;padding:6px 14px;margin-bottom:18px;">我们的导师</div>
+            <h1 class="profile-name">Calvin 副校长</h1>
+            <p class="profile-title">副校长 · 架子鼓 · 吉他 · 尤克里里</p>
 
             <!-- Quick Stats -->
             <div class="stat-pills">
-              <div class="stat-pill"><span>15+</span> Years of Teaching</div>
-              <div class="stat-pill"><span>Since</span> 2021 at Liberal</div>
-              <div class="stat-pill"><span>Trinity</span> Rockschool Certified</div>
-              <div class="stat-pill"><span>International</span> Recording Artist</div>
+              <div class="stat-pill"><span>15+</span> 年以上教学经验</div>
+              <div class="stat-pill">自 <span>2021</span> 年起加入博雅</div>
+              <div class="stat-pill"><span>圣三一 Rockschool</span> 认证导师</div>
+              <div class="stat-pill"><span>国际</span>录音艺术家</div>
             </div>
 
             <p class="profile-lead">
-              Vice Principal of Liberal Music &amp; Arts School, Mr Calvin is a Trinity Guildhall Rockschool certified teacher with over 15 years of teaching experience and a remarkable international career as a recording artist, TV performer, and award-winning musician across Southeast Asia.
+              博雅音乐艺术学校副校长 Calvin 老师，是一位获得圣三一 (Trinity Guildhall) Rockschool 认证的导师，拥有超过 15 年的教学经验。作为一名录音艺术家、电视表演者和屡获殊荣的音乐家，他在整个东南亚地区拥有非凡的国际职业生涯。
             </p>
 
             <!-- Education Background -->
             <div class="prof-section">
               <div class="prof-section-label">
-                <h2>Education Background</h2>
+                <h2>教育背景</h2>
               </div>
               <div class="edu-list">
                 <div class="edu-item sr d1">
@@ -555,8 +561,8 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                   </div>
                   <div class="edu-text">
-                    <strong>Bachelor's Degree in Music Performance and Sound Design</strong>
-                    University of West London
+                    <strong>音乐表演与声音设计学士学位</strong>
+                    英国西伦敦大学 (University of West London)
                   </div>
                 </div>
                 <div class="edu-item sr d2">
@@ -564,8 +570,8 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
                   <div class="edu-text">
-                    <strong>Started playing guitar and drums at age six</strong>
-                    Over 25 years of dedicated practice across multiple instruments
+                    <strong>6 岁开始学习吉他和架子鼓</strong>
+                    在多种乐器上拥有超过 25 年的专注练习经验
                   </div>
                 </div>
               </div>
@@ -574,20 +580,20 @@
             <!-- Achievements -->
             <div class="prof-section">
               <div class="prof-section-label">
-                <h2>Achievements &amp; Experience</h2>
+                <h2>成就与经验</h2>
               </div>
               <div class="sr" style="font-size:16px;line-height:1.9;color:var(--body);">
                 <p style="margin-bottom:16px;">
-                  A <strong style="color:var(--ink);">certified Trinity Guildhall Rockschool Teacher</strong> with over 15 years of music teaching experience, Mr Calvin has been part of the Liberal Music &amp; Arts School team since 2021. His dynamic, energetic teaching style makes every lesson engaging and effective for learners of all ages.
+                  作为一位<strong style="color:var(--ink);">获得圣三一 (Trinity Guildhall) Rockschool 认证的导师</strong>，Calvin 老师拥有超过 15 年的音乐教学经验。他于 2021 年加入博雅音乐艺术学校团队。他充满活力、干劲十足的教学风格，使每一堂课都能吸引各个年龄段的学习者并卓有成效。
                 </p>
                 <p style="margin-bottom:16px;">
-                  Beyond the classroom, Mr Calvin has built an impressive international career as a performing and recording artist. In 2017, he was <strong style="color:var(--ink);">signed under Positif Art Artist Management</strong> and collaborated with <strong style="color:var(--ink);">Warner Music Indonesia</strong> as a pop artist. He was recognised by the <strong style="color:var(--ink);">Pelangi Awards in Brunei</strong> as one of the Top 5 Best Artists in both 2014 and 2016, and has composed more than <strong style="color:var(--ink);">20 original compositions</strong> aired across Brunei, Malaysia, Singapore, and Indonesia.
+                  在课堂之外，Calvin 老师作为一名表演和录音艺术家，建立了令人瞩目的国际职业生涯。2017 年，他<strong style="color:var(--ink);">签约 Positif Art 艺人管理公司</strong>，并作为流行歌手与<strong style="color:var(--ink);">印度尼西亚华纳音乐 (Warner Music Indonesia)</strong> 合作。他在 2014 年和 2016 年均被<strong style="color:var(--ink);">文莱 Pelangi Awards</strong> 评为"五大最佳艺人"之一，并创作了超过<strong style="color:var(--ink);">20 首原创曲目</strong>，在文莱、马来西亚、新加坡和印度尼西亚等地区播出。
                 </p>
                 <p style="margin-bottom:16px;">
-                  His competitive achievements span multiple disciplines — claiming the <strong style="color:var(--ink);">World Drumming Competition Drums Champion title (2008)</strong>, winning the <strong style="color:var(--ink);">Hip Hop Dance Competition Championship in 2007 and 2015</strong>, and taking <strong style="color:var(--ink);">1st place for five consecutive years</strong> in the Battle of the Bands competition during high school.
+                  他的竞技成就跨越多个领域 —— 荣获<strong style="color:var(--ink);">世界架子鼓比赛 (World Drumming Competition) 鼓手冠军头衔 (2008 年)</strong>，赢得<strong style="color:var(--ink);">2007 年和 2015 年嘻哈舞蹈比赛冠军</strong>，并在高中时期的乐队比赛 (Battle of the Bands) 中<strong style="color:var(--ink);">连续五年夺得第一名</strong>。
                 </p>
                 <p>
-                  Mr Calvin has also appeared on numerous international television channels, including <strong style="color:var(--ink);">Suria Mediacorp (Singapore), RTB (Brunei), Channel News Asia (China), Dahsyat (Indonesia), Inbox TV (Indonesia), and Planet Remaja (Indonesia)</strong> — bringing his artistry and passion for music to audiences across the region.
+                  Calvin 老师还曾亮相于众多国际电视频道，包括 <strong style="color:var(--ink);">Suria Mediacorp（新加坡）、RTB（文莱）、亚洲新闻台（Channel News Asia，中国区报道）、Dahsyat（印度尼西亚）、Inbox TV（印度尼西亚）以及 Planet Remaja（印度尼西亚）</strong> —— 将他的艺术才华和对音乐的热情带给了整个地区的观众。
                 </p>
               </div>
             </div>
@@ -600,56 +606,56 @@
     <!-- ── Other Instructors ── -->
     <div class="other-strip">
       <div class="W">
-        <h2 class="sr" style="text-align:center;margin-bottom:12px;">Meet Our Other Instructors</h2>
-        <p class="sr" style="text-align:center;color:var(--body);font-size:17px;margin-bottom:40px;">Every instructor at Liberal brings exceptional skill, passion, and dedication to their students.</p>
+        <h2 class="sr" style="text-align:center;margin-bottom:12px;">认识我们的其他导师</h2>
+        <p class="sr" style="text-align:center;color:var(--body);font-size:17px;margin-bottom:40px;">博雅的每一位导师都为学生带来了卓越的技艺、热情与奉献精神。</p>
         <div class="other-grid">
           <a href="cecily" class="other-card sr d1">
-            <div class="other-card-photo"><img src="../assets/cecily.webp" alt="Ms Cecily" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Cecily</strong><span>Principal · Musician · Educator</span></div>
+            <div class="other-card-photo"><img src="../assets/cecily.webp" alt="Cecily 校长" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Cecily 校长</strong><span>校长 · 音乐家 · 教育家</span></div>
           </a>
           <a href="kate" class="other-card sr d2">
-            <div class="other-card-photo"><img src="../assets/kate.webp" alt="Ms Kate" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Kate</strong><span>Piano</span></div>
+            <div class="other-card-photo"><img src="../assets/kate.webp" alt="Kate 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Kate 老师</strong><span>钢琴</span></div>
           </a>
           <a href="jescelyn" class="other-card sr d3">
-            <div class="other-card-photo"><img src="../assets/Jescelyn.webp" alt="Ms Jescelyn" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Jescelyn</strong><span>Piano</span></div>
+            <div class="other-card-photo"><img src="../assets/Jescelyn.webp" alt="Jescelyn 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Jescelyn 老师</strong><span>钢琴</span></div>
           </a>
           <a href="tina" class="other-card sr d4">
-            <div class="other-card-photo"><img src="../assets/Tina.webp" alt="Ms Tina" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Tina</strong><span>Piano</span></div>
+            <div class="other-card-photo"><img src="../assets/Tina.webp" alt="Tina 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Tina 老师</strong><span>钢琴</span></div>
           </a>
           <a href="verginia" class="other-card sr d5">
-            <div class="other-card-photo"><img src="../assets/Verginia.webp" alt="Ms Verginia" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Verginia</strong><span>Piano</span></div>
+            <div class="other-card-photo"><img src="../assets/Verginia.webp" alt="Verginia 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Verginia 老师</strong><span>钢琴</span></div>
           </a>
           <a href="cheng" class="other-card sr d1">
-            <div class="other-card-photo"><img src="../assets/cheng.webp" alt="Ms Cheng" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Cheng</strong><span>Piano · Violin · Viola</span></div>
+            <div class="other-card-photo"><img src="../assets/cheng.webp" alt="Cheng 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Cheng 老师</strong><span>钢琴 · 小提琴 · 中提琴</span></div>
           </a>
           <a href="aliona" class="other-card sr d2">
-            <div class="other-card-photo"><img src="../assets/Aliona.webp" alt="Ms Aliona" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Aliona</strong><span>Violin</span></div>
+            <div class="other-card-photo"><img src="../assets/Aliona.webp" alt="Aliona 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Aliona 老师</strong><span>小提琴</span></div>
           </a>
           <a href="teresa" class="other-card sr d3">
-            <div class="other-card-photo"><img src="../assets/Teresa.webp" alt="Ms Teresa" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Teresa</strong><span>Violin</span></div>
+            <div class="other-card-photo"><img src="../assets/Teresa.webp" alt="Teresa 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Teresa 老师</strong><span>小提琴</span></div>
           </a>
           <a href="jiang" class="other-card sr d4">
-            <div class="other-card-photo"><img src="../assets/jiang.webp" alt="Ms Jiang" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Jiang</strong><span>Erhu · Violin · Guqin</span></div>
+            <div class="other-card-photo"><img src="../assets/jiang.webp" alt="Jiang 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Jiang 老师</strong><span>二胡 · 小提琴 · 古琴</span></div>
           </a>
           <a href="mindy" class="other-card sr d5">
-            <div class="other-card-photo"><img src="../assets/Mindy.webp" alt="Ms Mindy" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Ms Mindy</strong><span>Vocal · Music for Kids</span></div>
+            <div class="other-card-photo"><img src="../assets/Mindy.webp" alt="Mindy 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Mindy 老师</strong><span>声乐 · 幼儿音乐启蒙</span></div>
           </a>
           <a href="leonard" class="other-card sr d1">
-            <div class="other-card-photo"><img src="../assets/leonard.webp" alt="Mr Leonard" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Mr Leonard</strong><span>Drums · Piano</span></div>
+            <div class="other-card-photo"><img src="../assets/leonard.webp" alt="Leonard 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Leonard 老师</strong><span>架子鼓 · 钢琴</span></div>
           </a>
           <a href="loy" class="other-card sr d2">
-            <div class="other-card-photo"><img src="../assets/loy.webp" alt="Mr Loy" onerror="this.style.display='none'"/></div>
-            <div class="other-card-body"><strong>Mr Loy</strong><span>Guitar · Drums · Ukulele</span></div>
+            <div class="other-card-photo"><img src="../assets/loy.webp" alt="Loy 老师" onerror="this.style.display='none'"/></div>
+            <div class="other-card-body"><strong>Loy 老师</strong><span>吉他 · 架子鼓 · 尤克里里</span></div>
           </a>
         </div>
       </div>
@@ -658,12 +664,12 @@
     <!-- ── CTA Banner ── -->
     <section class="cta-banner">
       <div class="W">
-        <div class="pill-tag pt-lv sr" style="font-size:13px;padding:6px 14px;margin-bottom:20px;">Start Today</div>
-        <h2 class="sr d1">Learn from Singapore's Best</h2>
-        <p class="sr d2">Join 20,000+ families who trust Liberal Music &amp; Arts School. Book a free trial class with Mr Calvin or any of our expert instructors.</p>
+        <div class="pill-tag pt-lv sr" style="font-size:13px;padding:6px 14px;margin-bottom:20px;">即刻启程</div>
+        <h2 class="sr d1">向新加坡最优秀的导师学习</h2>
+        <p class="sr d2">加入 20,000+ 个信赖博雅音乐艺术学校的家庭。立即预约 Calvin 老师或我们其他专业导师的免费试课。</p>
         <div class="sr d3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-          <a href="trial" class="btn btn-cta btn-lg">Book Trial Class</a>
-          <a href="contact" class="btn btn-outline btn-lg">Contact Us</a>
+          <a href="trial" class="btn btn-cta btn-lg">预约试课</a>
+          <a href="contact" class="btn btn-outline btn-lg">联系我们</a>
         </div>
       </div>
     </section>
@@ -673,8 +679,8 @@
       <div class="W">
         <div class="foot-grid">
           <div class="foot-brand">
-            <img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School" onerror="this.src='../assets/logo.webp'"/>
-            <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — for ages 2.5 to adult. With expert teachers, holistic learning, and proven results, we are proud to be trusted by over 20,000 families in Singapore since 2009.</p>
+            <img src="../assets/logofooter.webp" alt="博雅音乐艺术学校" onerror="this.src='../assets/logo.webp'"/>
+            <p>博雅音乐艺术学校致力于培养孩子的创造力、自信心，以及对音乐与艺术的终生热爱——服务 2.5 岁至成人各年龄段。我们拥有专业师资、全人教育的理念与可见的教学成果，自 2009 年起，已荣幸地获得新加坡 20,000+ 家庭的信赖。</p>
             <div class="foot-soc">
               <a href="https://www.instagram.com/liberalmusic_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
               <a href="https://www.facebook.com/liberalmusicandarts/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../assets/facebook.webp" alt="Facebook" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1);"/></a>
@@ -683,19 +689,19 @@
             </div>
           </div>
           <div class="foot-col">
-            <h5>Navigation</h5>
+            <h5>网站导航</h5>
             <ul>
-              <li><a href="../index">Home</a></li>
-              <li><a href="about">About</a></li>
-              <li><a href="courses">Courses</a></li>
-              <li><a href="instructors">Instructors</a></li>
-              <li><a href="review">Review</a></li>
-              <li><a href="blog">Blog</a></li>
-              <li><a href="contact">Contact</a></li>
+              <li><a href="../index-zh">首页</a></li>
+              <li><a href="about">关于我们</a></li>
+              <li><a href="courses">课程</a></li>
+              <li><a href="instructors">导师</a></li>
+              <li><a href="review">评价</a></li>
+              <li><a href="blog">博客</a></li>
+              <li><a href="contact">联系我们</a></li>
             </ul>
           </div>
           <div class="foot-col">
-            <h5>Our Locations</h5>
+            <h5>我们的分校</h5>
             <div class="foot-locs">
               <div class="foot-loc">
                 <span class="foot-loc-pin">
@@ -703,9 +709,9 @@
                        style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
                 </span>
                 <div class="foot-loc-text">
-                  <strong>Tengah Music School</strong>
+                  <strong>登加（Tengah）分校</strong>
                   <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
-                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near future Jurong Region Line (opening 2028)<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
+                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近未来裕廊区域地铁线（2028年开通）<span class="sep">·</span>🕐 每日1点-9点</span>
                 </div>
               </div>
 
@@ -715,9 +721,9 @@
                        style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
                 </span>
                 <div class="foot-loc-text">
-                  <strong>Tampines Music School</strong>
+                  <strong>淡滨尼（Tampines）分校</strong>
                   <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
-                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Tampines West MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
+                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近淡滨尼西地铁站（Tampines West MRT）<span class="sep">·</span>🕐 每日1点-9点</span>
                 </div>
               </div>
 
@@ -727,9 +733,9 @@
                        style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
                 </span>
                 <div class="foot-loc-text">
-                  <strong>Jurong West Music School</strong>
+                  <strong>裕廊西（Jurong West）分校</strong>
                   <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
-                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Lakeside MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
+                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近 Lakeside 地铁站<span class="sep">·</span>🕐 每日1点-9点</span>
                 </div>
               </div>
 
@@ -739,30 +745,30 @@
                        style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/>
                 </span>
                 <div class="foot-loc-text">
-                  <strong>Le Quest Mall Music School</strong>
+                  <strong>Le Quest 商场分校</strong>
                   <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
-                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Bukit Batok MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
+                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近武吉巴督地铁站（Bukit Batok MRT）<span class="sep">·</span>🕐 每日1点-9点</span>
                 </div>
               </div>
 
               <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
                 <span class="foot-loc-pin">✦</span>
                 <div class="foot-loc-text">
-                  <strong>Coloury Art By Liberal</strong>
+                  <strong>Coloury Art By Liberal（裕廊坊）</strong>
                   <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
-                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>✦ Opening Soon</span>
+                  <span class="foot-loc-meta"><img src="../assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近文礼地铁站（Boon Lay MRT）<span class="sep">·</span>✦ 即将开业</span>
                 </div>
               </a>
             </div>
           </div>
         </div>
         <div class="foot-btm">
-          <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
+          <p>© 2025 博雅音乐艺术学校 版权所有</p>
           <div class="foot-btm-links">
             <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
-            <a href="privacy">Privacy Policy</a>
-            <a href="terms">Terms of Use</a>
-            <span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
+            <a href="privacy">隐私政策</a>
+            <a href="terms">使用条款</a>
+            <a href="../pages/calvin" style="font-size:15px;color:rgba(255,255,255,.7);">English</a>
           </div>
         </div>
       </div>
@@ -772,20 +778,20 @@
   <!-- WA FAB -->
   <div class="wa">
     <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp us">
-      <h4>💬 Chat with Us!</h4>
-      <p>Pick your nearest branch to WhatsApp directly.</p>
-      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">🏡 Tengah <span>8922 2848</span></a>
-      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 Tampines <span>8892 1198</span></a>
-      <a href="https://wa.me/6596277588" target="_blank" rel="noopener" class="wa-row">🌸 Jurong West <span>9627 7588</span></a>
+      <h4>💬 与我们联系！</h4>
+      <p>选择就近分校，直接通过 WhatsApp 联系我们。</p>
+      <a href="https://wa.me/6589222848" target="_blank" rel="noopener" class="wa-row">🏡 登加 <span>8922 2848</span></a>
+      <a href="https://wa.me/6588921198" target="_blank" rel="noopener" class="wa-row">🌅 淡滨尼 <span>8892 1198</span></a>
+      <a href="https://wa.me/6596277588" target="_blank" rel="noopener" class="wa-row">🌸 裕廊西 <span>9627 7588</span></a>
       <a href="https://wa.me/6596277582" target="_blank" rel="noopener" class="wa-row">🏬 Le Quest <span>9627 7582</span></a>
       <a href="https://wa.me/6589951163" target="_blank" rel="noopener" class="wa-row">✦ Coloury Art <span>8995 1163</span></a>
     </div>
-    <button class="wa-fab" id="waFab" aria-label="Open WhatsApp"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/></button>
+    <button class="wa-fab" id="waFab" aria-label="打开 WhatsApp"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:32px;height:32px;object-fit:contain;display:block;"/></button>
   </div>
 
   <!-- MOBILE STICKY BAR -->
   <div class="mob-bar">
-    <a href="trial" class="btn btn-cta">✦ Book Trial Class</a>
+    <a href="trial" class="btn btn-cta">✦ 预约试课</a>
   </div>
 
   <script>
