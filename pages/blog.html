@@ -298,6 +298,124 @@
     .nav-drawer.on ~ .wa,
     .nav-drawer.on ~ .mob-bar{ display: none; }
 
+
+    /* ==========================================================================
+       🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
+       Breakpoints aligned to this page's nav-collapse at 1024px.
+       See HEADER-FOOTER-GUIDE.md §4.5.
+       ========================================================================== */
+
+    /* 1. Desktop hover dropdown (nav-links visible at >=1025px) */
+    @media (min-width: 1025px) {
+      .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+      .nav-links .dropdown-trigger .arrow {
+        display: inline-block;
+        transition: transform 0.22s var(--sp);
+        font-size: 12px;
+        margin-left: 2px;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+        transform: rotate(180deg);
+        color: var(--or);
+      }
+      .nav-links .dropdown-menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 15px);
+        background: #FFFFFF;
+        min-width: 240px;
+        box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12);
+        border-radius: 12px;
+        padding: 8px 0;
+        border: 1.5px solid #EEF2F8;
+        z-index: 1050;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+        list-style: none;
+        margin: 0;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, 0);
+      }
+      .nav-links .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: #FFFFFF;
+        border-left: 1.5px solid #EEF2F8;
+        border-top: 1.5px solid #EEF2F8;
+      }
+      .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+      .nav-links .dropdown-menu li a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+        text-align: left;
+        white-space: nowrap;
+        border-radius: 0;
+        background: transparent;
+        transition: all 0.2s ease;
+      }
+      .nav-links .dropdown-menu li a:hover {
+        color: var(--or) !important;
+        background: var(--or-lt);
+        padding-left: 25px;
+      }
+    }
+
+    /* 2. Mobile drawer (dropdown always expanded, vertical) at <=1024px */
+    @media (max-width: 1024px) {
+      .nav-drawer .nav-item-dropdown { width: 100%; }
+      .nav-drawer .dropdown-trigger { text-align: left; }
+      .nav-drawer .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: var(--s1);
+        padding: 10px;
+        margin: 4px 0 8px;
+        border-radius: 10px;
+        border: 1px solid #EEF2F8;
+        list-style: none;
+      }
+      .nav-drawer .dropdown-menu li { margin: 0; }
+      .nav-drawer .dropdown-menu li a {
+        display: block;
+        padding: 10px 14px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+        border-radius: 8px;
+        background: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      }
+    }
+
+    /* 3. "New" badge chip (Tengah HQ) */
+    .badge-new {
+      font-size: 9px;
+      font-weight: 900;
+      background: var(--or);
+      color: #FFFFFF;
+      padding: 2px 5px;
+      border-radius: 4px;
+      margin-left: 4px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
 </style>
 </head>
 <body>
@@ -329,7 +447,15 @@
           <li><a href="instructors">Instructors</a></li>
           <li><a href="review">Review</a></li>
           <li><a href="blog" class="active">Blog</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li class="nav-item-dropdown">
+          <a href="contact" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-west">Jurong West</a></li>
+            <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
+            <li><a href="/locations/tampines">Tampines</a></li>
+            <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+          </ul>
+        </li>
         </ul>
         <div class="nav-end">
           <a class="nav-lang" href="../pages-zh/blog">中文</a>
@@ -350,7 +476,15 @@
     <a href="instructors">Instructors</a>
     <a href="review">Review</a>
     <a href="blog">Blog</a>
-    <a href="contact">Contact</a>
+    <div class="nav-item-dropdown">
+    <a href="contact" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-west">Jurong West</a></li>
+      <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
+      <li><a href="/locations/tampines">Tampines</a></li>
+      <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+    </ul>
+  </div>
     <a href="../pages-zh/blog" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">中文 · Chinese Version</a>
     <a href="trial" class="btn btn-cta">Book Trial Class</a>
   </nav>
