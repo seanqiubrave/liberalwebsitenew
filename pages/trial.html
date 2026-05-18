@@ -128,10 +128,7 @@
     .trial-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
     .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px;font-weight:600}
     .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
-    .trial-headline{font-size:clamp(36px,4.5vw,58px);font-weight:900;line-height:1.08;color:var(--ink);margin-bottom:18px}
-    .trial-headline .kw{color:var(--or);position:relative;display:inline-block}
-    .trial-headline .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.6s forwards}
-    @keyframes kw{to{transform:scaleX(1)}}
+    .trial-headline{font-size:clamp(36px,4.5vw,58px);font-weight:900;line-height:1.08;color:var(--ink);margin-bottom:18px}}
     .trial-lead{font-size:19px;color:var(--body);line-height:1.75;margin-bottom:32px;max-width:480px}
 
     /* Trust badges in hero */
@@ -329,7 +326,6 @@
     .nav-drawer.on ~ .wa,
     .nav-drawer.on ~ .mob-bar{ display: none; }
 
-
     /* ==========================================================================
        🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
        Breakpoints aligned to this page's nav-collapse at 1024px.
@@ -446,6 +442,15 @@
       text-transform: uppercase;
       letter-spacing: .5px;
     }
+
+
+    /* ── Orange keyword underline (canonical, May 18 2026) ──
+       .kw uses isolation:isolate so z-index:-1 on ::after stays
+       inside .kw and doesn't escape behind .page-hero's gradient
+       background (where it became invisible on 8 of 9 pages). */
+    .kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+    .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+    @keyframes kw{to{transform:scaleX(1)}}
 
 </style>
 </head>

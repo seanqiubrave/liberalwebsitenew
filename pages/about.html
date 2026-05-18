@@ -150,10 +150,7 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:20px}
 .breadcrumb a{color:var(--muted);transition:color .18s}.breadcrumb a:hover{color:var(--or)}
 .breadcrumb span{color:var(--muted)}
-.page-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);letter-spacing:-1px;line-height:1.06;margin-bottom:22px}
-.page-hero h1 em{color:var(--or);font-style:normal;position:relative}
-.page-hero h1 em::after{content:'';position:absolute;bottom:2px;left:0;width:100%;height:8px;background:var(--lem);border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw .6s var(--sp) .8s forwards}
-@keyframes kw{to{transform:scaleX(1)}}
+.page-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);letter-spacing:-1px;line-height:1.06;margin-bottom:22px}}
 .page-hero .lead{max-width:480px}
 .hero-btns{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:32px}
 /* Visual side */
@@ -393,7 +390,6 @@ footer{margin-bottom:0!important}
     .nav-drawer.on ~ .wa,
     .nav-drawer.on ~ .mob-bar{ display: none; }
 
-
     /* ==========================================================================
        🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
        Breakpoints aligned to this page's nav-collapse at 1024px.
@@ -511,6 +507,15 @@ footer{margin-bottom:0!important}
       letter-spacing: .5px;
     }
 
+
+    /* ── Orange keyword underline (canonical, May 18 2026) ──
+       .kw uses isolation:isolate so z-index:-1 on ::after stays
+       inside .kw and doesn't escape behind .page-hero's gradient
+       background (where it became invisible on 8 of 9 pages). */
+    .kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+    .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+    @keyframes kw{to{transform:scaleX(1)}}
+
 </style>
 </head>
 <body>
@@ -581,7 +586,6 @@ footer{margin-bottom:0!important}
   <a href="trial" class="btn btn-cta">Book Trial Class</a>
 </nav>
 
-
 <!-- ════════ PAGE HERO ════════ -->
 <section class="page-hero">
   <div class="W">
@@ -596,7 +600,7 @@ footer{margin-bottom:0!important}
         </div>
         <div class="pill-tag pt-tl sr" style="font-size:16px;padding:11px 24px;">Trusted by 20,000+ Students</div>
         <h1 class="sr d1">
-          Raising Confident,<br><em>Creative</em> Musicians<br>Since 2009.
+          Raising Confident,<br><span class="kw">Creative</span> Musicians<br>Since 2009.
         </h1>
         <p class="lead sr d2">
           Liberal Music &amp; Arts School is Singapore's most trusted children's music academy — built on a simple belief: every child deserves to grow through the joy of music.
@@ -648,7 +652,6 @@ footer{margin-bottom:0!important}
   </div>
 </section>
 
-
 <!-- ════════ OUR STORY ════════ -->
 <section class="story">
   <div class="W">
@@ -689,7 +692,6 @@ footer{margin-bottom:0!important}
     </div>
   </div>
 </section>
-
 
 <!-- ════════ STATS STRIP ════════ -->
 
@@ -736,7 +738,6 @@ footer{margin-bottom:0!important}
   </div>
 </section>
 
-
 <!-- ════════ FOUNDERS / LEADERSHIP ════════ -->
 <section class="team">
   <div class="W">
@@ -769,7 +770,6 @@ footer{margin-bottom:0!important}
   </div>
 </section>
 
-
 <!-- ════════ CTA BANNER ════════ -->
 <section class="cta-banner">
   <div class="cta-inner sr">
@@ -787,7 +787,6 @@ footer{margin-bottom:0!important}
     </div>
   </div>
 </section>
-
 
 <!-- ════════ FOOTER ════════ -->
 <!-- FOOTER -->
@@ -910,7 +909,6 @@ footer{margin-bottom:0!important}
   </div>
 </footer>
 
-
 <!-- ════════ FLOATING WHATSAPP ════════ -->
 <div class="wa">
   <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp us">
@@ -931,7 +929,6 @@ footer{margin-bottom:0!important}
 <div class="mob-bar">
   <a href="trial" class="btn btn-cta">✦ Book Trial Class</a>
 </div>
-
 
 <!-- ════════ JS ════════ -->
 <script>

@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: May 18, 2026  
+> Source of truth: `index.html` (master) · Last updated: May 18, 2026 (r6 — Contact ▾ dropdown canonicalised to `<ul><li>` markup)  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -149,6 +149,10 @@ Copy verbatim into every page `<style>`:
 ```
 
 ### Navbar (pages/ subfolder version)
+
+> **Canonical dropdown markup is `<ul class="dropdown-menu"><li><a>` (matches `index.html`).** This is the version paired with the CSS in Section 4.5 and what all `index.html` + `pages/*.html` use as of May 18 2026.  
+> The 4 `locations/*.html` files currently use an older `<div class="dropdown-menu"><a class="dropdown-item">` variant — see Section 11.5. Treat that as legacy; new pages MUST use the markup below.
+
 ```html
 <!-- NAVBAR -->
 <nav class="nav" id="nav">
@@ -168,15 +172,15 @@ Copy verbatim into every page `<style>`:
         <li><a href="review.html">Review</a></li>
         <li><a href="blog.html">Blog</a></li>
 
-        <!-- Contact ▾ dropdown (added May 17 2026) -->
+        <!-- Contact ▾ dropdown — REQUIRED on every page (added May 17 2026, canonicalised May 18 2026) -->
         <li class="nav-item-dropdown">
-          <a href="contact.html" class="dropdown-trigger">Contact <span class="arrow">▾</span></a>
-          <div class="dropdown-menu">
-            <a href="/locations/jurong-west" class="dropdown-item">Jurong West</a>
-            <a href="/locations/bukit-batok" class="dropdown-item">Bukit Batok (Le Quest)</a>
-            <a href="/locations/tampines" class="dropdown-item">Tampines</a>
-            <a href="/locations/tengah" class="dropdown-item">Tengah (HQ) <span class="badge-new">New</span></a>
-          </div>
+          <a href="contact.html" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-west">Jurong West</a></li>
+            <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
+            <li><a href="/locations/tampines">Tampines</a></li>
+            <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+          </ul>
         </li>
       </ul>
 
@@ -203,18 +207,25 @@ Copy verbatim into every page `<style>`:
   <a href="review.html">Review</a>
   <a href="blog.html">Blog</a>
 
-  <!-- Contact dropdown — in mobile drawer it's flat (always expanded, no toggle) -->
+  <!-- Contact dropdown — in drawer it's flat (always expanded, no hover). Same <ul><li> markup as desktop. -->
   <div class="nav-item-dropdown">
-    <a href="contact.html" class="dropdown-trigger">Contact</a>
-    <a href="/locations/jurong-west" class="dropdown-item">Jurong West</a>
-    <a href="/locations/bukit-batok" class="dropdown-item">Bukit Batok (Le Quest)</a>
-    <a href="/locations/tampines" class="dropdown-item">Tampines</a>
-    <a href="/locations/tengah" class="dropdown-item">Tengah (HQ) <span class="badge-new">New</span></a>
+    <a href="contact.html" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-west">Jurong West</a></li>
+      <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
+      <li><a href="/locations/tampines">Tampines</a></li>
+      <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+    </ul>
   </div>
 
   <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
 </nav>
 ```
+
+> **Path notes for the dropdown:**
+> - **`href` of the Contact trigger** is page-relative (e.g. `contact.html` for `pages/*.html`, `pages/contact` for root). Preserve the same path that the page used before adding the dropdown.
+> - **All 4 location items use absolute paths** `/locations/<branch>` — these work from any page depth (root, `pages/`, `pages/articles/`, `locations/`).
+> - **Active page:** if the page IS contact.html, mark the trigger as active by merging classes: `class="dropdown-trigger active"` (one `class` attribute, two values). Do NOT add a second `class="active"` attribute — browsers ignore the duplicate and your dropdown styling silently breaks.
 
 > **Active page:** Add `class="active"` to the `<a>` matching the current page.  
 > **Instructor profile pages** (cecily.html, calvin.html, etc.): set `class="active"` on the **Instructors** nav link — they are sub-pages of Instructors.  
@@ -224,65 +235,138 @@ Copy verbatim into every page `<style>`:
 
 ---
 
-## 4.5. NAVBAR DROPDOWN CSS (Contact ▾ — added May 17 2026)
+## 4.5. NAVBAR DROPDOWN CSS (Contact ▾ — added May 17 2026, canonicalised May 18 2026)
 
-The Contact dropdown is implemented as a `<li class="nav-item-dropdown">` inside `.nav-links`. Hover-opens on desktop (≥1025px), renders flat in the mobile drawer (≤1024px). Paste the block below into your `<style>` after the existing nav rules.
+The Contact dropdown is implemented as a `<li class="nav-item-dropdown">` inside `.nav-links`. Hover-opens on desktop (≥1025px) as a centered tooltip with a small arrow callout, and renders flat in the mobile drawer (≤1024px) as a nested expanded list. Paste the block below into your `<style>` after the existing nav rules.
+
+**This CSS pairs with the `<ul class="dropdown-menu"><li><a>` markup in Section 4.** Do not mix with the older `<div class="dropdown-menu"><a class="dropdown-item">` variant — the selectors here target `.dropdown-menu li a`, so the `<div>/<a>` variant would render unstyled.
 
 ```css
-/* ── Navbar Dropdown Extension (Contact ▾ menu) ── */
-/* Breakpoints aligned to site's actual nav-collapse at 1024px */
+/* ──────────────────────────────────────────────────────────────────
+   🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu)
+   Breakpoints aligned to nav-collapse at 1024px.
+   ────────────────────────────────────────────────────────────────── */
 
-/* 1. Desktop hover dropdown (nav-links is visible at >=1025px) */
+/* 1. Desktop hover dropdown (nav-links visible at >=1025px) */
 @media (min-width: 1025px) {
   .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
   .nav-links .dropdown-trigger .arrow {
-    font-size: 11px; margin-left: 3px; display: inline-block;
-    transition: transform .25s var(--sp); transform-origin: center;
+    display: inline-block;
+    transition: transform 0.22s var(--sp);
+    font-size: 12px;
+    margin-left: 2px;
   }
-  .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow { transform: rotate(-180deg); }
+  .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg);
+    color: var(--or);
+  }
   .nav-links .dropdown-menu {
-    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-8px);
-    min-width: 240px; background: var(--w); border: 1px solid #EEF2F8;
-    border-radius: 14px; box-shadow: 0 18px 52px rgba(31,42,68,.12); padding: 8px;
-    opacity: 0; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s;
-    z-index: 1000;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 15px);
+    background: #FFFFFF;
+    min-width: 240px;
+    box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12);
+    border-radius: 12px;
+    padding: 8px 0;
+    border: 1.5px solid #EEF2F8;
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+    list-style: none;
+    margin: 0;
   }
   .nav-links .nav-item-dropdown:hover .dropdown-menu {
-    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
   }
-  .nav-links .dropdown-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 11px 14px; border-radius: 9px; font-weight: 700; font-size: 14.5px;
-    color: var(--ink); text-decoration: none; transition: background .15s, padding-left .18s var(--sp);
+  /* Small triangle pointing UP to the trigger — pure CSS, no extra element */
+  .nav-links .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #FFFFFF;
+    border-left: 1.5px solid #EEF2F8;
+    border-top: 1.5px solid #EEF2F8;
   }
-  .nav-links .dropdown-item:hover { background: var(--or-lt); color: var(--or); padding-left: 18px; }
+  .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+  .nav-links .dropdown-menu li a {
+    display: block;
+    padding: 11px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+  .nav-links .dropdown-menu li a:hover {
+    color: var(--or) !important;
+    background: var(--or-lt);
+    padding-left: 25px;
+  }
 }
 
-/* 2. Mobile drawer (always expanded, vertical) at <=1024px */
+/* 2. Mobile drawer (dropdown always expanded, vertical) at <=1024px */
 @media (max-width: 1024px) {
-  .nav-drawer .nav-item-dropdown { display: flex; flex-direction: column; gap: 2px; }
-  .nav-drawer .nav-item-dropdown .dropdown-trigger { font-weight: 700; }
-  .nav-drawer .nav-item-dropdown .dropdown-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 8px 14px 8px 28px; border-radius: var(--r);
-    font-weight: 600; font-size: 15px; color: var(--body);
-    text-decoration: none; transition: background var(--t);
+  .nav-drawer .nav-item-dropdown { width: 100%; }
+  .nav-drawer .dropdown-trigger { text-align: left; }
+  .nav-drawer .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--s1);
+    padding: 10px;
+    margin: 4px 0 8px;
+    border-radius: 10px;
+    border: 1px solid #EEF2F8;
+    list-style: none;
   }
-  .nav-drawer .nav-item-dropdown .dropdown-item:hover { background: var(--or-lt); color: var(--or); }
+  .nav-drawer .dropdown-menu li { margin: 0; }
+  .nav-drawer .dropdown-menu li a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
 }
 
-/* 3. NEW badge chip (works in both desktop dropdown and mobile drawer) */
+/* 3. "New" badge chip — used on the Tengah dropdown item */
 .badge-new {
-  display: inline-block; padding: 2px 7px; background: var(--or); color: #fff;
-  border-radius: 5px; font-size: 9px; font-weight: 800; letter-spacing: .5px;
-  text-transform: uppercase; vertical-align: 2px; margin-left: 6px;
-  font-family: 'Nunito', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  background: var(--or);
+  color: #FFFFFF;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: .5px;
 }
 ```
 
 > **Breakpoint coupling:** the dropdown CSS uses **1025px / 1024px** boundaries (not 900px / 901px) to align with the **Nest Hub nav-collapse fix** (see Section 3 breakpoint notes). All pages with the dropdown must also have the nav-collapse at 1024px, otherwise the dropdown will render in a half-broken state at 901–1024px.
 
+> **`index.html` exception:** the root `index.html` still uses `901px` breakpoints for historical reasons. The CSS rules themselves are functionally identical to the version above; only the `@media` boundaries differ. Leave `index.html` as-is unless explicitly asked to migrate it. All other pages MUST use 1025px / 1024px.
+
 > **(HQ) suffix + NEW badge** are reserved for the **Tengah** dropdown item. Tengah opened as the Flagship HQ in 2026 and replaces Jurong West as the headquarters reference. JW is now described as "established cornerstone" in copy.
+
+> **Common bug to avoid — duplicate `class` attribute on the active page.** When the page IS contact.html, you'll want the trigger to show as active. Do this by merging into a single class attribute (`class="dropdown-trigger active"`), NOT by adding a second one (`class="active" class="dropdown-trigger"`). Browsers silently drop the duplicate, and the result is the trigger losing its dropdown styling.
 
 ---
 
@@ -908,6 +992,8 @@ Each instructor profile shows the **other 12** instructors at the bottom — the
 
 Branch landing pages live at `/locations/<branch>` and are structurally similar to instructor profile pages, but with a different content focus (local-search AEO instead of teacher bio).
 
+> **⚠️ Contact dropdown — legacy variant.** The 4 location pages currently use the OLDER `<div class="dropdown-menu"><a class="dropdown-item">` markup with matching CSS targeting `.dropdown-item`. This is functionally equivalent to the canonical `<ul><li>` version (see Section 4) but visually slightly different (no centered-arrow tooltip; uses padding-shift hover instead). When migrating these pages to the canonical version, swap both the HTML markup AND the CSS rules — they MUST match each other. Until then, treat the 4 location pages as a known-old variant that doesn't follow the Section 4 / 4.5 canonical pattern.
+
 ### File locations
 | File | Branch | URL |
 |---|---|---|
@@ -1028,6 +1114,8 @@ Before finalising any page, verify:
 - [ ] Nav logo height: `42px`, using `logo.webp` (never base64)
 - [ ] Nav links font-size: `18px`, font-weight: `600`
 - [ ] Nav link order: **Home | About | Courses | Instructors | Review | Blog | Contact**
+- [ ] **Contact ▾ dropdown present in BOTH desktop nav AND mobile drawer** — `<li class="nav-item-dropdown">` (desktop) and `<div class="nav-item-dropdown">` (drawer). 4 submenu items in exact order: **Jurong West · Bukit Batok (Le Quest) · Tampines · Tengah (HQ) [NEW badge]**. Each item is `<li><a href="/locations/<branch>">…</a></li>` (canonical `<ul><li>` markup per Section 4). Section 4.5 dropdown CSS must also be present in `<style>`.
+- [ ] **Active page styling on contact.html:** when the current page IS contact, mark the trigger with a SINGLE merged class attribute `class="dropdown-trigger active"`. Never write `class="active" class="dropdown-trigger"` — duplicate `class` attributes are ignored and silently break dropdown styling.
 - [ ] **Review link points to `review.html`** (NOT `testimonial.html` — deprecated)
 - [ ] Active page has `class="active"` on its nav link (instructor profiles → active on Instructors)
 - [ ] **中文 button:** ACTIVE only on root `index.html` (links to `index-zh.html`). Disabled `<span>` everywhere else — keep `opacity:0.35;cursor:not-allowed;pointer-events:none;` until that page's Chinese counterpart is built. See Section 14 for the active-state markup.
@@ -1118,6 +1206,34 @@ Before finalising any page, verify:
 
 **Order is locked:** `首页 | 关于我们 | 课程 | 导师 | 评价 | 博客 | 联系我们` — never change.
 
+### 14.4.1 Contact ▾ dropdown — Chinese version (REQUIRED on every ZH page)
+
+The Contact dropdown structure from Section 4 carries over to Chinese pages identically — same HTML markup, same CSS (4.5), same `.badge-new` chip. **Only the visible labels change.** Numbers and `/locations/<branch>` paths stay in English (these are URL slugs registered with Google Business Profile + Search Console — never translate URL paths).
+
+| English dropdown item | 中文 dropdown item |
+|---|---|
+| `Contact ▾` (trigger) | `联系我们 ▾` |
+| `Jurong West` | `裕廊西` |
+| `Bukit Batok (Le Quest)` | `武吉巴督 (Le Quest)` |
+| `Tampines` | `淡滨尼` |
+| `Tengah (HQ) New` | `登加 (旗舰总部) New` |
+
+> The `Le Quest` brand name and the `New` badge text remain in English — `Le Quest` is the mall's actual name, and `New` is a short visual chip whose meaning is universal.
+
+Example desktop nav `<li>` on a Chinese page:
+
+```html
+<li class="nav-item-dropdown">
+  <a href="pages/contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
+  <ul class="dropdown-menu">
+    <li><a href="/locations/jurong-west">裕廊西</a></li>
+    <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+    <li><a href="/locations/tampines">淡滨尼</a></li>
+    <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+  </ul>
+</li>
+```
+
 ### 14.5 Language toggle — direction reverses on Chinese pages
 
 ```html
@@ -1140,7 +1256,18 @@ The same reversal applies in the footer bottom bar (`中文版本` ↔ `English`
   <a href="pages/instructors">导师</a>
   <a href="pages/review">评价</a>
   <a href="pages/blog">博客</a>
-  <a href="pages/contact">联系我们</a>
+
+  <!-- Contact dropdown — flat (always expanded) in drawer. Same markup as Section 4. -->
+  <div class="nav-item-dropdown">
+    <a href="pages/contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-west">裕廊西</a></li>
+      <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+      <li><a href="/locations/tampines">淡滨尼</a></li>
+      <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+    </ul>
+  </div>
+
   <a href="index" style="opacity:.7;">EN</a>
   <a href="pages/trial" class="btn btn-cta">预约试课</a>
 </nav>
@@ -1223,11 +1350,12 @@ When you're ready to build out `pages-zh/about.html`, `pages-zh/courses.html`, e
 6. Swap nav link labels per Section 14.4. **Update href to point to ZH counterparts** — e.g. `href="about"` → `href="about-zh"` only once `about-zh.html` exists; otherwise leave the href pointing at the English page as a fallback.
 7. Flip language toggle: `<a href="../index-zh">中文</a>` → `<a href="../index" style="...">EN</a>`.
 8. Mobile drawer: localize labels, flip the language toggle, keep all hrefs in sync with step 6.
-9. Footer: localize column headings (Section 14.7), brand paragraph (14.8), all 5 location headings + meta lines (14.9), bottom bar (14.10).
-10. WhatsApp FAB: localize panel headline, intro, and the 5 row labels (Section 14.11). Numbers and `wa.me` links must NOT change.
-11. Page body content: localize section headings, lead paragraphs, FAQ Q&As, CTAs. Keep brand terms in English per Section 14.13.
-12. JSON-LD: keep verbatim from English page.
-13. **Mobile/Landscape responsive fixes (Section 4.6) — required on every ZH page.** The CSS is **fully structural and contains zero strings**, so it copies verbatim from the English page. Required selectors: `.nav-drawer{max-height:calc(100dvh - 108px); overflow-y:auto; padding-bottom:calc(40px + env(safe-area-inset-bottom, 0px))}` + `.nav-drawer.on ~ #waWrap{display:none}`. On `index-zh.html` only, also include the hero video block (Section 4.6.2) — the poster `<img alt>` is the one piece that gets localized (`视频预览` instead of `Video preview`).
+9. **Contact ▾ dropdown — REQUIRED in both desktop nav AND mobile drawer.** Use the localized labels per Section 14.4.1 (`联系我们 ▾` trigger + 4 localized submenu items). The `/locations/<branch>` paths and the `.badge-new` chip stay in English. Section 4.5 CSS must be present in `<style>` — it's structural, copy verbatim from the EN page.
+10. Footer: localize column headings (Section 14.7), brand paragraph (14.8), all 5 location headings + meta lines (14.9), bottom bar (14.10).
+11. WhatsApp FAB: localize panel headline, intro, and the 5 row labels (Section 14.11). Numbers and `wa.me` links must NOT change.
+12. Page body content: localize section headings, lead paragraphs, FAQ Q&As, CTAs. Keep brand terms in English per Section 14.13.
+13. JSON-LD: keep verbatim from English page.
+14. **Mobile/Landscape responsive fixes (Section 4.6) — required on every ZH page.** The CSS is **fully structural and contains zero strings**, so it copies verbatim from the English page. Required selectors: `.nav-drawer{max-height:calc(100dvh - 108px); overflow-y:auto; padding-bottom:calc(40px + env(safe-area-inset-bottom, 0px))}` + `.nav-drawer.on ~ #waWrap, .wa, .mob-bar{display:none}`. On `index-zh.html` only, also include the hero video block (Section 4.6.2) — the poster `<img alt>` is the one piece that gets localized (`视频预览` instead of `Video preview`).
 
 ### 14.15 Verification markers (use in PowerShell verify-before-push)
 

@@ -163,17 +163,87 @@
     .nav-drawer.on ~ .wa,
     .nav-drawer.on ~ .mob-bar{ display: none; }
 
+
+    /* ==========================================================================
+       🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
+       Breakpoints aligned to this page's nav-collapse at 1024px.
+       ========================================================================== */
+    @media (min-width: 1025px) {
+      .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+      .nav-links .dropdown-trigger .arrow {
+        display: inline-block; transition: transform 0.22s var(--sp); font-size: 12px; margin-left: 2px;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+        transform: rotate(180deg); color: var(--or);
+      }
+      .nav-links .dropdown-menu {
+        display: block; position: absolute; top: 100%; left: 50%;
+        transform: translate(-50%, 15px); background: #FFFFFF; min-width: 240px;
+        box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12); border-radius: 12px;
+        padding: 8px 0; border: 1.5px solid #EEF2F8; z-index: 1050;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+        list-style: none; margin: 0;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-menu {
+        opacity: 1; pointer-events: auto; transform: translate(-50%, 0);
+      }
+      .nav-links .dropdown-menu::before {
+        content: ''; position: absolute; top: -7px; left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 12px; height: 12px; background: #FFFFFF;
+        border-left: 1.5px solid #EEF2F8; border-top: 1.5px solid #EEF2F8;
+      }
+      .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+      .nav-links .dropdown-menu li a {
+        display: block; padding: 11px 20px; font-size: 15px; font-weight: 700;
+        color: var(--ink); text-align: left; white-space: nowrap;
+        border-radius: 0; background: transparent; transition: all 0.2s ease;
+      }
+      .nav-links .dropdown-menu li a:hover {
+        color: var(--or) !important; background: var(--or-lt); padding-left: 25px;
+      }
+    }
+    @media (max-width: 1024px) {
+      .nav-drawer .nav-item-dropdown { width: 100%; }
+      .nav-drawer .dropdown-trigger { text-align: left; }
+      .nav-drawer .dropdown-menu {
+        display: flex; flex-direction: column; gap: 8px;
+        background: var(--s1); padding: 10px; margin: 4px 0 8px;
+        border-radius: 10px; border: 1px solid #EEF2F8; list-style: none;
+      }
+      .nav-drawer .dropdown-menu li { margin: 0; }
+      .nav-drawer .dropdown-menu li a {
+        display: block; padding: 10px 14px; font-size: 15px; font-weight: 700;
+        color: var(--ink); border-radius: 8px; background: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      }
+    }
+    .badge-new {
+      font-size: 9px; font-weight: 900; background: var(--or); color: #FFFFFF;
+      padding: 2px 5px; border-radius: 4px; margin-left: 4px;
+      vertical-align: middle; text-transform: uppercase; letter-spacing: .5px;
+    }
+
+
+    /* ── Orange keyword underline (canonical, May 18 2026) ──
+       .kw uses isolation:isolate so z-index:-1 on ::after stays
+       inside .kw and doesn't escape behind page-hero's gradient. */
+    .kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+    .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+    @keyframes kw{to{transform:scaleX(1)}}
+
 </style>
 </head>
 <body>
   <div class="ann-bar"><a href="../../pages/trial"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/><path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/><line x1="12" y1="12" x2="12" y2="19"/></svg>Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!</a></div>
   <nav class="nav" id="nav"><div class="W"><div class="nav-row">
     <a href="../../index" class="nav-logo" aria-label="Liberal Music &amp; Arts Home"><img src="../../assets/logo.webp" alt="Liberal Music &amp; Arts" onerror="this.style.display='none'"/></a>
-    <ul class="nav-links"><li><a href="../../index">Home</a></li><li><a href="../../pages/about">About</a></li><li><a href="../../pages/courses">Courses</a></li><li><a href="../../pages/instructors">Instructors</a></li><li><a href="../../pages/review">Review</a></li><li><a href="../../pages/blog" class="active">Blog</a></li><li><a href="../../pages/contact">Contact</a></li></ul>
+    <ul class="nav-links"><li><a href="../../index">Home</a></li><li><a href="../../pages/about">About</a></li><li><a href="../../pages/courses">Courses</a></li><li><a href="../../pages/instructors">Instructors</a></li><li><a href="../../pages/review">Review</a></li><li><a href="../../pages/blog" class="active">Blog</a></li><li class="nav-item-dropdown"><a href="../../pages/contact" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a><ul class="dropdown-menu"><li><a href="/locations/jurong-west">Jurong West</a></li><li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li><li><a href="/locations/tampines">Tampines</a></li><li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li></ul></li></ul>
     <div class="nav-end"><a href="../../pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey" class="nav-lang">中文</a><a href="../../pages/trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a></div>
     <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div></div></nav>
-  <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation"><a href="../../index">Home</a><a href="../../pages/about">About</a><a href="../../pages/courses">Courses</a><a href="../../pages/instructors">Instructors</a><a href="../../pages/review">Review</a><a href="../../pages/blog">Blog</a><a href="../../pages/contact">Contact</a><a href="../../pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">中文 · Chinese Version</a><a href="../../pages/trial" class="btn btn-cta">Book Trial Class</a></nav>
+  <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation"><a href="../../index">Home</a><a href="../../pages/about">About</a><a href="../../pages/courses">Courses</a><a href="../../pages/instructors">Instructors</a><a href="../../pages/review">Review</a><a href="../../pages/blog">Blog</a><div class="nav-item-dropdown"><a href="../../pages/contact" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a><ul class="dropdown-menu"><li><a href="/locations/jurong-west">Jurong West</a></li><li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li><li><a href="/locations/tampines">Tampines</a></li><li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li></ul></div><a href="../../pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">中文 · Chinese Version</a><a href="../../pages/trial" class="btn btn-cta">Book Trial Class</a></nav>
   <main style="padding-top:108px">
     <section class="article-hero"><div class="W">
       <div class="breadcrumb sr"><a href="../../index">Home</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg><a href="../../pages/blog">Blog</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg><span style="color:var(--or);font-weight:700">From First Note to Full Confidence: A 6-Month Journey 🎹</span></div>
