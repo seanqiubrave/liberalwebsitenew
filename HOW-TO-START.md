@@ -199,9 +199,29 @@ liberalwebsitenew/
 │   ├── bukit-batok.html    ← Le Quest
 │   ├── jurong-west.html
 │   └── tampines.html
-├── locations-zh/           ← Chinese branch pages — NOT YET CREATED (place future Chinese branch pages here)
-├── pages-zh/               ← Chinese pages (mirrors pages/) — PAUSED
-│   └── articles/
+├── locations-zh/           ← Chinese branch pages (created May 18 2026 — 4 of 5 done; Coloury Art pending)
+│   ├── tengah.html         ← Flagship HQ (登加旗舰总部)
+│   ├── bukit-batok.html    ← Le Quest (武吉巴督)
+│   ├── jurong-west.html    ← 裕廊西
+│   └── tampines.html       ← 淡滨尼 (Wed closed)
+├── pages-zh/               ← Chinese pages (mirrors pages/) — instructor profiles + key root pages done May 18 2026
+│   ├── cecily.html         ← Principal · Erhu (canonical ZH instructor template)
+│   ├── calvin.html         ← Vice Principal · Drums/Guitar/Uke
+│   ├── kate.html           ← Piano · ABRSM
+│   ├── jescelyn.html       ← Piano · ABRSM
+│   ├── tina.html           ← Piano · Vocal
+│   ├── verginia.html       ← Piano · Vocal
+│   ├── cheng.html          ← Violin · Piano
+│   ├── aliona.html         ← Violin · Strings
+│   ├── teresa.html         ← Violin
+│   ├── jiang.html          ← Erhu · Chinese Instruments
+│   ├── mindy.html          ← Vocal · Music for Kids
+│   ├── leonard.html        ← Drums · Guitar · Uke · Piano
+│   ├── loy.html            ← Guitar · Drums · Uke
+│   ├── privacy.html        ← Chinese Privacy Policy (May 14 2026)
+│   ├── terms.html          ← Chinese Terms of Use (May 14 2026)
+│   ├── contact.html        ← Chinese contact page (May 14 2026)
+│   └── articles/           ← 2 Chinese article pages (May 14 2026)
 └── tools/                  ← Internal tools, never linked from site
     ├── Liberal_blog-generator.html   ← Blog generator (open in Chrome)
     ├── publish-blog-*.ps1            ← Auto-generated publish scripts
@@ -214,10 +234,10 @@ liberalwebsitenew/
 **Path rules (CRITICAL):**
 | File location | Logo src | Asset prefix |
 |---|---|---|
-| Root (`index.html`) | `assets/logo.webp` | `assets/` |
-| `pages/*.html` | `../assets/logo.webp` | `../assets/` |
-| `pages/articles/*.html` | `../../assets/logo.webp` | `../../assets/` |
-| `locations/*.html` | `../assets/logo.webp` | `../assets/` |
+| Root (`index.html`, `index-zh.html`) | `assets/logo.webp` | `assets/` |
+| `pages/*.html`, `pages-zh/*.html` | `../assets/logo.webp` | `../assets/` |
+| `pages/articles/*.html`, `pages-zh/articles/*.html` | `../../assets/logo.webp` | `../../assets/` |
+| `locations/*.html`, `locations-zh/*.html` | `../assets/logo.webp` | `../assets/` |
 
 > ⚠️ **Asset filename casing is INCONSISTENT — and Vercel is case-sensitive.** Local Windows is case-insensitive so `Jescelyn.webp` and `jescelyn.webp` work the same on disk, but on Vercel (Linux) the wrong case returns 404. This caused 6 broken instructor photos in April 2026.
 >
@@ -412,7 +432,7 @@ Contact ▾
 - Dropdown CSS expects nav-collapse at **1024px** (raised from 900px for Nest Hub — see breakpoint notes below)
 
 > **Review link target is `review.html`** (`testimonial.html` is deprecated).  
-> **中文 toggle is active on root `index.html` only** (links to `index-zh.html`). On all `pages/*.html` it remains a grey `<span>` disabled pending each Chinese page being built. See HEADER-FOOTER-GUIDE.md Section 14 for exact markup.
+> **中文 toggle is active on all pages with a ZH counterpart** — root `index.html` ↔ `index-zh.html`, the 13 instructor profiles, 4 location pages (jurong-west, bukit-batok, tampines, tengah), and the May-14-built ZH legal/article pages. On pages without a ZH counterpart yet (about, courses, instructors, blog, review, course-detail, trial), the toggle remains a grey disabled `<span>`. On ZH pages, the toggle reverses direction (EN → links to the EN counterpart per-page, not to the EN homepage). See HEADER-FOOTER-GUIDE.md §14.5 + §14.16 for exact markup.
 
 ---
 
@@ -1017,14 +1037,16 @@ After first push attempt, `liberalmusicschool.com/locations/tengah` returned 404
 | # | Item | Priority |
 |---|---|---|
 | 1 | Apply Nest Hub breakpoint fix (900→1024) to `index.html` + ~24 other pages | High (visible bug on Nest Hub) |
-| 2 | Sync Contact ▾ dropdown to all `pages/*.html`, instructor profiles, articles | High |
+| 2 | Sync Contact ▾ dropdown to all EN `pages/*.html`, instructor profiles, articles. **ZH side done as of May 18 2026** — all ZH pages have canonical dropdown markup + Section 4.5 CSS, and after the May 18 dropdown-URL bulk fix all `/locations/<slug>` references in ZH files now route to `/locations-zh/<slug>` correctly. | High |
 | 3 | Sync WA FAB to 5-branch HQ-first order on `index.html` + all `pages/*.html` | High |
 | 4 | Clean up 6 leftover "Branch/branch" refs on `tengah.html` (breadcrumb, iframe title, FAQ H2, FAQ Q2 question name, CTA banner) | Medium |
 | 5 | Site-wide footer hours per branch (currently generic "Daily 1pm-9pm" on all card meta lines) | Medium |
 | 6 | Per-location Google rating accuracy (Bukit Batok 4.8★/30, JW 4.5★/32 — currently brand-wide 4.7★) | Medium |
-| 7 | Build `locations-zh/` Chinese versions of 4 branch pages | Low (Chinese site paused) |
+| 7 | Build `locations-zh/` Chinese versions of 4 branch pages. **DONE for the 4 main branches (jurong-west, bukit-batok, tampines, tengah)** May 18 2026. Coloury Art ZH page remains pending until the EN side is ready (it's currently `Opening Soon`). | Low (Coloury Art remaining) |
 | 8 | Sweep for any remaining `#01-K1` references (Le Quest was corrected to `#01-83`) | Low |
 | 9 | Consider unifying the 3 different ordering systems (footer / FAB / dropdown) | Low (cosmetic) |
+| 10 | Update EN-side `nav-lang` toggles on the 13 instructor pages + 4 location pages + 5 ZH-mirrored root pages from generic `中文 → index-zh.html` to per-page ZH counterpart (`../pages-zh/cecily`, `../locations-zh/tengah`, etc.) — currently the EN side still does a generic homepage hop on most pages | Medium |
+| 11 | Build out the rest of `pages-zh/` (about, courses, instructors, blog, review, trial, all `[subject]-course` pages, all course-zh articles) — 13 instructors + 4 locations + 3 legal/contact + 2 articles = **22 ZH pages live**; ~15 main ZH pages still to build | Low (Chinese site rollout phased) |
 
 ---
 
@@ -1067,10 +1089,27 @@ After first push attempt, `liberalmusicschool.com/locations/tengah` returned 404
 | `pages-zh/contact.html` | Chinese contact page — created May 14 2026 |
 | `pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey.html` | Chinese article page — created May 14 2026 |
 | `pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html` | Chinese article page — created May 14 2026 |
+| `pages-zh/cecily.html` | Chinese instructor profile (Principal · Erhu) — canonical ZH instructor template — created May 18 2026 |
+| `pages-zh/calvin.html` | Chinese instructor profile (Vice Principal · Drums/Guitar/Uke) — created May 18 2026 |
+| `pages-zh/kate.html` | Chinese instructor profile (Piano · ABRSM) — created May 18 2026 |
+| `pages-zh/jescelyn.html` | Chinese instructor profile (Piano · ABRSM) — created May 18 2026 |
+| `pages-zh/tina.html` | Chinese instructor profile (Piano · Vocal) — created May 18 2026 |
+| `pages-zh/verginia.html` | Chinese instructor profile (Piano · Vocal) — created May 18 2026 |
+| `pages-zh/cheng.html` | Chinese instructor profile (Violin · Piano) — created May 18 2026 |
+| `pages-zh/aliona.html` | Chinese instructor profile (Violin · Strings) — created May 18 2026 |
+| `pages-zh/teresa.html` | Chinese instructor profile (Violin) — created May 18 2026 |
+| `pages-zh/jiang.html` | Chinese instructor profile (Erhu · Chinese Instruments) — created May 18 2026 |
+| `pages-zh/mindy.html` | Chinese instructor profile (Vocal · Music for Kids) — created May 18 2026 |
+| `pages-zh/leonard.html` | Chinese instructor profile (Drums · Guitar · Uke · Piano) — created May 18 2026 |
+| `pages-zh/loy.html` | Chinese instructor profile (Guitar · Drums · Uke) — created May 18 2026 |
 | `locations/tengah.html` | **Flagship HQ landing page — CANONICAL TEMPLATE for `locations/*.html`** — created May 17 2026 |
 | `locations/bukit-batok.html` | Branch landing page (Le Quest) — created May 17 2026 |
 | `locations/jurong-west.html` | Branch landing page (Jurong West) — created May 17 2026 |
 | `locations/tampines.html` | Branch landing page (Tampines, Wed closed) — created May 17 2026 |
+| `locations-zh/tengah.html` | **Chinese Flagship HQ landing page — CANONICAL TEMPLATE for `locations-zh/*.html`** — created May 18 2026 |
+| `locations-zh/bukit-batok.html` | Chinese branch landing page (Le Quest · 武吉巴督) — created May 18 2026 |
+| `locations-zh/jurong-west.html` | Chinese branch landing page (裕廊西) — created May 18 2026 |
+| `locations-zh/tampines.html` | Chinese branch landing page (淡滨尼, Wed closed) — created May 18 2026 |
 
 ---
 
@@ -1152,3 +1191,191 @@ All scripts are idempotent (check for sentinel strings — `NAVBAR DROPDOWN EXTE
 | **Total** | **42** | **41/42** | **41/42** |
 
 **Only `index-zh.html` remains.** Future work: localize the dropdown labels per HEADER-FOOTER-GUIDE.md §14.4.1 (联系我们 ▾ + 裕廊西 / 武吉巴督 (Le Quest) / 淡滨尼 / 登加 (旗舰总部)).
+## 📝 PAGE-SPECIFIC NOTES (May 18, 2026 session — `pages-zh/` instructor completion + `locations-zh/` 4 main branches + ZH dropdown bulk-routing fix + docs r8)
+
+This session completed the bulk of the Chinese site rollout: 13 instructor profile pages in `pages-zh/`, all 4 main Chinese branch pages in `locations-zh/`, and a site-wide dropdown URL fix to keep ZH users inside the ZH navigation. `HEADER-FOOTER-GUIDE.md` is brought to **r8**; `LIBERAL_ART_BIBLE.md` to **v1.5**.
+
+### A. `pages-zh/` instructor pages — 13/13 done
+
+All 13 instructor profiles cloned from the EN canonical (`pages/<name>.html`) into `pages-zh/<name>.html`, preserving English file slugs (URLs are GBP-registered + indexed — never localize slugs). Each page got:
+
+- `<html lang="zh-CN">` swap + Noto Sans SC font import in `<head>`
+- `--zh` CSS variable injected at the top of `:root` (`'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif`)
+- Font stacks updated: `body{font-family:'Quicksand',var(--zh),system-ui,sans-serif}` + `h1,h2,h3,h4{font-family:'Nunito',var(--zh),sans-serif}` — Latin glyphs render Quicksand/Nunito, CJK glyphs fall through to Noto Sans SC seamlessly
+- Title / meta / canonical → Chinese, with `<link rel="alternate" hreflang>` linking EN ↔ ZH (both sides bi-directional)
+- Hero, bio, education, achievements, philosophy, book card, "Other Instructors" strip → fully translated
+- Internal hrefs swapped to ZH counterparts (`../pages-zh/<other>` for instructor links, `../pages-zh/trial`, `../index-zh.html`, etc.) — only `/locations/<branch>` slugs remained absolute (since slugs are GBP-registered)
+- Contact dropdown localized to `联系我们 ▾ + 裕廊西 / 武吉巴督 (Le Quest) / 淡滨尼 / 登加 (旗舰总部) [New]` in BOTH desktop nav AND mobile drawer (Section 4.5 CSS copied verbatim — purely structural)
+- Footer brand paragraph, location cards (5 branches with `（Chinese）分校` heading style), bottom bar, WA FAB popup, mobile sticky bar — fully translated using §14 conventions
+- EN toggle reversed: `<a class="nav-lang" href="../pages/<name>" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>` — per-page counterpart, NOT a homepage hop
+
+#### Photo badge colors (preserved from EN — only the 中文 label text changes)
+| Instructor(s) | Badge label | Badge bg | Badge text color |
+|---|---|---|---|
+| Cecily (Principal) | `校长` | `var(--or)` orange | white |
+| Calvin (Vice Principal) | `副校长` | `var(--or)` orange | white |
+| Kate (lead instructor) | `导师` | `var(--lav)` lavender | `#5550c8` |
+| Jescelyn, Tina, Verginia | `[Name] 老师` | `#5550c8` solid | white |
+| Cheng (multi-instrument) | `[Name] 老师` | `#c75b8a` pink | white |
+| Others (default) | `[Name] 老师` | per page (varies) | per page |
+
+> **Honorific convention:** Cecily / Calvin use formal title (`校长` / `副校长`). All other instructors use `[姓] 老师` everywhere as the address form ("Teacher [Name]") — never "Ms/Mr". Hero pill kicker, "Other Instructors" strip cards, book card heading all follow this.
+
+#### Established ZH boilerplate strings (reused across all 13 instructor pages)
+
+| English | 中文 |
+|---|---|
+| `Our Instructors` (breadcrumb) | `我们的导师` |
+| `Back to Instructors` | `返回导师团队` |
+| `Education` (section heading) | `教育背景` |
+| `Achievements & Experience` OR `Career Highlights` | `成就与经验` / `成就与职业亮点` |
+| `Meet our other instructors` | `认识我们的其他导师` |
+| `Every Liberal instructor brings exceptional skill, passion, and dedication to our students.` | `博雅的每一位导师都为学生带来了卓越的技艺、热情与奉献精神。` |
+| `Start Today` (pill kicker) | `即刻启程` (NOT 即刻开始) |
+| `Book Trial Class` | `预约试课` (NOT 预约试听课 — house style, shorter) |
+| `Join 20,000+ families who trust Liberal Music & Arts School. Book a free trial class with [Name] or any of our expert instructors today.` | `加入 20,000+ 个信赖博雅音乐艺术学校的家庭。立即预约 [Name] 老师或我们其他专业导师的免费试课。` |
+
+### B. `locations-zh/` 4 main Chinese branch pages — done
+
+All 4 EN branch pages (`locations/<slug>.html`) cloned to `locations-zh/<slug>.html`, with EN slug preserved per the GBP rule. Each page got the full structural translation (same 6-section page-section order as EN canonical) plus a few branch-specific decisions:
+
+#### Both JSON-LD schemas translated (CRITICAL for Chinese SEO)
+
+This is the key delta from previous ZH work — previous ZH pages kept JSON-LD untranslated. **For locations-zh, both schemas were partially translated:**
+
+- **`@type: "MusicSchool"`** — bilingual `name` field: `"博雅音乐艺术学校 (登加旗舰总部) · Liberal Music & Arts School (Tengah Flagship HQ)"`. `@id` + `url` updated to `/locations-zh/<slug>`. `address` block stays English (postal addresses must be Google-Maps-parseable). `openingHoursSpecification` is purely structural data, unchanged.
+- **`@type: "FAQPage"`** — Question `name` + Answer `text` fully translated to Chinese, so they're indexable by Chinese-language Google for rich-result snippets.
+
+#### `hreflang` alternate links — bidirectional EN ↔ ZH
+
+Added on both sides:
+
+```html
+<!-- On locations-zh/tengah.html -->
+<link rel="canonical" href="https://liberalmusicschool.com/locations-zh/tengah"/>
+<link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/tengah"/>
+<link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/tengah"/>
+```
+
+(EN side also needs the same hreflang alternate links — pending on the 4 EN location pages, noted in item #10 of the pending list.)
+
+#### Path conventions inside `locations-zh/*.html`
+
+| Item | Path | Reason |
+|---|---|---|
+| Asset (logo, icon, image) | `../assets/<file>` | locations-zh/ one level deep, same as locations/ |
+| ZH instructor / course page | `../pages-zh/<name>` | go up one, into pages-zh |
+| Index | `../index-zh.html` | go up one |
+| Dropdown items (other ZH branches) | `/locations-zh/<branch>` | absolute paths (work from any URL depth) |
+| **EN toggle button** | `../locations/<slug>` | per-page counterpart, NOT homepage |
+| Footer English link | `../locations/<slug>` | matches EN toggle target |
+| Privacy/Terms in footer | `../pages-zh/privacy`, `../pages-zh/terms` | one up, into pages-zh |
+
+#### Tengah CTA exception — `登加总校` is CORRECT, not a typo
+
+The other 3 branch pages had a leftover template-copy bug: their bottom CTA banner said *"Book a trial class at our Tengah branch"* on every branch (an obvious copy-paste error from when Tengah was the original template). In jurong-west / bukit-batok / tampines ZH pages, this was fixed to a generic `预约我们校区的试课` ("Book a trial at our branch"). **On the Tengah page itself, `登加总校` ("Tengah HQ") is the correct text** — we are literally on the Tengah branch — and the CTA reads `预约我们登加总校的试课——无需任何绑定承诺。`
+
+#### Tampines Wednesday-closed handling
+
+Visible Studio Hours block renders the Wed row in orange (`<strong style="color:var(--or)">周三：休息</strong>`) so visitors can't miss it. In JSON-LD `openingHoursSpecification`, Wednesday is omitted from the `dayOfWeek` array (schema.org idiom for "closed that day"). FAQ Q2's `acceptedAnswer.text` explicitly mentions `请注意，我们的淡滨尼工作室周三休息。` — schema + visible match exactly, as auditors check this.
+
+#### Tengah Flagship HQ — `📍` emoji exception preserved
+
+Tengah's pill kicker reads `📍 旗舰总校 · 博雅登加校区` — preserving the explicit Art Bible §6 emoji-in-pill exception from EN canonical. Hero h1 stays `登加音乐学校` (matches "Tengah Music School"). Sub-headline mentions `森林市镇` (HDB/URA's official ZH name for Tengah) and `BTO 预购组屋` (first-occurrence parenthesis convention — BTO is widely understood as a SG-specific real-estate acronym).
+
+### C. Established SG Chinese place-name translations
+
+These are now the canonical translations across all ZH location/instructor pages — never re-decide each time:
+
+| English (slug stays English) | Chinese | Notes |
+|---|---|---|
+| Tengah | 登加 | New HDB town, official ZH name |
+| Tampines | 淡滨尼 | Long-established SG-Chinese name |
+| Jurong West | 裕廊西 | Official ZH name |
+| Bukit Batok | 武吉巴督 | Official ZH name |
+| Bukit Batok MRT (NS2) | 武吉巴督地铁站 | + English in parentheses on first mention |
+| Bukit Gombak MRT (NS3) | 武吉甘柏地铁站 | "甘柏" is SG-Chinese for Gombak |
+| Tampines West MRT (DT31) | 淡滨尼西地铁站 | |
+| Lakeside MRT (EW26) | kept English | "邻近 Lakeside 地铁站" reads more natural than 湖畔 |
+| Tengah Plantation MRT (future, JRL) | 登加种植园地铁站 | Plantation themed naming for the whole Tengah retail strip |
+| Jurong Region Line | 裕廊区域线 | LTA official ZH name |
+| Tampines Round Market | 淡滨尼圆巴刹 | "巴刹" is SG-Chinese for market/wet-market (from Malay pasar) — NOT 市场 |
+| HDB | 建屋局 + HDB | First occurrence both Chinese + acronym |
+| BTO | BTO 预购组屋 | First occurrence both acronym + Chinese gloss |
+| Forest town | 森林市镇 | Official HDB/URA marketing term for Tengah |
+| Plantation Plaza / Village | kept English | Project names, GBP-registered |
+| McDonald's Tengah | 登加麦当劳 | Standard pattern |
+| FairPrice Finest | kept English | Brand name |
+| Le Quest (mall) | kept English | Brand name |
+| Coloury Art By Liberal | kept English; sometimes `（裕廊坊）` after | Brand name + Chinese gloss for Jurong Point location |
+| Boon Lay MRT | 文礼地铁站 | Official ZH name |
+
+### D. Site-wide ZH dropdown URL bulk fix — `/locations/` → `/locations-zh/`
+
+After all 17 ZH pages (13 instructors + 4 locations) were built, a user-reported bug surfaced: clicking any item in the Contact ▾ dropdown from a ZH page sent the user back to the **English** branch page (broken language continuity). Root cause: earlier ZH pages were created when `/locations-zh/` branch pages didn't yet exist, so their dropdowns pointed to `/locations/<en-slug>` as a fallback. Now that all 4 main ZH branches are live, those dropdown URLs need updating.
+
+**Fix applied via PowerShell bulk update** (run on Windows side, end of session):
+
+```powershell
+cd C:\Users\immor\Downloads\liberalwebsitenew
+$zhFiles = @()
+if (Test-Path "index-zh.html") { $zhFiles += Get-Item "index-zh.html" }
+$zhFiles += Get-ChildItem -Path "pages-zh","locations-zh" -Filter "*.html" -Recurse -ErrorAction SilentlyContinue
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+foreach ($f in $zhFiles) {
+    $content = [System.IO.File]::ReadAllText($f.FullName, $utf8NoBom)
+    $new = $content `
+        -replace '"/locations/jurong-west"',  '"/locations-zh/jurong-west"' `
+        -replace '"/locations/bukit-batok"',  '"/locations-zh/bukit-batok"' `
+        -replace '"/locations/tampines"',     '"/locations-zh/tampines"' `
+        -replace '"/locations/tengah"',       '"/locations-zh/tengah"'
+    if ($content -ne $new) {
+        [System.IO.File]::WriteAllText($f.FullName, $new, $utf8NoBom)
+    }
+}
+```
+
+**Pattern safety:** the replacement targets `"/locations/<slug>"` (absolute path, prefixed by a quote) but does NOT match `"../locations/<slug>"` (relative path) — the relative paths used for EN toggle and footer English links are protected. The `..` precedes the `"/locations/`, so the quote-prefixed pattern doesn't match.
+
+**Encoding:** PowerShell's default `Set-Content -Encoding UTF8` adds a BOM, which breaks HTML rendering. The script uses `[System.IO.File]::WriteAllText` with `UTF8Encoding::new($false)` to write UTF-8 WITHOUT BOM, matching the original file format.
+
+Git Bash alternative (uses GNU sed, no `-i ''` quirk):
+```bash
+cd /c/Users/immor/Downloads/liberalwebsitenew
+ZH_FILES=$(find index-zh.html pages-zh locations-zh -name '*.html' 2>/dev/null)
+for f in $ZH_FILES; do
+  sed -i \
+    -e 's|"/locations/jurong-west"|"/locations-zh/jurong-west"|g' \
+    -e 's|"/locations/bukit-batok"|"/locations-zh/bukit-batok"|g' \
+    -e 's|"/locations/tampines"|"/locations-zh/tampines"|g' \
+    -e 's|"/locations/tengah"|"/locations-zh/tengah"|g' \
+    "$f"
+done
+```
+
+### E. Verify-before-push markers used in this session
+
+| Change | Marker |
+|---|---|
+| pages-zh instructor pages (all 13) | `加入 20,000+ 个信赖博雅音乐艺术学校的家庭` (in book card subtitle — unique to ZH instructor pages) |
+| locations-zh/jurong-west.html | `博雅裕廊西校区` (hero pill text — unique to this page) |
+| locations-zh/bukit-batok.html | `紧邻 FairPrice Finest 超市和麦当劳` (Quick Facts — unique to this page) |
+| locations-zh/tampines.html | `淡滨尼圆巴刹` (landmark — unique to this page) |
+| locations-zh/tengah.html | `📍 旗舰总校 · 博雅登加校区` (hero pill — unique to this page) |
+| Site-wide ZH dropdown URL fix | `href="/locations-zh/jurong-west"` (any one of the 4 ZH dropdown paths — only exists after the fix) |
+
+### F. Site ZH progress matrix (end of May 18, 2026 session)
+
+| Type | Count | ZH built? | Notes |
+|---|---|---|---|
+| Root `index-zh.html` | 1 | ✅ | Pre-existed; dropdown URLs updated by bulk fix |
+| `pages-zh/` legal + contact | 3 | ✅ | privacy, terms, contact (built May 14) |
+| `pages-zh/articles/*.html` | 2 | ✅ | built May 14 |
+| `pages-zh/<instructor>.html` | 13 | ✅ | **all 13 built this session** |
+| `pages-zh/` main (about, courses, instructors, blog, review, trial) | 6 | ❌ | pending |
+| `pages-zh/<course>.html` (12 EN counterparts) | 12 | ❌ | pending |
+| `locations-zh/<branch>.html` | 4 | ✅ | **4 main branches built this session**; Coloury Art pending |
+| **ZH pages built / EN counterparts** | **22 / ~37** | **~59%** | |
+
+---
+

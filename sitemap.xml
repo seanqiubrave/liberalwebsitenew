@@ -1,158 +1,536 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--
+  Liberal Music & Arts School — sitemap.xml
+  Last updated: 2026-05-18 (r2 — comprehensive bilingual sitemap with hreflang)
+
+  Structure:
+    1. Homepages (EN + ZH)
+    2. High-conversion pages (trial, contact)
+    3. Core navigation (about, courses, instructors, review, blog)
+    4. Location landing pages (4 EN + 4 ZH)
+    5. Course detail pages (12 EN — no ZH counterparts yet)
+    6. Instructor profile pages (13 EN + 13 ZH)
+    7. Article pages (2 EN + 2 ZH)
+    8. Legal pages (EN + ZH)
+
+  Bilingual policy:
+    Pages with BOTH EN and ZH versions carry <xhtml:link rel="alternate"> tags
+    declaring both hreflang variants (en and zh-CN). Pages with only one
+    version omit the alternates (per Google's spec — never declare an
+    alternate that 404s).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <!-- ============================================= -->
-  <!-- Top-level pages (highest priority)             -->
+  <!-- 1. HOMEPAGES (priority 1.0)                    -->
   <!-- ============================================= -->
   <url>
     <loc>https://liberalmusicschool.com/</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/index-zh"/>
   </url>
   <url>
+    <loc>https://liberalmusicschool.com/index-zh</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/index-zh"/>
+  </url>
+
+  <!-- ============================================= -->
+  <!-- 2. HIGH-CONVERSION PAGES (trial, contact)      -->
+  <!-- ============================================= -->
+  <url>
     <loc>https://liberalmusicschool.com/pages/trial</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://liberalmusicschool.com/pages/contact</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/contact"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/contact</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/contact"/>
   </url>
 
   <!-- ============================================= -->
-  <!-- Core navigation pages                          -->
+  <!-- 3. CORE NAVIGATION PAGES                       -->
   <!-- ============================================= -->
   <url>
     <loc>https://liberalmusicschool.com/pages/about</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://liberalmusicschool.com/pages/courses</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://liberalmusicschool.com/pages/instructors</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://liberalmusicschool.com/pages/review</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://liberalmusicschool.com/pages/blog</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- ============================================= -->
-  <!-- Instructor profile pages                       -->
+  <!-- 4. LOCATION LANDING PAGES (4 EN + 4 ZH)        -->
+  <!-- Created May 17 (EN), May 18 (ZH)               -->
   <!-- ============================================= -->
   <url>
-    <loc>https://liberalmusicschool.com/pages/cecily</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/locations/tengah</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations-zh/tengah</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations/bukit-batok</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations-zh/bukit-batok</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations/jurong-west</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations-zh/jurong-west</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations/tampines</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations-zh/tampines</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/tampines"/>
+  </url>
+
+  <!-- ============================================= -->
+  <!-- 5. COURSE DETAIL PAGES (12 EN — no ZH yet)     -->
+  <!-- piano-course is the canonical template         -->
+  <!-- ============================================= -->
+  <url>
+    <loc>https://liberalmusicschool.com/pages/piano-course</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/violin-course</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/calvin</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/guitar-course</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/kate</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/drum-course</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/jescelyn</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/vocal-course</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/tina</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/ukulele-course</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/verginia</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/music-for-kids</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/cheng</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/chinese-instruments</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/aliona</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/music-theory</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/teresa</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/aural-training</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/jiang</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/ballet-course</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liberalmusicschool.com/pages/mindy</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://liberalmusicschool.com/pages/hiphop-course</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://liberalmusicschool.com/pages/leonard</loc>
-    <lastmod>2026-04-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://liberalmusicschool.com/pages/loy</loc>
-    <lastmod>2026-04-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- ============================================= -->
-  <!-- Legal / policy pages                           -->
+  <!-- 6. INSTRUCTOR PROFILE PAGES (13 EN + 13 ZH)    -->
+  <!-- cecily is canonical template                   -->
+  <!-- ============================================= -->
+  <url>
+    <loc>https://liberalmusicschool.com/pages/cecily</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/cecily"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/cecily"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/cecily</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/cecily"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/cecily"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/calvin</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/calvin"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/calvin"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/calvin</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/calvin"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/calvin"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/kate</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/kate"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/kate"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/kate</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/kate"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/kate"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/jescelyn</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/jescelyn"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/jescelyn"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/jescelyn</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/jescelyn"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/jescelyn"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/tina</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/tina"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/tina"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/tina</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/tina"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/tina"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/verginia</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/verginia"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/verginia"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/verginia</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/verginia"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/verginia"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/cheng</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/cheng"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/cheng"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/cheng</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/cheng"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/cheng"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/aliona</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/aliona"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/aliona"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/aliona</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/aliona"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/aliona"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/teresa</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/teresa"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/teresa"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/teresa</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/teresa"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/teresa"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/jiang</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/jiang"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/jiang"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/jiang</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/jiang"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/jiang"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/mindy</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/mindy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/mindy"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/mindy</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/mindy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/mindy"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/leonard</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/leonard"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/leonard"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/leonard</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/leonard"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/leonard"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/loy</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/loy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/loy"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/loy</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/loy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/loy"/>
+  </url>
+
+  <!-- ============================================= -->
+  <!-- 7. ARTICLE PAGES (2 EN + 2 ZH)                 -->
+  <!-- ============================================= -->
+  <url>
+    <loc>https://liberalmusicschool.com/pages/articles/from-first-note-to-full-confidence-a-6-month-journey</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/articles/from-first-note-to-full-confidence-a-6-month-journey"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/articles/from-first-note-to-full-confidence-a-6-month-journey"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah"/>
+  </url>
+
+  <!-- ============================================= -->
+  <!-- 8. LEGAL / POLICY PAGES (EN + ZH)              -->
   <!-- ============================================= -->
   <url>
     <loc>https://liberalmusicschool.com/pages/privacy</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/privacy"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/privacy</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/privacy"/>
   </url>
   <url>
     <loc>https://liberalmusicschool.com/pages/terms</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/terms"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/terms"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/terms</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/terms"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/terms"/>
   </url>
 
 </urlset>

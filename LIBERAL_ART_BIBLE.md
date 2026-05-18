@@ -1,5 +1,5 @@
-# Liberal Music & Arts School — Art Bible v1.4
-> Extracted from `index.html` (master reference) · April 2026 · Revised May 18, 2026 (v1.4 — Contact ▾ dropdown now site-wide; `.kw` keyword underline gets `isolation:isolate` to fix invisible-underline bug; two-breakpoint reality documented for nav-collapse).
+# Liberal Music & Arts School — Art Bible v1.5
+> Extracted from `index.html` (master reference) · April 2026 · Revised May 18, 2026 (v1.5 — Chinese font stack standardised: Noto Sans SC primary, with `--zh` CSS variable injected into body/heading font stacks on every ZH page; cross-ref to HEADER-FOOTER-GUIDE §11.5 Tengah emoji pill exception).
 > Use this document to standardize ALL pages across the website.
 
 ---
@@ -94,6 +94,30 @@
 | **Display / Headings** | Nunito | 700, 800, 900 |
 | **Body / Paragraphs** | Quicksand | 400, 500, 600, 700 |
 | **Buttons / Pills** | Nunito | 700–800 |
+
+### Chinese Font Stack — `--zh` CSS variable (required on every ZH page)
+
+Chinese pages (`index-zh.html`, `pages-zh/*.html`, `locations-zh/*.html`) must additionally import Noto Sans SC and inject a `--zh` CSS variable into body and heading font stacks. Without this, CJK glyphs render in OS fallback fonts that look noticeably different across browsers (Windows Chromium → DengXian vs Mac → PingFang SC).
+
+**Extended font import on ZH pages:**
+```html
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+```
+
+**Add to `:root` on every ZH page (typically right after `--or-shh`):**
+```css
+--zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
+```
+
+**Inject `var(--zh)` between Latin font and system fallback:**
+```css
+body{font-family:'Quicksand',var(--zh),system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
+h1,h2,h3,h4{font-family:'Nunito',var(--zh),sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
+```
+
+**Stack order matters.** Latin glyphs (A-Z, 0-9) render Quicksand/Nunito → CJK glyphs fall through to Noto Sans SC → anything still unhandled hits the OS fallback (`PingFang SC` on Mac, `Microsoft YaHei` on Windows). Reversed order (Noto first) would force Noto to render Latin too, breaking the brand typography.
+
+> See **HEADER-FOOTER-GUIDE.md §14.0** for the full reference, and §14.16 for the location-zh page pattern that depends on this stack.
 
 ### Font Size Scale
 
@@ -249,6 +273,8 @@ All section labels use `.pill-tag` class with colour variants:
 | Start Today | `.pt-lv` | `#98a3f8` | `#fff` white |
 
 **❌ No emoji icons in pill tags**
+
+> **One-off exception:** the Tengah Flagship HQ pill kicker uses `📍 Flagship HQ · Liberal Tengah` (EN) / `📍 旗舰总校 · 博雅登加校区` (ZH) on `locations/tengah.html` + `locations-zh/tengah.html`. This is an explicit user-specified deviation to flag the flagship HQ status visually. **Do not propagate this pattern to any other pill tag** — it remains a single-page exception. See HEADER-FOOTER-GUIDE.md §11.5 (Positioning rules) and §14.16 (Tengah hero kicker — 📍 emoji exception preserved).
 
 ---
 

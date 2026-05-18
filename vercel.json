@@ -17,6 +17,11 @@
     { "source": "/music/:path*", "destination": "/pages/courses", "permanent": true },
     { "source": "/%E6%97%A5%E6%9C%AC%E4%BA%BA%E3%81%AE%E6%96%B9%E3%81%B8", "destination": "/", "permanent": true },
     { "source": "/pages/testimonial", "destination": "/pages/review", "permanent": true },
-    { "source": "/testimonial", "destination": "/pages/review", "permanent": true }
+    { "source": "/testimonial", "destination": "/pages/review", "permanent": true },
+    { "source": "/zh", "destination": "/index-zh", "permanent": true },
+    { "source": "/cn", "destination": "/index-zh", "permanent": true },
+    { "source": "/chinese", "destination": "/index-zh", "permanent": true },
+    { "source": "/zh-cn", "destination": "/index-zh", "permanent": true },
+    { "source": "/中文", "destination": "/index-zh", "permanent": true }
   ]
 }

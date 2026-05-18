@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: May 18, 2026 (r7 — added §4.7 .kw underline animation with isolation:isolate fix; corrected §4.5 breakpoint guidance; cleared §11.5 legacy warning since locations are migrated)  
+> Source of truth: `index.html` (master) · Last updated: May 18, 2026 (r8 — Chinese site rollout: §14 expanded for pages-zh/ instructors + locations-zh/ branches; new §14.16 documenting the locations-zh/ pattern with bilingual JSON-LD strategy; §14.2 and §14.4.1 dropdown URLs corrected to /locations-zh/ now that all 4 ZH branches exist; §14 adds Noto Sans SC font stack standardisation)  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -8,14 +8,16 @@
 
 | File location | Logo src | Asset prefix | Link prefix |
 |---|---|---|---|
-| Root (`index.html`, `index-zh.html`) | `assets/logo.webp` | `assets/` | `pages/` |
+| Root (`index.html`, `index-zh.html`) | `assets/logo.webp` | `assets/` | `pages/` (or `pages-zh/` on ZH side) |
 | Subfolder (`pages/*.html`) | `../assets/logo.webp` | `../assets/` | *(relative, no prefix)* |
+| Subfolder (`pages-zh/*.html`) | `../assets/logo.webp` | `../assets/` | *(relative; ZH-sibling links via `<slug>`, EN counterpart via `../pages/<slug>`)* |
 | Subfolder (`locations/*.html`) | `../assets/logo.webp` | `../assets/` | *(relative, no prefix; `pages/` items: `../pages/<file>`)* |
-| Sub-subfolder (`pages/articles/*.html`) | `../../assets/logo.webp` | `../../assets/` | `../<file>` |
+| Subfolder (`locations-zh/*.html`) | `../assets/logo.webp` | `../assets/` | *(relative; ZH-sibling pages via `../pages-zh/<slug>`, EN counterpart via `../locations/<slug>`)* |
+| Sub-subfolder (`pages/articles/*.html`, `pages-zh/articles/*.html`) | `../../assets/logo.webp` | `../../assets/` | `../<file>` |
 
 > All examples below use `pages/` subfolder paths (`../assets/`).  
 > For root pages, remove the `../` prefix throughout.  
-> For `locations/*.html`, asset paths are identical to `pages/*.html` (also one level deep from root) — but page links work a bit differently: dropdown items link to `/locations/<branch>` (absolute) and footer privacy/terms links use `../pages/privacy` (one up, then into pages).
+> For `locations/*.html` and `locations-zh/*.html`, asset paths are identical to `pages/*.html` (also one level deep from root) — but page links work a bit differently: dropdown items link to absolute paths (`/locations/<branch>` on EN side, `/locations-zh/<branch>` on ZH side) and footer privacy/terms links use `../pages/privacy` (EN) or `../pages-zh/privacy` (ZH).
 
 ---
 
@@ -1104,6 +1106,8 @@ Each instructor profile shows the **other 12** instructors at the bottom — the
 
 Branch landing pages live at `/locations/<branch>` and are structurally similar to instructor profile pages, but with a different content focus (local-search AEO instead of teacher bio).
 
+> **Chinese counterpart:** see **§14.16 LOCATION-ZH PAGE PATTERN** below for the `locations-zh/*.html` localisation rules (bilingual JSON-LD, hreflang, EN slug preservation, dropdown routing to `/locations-zh/`).
+
 > **Contact dropdown — uses canonical `<ul><li>` markup** (matching Section 4) as of May 18 2026. All 4 location pages (Tengah, Bukit Batok, Jurong West, Tampines) now follow the standard pattern — no legacy variants remaining. Section 4.5 CSS with 1024/1025px breakpoints applies.
 
 ### File locations
@@ -1275,9 +1279,33 @@ Before finalising any page, verify:
 
 ## 14. CHINESE VERSION (中文版) — STRINGS REFERENCE
 
-> Source of truth: `index-zh.html` (root). Last updated: May 5, 2026.
-> 
+> Source of truth: `pages-zh/cecily.html` (canonical ZH instructor template) + `locations-zh/tengah.html` (canonical ZH location template). Last updated: May 18, 2026 (r8 — full pages-zh/ instructor rollout + locations-zh/ 4 main branches).
+>
 > **Pattern:** the English markup in Sections 1–8 above is the structural canonical. For Chinese pages, keep the markup, CSS classes, asset paths, IDs, and JSON-LD schemas identical — only swap the visible strings per the tables below. This keeps a single structural source of truth and avoids drift between EN and ZH.
+>
+> **Current ZH coverage (May 18 2026):** `index-zh.html` (root), `pages-zh/<13 instructors>.html`, `pages-zh/privacy.html`, `pages-zh/terms.html`, `pages-zh/contact.html`, `pages-zh/articles/<2 articles>.html`, `locations-zh/<4 main branches>.html` = **22 ZH pages live**. Still pending: pages-zh main pages (about, courses, instructors, blog, review, trial), pages-zh course-detail pages, `locations-zh/coloury-art.html`.
+
+### 14.0 Required Chinese font stack — `--zh` CSS variable (MANDATORY on every ZH page)
+
+Every Chinese page must include the Noto Sans SC font import **plus** a `--zh` CSS variable injected into body and heading font stacks. Without this, Chinese glyphs fall back to system fonts and look noticeably different across browsers (especially Windows Chromium → DengXian vs Mac → PingFang SC).
+
+**Font import — add to `<head>` (extends the EN canonical import):**
+```html
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+```
+
+**CSS variable — add to `:root` (typically right after `--or-shh`):**
+```css
+--zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
+```
+
+**Font stacks — update body + h1–h4 to interleave `--zh` between the Latin font and the system fallback:**
+```css
+body{font-family:'Quicksand',var(--zh),system-ui,sans-serif;color:var(--body);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
+h1,h2,h3,h4{font-family:'Nunito',var(--zh),sans-serif;color:var(--ink);line-height:1.18;font-weight:900}
+```
+
+This positioning matters: Latin glyphs (`A-Z 0-9`) render Quicksand/Nunito, then CJK glyphs fall through to Noto Sans SC, then anything still unhandled hits the OS fallback. Reversed order (Noto first) would force Noto to render Latin too, breaking the brand typography.
 
 ### 14.1 `<html>` lang attribute and head meta
 
@@ -1286,18 +1314,28 @@ Before finalising any page, verify:
 | `<html lang>` | `en` | `zh-CN` |
 | `<title>` | `… \| Liberal Music & Arts School` | `… \| 博雅音乐艺术学校` |
 | `<meta name="description">` | English copy | Localized Chinese copy |
-| `<link rel="canonical">` | `https://liberalmusicschool.com/[slug]` | `https://liberalmusicschool.com/[slug]-zh` |
+| `<link rel="canonical">` | `https://liberalmusicschool.com/<slug>` | `https://liberalmusicschool.com/pages-zh/<slug>` *or* `https://liberalmusicschool.com/locations-zh/<slug>` |
+| `<link rel="alternate" hreflang="en">` | `…/<slug>` (self link if no ZH counterpart yet) | `…/<en-slug>` (link to EN counterpart) |
+| `<link rel="alternate" hreflang="zh-CN">` | `…/pages-zh/<slug>` or `…/locations-zh/<slug>` (link to ZH counterpart) | `…/pages-zh/<slug>` or `…/locations-zh/<slug>` (self link) |
 
 **Brand name:** Liberal Music & Arts School → 博雅音乐艺术学校.
 
+> **URL slugs stay English on both sides.** The Chinese mirror lives at `/pages-zh/<en-slug>` or `/locations-zh/<en-slug>` — the slug itself is never localised. This is because (a) slugs for the 4 main branches are Google Business Profile-registered and indexed, (b) crawlers handle a folder-prefix split (`/pages-zh/cecily` ↔ `/pages/cecily`) more reliably than a localised-slug split.
+>
+> **hreflang is bidirectional.** Both the EN page and the ZH page must declare both `hreflang="en"` and `hreflang="zh-CN"` alternates to be valid. Each side's `canonical` is its own URL; the alternates point at the other side. Missing the EN-side alternate is a common omission — sweep EN pages when adding a new ZH counterpart.
+
 ### 14.2 Path conventions for Chinese pages
 
-| File location | Logo src | Asset prefix | Link to root EN | Link to other ZH pages |
+| File location | Logo src | Asset prefix | Link to ZH sibling | Link to EN counterpart |
 |---|---|---|---|---|
-| Root (`index-zh.html`) | `assets/logo.webp` | `assets/` | `index` | `pages/[slug]` *(falls back to EN until pages-zh/ exists)* |
-| Subfolder (`pages-zh/*.html`) *(planned)* | `../assets/logo.webp` | `../assets/` | `../index` | `[slug]-zh` |
+| Root (`index-zh.html`) | `assets/logo.webp` | `assets/` | `pages-zh/<slug>` or `locations-zh/<slug>` | `index.html` |
+| Subfolder (`pages-zh/*.html`) | `../assets/logo.webp` | `../assets/` | `<slug>` (sibling) or `../locations-zh/<slug>` (across-folder) | `../pages/<slug>` |
+| Subfolder (`locations-zh/*.html`) | `../assets/logo.webp` | `../assets/` | `../pages-zh/<slug>` (across-folder) or `<slug>` (sibling location) | `../locations/<slug>` |
+| Sub-subfolder (`pages-zh/articles/*.html`) | `../../assets/logo.webp` | `../../assets/` | `../<slug>` (into pages-zh root) | `../../pages/articles/<slug>` |
 
-> **Current state (May 2026):** only `index-zh.html` exists. Internal nav links from `index-zh.html` (e.g. About, Courses) point to `pages/about`, `pages/courses` — i.e. the English pages. Once a `pages-zh/about.html` is built, swap that single href to `pages-zh/about` and so on.
+> **Current state (May 18 2026):** all 4 path categories above are populated — root, pages-zh/, locations-zh/, pages-zh/articles/. Internal nav links on ZH pages now point to ZH counterparts where they exist (e.g. instructor pages link to other instructor pages via `../pages-zh/<name>`). Where no ZH counterpart exists yet (e.g. `pages-zh/about` doesn't exist), the link falls back to the EN page (`../pages/about`).
+>
+> **Dropdown URLs use absolute paths** — `/locations-zh/<branch>` on every ZH page, `/locations/<branch>` on every EN page. This is independent of which folder the page lives in (absolute paths work from any URL depth). The site-wide May 18 2026 ZH bulk fix migrated every ZH page's dropdown from `/locations/<branch>` → `/locations-zh/<branch>` now that all 4 ZH branches exist.
 
 ### 14.3 Announcement bar
 
@@ -1322,70 +1360,88 @@ Before finalising any page, verify:
 
 ### 14.4.1 Contact ▾ dropdown — Chinese version (REQUIRED on every ZH page)
 
-The Contact dropdown structure from Section 4 carries over to Chinese pages identically — same HTML markup, same CSS (4.5), same `.badge-new` chip. **Only the visible labels change.** Numbers and `/locations/<branch>` paths stay in English (these are URL slugs registered with Google Business Profile + Search Console — never translate URL paths).
+The Contact dropdown structure from Section 4 carries over to Chinese pages identically — same HTML markup, same CSS (4.5), same `.badge-new` chip. **Only the visible labels and dropdown URLs change.** Numbers stay in English (these would be wa.me numbers if they were links), and **URL slugs stay in English** (these are GBP-registered + indexed). What differs from EN: the dropdown items point to **`/locations-zh/<en-slug>`** (the Chinese branch pages) so ZH users stay inside the Chinese navigation.
 
-| English dropdown item | 中文 dropdown item |
-|---|---|
-| `Contact ▾` (trigger) | `联系我们 ▾` |
-| `Jurong West` | `裕廊西` |
-| `Bukit Batok (Le Quest)` | `武吉巴督 (Le Quest)` |
-| `Tampines` | `淡滨尼` |
-| `Tengah (HQ) New` | `登加 (旗舰总部) New` |
+| English dropdown item | 中文 dropdown item | Dropdown URL |
+|---|---|---|
+| `Contact ▾` (trigger) | `联系我们 ▾` | (trigger only, no destination) |
+| `Jurong West` | `裕廊西` | `/locations-zh/jurong-west` |
+| `Bukit Batok (Le Quest)` | `武吉巴督 (Le Quest)` | `/locations-zh/bukit-batok` |
+| `Tampines` | `淡滨尼` | `/locations-zh/tampines` |
+| `Tengah (HQ) New` | `登加 (旗舰总部) New` | `/locations-zh/tengah` |
 
 > The `Le Quest` brand name and the `New` badge text remain in English — `Le Quest` is the mall's actual name, and `New` is a short visual chip whose meaning is universal.
+>
+> **URL slug stays English** even on Chinese pages — `/locations-zh/jurong-west`, not `/locations-zh/裕廊西`. The folder prefix `/locations-zh/` does the language switch; the slug itself is GBP-registered + indexed, never localised.
 
 Example desktop nav `<li>` on a Chinese page:
 
 ```html
 <li class="nav-item-dropdown">
-  <a href="pages/contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
+  <a href="../pages-zh/contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
   <ul class="dropdown-menu">
-    <li><a href="/locations/jurong-west">裕廊西</a></li>
-    <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
-    <li><a href="/locations/tampines">淡滨尼</a></li>
-    <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+    <li><a href="/locations-zh/jurong-west">裕廊西</a></li>
+    <li><a href="/locations-zh/bukit-batok">武吉巴督 (Le Quest)</a></li>
+    <li><a href="/locations-zh/tampines">淡滨尼</a></li>
+    <li><a href="/locations-zh/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
   </ul>
 </li>
 ```
 
-### 14.5 Language toggle — direction reverses on Chinese pages
+> **History — May 18 2026 bulk URL fix:** earlier ZH pages (built before all 4 ZH branches existed) had dropdown items pointing to `/locations/<en-slug>` as a fallback, sending ZH users back to the English branch pages. After all 4 `locations-zh/` pages were built, a PowerShell bulk-replace updated every ZH page's dropdown to `/locations-zh/<en-slug>`. The pattern `"/locations/<slug>"` (quote-prefixed absolute path) was deliberately chosen because relative paths `"../locations/<slug>"` (used for EN-toggle buttons and footer English links) are protected — the leading `..` before `/locations/` means the quote-prefixed pattern doesn't match them. See HOW-TO-START.md "PAGE-SPECIFIC NOTES (May 18, 2026 session)" §D for the full PowerShell script.
+
+### 14.5 Language toggle — direction reverses on Chinese pages, points to per-page counterpart
 
 ```html
-<!-- On English pages → toggle says 中文, links to Chinese -->
+<!-- On English pages → toggle says 中文, links to ZH counterpart -->
+<!-- Root: links to ZH homepage -->
 <a class="nav-lang" href="index-zh">中文</a>
+<!-- Instructor / location / course / article pages: links to ZH counterpart of THIS page -->
+<a class="nav-lang" href="../pages-zh/cecily">中文</a>           <!-- on pages/cecily.html -->
+<a class="nav-lang" href="../locations-zh/tengah">中文</a>       <!-- on locations/tengah.html -->
 
-<!-- On Chinese pages → toggle says EN, links back to English -->
+<!-- On Chinese pages → toggle says EN, links back to EN counterpart of THIS page -->
+<!-- Root: links to EN homepage -->
 <a class="nav-lang" href="index" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>
+<!-- Instructor / location / course / article pages: links to EN counterpart of THIS page -->
+<a class="nav-lang" href="../pages/cecily" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>       <!-- on pages-zh/cecily.html -->
+<a class="nav-lang" href="../locations/tengah" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>  <!-- on locations-zh/tengah.html -->
 ```
 
 The same reversal applies in the footer bottom bar (`中文版本` ↔ `English`) and the mobile drawer (where the toggle sits as a low-opacity row above the CTA button).
 
+> **Per-page counterpart rule (May 18 2026):** the toggle should **always** drop the user on the same page in the other language, not on the homepage. A user reading about Ms Cheng wants to continue reading about Ms Cheng — not be dumped back at the homepage. The 13 instructor + 4 location ZH pages all correctly target the per-page EN counterpart; the EN side still has some pages doing a generic homepage hop and should be updated to match (see HOW-TO-START.md pending item #10).
+
 ### 14.6 Mobile drawer — Chinese version
 
 ```html
-<nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-  <a href="index-zh">首页</a>
-  <a href="pages/about">关于我们</a>
-  <a href="pages/courses">课程</a>
-  <a href="pages/instructors">导师</a>
-  <a href="pages/review">评价</a>
-  <a href="pages/blog">博客</a>
+<nav class="nav-drawer" id="navDrawer" aria-label="移动端导航">
+  <a href="../index-zh.html">首页</a>
+  <a href="../pages-zh/about">关于我们</a>
+  <a href="../pages-zh/courses">课程</a>
+  <a href="../pages-zh/instructors">导师</a>
+  <a href="../pages-zh/review">评价</a>
+  <a href="../pages-zh/blog">博客</a>
 
   <!-- Contact dropdown — flat (always expanded) in drawer. Same markup as Section 4. -->
   <div class="nav-item-dropdown">
-    <a href="pages/contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
+    <a href="../pages-zh/contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
     <ul class="dropdown-menu">
-      <li><a href="/locations/jurong-west">裕廊西</a></li>
-      <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
-      <li><a href="/locations/tampines">淡滨尼</a></li>
-      <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+      <li><a href="/locations-zh/jurong-west">裕廊西</a></li>
+      <li><a href="/locations-zh/bukit-batok">武吉巴督 (Le Quest)</a></li>
+      <li><a href="/locations-zh/tampines">淡滨尼</a></li>
+      <li><a href="/locations-zh/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
     </ul>
   </div>
 
-  <a href="index" style="opacity:.7;">EN</a>
-  <a href="pages/trial" class="btn btn-cta">预约试课</a>
+  <!-- EN toggle — links to per-page counterpart, NOT homepage. Adjust per page. -->
+  <a href="../pages/cecily" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">EN · English Version</a>
+  <a href="../pages-zh/trial" class="btn btn-cta">预约试课</a>
 </nav>
 ```
+
+> **Drawer `aria-label`:** EN side uses `Mobile navigation`; ZH side uses `移动端导航`.
+> **Hamburger button `aria-label`:** EN side uses `Menu`; ZH side uses `菜单`.
 
 ### 14.7 Footer — column headings
 
@@ -1446,11 +1502,13 @@ The same reversal applies in the footer bottom bar (`中文版本` ↔ `English`
 
 These should NOT be translated, even on Chinese pages:
 
-- **JSON-LD schemas** (`@type`, `name`, address fields, etc.) — search engines and AI scrapers index these primarily in English. Translating them loses AEO coverage and risks "duplicate object" warnings in Google Search Console.
-- **Brand names:** Liberal Music & Arts School, Coloury Art By Liberal, Le Quest, ABRSM, Trinity College London, RAD, MRT station English names.
-- **CSS class names, IDs, ARIA labels, asset filenames, `data-*` attributes** — purely structural.
+- **JSON-LD schemas on `pages-zh/*` (instructor + legal + article pages)** — kept verbatim from EN. Search engines and AI scrapers index these primarily in English; translating them loses AEO coverage and risks "duplicate object" warnings in Google Search Console.
+- **JSON-LD schemas on `locations-zh/*` are PARTIALLY translated** — see §14.16 for the rule (MusicSchool name is bilingual, FAQPage Q&A is fully translated to Chinese, structural fields stay English).
+- **Brand names:** Liberal Music & Arts School, Coloury Art By Liberal, Le Quest, ABRSM, Trinity College London, RAD, MRT station English names (used in parentheses alongside the Chinese name on first occurrence).
+- **CSS class names, IDs, ARIA labels (except mobile-drawer + hamburger aria-labels), asset filenames, `data-*` attributes** — purely structural.
 - **Postal addresses** (e.g. `127A Plantation Crescent, #01-381 Singapore 691127`) — keep raw so users can paste into Google Maps.
 - **WhatsApp numbers and `wa.me` links** — same numbers, same links, only the row label is localized.
+- **URL slugs** — `/locations-zh/<en-slug>` and `/pages-zh/<en-slug>` always use the EN slug. Never localise slugs (GBP-registered + indexed).
 
 ### 14.14 Building a new Chinese page — checklist
 
@@ -1458,18 +1516,21 @@ When you're ready to build out `pages-zh/about.html`, `pages-zh/courses.html`, e
 
 1. Copy the English page (e.g. `pages/about.html`) → save as `pages-zh/about.html`.
 2. Change `<html lang="en">` → `<html lang="zh-CN">`.
-3. Update `<title>`, `<meta name="description">`, `<link rel="canonical">` per Section 14.1.
-4. Update logo path: `../assets/` → `../assets/` (same — both are one level deep).
-5. Swap announcement bar string per Section 14.3.
-6. Swap nav link labels per Section 14.4. **Update href to point to ZH counterparts** — e.g. `href="about"` → `href="about-zh"` only once `about-zh.html` exists; otherwise leave the href pointing at the English page as a fallback.
-7. Flip language toggle: `<a href="../index-zh">中文</a>` → `<a href="../index" style="...">EN</a>`.
-8. Mobile drawer: localize labels, flip the language toggle, keep all hrefs in sync with step 6.
-9. **Contact ▾ dropdown — REQUIRED in both desktop nav AND mobile drawer.** Use the localized labels per Section 14.4.1 (`联系我们 ▾` trigger + 4 localized submenu items). The `/locations/<branch>` paths and the `.badge-new` chip stay in English. Section 4.5 CSS must be present in `<style>` — it's structural, copy verbatim from the EN page.
-10. Footer: localize column headings (Section 14.7), brand paragraph (14.8), all 5 location headings + meta lines (14.9), bottom bar (14.10).
-11. WhatsApp FAB: localize panel headline, intro, and the 5 row labels (Section 14.11). Numbers and `wa.me` links must NOT change.
-12. Page body content: localize section headings, lead paragraphs, FAQ Q&As, CTAs. Keep brand terms in English per Section 14.13.
-13. JSON-LD: keep verbatim from English page.
-14. **Mobile/Landscape responsive fixes (Section 4.6) — required on every ZH page.** The CSS is **fully structural and contains zero strings**, so it copies verbatim from the English page. Required selectors: `.nav-drawer{max-height:calc(100dvh - 108px); overflow-y:auto; padding-bottom:calc(40px + env(safe-area-inset-bottom, 0px))}` + `.nav-drawer.on ~ #waWrap, .wa, .mob-bar{display:none}`. On `index-zh.html` only, also include the hero video block (Section 4.6.2) — the poster `<img alt>` is the one piece that gets localized (`视频预览` instead of `Video preview`).
+3. Update `<title>`, `<meta name="description">`, `<link rel="canonical">` per Section 14.1. Add bidirectional `<link rel="alternate" hreflang="en">` + `<link rel="alternate" hreflang="zh-CN">`.
+4. **Add Noto Sans SC font import** to the existing Google Fonts URL per §14.0 — `&family=Noto+Sans+SC:wght@400;500;700;900` appended.
+5. **Add `--zh` CSS variable** to `:root` and inject it into body + h1–h4 font stacks per §14.0.
+6. Swap announcement bar string per Section 14.3.
+7. Swap nav link labels per Section 14.4. **Update href to point to ZH counterparts** — e.g. `../pages-zh/about`. Where no ZH counterpart exists, fall back to `../pages/about` (EN).
+8. **Flip language toggle to per-page EN counterpart** per Section 14.5 — never homepage hop. `<a href="../pages/cecily">EN</a>` on `pages-zh/cecily.html`, etc.
+9. Mobile drawer: localize labels, flip the language toggle, keep all hrefs in sync with step 7. Update `aria-label` to `移动端导航`. Hamburger button `aria-label` becomes `菜单`.
+10. **Contact ▾ dropdown — REQUIRED in both desktop nav AND mobile drawer.** Use the localized labels AND `/locations-zh/<en-slug>` URLs per Section 14.4.1. Slugs stay English. Section 4.5 CSS must be present in `<style>` — it's structural, copy verbatim from the EN page.
+11. Footer: localize column headings (Section 14.7), brand paragraph (14.8), all 5 location headings + meta lines (14.9), bottom bar (14.10). Footer English-link toggle uses `../pages/<slug>` or `../locations/<slug>` (per-page EN counterpart).
+12. WhatsApp FAB: localize panel headline, intro, and the 5 row labels (Section 14.11). Numbers and `wa.me` links must NOT change. Button `aria-label` becomes `打开 WhatsApp`.
+13. Page body content: localize section headings, lead paragraphs, FAQ Q&As, CTAs. Keep brand terms in English per Section 14.13.
+14. **JSON-LD strategy depends on page type:**
+   - `pages-zh/<instructor>.html` / `pages-zh/<article>.html` / `pages-zh/<legal>.html` → keep JSON-LD verbatim from EN page.
+   - `locations-zh/<branch>.html` → **partially translate** per §14.16: MusicSchool `name` becomes bilingual, FAQPage fully translated, address + structural fields kept English.
+15. **Mobile/Landscape responsive fixes (Section 4.6) — required on every ZH page.** The CSS is **fully structural and contains zero strings**, so it copies verbatim from the English page. Required selectors: `.nav-drawer{max-height:calc(100dvh - 108px); overflow-y:auto; padding-bottom:calc(40px + env(safe-area-inset-bottom, 0px))}` + `.nav-drawer.on ~ #waWrap, .wa, .mob-bar{display:none}`. On `index-zh.html` only, also include the hero video block (Section 4.6.2) — the poster `<img alt>` is the one piece that gets localized (`视频预览` instead of `Video preview`).
 
 ### 14.15 Verification markers (use in PowerShell verify-before-push)
 
@@ -1477,9 +1538,134 @@ When pushing Chinese-page edits, use distinctive Chinese strings as verification
 
 | Edit type | Suggested marker |
 |---|---|
-| Footer locations update | `每日1点-9点` |
+| Footer locations update | `每日 1 点-9 点` |
 | Brand paragraph rewrite | `博雅音乐艺术学校致力于培养孩子的创造力` |
 | FAQ rewrite | `加速学习路径` (or another distinctive ZH phrase) |
 | WhatsApp panel rewrite | `选择就近分校` |
+| Instructor ZH page (any of 13) | `加入 20,000+ 个信赖博雅音乐艺术学校的家庭` (book card subtitle) |
+| Location ZH page (specific) | branch-unique phrase — see HOW-TO-START.md "PAGE-SPECIFIC NOTES May 18 2026 session" §E |
+
+### 14.16 LOCATION-ZH PAGE PATTERN (`locations-zh/*.html` — added May 18 2026)
+
+Chinese mirror of the EN location page pattern (§11.5). Same structural skeleton, same 6-section page order, same canonical template (`locations-zh/tengah.html` mirrors `locations/tengah.html`). What differs from §11.5: JSON-LD partial translation, bidirectional hreflang, all internal hrefs point to ZH counterparts.
+
+#### File locations
+| File | Branch | URL | EN counterpart |
+|---|---|---|---|
+| `locations-zh/tengah.html` | 登加 (Tengah · 旗舰总部) | `/locations-zh/tengah` | `/locations/tengah` |
+| `locations-zh/bukit-batok.html` | 武吉巴督 (Bukit Batok · Le Quest) | `/locations-zh/bukit-batok` | `/locations/bukit-batok` |
+| `locations-zh/jurong-west.html` | 裕廊西 (Jurong West) | `/locations-zh/jurong-west` | `/locations/jurong-west` |
+| `locations-zh/tampines.html` | 淡滨尼 (Tampines · Wed closed) | `/locations-zh/tampines` | `/locations/tampines` |
+| `locations-zh/coloury-art.html` | *(pending — EN side is `Opening Soon`)* | `/locations-zh/coloury-art` | `/locations/coloury-art` |
+
+#### Canonical template
+**`locations-zh/tengah.html` is the canonical ZH template.** When adding a 5th ZH location (e.g. `locations-zh/coloury-art.html`), clone Tengah ZH and swap branch-specific data.
+
+#### Path conventions inside a `locations-zh/*.html` file
+
+| Item | Path used | Why |
+|---|---|---|
+| Asset (logo, icon, image) | `../assets/<file>` | locations-zh/ one level deep, same as locations/ |
+| ZH internal page link (e.g. trial, contact, instructor) | `../pages-zh/<slug>` | go up one, into pages-zh/ |
+| Index | `../index-zh.html` | go up one |
+| Dropdown menu items (other ZH branches) | `/locations-zh/<branch>` | absolute paths (work from any URL depth) |
+| **EN counterpart toggle button** | `../locations/<en-slug>` | per-page counterpart, NOT homepage |
+| Privacy / Terms in footer | `../pages-zh/privacy`, `../pages-zh/terms` | one up, into pages-zh |
+
+#### Required `<head>` items
+- `<title>` — pattern: `<Branch> 最优音乐学校 | <Optional sub-tag> | 博雅音乐艺术学校`
+- `<link rel="canonical" href="https://liberalmusicschool.com/locations-zh/<en-slug>">`
+- `<link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/<en-slug>">`
+- `<link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/<en-slug>">`
+- Both JSON-LD blocks (see "JSON-LD strategy" below)
+- Noto Sans SC font import + `--zh` CSS var per §14.0
+
+#### JSON-LD strategy on location-zh pages (different from instructor pages!)
+
+This is the key delta vs `pages-zh/<instructor>.html` (which keeps JSON-LD verbatim from EN). On location pages, the schemas are **partially translated** to drive Chinese-language Google rich results:
+
+**`@type: "MusicSchool"`** — the canonical pattern:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "MusicSchool",
+  "name": "博雅音乐艺术学校 (登加旗舰总部) · Liberal Music & Arts School (Tengah Flagship HQ)",
+  "image": "https://liberalmusicschool.com/assets/logo.webp",
+  "@id": "https://liberalmusicschool.com/locations-zh/tengah",
+  "url": "https://liberalmusicschool.com/locations-zh/tengah",
+  "telephone": "+6589222848",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "127A Plantation Crescent, #01-381",
+    "addressLocality": "Singapore",
+    "postalCode": "691127",
+    "addressCountry": "SG"
+  },
+  "openingHoursSpecification": [ /* same as EN — pure structural data */ ]
+}
+```
+
+- `name` → **bilingual** `"<中文> · <English>"` — gives the entity both Chinese discoverability AND backward-compat for English crawlers
+- `@id` + `url` → point to the **ZH URL** (`/locations-zh/<slug>`)
+- `address` block → **stays English** (postal addresses must be Google-Maps-parseable; localizing them breaks the maps lookup)
+- `openingHoursSpecification` → unchanged (pure structural data, no strings)
+- `telephone` → unchanged (same number across both languages)
+
+**`@type: "FAQPage"`** — Questions + Answers **fully translated to Chinese**:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "登加 BTO 组屋区附近有音乐学校吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有的！博雅音乐艺术学校将其全新的旗舰总部设立在了..."
+      }
+    }
+    /* ...remaining Q&As same structure... */
+  ]
+}
+```
+
+- Question `name` + Answer `text` → **fully translated** — these surface as rich snippets in Chinese Google
+- Visible FAQ accordion text must match the schema text exactly (auditors check this)
+
+#### Branch-specific Chinese data (per branch)
+
+| Branch | Pill kicker | h1 | Sub-headline pattern |
+|---|---|---|---|
+| Tengah | `📍 旗舰总校 · 博雅登加校区` (emoji exception preserved) | `登加音乐学校` | mentions `森林市镇`, `BTO 预购组屋` |
+| Bukit Batok | `博雅武吉巴督校区` | `武吉巴督音乐学校` | mentions Le Quest mall, FairPrice Finest + 麦当劳 |
+| Jurong West | `博雅裕廊西校区` | `裕廊西音乐学校` | mentions Lakeside MRT, 西部基石 |
+| Tampines | `博雅淡滨尼校区` | `淡滨尼音乐学校` | mentions 淡滨尼圆巴刹, Tampines West MRT |
+
+#### Tengah CTA exception — `登加总校` is CORRECT, not a typo
+- On the **other 3** branch pages, the bottom CTA banner phrase "Book a trial class at our Tengah branch" (a template-copy artefact from the EN source) was fixed to a **generic** `预约我们校区的试课` ("at our branch").
+- On the **Tengah page itself**, `登加总校` is correct — we're literally on the Tengah branch — so the CTA reads `预约我们登加总校的试课——无需任何绑定承诺。`
+
+#### Tengah hero kicker — 📍 emoji exception preserved
+Art Bible §6 normally bans emojis in pill tags. Tengah's pill kicker `📍 旗舰总校 · 博雅登加校区` is the same one-off exception as the EN page (§11.5 Positioning rules) — preserved when translating.
+
+#### Tampines Wednesday-closed handling — same dual-system pattern as EN
+- Visible Studio Hours block: `<strong style="color:var(--or)">周三：休息</strong>` (orange callout)
+- JSON-LD `openingHoursSpecification` array: Wednesday **omitted entirely** from any `dayOfWeek` array (schema.org idiom for "closed that day")
+- FAQ Q2 explicitly mentions `请注意，我们的淡滨尼工作室周三休息。` — schema + visible must match exactly
+
+#### SG Chinese place name translations (canonical — used across all ZH location pages)
+See HOW-TO-START.md "PAGE-SPECIFIC NOTES (May 18 2026 session)" §C for the full table — covers MRT station names, mall/landmark names, official town/town-feature naming (森林市镇, 巴刹, 建屋局/HDB, BTO 预购组屋, etc.).
+
+#### Adding a new location-zh page
+1. Copy `locations-zh/tengah.html` → `locations-zh/<new-en-slug>.html` (slug stays English)
+2. Build the matching EN page first (or in parallel) at `locations/<en-slug>.html`
+3. Swap branch-specific data per the tables above
+4. Update both JSON-LD blocks (MusicSchool bilingual name + FAQPage fully Chinese)
+5. Update canonical link + bidirectional hreflang alternates
+6. Add an entry to the Contact ▾ dropdown on ALL ZH pages (and the EN dropdown gets a parallel entry on all EN pages)
+7. Add a footer card (5th slot or extend grid)
+8. Add a row to the WA FAB popup
+9. Update HOW-TO-START.md file structure + file-table sections
 
 ---
