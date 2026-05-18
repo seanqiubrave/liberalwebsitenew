@@ -132,6 +132,117 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
 .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:8px;font-size:15px;padding:11px 22px} /* mobile drawer compact May 14 2026 */
 
+/* ──────────────────────────────────────────────────────────────────
+   🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
+   Breakpoints aligned to this page's nav-collapse at 1024px.
+   ────────────────────────────────────────────────────────────────── */
+@media (min-width: 1025px) {
+  .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+  .nav-links .dropdown-trigger .arrow {
+    display: inline-block;
+    transition: transform 0.22s var(--sp);
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg);
+    color: var(--or);
+  }
+  .nav-links .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 15px);
+    background: #FFFFFF;
+    min-width: 240px;
+    box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12);
+    border-radius: 12px;
+    padding: 8px 0;
+    border: 1.5px solid #EEF2F8;
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+    list-style: none;
+    margin: 0;
+  }
+  .nav-links .nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  .nav-links .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #FFFFFF;
+    border-left: 1.5px solid #EEF2F8;
+    border-top: 1.5px solid #EEF2F8;
+  }
+  .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+  .nav-links .dropdown-menu li a {
+    display: block;
+    padding: 11px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.2s ease;
+    font-family: var(--zh),'Quicksand',sans-serif;
+  }
+  .nav-links .dropdown-menu li a:hover {
+    color: var(--or) !important;
+    background: var(--or-lt);
+    padding-left: 25px;
+  }
+}
+@media (max-width: 1024px) {
+  .nav-drawer .nav-item-dropdown { width: 100%; }
+  .nav-drawer .dropdown-trigger { text-align: left; }
+  .nav-drawer .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--s1);
+    padding: 10px;
+    margin: 4px 0 8px;
+    border-radius: 10px;
+    border: 1px solid #EEF2F8;
+    list-style: none;
+  }
+  .nav-drawer .dropdown-menu li { margin: 0; }
+  .nav-drawer .dropdown-menu li a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+}
+.badge-new {
+  font-size: 9px;
+  font-weight: 900;
+  background: var(--or);
+  color: #FFFFFF;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
 /* ══ PAGE HERO ══ */
 .page-hero{
   padding:160px 0 80px;
@@ -155,8 +266,25 @@ body.reveal-ready .sr.in,body.reveal-ready .sl.in,body.reveal-ready .sfr.in{opac
 .breadcrumb a{color:var(--muted);transition:color .18s}.breadcrumb a:hover{color:var(--or)}
 .breadcrumb span{color:var(--muted)}
 .page-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);letter-spacing:-1px;line-height:1.06;margin-bottom:22px}
-.page-hero h1 em{color:var(--or);font-style:normal;position:relative}
-.page-hero h1 em::after{content:'';position:absolute;bottom:2px;left:0;width:100%;height:8px;background:var(--lem);border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw .6s var(--sp) .8s forwards}
+/* ── Orange keyword underline (canonical, May 18 2026 — migrated from legacy <em>) ──
+   Unprefixed .kw with isolation:isolate creates a stacking context so z-index:-1
+   on ::after stays trapped inside .kw. Color unified to #8ddbd1 teal across the
+   site (was --lem yellow on this page only — now consistent with all other pages). */
+.kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+.kw::after{
+  content:'';
+  position:absolute;
+  bottom:4px;
+  left:0;
+  width:100%;
+  height:9px;
+  background:#8ddbd1;
+  border-radius:5px;
+  z-index:-1;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:kw 0.6s var(--sp) 0.95s forwards;
+}
 @keyframes kw{to{transform:scaleX(1)}}
 .page-hero .lead{max-width:480px}
 .hero-btns{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:32px}
@@ -395,7 +523,16 @@ footer{margin-bottom:0!important}
         <li><a href="instructors">导师</a></li>
         <li><a href="review">评价</a></li>
         <li><a href="blog">博客</a></li>
-        <li><a href="contact">联系我们</a></li>
+        <!-- Contact ▾ dropdown — REQUIRED on every page (added May 18 2026) -->
+        <li class="nav-item-dropdown">
+          <a href="contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-west">裕廊西</a></li>
+            <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+            <li><a href="/locations/tampines">淡滨尼</a></li>
+            <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav-end">
         <a class="nav-lang" href="../pages/about" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>
@@ -414,7 +551,16 @@ footer{margin-bottom:0!important}
   <a href="instructors">导师</a>
   <a href="review">评价</a>
   <a href="blog">博客</a>
-  <a href="contact">联系我们</a>
+  <!-- Contact dropdown — flat (always expanded) in drawer -->
+  <div class="nav-item-dropdown">
+    <a href="contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-west">裕廊西</a></li>
+      <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+      <li><a href="/locations/tampines">淡滨尼</a></li>
+      <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+    </ul>
+  </div>
   <a href="../pages/about" style="opacity:.7;">EN</a>
   <a href="trial" class="btn btn-cta">预约试课</a>
 </nav>
@@ -434,7 +580,7 @@ footer{margin-bottom:0!important}
         </div>
         <div class="pill-tag pt-tl sr" style="font-size:16px;padding:11px 24px;">超过20,000名学生的信赖</div>
         <h1 class="sr d1">
-          自2009年起，培养自信与<br><em>充满创造力</em>的音乐人才
+          自2009年起，培养自信与<br><span class="kw">充满创造力</span>的音乐人才
         </h1>
         <p class="lead sr d2">
           博雅音乐艺术学校是新加坡最受家长信赖的少儿音乐学院——我们始终秉持一个简单的信念：每个孩子都值得在音乐的快乐中获得成长。

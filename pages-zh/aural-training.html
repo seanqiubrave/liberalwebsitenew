@@ -115,6 +115,117 @@
     .nav-drawer a{display:block;padding:9px 14px;border-radius:var(--r);font-weight:700;font-size:16.5px;color:var(--ink);transition:background var(--t),color var(--t);text-decoration:none;font-family:var(--zh),'Quicksand',sans-serif}
     .nav-drawer a:hover{background:var(--or-lt);color:var(--or)}
     .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:8px;font-size:15px;padding:11px 22px} /* mobile drawer compact May 14 2026 */
+
+    /* ──────────────────────────────────────────────────────────────────
+       🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
+       Breakpoints aligned to this page's nav-collapse at 1024px.
+       ────────────────────────────────────────────────────────────────── */
+    @media (min-width: 1025px) {
+      .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+      .nav-links .dropdown-trigger .arrow {
+        display: inline-block;
+        transition: transform 0.22s var(--sp);
+        font-size: 12px;
+        margin-left: 2px;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+        transform: rotate(180deg);
+        color: var(--or);
+      }
+      .nav-links .dropdown-menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 15px);
+        background: #FFFFFF;
+        min-width: 240px;
+        box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12);
+        border-radius: 12px;
+        padding: 8px 0;
+        border: 1.5px solid #EEF2F8;
+        z-index: 1050;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+        list-style: none;
+        margin: 0;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, 0);
+      }
+      .nav-links .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: #FFFFFF;
+        border-left: 1.5px solid #EEF2F8;
+        border-top: 1.5px solid #EEF2F8;
+      }
+      .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+      .nav-links .dropdown-menu li a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+        text-align: left;
+        white-space: nowrap;
+        border-radius: 0;
+        background: transparent;
+        transition: all 0.2s ease;
+        font-family: var(--zh),'Quicksand',sans-serif;
+      }
+      .nav-links .dropdown-menu li a:hover {
+        color: var(--or) !important;
+        background: var(--or-lt);
+        padding-left: 25px;
+      }
+    }
+    @media (max-width: 1024px) {
+      .nav-drawer .nav-item-dropdown { width: 100%; }
+      .nav-drawer .dropdown-trigger { text-align: left; }
+      .nav-drawer .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: var(--s1);
+        padding: 10px;
+        margin: 4px 0 8px;
+        border-radius: 10px;
+        border: 1px solid #EEF2F8;
+        list-style: none;
+      }
+      .nav-drawer .dropdown-menu li { margin: 0; }
+      .nav-drawer .dropdown-menu li a {
+        display: block;
+        padding: 10px 14px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+        border-radius: 8px;
+        background: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      }
+    }
+    .badge-new {
+      font-size: 9px;
+      font-weight: 900;
+      background: var(--or);
+      color: #FFFFFF;
+      padding: 2px 5px;
+      border-radius: 4px;
+      margin-left: 4px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
     @media(max-width:1024px){
       .nav-links,.nav-lang,.nav-end .btn-cta{display:none}
       .nav-ham{display:flex}
@@ -128,9 +239,27 @@
     .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
     .breadcrumb svg{opacity:.5}
     .hero-headline{font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:18px}
-    .hero-headline .kw{color:var(--or);position:relative;display:inline-block;isolation:isolate}
-    .hero-headline .kw::after{content:'';position:absolute;bottom:6px;left:0;width:100%;height:12px;background:#8ddbd1;border-radius:6px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw-draw 1s var(--sp) 0.9s forwards;will-change:transform}
-    @keyframes kw-draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    /* ── Orange keyword underline (canonical, May 18 2026) ──
+       Migrated from prefixed .hero-headline .kw + @keyframes kw-draw to the
+       canonical unprefixed .kw + @keyframes kw shared with the rest of the
+       site (per §4.7.5). Metrics aligned: 9px height, 4px bottom, 5px radius,
+       0.95s delay, 0.6s duration. Color: #8ddbd1 teal across the site. */
+    .kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+    .kw::after{
+      content:'';
+      position:absolute;
+      bottom:4px;
+      left:0;
+      width:100%;
+      height:9px;
+      background:#8ddbd1;
+      border-radius:5px;
+      z-index:-1;
+      transform:scaleX(0);
+      transform-origin:left;
+      animation:kw 0.6s var(--sp) 0.95s forwards;
+    }
+    @keyframes kw{to{transform:scaleX(1)}}
     .hero-lead{font-size:20px;color:var(--body);max-width:580px;line-height:1.75;margin-bottom:32px}
     .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
     .hero-stats{display:flex;gap:32px;flex-wrap:wrap}
@@ -317,7 +446,16 @@
           <li><a href="instructors">导师</a></li>
           <li><a href="review">评价</a></li>
           <li><a href="blog">博客</a></li>
-          <li><a href="contact">联系我们</a></li>
+          <!-- Contact ▾ dropdown — REQUIRED on every page (added May 18 2026) -->
+          <li class="nav-item-dropdown">
+            <a href="contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/locations/jurong-west">裕廊西</a></li>
+              <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+              <li><a href="/locations/tampines">淡滨尼</a></li>
+              <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+            </ul>
+          </li>
         </ul>
         <div class="nav-end">
           <a href="../pages/aural-training" class="nav-lang">EN</a>
@@ -338,7 +476,16 @@
     <a href="instructors">导师</a>
     <a href="review">评价</a>
     <a href="blog">博客</a>
-    <a href="contact">联系我们</a>
+    <!-- Contact dropdown — flat (always expanded) in drawer -->
+    <div class="nav-item-dropdown">
+      <a href="contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="/locations/jurong-west">裕廊西</a></li>
+        <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+        <li><a href="/locations/tampines">淡滨尼</a></li>
+        <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+      </ul>
+    </div>
     <a href="../pages/aural-training" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:18px;margin-top:8px;">EN · English Version</a>
     <a href="trial" class="btn btn-cta">预约试课</a>
   </nav>
