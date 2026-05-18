@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<!-- Chinese version (index-zh) added May 4 2026 -->
-<html lang="zh-CN">
+<!-- Chinese toggle activated May 4 2026 -->
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <link rel="icon" type="image/png" href="assets/liberalfavicon.png"/>
 <link rel="apple-touch-icon" href="assets/liberalfavicon.png"/>
-<meta name="description" content="新加坡评价最高的英皇考级（ABRSM）辅导音乐学校。自2009年起，已助力20,000+学生，99%通过率。提供钢琴、小提琴、架子鼓、声乐课程，5个分校就近选择，立即预约试课！"/>
-<link rel="canonical" href="https://liberalmusicschool.com/index-zh"/>
+<meta name="description" content="Singapore's trusted music school since 2009. Expert lessons in Piano, Violin, Guitar, Drums, and Art across 5 locations. Book a free trial today!"/>
+<link rel="canonical" href="https://liberalmusicschool.com/"/>
 <!-- hreflang bilingual -->
 <link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/"/>
 <link rel="alternate" hreflang="zh" href="https://seanqiubrave.github.io/liberalwebsitenew/index-zh.html"/>
 <link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/"/>
 
-<title>博雅音乐艺术学校 | 新加坡英皇考级（ABRSM）专家</title>
+<title>Liberal Music & Arts School | Singapore Music Lessons</title>
 
 <!-- ═══ MASTER ENTITY SCHEMA v2 — MusicSchool Knowledge Graph ═══
      Feeds: Google Knowledge Panel · Gemini · SearchGPT · Perplexity
@@ -281,7 +281,7 @@
 <!-- Nunito: joyful display · Quicksand: round, friendly body -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
 <style>
 /* ╔═══════════════════════════════════════════════════════╗
@@ -296,9 +296,6 @@
   --or-glow: rgba(255,102,0,.16);
   --or-sh:   0 12px 32px rgba(255,102,0,.22);
   --or-shh:  0 16px 40px rgba(255,102,0,.34);
-
-  /* Chinese font stack — used in nav, body, and any text mixing CN+EN */
-  --zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
 
   /* Surfaces */
   --w:       #FFFFFF;
@@ -462,10 +459,8 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .nav-links{display:flex;align-items:center;gap:2px}
 .nav-links a{
   display:block;padding:8px 14px;border-radius:var(--r);
-  font-weight:700;font-size:17px;color:var(--body);
+  font-weight:600;font-size:18px;color:var(--body);
   transition:color var(--t),background var(--t);
-  font-family:var(--zh),'Quicksand',sans-serif;
-  white-space:nowrap;
 }
 .nav-links a:hover{color:var(--or);background:var(--or-lt)}
 .nav-links a.active{color:var(--or)}
@@ -476,6 +471,7 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   background:var(--s2);border:1.5px solid #DDE6F2;
   padding:5px 12px;border-radius:999px;cursor:pointer;
   transition:all var(--t);text-decoration:none;
+  white-space:nowrap;
 }
 .nav-lang:hover{border-color:var(--or);color:var(--or)}
 
@@ -1404,19 +1400,148 @@ html, body { margin-bottom: 0 !important; padding-bottom: 0 !important; height:a
 footer { margin-bottom: 0 !important; }
 .footer { padding-bottom: 0 !important; }
 
+
+    /* ==========================================================================
+       🎯 NAVBAR DROPDOWN EXTENSION (Contact menu)
+       Breakpoints aligned to site's actual nav-collapse at 900px
+       ========================================================================== */
+
+    /* 1. Desktop hover dropdown (nav-links is visible at >=901px) */
+    @media (min-width: 901px) {
+      .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+      .nav-links .dropdown-trigger .arrow {
+        display: inline-block;
+        transition: transform 0.22s var(--sp);
+        font-size: 12px;
+        margin-left: 2px;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+        transform: rotate(180deg);
+        color: var(--or);
+      }
+      .nav-links .dropdown-menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 15px);
+        background: #FFFFFF;
+        min-width: 240px;
+        box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12);
+        border-radius: 12px;
+        padding: 8px 0;
+        border: 1.5px solid #EEF2F8;
+        z-index: 1050;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+        list-style: none;
+        margin: 0;
+      }
+      .nav-links .nav-item-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, 0);
+      }
+      .nav-links .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: #FFFFFF;
+        border-left: 1.5px solid #EEF2F8;
+        border-top: 1.5px solid #EEF2F8;
+      }
+      .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+      .nav-links .dropdown-menu li a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+        text-align: left;
+        white-space: nowrap;
+        border-radius: 0;
+        background: transparent;
+        transition: all 0.2s ease;
+      }
+      .nav-links .dropdown-menu li a:hover {
+        color: var(--or) !important;
+        background: var(--or-lt);
+        padding-left: 25px;
+      }
+    }
+
+    /* 2. Mobile drawer (always expanded, vertical) at <=900px */
+    @media (max-width: 900px) {
+      .nav-drawer .nav-item-dropdown { width: 100%; }
+      .nav-drawer .dropdown-trigger { text-align: left; }
+      .nav-drawer .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: var(--s1);
+        padding: 10px;
+        margin: 4px 0 8px;
+        border-radius: 10px;
+        border: 1px solid #EEF2F8;
+        list-style: none;
+      }
+      .nav-drawer .dropdown-menu li { margin: 0; }
+      .nav-drawer .dropdown-menu li a {
+        display: block;
+        padding: 10px 14px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+        border-radius: 8px;
+        background: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      }
+    }
+
+    /* 3. "New" badge */
+    .badge-new {
+      font-size: 9px;
+      font-weight: 900;
+      background: var(--or);
+      color: #FFFFFF;
+      padding: 2px 5px;
+      border-radius: 4px;
+      margin-left: 4px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
     /* ══════════════════════════════════════════════════════════════════
-       📱 SECTION 4.6 — MOBILE / LANDSCAPE RESPONSIVE FIXES (May 18 2026)
-       Mirrors index.html. See HEADER-FOOTER-GUIDE.md §4.6 for rationale.
-       Three bugs fixed (all observed on Galaxy Tab A11 / Nest Hub):
-       1. Drawer un-scrollable on short landscape screens → menu items
-          (EN/中文/Book Trial) clipped below viewport edge
-       2. WhatsApp FAB (inline z-index:9999) covered Book Trial button
-          when drawer was open (drawer z-index:999 lost the fight)
-       3. Android Chrome 100vh bug → drawer extended ~100px below the
-          actually-visible screen, under the system nav bar
+       📱 LANDSCAPE & SHORT-VIEWPORT FIXES (May 18 2026)
+       Issue 1: YouTube video is 16:9 but .hero-frame is 4:5 → big black
+                bars, video looks tiny on phones/tablets.
+       Issue 2: .nav-drawer had no max-height/scroll → items below the
+                fold (Tengah branch + "Book Trial Class" button) were
+                clipped on Nest Hub 1024×600, Galaxy landscape, etc.
        ══════════════════════════════════════════════════════════════════ */
 
-    /* FIX A: Drawer scrollability + safe areas + WhatsApp FAB hide */
+    /* FIX A: Mobile drawer must scroll when content exceeds viewport.
+       Without this, on 600px-tall landscape screens the last few menu
+       items get cut off below the viewport edge.
+       UPDATE May 18 r3: bump bottom padding so the last item (中文 /
+       Book Trial Class) isn't flush against the screen edge when
+       scrolled to the bottom. Also account for iOS safe-area inset.
+       UPDATE May 18 r4: hide the WhatsApp FAB (#waWrap, inline
+       z-index:9999) when the drawer is open. Without this, the green
+       circle sits ON TOP of the Book Trial Class button at the bottom
+       of the drawer and the user can't see/tap it.
+       UPDATE May 18 r5: use 100dvh (dynamic viewport height) instead
+       of 100vh. On Android Chrome 100vh = "large viewport" (height
+       when URL bar is hidden), but the URL bar AND system nav bar are
+       actually showing — so calc(100vh - 108px) makes the drawer
+       extend ~100px BELOW the visible screen, hiding Book Trial Class
+       under the Android system nav bar. 100dvh respects current UI. */
     .nav-drawer{
       max-height: calc(100vh - 108px);
       max-height: calc(100dvh - 108px);
@@ -1425,16 +1550,23 @@ footer { margin-bottom: 0 !important; }
       overscroll-behavior: contain;
       padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
     }
-    .nav-drawer.on ~ #waWrap{ display: none; }
+    .nav-drawer.on ~ #waWrap,
+    .nav-drawer.on ~ .wa,
+    .nav-drawer.on ~ .mob-bar{ display: none; }
 
     /* FIX B: Video aspect ratio on mobile + tablet — match the actual
-       16:9 YouTube content instead of letterboxing into a portrait 4:5
-       frame. Also force tap-to-play poster on tablets (was only <540px)
-       because Android tablet Chrome blocks YouTube autoplay. Hide the
-       .fc-a/.fc-b/.fc-c floating cards on tablets — they're set to
-       position:relative for the reaction-burst animation, and .fc-b
-       (top:-800px) is visually off-screen but STILL occupies its normal
-       flow space → produces a huge empty gap below the video. */
+       16:9 YouTube content so it fills the frame instead of being
+       letterboxed into a portrait 4:5 box.
+       UPDATE May 18 r2: also swap the iframe for a tap-to-play poster
+       on tablets too (was only <540px). Android tablet Chrome blocks
+       YouTube autoplay → iframe loads but stays blank, user sees empty
+       gradient where video should be (Galaxy Tab A11 bug).
+       UPDATE May 18 r3: hide floating .fc-a/.fc-b cards on tablets too.
+       They're set to position:relative for the reaction-burst animation,
+       which means .fc-b (positioned with top:-800px) is visually off-
+       screen but STILL occupies its normal flow space → produced a huge
+       empty gap below the video on Galaxy Tab A11. Original dev hid
+       them at <540px for the same reason; just extending to 900px. */
     @media (max-width: 900px){
       .hero-frame{
         aspect-ratio: 16 / 9;
@@ -1442,16 +1574,23 @@ footer { margin-bottom: 0 !important; }
         width: 100%;
         background: #000;
       }
+      /* Let video fill the viewport on tablets — 620px max was too small */
       .hero-vis{ max-width: 100%; width: 100%; }
+      /* Force tap-to-play poster on all non-desktop sizes (autoplay
+         unreliable on Android tablets, iPads, and phones) */
       #heroIframe{ display: none; }
       .hero-mobile-play{ display: flex; }
+      /* Kill the empty-gap-below-video bug — see comment above */
       .fc-a, .fc-b, .fc-c{ display: none; }
     }
 
     /* FIX C: Short-viewport landscape (Nest Hub 1024×600, landscape
-       tablets). padding-top MUST be >= 108px (ann-bar 36 + nav 72) or
-       the hero kicker pill clips behind the fixed nav. Using 120px for
-       breathing room. Cap video height so it never overflows screen. */
+       tablets) — compress the hero so the video and copy both fit
+       inside the visible viewport without scrolling forever, and cap
+       the video height so it never overflows the screen.
+       UPDATE May 18 r2: padding-top must be >= 108px (ann-bar 36px +
+       nav 72px) or content gets hidden behind the fixed nav stack.
+       Using 120px for breathing room. */
     @media (orientation: landscape) and (max-height: 700px){
       .hero{
         min-height: 0;
@@ -1462,19 +1601,42 @@ footer { margin-bottom: 0 !important; }
         aspect-ratio: 16 / 9;
         max-height: calc(100vh - 160px);
       }
+      /* Hide decorative animations that float in empty space and waste
+         vertical room on short screens. */
       .hero-notes, .hero-ring{ display: none; }
       .fc-b{ display: none; }
     }
 
     /* FIX D: Landscape phones (narrow AND short — e.g. Galaxy S in
        landscape ~740×360). Force a 2-column hero so the video sits
-       beside the copy instead of pushing it off-screen. */
+       beside the copy instead of pushing it off-screen, and shrink
+       type so everything fits in the ~360px of vertical space. */
     @media (orientation: landscape) and (max-width: 900px) and (max-height: 500px){
-      .hero-grid{ grid-template-columns: 1.05fr 1fr; gap: 24px; }
-      .hero-vis{ order: 0; max-width: none; margin: 0; }
-      .hero h1{ font-size: clamp(1.4rem, 3.8vw, 2rem); margin-bottom: 12px; letter-spacing: -.5px; }
-      .hero-desc{ font-size: 14px; line-height: 1.5; margin-bottom: 14px; padding-right: 0; }
-      .hero-kicker{ font-size: 12px; padding: 5px 14px; margin-bottom: 12px; }
+      .hero-grid{
+        grid-template-columns: 1.05fr 1fr;
+        gap: 24px;
+      }
+      .hero-vis{
+        order: 0;
+        max-width: none;
+        margin: 0;
+      }
+      .hero h1{
+        font-size: clamp(1.4rem, 3.8vw, 2rem);
+        margin-bottom: 12px;
+        letter-spacing: -.5px;
+      }
+      .hero-desc{
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+        padding-right: 0;
+      }
+      .hero-kicker{
+        font-size: 12px;
+        padding: 5px 14px;
+        margin-bottom: 12px;
+      }
       .glance-card{ display: none; }
       .i-pills{ margin-bottom: 14px; gap: 6px; }
       .i-pill{ font-size: 13px; padding: 4px 10px; }
@@ -1485,16 +1647,16 @@ footer { margin-bottom: 0 !important; }
       .fc-a, .fc-b, .vis-a, .vis-b{ display: none; }
     }
 
-</style>
+  </style>
 </head>
 <body>
 
 <!-- ════════ NAVBAR ════════ -->
 <!-- ANNOUNCEMENT BAR -->
 <div class="ann-bar">
-  <a href="pages-zh/trial">
+  <a href="pages/trial">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 8s-4 3-10 3S2 8 2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2z"/><path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/><line x1="12" y1="12" x2="12" y2="19"/></svg>
-    博雅音乐艺术学校 — 立即在新加坡 5 家分校预约您的试课！
+    Liberal Music &amp; Arts School — Book your Trial Class today at any of our 5 Singapore locations!
   </a>
 </div>
 
@@ -1503,25 +1665,33 @@ footer { margin-bottom: 0 !important; }
     <div class="nav-row">
 
       <!-- Logo only — no text label per instruction #1 -->
-      <a href="index-zh" class="nav-logo" aria-label="Liberal Music &amp; Arts Home">
+      <a href="index" class="nav-logo" aria-label="Liberal Music &amp; Arts Home">
         <img src="assets/logo.webp" alt="Liberal Music &amp; Arts"
              onerror="this.style.display='none'"/>
       </a>
 
       <!-- Nav order: Home | About | Courses | Teachers | Review | Blog | Contact -->
       <ul class="nav-links">
-        <li><a href="index-zh" class="active">首页</a></li>
-        <li><a href="pages-zh/about">关于我们</a></li>
-        <li><a href="pages-zh/courses">课程</a></li>
-        <li><a href="pages-zh/instructors">导师</a></li>
-        <li><a href="pages-zh/review">评价</a></li>
-        <li><a href="pages-zh/blog">博客</a></li>
-        <li><a href="pages-zh/contact">联系我们</a></li>
+        <li><a href="index" class="active">Home</a></li>
+        <li><a href="pages/about">About</a></li>
+        <li><a href="pages/courses">Courses</a></li>
+        <li><a href="pages/instructors">Instructors</a></li>
+        <li><a href="pages/review">Review</a></li>
+        <li><a href="pages/blog">Blog</a></li>
+        <li class="nav-item-dropdown">
+          <a href="pages/contact" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-west">Jurong West</a></li>
+            <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
+            <li><a href="/locations/tampines">Tampines</a></li>
+            <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="nav-end">
-        <a class="nav-lang" href="index" style="text-decoration:none;color:var(--ink);font-weight:700;">EN</a>
-        <a href="pages-zh/trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">预约试课</a>
+        <a class="nav-lang" href="index-zh">中文</a>
+        <a href="pages/trial" class="btn btn-cta" style="padding:10px 22px;font-size:14px;">Book Trial Class</a>
       </div>
 
       <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false">
@@ -1532,15 +1702,23 @@ footer { margin-bottom: 0 !important; }
 </nav>
 
 <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
-  <a href="index-zh">首页</a>
-  <a href="pages-zh/about">关于我们</a>
-  <a href="pages-zh/courses">课程</a>
-  <a href="pages-zh/instructors">导师</a>
-  <a href="pages-zh/review">评价</a>
-  <a href="pages-zh/blog">博客</a>
-  <a href="pages-zh/contact">联系我们</a>
-  <a href="index" style="opacity:.7;">EN</a>
-  <a href="pages-zh/trial" class="btn btn-cta">预约试课</a>
+  <a href="index">Home</a>
+  <a href="pages/about">About</a>
+  <a href="pages/courses">Courses</a>
+  <a href="pages/instructors">Instructors</a>
+  <a href="pages/review">Review</a>
+  <a href="pages/blog">Blog</a>
+  <div class="nav-item-dropdown">
+    <a href="pages/contact" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-west">Jurong West</a></li>
+      <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
+      <li><a href="/locations/tampines">Tampines</a></li>
+      <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+    </ul>
+  </div>
+  <a href="index-zh" style="opacity:.7;">中文</a>
+  <a href="pages/trial" class="btn btn-cta">Book Trial Class</a>
 </nav>
 
 
@@ -1561,60 +1739,60 @@ footer { margin-bottom: 0 !important; }
     <div class="hero-grid">
 
       <div class="hero-copy">
-        <div class="hero-kicker sr">✦ 新加坡最受信任的 ABRSM（英皇考级）专家</div>
+        <div class="hero-kicker sr">✦ Singapore's Most Trusted ABRSM Specialist</div>
 
         <!-- School at a Glance — slim pill, machine-readable for AI scrapers -->
         <div class="glance-card sr" role="note" aria-label="School at a glance">
 
           <span class="glance-item">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6600" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            2.5岁及以上
+            Ages 2.5+
           </span>
           <span class="glance-sep" aria-hidden="true">·</span>
 
           <span class="glance-item">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6600" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            成立于2009年
+            Est. 2009
           </span>
           <span class="glance-sep" aria-hidden="true">·</span>
 
           <span class="glance-item">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6600" stroke-width="2.5" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            5个分校
+            5 Locations
           </span>
           <span class="glance-sep" aria-hidden="true">·</span>
 
           <span class="glance-item">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6600" stroke-width="2.5" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            99%通过率
+            99% Pass Rate
           </span>
 
         </div>
         <h1 class="sr d1">
-          新加坡<span class="kw">评价最高</span>的 ABRSM<br>
-          考试辅导顶尖音乐学校
+          Singapore's <span class="kw">Top-Rated</span> Music School<br>
+          for ABRSM Success
         </h1>
         <p class="hero-desc sr d2">
-          自2009年以来，已助力超过20,000名学生。我们专注于 ABRSM 的快速备考，拥有高达99%的通过率，在新加坡5个交通便利的分校帮助学生掌握钢琴、小提琴、架子鼓和声乐。
+          Empowering 20,000+ students since 2009. We specialize in fast-track ABRSM preparation with a proven 99% pass rate, helping students master Piano, Violin, Drums, and Vocals across 5 convenient Singapore locations.
         </p>
         <div class="i-pills sr d2">
-          <a href="pages-zh/courses#piano" class="i-pill">钢琴</a>
-          <a href="pages-zh/courses#violin" class="i-pill">小提琴</a>
-          <a href="pages-zh/courses#drums" class="i-pill">架子鼓</a>
-          <a href="pages-zh/courses#vocal" class="i-pill">声乐</a>
-          <a href="pages-zh/courses" class="i-pill">更多 →</a>
+          <a href="pages/courses#piano" class="i-pill">Piano</a>
+          <a href="pages/courses#violin" class="i-pill">Violin</a>
+          <a href="pages/courses#drums" class="i-pill">Drums</a>
+          <a href="pages/courses#vocal" class="i-pill">Vocal</a>
+          <a href="pages/courses" class="i-pill">More →</a>
         </div>
         <div class="hero-btns sr d3">
-          <a href="pages-zh/trial" class="btn btn-cta btn-lg btn-ring">✦ 预约试课</a>
-          <a href="pages-zh/courses" class="btn btn-outline btn-lg">查看课程</a>
+          <a href="pages/trial" class="btn btn-cta btn-lg btn-ring">✦ Book Trial Class</a>
+          <a href="pages/courses" class="btn btn-outline btn-lg">View Courses</a>
         </div>
         <div class="proof sr d4">
           <div class="pf-stack" id="proofStack">
             <!-- JS injects randomised student icons -->
           </div>
           <div class="proof-txt">
-            <strong>超过20,000名快乐的学生</strong>
-            <span>每天都在增加</span>
+            <strong>20,000+ Happy Students</strong>
+            <span>Growing Every Day</span>
           </div>
         </div>
       </div>
@@ -1632,12 +1810,13 @@ footer { margin-bottom: 0 !important; }
             style="position:absolute;inset:0;width:100%;height:100%;border:none;"
             loading="eager"
           ></iframe>
-          <!-- 移动/平板点播海报。桌面端通过 CSS 隐藏。
-               用 maxresdefault.jpg（1280×720）保证在大平板上清晰；
-               若该视频没生成 maxres，自动回退到 hqdefault.jpg。 -->
-          <button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="播放视频">
+          <!-- Mobile/tablet tap-to-play poster. Hidden on desktop via CSS.
+               Uses maxresdefault (1280x720) so the thumbnail stays sharp
+               on larger tablets like Galaxy Tab A11 (~800px wide). Falls
+               back to hqdefault if maxres isn't generated for this video. -->
+          <button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="Play video">
             <img src="https://img.youtube.com/vi/Yh8Z6yca-28/maxresdefault.jpg"
-                 alt="视频预览" loading="lazy"
+                 alt="Video preview" loading="lazy"
                  onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yh8Z6yca-28/hqdefault.jpg'"/>
             <span class="hero-mobile-play-btn" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="36" height="36" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
@@ -1646,11 +1825,11 @@ footer { margin-bottom: 0 !important; }
         </div>
         <div class="fc fc-a" id="fcSuccessCard">
           <div class="fc-ico fc-student-ico" id="fcStudentIcoA"></div>
-          <div><strong>20,000+</strong><span>成功故事</span></div>
+          <div><strong>20,000+</strong><span>Success Stories</span></div>
         </div>
         <div class="fc fc-b" id="fcAbrsm">
           <div class="fc-ico fc-student-ico" id="fcStudentIcoB"></div>
-          <div><strong>ABRSM</strong><span>99%通过率</span></div>
+          <div><strong>ABRSM</strong><span>99% Pass Rate</span></div>
         </div>
       </div>
     </div>
@@ -1669,8 +1848,8 @@ footer { margin-bottom: 0 !important; }
              alt="Students enrolled icon"
              width="64" height="64" loading="lazy"/>
         <span class="stat-num" data-count="20000">20000<span class="acc">+</span></span>
-        <span class="stat-label">入学学生</span>
-        <span class="stat-sub">每学期持续增长</span>
+        <span class="stat-label">Students Enrolled</span>
+        <span class="stat-sub">and growing every term</span>
       </div>
 
       <div class="stat-cell sr d1">
@@ -1679,8 +1858,8 @@ footer { margin-bottom: 0 !important; }
              alt="15 years of excellence icon"
              width="64" height="64" loading="lazy"/>
         <span class="stat-num">15<span class="acc">+</span></span>
-        <span class="stat-label">年卓越教学</span>
-        <span class="stat-sub">成立于2009年</span>
+        <span class="stat-label">Years Excellence</span>
+        <span class="stat-sub">Est. 2009</span>
       </div>
 
       <div class="stat-cell sr d2">
@@ -1689,8 +1868,8 @@ footer { margin-bottom: 0 !important; }
              alt="Branches in Singapore icon"
              width="64" height="64" loading="lazy"/>
         <span class="stat-num">5</span>
-        <span class="stat-label">新加坡分校</span>
-        <span class="stat-sub">就近选择，方便快捷</span>
+        <span class="stat-label">Branches in Singapore</span>
+        <span class="stat-sub">always close to you</span>
       </div>
 
       <div class="stat-cell sr d3">
@@ -1699,8 +1878,8 @@ footer { margin-bottom: 0 !important; }
              alt="Pass rate icon"
              width="64" height="64" loading="lazy"/>
         <span class="stat-num">99<span class="acc">%</span></span>
-        <span class="stat-label">通过率</span>
-        <span class="stat-sub">ABRSM &amp; Trinity 考级</span>
+        <span class="stat-label">Pass Rate</span>
+        <span class="stat-sub">ABRSM &amp; Trinity</span>
       </div>
 
     </div>
@@ -1712,12 +1891,12 @@ footer { margin-bottom: 0 !important; }
 <section class="trust" id="trust">
   <div class="W">
     <div class="sec-head cx sr">
-      <div class="pill-tag pt-tl">自2009年起值得信赖</div>
+      <div class="pill-tag pt-tl">Trusted Since 2009</div>
       <!-- AEO H2: Direct question format for Voice Search & AI Answer Engines -->
-      <h2 class="h2">为什么博雅是新加坡<br>最受信任的音乐学校？</h2>
+      <h2 class="h2">Why is Liberal the Most Trusted<br>Music School in Singapore?</h2>
       <!-- 40-50 word Direct Answer paragraph — scraped by Gemini, SearchGPT, Perplexity -->
       <p class="lead" itemprop="description">
-        自2009年以来，博雅音乐艺术学校一直是新加坡领先的儿童音乐学校。我们拥有5个分校、国际认证师资、以建立自信为核心的教学理念，以及99%的英皇考级通过率，已帮助超过20,000名学生通过音乐建立长久的自信。
+        Liberal Music &amp; Arts School has been Singapore's #1 children's music school since 2009. With 5 branches, internationally certified teachers, a confidence-first teaching approach, and a 99% ABRSM exam pass rate, over 20,000 students have built lasting confidence through music.
       </p>
     </div>
     <div class="trust-grid">
@@ -1725,29 +1904,29 @@ footer { margin-bottom: 0 !important; }
       <!-- AEO Question 1 -->
       <div class="trust-card sr">
         <div class="trust-icon ti-1"><img src="assets/safe.webp" alt="Safe environment" style="width:96px;height:96px;object-fit:contain;"></div>
-        <h3>博雅音乐学校是否为幼龄儿童提供安全的学习环境？</h3>
-        <p class="direct-answer">是的。博雅音乐艺术学校在新加坡5个分校均提供全程监督、儿童友好的安全环境，拥有具备幼儿教育资质的认证师资，专业服务2.5岁及以上的孩子。</p>
+        <h3>Is Liberal Music School a safe environment for young children?</h3>
+        <p class="direct-answer">Yes. Liberal Music &amp; Arts School maintains a fully supervised, child-safe environment across all 5 Singapore branches, with certified teachers trained in early childhood education for students from Ages 2.5+.</p>
       </div>
 
       <!-- AEO Question 2 -->
       <div class="trust-card sr d1">
         <div class="trust-icon ti-2"><img src="assets/certified.webp" alt="Certified teachers" style="width:96px;height:96px;object-fit:contain;"></div>
-        <h3>博雅音乐学校的导师都拥有国际认证吗？</h3>
-        <p class="direct-answer">是的。博雅所有导师均持有 ABRSM（英皇）、Trinity College London（伦敦圣三一）、Berklee Online（伯克利）或中央音乐学院等专业资质，确保每位学生都能享有专业标准的教学体验。</p>
+        <h3>Are the music teachers at Liberal School internationally certified?</h3>
+        <p class="direct-answer">Yes. All Liberal Music &amp; Arts teachers hold qualifications from ABRSM, Trinity College London, Berklee Online, or the Central Conservatory of Music — ensuring consistent, professional-standard tuition for every student.</p>
       </div>
 
       <!-- AEO Question 3 -->
       <div class="trust-card sr d2">
         <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:96px;height:96px;object-fit:contain;"></div>
-        <h3>博雅在新加坡有多少个分校？</h3>
-        <p class="direct-answer">博雅音乐艺术学校在新加坡共有5个分校：登加（Tengah）、淡滨尼（Tampines）、裕廊西（Jurong West）、Le Quest 商场（武吉巴督）以及裕廊坊 Coloury Art（博雅旗下），覆盖新加坡东部与西部。</p>
+        <h3>How many music school branches does Liberal have in Singapore?</h3>
+        <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal) — covering east and west Singapore.</p>
       </div>
 
       <!-- AEO Question 4 -->
       <div class="trust-card sr d3">
         <div class="trust-icon ti-4"><img src="assets/confidence.webp" alt="Confidence" style="width:96px;height:96px;object-fit:contain;"></div>
-        <h3>学习音乐能否帮助孩子在音乐之外建立自信与专注力？</h3>
-        <p class="direct-answer">是的。科学研究与我们15年以上的教学经验都表明，音乐教育能有效培养孩子的自信心、情绪管理能力以及学业专注力。我们的学生通过每年汇演登上舞台，真正建立起舞台表现力与自我认同感。</p>
+        <h3>Does music school help children with confidence and focus beyond music?</h3>
+        <p class="direct-answer">Yes. Research and our 15+ years of experience show music education builds confidence, emotional regulation, and academic focus in children. Students perform in annual recitals, building real-world stage presence and self-belief.</p>
       </div>
 
     </div>
@@ -1759,71 +1938,71 @@ footer { margin-bottom: 0 !important; }
 <section class="courses" id="programs">
   <div class="W">
     <div class="sec-head cx sr">
-      <div class="pill-tag pt-or">我们的课程</div>
+      <div class="pill-tag pt-or">Our Programmes</div>
       <!-- AEO H2: Direct question captures "best music lessons for kids Singapore" searches -->
-      <h2 class="h2">2.5至16岁孩子<br>最适合的音乐课程是什么？</h2>
+      <h2 class="h2">What Are the Best Music Lessons<br>for My Child Aged 2.5–16?</h2>
       <!-- Direct Answer — 45 words, confidence-first, legacy-led -->
       <p class="lead" itemprop="description">
-        自2009年起，博雅的专业导师团队已在全岛5家分校，用心陪伴无数孩子开启艺术之旅。我们专为2.5至16岁的孩子提供中西乐器、声乐、美术与舞蹈等多元课程。秉持因材施教的理念，导师们注重先培养孩子由内而外的自信，再引领他们稳步达成考级目标。
+        Liberal Music &amp; Arts School offers Piano, Violin, Guitar, Drums, Vocal, Music for kids, Chinese instruments, Visual Art, and Dance for children aged 2.5–16. Every course is designed around your child's natural learning pace, building genuine confidence long before exam grades — taught by certified specialists across 5 Singapore branches since 2009.
       </p>
     </div>
     <div class="course-grid">
 
       <div class="course-card sl">
-        <a href="pages-zh/piano-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
+        <a href="pages/piano-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct1"><img src="assets/pianocourse.webp" alt="Piano"/></div>
         <div class="course-body">
-          <div class="course-tag">人气之选</div>
-          <h3>钢琴</h3>
-          <p>从第一个音符到舞台曲目——在琴键之间建立技巧、乐理与无可撼动的自信。</p>
+          <div class="course-tag">Most Popular</div>
+          <h3>Piano</h3>
+          <p>From first notes to concert pieces — build technique, theory, and unstoppable confidence at the keys.</p>
           <div class="course-foot">
-            <div class="course-meta"><strong>一对一</strong>适合所有水平</div>
-            <span class="btn btn-cta btn-sm">立即体验 →</span>
+            <div class="course-meta"><strong>1-to-1</strong>All levels</div>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
         </a>
       </div>
 
       <div class="course-card sr">
-        <a href="pages-zh/violin-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
+        <a href="pages/violin-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct2"><img src="assets/violincourse.webp" alt="Violin"/></div>
         <div class="course-body">
-          <div class="course-tag">提升专注力</div>
-          <h3>小提琴</h3>
-          <p>培养优美音色、敏锐的听力训练，以及真正音乐家应有的从容气质。</p>
+          <div class="course-tag">Builds Focus</div>
+          <h3>Violin</h3>
+          <p>Develop beautiful tone, sharp ear training, and the poise of a true musician.</p>
           <div class="course-foot">
-            <div class="course-meta"><strong>一对一</strong>适合所有水平</div>
-            <span class="btn btn-cta btn-sm">立即体验 →</span>
+            <div class="course-meta"><strong>1-to-1</strong>All levels</div>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
         </a>
       </div>
 
       <div class="course-card sfr">
-        <a href="pages-zh/guitar-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
+        <a href="pages/guitar-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct3"><img src="assets/guitarcourse.webp" alt="Guitar"/></div>
         <div class="course-body">
-          <div class="course-tag">初学者友好</div>
-          <h3>吉他</h3>
-          <p>原声、古典或电吉他——从第一个和弦开始，点燃孩子对音乐的终生热爱。</p>
+          <div class="course-tag">Beginner Friendly</div>
+          <h3>Guitar</h3>
+          <p>Acoustic, classical, or electric — spark a lifelong love of music from the very first chord.</p>
           <div class="course-foot">
-            <div class="course-meta"><strong>一对一</strong>适合所有水平</div>
-            <span class="btn btn-cta btn-sm">立即体验 →</span>
+            <div class="course-meta"><strong>1-to-1</strong>All levels</div>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
         </a>
       </div>
 
       <div class="course-card sl d2">
-        <a href="pages-zh/drum-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
+        <a href="pages/drum-course" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct4"><img src="assets/drumcourse.webp" alt="Drums"/></div>
         <div class="course-body">
-          <div class="course-tag">活力四射</div>
-          <h3>架子鼓</h3>
-          <p>训练协调性、节奏感与爆发力，让好动的孩子蜕变为专注且自信的音乐人。</p>
+          <div class="course-tag">High Energy</div>
+          <h3>Drums</h3>
+          <p>Build coordination, timing, and explosive rhythm. Turns restless kids into focused, confident musicians.</p>
           <div class="course-foot">
-            <div class="course-meta"><strong>一对一</strong>适合所有水平</div>
-            <span class="btn btn-cta btn-sm">立即体验 →</span>
+            <div class="course-meta"><strong>1-to-1</strong>All levels</div>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
         </a>
@@ -1833,27 +2012,27 @@ footer { margin-bottom: 0 !important; }
         <a href="https://colouryart.com/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct5"><img src="assets/colouryart.webp" alt="Visual Art"/></div>
         <div class="course-body">
-          <div class="course-tag">创意表达</div>
-          <h3>美术</h3>
-          <p>绘画、油画与综合媒材——培养绽放于生活方方面面的创造力与自信。</p>
+          <div class="course-tag">Creative Expression</div>
+          <h3>Visual Art</h3>
+          <p>Drawing, painting, and mixed media — building creative confidence that shines through everything.</p>
           <div class="course-foot">
-            <div class="course-meta"><strong>小组课</strong>项目式教学</div>
-            <span class="btn btn-cta btn-sm">了解更多 →</span>
+            <div class="course-meta"><strong>Group Classes</strong>Project-based</div>
+            <span class="btn btn-cta btn-sm">Learn More →</span>
           </div>
         </div>
         </a>
       </div>
 
       <div class="course-card sfr d2">
-        <a href="pages-zh/courses" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
+        <a href="pages/courses" style="display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit">
         <div class="course-thumb ct6"><img src="assets/dancecourse.webp" alt="Dance"/></div>
         <div class="course-body">
-          <div class="course-tag">欢乐舞动</div>
-          <h3>舞蹈</h3>
-          <p>芭蕾、街舞与现代舞，在温暖鼓励的氛围中开课。看着孩子在舞台上绽放光彩。</p>
+          <div class="course-tag">Joyful Movement</div>
+          <h3>Dance</h3>
+          <p>Ballet, hip-hop, and contemporary in a warm, encouraging space. Watch your child blossom on stage.</p>
           <div class="course-foot">
-            <div class="course-meta"><strong>小组课</strong>年度汇演</div>
-            <span class="btn btn-cta btn-sm">立即体验 →</span>
+            <div class="course-meta"><strong>Group Classes</strong>Annual showcase</div>
+            <span class="btn btn-cta btn-sm">Try Now →</span>
           </div>
         </div>
         </a>
@@ -1861,7 +2040,7 @@ footer { margin-bottom: 0 !important; }
 
     </div>
     <div style="text-align:center;margin-top:44px" class="sr">
-      <a href="pages-zh/courses" class="btn btn-outline">查看全部课程 →</a>
+      <a href="pages/courses" class="btn btn-outline">View All Courses →</a>
     </div>
   </div>
 </section>
@@ -1871,9 +2050,9 @@ footer { margin-bottom: 0 !important; }
 <section class="teachers" id="teachers">
   <div class="W">
     <div class="sec-head cx sr">
-      <div class="pill-tag pt-lv">导师团队</div>
-      <h2 class="h2">充满热情的教育者，<br>卓越的教学成果</h2>
-      <p class="lead">用专业启迪，用爱心陪伴。我们的导师是博雅最宝贵的财富</p>
+      <div class="pill-tag pt-lv">Our Teachers</div>
+      <h2 class="h2">Passionate Educators,<br>Extraordinary Results</h2>
+      <p class="lead">Degree-holders, performers, and genuine child-lovers — our teachers are the heartbeat of Liberal.</p>
     </div>
     <div class="tc-carousel-wrap sr">
       <!-- Prev arrow -->
@@ -1885,171 +2064,171 @@ footer { margin-bottom: 0 !important; }
         <div class="teacher-grid" id="tcGrid">
 
           <!-- 1. Ms Cecily — Principal -->
-          <a class="tc" href="pages-zh/cecily">
+          <a class="tc" href="pages/cecily">
             <div class="tc-photo tp1">
               <img src="assets/cecily.webp" alt="Ms Cecily" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">校长 · 音乐家 · 教育家</span>
-              <h3>Ms Cecily 校长</h3>
-              <p>校长，拥有超过20年的教学经验。二胡专家、香港演艺学院（HKAPA）毕业生，引领博雅"自信、有创造力的全龄音乐人"愿景。</p>
+              <span class="tc-chip">Principal · Musician · Educator</span>
+              <h3>Ms Cecily</h3>
+              <p>Principal with 20+ years of teaching. Erhu specialist and HKAPA graduate leading Liberal's vision of confident, creative musicians of all ages.</p>
             </div>
           </a>
 
           <!-- 2. Mr Calvin — Vice Principal -->
-          <a class="tc" href="pages-zh/calvin">
+          <a class="tc" href="pages/calvin">
             <div class="tc-photo tp2">
               <img src="assets/calvin.webp" alt="Mr Calvin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">架子鼓 · 吉他</span>
-              <h3>Mr Calvin 副校长</h3>
-              <p>副校长，精通架子鼓、吉他与尤克里里。课堂活力满满、轻松有趣，适合所有年龄段并成效显著。</p>
+              <span class="tc-chip">Drums · Guitar</span>
+              <h3>Mr Calvin</h3>
+              <p>Vice Principal with expertise in drums, guitar and ukulele. Energetic, fun lessons that are surprisingly effective for all ages.</p>
             </div>
           </a>
 
           <!-- 3. Ms Kate -->
-          <a class="tc" href="pages-zh/kate">
+          <a class="tc" href="pages/kate">
             <div class="tc-photo tp3">
               <img src="assets/kate.webp" alt="Ms Kate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">钢琴</span>
-              <h3>Ms Kate 老师</h3>
-              <p>ABRSM 认证钢琴导师，授课涵盖古典与现代曲目，从零基础学生到优秀奖（Distinction）级别学生皆能胜任。</p>
+              <span class="tc-chip">Piano</span>
+              <h3>Ms Kate</h3>
+              <p>ABRSM-certified piano instructor teaching classical and contemporary to students from complete beginners to distinction-level.</p>
             </div>
           </a>
 
           <!-- 4. Ms Jescelyn -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp4">
               <img src="assets/Jescelyn.webp" alt="Ms Jescelyn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">钢琴</span>
-              <h3>Ms Jescelyn 老师</h3>
-              <p>佛罗里达州立大学音乐硕士（最高荣誉毕业）。国际级演奏家与作曲家，钢琴作品集已在 Neuma Records 厂牌全球发行。</p>
+              <span class="tc-chip">Piano</span>
+              <h3>Ms Jescelyn</h3>
+              <p>MA in Music, Florida State University (Summa Cum Laude). International performer and composer with an internationally released piano collection on Neuma Records.</p>
             </div>
           </a>
 
           <!-- 5. Ms Tina -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp5">
               <img src="assets/Tina.webp" alt="Ms Tina" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">钢琴</span>
-              <h3>Ms Tina 老师</h3>
-              <p>国立屏东大学钢琴演奏硕士。布拉格国家钢琴大赛多次得奖者，竞赛履历卓越。</p>
+              <span class="tc-chip">Piano</span>
+              <h3>Ms Tina</h3>
+              <p>MM in Piano Performance, National Pingtung University. Multi-award winner at the Prague National Competition with a distinguished competitive record.</p>
             </div>
           </a>
 
           <!-- 6. Ms Verginia -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp6">
               <img src="assets/Verginia.webp" alt="Ms Verginia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">钢琴</span>
-              <h3>Ms Verginia 老师</h3>
-              <p>华南理工大学优秀毕业生。新加坡表演艺术节双金奖得主，持有 Music for Little Mozarts 启蒙音乐认证。</p>
+              <span class="tc-chip">Piano</span>
+              <h3>Ms Verginia</h3>
+              <p>Top Graduate, South China University of Technology. Double Gold Prize winner at the Singapore Performing Arts Festival. Music for Little Mozarts certified.</p>
             </div>
           </a>
 
           <!-- 7. Ms Jiang -->
-          <a class="tc" href="pages-zh/jiang">
+          <a class="tc" href="pages/jiang">
             <div class="tc-photo tp7">
               <img src="assets/jiang.webp" alt="Ms Jiang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">二胡 · 古琴</span>
-              <h3>Ms Jiang 老师</h3>
-              <p>音乐学院出身的中国民族弦乐专家，拥有10年以上的演奏与教学经验，兼具文化底蕴与精湛技艺。</p>
+              <span class="tc-chip">Erhu · Guqin</span>
+              <h3>Ms Jiang</h3>
+              <p>Conservatory-trained Chinese string specialist with 10+ years of performance and teaching experience in cultural depth and technique.</p>
             </div>
           </a>
 
           <!-- 8. Ms Cheng -->
-          <a class="tc" href="pages-zh/cheng">
+          <a class="tc" href="pages/cheng">
             <div class="tc-photo tp8">
               <img src="assets/cheng.webp" alt="Ms Cheng" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">钢琴 · 小提琴</span>
-              <h3>Ms Cheng 老师</h3>
-              <p>多才多艺的多乐器演奏家，教授钢琴、小提琴与中提琴，在考级辅导与舞台演出方面经验深厚。</p>
+              <span class="tc-chip">Piano · Violin</span>
+              <h3>Ms Cheng</h3>
+              <p>Versatile multi-instrumentalist teaching piano, violin and viola with deep experience in graded exams and stage performance.</p>
             </div>
           </a>
 
           <!-- 9. Ms Aliona -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp9">
               <img src="assets/Aliona.webp" alt="Ms Aliona" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">小提琴</span>
-              <h3>Ms Aliona 老师</h3>
-              <p>彼得罗扎沃茨克国立音乐学院小提琴演奏硕士，曾任大诺夫哥罗德爱乐乐团首席小提琴。学生 ABRSM 考级与 DSA 录取成绩优异。</p>
+              <span class="tc-chip">Violin</span>
+              <h3>Ms Aliona</h3>
+              <p>Master's in Violin Performance, Petrozavodsk State Conservatory. Former first violinist with the Veliky Novgorod Philharmonic. Strong ABRSM and DSA results.</p>
             </div>
           </a>
 
           <!-- 10. Ms Teresa -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp10">
               <img src="assets/Teresa.webp" alt="Ms Teresa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">小提琴</span>
-              <h3>Ms Teresa 老师</h3>
-              <p>苏州大学（台湾东吴大学）小提琴演奏学士，于马来西亚、新加坡及欧洲多次获奖，曾在台湾国家音乐厅登台演出。</p>
+              <span class="tc-chip">Violin</span>
+              <h3>Ms Teresa</h3>
+              <p>BA in Violin Performance, Soochow University. Multi-award winner across Malaysia, Singapore and Europe. Performed at Taiwan's National Music Hall.</p>
             </div>
           </a>
 
           <!-- 11. Ms Mindy -->
-          <a class="tc" href="pages-zh/instructors">
+          <a class="tc" href="pages/instructors">
             <div class="tc-photo tp1">
               <img src="assets/Mindy.webp" alt="Ms Mindy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">声乐</span>
-              <h3>Ms Mindy 老师</h3>
-              <p>英国皇家音乐学院荣誉学士（BMus Hons）。2025年巴黎德彪西大赛季军，新加坡与马来西亚多项国际大赛得奖者。</p>
+              <span class="tc-chip">Vocals</span>
+              <h3>Ms Mindy</h3>
+              <p>BMus (Hons), Royal College of Music. 3rd Prize at the Claude Debussy Competition, Paris (2025). International competition prizewinner across Singapore and Malaysia.</p>
             </div>
           </a>
 
           <!-- 12. Mr Leonard -->
-          <a class="tc" href="pages-zh/leonard">
+          <a class="tc" href="pages/leonard">
             <div class="tc-photo tp2">
               <img src="assets/leonard.webp" alt="Mr Leonard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">架子鼓 · 吉他</span>
-              <h3>Mr Leonard 老师</h3>
-              <p>多才多艺的多乐器演奏者，热爱节奏与律动，能在极短时间内把零基础学生带上舞台。</p>
+              <span class="tc-chip">Drums · Guitar</span>
+              <h3>Mr Leonard</h3>
+              <p>Multi-instrumentalist passionate about rhythm and groove. Takes students from zero to performing in remarkably little time.</p>
             </div>
           </a>
 
           <!-- 13. Mr Loy -->
-          <a class="tc" href="pages-zh/loy">
+          <a class="tc" href="pages/loy">
             <div class="tc-photo tp3">
               <img src="assets/loy.webp" alt="Mr Loy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
               <div class="tc-ov"></div>
             </div>
             <div class="tc-body">
-              <span class="tc-chip">吉他 · 尤克里里</span>
-              <h3>Mr Loy 老师</h3>
-              <p>充满热忱、耐心十足的吉他老师，擅长让所有年龄段的零基础学生轻松入门弦乐。</p>
+              <span class="tc-chip">Guitar · Ukulele</span>
+              <h3>Mr Loy</h3>
+              <p>Enthusiastic, patient guitar teacher with a gift for making string instruments approachable for absolute beginners of all ages.</p>
             </div>
           </a>
 
@@ -2061,7 +2240,7 @@ footer { margin-bottom: 0 !important; }
       </button>
     </div>
     <div style="text-align:center;margin-top:44px" class="sr">
-      <a href="pages-zh/instructors" class="btn btn-outline">认识所有导师 →</a>
+      <a href="pages/instructors" class="btn btn-outline">Meet All Our Teachers →</a>
     </div>
   </div>
 </section>
@@ -2074,26 +2253,26 @@ footer { margin-bottom: 0 !important; }
 
       <div class="stat-cell sr">
         <span class="stat-num">200<span class="acc">+</span></span>
-        <span class="stat-label">ABRSM 优秀奖</span>
-        <span class="stat-sub">自2009年起累计</span>
+        <span class="stat-label">ABRSM Distinctions</span>
+        <span class="stat-sub">since 2009</span>
       </div>
 
       <div class="stat-cell sr d1">
         <span class="stat-num">50<span class="acc">+</span></span>
-        <span class="stat-label">竞赛奖项</span>
-        <span class="stat-sub">区域级与全国级</span>
+        <span class="stat-label">Competition Awards</span>
+        <span class="stat-sub">regional &amp; national</span>
       </div>
 
       <div class="stat-cell sr d2">
         <span class="stat-num">30<span class="acc">+</span></span>
-        <span class="stat-label">专业导师</span>
-        <span class="stat-sub">国际认证</span>
+        <span class="stat-label">Expert Teachers</span>
+        <span class="stat-sub">internationally certified</span>
       </div>
 
       <div class="stat-cell sr d3">
         <span class="stat-num">6</span>
-        <span class="stat-label">乐器与艺术门类</span>
-        <span class="stat-sub">钢琴 · 小提琴 · 吉他 · 架子鼓 · 二胡 · 美术</span>
+        <span class="stat-label">Instruments &amp; Arts</span>
+        <span class="stat-sub">Piano · Violin · Guitar · Drums · Erhu · Art</span>
       </div>
 
     </div>
@@ -2104,9 +2283,9 @@ footer { margin-bottom: 0 !important; }
 <section class="reviews" id="reviews">
   <div class="W">
     <div class="sec-head cx sr">
-      <div class="pill-tag pt-tl">家长评价</div>
-      <h2 class="h2">真实家长，真实故事</h2>
-      <p class="lead">看新加坡的家长们如何讲述博雅带来的不同。</p>
+      <div class="pill-tag pt-tl">Parent Reviews</div>
+      <h2 class="h2">Real Parents, Real Stories</h2>
+      <p class="lead">See what Singapore families say about the Liberal difference.</p>
     </div>
 
     <div class="rev-carousel">
@@ -2119,18 +2298,18 @@ footer { margin-bottom: 0 !important; }
             <div class="rev-inner">
               <div class="rev-card feat">
                 <div class="rev-stars">★★★★★</div>
-                <p class="rev-q">"我女儿从前害羞到课堂上都不敢开口。在博雅学习半年后，她在学校音乐会上独奏了一首曲子——然后开心地流下眼泪，那一刻我们永生难忘。"</p>
-                <div class="rev-person"><div class="rev-av ra1"><img src="assets/g1.webp" alt="Mrs Chen Wei" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>陈女士</strong><span>8岁钢琴学生家长</span></div></div>
+                <p class="rev-q">"My daughter was so shy she wouldn't speak up in class. Six months at Liberal and she played a solo at her school concert — and cried happy tears. We will never forget it."</p>
+                <div class="rev-person"><div class="rev-av ra1"><img src="assets/g1.webp" alt="Mrs Chen Wei" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mrs Chen Wei</strong><span>Parent of 8-year-old pianist</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
-                <p class="rev-q">"老师会真正研究每个孩子的学习方式。我儿子如今竟然每周追着我去上小提琴课——这是我们完全没料到的！"</p>
-                <div class="rev-person"><div class="rev-av ra2"><img src="assets/g2.webp" alt="Mr Amir Hassan" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Amir Hassan 先生</strong><span>6岁小提琴学生家长</span></div></div>
+                <p class="rev-q">"The teachers genuinely learn each child's learning style. My son actually begs to go to violin class — we never expected that!"</p>
+                <div class="rev-person"><div class="rev-av ra2"><img src="assets/g2.webp" alt="Mr Amir Hassan" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mr Amir Hassan</strong><span>Parent of 6-year-old violinist</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
-                <p class="rev-q">"在选择博雅之前，我们试过另外两家学校。这里的温度、教学结构与沟通方式完全不同，我家双胞胎在这里都成长得非常好。"</p>
-                <div class="rev-person"><div class="rev-av ra3"><img src="assets/g3.webp" alt="Ms Priya Nair" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Priya Nair 女士</strong><span>双胞胎吉他学生家长</span></div></div>
+                <p class="rev-q">"We tried two other schools before Liberal. The warmth, structure, and communication here is completely different. My twins are thriving."</p>
+                <div class="rev-person"><div class="rev-av ra3"><img src="assets/g3.webp" alt="Ms Priya Nair" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Ms Priya Nair</strong><span>Parent of twin guitar students</span></div></div>
               </div>
             </div>
           </div>
@@ -2140,18 +2319,18 @@ footer { margin-bottom: 0 !important; }
             <div class="rev-inner">
               <div class="rev-card feat">
                 <div class="rev-stars">★★★★★</div>
-                <p class="rev-q">"我特别喜欢每月进度报告——我清楚知道孩子的状态，也知道在家可以怎么鼓励他。这真的像是一种共育的伙伴关系。"</p>
-                <div class="rev-person"><div class="rev-av ra4"><img src="assets/g4.webp" alt="Mrs Tan Mei Ling" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>陈美玲女士</strong><span>10岁美术学生家长</span></div></div>
+                <p class="rev-q">"I love the monthly progress reports — I always know how my child is doing and what to encourage at home. It feels like a true partnership."</p>
+                <div class="rev-person"><div class="rev-av ra4"><img src="assets/g4.webp" alt="Mrs Tan Mei Ling" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mrs Tan Mei Ling</strong><span>Parent of art student, age 10</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
-                <p class="rev-q">"我儿子学琴仅2年就以优秀奖（Distinction）通过了 ABRSM 五级。老师专业、有耐心，还能把练琴变得有趣，太了不起了。"</p>
-                <div class="rev-person"><div class="rev-av ra5"><img src="assets/g5.webp" alt="Mr Kevin Goh" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>吴先生</strong><span>12岁钢琴学生家长</span></div></div>
+                <p class="rev-q">"My son passed ABRSM Grade 5 with Distinction after just 2 years. Professional, patient, and somehow made practice feel fun. Remarkable."</p>
+                <div class="rev-person"><div class="rev-av ra5"><img src="assets/g5.webp" alt="Mr Kevin Goh" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Mr Kevin Goh</strong><span>Parent of 12-year-old pianist</span></div></div>
               </div>
               <div class="rev-card">
                 <div class="rev-stars">★★★★★</div>
-                <p class="rev-q">"每年的汇演是我们一家最期待的活动。看着孩子们自豪地登台，这远不止是音乐教育——它真正在塑造孩子的品格。"</p>
-                <div class="rev-person"><div class="rev-av ra6"><img src="assets/g6.webp" alt="Ms Lily Wong" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>黄女士</strong><span>7岁舞蹈学生家长</span></div></div>
+                <p class="rev-q">"The annual recital is the highlight of our year. Watching the children perform with such pride teaches far more than music. It truly builds character."</p>
+                <div class="rev-person"><div class="rev-av ra6"><img src="assets/g6.webp" alt="Ms Lily Wong" style="width:44px;height:44px;object-fit:cover;border-radius:50%;display:block;"/></div><div class="rev-info"><strong>Ms Lily Wong</strong><span>Parent of dance student, age 7</span></div></div>
               </div>
             </div>
           </div>
@@ -2166,7 +2345,7 @@ footer { margin-bottom: 0 !important; }
     </div>
 
     <div style="text-align:center;margin-top:36px" class="sr">
-      <a href="pages-zh/review" class="btn btn-outline">阅读全部评价 →</a>
+      <a href="pages/review" class="btn btn-outline">Read All Reviews →</a>
     </div>
   </div>
 </section>
@@ -2184,6 +2363,7 @@ footer { margin-bottom: 0 !important; }
     {"@type":"Question","name":"Where is the best place for ABRSM piano exam preparation in Singapore?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School is one of Singapore's most trusted choices for ABRSM piano exam preparation. With exam-focused teaching, certified instructors, and a 99% pass rate since 2009, our students have earned over 200 ABRSM Distinctions."}},
     {"@type":"Question","name":"Can my child progress through ABRSM grades faster at Liberal?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design accelerated learning paths for committed students — a fast-track approach to ABRSM grades that maintains exam-quality standards. Many strong students advance to the next grade within 9–12 months with a consistently high distinction rate."}},
     {"@type":"Question","name":"Are your music teachers certified?","acceptedAnswer":{"@type":"Answer","text":"Yes. All teachers at Liberal Music & Arts School hold internationally recognised qualifications including ABRSM (Royal Schools of Music), Trinity College London, RSL, and Central Conservatory of Music degrees. Our Principal Ms Cecily has taught in Singapore since 2009."}},
+    {"@type":"Question","name":"Is the trial class really free?","acceptedAnswer":{"@type":"Answer","text":"Yes — the first trial class is completely free with no commitment required. In a 30–45 minute session, your child meets the teacher, tries the instrument, and we recommend the right starting level. Parents are welcome to observe."}},
     {"@type":"Question","name":"Do I need to buy an instrument first?","acceptedAnswer":{"@type":"Answer","text":"No — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months our teachers can advise on budget-friendly starter options for home practice."}},
     {"@type":"Question","name":"What's the difference between group and private lessons?","acceptedAnswer":{"@type":"Answer","text":"Private 1-to-1 lessons give undivided attention and faster progression. Group classes (2–4 students) are more affordable and ideal for younger beginners aged 4–7."}},
     {"@type":"Question","name":"Where are your Singapore branches?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance."}}
@@ -2195,9 +2375,9 @@ footer { margin-bottom: 0 !important; }
   <div class="W">
 
     <header class="faq-header">
-      <div class="pill-tag pt-lv">常见问题</div>
-      <h2 class="faq-title" id="faq-heading">家长疑问，<br>专业解答</h2>
-      <p class="faq-sub">关于课程、考级、分校位置以及如何开始学习，家长想知道的一切都在这里。</p>
+      <div class="pill-tag pt-lv">FAQ</div>
+      <h2 class="faq-title" id="faq-heading">Parents Ask,<br>We Answer</h2>
+      <p class="faq-sub">Everything parents want to know about lessons, exams, locations, and getting started.</p>
     </header>
 
     <div class="faq-carousel">
@@ -2212,26 +2392,26 @@ footer { margin-bottom: 0 !important; }
 
               <div class="faq-card feat sr">
                 <div class="faq-card-num">1</div>
-                <p class="faq-card-q">孩子几岁开始学习音乐最合适？</p>
-                <p class="faq-card-a">孩子最早可以从<strong>2.5岁</strong>开始在博雅学习。我们以游戏化教学培养节奏感、音准与听力。研究表明，7岁前开始音乐学习有助于加速孩子的语言发展、专注力与情感自信。</p>
+                <p class="faq-card-q">What is the best age to start music lessons?</p>
+                <p class="faq-card-a">Children as young as <strong>2.5+ years old</strong> can begin at Liberal. Our play-based programme builds rhythm, pitch, and listening skills. Research shows that starting music before age 7 accelerates language development, focus, and emotional confidence.</p>
               </div>
 
               <div class="faq-card sr d1">
                 <div class="faq-card-num">2</div>
-                <p class="faq-card-q">在新加坡哪里最适合备考 ABRSM 英皇钢琴考级？</p>
-                <p class="faq-card-a">博雅音乐艺术学校是新加坡最受信任的<strong>ABRSM 英皇钢琴考级辅导</strong>选择之一。我们采用应试导向教学、认证师资，自2009年起<strong>通过率达99%</strong>，学生累计获得<strong>200+ 项 ABRSM 优秀奖（Distinction）</strong>。</p>
+                <p class="faq-card-q">Where is the best place for ABRSM piano exam preparation in Singapore?</p>
+                <p class="faq-card-a">Liberal Music &amp; Arts School is one of Singapore's most trusted choices for <strong>ABRSM piano exam preparation</strong>. With exam-focused teaching, certified instructors, and a <strong>99% pass rate</strong> since 2009, our students have earned over <strong>200 ABRSM Distinctions</strong>.</p>
               </div>
 
               <div class="faq-card sr d2">
                 <div class="faq-card-num">3</div>
-                <p class="faq-card-q">在博雅，孩子能更快地通过 ABRSM 各级别考试吗？</p>
-                <p class="faq-card-a">可以的——我们为认真学习的学生设计<strong>加速学习路径</strong>，在保证考试品质的前提下快速推进各级别。许多优秀学生能在<strong>9至12个月</strong>内升级，并保持极高的优秀奖率。</p>
+                <p class="faq-card-q">Can my child progress through ABRSM grades faster at Liberal?</p>
+                <p class="faq-card-a">Yes — we design <strong>accelerated learning paths</strong> for committed students, a fast-track approach to ABRSM grades that maintains exam-quality standards. Many strong students advance to the next grade within <strong>9–12 months</strong> with a consistently high distinction rate.</p>
               </div>
 
               <div class="faq-card sr d3">
                 <div class="faq-card-num">4</div>
-                <p class="faq-card-q">你们的音乐导师都拥有专业认证吗？</p>
-                <p class="faq-card-a">是的——所有导师均持有国际认可的专业资质：<strong>ABRSM 英国皇家音乐学院</strong>、<strong>Trinity College London 伦敦圣三一</strong>、RSL 以及中国中央音乐学院学位等。我们的校长 Ms Cecily 自2009年起便在新加坡执教。</p>
+                <p class="faq-card-q">Are your music teachers certified?</p>
+                <p class="faq-card-a">Yes — all teachers hold internationally recognised qualifications: <strong>ABRSM (Royal Schools of Music)</strong>, <strong>Trinity College London</strong>, RSL, and Central Conservatory of Music degrees. Our Principal Ms Cecily has taught in Singapore since 2009.</p>
               </div>
 
             </div>
@@ -2241,22 +2421,28 @@ footer { margin-bottom: 0 !important; }
           <div class="faq-slide">
             <div class="faq-inner">
 
+              <div class="faq-card feat sr">
+                <div class="faq-card-num">5</div>
+                <p class="faq-card-q">Is the trial class really free?</p>
+                <p class="faq-card-a"><strong>Yes</strong> — the first trial is completely free with no commitment. In a <strong>30–45 minute session</strong>, your child meets the teacher, tries the instrument, and we recommend the right starting level. Parents are welcome to observe.</p>
+              </div>
+
               <div class="faq-card sr d1">
                 <div class="faq-card-num">6</div>
-                <p class="faq-card-q">报名前需要先购买乐器吗？</p>
-                <p class="faq-card-a"><strong>不需要</strong>——课堂上提供所有乐器，第一次上课前无需购买任何器材。学习1至2个月后，老师会根据进度推荐性价比合适的入门款式。</p>
+                <p class="faq-card-q">Do I need to buy an instrument first?</p>
+                <p class="faq-card-a"><strong>No</strong> — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months our teachers can advise on budget-friendly starter options.</p>
               </div>
 
               <div class="faq-card sr d2">
                 <div class="faq-card-num">7</div>
-                <p class="faq-card-q">小组课和一对一课有什么区别？</p>
-                <p class="faq-card-a"><strong>一对一私教</strong>能提供专注的关注度与更快的进步速度。<strong>小组课</strong>（每班2至4人）则更经济实惠，非常适合4至7岁的小小初学者。</p>
+                <p class="faq-card-q">What's the difference between group and private lessons?</p>
+                <p class="faq-card-a"><strong>Private (1-to-1)</strong> gives undivided attention and faster progression. <strong>Group classes</strong> (2–4 students) are more affordable and great for younger beginners aged 4–7.</p>
               </div>
 
               <div class="faq-card sr d3">
                 <div class="faq-card-num">8</div>
-                <p class="faq-card-q">你们在新加坡的分校位置在哪里？</p>
-                <p class="faq-card-a">我们共有<strong>5个分校</strong>：登加（Tengah）、淡滨尼（Tampines）、裕廊西（Jurong West）、Le Quest 商场（武吉巴督）以及裕廊坊 Coloury Art By Liberal。所有分校均开设钢琴、小提琴、吉他、架子鼓、二胡、美术与舞蹈课程。</p>
+                <p class="faq-card-q">Where are your Singapore branches?</p>
+                <p class="faq-card-a">We have <strong>5 locations</strong>: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance.</p>
               </div>
 
             </div>
@@ -2280,18 +2466,18 @@ footer { margin-bottom: 0 !important; }
 <!-- ════════ 7. FINAL CTA BANNER ════════ -->
 <section class="cta-banner">
   <div class="cta-inner sr">
-    <div class="pill-tag pt-lv" style="margin:0 auto 20px;">✦ 立即开始</div>
-    <h2>为孩子开启美妙的<span class="or">音乐之旅</span>吧</h2>
-    <p>零压力体验教学魅力！走进课堂，享受音乐，开启沉浸式音乐之旅</p>
+    <div class="pill-tag pt-lv" style="margin:0 auto 20px;">✦ Start Today</div>
+    <h2>Start Your Child's <span class="or">Musical Journey</span> Today</h2>
+    <p>Experience our teaching method firsthand — no commitment required. Just show up and play, meet our teachers, and see how fun and engaging learning can be.</p>
     <div class="cta-btns">
-      <a href="pages-zh/trial" class="btn btn-cta btn-lg btn-ring">✦ 预约试课</a>
-      <a href="pages-zh/contact" class="btn btn-outline btn-lg">咨询提问</a>
+      <a href="pages/trial" class="btn btn-cta btn-lg btn-ring">✦ Book Trial Class</a>
+      <a href="pages/contact" class="btn btn-outline btn-lg">Ask a Question</a>
     </div>
     <div class="cta-checks">
-      <span class="chk">ABRSM 与 Trinity 考级 99% 通过率</span>
-      <span class="chk">2.5岁至成人</span>
-      <span class="chk">适合所有水平</span>
-      <span class="chk">5个分校</span>
+      <span class="chk">99% Pass Rate ABRSM &amp; Trinity</span>
+      <span class="chk">Ages 2.5+ to Adult</span>
+      <span class="chk">All skill levels</span>
+      <span class="chk">5 locations</span>
     </div>
   </div>
 </section>
@@ -2306,7 +2492,7 @@ footer { margin-bottom: 0 !important; }
       <div class="foot-brand">
         <img src="assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
              onerror="this.src='assets/logo.webp'"/>
-        <p>博雅音乐艺术学校致力于培养孩子的创造力、自信心，以及对音乐与艺术的终生热爱——服务2.5岁至成人各年龄段。我们拥有专业师资、全人教育的理念与可见的教学成果，自2009年起，已荣幸地获得新加坡20,000+家庭的信赖。</p>
+        <p>Liberal Music &amp; Arts School nurtures creativity, confidence, and a lifelong love of music and the arts — for ages 2.5 to adult. With expert teachers, holistic learning, and proven results, we are proud to be trusted by over 20,000 families in Singapore since 2009.</p>
 
         <div class="foot-soc">
           <a href="https://www.instagram.com/liberalmusic_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="assets/Instagram.webp" alt="Instagram" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);display:block;"/></a>
@@ -2318,65 +2504,65 @@ footer { margin-bottom: 0 !important; }
 
       <!-- Column 2: Navigation -->
       <div class="foot-col">
-        <h5>网站导航</h5>
+        <h5>Navigation</h5>
         <ul>
-          <li><a href="index-zh">首页</a></li>
-          <li><a href="pages-zh/about">关于我们</a></li>
-          <li><a href="pages-zh/courses">课程</a></li>
-          <li><a href="pages-zh/instructors">导师</a></li>
-          <li><a href="pages-zh/review">评价</a></li>
-          <li><a href="pages-zh/blog">博客</a></li>
-          <li><a href="pages-zh/contact">联系我们</a></li>
+          <li><a href="index">Home</a></li>
+          <li><a href="pages/about">About</a></li>
+          <li><a href="pages/courses">Courses</a></li>
+          <li><a href="pages/instructors">Instructors</a></li>
+          <li><a href="pages/review">Review</a></li>
+          <li><a href="pages/blog">Blog</a></li>
+          <li><a href="pages/contact">Contact</a></li>
         </ul>
       </div>
 
       <!-- Column 3: All 5 locations with pin icons -->
       <div class="foot-col">
-        <h5>我们的分校</h5>
+        <h5>Our Locations</h5>
         <div class="foot-locs">
 
           <div class="foot-loc">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
-              <strong>登加（Tengah）分校</strong>
+              <strong>Tengah Music School</strong>
               <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近未来裕廊区域地铁线（2028年开通）<span class="sep">·</span>🕐 每日1点-9点</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near future Jurong Region Line (opening 2028)<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
           <div class="foot-loc">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
-              <strong>淡滨尼（Tampines）分校</strong>
+              <strong>Tampines Music School</strong>
               <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近淡滨尼西地铁站（Tampines West MRT）<span class="sep">·</span>🕐 每日1点-9点</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Tampines West MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
           <div class="foot-loc">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
-              <strong>裕廊西（Jurong West）分校</strong>
+              <strong>Jurong West Music School</strong>
               <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近 Lakeside 地铁站<span class="sep">·</span>🕐 每日1点-9点</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Lakeside MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
           <div class="foot-loc">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
-              <strong>Le Quest 商场分校</strong>
+              <strong>Le Quest Mall Music School</strong>
               <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近武吉巴督地铁站（Bukit Batok MRT）<span class="sep">·</span>🕐 每日1点-9点</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Bukit Batok MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
           </div>
 
           <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
-              <strong>Coloury Art By Liberal（裕廊坊）</strong>
+              <strong>Coloury Art By Liberal</strong>
               <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近文礼地铁站（Boon Lay MRT）<span class="sep">·</span>✦ 即将开业</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>✦ Opening Soon</span>
             </div>
           </a>
 
@@ -2386,12 +2572,12 @@ footer { margin-bottom: 0 !important; }
     </div>
 
     <div class="foot-btm">
-      <p>© 2025 博雅音乐艺术学校 版权所有</p>
+      <p>© 2025 Liberal Music &amp; Arts School. All rights reserved.</p>
       <div class="foot-btm-links">
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
-        <a href="pages-zh/privacy">隐私政策</a>
-        <a href="pages-zh/terms">使用条款</a>
-        <a href="index" style="font-size:15px;color:rgba(255,255,255,.7);">English</a>
+        <a href="pages/privacy">Privacy Policy</a>
+        <a href="pages/terms">Terms of Use</a>
+        <a href="index-zh" style="font-size:15px;color:rgba(255,255,255,.7);">中文版本</a>
       </div>
     </div>
   </div>
@@ -2777,11 +2963,11 @@ footer { margin-bottom: 0 !important; }
 <!-- WHATSAPP FAB -->
 <div id="waWrap" style="position:fixed;bottom:28px;right:28px;z-index:9999;isolation:isolate;">
   <div id="waPanel" style="display:none;position:absolute;bottom:68px;right:0;background:#fff;border-radius:16px;box-shadow:0 20px 56px rgba(31,42,68,.11);width:290px;padding:22px;border:1px solid #EEF2F8;">
-    <h4 style="font-size:14.5px;font-weight:900;color:#1F2A44;margin-bottom:4px;">💬 与我们联系！</h4>
-    <p style="font-size:12.5px;color:#8FA2BC;margin-bottom:14px;">选择就近分校，直接通过 WhatsApp 联系我们。</p>
-    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🏡 登加 <span style="font-size:11.5px;color:#8FA2BC;">8922 2848</span></a>
-    <a href="https://wa.me/6588921198" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌅 淡滨尼 <span style="font-size:11.5px;color:#8FA2BC;">8892 1198</span></a>
-    <a href="https://wa.me/6596277588" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌸 裕廊西 <span style="font-size:11.5px;color:#8FA2BC;">9627 7588</span></a>
+    <h4 style="font-size:14.5px;font-weight:900;color:#1F2A44;margin-bottom:4px;">💬 Chat with Us!</h4>
+    <p style="font-size:12.5px;color:#8FA2BC;margin-bottom:14px;">Pick your nearest branch to WhatsApp directly.</p>
+    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🏡 Tengah <span style="font-size:11.5px;color:#8FA2BC;">8922 2848</span></a>
+    <a href="https://wa.me/6588921198" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌅 Tampines <span style="font-size:11.5px;color:#8FA2BC;">8892 1198</span></a>
+    <a href="https://wa.me/6596277588" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🌸 Jurong West <span style="font-size:11.5px;color:#8FA2BC;">9627 7588</span></a>
     <a href="https://wa.me/6596277582" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🏬 Le Quest <span style="font-size:11.5px;color:#8FA2BC;">9627 7582</span></a>
     <a href="https://wa.me/6589951163" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">✦ Coloury Art <span style="font-size:11.5px;color:#8FA2BC;">8995 1163</span></a>
   </div>

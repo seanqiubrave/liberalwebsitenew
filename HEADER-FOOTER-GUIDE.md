@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: April 27, 2026  
+> Source of truth: `index.html` (master) · Last updated: May 18, 2026  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -283,6 +283,165 @@ The Contact dropdown is implemented as a `<li class="nav-item-dropdown">` inside
 > **Breakpoint coupling:** the dropdown CSS uses **1025px / 1024px** boundaries (not 900px / 901px) to align with the **Nest Hub nav-collapse fix** (see Section 3 breakpoint notes). All pages with the dropdown must also have the nav-collapse at 1024px, otherwise the dropdown will render in a half-broken state at 901–1024px.
 
 > **(HQ) suffix + NEW badge** are reserved for the **Tengah** dropdown item. Tengah opened as the Flagship HQ in 2026 and replaces Jurong West as the headquarters reference. JW is now described as "established cornerstone" in copy.
+
+---
+
+## 4.6. MOBILE / LANDSCAPE RESPONSIVE FIXES (added May 18 2026)
+
+These fixes resolve real-device bugs found while testing on **Galaxy Tab A11**, **Nest Hub (1024×600)**, and **landscape phones**. Three problems were fixed:
+
+1. **Mobile drawer was un-scrollable** → on short landscape screens, the last few menu items (中文, Book Trial Class) got clipped below the viewport edge
+2. **WhatsApp FAB covered the Book Trial Class button** when the drawer was open (drawer `z-index:999` < `#waWrap` inline `z-index:9999`)
+3. **Android Chrome `100vh` bug** → `100vh` measures the "large" viewport (URL bar hidden), but URL bar + system nav bar are actually visible, so the drawer extended ~100px below the visible screen
+
+### 4.6.1 Universal fixes — paste into EVERY page
+
+This CSS block goes into `<style>` of **every** EN and ZH page (root + `pages/` + `pages-zh/` + `locations/`). It does not depend on page-specific markup — it only touches `.nav-drawer` and `#waWrap`, both of which are present on every page.
+
+```css
+/* ── Mobile drawer + WhatsApp FAB landscape fixes (May 18 2026) ── */
+
+/* A. Drawer must scroll when content exceeds the viewport.
+   - 100dvh (dynamic viewport) avoids Android's "100vh hides under system nav" bug
+   - 100vh fallback for older browsers without dvh support
+   - safe-area-inset-bottom keeps the last item clear of iOS home indicator
+   - padding-bottom 40px keeps 中文 / Book Trial Class from touching the screen edge */
+.nav-drawer{
+  max-height: calc(100vh - 108px);
+  max-height: calc(100dvh - 108px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+}
+
+/* B. Hide the WhatsApp FAB when the drawer is open — without this, the
+   green circle sits ON TOP of the Book Trial Class button at the bottom
+   of the drawer (inline z-index:9999 on #waWrap beats drawer z-index:999). */
+.nav-drawer.on ~ #waWrap{ display: none; }
+```
+
+> **Why `~ #waWrap`:** the WhatsApp FAB markup is `<div id="waWrap">` placed near the end of `<body>` as a direct sibling of `<nav class="nav-drawer">`. The general sibling combinator targets it without needing JS coordination.
+
+> **If a page uses the class-based `.wa` FAB instead** (older pattern — see Section 7): also add `.nav-drawer.on ~ .wa{ display: none; }`. Most pages have migrated to `#waWrap`; locations/ pages always use `#waWrap`. If unsure, include both selectors — the non-matching one is a no-op.
+
+### 4.6.2 Homepage-only fixes — `index.html` and `index-zh.html`
+
+These fixes ONLY apply to pages with the **hero video** section. They do NOT belong on About, Courses, Instructors, etc.
+
+```css
+/* ── Hero video landscape fixes (May 18 2026) — index.html + index-zh.html only ── */
+
+/* C. Hero video aspect ratio + tap-to-play poster on mobile and tablets.
+   - 4:5 frame letterboxes a 16:9 YouTube video → looks tiny on phones/tablets
+   - Android tablet Chrome blocks YouTube autoplay → iframe loads blank
+   - Fix: 16:9 frame + force the tap-to-play poster (was only <540px)
+   - Hide .fc-a/.fc-b floating cards on tablets too — they're position:relative
+     for the reaction-burst animation, and .fc-b (top:-800px) is visually off-
+     screen but STILL occupies its normal flow space → produced a huge empty
+     gap below the video on Galaxy Tab A11 in portrait. */
+@media (max-width: 900px){
+  .hero-frame{
+    aspect-ratio: 16 / 9;
+    min-width: 0;
+    width: 100%;
+    background: #000;
+  }
+  .hero-vis{ max-width: 100%; width: 100%; }
+  #heroIframe{ display: none; }
+  .hero-mobile-play{ display: flex; }
+  .fc-a, .fc-b, .fc-c{ display: none; }
+}
+
+/* D. Short-viewport landscape (Nest Hub 1024×600, landscape tablets).
+   - padding-top MUST be >= 108px (ann-bar 36 + nav 72) or the hero
+     kicker pill gets clipped behind the fixed nav. Using 120px for
+     breathing room.
+   - Cap video height so it never overflows the screen. */
+@media (orientation: landscape) and (max-height: 700px){
+  .hero{
+    min-height: 0;
+    padding: 120px 0 50px;
+    align-items: flex-start;
+  }
+  .hero-frame{
+    aspect-ratio: 16 / 9;
+    max-height: calc(100vh - 160px);
+  }
+  .hero-notes, .hero-ring{ display: none; }
+  .fc-b{ display: none; }
+}
+
+/* E. Landscape phones (narrow AND short — e.g. Galaxy S in landscape
+   ~740×360). Force a 2-column hero so the video sits beside the copy
+   instead of pushing it off-screen. */
+@media (orientation: landscape) and (max-width: 900px) and (max-height: 500px){
+  .hero-grid{ grid-template-columns: 1.05fr 1fr; gap: 24px; }
+  .hero-vis{ order: 0; max-width: none; margin: 0; }
+  .hero h1{ font-size: clamp(1.4rem, 3.8vw, 2rem); margin-bottom: 12px; letter-spacing: -.5px; }
+  .hero-desc{ font-size: 14px; line-height: 1.5; margin-bottom: 14px; padding-right: 0; }
+  .hero-kicker{ font-size: 12px; padding: 5px 14px; margin-bottom: 12px; }
+  .glance-card{ display: none; }
+  .i-pills{ margin-bottom: 14px; gap: 6px; }
+  .i-pill{ font-size: 13px; padding: 4px 10px; }
+  .hero-btns{ margin-bottom: 16px; gap: 10px; }
+  .hero-btns .btn{ font-size: 14px; padding: 10px 18px; }
+  .proof{ font-size: 13px; }
+  .pf{ width: 32px; height: 32px; font-size: 18px; }
+  .fc-a, .fc-b, .vis-a, .vis-b{ display: none; }
+}
+```
+
+### 4.6.3 Hero video poster HTML — `index.html` and `index-zh.html`
+
+The mobile/tablet tap-to-play poster must use **`maxresdefault.jpg`** (1280×720) with `hqdefault.jpg` fallback — `hqdefault` (480×360) is too low-res for tablets and looks blurry when stretched.
+
+```html
+<!-- Inside .hero-frame, after the YouTube iframe -->
+<button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="Play video">
+  <img src="https://img.youtube.com/vi/Yh8Z6yca-28/maxresdefault.jpg"
+       alt="Video preview" loading="lazy"
+       onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yh8Z6yca-28/hqdefault.jpg'"/>
+  <span class="hero-mobile-play-btn" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="36" height="36" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+  </span>
+</button>
+```
+
+> **For `index-zh.html`:** same markup, only `alt="Video preview"` becomes `alt="视频预览"`.
+
+### 4.6.4 Where to paste in your `<style>` block
+
+Order matters because of CSS cascade. Place the 4.6 block **after** the 4.5 dropdown CSS and **before** the FOOTER CSS (Section 5):
+
+```css
+/* … Section 3 HEADER CSS … */
+/* … Section 4.5 NAVBAR DROPDOWN CSS … */
+/* … Section 4.6 MOBILE / LANDSCAPE FIXES ← HERE … */
+/* … Section 5 FOOTER CSS … */
+```
+
+### 4.6.5 Per-page application matrix
+
+| Page type | 4.6.1 (drawer + FAB) | 4.6.2 (hero video) | 4.6.3 (poster HTML) |
+|---|---|---|---|
+| `index.html` (EN home) | ✅ Required | ✅ Required | ✅ Required |
+| `index-zh.html` (ZH home) | ✅ Required | ✅ Required | ✅ Required (`alt` localized) |
+| `pages/*.html` (About, Courses, Instructors, Review, Blog, Contact, Trial, Privacy, Terms, instructor profiles) | ✅ Required | ❌ Skip (no hero video) | ❌ Skip |
+| `locations/*.html` (Tengah, Bukit Batok, Jurong West, Tampines) | ✅ Required | ❌ Skip (no hero video) | ❌ Skip |
+| `pages-zh/*.html` (future) | ✅ Required | ❌ Skip | ❌ Skip |
+
+### 4.6.6 Verification — testing on real devices
+
+After applying, test these scenarios:
+
+| Device / mode | What to check |
+|---|---|
+| Galaxy Tab A11 landscape (≈1340×800 CSS) | Open hamburger → scroll to bottom → **Book Trial Class button must be fully visible**, not hidden under Android system nav |
+| Galaxy Tab A11 portrait | Hero shows a **clear video poster** with orange ▶ button; tapping it plays the video. No huge white gap below the video. |
+| Nest Hub 1024×600 simulator | Open hamburger → drawer scrolls. The orange "Singapore's Most Trusted ABRSM Specialist" pill is fully visible (not clipped under nav). |
+| Landscape phone (Galaxy S in landscape, ~740×360) | Hero shows side-by-side text + video; no overflow; menu drawer scrolls |
+| Any tablet with drawer open | Green WhatsApp FAB is **hidden**. After closing the drawer, it reappears. |
 
 ---
 
@@ -894,6 +1053,8 @@ Before finalising any page, verify:
 - [ ] WA FAB present, uses `whatsapp.webp` image (NOT 💬 emoji), all 5 WhatsApp numbers correct (5-row popup: Tengah · Tampines · Jurong West · Le Quest · Coloury Art)
 - [ ] Mobile sticky bar present with trial link
 - [ ] All asset paths use `../assets/` for `pages/` files, `assets/` for root files
+- [ ] **Section 4.6 Mobile/Landscape fixes block present** — drawer `max-height: calc(100dvh - 108px)` + `overflow-y:auto` + `padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px))` + `.nav-drawer.on ~ #waWrap{display:none}`. Required on ALL pages (EN + ZH).
+- [ ] **Homepage only (`index.html` / `index-zh.html`):** Section 4.6.2 hero video CSS (16:9 frame, force tap-to-play poster at <900px, hide `.fc-*` cards, landscape hero adaptations) + Section 4.6.3 `maxresdefault.jpg` poster img with `hqdefault.jpg` onerror fallback
 - [ ] **Instructor profile pages only:** breadcrumb present · "Other Instructors" strip excludes self · book card says "Book Trial Class" (no "Free")
 
 ---
@@ -1066,6 +1227,7 @@ When you're ready to build out `pages-zh/about.html`, `pages-zh/courses.html`, e
 10. WhatsApp FAB: localize panel headline, intro, and the 5 row labels (Section 14.11). Numbers and `wa.me` links must NOT change.
 11. Page body content: localize section headings, lead paragraphs, FAQ Q&As, CTAs. Keep brand terms in English per Section 14.13.
 12. JSON-LD: keep verbatim from English page.
+13. **Mobile/Landscape responsive fixes (Section 4.6) — required on every ZH page.** The CSS is **fully structural and contains zero strings**, so it copies verbatim from the English page. Required selectors: `.nav-drawer{max-height:calc(100dvh - 108px); overflow-y:auto; padding-bottom:calc(40px + env(safe-area-inset-bottom, 0px))}` + `.nav-drawer.on ~ #waWrap{display:none}`. On `index-zh.html` only, also include the hero video block (Section 4.6.2) — the poster `<img alt>` is the one piece that gets localized (`视频预览` instead of `Video preview`).
 
 ### 14.15 Verification markers (use in PowerShell verify-before-push)
 

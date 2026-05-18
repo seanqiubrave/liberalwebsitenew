@@ -365,6 +365,34 @@ footer{margin-bottom:0!important}
   .team-photo{width:100%;height:180px}
   .cta-checks{flex-direction:column;gap:10px}
 }
+
+    /* ══════════════════════════════════════════════════════════════════
+       📱 SECTION 4.6.1 — MOBILE / LANDSCAPE DRAWER FIXES (May 18 2026)
+       See HEADER-FOOTER-GUIDE.md §4.6 for rationale.
+       Three bugs fixed (Galaxy Tab A11 / Nest Hub landscape testing):
+       1. Drawer un-scrollable on short landscape screens → menu items
+          (中文 / Book Trial Class) clipped below viewport edge
+       2. WhatsApp FAB + .mob-bar sticky CTA covered the bottom of the
+          drawer when it was open (their z-index beat the drawer's 999)
+       3. Android Chrome 100vh bug → 100vh = "large" viewport (URL bar
+          hidden) but URL bar + system nav are actually visible, so the
+          drawer extended ~100px BELOW the visible screen
+       ══════════════════════════════════════════════════════════════════ */
+    .nav-drawer{
+      max-height: calc(100vh - 108px);
+      max-height: calc(100dvh - 108px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+    }
+    /* Hide bottom-fixed overlays while the drawer is open.
+       Both selectors included — pages currently use .wa (older), but
+       index.html migrated to #waWrap. Either non-match is a no-op. */
+    .nav-drawer.on ~ #waWrap,
+    .nav-drawer.on ~ .wa,
+    .nav-drawer.on ~ .mob-bar{ display: none; }
+
 </style>
 </head>
 <body>

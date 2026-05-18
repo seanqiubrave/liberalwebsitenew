@@ -1425,7 +1425,9 @@ footer { margin-bottom: 0 !important; }
       overscroll-behavior: contain;
       padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
     }
-    .nav-drawer.on ~ #waWrap{ display: none; }
+    .nav-drawer.on ~ #waWrap,
+    .nav-drawer.on ~ .wa,
+    .nav-drawer.on ~ .mob-bar{ display: none; }
 
     /* FIX B: Video aspect ratio on mobile + tablet — match the actual
        16:9 YouTube content instead of letterboxing into a portrait 4:5
