@@ -1528,12 +1528,16 @@ footer { margin-bottom: 0 !important; }
 
     /* FIX A: Mobile drawer must scroll when content exceeds viewport.
        Without this, on 600px-tall landscape screens the last few menu
-       items get cut off below the viewport edge. */
+       items get cut off below the viewport edge.
+       UPDATE May 18 r3: bump bottom padding so the last item (中文 /
+       Book Trial Class) isn't flush against the screen edge when
+       scrolled to the bottom. Also account for iOS safe-area inset. */
     .nav-drawer{
       max-height: calc(100vh - 108px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
     }
 
     /* FIX B: Video aspect ratio on mobile + tablet — match the actual
@@ -1542,7 +1546,13 @@ footer { margin-bottom: 0 !important; }
        UPDATE May 18 r2: also swap the iframe for a tap-to-play poster
        on tablets too (was only <540px). Android tablet Chrome blocks
        YouTube autoplay → iframe loads but stays blank, user sees empty
-       gradient where video should be (Galaxy Tab A11 bug). */
+       gradient where video should be (Galaxy Tab A11 bug).
+       UPDATE May 18 r3: hide floating .fc-a/.fc-b cards on tablets too.
+       They're set to position:relative for the reaction-burst animation,
+       which means .fc-b (positioned with top:-800px) is visually off-
+       screen but STILL occupies its normal flow space → produced a huge
+       empty gap below the video on Galaxy Tab A11. Original dev hid
+       them at <540px for the same reason; just extending to 900px. */
     @media (max-width: 900px){
       .hero-frame{
         aspect-ratio: 16 / 9;
@@ -1556,6 +1566,8 @@ footer { margin-bottom: 0 !important; }
          unreliable on Android tablets, iPads, and phones) */
       #heroIframe{ display: none; }
       .hero-mobile-play{ display: flex; }
+      /* Kill the empty-gap-below-video bug — see comment above */
+      .fc-a, .fc-b, .fc-c{ display: none; }
     }
 
     /* FIX C: Short-viewport landscape (Nest Hub 1024×600, landscape
