@@ -1535,9 +1535,16 @@ footer { margin-bottom: 0 !important; }
        UPDATE May 18 r4: hide the WhatsApp FAB (#waWrap, inline
        z-index:9999) when the drawer is open. Without this, the green
        circle sits ON TOP of the Book Trial Class button at the bottom
-       of the drawer and the user can't see/tap it. */
+       of the drawer and the user can't see/tap it.
+       UPDATE May 18 r5: use 100dvh (dynamic viewport height) instead
+       of 100vh. On Android Chrome 100vh = "large viewport" (height
+       when URL bar is hidden), but the URL bar AND system nav bar are
+       actually showing — so calc(100vh - 108px) makes the drawer
+       extend ~100px BELOW the visible screen, hiding Book Trial Class
+       under the Android system nav bar. 100dvh respects current UI. */
     .nav-drawer{
       max-height: calc(100vh - 108px);
+      max-height: calc(100dvh - 108px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
