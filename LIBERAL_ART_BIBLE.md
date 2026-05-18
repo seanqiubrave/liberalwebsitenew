@@ -1,4 +1,4 @@
-# Liberal Music & Arts School — Art Bible v1.2
+# Liberal Music & Arts School — Art Bible v1.3
 > Extracted from `index.html` (master reference) · April 2026 · Revised April 27, 2026 (footer copy + social links wiring + working hours unified + WhatsApp panel 5-row across articles)
 > Use this document to standardize ALL pages across the website.
 
@@ -166,17 +166,33 @@ Announcement bar: 36px tall, #f56c22, fixed above navbar (z-index: 1001)
 
 ### Nav Link Order (STRICT — never change)
 ```
-Home | About | Courses | Instructors | Review | Blog | Contact
+Home | About | Courses | Instructors | Review | Blog | Contact ▾
 ```
+
+**Contact is now a dropdown** (since May 17 2026). The dropdown opens on hover at desktop widths (≥1025px) and renders as a flat indented list inside the mobile drawer (≤1024px). Dropdown items in order:
+```
+Contact ▾
+  ├─ Jurong West
+  ├─ Bukit Batok (Le Quest)
+  ├─ Tampines
+  └─ Tengah (HQ) [NEW badge]
+```
+- Trigger label is exactly **Contact** (NOT "Contact & Locations")
+- Tengah carries `(HQ)` suffix + orange `New` badge chip
+- No 📍 pin emojis on dropdown items
+- Currently live on `index.html` + 4 `locations/*.html`; site-wide propagation **pending**
 
 All nav `href` values use **clean URLs** (no `.html` extension — Vercel `cleanUrls:true`):
 - `href="/"` (Home from root) or `href="../index"` (Home from `pages/`) — actually use `/` for root reference
 - `href="pages/about"` or `href="about"` from inside `pages/`
+- Dropdown items use **absolute** paths: `/locations/jurong-west`, `/locations/bukit-batok`, etc.
 - Never `href="pages/about.html"` — all `.html` extensions were stripped in April 2026 migration
 
 ### Right Side
 ```
-[中文]  →  DISABLED (grey span, opacity 0.35) — bilingual site paused
+[中文]  →  ACTIVE on root index.html (links to index-zh.html);
+           DISABLED on all pages/*.html and locations/*.html (grey span, opacity 0.35)
+           pending each Chinese counterpart being built
 [Book Trial Class]  →  orange pill button, 18px
 ```
 
@@ -390,17 +406,30 @@ Adjust path depth: `assets/` from root, `../assets/` from `pages/*`, `../../asse
 
 ## 15. LOCATIONS & CONTACT
 
-| Branch | Address | WhatsApp |
-|---|---|---|
-| Tengah | 127A Plantation Crescent, #01-381, S691127 | +65 8922 2848 |
-| Tampines | Blk 139 Tampines Street 11, #01-60, S521139 | +65 8892 1198 |
-| Jurong West | Blk 492 Jurong West Street 41, #01-10, S640492 | +65 9627 7588 |
-| Le Quest Mall | 4 Bukit Batok Street 41, #01-83, S657991 | +65 9627 7582 |
-| Coloury Art By Liberal | #03-07C Level 3, Jurong Point, S648886 · [colouryart.com](https://colouryart.com/) · *(Opening Soon)* | +65 8995 1163 *(dedicated number from April 28 2026)* |
+| Branch | Role | Address | WhatsApp |
+|---|---|---|---|
+| **Tengah** | **Flagship HQ (since 2026)** | 127A Plantation Crescent, #01-381, S691127 | +65 8922 2848 |
+| Tampines | Branch (Wed closed) | Blk 139 Tampines Street 11, #01-60, S521139 | +65 8892 1198 |
+| Jurong West | Established cornerstone (NOT HQ) | Blk 492 Jurong West Street 41, #01-10, S640492 | +65 9627 7588 |
+| Le Quest Mall | Branch | 4 Bukit Batok Street 41, **#01-83**, S657991 | +65 9627 7582 |
+| Coloury Art By Liberal | Opening Soon | #03-07C Level 3, Jurong Point, S648886 · [colouryart.com](https://colouryart.com/) | +65 8995 1163 *(dedicated number from April 28 2026)* |
 
 WhatsApp link format: `https://wa.me/65XXXXXXXX`
 
-**Branch hours (April 27 2026):** All 4 Liberal branches operate `Daily: 1pm–9pm` — replaced the older `Mon–Fri: 2pm–9pm  ·  Sat–Sun: 9am–6pm` split. Coloury Art card on contact.html shows `Visit colouryart.com` instead of hours.
+> **Tengah is now the Flagship HQ.** As of 2026, Tengah is the headquarters of Liberal Music & Arts School. Use the phrases "flagship headquarters", "Flagship HQ", or "Tengah HQ" in copy. **Never describe any other branch as HQ.** Jurong West was the historical HQ (and earlier copy may still refer to it as such); JW is now described as the *"established cornerstone of Liberal Music & Arts School in the West"*.
+
+> **Le Quest address is `#01-83`** (corrected per Google Business Profile, May 17 2026). Any leftover `#01-K1` references on the site are stale.
+
+**Generic "Daily 1pm–9pm" is DEPRECATED on location landing pages.** The `pages/contact.html` summary card may keep the simplified line, but `locations/*.html` Studio Hours blocks and JSON-LD `openingHoursSpecification` must use the **real per-branch GBP hours**:
+
+| Branch | Mon-Fri | Sat | Sun | Wed |
+|---|---|---|---|---|
+| Tengah | 1pm-9pm | 9am-7:30pm | 9am-7:30pm | open |
+| Bukit Batok | 1pm-9pm | 9am-8pm | 9:30am-7:30pm | open |
+| Jurong West | 1pm-9pm | 9:30am-8:30pm | 9:30am-8:30pm | open |
+| Tampines | 1pm-9pm (Mon/Tue/Thu/Fri only) | 9am-7pm | 9am-7pm | **CLOSED** |
+
+> **Tampines closed Wednesdays.** In JSON-LD `openingHoursSpecification` arrays, OMIT Wednesday entirely (schema.org idiom for "closed"). On the visible Studio Hours block, render Wed line as `<strong style="color:var(--or)">Wed: Closed</strong>` — orange callout for visitors.
 
 **Address format on `contact.html` branch cards:** Postal code closes the address line. Do **NOT** append `· Near X MRT` to the address itself — this suffix was removed from contact.html on April 27 2026 to keep the address tight.
 
@@ -422,10 +451,12 @@ All open in new tabs with `target="_blank" rel="noopener noreferrer"`.
 ## 16. NAVIGATION — EXACT ORDER (never change)
 
 ```
-Home | About | Courses | Instructors | Review | Blog | Contact
+Home | About | Courses | Instructors | Review | Blog | Contact ▾
 ```
 
-Right side: `[中文]` lang button (currently **disabled** — grey span while bilingual site paused) → `[Book Trial Class]` orange button
+**Contact is now a dropdown** (since May 17 2026) — see Section 5 for the full dropdown structure and behaviour. Trigger text is exactly `Contact` (the `▾` arrow is a CSS-styled `<span class="arrow">`). On desktop (≥1025px), hover opens a menu of 4 location items. In the mobile drawer (≤1024px), items render as flat indented entries.
+
+Right side: `[中文]` lang button (active on root `index.html`, disabled grey span on all other pages while their Chinese counterparts are pending) → `[Book Trial Class]` orange button
 
 ---
 
@@ -434,9 +465,14 @@ Right side: `[中文]` lang button (currently **disabled** — grey span while b
 | Breakpoint | Behaviour |
 |---|---|
 | `≤ 1100px` | Courses grid: 2 cols; Teacher grid: 2 cols; Trust grid: 2 cols |
-| `≤ 900px` | Hero stacks single col; Stats: 2×2; Nav links hidden → hamburger |
+| `≤ 1024px` | **Nav links hidden → hamburger appears** (raised from 900px in May 2026 — Nest Hub fix). Mobile sticky CTA bar also kicks in. Dropdown CSS coupled to this breakpoint. |
+| `≤ 900px` | Hero stacks single col; Stats: 2×2; Footer 3-col → 2-col (these layout rules stay at 900px) |
 | `≤ 700px` | Footer stacks single col |
 | `≤ 540px` | Trust: 2 cols; Stats: 2×2; Teachers: 1 col |
+
+> **The 1024px nav-collapse fix** is a Nest Hub compatibility patch. Google Nest Hub renders at exactly 1024×600, and the old 900px breakpoint left the desktop nav cramped/overflowing in that range (the Book Trial button got clipped, the 中文 toggle wrapped vertically). Raising the breakpoint to 1024px sends Nest Hub into clean hamburger mode. **The fix is currently applied to `pages/privacy.html`, `pages/terms.html`, both English articles, and all 4 `locations/*.html`.** Propagation to remaining pages is **pending**.
+
+> **The dropdown CSS is breakpoint-coupled.** The `Contact ▾` dropdown's desktop hover behaviour fires at `≥1025px` and its mobile drawer fallback fires at `≤1024px`. These boundaries must match the nav-collapse breakpoint on the same page — otherwise the dropdown will half-render at 901–1024px (visible as desktop nav-links but still wanting hover behaviour from a hamburger that hasn't shown yet).
 
 ---
 

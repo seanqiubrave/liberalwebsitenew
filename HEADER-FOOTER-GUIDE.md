@@ -10,9 +10,12 @@
 |---|---|---|---|
 | Root (`index.html`, `index-zh.html`) | `assets/logo.webp` | `assets/` | `pages/` |
 | Subfolder (`pages/*.html`) | `../assets/logo.webp` | `../assets/` | *(relative, no prefix)* |
+| Subfolder (`locations/*.html`) | `../assets/logo.webp` | `../assets/` | *(relative, no prefix; `pages/` items: `../pages/<file>`)* |
+| Sub-subfolder (`pages/articles/*.html`) | `../../assets/logo.webp` | `../../assets/` | `../<file>` |
 
 > All examples below use `pages/` subfolder paths (`../assets/`).  
-> For root pages, remove the `../` prefix throughout.
+> For root pages, remove the `../` prefix throughout.  
+> For `locations/*.html`, asset paths are identical to `pages/*.html` (also one level deep from root) — but page links work a bit differently: dropdown items link to `/locations/<branch>` (absolute) and footer privacy/terms links use `../pages/privacy` (one up, then into pages).
 
 ---
 
@@ -156,7 +159,7 @@ Copy verbatim into every page `<style>`:
         <img src="../assets/logo.webp" alt="Liberal Music & Arts" onerror="this.style.display='none'"/>
       </a>
 
-      <!-- Nav order: Home | About | Courses | Instructors | Review | Blog | Contact — NEVER change -->
+      <!-- Nav order: Home | About | Courses | Instructors | Review | Blog | Contact ▾ — NEVER change -->
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -164,7 +167,17 @@ Copy verbatim into every page `<style>`:
         <li><a href="instructors.html">Instructors</a></li>
         <li><a href="review.html">Review</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+
+        <!-- Contact ▾ dropdown (added May 17 2026) -->
+        <li class="nav-item-dropdown">
+          <a href="contact.html" class="dropdown-trigger">Contact <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="/locations/jurong-west" class="dropdown-item">Jurong West</a>
+            <a href="/locations/bukit-batok" class="dropdown-item">Bukit Batok (Le Quest)</a>
+            <a href="/locations/tampines" class="dropdown-item">Tampines</a>
+            <a href="/locations/tengah" class="dropdown-item">Tengah (HQ) <span class="badge-new">New</span></a>
+          </div>
+        </li>
       </ul>
 
       <div class="nav-end">
@@ -181,7 +194,7 @@ Copy verbatim into every page `<style>`:
   </div>
 </nav>
 
-<!-- MOBILE DRAWER -->
+<!-- MOBILE DRAWER (with Contact dropdown expanded inline) -->
 <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
   <a href="../index.html">Home</a>
   <a href="about.html">About</a>
@@ -189,7 +202,16 @@ Copy verbatim into every page `<style>`:
   <a href="instructors.html">Instructors</a>
   <a href="review.html">Review</a>
   <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
+
+  <!-- Contact dropdown — in mobile drawer it's flat (always expanded, no toggle) -->
+  <div class="nav-item-dropdown">
+    <a href="contact.html" class="dropdown-trigger">Contact</a>
+    <a href="/locations/jurong-west" class="dropdown-item">Jurong West</a>
+    <a href="/locations/bukit-batok" class="dropdown-item">Bukit Batok (Le Quest)</a>
+    <a href="/locations/tampines" class="dropdown-item">Tampines</a>
+    <a href="/locations/tengah" class="dropdown-item">Tengah (HQ) <span class="badge-new">New</span></a>
+  </div>
+
   <a href="trial.html" class="btn btn-cta">Book Trial Class</a>
 </nav>
 ```
@@ -197,6 +219,70 @@ Copy verbatim into every page `<style>`:
 > **Active page:** Add `class="active"` to the `<a>` matching the current page.  
 > **Instructor profile pages** (cecily.html, calvin.html, etc.): set `class="active"` on the **Instructors** nav link — they are sub-pages of Instructors.  
 > **`<main>` padding-top:** Always `padding-top:108px` (36px bar + 72px nav).
+
+---
+
+---
+
+## 4.5. NAVBAR DROPDOWN CSS (Contact ▾ — added May 17 2026)
+
+The Contact dropdown is implemented as a `<li class="nav-item-dropdown">` inside `.nav-links`. Hover-opens on desktop (≥1025px), renders flat in the mobile drawer (≤1024px). Paste the block below into your `<style>` after the existing nav rules.
+
+```css
+/* ── Navbar Dropdown Extension (Contact ▾ menu) ── */
+/* Breakpoints aligned to site's actual nav-collapse at 1024px */
+
+/* 1. Desktop hover dropdown (nav-links is visible at >=1025px) */
+@media (min-width: 1025px) {
+  .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+  .nav-links .dropdown-trigger .arrow {
+    font-size: 11px; margin-left: 3px; display: inline-block;
+    transition: transform .25s var(--sp); transform-origin: center;
+  }
+  .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow { transform: rotate(-180deg); }
+  .nav-links .dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-8px);
+    min-width: 240px; background: var(--w); border: 1px solid #EEF2F8;
+    border-radius: 14px; box-shadow: 0 18px 52px rgba(31,42,68,.12); padding: 8px;
+    opacity: 0; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s;
+    z-index: 1000;
+  }
+  .nav-links .nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+  }
+  .nav-links .dropdown-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 14px; border-radius: 9px; font-weight: 700; font-size: 14.5px;
+    color: var(--ink); text-decoration: none; transition: background .15s, padding-left .18s var(--sp);
+  }
+  .nav-links .dropdown-item:hover { background: var(--or-lt); color: var(--or); padding-left: 18px; }
+}
+
+/* 2. Mobile drawer (always expanded, vertical) at <=1024px */
+@media (max-width: 1024px) {
+  .nav-drawer .nav-item-dropdown { display: flex; flex-direction: column; gap: 2px; }
+  .nav-drawer .nav-item-dropdown .dropdown-trigger { font-weight: 700; }
+  .nav-drawer .nav-item-dropdown .dropdown-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 14px 8px 28px; border-radius: var(--r);
+    font-weight: 600; font-size: 15px; color: var(--body);
+    text-decoration: none; transition: background var(--t);
+  }
+  .nav-drawer .nav-item-dropdown .dropdown-item:hover { background: var(--or-lt); color: var(--or); }
+}
+
+/* 3. NEW badge chip (works in both desktop dropdown and mobile drawer) */
+.badge-new {
+  display: inline-block; padding: 2px 7px; background: var(--or); color: #fff;
+  border-radius: 5px; font-size: 9px; font-weight: 800; letter-spacing: .5px;
+  text-transform: uppercase; vertical-align: 2px; margin-left: 6px;
+  font-family: 'Nunito', sans-serif;
+}
+```
+
+> **Breakpoint coupling:** the dropdown CSS uses **1025px / 1024px** boundaries (not 900px / 901px) to align with the **Nest Hub nav-collapse fix** (see Section 3 breakpoint notes). All pages with the dropdown must also have the nav-collapse at 1024px, otherwise the dropdown will render in a half-broken state at 901–1024px.
+
+> **(HQ) suffix + NEW badge** are reserved for the **Tengah** dropdown item. Tengah opened as the Flagship HQ in 2026 and replaces Jurong West as the headquarters reference. JW is now described as "established cornerstone" in copy.
 
 ---
 
@@ -396,7 +482,9 @@ footer{margin-bottom:0!important}
 .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--w);padding:12px 20px 16px;box-shadow:0 -4px 20px rgba(31,42,68,.09);border-top:1px solid #EEF2F8}
 .mob-bar .btn-cta{width:100%;justify-content:center;font-size:18px;padding:15px}
 
-@media(max-width:900px){
+@media(max-width:1024px){
+  /* Raised from 900px to 1024px (May 14 + May 17 2026) so hamburger / mobile sticky bar
+     also kick in at Nest Hub width (1024×600). The footer .foot-grid breakpoint stays at 900px. */
   .mob-bar{display:block}
   .wa{bottom:84px}
 }
@@ -652,6 +740,120 @@ Each instructor profile shows the **other 12** instructors at the bottom — the
 3. Set `class="active"` on Instructors nav link
 4. In the "Other Instructors" strip: remove the new instructor's card, add all others with correct `href` and speciality labels
 5. Add the new page to `instructors.html` grid with a clickable `<a class="icard">` wrapper
+
+---
+
+---
+
+## 11.5. LOCATION PAGE PATTERN (`locations/*.html` — added May 17 2026)
+
+Branch landing pages live at `/locations/<branch>` and are structurally similar to instructor profile pages, but with a different content focus (local-search AEO instead of teacher bio).
+
+### File locations
+| File | Branch | URL |
+|---|---|---|
+| `locations/tengah.html` | Tengah (Flagship HQ) | `/locations/tengah` |
+| `locations/bukit-batok.html` | Bukit Batok (Le Quest) | `/locations/bukit-batok` |
+| `locations/jurong-west.html` | Jurong West | `/locations/jurong-west` |
+| `locations/tampines.html` | Tampines | `/locations/tampines` |
+
+### Canonical template
+**`locations/tengah.html` is the canonical template.** When adding a new branch (e.g. a future Coloury Art landing page at `locations/coloury-art.html`), clone Tengah and swap branch-specific data.
+
+### Path conventions inside a location page
+
+| Item | Path used | Why |
+|---|---|---|
+| Asset (logo, icon, image) | `../assets/<file>` | locations/ is one level deep, same as pages/ |
+| Internal page link (e.g. About, Courses) | `../pages/about` | go up one, then into pages/ |
+| Index link | `../index.html` | go up one |
+| Dropdown menu items | `/locations/<branch>` | absolute paths (work from any URL depth) |
+| Privacy / Terms in footer | `../pages/privacy`, `../pages/terms` | one up, into pages |
+
+### Required `<head>` items
+- `<title>` — pattern: `Top Music School in <Branch> | <Optional sub-tag> | Liberal Music School`
+- `<link rel="canonical" href="https://liberalmusicschool.com/locations/<branch>">`
+- `<meta name="description">` — branch-specific, 140–160 chars, includes nearest MRT
+- **Two JSON-LD blocks**: `@type: "MusicSchool"` (branch-specific name/address/geo/hours/sameAs to Google Business Profile) + `@type: "FAQPage"` (mirrors visible FAQ Q&A exactly)
+
+### Page section order (top to bottom)
+1. **Hero** — breadcrumb + pill tag + H1 + sub-headline + Quick Facts (4-up grid) + 2 CTAs + 10 course pills
+2. **Location Hub** — full address + "Getting Here" paragraph + Studio Hours (per-branch) + Chat-on-WhatsApp action button + embedded Google Maps iframe
+3. **Programs** — 10 course cards (Piano, Violin, Guitar, Ukulele, Drums, Vocal, Music for Kids, Chinese, Music Theory, Aural) in a 4-col responsive grid
+4. **Stats Strip** — 4 metrics (20K+ Families · 4.7★ Rating · 15+ Years · 10+ Programmes)
+5. **FAQ** — 3 Q&As using `<details>` accordion (schema + visible must match exactly)
+6. **CTA Banner** — Book Trial Class button
+
+### Branch-specific data (canonical, per Google Business Profile)
+
+| Branch | Address | MRT | WhatsApp |
+|---|---|---|---|
+| Tengah | 127A Plantation Crescent, #01-381, S691127 | Future Tengah Plantation MRT (JRL 2028) | 8922 2848 |
+| Bukit Batok (Le Quest) | 4 Bukit Batok St 41, **#01-83**, S657991 | Bukit Batok MRT (NS2) | 9627 7582 |
+| Jurong West | Blk 492 Jurong West St 41, #01-10, S640492 | Lakeside MRT (EW26) | 9627 7588 |
+| Tampines | Blk 139 Tampines St 11, #01-60, S521139 | Tampines West MRT (DT31) | 8892 1198 |
+
+> Le Quest is **#01-83**, NOT `#01-K1` (corrected per Google Business Profile, May 17 2026). Any leftover `#01-K1` references on the site are stale.
+
+### Branch-specific Studio Hours (each branch is different — DO NOT use generic "Daily 1pm-9pm")
+
+| Branch | Mon-Fri | Sat | Sun | Wed |
+|---|---|---|---|---|
+| Tengah | 1pm-9pm | 9am-7:30pm | 9am-7:30pm | open |
+| Bukit Batok | 1pm-9pm | 9am-8pm | 9:30am-7:30pm | open |
+| Jurong West | 1pm-9pm | 9:30am-8:30pm | 9:30am-8:30pm | open |
+| Tampines | 1pm-9pm (Mon/Tue/Thu/Fri only) | 9am-7pm | 9am-7pm | **CLOSED** |
+
+> **Tampines Wednesday-closed handling:** in JSON-LD `openingHoursSpecification` array, OMIT Wednesday entirely (schema.org idiom for "closed"). On the visible Studio Hours block, render Wednesday line as `<strong style="color:var(--or)">Wed: Closed</strong>` — orange callout so visitors notice. FAQ Q2 must also call this out: *"Please note that our Tampines studio is closed on Wednesdays."*
+
+### Active nav link rule
+On location pages, the **Contact ▾** dropdown trigger should be considered the active nav item (no class change needed for the trigger; the dropdown items are sub-pages of Contact).
+
+### Positioning rules (Tengah HQ vs other branches)
+- **Tengah is the Flagship HQ** as of 2026. Use the phrases "flagship headquarters", "Flagship HQ", or "Tengah HQ" in copy.
+- **Tengah's pill tag exception** — Art Bible §6 normally bans emojis in pill tags. Tengah's pill uses `📍 Flagship HQ · Liberal Tengah` as an explicit one-off exception per user spec.
+- **Jurong West is NOT HQ** anymore. It's described as the "established cornerstone of Liberal Music & Arts School in the West" — not the headquarters.
+- Never describe any other branch as HQ.
+
+### Location page hero pills (current state)
+| Branch | Pill text |
+|---|---|
+| Tengah | `📍 Flagship HQ · Liberal Tengah` (emoji exception) |
+| Bukit Batok | `Liberal Bukit Batok Branch` |
+| Jurong West | `Liberal Jurong West Branch` |
+| Tampines | `Liberal Tampines Branch` |
+
+### Adding a new location page
+1. Copy `locations/tengah.html` → `locations/<new-branch>.html`
+2. Swap branch-specific data (address, WhatsApp, MRT, hours, landmark mentions, Google Maps iframe `src`)
+3. Update both JSON-LD blocks (`MusicSchool` name/address/geo/hours/sameAs + `FAQPage` matching the visible FAQ)
+4. Update canonical link
+5. Add an entry to the `Contact ▾` dropdown in nav (on `index.html` + all 4 existing location pages + propagate to other pages once site-wide dropdown sync is done)
+6. Add a footer card (5th slot or extend grid)
+7. Add a row to the WA FAB popup
+8. Update `HOW-TO-START.md` file structure + file-table sections
+
+### WhatsApp FAB on location pages — inline-styled variant
+**The 4 location pages use a different FAB implementation than the rest of the site.** Instead of the class-based `.wa-fab` / `.wa-panel` (Section 7/8 of this guide), location pages use an inline-styled `#waWrap` component with `onclick` toggle. The two approaches are functionally identical but visually equivalent; the inline version is being used as the "new pattern" pending a future site-wide migration.
+
+```html
+<!-- Inline-styled FAB used on locations/*.html (alternative to Section 7/8) -->
+<div id="waWrap" style="position:fixed;bottom:28px;right:28px;z-index:9999;isolation:isolate;">
+  <div id="waPanel" style="display:none;position:absolute;bottom:68px;right:0;background:#fff;border-radius:16px;box-shadow:0 20px 56px rgba(31,42,68,.11);width:290px;padding:22px;border:1px solid #EEF2F8;">
+    <h4 style="font-size:14.5px;font-weight:900;color:#1F2A44;margin-bottom:4px;">💬 Chat with Us!</h4>
+    <p style="font-size:12.5px;color:#8FA2BC;margin-bottom:14px;">Pick your nearest branch to WhatsApp directly.</p>
+    <!-- 5 anchor rows in order: Tengah · Tampines · Jurong West · Le Quest · Coloury Art -->
+    <a href="https://wa.me/6589222848" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">🏡 Tengah <span style="font-size:11.5px;color:#8FA2BC;">8922 2848</span></a>
+    <!-- ... 4 more rows ... -->
+  </div>
+  <button onclick="var p=document.getElementById('waPanel');p.style.display=p.style.display==='none'?'block':'none';" style="width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(37,211,102,.42);display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden;"><img src="../assets/whatsapp.webp" alt="WhatsApp" style="width:34px;height:34px;object-fit:contain;display:block;"/></button>
+</div>
+```
+
+- No external CSS required (everything inline)
+- No JavaScript file required (toggle is in `onclick` attribute)
+- No outside-click-to-close behaviour — panel stays open until user re-clicks the button
+- Both approaches end up with **the same 5 branches in the same order**: Tengah → Tampines → Jurong West → Le Quest → Coloury Art
 
 ---
 

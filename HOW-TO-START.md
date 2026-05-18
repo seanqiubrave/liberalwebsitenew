@@ -194,6 +194,12 @@ liberalwebsitenew/
 │   ├── mindy.html
 │   ├── leonard.html
 │   └── loy.html
+├── locations/              ← Branch landing pages (created May 17 2026)
+│   ├── tengah.html         ← Flagship HQ
+│   ├── bukit-batok.html    ← Le Quest
+│   ├── jurong-west.html
+│   └── tampines.html
+├── locations-zh/           ← Chinese branch pages — NOT YET CREATED (place future Chinese branch pages here)
 ├── pages-zh/               ← Chinese pages (mirrors pages/) — PAUSED
 │   └── articles/
 └── tools/                  ← Internal tools, never linked from site
@@ -211,6 +217,7 @@ liberalwebsitenew/
 | Root (`index.html`) | `assets/logo.webp` | `assets/` |
 | `pages/*.html` | `../assets/logo.webp` | `../assets/` |
 | `pages/articles/*.html` | `../../assets/logo.webp` | `../../assets/` |
+| `locations/*.html` | `../assets/logo.webp` | `../assets/` |
 
 > ⚠️ **Asset filename casing is INCONSISTENT — and Vercel is case-sensitive.** Local Windows is case-insensitive so `Jescelyn.webp` and `jescelyn.webp` work the same on disk, but on Vercel (Linux) the wrong case returns 404. This caused 6 broken instructor photos in April 2026.
 >
@@ -387,12 +394,25 @@ Source of truth: **`HEADER-FOOTER-GUIDE.md`** — copy all CSS/HTML blocks verba
 
 ## 🧭 NAV LINK ORDER (never change)
 ```
-Home | About | Courses | Instructors | Review | Blog | Contact
+Home | About | Courses | Instructors | Review | Blog | Contact ▾
 ```
 Right side: `[中文]` → `[Book Trial Class]` (orange pill button)
 
+**Contact is now a dropdown** (since May 17 2026 on `index.html` + 4 location pages, NOT YET propagated to other pages):
+```
+Contact ▾
+  ├─ Jurong West
+  ├─ Bukit Batok (Le Quest)
+  ├─ Tampines
+  └─ Tengah (HQ) [NEW]
+```
+- Trigger label is exactly **`Contact`** (not "Contact & Locations" — was renamed)
+- Tengah carries the `(HQ)` suffix + orange `New` badge chip
+- No 📍 pin emojis on dropdown items (kept clean)
+- Dropdown CSS expects nav-collapse at **1024px** (raised from 900px for Nest Hub — see breakpoint notes below)
+
 > **Review link target is `review.html`** (`testimonial.html` is deprecated).  
-> **中文 is currently disabled** while the bilingual site is paused — render as a grey `<span>`, not a live `<a href>`. See HEADER-FOOTER-GUIDE.md for exact markup.
+> **中文 toggle is active on root `index.html` only** (links to `index-zh.html`). On all `pages/*.html` it remains a grey `<span>` disabled pending each Chinese page being built. See HEADER-FOOTER-GUIDE.md Section 14 for exact markup.
 
 ---
 
@@ -436,6 +456,69 @@ All follow the same template — **`cecily.html` is the canonical base**.
 > **Changed April 2026:** Jurong West got its own dedicated number (`9627 7588`). Previously it was grouped with Le Quest / Jurong Point under `9627 7582`. Le Quest still uses `7582`. The FAB popup on every page now shows **5 separate rows**.
 >
 > **Changed April 28 2026:** Coloury Art (Jurong Point) now has its own dedicated number `8995 1163` (`wa.me/6589951163`). Previously it shared Tengah's `8922 2848`. Tengah's number is unchanged. The change was applied site-wide across all 25 pages in one batch — see "April 28 2026 session" notes below.
+
+---
+
+## 📍 LOCATION PAGES (`locations/*.html` — added May 17 2026)
+
+Four standalone branch landing pages live at the repo root in the `locations/` folder (NOT inside `pages/`). They're separate from `pages/` because they have their own URL prefix (`/locations/tengah`, `/locations/bukit-batok`, etc.) and a different template focused on local-search AEO.
+
+| File | Branch | Role | URL | Verify marker |
+|---|---|---|---|---|
+| `locations/tengah.html` | Tengah | **Flagship HQ** (NEW) | `/locations/tengah` | `Tengah location page AEO marker May 17 2026` |
+| `locations/bukit-batok.html` | Bukit Batok (Le Quest) | Branch | `/locations/bukit-batok` | `Bukit Batok location page AEO marker May 17 2026` |
+| `locations/jurong-west.html` | Jurong West | Established cornerstone (NOT HQ) | `/locations/jurong-west` | `Jurong West location page AEO marker May 17 2026` |
+| `locations/tampines.html` | Tampines | Branch | `/locations/tampines` | `Tampines location page AEO marker May 17 2026` |
+
+**Tengah is now the Flagship HQ — never call any other location HQ.** Jurong West was historically referred to as HQ in earlier copy, but the actual headquarters moved to the new Tengah location in 2026. Jurong West is now described as the *"established cornerstone of Liberal Music & Arts School in the West"*.
+
+### Canonical template
+`locations/tengah.html` is the **canonical template** — clone from it when adding a 5th location (e.g. a future Coloury Art landing page would be `locations/coloury-art.html`).
+
+### Page section order (top to bottom)
+1. **Hero** — breadcrumb · pill tag · `<H1>` headline · sub-headline · Quick Facts (4-up grid) · 2 CTAs · 10 course pills
+2. **Location Hub** — address · "Getting Here" paragraph · Studio Hours · Chat-on-WhatsApp action button · Google Maps iframe
+3. **Programs** — 10 course cards in 4-col responsive grid (same 10 as `courses.html`)
+4. **Stats Strip** — 4 metrics (20K+ Families · 4.7★ Rating · 15+ Years · 10+ Programmes)
+5. **FAQ** — 3 Q&As with `<details>` accordion (schema⇄visible synced)
+6. **CTA Banner** — Book Trial Class button
+
+### JSON-LD schema
+Each page carries **TWO JSON-LD blocks** in `<head>`:
+- `@type: "MusicSchool"` — with branch-specific name, address, geo, openingHoursSpecification, sameAs to Google Business Profile
+- `@type: "FAQPage"` — mirrors the visible FAQ Q&A text exactly (auditors check this)
+
+### Real Google Business Profile hours (each branch is different — DO NOT use generic "Daily 1pm-9pm")
+
+| Branch | Mon-Fri | Sat | Sun | Wed |
+|---|---|---|---|---|
+| Tengah | 1pm-9pm | 9am-7:30pm | 9am-7:30pm | open |
+| Bukit Batok | 1pm-9pm | **9am-8pm** | **9:30am-7:30pm** | open |
+| Jurong West | 1pm-9pm | **9:30am-8:30pm** | **9:30am-8:30pm** | open |
+| Tampines | 1pm-9pm (Mon/Tue/Thu/Fri only) | 9am-7pm | 9am-7pm | **CLOSED** |
+
+> **Tampines Wednesday-closed handling:** in the JSON-LD `openingHoursSpecification` array, OMIT Wednesday entirely (schema.org idiom for "closed"). On the visible Studio Hours block, show as `<strong style="color:var(--or)">Wed: Closed</strong>` — orange callout so visitors notice. FAQ Q2 must also call this out: *"...Tuesday, Thursday, and Friday from 1:00 PM to 9:00 PM, and on weekends from 9:00 AM to 7:00 PM. Please note that our Tampines studio is closed on Wednesdays."*
+
+### Address corrections from earlier wrong values
+- **Le Quest** is `4 Bukit Batok St 41, #01-83, Singapore 657991` — NOT `#01-K1` (corrected per Google Business Profile, May 17 2026). Site-wide sweep needed: anything still saying `#01-K1` is stale.
+
+### Coloury Art (Opening Soon — 5th location)
+- Address: `#03-07C Level 3, Jurong Point, Singapore 648886` (near Boon Lay MRT EW27)
+- WhatsApp: `8995 1163` (dedicated since April 28 2026)
+- External site: `colouryart.com`
+- Currently rendered as **footer card 5/5** (clickable, `.foot-loc.soon` orange-tinted) and as **FAB row 5/5**
+- No standalone `locations/coloury-art.html` yet — would be created when Coloury Art officially opens
+
+### When the user uploads a new location-related image
+The hero / Studio Preview section was attempted on Bukit Batok with a placeholder image but removed when the user said "remove this part". **Established precedent:** do NOT add a Studio Preview / interior-photo section to a location page without a real image file already in `/assets/`. Suggest at the end of the response instead.
+
+### Site-wide UI sync — what still needs propagating from location pages
+Only `index.html` and the 4 `locations/*.html` files currently have:
+- New Contact ▾ dropdown
+- Nav-collapse breakpoint at 1024px (Nest Hub fix)
+- WA FAB with 5 branches HQ-first
+
+All other ~30 pages still have the old simple `Contact` link and the old 4-branch FAB. Site-wide propagation is **pending**.
 
 ---
 
@@ -794,6 +877,154 @@ On the English `pages/privacy.html`, `pages/terms.html`, and both English blog a
 
 ---
 
+## 📝 PAGE-SPECIFIC NOTES (May 17–18, 2026 session — Location pages, dropdown nav, Nest Hub fix, AEO sweep)
+
+This was a multi-part session that built out the **`locations/` folder** from scratch, added a **Contact ▾ dropdown** to the nav, fixed the **Nest Hub nav-collapse breakpoint**, and applied AEO upgrades to **8 course pages**. The work was applied to `index.html` + 4 location pages; **propagation to the other ~30 pages is still pending**.
+
+### A. Built 4 location pages from scratch (`locations/*.html`)
+- `tengah.html` — Flagship HQ (NEW), Plantation Plaza landmark, near McDonald's Tengah, future Tengah Plantation MRT (JRL 2028)
+- `bukit-batok.html` — Le Quest mall, FairPrice Finest + McDonald's landmark, near Bukit Batok MRT (NS2)
+- `jurong-west.html` — *"established cornerstone"*, Blk 492 landmark, near Lakeside MRT (EW26)
+- `tampines.html` — Blk 139 landmark, near Tampines West MRT (DT31), **closed Wednesdays**
+
+All 4 follow the canonical page-section order from the LOCATION PAGES section above. See verify-markers table.
+
+### B. Tengah positioning upgrade (17 edits across `locations/tengah.html`)
+Originally written as a regular branch page; promoted to **Flagship HQ** mid-session per user clarification.
+- Title: `Top Music School in Tengah | Flagship HQ | Liberal Music School`
+- Schema `name`: `"... (Tengah Flagship HQ)"`
+- Hero pill: `📍 Flagship HQ · Liberal Tengah` (one-off emoji-in-pill exception — Art Bible §6 normally bans this)
+- Sub-headline prefix: `"The flagship headquarters of Liberal Music & Arts School."`
+- Quick Facts pill: `"Flagship Headquarters"`
+- Location Hub H2: `"Visit Our Flagship Headquarters in Tengah"`
+- FAQ Q1: mentions `"opened its brand new flagship headquarters"`
+- FAQ Q2/Q3 (schema + visible): `"Tengah HQ"` / `"Tengah headquarters"`
+- **6 leftover `"Branch/branch"` references on Tengah** still need cleanup: breadcrumb, iframe title, FAQ section H2, FAQ Q2 question name, CTA banner. Identified, not yet changed without explicit ask.
+
+### C. Jurong West de-HQ correction (17 edits)
+Initially built JW with "Flagship HQ" positioning by mistake. Corrected mid-session per user: **Tengah is the real HQ**. JW reverted to:
+- Hero pill: `Liberal Jurong West Branch`
+- Sub-headline: `"the established cornerstone of Liberal Music & Arts School in the West"`
+- All HQ / flagship / headquarters references removed
+
+### D. Bukit Batok address correction
+Was `#01-K1` (stale, pre-Google-Business-Profile value); corrected to `#01-83` per GBP. Applied to:
+- `locations/bukit-batok.html` (multiple spots)
+- Footer card on all 4 location pages
+- `index.html` footer (already correct)
+- Site-wide sweep for any other `#01-K1` reference is **pending**
+
+### E. Real per-branch Google Business Profile hours
+All 4 pages had generic "Daily 1pm-9pm" replaced with real per-branch hours (see LOCATION PAGES section table above). Hours are split per dayOfWeek in JSON-LD where Sat differs from Sun.
+
+### F. Contact ▾ nav dropdown — created
+New dropdown nav component (`~116 lines of CSS + HTML markup`) added to:
+- `index.html` (desktop + mobile drawer)
+- All 4 `locations/*.html`
+
+Dropdown structure:
+```
+Contact ▾
+  Jurong West       → /locations/jurong-west
+  Bukit Batok (Le Quest) → /locations/bukit-batok
+  Tampines          → /locations/tampines
+  Tengah (HQ) [NEW] → /locations/tengah
+```
+
+Mobile drawer renders dropdown items as flat list (no toggle, always expanded). Desktop uses hover-open with downward arrow rotation.
+
+### G. Nest Hub nav-collapse fix — 900px → 1024px
+The May 14 2026 session raised the breakpoint to 1024px on `pages/privacy.html`, `pages/terms.html`, and the 2 English articles. This session extended that fix to all 4 `locations/*.html` files. **Still pending** on `index.html` and ~24 other pages.
+
+Specifically, in CSS, 7 rules per file were updated:
+- Main nav-collapse: `@media(max-width:900px)` → `@media(max-width:1024px)` (hides `.nav-links`, `.nav-lang`, `.nav-end .btn-cta`; shows `.nav-ham`)
+- `.mob-bar` trigger: `@media(max-width:900px){.mob-bar{display:block}}` → `1024px`
+- Dropdown desktop CSS: `@media (min-width: 901px)` → `1025px`
+- Dropdown mobile CSS: `@media (max-width: 900px)` → `1024px`
+- 3 inline comments updated
+
+> Footer `.foot-grid` breakpoint at 900px is intentionally **kept** — the 3-column footer fits fine at 1024px width, only nav was overflowing.
+
+### H. WhatsApp FAB — replaced and reordered (5 branches HQ-first)
+Old: class-based `.wa-fab` / `.wa-panel` with external CSS, 4 branches, Jurong West marked `(HQ)`.
+New: inline-styled `#waWrap` component (no external CSS deps), 5 branches in this order:
+
+| Row | Label | Number |
+|---|---|---|
+| 1 | 🏡 Tengah | 8922 2848 |
+| 2 | 🌅 Tampines | 8892 1198 |
+| 3 | 🌸 Jurong West | 9627 7588 |
+| 4 | 🏬 Le Quest | 9627 7582 |
+| 5 | ✦ Coloury Art | 8995 1163 |
+
+- Tengah is row 1 (HQ-first)
+- Jurong West **lost its `(HQ)` suffix** in this order (HQ now belongs to Tengah)
+- Coloury Art added as row 5
+- Toggle behavior: button onclick toggles `#waPanel` display between `none` and `block`. Removed the old outside-click-to-close JS — kept simple.
+
+### I. Footer — Coloury Art card kept as 5th slot
+Order in `locations/*.html` footers: Jurong West → Le Quest → Tampines → Tengah → Coloury Art.
+- Coloury Art card uses `<a>` (clickable, external `colouryart.com` target) with `.foot-loc.soon` modifier for orange-tinted treatment
+- Pin character is `✦` (star) — not the `.address.webp` icon used on regular cards
+- Meta line: `Near Boon Lay MRT · ✦ Opening Soon`
+
+> **Inconsistency noted (not yet fixed):** the WA FAB order (Tengah-first) differs from the footer order (JW-first) on location pages. The nav dropdown has yet another order. Three different UI surfaces, three different orderings — flagged for unification when user picks the canonical order.
+
+### J. AEO upgrade across 8 course pages (`pages/[subject]-course.html`)
+Applied JSON-LD `Course` + `FAQPage` schema, AEO Quick Facts blocks, and 3-question FAQ accordions to:
+- `violin-course.html` — marker `ABRSM violin AEO upgrade May 17 2026`
+- `guitar-course.html` — marker `Guitar AEO upgrade May 17 2026`
+- `ukulele-course.html` — marker `Ukulele AEO upgrade May 17 2026`
+- `vocal-course.html` — marker `Vocal AEO upgrade May 17 2026`
+- `music-for-kids.html` — marker `Music for Kids AEO upgrade May 17 2026`
+- `chinese-instruments.html` — marker `Chinese Instruments AEO upgrade May 17 2026`
+- `music-theory.html` — marker `Music Theory AEO upgrade May 17 2026`
+- `aural-training.html` — marker `Aural Training AEO upgrade May 17 2026`
+
+> Pattern follows `piano-course.html` as the canonical template (already had AEO from earlier session).
+
+### K. WhatsApp → Contact button swap (10 course pages)
+On all 10 standalone course pages (the 8 above + `piano-course.html` + `drum-course.html`), the bottom-of-page CTA button changed from:
+```html
+<a class="btn-cta-dk">WhatsApp Us</a>
+```
+to:
+```html
+<a href="contact" class="btn btn-outline btn-lg">Contact Us</a>
+```
+This funnels prospects through the contact form rather than to WhatsApp, capturing emails. Marker: `class="btn btn-outline btn-lg">Contact Us`.
+
+### L. Vercel `locations/` folder 404 troubleshooting
+After first push attempt, `liberalmusicschool.com/locations/tengah` returned 404. Root cause: `locations/` folder didn't exist in local repo, so PowerShell `copy "src\file.html" "locations\file.html"` silently failed (target dir not created first). Fix: explicit `if (!Test-Path locations) { New-Item -ItemType Directory -Path locations }` before the copy loop. Once folder existed, files copied + commit + push resolved the 404.
+
+### M. Verify-before-push markers used in this session
+
+| Change | Marker |
+|---|---|
+| Tengah location page | `Tengah location page AEO marker May 17 2026` |
+| Bukit Batok location page | `Bukit Batok location page AEO marker May 17 2026` |
+| Jurong West location page | `Jurong West location page AEO marker May 17 2026` |
+| Tampines location page | `Tampines location page AEO marker May 17 2026` |
+| 8 course AEO upgrades | `[Subject] AEO upgrade May 17 2026` (per course) |
+| Contact button swap (10 course pages) | `class="btn btn-outline btn-lg">Contact Us` |
+| Nest Hub nav fix (location pages) | `@media(max-width:1024px){\n      .nav-links,.nav-lang` |
+
+### N. Open / pending items at end of session
+
+| # | Item | Priority |
+|---|---|---|
+| 1 | Apply Nest Hub breakpoint fix (900→1024) to `index.html` + ~24 other pages | High (visible bug on Nest Hub) |
+| 2 | Sync Contact ▾ dropdown to all `pages/*.html`, instructor profiles, articles | High |
+| 3 | Sync WA FAB to 5-branch HQ-first order on `index.html` + all `pages/*.html` | High |
+| 4 | Clean up 6 leftover "Branch/branch" refs on `tengah.html` (breadcrumb, iframe title, FAQ H2, FAQ Q2 question name, CTA banner) | Medium |
+| 5 | Site-wide footer hours per branch (currently generic "Daily 1pm-9pm" on all card meta lines) | Medium |
+| 6 | Per-location Google rating accuracy (Bukit Batok 4.8★/30, JW 4.5★/32 — currently brand-wide 4.7★) | Medium |
+| 7 | Build `locations-zh/` Chinese versions of 4 branch pages | Low (Chinese site paused) |
+| 8 | Sweep for any remaining `#01-K1` references (Le Quest was corrected to `#01-83`) | Low |
+| 9 | Consider unifying the 3 different ordering systems (footer / FAB / dropdown) | Low (cosmetic) |
+
+---
+
 | File | Purpose |
 |---|---|
 | `HOW-TO-START.md` | This file — workflow + design system summary |
@@ -833,3 +1064,7 @@ On the English `pages/privacy.html`, `pages/terms.html`, and both English blog a
 | `pages-zh/contact.html` | Chinese contact page — created May 14 2026 |
 | `pages-zh/articles/from-first-note-to-full-confidence-a-6-month-journey.html` | Chinese article page — created May 14 2026 |
 | `pages-zh/articles/liberal-blog-the-magic-of-shared-melodies-a-piano-concert-at-tengah.html` | Chinese article page — created May 14 2026 |
+| `locations/tengah.html` | **Flagship HQ landing page — CANONICAL TEMPLATE for `locations/*.html`** — created May 17 2026 |
+| `locations/bukit-batok.html` | Branch landing page (Le Quest) — created May 17 2026 |
+| `locations/jurong-west.html` | Branch landing page (Jurong West) — created May 17 2026 |
+| `locations/tampines.html` | Branch landing page (Tampines, Wed closed) — created May 17 2026 |

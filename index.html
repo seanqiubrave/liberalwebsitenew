@@ -1517,6 +1517,106 @@ footer { margin-bottom: 0 !important; }
       letter-spacing: .5px;
     }
 
+    /* ══════════════════════════════════════════════════════════════════
+       📱 LANDSCAPE & SHORT-VIEWPORT FIXES (May 18 2026)
+       Issue 1: YouTube video is 16:9 but .hero-frame is 4:5 → big black
+                bars, video looks tiny on phones/tablets.
+       Issue 2: .nav-drawer had no max-height/scroll → items below the
+                fold (Tengah branch + "Book Trial Class" button) were
+                clipped on Nest Hub 1024×600, Galaxy landscape, etc.
+       ══════════════════════════════════════════════════════════════════ */
+
+    /* FIX A: Mobile drawer must scroll when content exceeds viewport.
+       Without this, on 600px-tall landscape screens the last few menu
+       items get cut off below the viewport edge. */
+    .nav-drawer{
+      max-height: calc(100vh - 108px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+
+    /* FIX B: Video aspect ratio on mobile + tablet — match the actual
+       16:9 YouTube content so it fills the frame instead of being
+       letterboxed into a portrait 4:5 box. */
+    @media (max-width: 900px){
+      .hero-frame{
+        aspect-ratio: 16 / 9;
+        min-width: 0;
+        width: 100%;
+      }
+      /* Widen the video container too — 460px max felt cramped on
+         tablets where the screen has plenty of room. */
+      .hero-vis{ max-width: min(620px, 100%); }
+    }
+
+    /* FIX B-2: On small phones (<540px) the iframe is replaced with a
+       YouTube poster image. Keep 16:9 so the thumbnail isn't cropped. */
+    @media (max-width: 540px){
+      .hero-frame{ aspect-ratio: 16 / 9; }
+      .hero-vis{ max-width: 100%; }
+    }
+
+    /* FIX C: Short-viewport landscape (Nest Hub 1024×600, landscape
+       tablets) — compress the hero so the video and copy both fit
+       inside the visible viewport without scrolling forever, and cap
+       the video height so it never overflows the screen. */
+    @media (orientation: landscape) and (max-height: 700px){
+      .hero{
+        min-height: 0;
+        padding: 90px 0 50px;
+        align-items: flex-start;
+      }
+      .hero-frame{
+        aspect-ratio: 16 / 9;
+        max-height: calc(100vh - 150px);
+      }
+      /* Hide decorative animations that float in empty space and waste
+         vertical room on short screens. */
+      .hero-notes, .hero-ring{ display: none; }
+      .fc-b{ display: none; }
+    }
+
+    /* FIX D: Landscape phones (narrow AND short — e.g. Galaxy S in
+       landscape ~740×360). Force a 2-column hero so the video sits
+       beside the copy instead of pushing it off-screen, and shrink
+       type so everything fits in the ~360px of vertical space. */
+    @media (orientation: landscape) and (max-width: 900px) and (max-height: 500px){
+      .hero-grid{
+        grid-template-columns: 1.05fr 1fr;
+        gap: 24px;
+      }
+      .hero-vis{
+        order: 0;
+        max-width: none;
+        margin: 0;
+      }
+      .hero h1{
+        font-size: clamp(1.4rem, 3.8vw, 2rem);
+        margin-bottom: 12px;
+        letter-spacing: -.5px;
+      }
+      .hero-desc{
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+        padding-right: 0;
+      }
+      .hero-kicker{
+        font-size: 12px;
+        padding: 5px 14px;
+        margin-bottom: 12px;
+      }
+      .glance-card{ display: none; }
+      .i-pills{ margin-bottom: 14px; gap: 6px; }
+      .i-pill{ font-size: 13px; padding: 4px 10px; }
+      .hero-btns{ margin-bottom: 16px; gap: 10px; }
+      .hero-btns .btn{ font-size: 14px; padding: 10px 18px; }
+      .proof{ font-size: 13px; }
+      .pf{ width: 32px; height: 32px; font-size: 18px; }
+      .fc-a, .fc-b, .vis-a, .vis-b{ display: none; }
+    }
+
   </style>
 </head>
 <body>
