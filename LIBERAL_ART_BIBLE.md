@@ -1,5 +1,5 @@
-# Liberal Music & Arts School — Art Bible v1.3
-> Extracted from `index.html` (master reference) · April 2026 · Revised April 27, 2026 (footer copy + social links wiring + working hours unified + WhatsApp panel 5-row across articles)
+# Liberal Music & Arts School — Art Bible v1.4
+> Extracted from `index.html` (master reference) · April 2026 · Revised May 18, 2026 (v1.4 — Contact ▾ dropdown now site-wide; `.kw` keyword underline gets `isolation:isolate` to fix invisible-underline bug; two-breakpoint reality documented for nav-collapse).
 > Use this document to standardize ALL pages across the website.
 
 ---
@@ -112,19 +112,39 @@
 | Course body text | 16px | 400 | Quicksand |
 | Review quote | 16px italic | 400 | Quicksand |
 
-### Hero H1 Keyword Underline
+### Hero H1 Keyword Underline (`.kw`)
+
+The "highlighter" effect under one keyword per hero H1 — brand-signature touch. Wrap the keyword in `<span class="kw">` (NOT `<em>`).
+
 ```css
-.kw { color: var(--or); position: relative; display: inline-block; }
+.kw {
+  color: var(--or);
+  position: relative;
+  display: inline-block;
+  isolation: isolate;   /* ⚠️ MANDATORY — creates stacking context, see note below */
+}
 .kw::after {
   content: '';
   position: absolute; bottom: 4px; left: 0; width: 100%; height: 9px;
-  background: #8ddbd1;  /* teal underline — NOT orange */
+  background: #8ddbd1;   /* teal underline — NOT orange */
   border-radius: 5px; z-index: -1;
   transform: scaleX(0); transform-origin: left;
   animation: kw 0.6s var(--sp) 0.95s forwards;
 }
 @keyframes kw { to { transform: scaleX(1) } }
 ```
+
+| Property | Why it matters |
+|---|---|
+| Color `var(--or)` #FF6600 | Brand orange — keyword reads as the hero's emotional anchor |
+| Underline `#8ddbd1` teal | Site's secondary highlight — NEVER orange (would lose contrast with the text color) |
+| Animation 0.95s delay → 0.6s scaleX | Lets the hero text settle before the underline draws — feels handwritten |
+| `forwards` fill-mode | Retains the full underline after animation; without it the underline reverts to invisible |
+| **`isolation: isolate`** | **Mandatory.** Without it, `.kw::after { z-index:-1 }` escapes the `.kw` box and ends up BEHIND the page-hero's opaque gradient background → underline invisible. `isolation:isolate` creates a stacking context inside `.kw`, sealing the `::after` in place. (Discovered May 18, 2026 after 8 of 9 pages had silently broken underlines.) |
+
+> **Usage rules:** one `<span class="kw">` per H1; wrap a noun that carries meaning (Child, Lessons, Hearts, Creative, Top-Rated, Confident); never wrap verbs/articles; never use `<em>` — the canonical class is `.kw`.
+
+> See **HEADER-FOOTER-GUIDE.md §4.7** for the full bug explanation and sanity-check grep commands.
 
 ---
 
@@ -169,7 +189,7 @@ Announcement bar: 36px tall, #f56c22, fixed above navbar (z-index: 1001)
 Home | About | Courses | Instructors | Review | Blog | Contact ▾
 ```
 
-**Contact is now a dropdown** (since May 17 2026). The dropdown opens on hover at desktop widths (≥1025px) and renders as a flat indented list inside the mobile drawer (≤1024px). Dropdown items in order:
+**Contact is a dropdown** (since May 17 2026, site-wide as of May 18 2026). The dropdown opens on hover at desktop widths and renders as a flat indented list inside the mobile drawer. Dropdown items in order:
 ```
 Contact ▾
   ├─ Jurong West
@@ -180,7 +200,16 @@ Contact ▾
 - Trigger label is exactly **Contact** (NOT "Contact & Locations")
 - Tengah carries `(HQ)` suffix + orange `New` badge chip
 - No 📍 pin emojis on dropdown items
-- Currently live on `index.html` + 4 `locations/*.html`; site-wide propagation **pending**
+- **Site-wide as of May 18 2026** — 41/42 pages have it. Only `index-zh.html` remains. Localized labels for the ZH version per HEADER-FOOTER-GUIDE.md §14.4.1.
+
+**Breakpoint coupling — two valid pairs.** Each page's dropdown CSS must match its own nav-collapse breakpoint (otherwise it half-renders in the gap between the two):
+
+| Pages | nav-collapse | Dropdown CSS |
+|---|---|---|
+| `index.html`, `index-zh.html`, instructor profiles, course pages | 900px | `min-width:901px` / `max-width:900px` |
+| `pages/about, blog, contact, courses, instructors, privacy, review, terms, trial`, `pages/articles/*`, `locations/*` | 1024px | `min-width:1025px` / `max-width:1024px` |
+
+See HEADER-FOOTER-GUIDE.md §4.5 for the full HTML + CSS template.
 
 All nav `href` values use **clean URLs** (no `.html` extension — Vercel `cleanUrls:true`):
 - `href="/"` (Home from root) or `href="../index"` (Home from `pages/`) — actually use `/` for root reference
@@ -465,14 +494,21 @@ Right side: `[中文]` lang button (active on root `index.html`, disabled grey s
 | Breakpoint | Behaviour |
 |---|---|
 | `≤ 1100px` | Courses grid: 2 cols; Teacher grid: 2 cols; Trust grid: 2 cols |
-| `≤ 1024px` | **Nav links hidden → hamburger appears** (raised from 900px in May 2026 — Nest Hub fix). Mobile sticky CTA bar also kicks in. Dropdown CSS coupled to this breakpoint. |
-| `≤ 900px` | Hero stacks single col; Stats: 2×2; Footer 3-col → 2-col (these layout rules stay at 900px) |
+| `≤ 1024px` | **Nav collapse for "wide-family" pages** → hamburger appears; dropdown CSS uses `1025/1024` pair |
+| `≤ 900px` | **Nav collapse for "narrow-family" pages** → hamburger appears; dropdown CSS uses `901/900` pair. Also: Hero stacks single col; Stats: 2×2; Footer 3-col → 2-col on all pages (layout rules stay at 900px) |
 | `≤ 700px` | Footer stacks single col |
 | `≤ 540px` | Trust: 2 cols; Stats: 2×2; Teachers: 1 col |
 
-> **The 1024px nav-collapse fix** is a Nest Hub compatibility patch. Google Nest Hub renders at exactly 1024×600, and the old 900px breakpoint left the desktop nav cramped/overflowing in that range (the Book Trial button got clipped, the 中文 toggle wrapped vertically). Raising the breakpoint to 1024px sends Nest Hub into clean hamburger mode. **The fix is currently applied to `pages/privacy.html`, `pages/terms.html`, both English articles, and all 4 `locations/*.html`.** Propagation to remaining pages is **pending**.
+> **Two nav-collapse breakpoints coexist by design** — they map to two families of pages:
+>
+> | Family | Pages | nav-collapse |
+> |---|---|---|
+> | **Narrow family** (900px) | `index.html`, `index-zh.html`, all instructor profiles, all course pages | 900px |
+> | **Wide family** (1024px) | `pages/about, blog, contact, courses, instructors, privacy, review, terms, trial`, `pages/articles/*`, `locations/*` | 1024px |
+>
+> The 1024px breakpoint was added in May 2026 specifically for **Nest Hub compatibility** — the Google Nest Hub renders at exactly 1024×600, and the old 900px breakpoint left the desktop nav cramped (Book Trial button clipped, 中文 toggle wrapping). The narrow family pages haven't been migrated because their headers fit fine at 1024px width; both breakpoints are valid as long as the dropdown CSS matches.
 
-> **The dropdown CSS is breakpoint-coupled.** The `Contact ▾` dropdown's desktop hover behaviour fires at `≥1025px` and its mobile drawer fallback fires at `≤1024px`. These boundaries must match the nav-collapse breakpoint on the same page — otherwise the dropdown will half-render at 901–1024px (visible as desktop nav-links but still wanting hover behaviour from a hamburger that hasn't shown yet).
+> **The dropdown CSS is breakpoint-coupled.** The `Contact ▾` dropdown's desktop hover behaviour fires at the page's hover-breakpoint (901 or 1025); its mobile drawer fallback fires at the matching collapse-breakpoint (900 or 1024). These boundaries must match the nav-collapse breakpoint on the same page — otherwise the dropdown will half-render in the gap (visible as desktop nav-links wanting hover behaviour but the hamburger having shown already, or vice versa).
 
 ---
 
@@ -527,7 +563,10 @@ Right side: `[中文]` lang button (active on root `index.html`, disabled grey s
 - [ ] `:root` CSS variables match Section 2 exactly
 - [ ] Announcement bar: `#f56c22`, links to Liberal
 - [ ] Nav height `72px`, shifted `top: 36px` due to bar
-- [ ] Nav order: `Home | About | Courses | Instructors | Review | Blog | Contact`
+- [ ] Nav order: `Home | About | Courses | Instructors | Review | Blog | Contact ▾`
+- [ ] **Contact is a dropdown** with 4 location items (Jurong West · Bukit Batok (Le Quest) · Tampines · Tengah (HQ) [NEW]) in both desktop nav AND mobile drawer. Dropdown CSS breakpoint pair matches the page's nav-collapse (900/901 OR 1024/1025 — see §17). HEADER-FOOTER-GUIDE.md §4.5 for full CSS.
+- [ ] **Hero H1 keyword highlight uses `<span class="kw">`** (NOT `<em>`) — one keyword per H1.
+- [ ] **`.kw` underline CSS includes `isolation: isolate`** — mandatory, without it the underline is invisible on most pages. Teal color `#8ddbd1`, 0.95s delay, `forwards` fill mode. See §3 → "Hero H1 Keyword Underline".
 - [ ] `[中文]` + `[Book Trial Class]` on right of nav
 - [ ] Section padding `100px 0`
 - [ ] Max width `.W` = `1240px`

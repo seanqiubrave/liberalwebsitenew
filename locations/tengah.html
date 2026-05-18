@@ -196,8 +196,26 @@
     .breadcrumb a{color:var(--muted);transition:color var(--t)}.breadcrumb a:hover{color:var(--or)}
     .breadcrumb svg{opacity:.5}
     .hero-headline{font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:18px}
-    .hero-headline .kw{color:var(--or);position:relative;display:inline-block}
-    .hero-headline .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.6s forwards}
+    /* ── Orange keyword underline (canonical, May 18 2026) ──
+       Unprefixed .kw with isolation:isolate creates a stacking
+       context so the z-index:-1 on ::after stays trapped inside
+       .kw — without it the teal bar escapes behind the hero gradient
+       and either flashes-and-vanishes or never appears. */
+    .kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+    .kw::after{
+      content:'';
+      position:absolute;
+      bottom:4px;
+      left:0;
+      width:100%;
+      height:9px;
+      background:#8ddbd1;
+      border-radius:5px;
+      z-index:-1;
+      transform:scaleX(0);
+      transform-origin:left;
+      animation:kw 0.6s var(--sp) 0.95s forwards;
+    }
     @keyframes kw{to{transform:scaleX(1)}}
     .hero-lead{font-size:20px;color:var(--body);max-width:580px;line-height:1.75;margin-bottom:32px}
     .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}

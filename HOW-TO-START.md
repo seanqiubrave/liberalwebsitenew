@@ -556,6 +556,9 @@ Wire these into the footer `.foot-soc` block on every page. All open in new tabs
 - [ ] Nav link order correct, active page has `class="active"`
 - [ ] Book Trial button: `class="btn btn-cta"` + `style="padding:10px 22px;font-size:14px;"`
 - [ ] Mobile drawer present
+- [ ] **Contact ▾ dropdown present in BOTH desktop nav and mobile drawer** with 4 location items in order: Jurong West · Bukit Batok (Le Quest) · Tampines · Tengah (HQ) [NEW]. See HEADER-FOOTER-GUIDE.md §4.5 for HTML+CSS. Breakpoint pair (900/901 vs 1024/1025) must match the page's existing nav-collapse — see HEADER-FOOTER-GUIDE.md §4.5 table.
+- [ ] **`.kw` underline animation CSS present** in `<style>` (HEADER-FOOTER-GUIDE.md §4.7). The 3-rule canonical block: `.kw{...isolation:isolate}` + `.kw::after{...#8ddbd1...0.95s forwards}` + `@keyframes kw`. The `isolation:isolate` is mandatory — without it the underline is invisible behind page-hero gradients.
+- [ ] **Hero H1 wraps its keyword in `<span class="kw">`** (not `<em>`) — one keyword per headline. Skip on pages without a hero H1 (privacy, terms, blog articles — the CSS is still present as a placeholder for future use).
 
 **Footer**
 - [ ] Background `#1F2A44`, logo `logofooter.webp` height `56px`
@@ -877,7 +880,7 @@ On the English `pages/privacy.html`, `pages/terms.html`, and both English blog a
 
 ---
 
-## 📝 PAGE-SPECIFIC NOTES (May 17–18, 2026 session — Location pages, dropdown nav, Nest Hub fix, AEO sweep)
+## 📝 PAGE-SPECIFIC NOTES (May 17, 2026 session — Location pages, dropdown nav, Nest Hub fix, AEO sweep)
 
 This was a multi-part session that built out the **`locations/` folder** from scratch, added a **Contact ▾ dropdown** to the nav, fixed the **Nest Hub nav-collapse breakpoint**, and applied AEO upgrades to **8 course pages**. The work was applied to `index.html` + 4 location pages; **propagation to the other ~30 pages is still pending**.
 
@@ -1068,3 +1071,84 @@ After first push attempt, `liberalmusicschool.com/locations/tengah` returned 404
 | `locations/bukit-batok.html` | Branch landing page (Le Quest) — created May 17 2026 |
 | `locations/jurong-west.html` | Branch landing page (Jurong West) — created May 17 2026 |
 | `locations/tampines.html` | Branch landing page (Tampines, Wed closed) — created May 17 2026 |
+
+---
+
+## 📝 PAGE-SPECIFIC NOTES (May 18, 2026 session — site-wide dropdown propagation + `.kw` underline isolation fix + docs r7)
+
+This session propagated the May 17 dropdown nav to **38 more pages** across the site, discovered and fixed a long-standing CSS stacking-context bug in the orange keyword underline animation, and brought `HEADER-FOOTER-GUIDE.md` to **r7**. By end of session, 41 of 42 site pages have both the canonical Contact ▾ dropdown and the canonical `.kw` underline CSS. Only `index-zh.html` remains.
+
+### A. The `.kw` underline `isolation:isolate` fix (CRITICAL CSS bug)
+
+**Symptom:** on 8 of 9 `pages/*.html` files, the orange keyword in the hero H1 (e.g., "Music & Arts for Every **Child**") had **no visible teal underline** — or briefly flashed and disappeared. The animation CSS was technically present and correct; the underline was simply invisible.
+
+**Root cause:** `.kw::after { z-index: -1 }` escaped its `.kw` parent (which had `position:relative; display:inline-block` but no stacking context) and got placed BEHIND the `.page-hero`'s opaque `linear-gradient(...)` background. The "flash" the user saw was the animation running briefly before the page-hero's paint, then being covered.
+
+Only `about.html` worked because it had `.hero-inner { position:relative; z-index:1 }` — an explicit `z-index` that created a stacking context and trapped the `::after` inside it.
+
+**Fix:** add `isolation: isolate` to `.kw`. This is the modern way to create a stacking context without layout side effects. The `::after` now stays sealed inside `.kw` regardless of ancestor styling.
+
+**Canonical CSS block — paste into every page** (see HEADER-FOOTER-GUIDE.md §4.7 for full explanation):
+```css
+.kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+.kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+@keyframes kw{to{transform:scaleX(1)}}
+```
+
+Color (`#8ddbd1` teal) and timing (`0.95s` delay) are now uniform across the whole site. Previously `about.html` used `<em>` + `var(--lem)` yellow with `0.8s` delay; that page was migrated to `<span class="kw">` + teal during this session.
+
+### B. Contact ▾ dropdown propagation (38 pages)
+
+The May 17 dropdown nav was only on `index.html` + 4 `locations/*.html`. This session added it to:
+
+| Page family | Files | Breakpoint |
+|---|---|---|
+| `pages/` main pages | 9 (about, blog, contact, courses, instructors, privacy, review, terms, trial) | 1024/1025px |
+| `pages/<instructor>.html` | 13 (cecily, calvin, kate, jescelyn, tina, verginia, cheng, aliona, teresa, jiang, mindy, leonard, loy) | 900/901px |
+| `pages/<course>.html` | 12 (piano-, violin-, vocal-, guitar-, drum-, ukulele-course, chinese-instruments, music-for-kids, music-theory, aural-training, ballet-, hiphop-course) | 900/901px |
+| `pages/articles/*.html` | 2 blog articles | 1024/1025px |
+| **Total** | **36** | |
+
+All use canonical `<ul class="dropdown-menu"><li>` markup matching `index.html`. Breakpoint pair depends on each page's existing nav-collapse — see HEADER-FOOTER-GUIDE.md §4.5 table for the full mapping. The 4 `locations/*.html` pages turned out to ALREADY be on canonical markup (the HEADER-FOOTER-GUIDE legacy-variant warning was outdated and has been cleared).
+
+### C. Blog article pages — scoped replacement to protect footer
+
+`pages/articles/*.html` are 2 levels deep (`../../` path prefix) AND have a Contact link in both the nav AND the footer. The patch script used scoped regex matching against the contents of `<ul class="nav-links">...</ul>` and `<nav class="nav-drawer">...</nav>` only — the footer's `<li><a href="../../pages/contact">Contact</a></li>` was deliberately left untouched.
+
+### D. HEADER-FOOTER-GUIDE.md updates (r6 → r7)
+
+| Section | Change |
+|---|---|
+| Top | Date bumped r6 → r7 |
+| §4.5 | Replaced "1024px exception" guidance with a **two-breakpoint table** mapping page family → correct breakpoint pair (900/901 vs 1024/1025). |
+| **§4.7 (NEW)** | Full canonical `.kw` underline animation spec — class usage, CSS block, the bug explanation, application matrix, multi-style risk warning, sanity-check grep commands. |
+| §11.5 | Removed the now-obsolete "legacy variant" warning on `locations/*.html` — they're all canonical. |
+| §12 | Added 2 new checklist entries — `.kw` canonical CSS present + use `<span class="kw">` not `<em>`. |
+
+### E. Helper patch scripts that survived this session (in `/home/claude/`)
+
+For future re-runs or new-page additions:
+
+| Script | Purpose |
+|---|---|
+| `patch_pages.py` | Adds §4.6.1 mobile/landscape fix only |
+| `patch_dropdown.py` | Adds Contact ▾ dropdown (1024/1025 variant) |
+| `patch_kw_underline.py` | Adds `.kw` canonical CSS (with isolation:isolate) — handles `<em>`→`<span>` migration, strips prefixed legacy variants |
+| `patch_inst_combined.py` | Combined dropdown + `.kw` for 900/901-breakpoint pages |
+| `patch_articles.py` | Combined dropdown + `.kw` for `pages/articles/*` (2-level path, scoped regex to protect footer) |
+
+All scripts are idempotent (check for sentinel strings — `NAVBAR DROPDOWN EXTENSION`, `Orange keyword underline (canonical`).
+
+### F. Site progress matrix (end of May 18, 2026 session)
+
+| Type | Count | Contact ▾ dropdown | `.kw` canonical CSS |
+|---|---|---|---|
+| Root (`index.html`, `index-zh.html`) | 2 | 1/2 (index-zh pending) | 1/2 (index-zh pending) |
+| `pages/` main (about, blog, contact, courses, instructors, privacy, review, terms, trial) | 9 | ✅ all | ✅ all |
+| `pages/<instructor>.html` | 13 | ✅ all | ✅ all (placeholder — no `.kw` usage yet) |
+| `pages/<course>.html` | 12 | ✅ all | ✅ all (every page uses `<span class="kw">`) |
+| `pages/articles/*.html` | 2 | ✅ all | ✅ all (placeholder) |
+| `locations/*.html` | 4 | ✅ all | ✅ all |
+| **Total** | **42** | **41/42** | **41/42** |
+
+**Only `index-zh.html` remains.** Future work: localize the dropdown labels per HEADER-FOOTER-GUIDE.md §14.4.1 (联系我们 ▾ + 裕廊西 / 武吉巴督 (Le Quest) / 淡滨尼 / 登加 (旗舰总部)).

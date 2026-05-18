@@ -505,6 +505,124 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
 .nav-drawer .btn-cta{width:100%;justify-content:center;margin-top:8px;font-size:15px;padding:11px 22px}
 .nav-drawer{gap:2px;padding:12px 28px 20px}
 
+/* ──────────────────────────────────────────────────────────────────
+   🎯 NAVBAR DROPDOWN EXTENSION (Contact ▾ menu) — added May 18 2026
+   Breakpoints aligned to nav-collapse at 1024px (this page's setting).
+   ────────────────────────────────────────────────────────────────── */
+
+/* 1. Desktop hover dropdown (nav-links visible at >=1025px) */
+@media (min-width: 1025px) {
+  .nav-links .nav-item-dropdown { position: relative; display: inline-block; }
+  .nav-links .dropdown-trigger .arrow {
+    display: inline-block;
+    transition: transform 0.22s var(--sp);
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  .nav-links .nav-item-dropdown:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg);
+    color: var(--or);
+  }
+  .nav-links .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 15px);
+    background: #FFFFFF;
+    min-width: 240px;
+    box-shadow: 0 12px 35px rgba(31, 42, 68, 0.12);
+    border-radius: 12px;
+    padding: 8px 0;
+    border: 1.5px solid #EEF2F8;
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--sp), transform 0.25s var(--sp);
+    list-style: none;
+    margin: 0;
+  }
+  .nav-links .nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  /* Small triangle pointing UP to the trigger — pure CSS, no extra element */
+  .nav-links .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #FFFFFF;
+    border-left: 1.5px solid #EEF2F8;
+    border-top: 1.5px solid #EEF2F8;
+  }
+  .nav-links .dropdown-menu li { margin: 0 !important; display: block; }
+  .nav-links .dropdown-menu li a {
+    display: block;
+    padding: 11px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.2s ease;
+    font-family: var(--zh),'Quicksand',sans-serif;
+  }
+  .nav-links .dropdown-menu li a:hover {
+    color: var(--or) !important;
+    background: var(--or-lt);
+    padding-left: 25px;
+  }
+}
+
+/* 2. Mobile drawer (dropdown always expanded, vertical) at <=1024px */
+@media (max-width: 1024px) {
+  .nav-drawer .nav-item-dropdown { width: 100%; }
+  .nav-drawer .dropdown-trigger { text-align: left; }
+  .nav-drawer .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--s1);
+    padding: 10px;
+    margin: 4px 0 8px;
+    border-radius: 10px;
+    border: 1px solid #EEF2F8;
+    list-style: none;
+  }
+  .nav-drawer .dropdown-menu li { margin: 0; }
+  .nav-drawer .dropdown-menu li a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+}
+
+/* 3. "New" badge chip — used on the Tengah dropdown item */
+.badge-new {
+  font-size: 9px;
+  font-weight: 900;
+  background: var(--or);
+  color: #FFFFFF;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
 /* ╔═══════════════════════════════════════════════════════╗
    ║  1. HERO                                              ║
    ╚═══════════════════════════════════════════════════════╝ */
@@ -552,8 +670,26 @@ body.reveal-ready .sfr.in { opacity:1 !important; transform:none !important; }
   border:1.5px solid rgba(245,108,34,.3);box-shadow:0 3px 14px rgba(245,108,34,.3);
 }
 .hero h1{font-size:75px;letter-spacing:-2px;line-height:1.04;margin-bottom:24px}
-.kw{position:relative;display:inline-block;color:var(--or)}
-.kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
+/* ── Orange keyword underline (canonical, May 18 2026) ──
+   .kw uses isolation:isolate so z-index:-1 on ::after stays
+   inside .kw and doesn't escape behind page-hero's gradient
+   background (the bug that made the underline invisible on
+   8 of 9 pages until May 18 2026). */
+.kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+.kw::after{
+  content:'';
+  position:absolute;
+  bottom:4px;
+  left:0;
+  width:100%;
+  height:9px;
+  background:#8ddbd1;
+  border-radius:5px;
+  z-index:-1;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:kw 0.6s var(--sp) 0.95s forwards;
+}
 @keyframes kw{to{transform:scaleX(1)}}
 .hero-desc{font-size:20px;line-height:1.84;color:var(--body);max-width:500px;margin-bottom:30px}
 
@@ -1508,7 +1644,7 @@ footer { margin-bottom: 0 !important; }
              onerror="this.style.display='none'"/>
       </a>
 
-      <!-- Nav order: Home | About | Courses | Teachers | Review | Blog | Contact -->
+      <!-- Nav order: 首页 | 关于我们 | 课程 | 导师 | 评价 | 博客 | 联系我们 ▾ -->
       <ul class="nav-links">
         <li><a href="index-zh" class="active">首页</a></li>
         <li><a href="pages-zh/about">关于我们</a></li>
@@ -1516,7 +1652,17 @@ footer { margin-bottom: 0 !important; }
         <li><a href="pages-zh/instructors">导师</a></li>
         <li><a href="pages-zh/review">评价</a></li>
         <li><a href="pages-zh/blog">博客</a></li>
-        <li><a href="pages-zh/contact">联系我们</a></li>
+
+        <!-- Contact ▾ dropdown — REQUIRED on every page (added May 18 2026) -->
+        <li class="nav-item-dropdown">
+          <a href="pages-zh/contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-west">裕廊西</a></li>
+            <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+            <li><a href="/locations/tampines">淡滨尼</a></li>
+            <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="nav-end">
@@ -1538,7 +1684,18 @@ footer { margin-bottom: 0 !important; }
   <a href="pages-zh/instructors">导师</a>
   <a href="pages-zh/review">评价</a>
   <a href="pages-zh/blog">博客</a>
-  <a href="pages-zh/contact">联系我们</a>
+
+  <!-- Contact dropdown — flat (always expanded) in drawer. Same markup as desktop. -->
+  <div class="nav-item-dropdown">
+    <a href="pages-zh/contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-west">裕廊西</a></li>
+      <li><a href="/locations/bukit-batok">武吉巴督 (Le Quest)</a></li>
+      <li><a href="/locations/tampines">淡滨尼</a></li>
+      <li><a href="/locations/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+    </ul>
+  </div>
+
   <a href="index" style="opacity:.7;">EN</a>
   <a href="pages-zh/trial" class="btn btn-cta">预约试课</a>
 </nav>

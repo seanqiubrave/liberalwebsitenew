@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: May 18, 2026 (r6 — Contact ▾ dropdown canonicalised to `<ul><li>` markup)  
+> Source of truth: `index.html` (master) · Last updated: May 18, 2026 (r7 — added §4.7 .kw underline animation with isolation:isolate fix; corrected §4.5 breakpoint guidance; cleared §11.5 legacy warning since locations are migrated)  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -150,8 +150,7 @@ Copy verbatim into every page `<style>`:
 
 ### Navbar (pages/ subfolder version)
 
-> **Canonical dropdown markup is `<ul class="dropdown-menu"><li><a>` (matches `index.html`).** This is the version paired with the CSS in Section 4.5 and what all `index.html` + `pages/*.html` use as of May 18 2026.  
-> The 4 `locations/*.html` files currently use an older `<div class="dropdown-menu"><a class="dropdown-item">` variant — see Section 11.5. Treat that as legacy; new pages MUST use the markup below.
+> **Canonical dropdown markup is `<ul class="dropdown-menu"><li><a>` (matches `index.html`).** This is the version paired with the CSS in Section 4.5 and what every page on the site uses as of May 18 2026 — including `index.html`, `pages/*.html`, `pages/articles/*.html`, and `locations/*.html`. The older `<div class="dropdown-menu"><a class="dropdown-item">` variant no longer exists anywhere.
 
 ```html
 <!-- NAVBAR -->
@@ -360,9 +359,18 @@ The Contact dropdown is implemented as a `<li class="nav-item-dropdown">` inside
 }
 ```
 
-> **Breakpoint coupling:** the dropdown CSS uses **1025px / 1024px** boundaries (not 900px / 901px) to align with the **Nest Hub nav-collapse fix** (see Section 3 breakpoint notes). All pages with the dropdown must also have the nav-collapse at 1024px, otherwise the dropdown will render in a half-broken state at 901–1024px.
-
-> **`index.html` exception:** the root `index.html` still uses `901px` breakpoints for historical reasons. The CSS rules themselves are functionally identical to the version above; only the `@media` boundaries differ. Leave `index.html` as-is unless explicitly asked to migrate it. All other pages MUST use 1025px / 1024px.
+> **Two valid breakpoint pairs — choose to match the page's existing nav-collapse, NOT the other way around.** Some pages collapse the desktop nav at 900px, others at 1024px. The dropdown CSS must use the matching breakpoint pair or the dropdown will render in a half-broken state between 901–1024px.
+>
+> | Page family | nav-collapse | Dropdown CSS breakpoints |
+> |---|---|---|
+> | `index.html`, `index-zh.html` | 900px | `min-width: 901px` / `max-width: 900px` |
+> | `pages/<instructor>.html` (cecily, calvin, kate, etc.) | 900px | `min-width: 901px` / `max-width: 900px` |
+> | `pages/<course>.html` (piano-course, drum-course, etc.) | 900px | `min-width: 901px` / `max-width: 900px` |
+> | `pages/about.html`, `blog.html`, `contact.html`, `courses.html`, `instructors.html`, `privacy.html`, `review.html`, `terms.html`, `trial.html` | 1024px | `min-width: 1025px` / `max-width: 1024px` |
+> | `pages/articles/*.html` (blog posts) | 1024px | `min-width: 1025px` / `max-width: 1024px` |
+> | `locations/*.html` | 1024px | `min-width: 1025px` / `max-width: 1024px` |
+>
+> The CSS block above shows the **1025/1024 variant**. For 901/900 pages, swap the two `@media` numbers — everything else (including the desktop hover styling and mobile drawer styling) is identical.
 
 > **(HQ) suffix + NEW badge** are reserved for the **Tengah** dropdown item. Tengah opened as the Flagship HQ in 2026 and replaces Jurong West as the headquarters reference. JW is now described as "established cornerstone" in copy.
 
@@ -526,6 +534,110 @@ After applying, test these scenarios:
 | Nest Hub 1024×600 simulator | Open hamburger → drawer scrolls. The orange "Singapore's Most Trusted ABRSM Specialist" pill is fully visible (not clipped under nav). |
 | Landscape phone (Galaxy S in landscape, ~740×360) | Hero shows side-by-side text + video; no overflow; menu drawer scrolls |
 | Any tablet with drawer open | Green WhatsApp FAB is **hidden**. After closing the drawer, it reappears. |
+
+---
+
+## 4.7. ORANGE KEYWORD UNDERLINE ANIMATION — `.kw` (added May 18 2026)
+
+The site's "highlighter" effect: orange keywords inside H1 headlines get a soft teal underline that animates in (scaleX 0 → 1) shortly after page load. This is a brand-signature touch — every hero headline should use it on its key noun.
+
+### 4.7.1 The class — `.kw`
+
+```html
+<h1>Music & Arts for Every <span class="kw">Child</span></h1>
+```
+
+- Wrap **one keyword per headline** in `<span class="kw">`.
+- Pick a noun that carries the headline's meaning (Child, Lessons, Hearts, First Lesson, Top-Rated, Confident, etc.). Avoid wrapping verbs or articles.
+- Never wrap more than one phrase per H1 — the highlight loses impact when used twice.
+- Don't use `<em>` for this purpose — the canonical class is `.kw`. (Legacy `<em>` usage in older versions of `about.html` was migrated on May 18, 2026.)
+
+### 4.7.2 Canonical CSS — paste verbatim into every page
+
+```css
+/* ── Orange keyword underline (canonical, May 18 2026) ──
+   .kw uses isolation:isolate so z-index:-1 on ::after stays
+   inside .kw and doesn't escape behind page-hero's gradient
+   background (the bug that made the underline invisible on
+   8 of 9 pages until May 18 2026). */
+.kw{position:relative;display:inline-block;color:var(--or);isolation:isolate}
+.kw::after{
+  content:'';
+  position:absolute;
+  bottom:4px;
+  left:0;
+  width:100%;
+  height:9px;
+  background:#8ddbd1;
+  border-radius:5px;
+  z-index:-1;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:kw 0.6s var(--sp) 0.95s forwards;
+}
+@keyframes kw{to{transform:scaleX(1)}}
+```
+
+| Property | Value | Why |
+|---|---|---|
+| color | `var(--or)` #FF6600 | Brand orange — matches CTA accents |
+| underline color | `#8ddbd1` teal | Site's secondary highlight color |
+| underline height | 9px | Thick enough to feel like a brush stroke without overpowering the text |
+| `bottom: 4px` | Below baseline | Sits just under the descenders, mimics handwritten highlighter |
+| animation delay | 0.95s | Lets hero text settle before the underline draws in |
+| animation duration | 0.6s | Quick enough to feel reactive, slow enough to register |
+| `forwards` | retains scaleX(1) | Otherwise the underline reverts to invisible after the animation ends |
+| **`isolation: isolate`** | **stacking context** | **Critical fix** — see §4.7.3 |
+
+### 4.7.3 ⚠️ The bug this fixed (and why `isolation: isolate` is mandatory)
+
+Until May 18, 2026, the `.kw::after` underline was invisible on 8 of 9 `pages/*.html` files even though the CSS was technically correct. The flash-and-vanish behavior reported by the user is the visual signature of this bug.
+
+**Why it happened:**
+
+`.kw::after` uses `z-index: -1` to slip the underline behind the text (creating the highlighter effect — the text reads over the colored bar). For this to work, the underline must stay **inside `.kw`'s stacking context**. Without one, `z-index: -1` escapes outward, hunting for the nearest stacking context to settle behind.
+
+- `.kw` is `position: relative` + `display: inline-block`. By CSS spec, **this alone does NOT create a stacking context.**
+- `.page-hero` is `position: relative` (no `z-index`). **Also doesn't create a stacking context.**
+- `.page-hero` has an opaque `linear-gradient(...)` background.
+
+Result: `.kw::after { z-index: -1 }` escapes out of `.kw`, out of `.page-hero`, ends up behind `.page-hero`'s gradient → completely hidden. The "flash" the user saw was the scaleX(0)→scaleX(1) animation running BEFORE the page-hero's paint had finished, briefly visible, then covered.
+
+**Why `about.html` worked anyway:** its hero had `.hero-inner { position:relative; z-index:1 }` — an explicit `z-index` that DID create a stacking context. The underline got trapped inside `.hero-inner` (a transparent box) and remained visible.
+
+**The fix:** `isolation: isolate` on `.kw` itself. This is the cleanest way to create a stacking context — designed for exactly this use case, no layout side effects, no need for explicit z-index. The `::after` is now sealed inside `.kw` regardless of what the ancestors do.
+
+### 4.7.4 Per-page application
+
+The CSS is structural — paste it into **every page** even if the page doesn't currently use `<span class="kw">`. Cost is ~3 lines of CSS; benefit is that adding a `.kw` later "just works" without re-debugging.
+
+| Page family | Has `.kw` usage today | Apply canonical CSS |
+|---|---|---|
+| `index.html` + `index-zh.html` | ✅ Yes ("Top-Rated") | ✅ Required (already canonical) |
+| `pages/about, blog, contact, courses, instructors, review, trial` | ✅ Yes | ✅ Required |
+| `pages/privacy, terms` | ❌ No (legal pages) | ✅ Required (no-op placeholder for consistency) |
+| `pages/<instructor>.html` (13 files) | ❌ No | ✅ Required (no-op placeholder) |
+| `pages/<course>.html` (12 files) | ✅ Yes (every one — Course/Lessons/Training/Kids/Top-Rated) | ✅ Required |
+| `pages/articles/*.html` (blog posts) | ❌ No | ✅ Required (no-op placeholder) |
+| `locations/*.html` | ✅ Yes | ✅ Required |
+
+### 4.7.5 Multiple `<style>` blocks — duplicate rule risk
+
+If a page has competing `.kw` rules from earlier development (e.g. `.hero-headline .kw{...}` or `.trial-headline .kw{...}`), the **more specific selector wins** and overrides the canonical version's `isolation: isolate`. When migrating an old page:
+
+1. Search for `\.kw\s*\{`, `\.kw::after`, and `@keyframes kw` — there should be **exactly one** of each after migration.
+2. If older selectors with prefixes exist (`.hero-headline .kw`, `.trial-headline .kw`, `.page-hero h1 em`, etc.), **delete them entirely**. The canonical unprefixed `.kw` selector is sufficient and avoids specificity wars.
+
+### 4.7.6 Sanity-check script (run after editing a page)
+
+```bash
+grep -c "isolation:isolate" page.html      # → 1
+grep -c "#8ddbd1" page.html                # → 1
+grep -c "0.95s forwards" page.html         # → 1
+grep -c "@keyframes kw" page.html          # → 1
+```
+
+All four should return `1`. If any returns `0`, the canonical block wasn't applied. If any returns `2+`, there are duplicate rules — delete the older variant.
 
 ---
 
@@ -992,7 +1104,7 @@ Each instructor profile shows the **other 12** instructors at the bottom — the
 
 Branch landing pages live at `/locations/<branch>` and are structurally similar to instructor profile pages, but with a different content focus (local-search AEO instead of teacher bio).
 
-> **⚠️ Contact dropdown — legacy variant.** The 4 location pages currently use the OLDER `<div class="dropdown-menu"><a class="dropdown-item">` markup with matching CSS targeting `.dropdown-item`. This is functionally equivalent to the canonical `<ul><li>` version (see Section 4) but visually slightly different (no centered-arrow tooltip; uses padding-shift hover instead). When migrating these pages to the canonical version, swap both the HTML markup AND the CSS rules — they MUST match each other. Until then, treat the 4 location pages as a known-old variant that doesn't follow the Section 4 / 4.5 canonical pattern.
+> **Contact dropdown — uses canonical `<ul><li>` markup** (matching Section 4) as of May 18 2026. All 4 location pages (Tengah, Bukit Batok, Jurong West, Tampines) now follow the standard pattern — no legacy variants remaining. Section 4.5 CSS with 1024/1025px breakpoints applies.
 
 ### File locations
 | File | Branch | URL |
@@ -1116,6 +1228,8 @@ Before finalising any page, verify:
 - [ ] Nav link order: **Home | About | Courses | Instructors | Review | Blog | Contact**
 - [ ] **Contact ▾ dropdown present in BOTH desktop nav AND mobile drawer** — `<li class="nav-item-dropdown">` (desktop) and `<div class="nav-item-dropdown">` (drawer). 4 submenu items in exact order: **Jurong West · Bukit Batok (Le Quest) · Tampines · Tengah (HQ) [NEW badge]**. Each item is `<li><a href="/locations/<branch>">…</a></li>` (canonical `<ul><li>` markup per Section 4). Section 4.5 dropdown CSS must also be present in `<style>`.
 - [ ] **Active page styling on contact.html:** when the current page IS contact, mark the trigger with a SINGLE merged class attribute `class="dropdown-trigger active"`. Never write `class="active" class="dropdown-trigger"` — duplicate `class` attributes are ignored and silently break dropdown styling.
+- [ ] **Orange keyword underline animation present** — Section 4.7 canonical CSS block (`.kw{... isolation:isolate}` + `.kw::after{... #8ddbd1 ... 0.95s forwards}` + `@keyframes kw`) is in `<style>`. The `isolation:isolate` declaration is **mandatory** — without it, the underline is invisible behind the page-hero gradient on most pages. Exactly **one** of each rule; delete any prefixed legacy variants like `.hero-headline .kw{...}`, `.trial-headline .kw{...}`, or `.page-hero h1 em{...}`.
+- [ ] **Use `<span class="kw">` for the hero's keyword** — one keyword per headline, on a noun that carries the meaning. Never use `<em>` for this purpose.
 - [ ] **Review link points to `review.html`** (NOT `testimonial.html` — deprecated)
 - [ ] Active page has `class="active"` on its nav link (instructor profiles → active on Instructors)
 - [ ] **中文 button:** ACTIVE only on root `index.html` (links to `index-zh.html`). Disabled `<span>` everywhere else — keep `opacity:0.35;cursor:not-allowed;pointer-events:none;` until that page's Chinese counterpart is built. See Section 14 for the active-state markup.
