@@ -1531,7 +1531,11 @@ footer { margin-bottom: 0 !important; }
        items get cut off below the viewport edge.
        UPDATE May 18 r3: bump bottom padding so the last item (中文 /
        Book Trial Class) isn't flush against the screen edge when
-       scrolled to the bottom. Also account for iOS safe-area inset. */
+       scrolled to the bottom. Also account for iOS safe-area inset.
+       UPDATE May 18 r4: hide the WhatsApp FAB (#waWrap, inline
+       z-index:9999) when the drawer is open. Without this, the green
+       circle sits ON TOP of the Book Trial Class button at the bottom
+       of the drawer and the user can't see/tap it. */
     .nav-drawer{
       max-height: calc(100vh - 108px);
       overflow-y: auto;
@@ -1539,6 +1543,7 @@ footer { margin-bottom: 0 !important; }
       overscroll-behavior: contain;
       padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
     }
+    .nav-drawer.on ~ #waWrap{ display: none; }
 
     /* FIX B: Video aspect ratio on mobile + tablet — match the actual
        16:9 YouTube content so it fills the frame instead of being
