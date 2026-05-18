@@ -1538,38 +1538,42 @@ footer { margin-bottom: 0 !important; }
 
     /* FIX B: Video aspect ratio on mobile + tablet — match the actual
        16:9 YouTube content so it fills the frame instead of being
-       letterboxed into a portrait 4:5 box. */
+       letterboxed into a portrait 4:5 box.
+       UPDATE May 18 r2: also swap the iframe for a tap-to-play poster
+       on tablets too (was only <540px). Android tablet Chrome blocks
+       YouTube autoplay → iframe loads but stays blank, user sees empty
+       gradient where video should be (Galaxy Tab A11 bug). */
     @media (max-width: 900px){
       .hero-frame{
         aspect-ratio: 16 / 9;
         min-width: 0;
         width: 100%;
+        background: #000;
       }
-      /* Widen the video container too — 460px max felt cramped on
-         tablets where the screen has plenty of room. */
-      .hero-vis{ max-width: min(620px, 100%); }
-    }
-
-    /* FIX B-2: On small phones (<540px) the iframe is replaced with a
-       YouTube poster image. Keep 16:9 so the thumbnail isn't cropped. */
-    @media (max-width: 540px){
-      .hero-frame{ aspect-ratio: 16 / 9; }
-      .hero-vis{ max-width: 100%; }
+      /* Let video fill the viewport on tablets — 620px max was too small */
+      .hero-vis{ max-width: 100%; width: 100%; }
+      /* Force tap-to-play poster on all non-desktop sizes (autoplay
+         unreliable on Android tablets, iPads, and phones) */
+      #heroIframe{ display: none; }
+      .hero-mobile-play{ display: flex; }
     }
 
     /* FIX C: Short-viewport landscape (Nest Hub 1024×600, landscape
        tablets) — compress the hero so the video and copy both fit
        inside the visible viewport without scrolling forever, and cap
-       the video height so it never overflows the screen. */
+       the video height so it never overflows the screen.
+       UPDATE May 18 r2: padding-top must be >= 108px (ann-bar 36px +
+       nav 72px) or content gets hidden behind the fixed nav stack.
+       Using 120px for breathing room. */
     @media (orientation: landscape) and (max-height: 700px){
       .hero{
         min-height: 0;
-        padding: 90px 0 50px;
+        padding: 120px 0 50px;
         align-items: flex-start;
       }
       .hero-frame{
         aspect-ratio: 16 / 9;
-        max-height: calc(100vh - 150px);
+        max-height: calc(100vh - 160px);
       }
       /* Hide decorative animations that float in empty space and waste
          vertical room on short screens. */
@@ -1780,9 +1784,14 @@ footer { margin-bottom: 0 !important; }
             style="position:absolute;inset:0;width:100%;height:100%;border:none;"
             loading="eager"
           ></iframe>
-          <!-- Mobile-only poster + play button. Hidden on desktop via CSS. -->
+          <!-- Mobile/tablet tap-to-play poster. Hidden on desktop via CSS.
+               Uses maxresdefault (1280x720) so the thumbnail stays sharp
+               on larger tablets like Galaxy Tab A11 (~800px wide). Falls
+               back to hqdefault if maxres isn't generated for this video. -->
           <button type="button" class="hero-mobile-play" id="heroMobilePlay" aria-label="Play video">
-            <img src="https://img.youtube.com/vi/Yh8Z6yca-28/hqdefault.jpg" alt="Video preview" loading="lazy"/>
+            <img src="https://img.youtube.com/vi/Yh8Z6yca-28/maxresdefault.jpg"
+                 alt="Video preview" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yh8Z6yca-28/hqdefault.jpg'"/>
             <span class="hero-mobile-play-btn" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="36" height="36" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
             </span>
