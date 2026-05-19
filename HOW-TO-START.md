@@ -205,6 +205,8 @@ liberalwebsitenew/
 │   ├── jurong-west.html    ← 裕廊西
 │   └── tampines.html       ← 淡滨尼 (Wed closed)
 ├── pages-zh/               ← Chinese pages (mirrors pages/) — instructor profiles + key root pages done May 18 2026
+│   ├── ballet-course.html  ← Ballet Course ZH (RAD pathway) — created May 19 2026 — canonical ZH course-detail template
+│   ├── hiphop-course.html  ← Hip Hop Course ZH — created May 19 2026
 │   ├── cecily.html         ← Principal · Erhu (canonical ZH instructor template)
 │   ├── calvin.html         ← Vice Principal · Drums/Guitar/Uke
 │   ├── kate.html           ← Piano · ABRSM
@@ -432,7 +434,18 @@ Contact ▾
 - Dropdown CSS expects nav-collapse at **1024px** (raised from 900px for Nest Hub — see breakpoint notes below)
 
 > **Review link target is `review.html`** (`testimonial.html` is deprecated).  
-> **中文 toggle is active on all pages with a ZH counterpart** — root `index.html` ↔ `index-zh.html`, the 13 instructor profiles, 4 location pages (jurong-west, bukit-batok, tampines, tengah), and the May-14-built ZH legal/article pages. On pages without a ZH counterpart yet (about, courses, instructors, blog, review, course-detail, trial), the toggle remains a grey disabled `<span>`. On ZH pages, the toggle reverses direction (EN → links to the EN counterpart per-page, not to the EN homepage). See HEADER-FOOTER-GUIDE.md §14.5 + §14.16 for exact markup.
+> **中文 toggle status (May 19, 2026):** **bidirectionally active** on 28 page pairs:
+> - Root `index.html` ↔ `index-zh.html`
+> - All 13 EN instructor pages ↔ 13 ZH instructor pages (May 19 2026 sweep activated EN side)
+> - 12 EN course-detail pages → ZH course slugs (May 19 sweep activated EN side; **only 2 ZH course pages built so far** — ballet-course, hiphop-course — so 10 of the 12 EN→ZH toggles currently 404 until those ZH course pages ship)
+> - 3 EN root pages (privacy, terms, contact) ↔ 3 ZH counterparts (May 14 2026)
+> - 2 EN article pages ↔ 2 ZH article pages (May 14 2026)
+>
+> Still **disabled-grey** on the EN side (correct — no ZH counterpart exists yet):
+> - 6 EN main pages: about, courses, instructors, blog, review, trial
+> - 4 EN location pages: tengah, bukit-batok, jurong-west, tampines (ZH counterparts EXIST but EN toggle still needs the §14.17 4-spot activation — pending item #10)
+>
+> On ZH pages, the toggle reverses direction (EN → links to the EN counterpart per-page, not to the EN homepage). See HEADER-FOOTER-GUIDE.md §14.5 + §14.16 + the new §14.17 "Activating the 中文 Toggle on an EN Page" for exact 4-spot markup and bulk activation script.
 
 ---
 
@@ -1045,8 +1058,11 @@ After first push attempt, `liberalmusicschool.com/locations/tengah` returned 404
 | 7 | Build `locations-zh/` Chinese versions of 4 branch pages. **DONE for the 4 main branches (jurong-west, bukit-batok, tampines, tengah)** May 18 2026. Coloury Art ZH page remains pending until the EN side is ready (it's currently `Opening Soon`). | Low (Coloury Art remaining) |
 | 8 | Sweep for any remaining `#01-K1` references (Le Quest was corrected to `#01-83`) | Low |
 | 9 | Consider unifying the 3 different ordering systems (footer / FAB / dropdown) | Low (cosmetic) |
-| 10 | Update EN-side `nav-lang` toggles on the 13 instructor pages + 4 location pages + 5 ZH-mirrored root pages from generic `中文 → index-zh.html` to per-page ZH counterpart (`../pages-zh/cecily`, `../locations-zh/tengah`, etc.) — currently the EN side still does a generic homepage hop on most pages | Medium |
-| 11 | Build out the rest of `pages-zh/` (about, courses, instructors, blog, review, trial, all `[subject]-course` pages, all course-zh articles) — 13 instructors + 4 locations + 3 legal/contact + 2 articles = **22 ZH pages live**; ~15 main ZH pages still to build | Low (Chinese site rollout phased) |
+| 10 | Activate EN-side 中文 toggle on **4 EN location pages** (`pages/locations/tengah.html`, `bukit-batok`, `jurong-west`, `tampines`) — same 4-spot pattern as HEADER-FOOTER-GUIDE §14.17. **DONE for 13 EN instructor pages + 12 EN course-detail pages (May 19 2026 sweep).** The 4 EN location pages still have disabled-grey 中文 buttons even though their ZH counterparts exist — same fix, just swap `pages/` → `locations/` and `pages-zh/` → `locations-zh/` in the 4-spot Python script. | Medium |
+| 11 | Build out the rest of `pages-zh/` (about, courses, instructors, blog, review, trial, **remaining 10 course pages**, all course-zh articles) — current count: 13 instructors + 4 locations + 3 legal/contact + 2 articles + **2 course pages (ballet-course, hiphop-course)** = **24 ZH pages live**; ~13 main ZH pages still to build. Each new ZH page MUST be paired with §14.17 EN-side toggle activation in the same commit. | Low (Chinese site rollout phased) |
+| 12 | **10 EN→ZH course toggles currently 404** (piano-course, violin-course, guitar-course, drum-course, vocal-course, ukulele-course, music-for-kids, chinese-instruments, music-theory, aural-training). Per May 19 2026 decision, the EN course pages' 中文 toggles were pre-activated to the future ZH slugs to preserve bidirectional-pairing convention and snap into working order as ZH pages ship. **Resolution path:** build the 10 remaining ZH course pages from the ballet-course/hiphop-course ZH templates. | Low (transient — resolves with #11) |
+| 13 | **Translation-string canon decision** (May 19 2026): the 2 new ZH course pages (ballet-course, hiphop-course) use the user-supplied translations `预约试听课` (Book Trial Class) and `即刻开始` (Start Today), while the 17 ZH pages built May 18 (13 instructors + 4 locations) use `预约试课` and `即刻启程`. Decide: A) accept inconsistency, B) bulk-replace ballet/hiphop ZH back to old canon, or C) bulk-replace the 17 May-18 ZH pages forward to new canon. PowerShell one-liner ready for option C if chosen. | Low (cosmetic — both translations are valid SG-Chinese) |
+| 14 | **Update sitemap.xml** to reflect the 2 new ZH course pages. Currently the sitemap has `pages/ballet-course` and `pages/hiphop-course` listed as EN-only (no zh-CN hreflang alternate). Should be promoted to 4-entry bilingual pairs matching the 13 instructor pair pattern: add `xhtml:link rel="alternate" hreflang="en/zh-CN"` to both existing EN entries + add new `<url>` entries for `pages-zh/ballet-course` and `pages-zh/hiphop-course`. | Medium (active SEO impact — Google Search Console will start seeing zh-CN alternates) |
 
 ---
 
@@ -1110,6 +1126,8 @@ After first push attempt, `liberalmusicschool.com/locations/tengah` returned 404
 | `locations-zh/bukit-batok.html` | Chinese branch landing page (Le Quest · 武吉巴督) — created May 18 2026 |
 | `locations-zh/jurong-west.html` | Chinese branch landing page (裕廊西) — created May 18 2026 |
 | `locations-zh/tampines.html` | Chinese branch landing page (淡滨尼, Wed closed) — created May 18 2026 |
+| `pages-zh/ballet-course.html` | **Chinese Ballet Course page (RAD pathway) — CANONICAL TEMPLATE for `pages-zh/<course>.html`** — created May 19 2026 |
+| `pages-zh/hiphop-course.html` | Chinese Hip Hop Course page — created May 19 2026 |
 
 ---
 
@@ -1376,6 +1394,94 @@ done
 | `pages-zh/<course>.html` (12 EN counterparts) | 12 | ❌ | pending |
 | `locations-zh/<branch>.html` | 4 | ✅ | **4 main branches built this session**; Coloury Art pending |
 | **ZH pages built / EN counterparts** | **22 / ~37** | **~59%** | |
+
+---
+
+## 📝 PAGE-SPECIFIC NOTES (May 19, 2026 session — ZH course pages canonical template + EN-side 中文 toggle batch activation + docs r9)
+
+This session opened the **course-detail ZH** front (the largest remaining ZH-rollout area) by building 2 canonical templates, then resolved the long-standing pending #10 by sweeping EN-side 中文 toggle activation across 25 EN pages. Documentation bumped: HEADER-FOOTER-GUIDE.md to **r9**, HOW-TO-START.md to **r9**.
+
+### A. New ZH course pages — ballet-course + hiphop-course
+
+**`pages-zh/ballet-course.html`** is the canonical ZH course-detail template — when the remaining 10 ZH course pages (piano, violin, guitar, drum, vocal, ukulele, music-for-kids, chinese-instruments, music-theory, aural-training) are built, clone this file and swap content. Pattern follows the established conventions:
+
+- 8 standard course-page sections: Hero / About / What You'll Learn / Who It's For / Stats Strip / Why Liberal / Other Courses (10 sibling cards) / CTA Banner
+- No JSON-LD (ballet/hiphop predate May 17 AEO sweep — schema still kept verbatim from EN for any course page that has it)
+- CTA banner keeps the **WhatsApp Us / WhatsApp 联系我们** button (ballet + hiphop were the 2 EN courses **NOT** included in the May 17 "WhatsApp Us → Contact Us" swap that hit the other 10 EN course pages)
+- "Other Courses" strip uses sibling-relative refs (`piano-course`, etc.) which currently 404 from `pages-zh/` until those ZH course pages ship — accepted per established convention
+- Path conventions identical to other pages-zh files: sibling ZH refs for nav, `/locations-zh/<slug>` for dropdown, `../pages/<slug>` for EN counterpart toggle
+
+**`pages-zh/hiphop-course.html`** mirrors ballet-course exactly with hip-hop content; second canonical built to confirm the template generalises across distinctly different course types (formal RAD ballet vs casual energetic hip hop) without structural drift.
+
+### B. Translation-string canon update — `预约试听课` + `即刻开始`
+
+User explicitly provided translation reference documents for ballet-course and hiphop-course using **`预约试听课`** (Book Trial Class — literally "trial listening class", more SG-Chinese-natural) and **`即刻开始`** (Start Today — direct literal translation). These differ from the conventions established for the 13 instructor ZH pages (May 18 r1), which used `预约试课` and `即刻启程`.
+
+**Decision left to user:** accept the inconsistency between course pages (新约定) and instructor pages (旧约定), OR run a PowerShell bulk replace across the 17 May-18 pages-zh files to unify on the new convention. As of end-of-session, both conventions coexist in the live site. See "Open / pending items" #13 below.
+
+### C. EN-side 中文 toggle batch activation (52 spots — 4 spots × 13 instructors + 4 spots × 12 courses ≈ 100 spots actually)
+
+Long-standing pending item #10 — the EN→ZH direction of the 中文 toggle was a **dead end** on nearly every EN page in the repo even after ZH counterparts shipped. Visitor lands on `pages/cecily.html`, sees grey disabled `中文` in the navbar, has no signal that `pages-zh/cecily.html` exists. May 19 sweep resolved this for 25 EN pages via a Python script that applies the same 4-spot pattern per file:
+
+1. `<head>`: insert bidirectional `<link rel="alternate" hreflang="en">` + `hreflang="zh-CN"` lines after canonical
+2. Desktop nav: `<span class="nav-lang" disabled>中文</span>` → `<a class="nav-lang" href="../pages-zh/<slug>">中文</a>`
+3. Mobile drawer: insert a `<a href="../pages-zh/<slug>">中文 · Chinese Version</a>` row above the trial CTA (mirror of the `EN · English Version` row that ZH pages have)
+4. Footer bottom bar: `<span style="cursor:not-allowed">中文版本</span>` → `<a href="../pages-zh/<slug>">中文版本</a>`
+
+**Result by category:**
+
+| Category | Files | EN toggles activated | ZH counterparts? | Click works? |
+|---|---|---|---|---|
+| Instructors | 13 | ✅ all 13 | ✅ all 13 built May 18 | ✅ 100% functional |
+| Course-detail | 12 | ✅ all 12 | ⏳ only 2 built (ballet, hiphop) | ✅ for 2 of 12; ⚠️ **10 of 12 currently 404** until ZH course pages ship |
+| Location pages | 4 | ❌ pending | ✅ all 4 built May 18 | ❌ EN side still disabled-grey (pending #10 remainder) |
+
+**About the 10 temporary 404s:** the user accepted this convention to preserve bidirectional-pairing semantics — when each of the 10 remaining ZH course pages is built, no EN-side edit is needed; the existing toggle just "snaps into" working order. Same pattern as the "Other Courses" sibling refs on the ZH pages themselves, which 404 until their corresponding ZH pages ship.
+
+### D. HEADER-FOOTER-GUIDE.md r9 — new §14.17 documenting the EN-side activation pattern
+
+Documenting the 4-spot pattern was overdue — it had been informally executed twice (ballet+hiphop in one turn, then 12 courses, then 13 instructors) without a single source of truth. **§14.17 "Activating the 中文 Toggle on an EN Page"** is now the canonical reference (179 lines) covering:
+
+- Exact find/replace snippets for all 4 spots
+- Path conventions for the 4 EN page-location types (`pages/`, `pages/articles/`, `locations/`, root)
+- Reusable Python bulk script (idempotent — safe to re-run if partially applied)
+- PowerShell verification one-liner
+- "When NOT to apply" exceptions (no ZH counterpart yet → leave disabled-grey; legacy redirects → leave alone)
+- Historical context of the May 19 sweep
+
+Also updated §14.5 (Language toggle) with a new **Bidirectional pairing rule** + **Current pairing status** snapshot table, and §14.14 (build checklist) with new **step 16** flagging the EN-side toggle sync as a required step when shipping any new ZH page.
+
+### E. vercel.json explicitly NOT updated
+
+After investigation, no vercel.json changes are needed for this session's work:
+- New ZH pages (`pages-zh/ballet-course`, `pages-zh/hiphop-course`) work automatically via existing `cleanUrls: true`
+- The 10 EN→ZH 404s should NOT be masked with redirects (would prevent the future ZH pages from being served when built; would also break existing redirects for slugs the user later actually builds)
+- No new legacy URL patterns to redirect
+
+### F. Verify-before-push markers used in this session
+
+| Change | Marker |
+|---|---|
+| pages-zh/ballet-course.html | `舞动。律动。<br/>掌控舞台。` (about h2) OR `预约试听课` (7 occurrences) |
+| pages-zh/hiphop-course.html | `舞动、律动、掌控舞台` (hero lead, slightly different punctuation than ballet) |
+| EN instructor toggle activation | `class="nav-lang" href="../pages-zh/cecily"` (or any of the 13 slugs) |
+| EN course toggle activation | `class="nav-lang" href="../pages-zh/ballet-course"` (or any of the 12 slugs) |
+| Bulk script idempotency | `'中文 · Chinese Version' not in content` guard expression |
+
+### G. Progress matrix (end of May 19, 2026 session)
+
+| Type | EN | ZH built | EN→ZH toggle active | Notes |
+|---|---|---|---|---|
+| Root index | 1 | 1 ✅ | ✅ | pre-existing |
+| `pages-zh/` legal + contact | 3 | 3 ✅ | ✅ | May 14 |
+| `pages-zh/articles/` | 2 | 2 ✅ | ✅ | May 14 |
+| `pages-zh/<instructor>` | 13 | 13 ✅ | ✅ (May 19 sweep) | full bidirectional |
+| `pages-zh/<course>` | 12 | **2 ✅** (ballet, hiphop) | ✅ all 12 (10 with temp 404) | template established |
+| `pages-zh/` main (about/courses/instructors/blog/review/trial) | 6 | ❌ 0 | n/a (no ZH) | |
+| `locations-zh/<branch>` | 4 | 4 ✅ | ❌ **EN side still pending** | reduced pending item #10 |
+| `locations-zh/coloury-art` | 1 | ❌ 0 | n/a (EN side still "Opening Soon") | |
+| **ZH pages built / EN counterparts** | — | **24 / ~37** | **~65%** | up from 22/37 at start of session |
+| **EN-side 中文 toggle activated** | — | — | **25 / 35 EN pages** | up from 0/35 at start of session |
 
 ---
 
