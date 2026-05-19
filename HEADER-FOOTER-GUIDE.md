@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: May 18, 2026 (r8 — Chinese site rollout: §14 expanded for pages-zh/ instructors + locations-zh/ branches; new §14.16 documenting the locations-zh/ pattern with bilingual JSON-LD strategy; §14.2 and §14.4.1 dropdown URLs corrected to /locations-zh/ now that all 4 ZH branches exist; §14 adds Noto Sans SC font stack standardisation)  
+> Source of truth: `index.html` (master) · Last updated: May 19, 2026 (r9 — added §14.17 "Activating the 中文 toggle on an EN page" documenting the 4-spot pattern; §14.5 expanded with the bidirectional-pairing rule; §14.14 build checklist gets a new step #15 to keep EN-side toggles in sync when a new ZH page ships)  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -1410,7 +1410,16 @@ Example desktop nav `<li>` on a Chinese page:
 
 The same reversal applies in the footer bottom bar (`中文版本` ↔ `English`) and the mobile drawer (where the toggle sits as a low-opacity row above the CTA button).
 
-> **Per-page counterpart rule (May 18 2026):** the toggle should **always** drop the user on the same page in the other language, not on the homepage. A user reading about Ms Cheng wants to continue reading about Ms Cheng — not be dumped back at the homepage. The 13 instructor + 4 location ZH pages all correctly target the per-page EN counterpart; the EN side still has some pages doing a generic homepage hop and should be updated to match (see HOW-TO-START.md pending item #10).
+> **Per-page counterpart rule (May 18 2026):** the toggle should **always** drop the user on the same page in the other language, not on the homepage. A user reading about Ms Cheng wants to continue reading about Ms Cheng — not be dumped back at the homepage.
+>
+> **Bidirectional pairing rule (May 19 2026):** every time you ship a new `pages-zh/<slug>.html` or `locations-zh/<slug>.html`, you **must** simultaneously activate the 中文 toggle in 4 spots on the matching EN page (`pages/<slug>.html` or `locations/<slug>.html`) — head hreflang, desktop nav, mobile drawer, footer. **See §14.17 for the exact 4-spot pattern with copy-paste snippets.** Skipping this means the ZH page exists but Chinese-curious EN visitors can't discover it: the 中文 button stays disabled-grey and routes nowhere. This is a routine omission — bake it into the build checklist (§14.14 step 15).
+>
+> **Current pairing status (May 19 2026):**
+> - ✅ All 13 EN instructor pages — 中文 toggle active to ZH counterpart
+> - ✅ All 12 EN course-detail pages — 中文 toggle active (10 currently point to ZH pages that don't exist yet → temporary 404 until ZH pages built)
+> - ❌ 4 EN location pages — toggle still disabled-grey
+> - ❌ 6 EN main pages (about, courses, instructors, blog, review, trial) — ZH counterparts don't exist yet, toggle correctly disabled
+> - ✅ Root `index.html` ↔ `index-zh.html` — bidirectionally paired
 
 ### 14.6 Mobile drawer — Chinese version
 
@@ -1531,6 +1540,7 @@ When you're ready to build out `pages-zh/about.html`, `pages-zh/courses.html`, e
    - `pages-zh/<instructor>.html` / `pages-zh/<article>.html` / `pages-zh/<legal>.html` → keep JSON-LD verbatim from EN page.
    - `locations-zh/<branch>.html` → **partially translate** per §14.16: MusicSchool `name` becomes bilingual, FAQPage fully translated, address + structural fields kept English.
 15. **Mobile/Landscape responsive fixes (Section 4.6) — required on every ZH page.** The CSS is **fully structural and contains zero strings**, so it copies verbatim from the English page. Required selectors: `.nav-drawer{max-height:calc(100dvh - 108px); overflow-y:auto; padding-bottom:calc(40px + env(safe-area-inset-bottom, 0px))}` + `.nav-drawer.on ~ #waWrap, .wa, .mob-bar{display:none}`. On `index-zh.html` only, also include the hero video block (Section 4.6.2) — the poster `<img alt>` is the one piece that gets localized (`视频预览` instead of `Video preview`).
+16. **🔁 SYNC EN-SIDE 中文 TOGGLE (CRITICAL — easy to forget).** The moment a `pages-zh/<slug>.html` or `locations-zh/<slug>.html` is committed, **immediately edit the matching `pages/<slug>.html` or `locations/<slug>.html` in 4 spots** to activate its 中文 toggle. Without this step, Chinese-curious visitors on the EN page see a disabled-grey 中文 button and never discover the ZH version exists. **See §14.17 for the exact 4-spot pattern with copy-paste snippets.** Mark this as DONE in the same git commit as the ZH page; do not split.
 
 ### 14.15 Verification markers (use in PowerShell verify-before-push)
 
@@ -1667,5 +1677,174 @@ See HOW-TO-START.md "PAGE-SPECIFIC NOTES (May 18 2026 session)" §C for the full
 7. Add a footer card (5th slot or extend grid)
 8. Add a row to the WA FAB popup
 9. Update HOW-TO-START.md file structure + file-table sections
+
+### 14.17 ACTIVATING THE 中文 TOGGLE ON AN EN PAGE (added May 19 2026)
+
+When you ship a new `pages-zh/<slug>.html` (or `locations-zh/<slug>.html`), the EN counterpart's 中文 button is still in its default disabled-grey state. To activate it, edit the matching `pages/<slug>.html` (or `locations/<slug>.html`) in **exactly 4 spots**. This section is the canonical reference for that activation — paste in the snippets, swap the slug, push.
+
+> **Why this is its own section:** the EN-side activation is **not** a one-line nav-href change — it's 4 coordinated edits (head meta, desktop nav, mobile drawer, footer), and skipping any of them leaves the toggle partially broken (e.g. works on desktop but disabled on mobile, or hreflang missing so Chinese-locale Google never sees the ZH page). It's also the step that's easiest to forget because it's on the EN side while you're focused on the ZH page. Hence the dedicated checklist entry (§14.14 step 16) and the worked snippets below.
+
+#### The 4-spot pattern
+
+Throughout the snippets, `<slug>` is the EN slug (always English, never localized — see §14.1) of the page you just shipped a ZH version for. E.g. `cecily`, `ballet-course`, `tengah`.
+
+##### Spot 1 — `<head>`: add bidirectional `hreflang` alternates
+
+Find:
+```html
+<link rel="canonical" href="https://liberalmusicschool.com/pages/<slug>"/>
+```
+
+Replace with:
+```html
+<link rel="canonical" href="https://liberalmusicschool.com/pages/<slug>"/>
+<link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/<slug>"/>
+<link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/<slug>"/>
+```
+
+> For location pages, swap `/pages/` → `/locations/` and `/pages-zh/` → `/locations-zh/` in all three lines.
+
+##### Spot 2 — Desktop nav: activate the 中文 toggle
+
+Find the disabled `<span>` (this is the default state on every EN page that lacks a ZH counterpart):
+```html
+<span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>
+```
+
+Replace with the active `<a>`:
+```html
+<a class="nav-lang" href="../pages-zh/<slug>">中文</a>
+```
+
+> The `.nav-lang` class brings the active-state styling (orange hover border, pointer cursor) for free — no inline style needed.
+
+##### Spot 3 — Mobile drawer: insert a 中文 link above the trial CTA
+
+Find the drawer's closing pattern (this is where the dropdown ends and the CTA begins — unique in the file):
+```html
+  </div>
+    <a href="trial" class="btn btn-cta">Book Trial Class</a>
+  </nav>
+```
+
+Replace with (inserting a new `<a>` line between):
+```html
+  </div>
+    <a href="../pages-zh/<slug>" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">中文 · Chinese Version</a>
+    <a href="trial" class="btn btn-cta">Book Trial Class</a>
+  </nav>
+```
+
+> This is the mirror of the EN toggle on ZH pages (`<a href="../pages/<slug>">EN · English Version</a>`) — same `background:var(--s2)` muted-pill styling.
+>
+> For the article-page sub-subfolder (`pages/articles/<slug>.html` → ZH at `pages-zh/articles/<slug>.html`), the href becomes `../../pages-zh/articles/<slug>` (one extra `../`).
+
+##### Spot 4 — Footer bottom bar: activate 中文版本
+
+Find the disabled `<span>`:
+```html
+<span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>
+```
+
+Replace with the active `<a>`:
+```html
+<a href="../pages-zh/<slug>" style="font-size:15px;color:rgba(255,255,255,.7);">中文版本</a>
+```
+
+> The visible difference: opacity bumps from `.15` (effectively invisible) to `.7` (a normal muted footer link), and `cursor:not-allowed` disappears so the pointer changes on hover.
+
+#### Path conventions by EN page location
+
+| EN page file location | `<a href="...">` for spots 2/3/4 |
+|---|---|
+| `pages/<slug>.html` | `../pages-zh/<slug>` |
+| `pages/articles/<slug>.html` | `../../pages-zh/articles/<slug>` |
+| `locations/<slug>.html` | `../locations-zh/<slug>` |
+| Root `index.html` | `index-zh` (no `../`) |
+
+#### Bulk script (PowerShell — for batch activation when many ZH pages ship at once)
+
+When you've shipped many ZH pages in one go (e.g. all 13 instructors May 18, all 12 courses May 19), don't hand-edit 13×4 = 52 spots. Use this Python pattern (Git Bash also works):
+
+```python
+import os, shutil
+
+SLUGS = ['cecily', 'calvin', 'kate', 'jescelyn', 'tina', 'verginia', 'cheng',
+         'aliona', 'teresa', 'jiang', 'mindy', 'leonard', 'loy']
+
+for slug in SLUGS:
+    path = f'pages/{slug}.html'
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Spot 1: head hreflang
+    canonical = f'<link rel="canonical" href="https://liberalmusicschool.com/pages/{slug}"/>'
+    if canonical in content and 'hreflang="zh-CN"' not in content:
+        content = content.replace(canonical, canonical + '\n' +
+            f'  <link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/{slug}"/>\n' +
+            f'  <link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/{slug}"/>')
+
+    # Spot 2: desktop nav
+    content = content.replace(
+        '<span class="nav-lang" style="opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>',
+        f'<a class="nav-lang" href="../pages-zh/{slug}">中文</a>')
+
+    # Spot 3: mobile drawer (use unique context to avoid matching other Book-Trial buttons)
+    old_drawer = '  </div>\n    <a href="trial" class="btn btn-cta">Book Trial Class</a>\n  </nav>'
+    new_drawer = (f'  </div>\n'
+                  f'    <a href="../pages-zh/{slug}" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">中文 · Chinese Version</a>\n'
+                  f'    <a href="trial" class="btn btn-cta">Book Trial Class</a>\n'
+                  f'  </nav>')
+    if old_drawer in content and '中文 · Chinese Version' not in content:
+        content = content.replace(old_drawer, new_drawer)
+
+    # Spot 4: footer
+    content = content.replace(
+        '<span style="font-size:15px;color:rgba(255,255,255,.15);cursor:not-allowed;">中文版本</span>',
+        f'<a href="../pages-zh/{slug}" style="font-size:15px;color:rgba(255,255,255,.7);">中文版本</a>')
+
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+```
+
+The script is **idempotent** — checking `'hreflang="zh-CN"' not in content` and `'中文 · Chinese Version' not in content` before inserting means it's safe to re-run if a partial activation already happened.
+
+#### Verification markers
+
+After activation, each EN page should have **4 occurrences** of `pages-zh/<slug>` (or `locations-zh/<slug>`):
+1. `hreflang="zh-CN" href=".../pages-zh/<slug>"` in head
+2. `class="nav-lang" href="../pages-zh/<slug>"` in desktop nav
+3. `href="../pages-zh/<slug>" style="background:var(--s2)..."` in mobile drawer
+4. `href="../pages-zh/<slug>" style="font-size:15px;color:rgba(255,255,255,.7)..."` in footer
+
+And **0 occurrences** of either:
+- `opacity:0.35;cursor:not-allowed;pointer-events:none;">中文</span>` (disabled desktop state)
+- `cursor:not-allowed;">中文版本</span>` (disabled footer state)
+
+PowerShell one-liner for a batch:
+```powershell
+foreach ($slug in @('cecily','calvin','kate','jescelyn','tina','verginia','cheng','aliona','teresa','jiang','mindy','leonard','loy')) {
+  $c = (Get-Content "pages/$slug.html" -Raw)
+  $expected = ([regex]::Matches($c, [regex]::Escape("pages-zh/$slug"))).Count
+  $stale = ([regex]::Matches($c, 'cursor:not-allowed;">中文')).Count
+  $ok = if ($expected -ge 4 -and $stale -eq 0) { '✓' } else { '✗' }
+  Write-Host "$ok $slug · paths=$expected · stale=$stale"
+}
+```
+
+#### When NOT to apply this pattern
+
+The EN-side 中文 toggle stays **disabled-grey** in these cases:
+
+- **The ZH counterpart doesn't exist yet** — clicking 中文 would 404. Leave the disabled `<span>` in place until you ship the ZH page; then activate in the same commit per §14.14 step 16.
+  - *Exception:* on a page in active build-out (e.g. the May 19 2026 course-page batch), it's acceptable to pre-activate all 12 EN course toggles to the future ZH slugs even though 10 of them temporarily 404 — this preserves the bidirectional pairing convention and the activation snaps into working order the moment each ZH page lands. Document this temporary state in the commit message ("ZH PENDING — toggles point to future ZH slugs").
+- **The page has no ZH counterpart planned** (legacy redirect targets, internal-only tools). Leave disabled.
+
+#### Historical context
+
+Before May 19 2026, every EN page in the repo (40+ files) had the disabled-grey `<span>` regardless of whether its ZH counterpart existed. The ZH side was correctly wired (per-page EN counterpart), but the EN→ZH direction was a dead end on every page. This was [HOW-TO-START.md pending item #10](../HOW-TO-START.md). The May 19 2026 sweep resolved this for:
+- All 13 EN instructor pages (`pages/cecily.html` through `pages/loy.html`)
+- All 12 EN course-detail pages (`pages/ballet-course.html` through `pages/aural-training.html`)
+- *Remaining pending:* 4 EN location pages (`locations/tengah.html`, etc.) — same pattern applies, just swap `pages/` → `locations/` and `pages-zh/` → `locations-zh/`.
 
 ---
