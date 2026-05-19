@@ -199,14 +199,24 @@ liberalwebsitenew/
 │   ├── bukit-batok.html    ← Le Quest
 │   ├── jurong-west.html
 │   └── tampines.html
-├── locations-zh/           ← Chinese branch pages (created May 18 2026 — 4 of 5 done; Coloury Art pending)
+├── locations-zh/           ← Chinese branch pages (created May 18 2026 — 4 of 5 done; Coloury Art pending) — JSON-LD upgraded to dual @type + geo + hasOfferCatalog May 19 r10
 │   ├── tengah.html         ← Flagship HQ (登加旗舰总部)
 │   ├── bukit-batok.html    ← Le Quest (武吉巴督)
 │   ├── jurong-west.html    ← 裕廊西
 │   └── tampines.html       ← 淡滨尼 (Wed closed)
-├── pages-zh/               ← Chinese pages (mirrors pages/) — instructor profiles + key root pages done May 18 2026
-│   ├── ballet-course.html  ← Ballet Course ZH (RAD pathway) — created May 19 2026 — canonical ZH course-detail template
-│   ├── hiphop-course.html  ← Hip Hop Course ZH — created May 19 2026
+├── pages-zh/               ← Chinese pages (mirrors pages/) — instructor profiles + key root pages done May 18 2026; all 12 ZH course pages JSON-LD-complete May 19 r10
+│   ├── ballet-course.html       ← Ballet Course ZH (RAD pathway) — created May 19 2026 — canonical ZH course-detail template
+│   ├── hiphop-course.html       ← Hip Hop Course ZH — created May 19 2026
+│   ├── piano-course.html        ← Piano Course ZH — JSON-LD + kw 钢琴课 H1 added May 19 r10
+│   ├── violin-course.html       ← Violin Course ZH — JSON-LD + kw 小提琴课 H1 added May 19 r10
+│   ├── drum-course.html         ← Drum Course ZH — JSON-LD + kw 架子鼓课 H1 added May 19 r10
+│   ├── guitar-course.html       ← Guitar Course ZH — JSON-LD + kw 吉他课 H1 added May 19 r10
+│   ├── ukulele-course.html      ← Ukulele Course ZH — JSON-LD + kw 尤克里里课 H1 added May 19 r10
+│   ├── vocal-course.html        ← Vocal Course ZH — JSON-LD + kw 声乐课 H1 added May 19 r10
+│   ├── music-for-kids.html      ← Kids Music ZH — JSON-LD + age range 3→2.5 sync (6 visible spots) added May 19 r10
+│   ├── chinese-instruments.html ← Chinese Instruments ZH — JSON-LD + kw 华乐课 H1 added May 19 r10
+│   ├── music-theory.html        ← Music Theory ZH — JSON-LD + kw 乐理课 H1 added May 19 r10
+│   ├── aural-training.html      ← Aural Training ZH — JSON-LD + kw 听音训练课 H1 added May 19 r10
 │   ├── cecily.html         ← Principal · Erhu (canonical ZH instructor template)
 │   ├── calvin.html         ← Vice Principal · Drums/Guitar/Uke
 │   ├── kate.html           ← Piano · ABRSM
@@ -1482,6 +1492,159 @@ After investigation, no vercel.json changes are needed for this session's work:
 | `locations-zh/coloury-art` | 1 | ❌ 0 | n/a (EN side still "Opening Soon") | |
 | **ZH pages built / EN counterparts** | — | **24 / ~37** | **~65%** | up from 22/37 at start of session |
 | **EN-side 中文 toggle activated** | — | — | **25 / 35 EN pages** | up from 0/35 at start of session |
+
+---
+
+## 📝 PAGE-SPECIFIC NOTES (May 19, 2026 session — Part 2 — JSON-LD/AEO sweep across 10 course-detail ZH pages + locations-zh dual @type/geo/hasOfferCatalog upgrade + index-zh hero overhaul + age 3→2.5 cross-page sync + docs r10)
+
+Same calendar day as r9 but a distinct work block: r9 built the 2 canonical course-page ZH templates (ballet, hiphop) and resolved the EN-side 中文 toggle dead-end. **r10 closes the AEO gap** — every ZH course-detail page and ZH location page now ships with production-grade JSON-LD that Google, Gemini, SearchGPT, and Perplexity can ingest directly. Documentation bumped: HEADER-FOOTER-GUIDE.md to **r10**, HOW-TO-START.md to **r10**.
+
+### A. Course-detail ZH pages — JSON-LD + hreflang + kw H1 added to remaining 10
+
+The 10 ZH course pages that existed but lacked structured data got the same 3-step uplift per page:
+
+1. **Title + meta description rewrite** — lead with the high-frequency search term (e.g. `儿童钢琴课`, `ABRSM 5级乐理`, `Trinity & Rockschool 架子鼓考级`) instead of bookish `课程`
+2. **3 hreflang tags** (was 1 canonical only): `en` → EN counterpart, `zh-CN` → this page, `x-default` → EN counterpart
+3. **JSON-LD array** inserted directly before `</head>`: a single `<script type="application/ld+json">` containing `[Course, FAQPage]` — Course holds `provider`/`educationalLevel`/`audience`/`courseMode`/`offers`; FAQPage holds 3 question-answer pairs in pure Chinese
+4. **Hero H1 simplified to `<span class="kw">X课</span>`** — drops the redundant `<X>课程` framing, lets the orange underline animation sit on the single high-search-volume keyword
+
+| Page | New H1 keyword | Title core search term |
+|---|---|---|
+| piano-course | 钢琴课 | 儿童钢琴课 / ABRSM 钢琴考级 |
+| violin-course | 小提琴课 | 儿童小提琴课 / ABRSM 小提琴考级 |
+| drum-course | 架子鼓课 | Trinity & Rockschool 架子鼓考级 |
+| guitar-course | 吉他课 | 木吉他与电吉他课程 |
+| ukulele-course | 尤克里里课 | 零基础尤克里里课程 |
+| vocal-course | 声乐课 | 儿童与成人唱歌培训 |
+| music-for-kids | (no kw, has standalone `儿童音乐启蒙课` title) | 2.5-5岁奥尔夫幼儿音乐课程 |
+| chinese-instruments | 华乐课 | 儿童二胡与古筝考级 |
+| music-theory | 乐理课 | ABRSM 5级乐理与考级辅导 |
+| aural-training | 听音训练课 | ABRSM 英皇听力测试辅导 |
+
+> A brief `儿童` prefix was tried in front of `<span class="kw">钢琴课</span>` / `<span class="kw">小提琴课</span>` then removed — user wanted the kw span to read as a standalone keyword card so the orange-underline animation reads cleanly without preceding context.
+
+### B. locations-zh JSON-LD upgrade — dual @type + geo + hasOfferCatalog
+
+All 4 ZH location pages (tampines, bukit-batok, jurong-west, tengah) upgraded from single `@type: "MusicSchool"` to the production-grade pattern. Three structural improvements per file:
+
+1. **Dual @type** — `"@type": ["MusicSchool", "LocalBusiness"]` matches the homepage convention. Required because `LocalBusiness` is on Google's review-snippet allowlist while `MusicSchool` alone is not — same fix Apr 28 2026 applied to the root index pages.
+2. **GeoCoordinates added** — each branch now has its actual lat/lng. Values match the master `location` array in `index.html`/`index-zh.html`:
+   - Tengah: `1.3768, 103.7437`
+   - Tampines: `1.3540, 103.9440`
+   - Jurong West: `1.3480, 103.7050`
+   - Bukit Batok (Le Quest): `1.3590, 103.7490`
+3. **hasOfferCatalog with 7 location-localized courses** — each course `name` field includes the branch name, e.g. `"淡滨尼儿童钢琴课 (Piano Lessons Tampines)"`, `"武吉巴督华乐课程 (Chinese Instruments Bukit Batok)"`. This binds the course term to the local search intent so a query like *"淡滨尼钢琴课"* hits the schema directly.
+
+Also rewrote title + meta description to lead with the comma-joined course list (e.g. `"钢琴、小提琴与乐器考级培训"`) rather than abstract `"最优"` framing. Hero H1 standardized to `<h1><span class="kw">X音乐课</span></h1>` (was `X<span class="kw">音乐学校</span>`) so the kw span carries the full searchable phrase `<location>音乐课`.
+
+### C. index-zh.html — multi-iteration hero overhaul + Course schema bilingual + pill rewiring
+
+Major changes across multiple iterations:
+
+1. **Hero H1 evolved** through 4 variants ending at the 3-line layout:
+   ```
+   新加坡顶尖音乐学校
+   <span class="kw">让孩子爱上钢琴</span>，
+   轻松拿下ABRSM
+   ```
+   The `<br>` after the comma forces clean 3-line break (logically `让孩子爱上钢琴，` on row 2, `轻松拿下ABRSM` on row 3).
+
+2. **Mobile-range H1 font fix** — `.hero h1` was fixed `font-size:75px` until the 540px breakpoint, leaving the 541–1199px tablet range with the title overflowing the 50/50 hero-grid column. Replaced with smooth-scaling clamp:
+   ```css
+   .hero h1{font-size:clamp(2.6rem, 5vw, 62px); letter-spacing:-1.5px; line-height:1.1; margin-bottom:24px}
+   ```
+   The 540px mobile media-query override (`clamp(1.85rem, 8.6vw, 2.5rem)`) is preserved for narrower screens. Validated across 540–1400px: both the title line (9 Chinese chars) and the kw line (`让孩子爱上钢琴，`, 8 chars) fit without wrapping at every width.
+
+3. **Meta description + slogan + JSON-LD descriptions** all updated to embed the headline phrase `让孩子爱上钢琴，轻松拿下ABRSM` — 3 cross-references for SEO weight.
+
+4. **Course-list JSON-LD bilingualized** — Piano + Violin Course entries now have Chinese course names with English in parentheses: `"新加坡儿童钢琴课 (Piano Lessons for Children)"`. Other location/employee blocks intentionally kept English (Google Maps consumes those, not the AI engines).
+
+5. **FAQPage JSON-LD fully translated to Chinese** — 7 Q&A pairs now match the visible #faq cards verbatim, avoiding the "schema doesn't match visible content" Google warning.
+
+6. **Hero pill links rewired** — `<a href="pages-zh/courses#piano">` anchor-only links → dedicated course-page targets `<a href="pages-zh/piano-course">` for piano/violin/drums/vocal. The `更多 →` pill still points to the umbrella `pages-zh/courses`.
+
+7. **Hreflang** — earlier `hreflang="zh"` pointing to the github.io URL replaced with `hreflang="zh-CN"` pointing to `liberalmusicschool.com/index-zh`, plus added `hreflang="x-default"` → EN homepage. Three tags total.
+
+### D. music-for-kids age range 3→2.5 cross-page sync
+
+To prevent Google flagging "schema doesn't match visible content" mismatches, the brand-wide pivot to age **2.5** (down from 3) for the kids-music programme propagated across **6 visible text spots in `pages-zh/music-for-kids.html`** plus **4 sibling location-page music-for-kids cards**:
+
+- `pages-zh/music-for-kids.html` — pill tag, hero lead, hstat-num (`2.5–5 岁` not `3–5 岁`), about paragraph, badge, philosophy line — plus the audienceType in the Course schema (`2.5-5岁幼儿`) and the matching FAQPage Q2 (`2.5 岁的孩子适合上音乐启蒙课吗？`).
+- `locations-zh/tampines.html`, `locations-zh/bukit-batok.html`, `locations-zh/jurong-west.html`, `locations-zh/tengah.html` — each had a course-card line `<p>奥尔夫教学法早期音乐教育 · 适合 3–5 岁</p>` → updated to `适合 2.5–5 岁`. Tengah was additionally normalized to `适合 2.5 至 5 岁` (the FAQ-aligned canonical form, replacing the en-dash with `至`).
+
+After the sweep, no `3–5 岁`, `3-5 岁`, or `3 至 5 岁` strings remain in the 5 affected files.
+
+### E. Misc fixes — jurong-west footer bilingual cleanup + tengah HTML hygiene
+
+Two strict polish fixes user caught:
+
+1. **`locations-zh/jurong-west.html` footer brand block** — had an English `alt="Liberal Music & Arts School"` on the footer logo `<img>` and an untranslated English paragraph. Both fixed:
+   - `alt="Liberal Music & Arts School"` → `alt="博雅音乐艺术学校"`
+   - English `<p>Liberal Music & Arts School nurtures creativity...</p>` → Chinese `<p>博雅音乐艺术学校致力于培养孩子的创造力、自信心，以及对音乐与艺术的终身热爱——服务 2.5 岁至成人各年龄段学员。凭借专业导师团队、全人教育理念与显著的教学成果，自 2009 年起已成为新加坡 20,000+ 家庭信赖的选择。</p>`
+   - This brings jurong-west's footer in line with the other 3 locations and the canonical ZH paragraph.
+
+2. **`locations-zh/tengah.html` duplicate `</main>`** — file had two consecutive `</main>` closing tags around line 897-898 (HTML nesting bug, would slow Google parsing). Removed the duplicate so `<main>` open and close tags balance 1:1. Also character-polished `终生热爱` → `终身热爱` (more standard usage) in the same footer paragraph.
+
+### F. New canonical conventions to add to the playbook
+
+These are now the production-grade patterns for any future ZH page work — document them here for the next session to find:
+
+1. **Course detail page JSON-LD template** (`pages-zh/<course>.html`):
+   - Single `<script type="application/ld+json">` block inserted right before `</head>`
+   - Contains a JSON **array** with two objects: `Course` first, `FAQPage` second
+   - `Course.audience.audienceType` follows the bilingual pattern `"4岁至成人 (Ages 4 to Adult)"`
+   - `Course.offers.url` → `https://liberalmusicschool.com/pages-zh/trial`
+   - `FAQPage.mainEntity` has 3 Q&A pairs minimum, all Chinese, that mirror the visible-on-page content closely enough that Google won't flag mismatch
+
+2. **Location page JSON-LD template** (`locations-zh/<branch>.html`):
+   - Two separate `<script type="application/ld+json">` blocks (not an array) — historical convention preserved for now
+   - First block: `"@type": ["MusicSchool", "LocalBusiness"]` (dual type — see §B above for why)
+   - Must include `geo` object (lat/lng matching the master location array in `index.html`)
+   - Must include `hasOfferCatalog` with 7 courses, each `name` prefixed with the Chinese location name
+   - Telephone format with spaces (`"+65 8892 1198"`, not `"+6588921198"`)
+   - Second block: `FAQPage` with 3 Q&A pairs, all Chinese
+
+3. **Hero H1 keyword pattern (ZH)** — wrap the *simplified* search keyword in `<span class="kw">` (i.e. `钢琴课` not `钢琴课程`, `小提琴课` not `小提琴课程`). The kw underline animation reads better on a single keyword card; the visible text length matches the natural search query the user types into Google.
+
+4. **Hreflang triplet (ZH pages)** — always three tags: `en` → EN counterpart, `zh-CN` → this page, `x-default` → EN counterpart. The older `hreflang="zh"` (no region) is deprecated.
+
+5. **ZH-page footer logo alt** — must be Chinese (`alt="博雅音乐艺术学校"`), never English. Jurong-west was the only outlier; now uniform.
+
+6. **Cross-page age propagation rule** — when changing a brand fact (like the kids-music starting age from 3 to 2.5), grep the entire site for the old number/range before committing. Schema/visible-content mismatch is one of the most common Google rich-snippet rejection reasons.
+
+### G. Verify-before-push markers used in this session
+
+| Change | Marker |
+|---|---|
+| pages-zh/piano-course.html | `儿童钢琴课与 ABRSM 考级辅导` (Course schema name — unique to this page after r10) |
+| pages-zh/violin-course.html | `前新加坡国家青年交响乐团等专业弦乐导师` (Course description — only on violin page) |
+| pages-zh/drum-course.html | `真正的原声架子鼓（Acoustic Drums）` (FAQ A1 — drum-specific) |
+| pages-zh/guitar-course.html | `木吉他（Acoustic Guitar）和电吉他（Electric Guitar）` (FAQ A1) |
+| pages-zh/ukulele-course.html | `第一节课就能弹奏出完整的歌曲` (FAQ A1) |
+| pages-zh/vocal-course.html | `三大体系考级辅导的学校` (FAQ A2 — only vocal page mentions this) |
+| pages-zh/music-for-kids.html | `2.5 至 5 岁幼儿` (Course audienceType) + `"2.5-5 岁"` visible badge |
+| pages-zh/chinese-instruments.html | `南洋理工大学孔子学院（NTU 鼟考级大纲）` (FAQ A2) |
+| pages-zh/music-theory.html | `ABRSM 5 级乐理冲刺辅导` (Course description) |
+| pages-zh/aural-training.html | `从"良好"跨越到"优秀"` (Course description — uses curly quotes) |
+| locations-zh/<branch>.html ×4 | `"hasOfferCatalog"` (presence is the signal — pre-r10 schemas didn't have this) |
+| index-zh.html hero | `让孩子爱上钢琴，轻松拿下ABRSM` (appears in H1 + title + slogan = 3 occurrences) |
+| index-zh.html mobile fix | `clamp(2.6rem, 5vw, 62px)` (replaces fixed `font-size:75px`) |
+
+### H. Progress matrix (end of May 19, 2026 — Part 2)
+
+| Type | EN | ZH built | EN→ZH toggle active | JSON-LD present | Notes |
+|---|---|---|---|---|---|
+| Root index | 1 | 1 ✅ | ✅ | ✅ upgraded r10 (bilingual descriptions + Chinese FAQPage) | |
+| `pages-zh/` legal + contact | 3 | 3 ✅ | ✅ | n/a | May 14 |
+| `pages-zh/articles/` | 2 | 2 ✅ | ✅ | n/a (article-specific schema, separate concern) | May 14 |
+| `pages-zh/<instructor>` | 13 | 13 ✅ | ✅ | n/a | full bidirectional |
+| `pages-zh/<course>` | 12 | **12 ✅** (10 added this session: piano, violin, drum, guitar, ukulele, vocal, music-for-kids, chinese-instruments, music-theory, aural-training) | ✅ all 12 | ✅ Course + FAQPage on all 12 r10 | the 10 EN→ZH toggles that were temp-404 in r9 now snap to working pages |
+| `pages-zh/` main (about/courses/instructors/blog/review/trial) | 6 | ❌ 0 | n/a (no ZH) | n/a | still pending |
+| `locations-zh/<branch>` | 4 | 4 ✅ | ❌ **EN side still pending** (same as r9) | ✅ dual @type + geo + hasOfferCatalog all 4 r10 | reduced pending #10 remainder still applies |
+| `locations-zh/coloury-art` | 1 | ❌ 0 | n/a | n/a | still "Opening Soon" on EN side |
+| **ZH pages built / EN counterparts** | — | **34 / ~37** | **~92%** | — | up from 24/37 at start of session (Part 2) |
+| **EN-side 中文 toggle activated** | — | — | **25 / 35 EN pages** | — | unchanged from r9; location-page sweep is the last remaining batch |
+| **ZH pages with production JSON-LD** | — | — | — | **17 / 37** (1 index + 12 course + 4 location) | new metric introduced r10 |
 
 ---
 

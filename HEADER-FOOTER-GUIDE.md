@@ -1,5 +1,5 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
-> Source of truth: `index.html` (master) · Last updated: May 19, 2026 (r9 — added §14.17 "Activating the 中文 toggle on an EN page" documenting the 4-spot pattern; §14.5 expanded with the bidirectional-pairing rule; §14.14 build checklist gets a new step #15 to keep EN-side toggles in sync when a new ZH page ships)  
+> Source of truth: `index.html` (master) · Last updated: May 19, 2026 (r10 — added §6.5 "ZH page footer logo alt must be Chinese" after jurong-west outlier fix; r9 (same day) added §14.17 "Activating the 中文 toggle on an EN page" documenting the 4-spot pattern; §14.5 expanded with the bidirectional-pairing rule; §14.14 build checklist gets a new step #15 to keep EN-side toggles in sync when a new ZH page ships)  
 > Apply this guide to **every** page. No deviations.
 
 ---
@@ -816,6 +816,47 @@ footer{margin-bottom:0!important}
 ```
 
 > **About the `.foot-loc-meta` line on each card** *(added April 28 2026 for AEO/local-search):* Every location card carries a third line beneath the address showing 🚇 nearest MRT + 🕐 hours (or "✦ Opening Soon" for Coloury Art). It exists so AI search engines (Perplexity, SearchGPT, Gemini) can answer queries like *"music school near Lakeside MRT"* or *"music school open now"* by scraping the footer text. The `.foot-loc-meta` rule is small (11.5px) and muted (`opacity .55`) so it sits visually quiet — bold enough for scrapers, light enough not to fight the address. The MRT icon uses `assets/mrt.webp` (purple/blue source, white-rendered via `filter:brightness(0) invert(1)`). The `.sep` `<span>·</span>` is a thin middot separator. The Coloury Art card auto-inherits an orange-tinted variant via `.foot-loc.soon .foot-loc-meta`.
+
+---
+
+## 6.5. ZH-PAGE FOOTER LOGO `alt` MUST BE CHINESE (added May 19, 2026 r10)
+
+The footer brand logo `<img>` accepts the same `src` on both EN and ZH pages (`../assets/logofooter.webp`), but the **`alt` attribute MUST localize**. The English alt `"Liberal Music & Arts School"` belongs on EN pages only; every ZH page must use the Chinese alt `"博雅音乐艺术学校"`.
+
+### EN page (canonical, per §6 above)
+```html
+<img src="../assets/logofooter.webp" alt="Liberal Music &amp; Arts School"
+     onerror="this.src='../assets/logo.webp'"/>
+```
+
+### ZH page (canonical)
+```html
+<img src="../assets/logofooter.webp" alt="博雅音乐艺术学校"
+     onerror="this.src='../assets/logo.webp'"/>
+```
+
+### Why this matters
+`alt` text is read by screen readers and indexed by image search. A ZH visitor's screen reader announcing *"Liberal Music & Arts School"* in English in the middle of an otherwise-Chinese page breaks the localization contract; Baidu and Google Image Search ZH miss the page when scoping for `博雅音乐艺术学校`.
+
+### Historical note
+Discovered May 19 2026 r10 during a polish pass: `locations-zh/jurong-west.html` was the lone outlier — every other ZH page (root, instructors, course-detail, other locations) already used `alt="博雅音乐艺术学校"`. Jurong-west also had an English `<p>Liberal Music & Arts School nurtures creativity…</p>` paragraph one line below the logo, fixed in the same commit; the canonical Chinese paragraph used on every other ZH page is:
+
+```html
+<p>博雅音乐艺术学校致力于培养孩子的创造力、自信心，以及对音乐与艺术的终身热爱——服务 2.5 岁至成人各年龄段学员。凭借专业导师团队、全人教育理念与显著的教学成果，自 2009 年起已成为新加坡 20,000+ 家庭信赖的选择。</p>
+```
+
+> ⚠️ Use `终身热爱` (more standard), not `终生热爱`. The latter slipped into one location-page draft and was corrected in r10.
+
+### Verification one-liner
+After editing any ZH page footer, grep both files for the English string. Both checks must return zero hits on ZH pages:
+
+```bash
+# From repo root — list any ZH page still carrying English footer text
+grep -rln 'alt="Liberal Music' index-zh.html pages-zh/ locations-zh/
+grep -rln 'Liberal Music &amp; Arts School nurtures' index-zh.html pages-zh/ locations-zh/
+```
+
+If either returns a file path, fix that file before pushing.
 
 ---
 
