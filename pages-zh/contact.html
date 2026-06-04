@@ -496,11 +496,14 @@
               <h2>给我们留言</h2>
               <p>填写下方的表单，我们将在 24 小时内与您联系。</p>
 
+              <!-- ANTI-SPAM: replace the email below with your FormSubmit random string
+                   (found in your FormSubmit activation email) so bots can't harvest the address:
+                   action="https://formsubmit.co/your-random-string" -->
               <form id="formArea" action="https://formsubmit.co/liberal_music@yahoo.com.sg" method="POST">
                 <!-- FormSubmit settings -->
                 <input type="hidden" name="_subject" value="新询问 (中文页) — Liberal Music"/>
                 <input type="hidden" name="_template" value="table"/>
-                <input type="hidden" name="_captcha" value="false"/>
+                <input type="hidden" name="_captcha" value="true"/>
                 <input type="hidden" name="_next" value="https://liberalmusicschool.com/pages-zh/contact?sent=1"/>
                 <!-- Honeypot anti-spam -->
                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
