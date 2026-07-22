@@ -248,16 +248,38 @@
     .card.hl{background:#FFF3EA;border-color:rgba(255,102,0,.3)}
     .card .tagline{display:inline-block;background:var(--or-lt);color:var(--or);font-family:'Nunito',sans-serif;font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:1.2px;padding:5px 12px;border-radius:999px;margin-bottom:14px}
 
-    /* Grade ladder — NOT interactive (display only) */
+    /* Grade ladder — hover/tap reveals per-grade detail popover */
     .ladder{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;align-items:stretch}
-    .step{flex:1 1 auto;min-width:104px;background:#fff;border:1.5px solid #EEF2F8;border-radius:16px;padding:20px 16px;text-align:center;cursor:default;position:relative}
+    .step{flex:1 1 auto;min-width:104px;background:#fff;border:1.5px solid #EEF2F8;border-radius:16px;padding:20px 16px;text-align:center;cursor:help;position:relative;transition:border-color var(--t),box-shadow var(--t)}
+    .step:hover,.step:focus-within,.step.open{border-color:rgba(255,102,0,.45);box-shadow:var(--sh-s);z-index:60}
     .step b{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--ink);margin-bottom:4px}
-    .step span{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.45;display:block}
+    .step>span{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.45;display:block}
     .step.acc{background:#FFF3EA;border-color:rgba(255,102,0,.45);box-shadow:0 0 0 3px rgba(255,102,0,.10)}
     .step.acc b{color:var(--or)}
-    .step.acc::before{content:'🔑 GATEWAY';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:9px;letter-spacing:.8px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+    .step.acc::before{content:'🔑 GATEWAY';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:9px;letter-spacing:.8px;padding:3px 9px;border-radius:999px;white-space:nowrap;z-index:2}
     .step.dip{flex:1 1 100%;background:var(--s2);border-style:dashed;border-color:#D8E3F0}
     .step.dip b{color:var(--body)}
+    /* Popover (desktop: floats above the card) */
+    .step-pop{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translate(-50%,6px);width:262px;background:#fff;border:1.5px solid #EEF2F8;border-radius:14px;box-shadow:0 14px 38px rgba(31,42,68,.16);padding:16px 18px;text-align:left;opacity:0;pointer-events:none;transition:opacity .22s var(--sp),transform .22s var(--sp);z-index:70}
+    .step-pop::after{content:'';position:absolute;bottom:-7px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-right:1.5px solid #EEF2F8;border-bottom:1.5px solid #EEF2F8}
+    .step:hover .step-pop,.step:focus-within .step-pop,.step.open .step-pop{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+    .step-pop h4{font-size:14.5px;margin-bottom:6px;color:var(--ink)}
+    .step-pop p{font-size:13px;line-height:1.62;color:var(--body);margin:0}
+    .step-pop p strong{color:var(--ink);font-weight:700}
+    /* Edge cards: align popover to the card edge so it never clips the viewport */
+    .step.pop-l .step-pop{left:0;transform:translate(0,6px)}
+    .step.pop-l:hover .step-pop,.step.pop-l:focus-within .step-pop,.step.pop-l.open .step-pop{transform:translate(0,0)}
+    .step.pop-l .step-pop::after{left:44px}
+    .step.pop-r .step-pop{left:auto;right:0;transform:translate(0,6px)}
+    .step.pop-r:hover .step-pop,.step.pop-r:focus-within .step-pop,.step.pop-r.open .step-pop{transform:translate(0,0)}
+    .step.pop-r .step-pop::after{left:auto;right:44px;transform:rotate(45deg)}
+    /* Mobile / touch (≤700px): popover becomes an inline expand on tap */
+    @media(max-width:700px){
+      .step-pop{position:static;width:100%;transform:none;margin-top:10px;display:none;opacity:1;pointer-events:auto;box-shadow:none;background:var(--or-pale);border-color:rgba(255,102,0,.25)}
+      .step-pop::after{display:none}
+      .step.open .step-pop{display:block}
+      .step:hover .step-pop{transform:none}
+    }
     .ladder-note{display:flex;align-items:flex-start;gap:10px;margin-top:20px;font-size:14.5px;line-height:1.65;color:var(--body);background:var(--w);border:1.5px solid #EEF2F8;border-radius:14px;padding:14px 18px}
     .ladder-note .dot{flex-shrink:0;width:14px;height:14px;border-radius:5px;background:#FFF3EA;border:1.5px solid rgba(255,102,0,.45);margin-top:3px}
 
@@ -642,19 +664,39 @@
       <p class="snip sr">There are <strong>nine graded levels</strong> — an Initial Grade, then Grades 1 through 8 — followed by diploma qualifications (ARSM, DipABRSM, LRSM, FRSM). <strong>Grade 8 is the highest graded exam.</strong> Grades measure skill, not age: a student is entered when they're genuinely ready, not because they've hit a birthday.</p>
 
       <div class="ladder sr">
-        <div class="step"><b>Initial</b><span>First taste of exams</span></div>
-        <div class="step"><b>Grade 1</b><span>Beginner</span></div>
-        <div class="step"><b>Grade 2</b><span>Beginner</span></div>
-        <div class="step"><b>Grade 3</b><span>Elementary</span></div>
-        <div class="step"><b>Grade 4</b><span>Intermediate</span></div>
-        <div class="step acc"><b>Grade 5</b><span>Theory gateway</span></div>
-        <div class="step"><b>Grade 6</b><span>Advanced</span></div>
-        <div class="step"><b>Grade 7</b><span>Advanced</span></div>
-        <div class="step"><b>Grade 8</b><span>Highest grade</span></div>
-        <div class="step dip"><b>Diplomas</b><span>Beyond Grade 8 — ARSM · DipABRSM · LRSM · FRSM</span></div>
+        <div class="step pop-l" tabindex="0"><b>Initial</b><span>First taste of exams</span>
+          <div class="step-pop"><h4>Initial Grade</h4><p>The very first exam step — three short pieces plus simple scales, sight-reading and aural, at a gentle, confidence-building level. <strong>No prerequisites.</strong></p></div>
+        </div>
+        <div class="step" tabindex="0"><b>Grade 1</b><span>Beginner</span>
+          <div class="step-pop"><h4>Grade 1 — Beginner</h4><p>The first full grade. Three pieces, scales &amp; arpeggios, sight-reading and aural tests — the same four components as every grade, at beginner level.</p></div>
+        </div>
+        <div class="step" tabindex="0"><b>Grade 2</b><span>Beginner</span>
+          <div class="step-pop"><h4>Grade 2 — Beginner</h4><p>Consolidates the basics — slightly longer pieces and a wider range of scales. <strong>No entry requirements</strong>, like all grades up to 5.</p></div>
+        </div>
+        <div class="step" tabindex="0"><b>Grade 3</b><span>Elementary</span>
+          <div class="step-pop"><h4>Grade 3 — Elementary</h4><p>Richer repertoire and more independent technique. A common first "big" milestone — and where we start theory in parallel at Liberal.</p></div>
+        </div>
+        <div class="step" tabindex="0"><b>Grade 4</b><span>Intermediate</span>
+          <div class="step-pop"><h4>Grade 4 — Intermediate</h4><p>Noticeably more demanding pieces; sight-reading and aural start carrying real weight in the result.</p></div>
+        </div>
+        <div class="step acc" tabindex="0"><b>Grade 5</b><span>Theory gateway</span>
+          <div class="step-pop"><h4>Grade 5 — The Gateway 🔑</h4><p>An intermediate milestone <strong>and</strong> the theory gateway: a <strong>Grade 5 Theory pass unlocks Grades 6–8</strong>. We prepare theory alongside practical so this never blocks progress.</p></div>
+        </div>
+        <div class="step" tabindex="0"><b>Grade 6</b><span>Advanced</span>
+          <div class="step-pop"><h4>Grade 6 — Advanced</h4><p>Advanced repertoire begins. <strong>Requires a Grade 5 Theory pass</strong> before the exam can be booked.</p></div>
+        </div>
+        <div class="step" tabindex="0"><b>Grade 7</b><span>Advanced</span>
+          <div class="step-pop"><h4>Grade 7 — Advanced</h4><p>Pre-diploma standard — sophisticated interpretation and stamina expected. Grade 5 Theory prerequisite applies.</p></div>
+        </div>
+        <div class="step pop-r" tabindex="0"><b>Grade 8</b><span>Highest grade</span>
+          <div class="step-pop"><h4>Grade 8 — Highest Grade</h4><p>The highest graded exam and a widely recognised benchmark — often used as supporting evidence for <strong>DSA and SOTA</strong> applications. Grade 5 Theory prerequisite applies.</p></div>
+        </div>
+        <div class="step dip" tabindex="0"><b>Diplomas</b><span>Beyond Grade 8 — ARSM · DipABRSM · LRSM · FRSM</span>
+          <div class="step-pop"><h4>Diplomas — Beyond Grade 8</h4><p>ARSM, DipABRSM, LRSM and FRSM are advanced performance and teaching qualifications for musicians who continue past Grade 8.</p></div>
+        </div>
       </div>
 
-      <p class="ladder-note sr"><span class="dot" aria-hidden="true"></span><span>Grade&nbsp;5 is highlighted because it's the <strong style="color:var(--ink)">theory gateway</strong>, not because it's a starting point — students may begin at any grade. Grade&nbsp;5 Theory must be passed before Grades&nbsp;6, 7 and 8 can be entered.</span></p>
+      <p class="ladder-note sr"><span class="dot" aria-hidden="true"></span><span><strong style="color:var(--ink)">Hover over (or tap) any grade</strong> to see what it involves. Grade&nbsp;5 is highlighted because it's the <strong style="color:var(--ink)">theory gateway</strong>, not because it's a starting point — students may begin at any grade, and Grade&nbsp;5 Theory must be passed before Grades&nbsp;6, 7 and 8 can be entered.</span></p>
 
       <div style="margin-top:34px" class="card hl sr">
         <div class="ico">🔑</div>
@@ -1167,6 +1209,18 @@
     });
   }, { threshold:.05, rootMargin:'0px 0px -10px 0px' });
   document.querySelectorAll('.sr,.sl,.sfr').forEach(el => rvIO.observe(el));
+
+  /* Grade ladder: tap-toggle popovers (touch devices — desktop uses :hover) */
+  const steps = document.querySelectorAll('.ladder .step');
+  steps.forEach(st => {
+    st.addEventListener('click', e => {
+      const wasOpen = st.classList.contains('open');
+      steps.forEach(x => x.classList.remove('open'));
+      if (!wasOpen) st.classList.add('open');
+      e.stopPropagation();
+    });
+  });
+  document.addEventListener('click', () => steps.forEach(x => x.classList.remove('open')));
 
 })();
 </script>
