@@ -194,6 +194,19 @@
     .why-card p{font-size:15px;color:var(--body);line-height:1.7}
 
     /* ── 15. CTA Banner ── */
+    /* ── ABRSM guide banner (added Jul 2026) ── */
+    .abrsm-band{background:#FFF3EA;border:1.5px solid rgba(255,102,0,.28);border-radius:22px;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;box-shadow:var(--sh-s)}
+    .abrsm-copy{flex:1 1 420px;min-width:280px}
+    .abrsm-copy .pill-tag{margin-bottom:16px}
+    .abrsm-copy h2{font-family:'Nunito',sans-serif;font-weight:900;color:var(--ink);font-size:clamp(1.5rem,2.8vw,2rem);line-height:1.22;letter-spacing:-.5px;margin-bottom:12px}
+    .abrsm-copy p{font-size:17px;line-height:1.72;color:var(--body);max-width:580px;margin:0}
+    .abrsm-copy p strong{color:var(--ink);font-weight:700}
+    .abrsm-act{flex:0 0 auto}
+    @media(max-width:700px){
+      .abrsm-band{padding:32px 26px;gap:24px}
+      .abrsm-act,.abrsm-act .btn{width:100%;justify-content:center}
+    }
+
     .cta-band{background:linear-gradient(135deg,#FFF7F2 0%,#FFF7EE 50%,#FFEEDD 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
     .cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,102,0,.10) 0%,transparent 70%)}
     .cta-band::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(184,242,230,.30) 0%,transparent 70%)}
@@ -805,7 +818,7 @@
           <div class="why-card sr d1">
             <div class="why-icon">🏆</div>
             <h3>ABRSM Certified</h3>
-            <p>Our teachers guide students to consistently achieve top grades in internationally recognised ABRSM examinations.</p>
+            <p>Our teachers guide students to consistently achieve top grades in internationally recognised ABRSM examinations. <a href="abrsm-singapore" style="color:var(--or);font-weight:800;white-space:nowrap;">See our ABRSM guide →</a></p>
           </div>
           <div class="why-card sr d2">
             <div class="why-icon">👨‍🏫</div>
@@ -821,6 +834,22 @@
             <div class="why-icon">🎯</div>
             <h3>Tailored to Each Child</h3>
             <p>We match every student's pace and personality — whether they're exploring for fun or aiming for exams.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABRSM GUIDE BANNER (added Jul 2026) ── -->
+    <section style="background:var(--w)">
+      <div class="W">
+        <div class="abrsm-band sr">
+          <div class="abrsm-copy">
+            <span class="pill-tag pt-or">🏆 Free Guide</span>
+            <h2>Thinking about ABRSM exams?</h2>
+            <p>Read our complete <strong>ABRSM Singapore Guide</strong> — how the grades work, the marks needed to pass, why Grade&nbsp;5 Theory is required before Grade&nbsp;6, and how long each grade really takes.</p>
+          </div>
+          <div class="abrsm-act">
+            <a href="abrsm-singapore" class="btn btn-cta btn-lg">Read the ABRSM Guide →</a>
           </div>
         </div>
       </div>
