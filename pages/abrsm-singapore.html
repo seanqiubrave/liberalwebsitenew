@@ -228,13 +228,19 @@
     .card .tagline{display:inline-block;background:var(--or-lt);color:var(--or);font-family:'Nunito',sans-serif;font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:1.2px;padding:5px 12px;border-radius:999px;margin-bottom:14px}
 
     /* Grade ladder */
-    .ladder{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-    .step{flex:1 1 auto;min-width:104px;background:#fff;border:1.5px solid #EEF2F8;border-radius:16px;padding:20px 16px;text-align:center;transition:all var(--t) var(--sp)}
-    .step:hover{border-color:var(--or);transform:translateY(-4px)}
+    .ladder{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;align-items:stretch}
+    .step{flex:1 1 auto;min-width:104px;background:#fff;border:1.5px solid #EEF2F8;border-radius:16px;padding:20px 16px;text-align:center;cursor:default;position:relative}
     .step b{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--ink);margin-bottom:4px}
     .step span{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.45;display:block}
-    .step.acc{background:#FFF3EA;border-color:rgba(255,102,0,.32)}
+    .step.acc{background:#FFF3EA;border-color:rgba(255,102,0,.45);box-shadow:0 0 0 3px rgba(255,102,0,.10)}
     .step.acc b{color:var(--or)}
+    /* Grade 5 gateway badge — explains WHY this one is orange (it is not selectable) */
+    .step.acc::before{content:'🔑 GATEWAY';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--or);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:9px;letter-spacing:.8px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+    /* Diplomas sit beyond the graded ladder — full-width tier, visually distinct */
+    .step.dip{flex:1 1 100%;background:var(--s2);border-style:dashed;border-color:#D8E3F0}
+    .step.dip b{color:var(--body)}
+    .ladder-note{display:flex;align-items:flex-start;gap:10px;margin-top:20px;font-size:14.5px;line-height:1.65;color:var(--body);background:var(--w);border:1.5px solid #EEF2F8;border-radius:14px;padding:14px 18px}
+    .ladder-note .dot{flex-shrink:0;width:14px;height:14px;border-radius:5px;background:#FFF3EA;border:1.5px solid rgba(255,102,0,.45);margin-top:3px}
 
     /* Marks table */
     .tbl-wrap{overflow-x:auto;border-radius:20px;border:1.5px solid #EEF2F8;box-shadow:var(--sh-s);background:#fff}
@@ -579,8 +585,10 @@
         <div class="step"><b>Grade 6</b><span>Advanced</span></div>
         <div class="step"><b>Grade 7</b><span>Advanced</span></div>
         <div class="step"><b>Grade 8</b><span>Highest grade</span></div>
-        <div class="step"><b>Diplomas</b><span>ARSM · DipABRSM · LRSM · FRSM</span></div>
+        <div class="step dip"><b>Diplomas</b><span>Beyond Grade 8 — ARSM · DipABRSM · LRSM · FRSM</span></div>
       </div>
+
+      <p class="ladder-note sr"><span class="dot" aria-hidden="true"></span><span>Grade&nbsp;5 is highlighted because it's the <strong style="color:var(--ink)">theory gateway</strong>, not because it's a starting point — students may begin at any grade. Grade&nbsp;5 Theory must be passed before Grades&nbsp;6, 7 and 8 can be entered.</span></p>
 
       <div style="margin-top:34px" class="card hl sr">
         <div class="ico">🔑</div>
