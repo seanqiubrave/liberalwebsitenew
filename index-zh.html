@@ -150,9 +150,32 @@
     },
     {
       "@type": ["MusicSchool", "LocalBusiness"],
+      "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#jurong-point-flagship",
+      "name": "Liberal Music & Arts School — Jurong Point (Flagship)",
+      "description": "Liberal Music & Arts School's new flagship studio, opening soon at #03-13/14 Level 3, Jurong Point, directly connected to Boon Lay MRT. Piano, violin, guitar, drums, vocal, Chinese instruments, music theory and aural training.",
+      "url": "https://liberalmusicschool.com/locations/jurong-point",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#03-13/14 Level 3, Jurong Point, 1 Jurong West Central 2",
+        "addressLocality": "Jurong",
+        "addressRegion": "West Singapore",
+        "postalCode": "648886",
+        "addressCountry": "SG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "1.3400",
+        "longitude": "103.7060"
+      },
+      "telephone": "+65 8999 0519",
+      "contactPoint": {"@type": "ContactPoint", "contactType": "WhatsApp", "telephone": "+65 8999 0519", "url": "https://wa.me/6589990519"},
+      "hasMap": "https://maps.google.com/?q=Jurong+Point+1+Jurong+West+Central+2+Singapore+648886"
+    },
+    {
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#jurong-point",
       "name": "Liberal Music & Arts School — Coloury Art Jurong Point (By Liberal)",
-      "description": "New Liberal Music & Arts School branch opening soon at Jurong Point Shopping Mall, serving families in Jurong, Boon Lay, and Lakeside, Singapore.",
+      "description": "Coloury Art By Liberal — our sister art school at #03-07C Level 3, Jurong Point Shopping Mall, now open, serving families in Jurong, Boon Lay and Lakeside.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jurong Point Shopping Mall, 1 Jurong West Central 2",
@@ -1561,6 +1584,17 @@ footer { margin-bottom: 0 !important; }
       overscroll-behavior: contain;
       padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
     }
+    .badge-flag {
+      font-size: 9px; font-weight: 900; background: var(--blush); color: #A63D5A;
+      padding: 2px 5px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    .badge-hq {
+      font-size: 9px; font-weight: 900; background: var(--sky); color: #1C5C8A;
+      padding: 2px 5px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+
     .nav-drawer.on ~ #waWrap{ display: none; }
 
     /* FIX B: Video aspect ratio on mobile + tablet — match the actual
@@ -1657,10 +1691,11 @@ footer { margin-bottom: 0 !important; }
         <li class="nav-item-dropdown">
           <a href="pages-zh/contact" class="dropdown-trigger">联系我们 <span class="arrow" aria-hidden="true">▾</span></a>
           <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-point">裕廊坊 Jurong Point <span class="badge-flag">旗舰</span></a></li>
             <li><a href="/locations-zh/jurong-west">裕廊西</a></li>
             <li><a href="/locations-zh/bukit-batok">武吉巴督 (Le Quest)</a></li>
             <li><a href="/locations-zh/tampines">淡滨尼</a></li>
-            <li><a href="/locations-zh/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+            <li><a href="/locations-zh/tengah">登加 <span class="badge-hq">总部</span></a></li>
           </ul>
         </li>
       </ul>
@@ -1689,10 +1724,11 @@ footer { margin-bottom: 0 !important; }
   <div class="nav-item-dropdown">
     <a href="pages-zh/contact" class="dropdown-trigger" style="padding-left:0;">联系我们 <span class="arrow">▾</span></a>
     <ul class="dropdown-menu">
-      <li><a href="/locations-zh/jurong-west">裕廊西</a></li>
+      <li><a href="/locations/jurong-point">裕廊坊 Jurong Point <span class="badge-flag">旗舰</span></a></li>
+            <li><a href="/locations-zh/jurong-west">裕廊西</a></li>
       <li><a href="/locations-zh/bukit-batok">武吉巴督 (Le Quest)</a></li>
       <li><a href="/locations-zh/tampines">淡滨尼</a></li>
-      <li><a href="/locations-zh/tengah">登加 (旗舰总部) <span class="badge-new">New</span></a></li>
+      <li><a href="/locations-zh/tengah">登加 <span class="badge-hq">总部</span></a></li>
     </ul>
   </div>
 
@@ -1898,7 +1934,7 @@ footer { margin-bottom: 0 !important; }
       <div class="trust-card sr d2">
         <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>博雅在新加坡有多少个分校？</h3>
-        <p class="direct-answer">博雅音乐艺术学校在新加坡共有5个分校：登加（Tengah）、淡滨尼（Tampines）、裕廊西（Jurong West）、Le Quest 商场（武吉巴督）以及裕廊坊 Coloury Art（博雅旗下），覆盖新加坡东部与西部。</p>
+        <p class="direct-answer">博雅音乐艺术学校在新加坡共有5个分校：裕廊坊（Jurong Point 旗舰店·即将开业）、登加（Tengah 总部）、淡滨尼（Tampines）、裕廊西（Jurong West）以及 Le Quest 商场（武吉巴督）——另设姐妹美术学校 Coloury Art By Liberal（裕廊坊，已开业），覆盖新加坡东部与西部。</p>
       </div>
 
       <!-- AEO Question 4 -->
@@ -2344,7 +2380,7 @@ footer { margin-bottom: 0 !important; }
     {"@type":"Question","name":"你们的音乐导师都拥有专业认证吗？","acceptedAnswer":{"@type":"Answer","text":"是的——所有导师均持有国际认可的专业资质：ABRSM 英国皇家音乐学院、Trinity College London 伦敦圣三一、RSL 以及中国中央音乐学院学位等。我们的校长 Ms Cecily 自2009年起便在新加坡执教。"}},
     {"@type":"Question","name":"报名前需要先购买乐器吗？","acceptedAnswer":{"@type":"Answer","text":"不需要——课堂上提供所有乐器，第一次上课前无需购买任何器材。学习1至2个月后，老师会根据进度推荐性价比合适的入门款式。"}},
     {"@type":"Question","name":"小组课和一对一课有什么区别？","acceptedAnswer":{"@type":"Answer","text":"一对一私教能提供专注的关注度与更快的进步速度。小组课（每班2至4人）则更经济实惠，非常适合4至7岁的小小初学者。"}},
-    {"@type":"Question","name":"你们在新加坡的分校位置在哪里？","acceptedAnswer":{"@type":"Answer","text":"我们共有5个分校：登加（Tengah）、淡滨尼（Tampines）、裕廊西（Jurong West）、Le Quest 商场（武吉巴督）以及裕廊坊 Coloury Art By Liberal。所有分校均开设钢琴、小提琴、吉他、架子鼓、二胡、美术与舞蹈课程。"}}
+    {"@type":"Question","name":"你们在新加坡的分校位置在哪里？","acceptedAnswer":{"@type":"Answer","text":"我们共有5个分校：裕廊坊（Jurong Point 旗舰店·即将开业）、登加（Tengah 总部）、淡滨尼（Tampines）、裕廊西（Jurong West）以及 Le Quest 商场（武吉巴督）——另设姐妹美术学校 Coloury Art By Liberal（裕廊坊，已开业）。所有分校均开设钢琴、小提琴、吉他、架子鼓、二胡、美术与舞蹈课程。"}}
   ]
 }
 </script>
@@ -2414,7 +2450,7 @@ footer { margin-bottom: 0 !important; }
               <div class="faq-card sr d3">
                 <div class="faq-card-num">8</div>
                 <p class="faq-card-q">你们在新加坡的分校位置在哪里？</p>
-                <p class="faq-card-a">我们共有<strong>5个分校</strong>：登加（Tengah）、淡滨尼（Tampines）、裕廊西（Jurong West）、Le Quest 商场（武吉巴督）以及裕廊坊 Coloury Art By Liberal。所有分校均开设钢琴、小提琴、吉他、架子鼓、二胡、美术与舞蹈课程。</p>
+                <p class="faq-card-a">我们共有<strong>5个分校</strong>：裕廊坊（Jurong Point 旗舰店·即将开业）、登加（Tengah 总部）、淡滨尼（Tampines）、裕廊西（Jurong West）以及 Le Quest 商场（武吉巴督）——另设姐妹美术学校 Coloury Art By Liberal（裕廊坊，已开业）。所有分校均开设钢琴、小提琴、吉他、架子鼓、二胡、美术与舞蹈课程。</p>
               </div>
 
             </div>
@@ -2493,48 +2529,57 @@ footer { margin-bottom: 0 !important; }
         <h5>我们的分校</h5>
         <div class="foot-locs">
 
-          <div class="foot-loc">
+          <a href="/locations/jurong-point" class="foot-loc soon" style="text-decoration:none;">
+            <span class="foot-loc-pin">⭐</span>
+            <div class="foot-loc-text">
+              <strong>裕廊坊音乐学校（Jurong Point）</strong>
+              <span>#03-13/14 Level 3, Jurong Point<br>1 Jurong West Central 2, Singapore 648886</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近文礼地铁站（Boon Lay MRT）<span class="sep">·</span>⭐ 旗舰店 · 即将开业</span>
+            </div>
+          </a>
+
+          <a href="/locations-zh/tengah" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
-              <strong>登加（Tengah）分校</strong>
+              <strong>登加（Tengah）总部</strong>
               <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近未来裕廊区域地铁线（2028年开通）<span class="sep">·</span>🕐 每日1点-9点</span>
             </div>
-          </div>
+          </a>
 
-          <div class="foot-loc">
+          <a href="/locations-zh/tampines" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
               <strong>淡滨尼（Tampines）分校</strong>
               <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近淡滨尼西地铁站（Tampines West MRT）<span class="sep">·</span>🕐 每日1点-9点</span>
             </div>
-          </div>
+          </a>
 
-          <div class="foot-loc">
+          <a href="/locations-zh/jurong-west" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
               <strong>裕廊西（Jurong West）分校</strong>
               <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近 Lakeside 地铁站<span class="sep">·</span>🕐 每日1点-9点</span>
             </div>
-          </div>
+          </a>
 
-          <div class="foot-loc">
+          <a href="/locations-zh/bukit-batok" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
               <strong>Le Quest 商场分校</strong>
               <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近武吉巴督地铁站（Bukit Batok MRT）<span class="sep">·</span>🕐 每日1点-9点</span>
             </div>
-          </div>
+          </a>
 
-          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
+          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc" style="text-decoration:none;display:grid;">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
               <strong>Coloury Art By Liberal（裕廊坊）</strong>
               <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近文礼地铁站（Boon Lay MRT）<span class="sep">·</span>✦ 即将开业</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>邻近文礼地铁站（Boon Lay MRT）<span class="sep">·</span>🎨 美术学校 · 已开业</span>
             </div>
           </a>
 
@@ -2549,7 +2594,8 @@ footer { margin-bottom: 0 !important; }
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="pages-zh/privacy">隐私政策</a>
         <a href="pages-zh/terms">使用条款</a>
-        <a href="index" style="font-size:15px;color:rgba(255,255,255,.7);">English</a>
+        <a href="https://wa.me/6589990519" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">⭐ 裕廊坊 <span style="font-size:11.5px;color:#8FA2BC;">8999 0519</span></a>
+    <a href="index" style="font-size:15px;color:rgba(255,255,255,.7);">English</a>
       </div>
     </div>
   </div>

@@ -150,9 +150,32 @@
     },
     {
       "@type": ["MusicSchool", "LocalBusiness"],
+      "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#jurong-point-flagship",
+      "name": "Liberal Music & Arts School — Jurong Point (Flagship)",
+      "description": "Liberal Music & Arts School's new flagship studio, opening soon at #03-13/14 Level 3, Jurong Point, directly connected to Boon Lay MRT. Piano, violin, guitar, drums, vocal, Chinese instruments, music theory and aural training.",
+      "url": "https://liberalmusicschool.com/locations/jurong-point",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#03-13/14 Level 3, Jurong Point, 1 Jurong West Central 2",
+        "addressLocality": "Jurong",
+        "addressRegion": "West Singapore",
+        "postalCode": "648886",
+        "addressCountry": "SG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "1.3400",
+        "longitude": "103.7060"
+      },
+      "telephone": "+65 8999 0519",
+      "contactPoint": {"@type": "ContactPoint", "contactType": "WhatsApp", "telephone": "+65 8999 0519", "url": "https://wa.me/6589990519"},
+      "hasMap": "https://maps.google.com/?q=Jurong+Point+1+Jurong+West+Central+2+Singapore+648886"
+    },
+    {
+      "@type": ["MusicSchool", "LocalBusiness"],
       "@id": "https://seanqiubrave.github.io/liberalwebsitenew/#jurong-point",
       "name": "Liberal Music & Arts School — Coloury Art Jurong Point (By Liberal)",
-      "description": "New Liberal Music & Arts School branch opening soon at Jurong Point Shopping Mall, serving families in Jurong, Boon Lay, and Lakeside, Singapore.",
+      "description": "Coloury Art By Liberal — our sister art school at #03-07C Level 3, Jurong Point Shopping Mall, now open, serving families in Jurong, Boon Lay and Lakeside.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jurong Point Shopping Mall, 1 Jurong West Central 2",
@@ -1516,6 +1539,17 @@ footer { margin-bottom: 0 !important; }
       text-transform: uppercase;
       letter-spacing: .5px;
     }
+    .badge-flag {
+      font-size: 9px; font-weight: 900; background: var(--blush); color: #A63D5A;
+      padding: 2px 5px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    .badge-hq {
+      font-size: 9px; font-weight: 900; background: var(--sky); color: #1C5C8A;
+      padding: 2px 5px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+
 
     /* ══════════════════════════════════════════════════════════════════
        📱 LANDSCAPE & SHORT-VIEWPORT FIXES (May 18 2026)
@@ -1679,10 +1713,11 @@ footer { margin-bottom: 0 !important; }
         <li class="nav-item-dropdown">
           <a href="pages/contact" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a>
           <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-point">Jurong Point <span class="badge-flag">Flagship</span></a></li>
             <li><a href="/locations/jurong-west">Jurong West</a></li>
             <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
             <li><a href="/locations/tampines">Tampines</a></li>
-            <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+            <li><a href="/locations/tengah">Tengah <span class="badge-hq">HQ</span></a></li>
           </ul>
         </li>
       </ul>
@@ -1709,10 +1744,11 @@ footer { margin-bottom: 0 !important; }
   <div class="nav-item-dropdown">
     <a href="pages/contact" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a>
     <ul class="dropdown-menu">
-      <li><a href="/locations/jurong-west">Jurong West</a></li>
+      <li><a href="/locations/jurong-point">Jurong Point <span class="badge-flag">Flagship</span></a></li>
+            <li><a href="/locations/jurong-west">Jurong West</a></li>
       <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
       <li><a href="/locations/tampines">Tampines</a></li>
-      <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+      <li><a href="/locations/tengah">Tengah <span class="badge-hq">HQ</span></a></li>
     </ul>
   </div>
   <a href="index-zh" style="opacity:.7;">中文</a>
@@ -1917,7 +1953,7 @@ footer { margin-bottom: 0 !important; }
       <div class="trust-card sr d2">
         <div class="trust-icon ti-3"><img src="assets/findus.webp" alt="Find us" style="width:96px;height:96px;object-fit:contain;"></div>
         <h3>How many music school branches does Liberal have in Singapore?</h3>
-        <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal) — covering east and west Singapore.</p>
+        <p class="direct-answer">Liberal Music &amp; Arts School has 5 locations in Singapore: Jurong Point (Flagship — opening soon), Tengah (HQ), Tampines, Jurong West, and Le Quest Mall (Bukit Batok) — plus our sister art studio Coloury Art By Liberal at Jurong Point, covering east and west Singapore.</p>
       </div>
 
       <!-- AEO Question 4 -->
@@ -2364,7 +2400,7 @@ footer { margin-bottom: 0 !important; }
     {"@type":"Question","name":"Is the trial class really free?","acceptedAnswer":{"@type":"Answer","text":"Yes — the first trial class is completely free with no commitment required. In a 30–45 minute session, your child meets the teacher, tries the instrument, and we recommend the right starting level. Parents are welcome to observe."}},
     {"@type":"Question","name":"Do I need to buy an instrument first?","acceptedAnswer":{"@type":"Answer","text":"No — all instruments are provided in class. There is nothing to purchase before the first lesson. After 1–2 months our teachers can advise on budget-friendly starter options for home practice."}},
     {"@type":"Question","name":"What's the difference between group and private lessons?","acceptedAnswer":{"@type":"Answer","text":"Private 1-to-1 lessons give undivided attention and faster progression. Group classes (2–4 students) are more affordable and ideal for younger beginners aged 4–7."}},
-    {"@type":"Question","name":"Where are your Singapore branches?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School has 5 locations in Singapore: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance."}}
+    {"@type":"Question","name":"Where are your Singapore branches?","acceptedAnswer":{"@type":"Answer","text":"Liberal Music & Arts School has 5 locations in Singapore: Jurong Point (Flagship — opening soon), Tengah (HQ), Tampines, Jurong West, and Le Quest Mall (Bukit Batok) — plus our sister art studio Coloury Art By Liberal at Jurong Point. All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance."}}
   ]
 }
 </script>
@@ -2440,7 +2476,7 @@ footer { margin-bottom: 0 !important; }
               <div class="faq-card sr d3">
                 <div class="faq-card-num">8</div>
                 <p class="faq-card-q">Where are your Singapore branches?</p>
-                <p class="faq-card-a">We have <strong>5 locations</strong>: Tengah, Tampines, Jurong West, Le Quest Mall (Bukit Batok), and Coloury Art Jurong Point (By Liberal). All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance.</p>
+                <p class="faq-card-a">We have <strong>5 locations</strong>: Jurong Point (Flagship — opening soon), Tengah (HQ), Tampines, Jurong West, and Le Quest Mall (Bukit Batok) — plus our sister art studio Coloury Art By Liberal at Jurong Point. All branches offer Piano, Violin, Guitar, Drums, Erhu, Art, and Dance.</p>
               </div>
 
             </div>
@@ -2519,48 +2555,57 @@ footer { margin-bottom: 0 !important; }
         <h5>Our Locations</h5>
         <div class="foot-locs">
 
-          <div class="foot-loc">
+          <a href="/locations/jurong-point" class="foot-loc soon" style="text-decoration:none;">
+            <span class="foot-loc-pin">⭐</span>
+            <div class="foot-loc-text">
+              <strong>Jurong Point Music School</strong>
+              <span>#03-13/14 Level 3, Jurong Point<br>1 Jurong West Central 2, Singapore 648886</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>⭐ Flagship · Opening Soon</span>
+            </div>
+          </a>
+
+          <a href="/locations/tengah" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
-              <strong>Tengah Music School</strong>
+              <strong>Tengah Music School (HQ)</strong>
               <span>127A Plantation Crescent, #01-381<br>Singapore 691127</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near future Jurong Region Line (opening 2028)<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
-          </div>
+          </a>
 
-          <div class="foot-loc">
+          <a href="/locations/tampines" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
               <strong>Tampines Music School</strong>
               <span>Blk 139 Tampines St 11, #01-60<br>Singapore 521139</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Tampines West MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
-          </div>
+          </a>
 
-          <div class="foot-loc">
+          <a href="/locations/jurong-west" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
               <strong>Jurong West Music School</strong>
               <span>Blk 492 Jurong West St 41, #01-10<br>Singapore 640492</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Lakeside MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
-          </div>
+          </a>
 
-          <div class="foot-loc">
+          <a href="/locations/bukit-batok" class="foot-loc" style="text-decoration:none;">
             <span class="foot-loc-pin"><img src="assets/address.webp" alt="location" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;"/></span>
             <div class="foot-loc-text">
               <strong>Le Quest Mall Music School</strong>
               <span>4 Bukit Batok St 41, #01-83<br>Singapore 657991</span>
               <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Bukit Batok MRT<span class="sep">·</span>🕐 Daily 1pm–9pm</span>
             </div>
-          </div>
+          </a>
 
-          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc soon" style="text-decoration:none;display:grid;">
+          <a href="https://colouryart.com/" target="_blank" rel="noopener" class="foot-loc" style="text-decoration:none;display:grid;">
             <span class="foot-loc-pin">✦</span>
             <div class="foot-loc-text">
               <strong>Coloury Art By Liberal</strong>
               <span>#03-07C Level 3, Jurong Point<br>Singapore 648886</span>
-              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>✦ Opening Soon</span>
+              <span class="foot-loc-meta"><img src="assets/mrt.webp" alt="MRT" style="width:15px;height:15px;object-fit:contain;filter:brightness(0) invert(1);opacity:.8;vertical-align:-3px;margin-right:5px;display:inline-block;"/>Near Boon Lay MRT<span class="sep">·</span>🎨 Art School · Open</span>
             </div>
           </a>
 
@@ -2575,7 +2620,8 @@ footer { margin-bottom: 0 !important; }
         <span style="font-size:12px;color:rgba(255,255,255,.22);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.5px;">v1.0.1</span>
         <a href="pages/privacy">Privacy Policy</a>
         <a href="pages/terms">Terms of Use</a>
-        <a href="index-zh" style="font-size:15px;color:rgba(255,255,255,.7);">中文版本</a>
+        <a href="https://wa.me/6589990519" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;background:#F8FBFF;border:1.5px solid #EEF2F8;margin-bottom:8px;font-weight:700;font-size:13.5px;color:#1F2A44;text-decoration:none;">⭐ Jurong Point <span style="font-size:11.5px;color:#8FA2BC;">8999 0519</span></a>
+    <a href="index-zh" style="font-size:15px;color:rgba(255,255,255,.7);">中文版本</a>
       </div>
     </div>
   </div>
