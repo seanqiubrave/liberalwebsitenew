@@ -371,7 +371,7 @@
     .tcard p{font-size:14.5px;color:var(--body);line-height:1.65}
 
     /* ── NEW (May 17 2026) Location Hub ── */
-    .loc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:22px}
     .loc-card{display:flex;flex-direction:column;justify-content:space-between;background:var(--w);border-radius:var(--r-xl);padding:28px 24px;border:1.5px solid #EEF2F8;box-shadow:var(--sh-s);text-decoration:none;color:inherit;transition:transform var(--t) var(--sp),box-shadow var(--t),border-color var(--t);position:relative;overflow:hidden;min-height:200px}
     .loc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--sp)}
     .loc-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px var(--or-glow);border-color:rgba(255,102,0,.22)}
@@ -814,6 +814,16 @@
               <p>127A Plantation Crescent, #01-381<br/>Near future Jurong Region Line</p>
             </div>
             <span class="loc-cta">Piano at Tengah
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="piano-lessons-jurong-point" class="loc-card sr d5" style="border:1.5px dashed rgba(255,102,0,.45);background:var(--or-pale,#FFF7F2)">
+            <div>
+              <div class="loc-pin">⭐</div>
+              <h3>Jurong Point <span style="font-size:11px;font-weight:900;background:var(--blush,#FFD6E0);color:#A63D5A;padding:2px 7px;border-radius:4px;vertical-align:middle;text-transform:uppercase;letter-spacing:.5px">Flagship</span></h3>
+              <p>#03-13/14 Level 3, Jurong Point<br/>Near Boon Lay MRT · Opening Soon</p>
+            </div>
+            <span class="loc-cta">Piano at Jurong Point
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </span>
           </a>
