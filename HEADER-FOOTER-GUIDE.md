@@ -1,4 +1,36 @@
 # Liberal Music & Arts — Header & Footer Reference Guide
+---
+
+## 🟠 CANON — 23 Jul 2026 (authoritative; supersedes conflicting snippets below)
+
+### Navbar dropdown (Contact ▾ / 联系我们 ▾) — final order & badges
+EN: `Jurong Point [Flagship]` → Jurong West → Bukit Batok (Le Quest) → Tampines → `Tengah [HQ]` (hrefs `/locations/*`).
+ZH: `裕廊坊 Jurong Point [旗舰]` → 裕廊西 → 武吉巴督 (Le Quest) → 淡滨尼 → `登加 [总部]` (hrefs `/locations-zh/*`). `badge-new` retired from dropdowns.
+
+### Badge CSS (add once, after `.badge-new`)
+```css
+.badge-flag { font-size:9px; font-weight:900; background:var(--blush); color:#A63D5A;
+  padding:2px 5px; border-radius:4px; margin-left:4px; vertical-align:middle;
+  text-transform:uppercase; letter-spacing:.5px; }
+.badge-hq   { font-size:9px; font-weight:900; background:var(--sky);   color:#1C5C8A;
+  padding:2px 5px; border-radius:4px; margin-left:4px; vertical-align:middle;
+  text-transform:uppercase; letter-spacing:.5px; }
+```
+
+### Footer locations column — 6 entries, fixed order, ALL clickable
+⭐ Jurong Point (`foot-loc soon`, meta `⭐ Flagship · Opening Soon / 旗舰店 · 即将开业`) → Tengah **(HQ)/总部** → Tampines → Jurong West → Le Quest → **Coloury Art** (class `foot-loc`, meta `🎨 Art School · Open / 美术学校 · 已开业`, → colouryart.com).
+Hrefs: EN `/locations/*`, ZH `/locations-zh/*`. **Resolve href by branch-name regex** — three ZH naming variants exist (`登加（Tengah）分校` / `登加分校 Tengah` / `Tengah Music School`); never exact-match.
+
+### WhatsApp FAB — 6 rows, JP first
+`⭐ Jurong Point/裕廊坊 8999 0519` → 登加/Tengah 8922 2848 → 淡滨尼/Tampines 8892 1198 → 裕廊西/JW **9627 7588** → Le Quest **9627 7582** → Coloury 8995 1163.
+Three markup variants in the wild (wa-row single-line · multi-line · inline-styled) — always match the page's existing variant.
+
+### Matrix-page chrome (pages/ & pages-zh/ lessons pages)
+EN chrome = `jw-blocks.json`; ZH chrome = `zh-blocks.json` (label/href-translated, per-page `§ENTWIN§` EN-toggle placeholder, ann/CTA → contact on ZH). Each matrix page: 中文↔EN toggle to its twin, canonical + bidirectional hreflang, FAQ schema verbatim-matched to visible `<details>`.
+
+### Location pages
+`locations/tengah.html` = EN clone template; JP pair (EN+ZH) = pre-opening pages (no invented dates, priority-list CTA, interim → Jurong West). Every branch page (EN & ZH) carries 15 dedicated-page links into its language's matrix.
+
 > Source of truth: `index.html` (master) · Last updated: May 19, 2026 (r10 — added §6.5 "ZH page footer logo alt must be Chinese" after jurong-west outlier fix; r9 (same day) added §14.17 "Activating the 中文 toggle on an EN page" documenting the 4-spot pattern; §14.5 expanded with the bidirectional-pairing rule; §14.14 build checklist gets a new step #15 to keep EN-side toggles in sync when a new ZH page ships)  
 > Apply this guide to **every** page. No deviations.
 
@@ -180,7 +212,8 @@ Copy verbatim into every page `<style>`:
             <li><a href="/locations/jurong-west">Jurong West</a></li>
             <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
             <li><a href="/locations/tampines">Tampines</a></li>
-            <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+            <li><a href="/locations/jurong-point">Jurong Point <span class="badge-flag">Flagship</span></a></li>
+            <li><a href="/locations/tengah">Tengah <span class="badge-hq">HQ</span></a></li>
           </ul>
         </li>
       </ul>
@@ -215,7 +248,8 @@ Copy verbatim into every page `<style>`:
       <li><a href="/locations/jurong-west">Jurong West</a></li>
       <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
       <li><a href="/locations/tampines">Tampines</a></li>
-      <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+      <li><a href="/locations/jurong-point">Jurong Point <span class="badge-flag">Flagship</span></a></li>
+            <li><a href="/locations/tengah">Tengah <span class="badge-hq">HQ</span></a></li>
     </ul>
   </div>
 
@@ -923,7 +957,7 @@ If either returns a file path, fix that file before pushing.
 > - **Do NOT apply `filter:brightness(0) invert(1)`** to the icon. The image is already a green WhatsApp logo with a white phone inside. The green blends invisibly into the FAB's `#25D366` background, leaving only the recognizable white phone silhouette visible. Applying the filter merges everything into a featureless white blob.
 > - Asset path is `../assets/whatsapp.webp` from `pages/`, `assets/whatsapp.webp` from root, `../../assets/whatsapp.webp` from `pages/articles/`.
 
-> **Popup row order (always exactly 5):** Tengah → Tampines → Jurong West → Le Quest → Coloury Art. See `HOW-TO-START.md` for the WhatsApp number table and history of the April 2026 number split.
+> **Popup row order (Jul 2026 — exactly 6):** ⭐ Jurong Point → Tengah → Tampines → Jurong West → Le Quest → Coloury Art. See `HOW-TO-START.md` for the WhatsApp number table and history of the April 2026 number split.
 
 <!-- MOBILE STICKY CTA BAR -->
 <div class="mob-bar">

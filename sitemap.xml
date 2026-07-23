@@ -533,4 +533,480 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/terms"/>
   </url>
 
+  <url>
+    <loc>https://liberalmusicschool.com/locations/jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/locations/jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/locations-zh/jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/locations/jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/locations-zh/jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/locations/jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/abrsm-singapore</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/abrsm-singapore"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/abrsm-singapore"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/piano-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/piano-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/violin-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/violin-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/drum-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/drum-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/guitar-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/guitar-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/vocal-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/vocal-lessons-jurong-west</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-jurong-west"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-west"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/piano-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/piano-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/violin-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/violin-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/drum-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/drum-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/guitar-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/guitar-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/vocal-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/vocal-lessons-tengah</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-tengah"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-tengah"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/piano-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/piano-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/violin-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/violin-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/drum-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/drum-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/guitar-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/guitar-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/vocal-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/vocal-lessons-bukit-batok</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-bukit-batok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-bukit-batok"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/piano-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/piano-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/violin-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/violin-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/drum-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/drum-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/guitar-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/guitar-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/vocal-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/vocal-lessons-tampines</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-tampines"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-tampines"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/piano-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/piano-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/piano-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/piano-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/violin-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/violin-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/violin-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/violin-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/drum-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/drum-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/drum-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/drum-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/guitar-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/guitar-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/guitar-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/guitar-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages/vocal-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-point"/>
+  </url>
+  <url>
+    <loc>https://liberalmusicschool.com/pages-zh/vocal-lessons-jurong-point</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://liberalmusicschool.com/pages-zh/vocal-lessons-jurong-point"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liberalmusicschool.com/pages/vocal-lessons-jurong-point"/>
+  </url>
 </urlset>

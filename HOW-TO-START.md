@@ -6,6 +6,47 @@
 
 ---
 
+## 🟠 CANON UPDATE — 23 Jul 2026 (supersedes anything below that conflicts)
+
+### Environment (current)
+- **Primary: macOS / zsh** · Repo: `/Users/qiu/Downloads/liberalwebsiteredo`
+- Windows/PowerShell sections below are **legacy** (`C:\Users\immor\...`) — reference only.
+- ⚠️ **Filename collisions**: ZH matrix pages share names with EN ones. Download by folder (`pages-zh/`), then verify: `grep -l 'lang="zh"' pages-zh/*.html | wc -l` → 25.
+
+### The 5 music schools (+1 art school) — single source of truth
+| Branch | Address | WhatsApp | Notes |
+|---|---|---|---|
+| **Jurong Point ⭐ FLAGSHIP** | #03-13/14 L3, 1 Jurong West Central 2, S648886 | **8999 0519** | Opening Soon · Boon Lay MRT direct · `badge-flag` |
+| **Tengah (HQ)** | 127A Plantation Crescent #01-381, S691127 | 8922 2848 | Plantation Plaza · Sat–Sun from 9am · `badge-hq` |
+| Tampines | Blk 139 Tampines St 11 #01-60, S521139 | 8892 1198 | Only East branch · Tampines West MRT |
+| Jurong West | Blk 492 Jurong West St 41 #01-10, S640492 | **9627 7588** | Founding studio (2009) · Lakeside MRT |
+| Le Quest (Bukit Batok) | 4 Bukit Batok St 41 #01-83, S657991 | **9627 7582** | In-mall, next to FairPrice Finest |
+| Coloury Art (sister) | #03-07C L3 Jurong Point | 8995 1163 | 🎨 **OPEN** — art school → colouryart.com |
+
+⚠️ **JW = 7588, Le Quest = 7582** — a live JW-mislabel bug on trial.html (EN) was fixed Jul 2026. Always re-check these two.
+
+### Page inventory (Jul 2026) — sitemap = **117 URLs**
+- `pages/abrsm-singapore` — SEO/AEO hub (exam-dates block = ⚠️ ACTION-REQUIRED placeholder; never invent dates).
+- **EN matrix ×25**: `pages/{piano,violin,drum,guitar,vocal}-lessons-{jurong-west,tengah,bukit-batok,tampines,jurong-point}` — five differentiated local narratives (JW founding/Lakeside · Tengah HQ/9am weekends · BB in-mall · Tampines East-only · JP pre-opening/priority-list). Branch pages each carry 15 dedicated links; piano-course branch cards 5/5 dedicated; full sibling+counterpart cross-wiring.
+- **ZH matrix ×25**: `pages-zh/…` same slugs — native-Chinese content per branch narrative, EN↔ZH hreflang paired, per-page EN toggle; ZH chrome lives in `zh-blocks.json` pattern (translated from jw-blocks). locations-zh pages each repointed (10 pills/cards) + 「本校区乐器课程」section.
+- Flagship pair: `locations/jurong-point` + `locations-zh/jurong-point` (hreflang-paired, toggles cross-link).
+- ZH site canonized end-to-end (index-zh, 4+1 locations-zh, 9 pages-zh; contact-zh has `_cc` dual-email + JP form option).
+- After every push: **GSC → resubmit sitemap → Request Indexing** (25–50 new URLs: batch over 3–4 days; priority JP pair → abrsm → violin-tampines pair → rest).
+
+### Editing workflow lessons (hard-won)
+1. Assert-based edits — a failed count assert means a stale upload (caught a piano-course regression once).
+2. Unique anchors only — a CSS class name once matched instead of HTML and duplicated 46 KB; scope with `rfind('<footer')` etc.
+3. ZH footer names have **three variants** (`登加（Tengah）分校` / `登加分校 Tengah` / `Tengah Music School`) — detect by regex, never exact string.
+4. FAB rows have **three markup variants** (wa-row single-line / multi-line / inline-styled).
+
+### Still pending (owner actions)
+1. **Jurong Point GBP — create now** (pre-opening allowed; category Music School; 8999 0519).
+2. Real ABRSM dates/fees into the ACTION-REQUIRED block.
+3. Weekly Google-review collection per branch.
+4. GSC data ~2–3 weeks post-index: aural CTR (baseline 0.45%), abrsm hub migration, EN+ZH matrix climbs → decides next batch.
+
+---
+
 ## ⚡ EVERY NEW CHAT — DO THIS FIRST
 
 ### 1. Pull latest from GitHub (PowerShell)
@@ -199,8 +240,8 @@ liberalwebsitenew/
 │   ├── bukit-batok.html    ← Le Quest
 │   ├── jurong-west.html
 │   └── tampines.html
-├── locations-zh/           ← Chinese branch pages (created May 18 2026 — 4 of 5 done; Coloury Art pending) — JSON-LD upgraded to dual @type + geo + hasOfferCatalog May 19 r10
-│   ├── tengah.html         ← Flagship HQ (登加旗舰总部)
+├── locations-zh/           ← Chinese branch pages — **5/5 incl. jurong-point.html (Jul 23 2026 ZH flagship)**, each wired to its 5 pages-zh matrix pages
+│   ├── tengah.html         ← HQ (登加总部 — flagship title moved to Jurong Point, Jul 2026)
 │   ├── bukit-batok.html    ← Le Quest (武吉巴督)
 │   ├── jurong-west.html    ← 裕廊西
 │   └── tampines.html       ← 淡滨尼 (Wed closed)
