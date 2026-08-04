@@ -6,6 +6,46 @@
 
 ---
 
+## 🚫 CANON UPDATE — 3 Aug 2026 — NO "FREE TRIAL" — EVER (site-wide, permanent rule)
+
+Trials are **no longer marketed as free**. The words **"free trial" / "FREE" (in trial context) / "免费"** must NEVER appear on ANY page — buttons, body copy, titles, meta descriptions, og tags, JSON-LD, FAQ schema, blog articles, and every NEW page built from now on. This supersedes the Art Bible §7 note that previously allowed "free" in body copy, and every older session note in this file. Historical notes below may still show old strings (`Book Free Trial Class`, `免费试课`) — they are records only; **never copy them into a page**.
+
+### Canonical replacements
+
+| Context | ✅ Use | ❌ Never |
+|---|---|---|
+| EN primary CTA | `✦ Book a Trial Class` / `Book a Trial Class` | `Book Free Trial Class`, `Book a Free Trial Class` |
+| EN short / outline CTA | `Book a Trial` | `Book a Free Trial` |
+| EN navbar pill | `Book Trial Class` (unchanged — never had "Free") | — |
+| EN body copy | `trial class` / `trial lesson` | `free trial`, `FREE Trial` |
+| EN sibling-link chips | `Same studio · book a trial` | `Same studio · free trial` |
+| EN JSON-LD offer `category` | `"Trial class"` | `"Free trial class"` |
+| ZH CTA | `✦ 预约试课` / `预约试课` | `✦ 免费预约试课`, `预约免费试课` |
+| ZH body copy | `一节试课：…` / `试课时…` / `试课后…` | `一节免费试课`, `免费试课时` |
+| ZH chips / titles / meta | `· 预约试课` | `· 免费试课` |
+| ZH JSON-LD offer `category` | `"试课"` | `"免费试课"` |
+
+### Swept clean — 3 Aug 2026
+- **EN matrix ×25** (`pages/{instrument}-lessons-{branch}`): 381 "free" occurrences removed, verified 0 remaining.
+- **ZH matrix ×25** (`pages-zh/` same slugs): 535 "免费" occurrences removed, verified 0 remaining.
+
+### ⚠️ Still to sweep (pending owner/next-session action)
+All OTHER site files (index, index-zh, `pages/` main + trial + course + instructor + articles, their `pages-zh/` counterparts, `locations/`, `locations-zh/`) were NOT part of the Aug 3 sweep and likely still contain free-trial wording (known suspects: instructor book-card subtitles "Book a free trial class with [Name]" / "免费试课", trial.html, FAQ/JSON-LD text). Find them with:
+
+```bash
+cd /Users/qiu/Downloads/liberalwebsiteredo
+grep -ril 'free trial' --include='*.html' .
+grep -rl '免费' --include='*.html' .
+```
+
+### Pre-push check — run in EVERY future session, must both return nothing
+```bash
+grep -ri 'free trial' --include='*.html' .
+grep -r '免费' --include='*.html' .
+```
+
+---
+
 ## 🟠 CANON UPDATE — 23 Jul 2026 (supersedes anything below that conflicts)
 
 ### Environment (current)
@@ -1302,7 +1342,7 @@ All 13 instructor profiles cloned from the EN canonical (`pages/<name>.html`) in
 | `Every Liberal instructor brings exceptional skill, passion, and dedication to our students.` | `博雅的每一位导师都为学生带来了卓越的技艺、热情与奉献精神。` |
 | `Start Today` (pill kicker) | `即刻启程` (NOT 即刻开始) |
 | `Book Trial Class` | `预约试课` (NOT 预约试听课 — house style, shorter) |
-| `Join 20,000+ families who trust Liberal Music & Arts School. Book a free trial class with [Name] or any of our expert instructors today.` | `加入 20,000+ 个信赖博雅音乐艺术学校的家庭。立即预约 [Name] 老师或我们其他专业导师的免费试课。` |
+| `Join 20,000+ families who trust Liberal Music & Arts School. Book a trial class with [Name] or any of our expert instructors today.` | `加入 20,000+ 个信赖博雅音乐艺术学校的家庭。立即预约 [Name] 老师或我们其他专业导师的试课。` ⚠️ row updated 3 Aug 2026 per NO-FREE-TRIAL canon (免费 removed) — the 13 live ZH instructor pages still carry the old 免费 string and need the sweep |
 
 ### B. `locations-zh/` 4 main Chinese branch pages — done
 
