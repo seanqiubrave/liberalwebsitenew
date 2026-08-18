@@ -6,6 +6,54 @@
 
 ---
 
+## 🎬 CANON UPDATE — 17/18 Aug 2026 — Page videos: YouTube-only + reusable autoplay block · Mac repo path moved
+
+### Environment (current, 18 Aug 2026)
+- **Mac clone in use: `/Users/qiu/Desktop/liberalwebsitenew`** (matches GitHub master). The older `/Users/qiu/Downloads/liberalwebsiteredo` copy is **stale since 26 Mar 2026 — do not use it**; the project-instructions path is outdated. Claude can write straight into the Desktop repo through the desktop-app folder bridge; the owner then runs `git add . && git commit && git push origin master`.
+
+### Rule (permanent): video files NEVER go into the repo
+GitHub rejects any single file over 100 MB, anything big stays in git history forever, and a 100 MB+ `<video>` on a page wrecks mobile load time / Core Web Vitals. Every page video is uploaded to the school's YouTube channel (`@liberalmusicartsschoolsingapor`) and embedded with the block below — the page ships a ~60 KB WebP poster and the YouTube player is created only when the section nears the viewport.
+
+### YouTube upload conventions
+- Upload the original file (no pre-compression needed). Vertical + under 3 min = YouTube treats it as a **Short** — fine, embeds work; the page frame is 9:16 for these.
+- Visibility **Public**, title with the keyword (`Piano Lessons in Tengah – Student Performance | Liberal Music & Arts School Singapore`), description = one line + studio address + page URL, per-branch playlist. **Allow embedding** must stay on.
+- Video ID = the last part of `youtube.com/shorts/<ID>` or `watch?v=<ID>`.
+
+### First implementation — `pages/piano-lessons-tengah.html` + `pages-zh/piano-lessons-tengah.html`
+| Item | Value |
+|---|---|
+| YouTube IDs | `KwHRqeCeRVY` (course1, 2:31, girl in black pinafore) · `fxpjgNgn8I8` (course2, 1:03, younger student). Source files: `~/Desktop/tgpiano/liberal-tengah piano course1 .mp4` (204 MB) / `course2.mp4` (88 MB), 720×1280 |
+| Posters | `assets/tengah-piano-video1.webp`, `assets/tengah-piano-video2.webp` — 600×1067 (9:16), ~60 KB, frames at 0:50 / 0:40 |
+| Photos | `assets/tengah-piano-moment1/2/3.webp` — 960×720, ~80 KB (recital-day group shots on the Tengah stage) |
+| Position | `<section class="vsec" id="watch">` inserted **after the "short answer" box, before `<section id="why">`** (emotion before information) |
+| Behaviour (owner request 18 Aug: "页面打开需要视频自动播放，循环") | Players are created via the **YouTube IFrame API** when a frame comes within 400 px of the viewport → **muted autoplay + loop**; poster fades out on PLAYING. A 🔊 button (bottom-right of each frame) toggles sound — only one card unmuted at a time. If the browser blocks autoplay (Low Power Mode, Data Saver, reduced-motion) the poster + orange ▶ stay; tapping ▶ plays **with sound**. If the API script fails to load, ▶ falls back to a plain `youtube.com/embed` iframe with sound. Players pause when scrolled > 400 px away and resume on return. `prefers-reduced-motion: reduce` ⇒ no autoplay. |
+| Also changed | 2× `VideoObject` JSON-LD appended to the page's JSON-LD array · byline → `✓ Updated 17 August 2026` / `✓ 更新于 2026 年 8 月 17 日` · WebPage `dateModified` → `2026-08-17` · `sitemap.xml` lastmod for both URLs → `2026-08-17` |
+| Verify marker | `video-moments section added Aug 17 2026` (CSS comment, HTML comment and JS comment — `grep -c` returns 3 per page) |
+| Real-device check still owed | Tap 🔊 on an iPhone (Safari) and an Android phone — confirm sound comes on without the video pausing; if Safari pauses on unmute, tap the video once to resume. Also confirm both videos autoplay muted on desktop Chrome/Safari. |
+
+### The reusable block — how to add a video to ANY other page (3 copy-paste parts + schema)
+All three parts live in `pages/piano-lessons-tengah.html` (EN) / `pages-zh/piano-lessons-tengah.html` (ZH); copy them into the target page and edit the values listed.
+
+1. **CSS** — the block starting `/* ══ VIDEO + MOMENTS SECTION — video-moments section added Aug 17 2026 …` through its two `@media` blocks, pasted just before `</style>`. Namespaced classes (`.vsec .vwrap .vleft .vcopy .vmore .vpts .vbtns .vpair .vitem .vframe .vposter .vplayer .vplay .vsound .vchip .vcap .mstrip .mhead .mgrid`) — no clashes. Layout: desktop = copy left / two 9:16 phone frames right; ≤1024 px = heading → videos → bullets → CTA (`.vleft{display:contents}` + `order`); ≤700 px = videos 2-up, photos 1 big + 2 small.
+2. **HTML** — from `<!-- ══ VIDEO + MOMENTS — …` to the matching `</section>`. Per video (`.vitem`): `.vframe data-yt` (YouTube ID) + `data-title` · poster `src`/`alt` · `.vplay aria-label` (mention duration) · `.vsound` `aria-label`/`data-l1` (label when muted = "Turn sound on"/"开启声音") / `data-l0` ("Turn sound off"/"关闭声音") · the `▶ m:ss` chip · `.vcap` title/subtitle. Change the copy (`.tag`, `h2`, `p`, 3 `.vpts` bullets), the CTAs (EN → `trial`, ZH → `contact`, branch WhatsApp number — see WHATSAPP NUMBERS), and the 3 `.mgrid` photos + `.mhead` link (delete `.mstrip` if the page has no photos). One video only? Delete the second `.vitem` and set `.vpair{grid-template-columns:repeat(1,232px)}`. Landscape (16:9) video? `.vframe{aspect-ratio:16/9}`, `.vpair{grid-template-columns:420px}`, poster 1200×675.
+3. **JS** — the nested IIFE in the page's bottom script that starts `/* Video cards — muted autoplay + loop …`. Generic — no edits needed; it finds every `.vframe[data-yt]`.
+4. **JSON-LD** — one `VideoObject` per video appended to the page's JSON-LD array (`name`, `description`, `thumbnailUrl` = absolute poster URL, `uploadDate` like `2026-08-17T12:00:00+08:00`, `duration` like `PT2M31S`, `embedUrl` = `https://www.youtube.com/embed/<ID>`, `isFamilyFriendly: true`, `publisher`). Copy from piano-lessons-tengah.
+5. Bump the visible byline date + `dateModified` + `sitemap.xml` lastmod for the page.
+
+### Making the poster + photo assets (Mac)
+- Poster = a real frame from the video, self-hosted (YouTube's Shorts thumbnails are 16:9 letterboxed — don't use them). Simplest: give Claude the folder (`Add folder` in the desktop app) — it extracts frames with ffmpeg and writes the WebPs. Manual: `ffmpeg -ss 50 -i video.mp4 -frames:v 1 -q:v 2 poster.jpg` then WebP 600×1067 at q≈80 (squoosh.app or `cwebp -q 80 -resize 600 1067 poster.jpg -o assets/<branch>-<instrument>-video1.webp`).
+- Naming: `assets/<branch>-<instrument>-video<N>.webp` (poster) · `assets/<branch>-<instrument>-moment<N>.webp` (photos, 960 px wide, < 120 KB). **Lowercase only** (Vercel is case-sensitive).
+
+### Rollout plan (owner intent, Aug 2026)
+One video per matrix page (`pages/<instrument>-lessons-<branch>` EN + ZH). Per page: upload → send Claude the YouTube link(s) + page name → Claude adds the block, posters, JSON-LD, sitemap → owner pushes. Keep filming vertical (phone), 1–3 min, student playing in the actual studio.
+
+### ⚠️ Git safety lesson (17 Aug 2026) — NEVER `git push --force` after a rejected push
+The stale Downloads clone caused a scare: `git pull` aborted (old local edits + untracked files in the way) but a pasted one-liner carried on — `git add . && git commit` swept 4-month-old local edits (22 files) into commit `da2226f`, and the push was (rightly) rejected as non-fast-forward. A `--force` there would have wiped ~250 commits of Apr–Aug work on GitHub. Recovery: `git branch backup-mac-2026-03 da2226f` → `git reset --hard origin/master` — then the owner switched to the fresh Desktop clone. **Rules:** (1) run `git pull origin master` on its own and read the output before anything else; (2) if a push is rejected, `git pull --rebase origin master` then push — the old "--force" advice in the project instructions is retired; (3) if `git pull` reports local changes you don't recognise, `git stash` / `git reset --hard origin/master` rather than committing them.
+
+### Nice-to-have (not done): `og:image` for WhatsApp/Facebook link previews (these pages have none) — a 1200×630 JPEG crop of a moment photo would do; also consider reusing the two videos on `locations/tengah.html`.
+
+---
+
 ## 🚫 CANON UPDATE — 3 Aug 2026 — NO "FREE TRIAL" — EVER (site-wide, permanent rule)
 
 Trials are **no longer marketed as free**. The words **"free trial" / "FREE" (in trial context) / "免费"** must NEVER appear on ANY page — buttons, body copy, titles, meta descriptions, og tags, JSON-LD, FAQ schema, blog articles, and every NEW page built from now on. This supersedes the Art Bible §7 note that previously allowed "free" in body copy, and every older session note in this file. Historical notes below may still show old strings (`Book Free Trial Class`, `免费试课`) — they are records only; **never copy them into a page**.
