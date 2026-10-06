@@ -18,7 +18,7 @@ ZH: `裕廊坊 Jurong Point [旗舰]` → 裕廊西 → 武吉巴督 (Le Quest) 
 ```
 
 ### Footer locations column — 6 entries, fixed order, ALL clickable
-⭐ Jurong Point (`foot-loc soon`, meta `⭐ Flagship · Now Open / 旗舰店 · 现已开业` — flagship opened Oct 2026) → Tengah **(HQ)/总部** → Tampines → Jurong West → Le Quest → **Coloury Art** (class `foot-loc`, meta `🎨 Art School · Open / 美术学校 · 已开业`, → colouryart.com).
+⭐ Jurong Point (`foot-loc soon`, meta `⭐ Flagship · Now Open<br/>🕐 Mon–Fri 11am–9pm · Sat–Sun 9am–9pm` / `⭐ 旗舰店 · 现已开业<br/>🕐 周一至五 11am–9pm · 周末 9am–9pm` — flagship opened Oct 2026) → Tengah **(HQ)/总部** → Tampines → Jurong West → Le Quest → **Coloury Art** (class `foot-loc`, meta `🎨 Art School · Open / 美术学校 · 已开业`, → colouryart.com).
 Hrefs: EN `/locations/*`, ZH `/locations-zh/*`. **Resolve href by branch-name regex** — three ZH naming variants exist (`登加（Tengah）分校` / `登加分校 Tengah` / `Tengah Music School`); never exact-match.
 
 ### WhatsApp FAB — 6 rows, JP first
@@ -29,7 +29,7 @@ Three markup variants in the wild (wa-row single-line · multi-line · inline-st
 EN chrome = `jw-blocks.json`; ZH chrome = `zh-blocks.json` (label/href-translated, per-page `§ENTWIN§` EN-toggle placeholder, ann/CTA → contact on ZH). Each matrix page: 中文↔EN toggle to its twin, canonical + bidirectional hreflang, FAQ schema verbatim-matched to visible `<details>`.
 
 ### Location pages
-`locations/tengah.html` = EN clone template; JP pair (EN+ZH) = **now-open flagship pages since 6 Oct 2026** (CTA = WhatsApp 8999 0519 / Book Trial; no hours published until the owner supplies them — never invent hours; no "Opening Soon" / priority-list wording). Every branch page (EN & ZH) carries 15 dedicated-page links into its language's matrix.
+`locations/tengah.html` = EN clone template; JP pair (EN+ZH) = **now-open flagship pages since 6 Oct 2026** (CTA = WhatsApp 8999 0519 / Book Trial; hours **Mon–Fri 11am–9pm · Sat–Sun 9am–9pm**; no "Opening Soon" / priority-list wording). Every branch page (EN & ZH) carries 15 dedicated-page links into its language's matrix.
 
 > Source of truth: `index.html` (master) · Last updated: May 19, 2026 (r10 — added §6.5 "ZH page footer logo alt must be Chinese" after jurong-west outlier fix; r9 (same day) added §14.17 "Activating the 中文 toggle on an EN page" documenting the 4-spot pattern; §14.5 expanded with the bidirectional-pairing rule; §14.14 build checklist gets a new step #15 to keep EN-side toggles in sync when a new ZH page ships)  
 > Apply this guide to **every** page. No deviations.
@@ -177,7 +177,7 @@ Copy verbatim into every page `<style>`:
       <path d="M2 8v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8"/>
       <line x1="12" y1="12" x2="12" y2="19"/>
     </svg>
-    Liberal Music &amp; Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!
+    Now Open: Jurong Point Flagship — Book your Trial Class today at any of our 5 Singapore locations!
   </a>
 </div>
 ```
@@ -962,7 +962,7 @@ If either returns a file path, fix that file before pushing.
 <!-- MOBILE STICKY CTA BAR -->
 <div class="mob-bar">
   <!-- For pages/ subfolder: -->
-  <a href="trial.html" class="btn btn-cta">✦ Book Free Trial Class</a>
+  <a href="trial.html" class="btn btn-cta">✦ Book a Trial Class</a>
   <!-- For root pages: href="pages/trial.html" -->
 </div>
 ```
@@ -1416,7 +1416,7 @@ This positioning matters: Latin glyphs (`A-Z 0-9`) render Quicksand/Nunito, then
 
 | English | 中文 |
 |---|---|
-| `Liberal Music & Arts School — Book your FREE Trial Class today at any of our 5 Singapore locations!` | `博雅音乐艺术学校 — 立即在新加坡5个分校预约试课！` |
+| `Now Open: Jurong Point Flagship — Book your Trial Class today at any of our 5 Singapore locations!` | `裕廊坊旗舰店现已开业 — 立即在新加坡 5 家分校预约您的试课！` |
 
 ### 14.4 Navbar — link order is identical, only text swaps
 
@@ -1580,7 +1580,7 @@ The same reversal applies in the footer bottom bar (`中文版本` ↔ `English`
 
 | English | 中文 |
 |---|---|
-| `✦ Book Free Trial Class` | `✦ 预约试课` *(or `✦ 免费预约试课` if you want to keep "Free")* |
+| `✦ Book a Trial Class` | `✦ 预约试课` *(never "Free" / "免费" — see HOW-TO-START NO-FREE-TRIAL canon)* |
 
 ### 14.13 What stays in English on Chinese pages
 

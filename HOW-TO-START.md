@@ -16,13 +16,13 @@ The Jurong Point flagship (#03-13/14 Level 3, Jurong Point · WhatsApp **8999 05
 | Announcement bar (every page) | `Now Open: Jurong Point Flagship — Book your Trial Class today at any of our 5 Singapore locations!` / `裕廊坊旗舰店现已开业 — 立即在新加坡 5 家分校预约您的试课！` | `Liberal Music & Arts School — Book your … Trial Class today …` |
 | Cross-link cards / pills | `Flagship · Now Open` / `旗舰店 · 现已开业` | `Flagship · Opening Soon` |
 | JP page CTAs | `💬 WhatsApp 8999 0519` + `Book a Trial` / `预约试课` | `Join the Priority List` / `加入优先名单` |
-| JP hours (until real hours are supplied) | `Now open — WhatsApp 8999 0519 for class times` / `现已开业 — WhatsApp 8999 0519 查询上课时间` | `Opening soon — hours announced at launch` |
+| JP hours (supplied by owner 6 Oct 2026) | **Mon–Fri 11am–9pm · Sat–Sun 9am–9pm** / `周一至五 11am–9pm · 周末 9am–9pm` — footer meta line = `⭐ Flagship · Now Open<br/>🕐 Mon–Fri 11am–9pm · Sat–Sun 9am–9pm`; location page block, lesson-page `Hours:` line, contact card, FAQ answer, `openingHoursSpecification` (location pages) and `openingHours` (homepage LocalBusiness block) all carry the same hours | `Opening soon — hours announced at launch`, `WhatsApp for class times` |
 | Contact-page badge | `Flagship` + `Open` / `旗舰` + `营业中` | `Opening Soon` badge |
 | Coloury Art (sister school, open) | `🎨 Art School · Open` / `🎨 美术学校 · 已开业` everywhere | `✦ Opening Soon` / `✦ 即将开业` stragglers (removed) |
 
 **What changed (commit "Jurong Point flagship now open…", 148 files):** both homepages (announcement bar, FAQ card + FAQ schema, direct-answer, LocalBusiness description, footer) · footer + announcement bar on every page · `locations/jurong-point` + `locations-zh/jurong-point` and the 10 `{instrument}-lessons-jurong-point` pages (titles, meta/og, hero, hours, FAQ + FAQ schema rewritten for an open branch; "Can we start before it opens?" FAQ → "Can Jurong West students transfer to the flagship?") · `pages/contact` + `pages-zh/contact` (flagship card marked Open; a flagship card was **added** to the ZH contact page, which had none) · cross-link cards on the other 40 matrix pages and 9 course pages · `tools/` blog templates · `data/locations.json` (real address, 8999 0519, `status: open`) · `sitemap.xml` lastmod + lesson-page bylines/`dateModified` → 2026-10-06.
 
-**Still owed by the owner for Jurong Point:** (1) real opening hours → then replace the "WhatsApp for class times" lines, add `openingHoursSpecification` to the MusicSchool JSON-LD and a `🕐` time to the footer meta line; (2) Google Business Profile — mark as open / add hours; (3) GSC → resubmit sitemap + Request Indexing for the 12 JP URLs and both homepages; (4) a per-branch Google Maps iframe / studio photos if wanted.
+**Still owed by the owner for Jurong Point:** (1) Google Business Profile — mark as open / add the same hours; (2) GSC → resubmit sitemap + Request Indexing for the 12 JP URLs and both homepages; (3) a per-branch Google Maps iframe / studio photos if wanted.
 
 **Verify (must return nothing):** `grep -rniE "opening soon|即将开业|priority list|优先名单" --include='*.html' .`
 
@@ -99,19 +99,15 @@ Trials are **no longer marketed as free**. The words **"free trial" / "FREE" (in
 - **EN matrix ×25** (`pages/{instrument}-lessons-{branch}`): 381 "free" occurrences removed, verified 0 remaining.
 - **ZH matrix ×25** (`pages-zh/` same slugs): 535 "免费" occurrences removed, verified 0 remaining.
 
-### ⚠️ Still to sweep (pending owner/next-session action)
-All OTHER site files (index, index-zh, `pages/` main + trial + course + instructor + articles, their `pages-zh/` counterparts, `locations/`, `locations-zh/`) were NOT part of the Aug 3 sweep and likely still contain free-trial wording (known suspects: instructor book-card subtitles "Book a free trial class with [Name]" / "免费试课", trial.html, FAQ/JSON-LD text). Find them with:
+### ✅ Rest of the site swept — 6 Oct 2026
+Every remaining file was swept on 6 Oct 2026 (owner request: "网站上需要去掉所有的 free trial 中文和英文"): index + index-zh (meta, LocalBusiness description, FAQ card + FAQ schema — "Is the trial class really free?" became "What happens in a trial class?"), `pages/` + `pages-zh/` main, trial, course, instructor and article pages, `locations-zh/`, `includes/card-teacher.html`, the `tools/` blog templates, and the Terms pages ("free or paid trial class" → "trial class"). 87 occurrences removed.
 
-```bash
-cd /Users/qiu/Downloads/liberalwebsiteredo
-grep -ril 'free trial' --include='*.html' .
-grep -rl '免费' --include='*.html' .
-```
+**Allowed exceptions (not trial wording — leave them):** `Free admission` / `免费入场` and the `free DSA Visual Arts Seminar` / `免费 DSA … 研讨会` on the blog pages, `Free Movement` (ballet discipline), `🏆 Free Guide` (ABRSM guide banner on courses), `feel free`, `free of errors`, `Stress-Free`, `free expression`.
 
-### Pre-push check — run in EVERY future session, must both return nothing
+### Pre-push check — run in EVERY future session
 ```bash
-grep -ri 'free trial' --include='*.html' .
-grep -r '免费' --include='*.html' .
+grep -ri 'free trial' --include='*.html' .                                  # must return nothing
+grep -r '免费' --include='*.html' . | grep -v -E '免费入场|免费 DSA'      # must return nothing
 ```
 
 ---

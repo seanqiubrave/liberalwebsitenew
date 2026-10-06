@@ -312,7 +312,7 @@ All section labels use `.pill-tag` class with colour variants:
 
 **❌ NEVER: Submit, Click Here, Learn More, Book Free Trial Class, Try Free**
 
-> The word "Free" was removed from all CTAs and the announcement bar as of April 2026. Body copy that mentions the trial being free ("the first lesson is free", "book a free trial class with Ms X") is preserved — the removal applies to action-oriented buttons and bars only.
+> The word "Free" was removed from all CTAs and the announcement bar as of April 2026. **Superseded 3 Aug 2026 / completed 6 Oct 2026:** "free trial" / "免费试课" wording is no longer used anywhere — buttons, bars, body copy, titles, meta descriptions, FAQ or JSON-LD. Write "trial class" / "试课" only.
 
 ---
 
