@@ -18,7 +18,7 @@ ZH: `裕廊坊 Jurong Point [旗舰]` → 裕廊西 → 武吉巴督 (Le Quest) 
 ```
 
 ### Footer locations column — 6 entries, fixed order, ALL clickable
-⭐ Jurong Point (`foot-loc soon`, meta `⭐ Flagship · Opening Soon / 旗舰店 · 即将开业`) → Tengah **(HQ)/总部** → Tampines → Jurong West → Le Quest → **Coloury Art** (class `foot-loc`, meta `🎨 Art School · Open / 美术学校 · 已开业`, → colouryart.com).
+⭐ Jurong Point (`foot-loc soon`, meta `⭐ Flagship · Now Open / 旗舰店 · 现已开业` — flagship opened Oct 2026) → Tengah **(HQ)/总部** → Tampines → Jurong West → Le Quest → **Coloury Art** (class `foot-loc`, meta `🎨 Art School · Open / 美术学校 · 已开业`, → colouryart.com).
 Hrefs: EN `/locations/*`, ZH `/locations-zh/*`. **Resolve href by branch-name regex** — three ZH naming variants exist (`登加（Tengah）分校` / `登加分校 Tengah` / `Tengah Music School`); never exact-match.
 
 ### WhatsApp FAB — 6 rows, JP first
@@ -29,7 +29,7 @@ Three markup variants in the wild (wa-row single-line · multi-line · inline-st
 EN chrome = `jw-blocks.json`; ZH chrome = `zh-blocks.json` (label/href-translated, per-page `§ENTWIN§` EN-toggle placeholder, ann/CTA → contact on ZH). Each matrix page: 中文↔EN toggle to its twin, canonical + bidirectional hreflang, FAQ schema verbatim-matched to visible `<details>`.
 
 ### Location pages
-`locations/tengah.html` = EN clone template; JP pair (EN+ZH) = pre-opening pages (no invented dates, priority-list CTA, interim → Jurong West). Every branch page (EN & ZH) carries 15 dedicated-page links into its language's matrix.
+`locations/tengah.html` = EN clone template; JP pair (EN+ZH) = **now-open flagship pages since 6 Oct 2026** (CTA = WhatsApp 8999 0519 / Book Trial; no hours published until the owner supplies them — never invent hours; no "Opening Soon" / priority-list wording). Every branch page (EN & ZH) carries 15 dedicated-page links into its language's matrix.
 
 > Source of truth: `index.html` (master) · Last updated: May 19, 2026 (r10 — added §6.5 "ZH page footer logo alt must be Chinese" after jurong-west outlier fix; r9 (same day) added §14.17 "Activating the 中文 toggle on an EN page" documenting the 4-spot pattern; §14.5 expanded with the bidirectional-pairing rule; §14.14 build checklist gets a new step #15 to keep EN-side toggles in sync when a new ZH page ships)  
 > Apply this guide to **every** page. No deviations.

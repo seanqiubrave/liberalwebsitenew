@@ -6,6 +6,28 @@
 
 ---
 
+## 🟢 CANON UPDATE — 6 Oct 2026 — Jurong Point flagship is NOW OPEN (site-wide, permanent)
+
+The Jurong Point flagship (#03-13/14 Level 3, Jurong Point · WhatsApp **8999 0519**) has opened. **"Opening Soon" / "即将开业" / priority-list / launch-update wording must never be used for Jurong Point again** — older notes below that describe it as pre-opening are history only.
+
+| Context | ✅ Use now | ❌ Retired |
+|---|---|---|
+| Footer meta line (class stays `foot-loc soon` = orange flagship highlight) | `⭐ Flagship · Now Open` / `⭐ 旗舰店 · 现已开业` | `⭐ Flagship · Opening Soon` / `即将开业` |
+| Announcement bar (every page) | `Now Open: Jurong Point Flagship — Book your Trial Class today at any of our 5 Singapore locations!` / `裕廊坊旗舰店现已开业 — 立即在新加坡 5 家分校预约您的试课！` | `Liberal Music & Arts School — Book your … Trial Class today …` |
+| Cross-link cards / pills | `Flagship · Now Open` / `旗舰店 · 现已开业` | `Flagship · Opening Soon` |
+| JP page CTAs | `💬 WhatsApp 8999 0519` + `Book a Trial` / `预约试课` | `Join the Priority List` / `加入优先名单` |
+| JP hours (until real hours are supplied) | `Now open — WhatsApp 8999 0519 for class times` / `现已开业 — WhatsApp 8999 0519 查询上课时间` | `Opening soon — hours announced at launch` |
+| Contact-page badge | `Flagship` + `Open` / `旗舰` + `营业中` | `Opening Soon` badge |
+| Coloury Art (sister school, open) | `🎨 Art School · Open` / `🎨 美术学校 · 已开业` everywhere | `✦ Opening Soon` / `✦ 即将开业` stragglers (removed) |
+
+**What changed (commit "Jurong Point flagship now open…", 148 files):** both homepages (announcement bar, FAQ card + FAQ schema, direct-answer, LocalBusiness description, footer) · footer + announcement bar on every page · `locations/jurong-point` + `locations-zh/jurong-point` and the 10 `{instrument}-lessons-jurong-point` pages (titles, meta/og, hero, hours, FAQ + FAQ schema rewritten for an open branch; "Can we start before it opens?" FAQ → "Can Jurong West students transfer to the flagship?") · `pages/contact` + `pages-zh/contact` (flagship card marked Open; a flagship card was **added** to the ZH contact page, which had none) · cross-link cards on the other 40 matrix pages and 9 course pages · `tools/` blog templates · `data/locations.json` (real address, 8999 0519, `status: open`) · `sitemap.xml` lastmod + lesson-page bylines/`dateModified` → 2026-10-06.
+
+**Still owed by the owner for Jurong Point:** (1) real opening hours → then replace the "WhatsApp for class times" lines, add `openingHoursSpecification` to the MusicSchool JSON-LD and a `🕐` time to the footer meta line; (2) Google Business Profile — mark as open / add hours; (3) GSC → resubmit sitemap + Request Indexing for the 12 JP URLs and both homepages; (4) a per-branch Google Maps iframe / studio photos if wanted.
+
+**Verify (must return nothing):** `grep -rniE "opening soon|即将开业|priority list|优先名单" --include='*.html' .`
+
+---
+
 ## 🎬 CANON UPDATE — 17/18 Aug 2026 — Page videos: YouTube-only + reusable autoplay block · Mac repo path moved
 
 ### Environment (current, 18 Aug 2026)
@@ -104,7 +126,7 @@ grep -r '免费' --include='*.html' .
 ### The 5 music schools (+1 art school) — single source of truth
 | Branch | Address | WhatsApp | Notes |
 |---|---|---|---|
-| **Jurong Point ⭐ FLAGSHIP** | #03-13/14 L3, 1 Jurong West Central 2, S648886 | **8999 0519** | Opening Soon · Boon Lay MRT direct · `badge-flag` |
+| **Jurong Point ⭐ FLAGSHIP** | #03-13/14 L3, 1 Jurong West Central 2, S648886 | **8999 0519** | Now Open (Oct 2026) · Boon Lay MRT direct · `badge-flag` |
 | **Tengah (HQ)** | 127A Plantation Crescent #01-381, S691127 | 8922 2848 | Plantation Plaza · Sat–Sun from 9am · `badge-hq` |
 | Tampines | Blk 139 Tampines St 11 #01-60, S521139 | 8892 1198 | Only East branch · Tampines West MRT |
 | Jurong West | Blk 492 Jurong West St 41 #01-10, S640492 | **9627 7588** | Founding studio (2009) · Lakeside MRT |
@@ -115,7 +137,7 @@ grep -r '免费' --include='*.html' .
 
 ### Page inventory (Jul 2026) — sitemap = **117 URLs**
 - `pages/abrsm-singapore` — SEO/AEO hub (exam-dates block = ⚠️ ACTION-REQUIRED placeholder; never invent dates).
-- **EN matrix ×25**: `pages/{piano,violin,drum,guitar,vocal}-lessons-{jurong-west,tengah,bukit-batok,tampines,jurong-point}` — five differentiated local narratives (JW founding/Lakeside · Tengah HQ/9am weekends · BB in-mall · Tampines East-only · JP pre-opening/priority-list). Branch pages each carry 15 dedicated links; piano-course branch cards 5/5 dedicated; full sibling+counterpart cross-wiring.
+- **EN matrix ×25**: `pages/{piano,violin,drum,guitar,vocal}-lessons-{jurong-west,tengah,bukit-batok,tampines,jurong-point}` — five differentiated local narratives (JW founding/Lakeside · Tengah HQ/9am weekends · BB in-mall · Tampines East-only · JP flagship — pre-opening/priority-list until 6 Oct 2026, **now-open copy since**). Branch pages each carry 15 dedicated links; piano-course branch cards 5/5 dedicated; full sibling+counterpart cross-wiring.
 - **ZH matrix ×25**: `pages-zh/…` same slugs — native-Chinese content per branch narrative, EN↔ZH hreflang paired, per-page EN toggle; ZH chrome lives in `zh-blocks.json` pattern (translated from jw-blocks). locations-zh pages each repointed (10 pills/cards) + 「本校区乐器课程」section.
 - Flagship pair: `locations/jurong-point` + `locations-zh/jurong-point` (hreflang-paired, toggles cross-link).
 - ZH site canonized end-to-end (index-zh, 4+1 locations-zh, 9 pages-zh; contact-zh has `_cc` dual-email + JP form option).
@@ -128,7 +150,7 @@ grep -r '免费' --include='*.html' .
 4. FAB rows have **three markup variants** (wa-row single-line / multi-line / inline-styled).
 
 ### Still pending (owner actions)
-1. **Jurong Point GBP — create now** (pre-opening allowed; category Music School; 8999 0519).
+1. **Jurong Point GBP** — flagship opened Oct 2026: mark the profile as open and add real hours (category Music School; 8999 0519).
 2. Real ABRSM dates/fees into the ACTION-REQUIRED block.
 3. Weekly Google-review collection per branch.
 4. GSC data ~2–3 weeks post-index: aural CTR (baseline 0.45%), abrsm hub migration, EN+ZH matrix climbs → decides next batch.
