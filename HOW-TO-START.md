@@ -6,6 +6,16 @@
 
 ---
 
+## 🎓 CANON UPDATE — 13 Oct 2026 — Piano, Violin and Drums are taught up to DIPLOMA level
+
+Owner statement (6 & 13 Oct 2026): Liberal teaches **Piano and Violin from beginner through ABRSM Grade 8 to Diploma level**, and **Drums through Trinity Rock & Pop / Rockschool Grade 8 to Diploma level**. Chinese instruments are the lead speciality in the Jurong Point Google Business Profile description (Chinese instruments → Piano/Violin → Drums).
+
+- Wording: EN `to Grade 8 and on to Diploma level` / `Beyond Grade 8 — ABRSM performance diploma preparation`; ZH `并可继续攻读演奏文凭（Diploma）` / `8 级之后继续进修…`. Don't name specific diploma titles (ARSM/LRSM/etc.) unless the owner supplies them.
+- Done on: the 3 Jurong Point lesson pages ×2 languages (FAQ + FAQ schema, journey paragraph, a 5th "Diploma" step in the ladder), `locations/jurong-point` + `locations-zh/jurong-point` (quick facts, programmes intro, "What music lessons…" FAQ + schema), and `piano-course` / `violin-course` / `drum-course` ×2 languages (badge, level cards, Course schema credential/level).
+- **Not yet done:** the piano/violin/drum lesson pages of the other 4 branches still say "to Grade 8" — extend only if the owner confirms Diploma teaching is offered at those branches too.
+
+---
+
 ## 🟢 CANON UPDATE — 6 Oct 2026 — Jurong Point flagship is NOW OPEN (site-wide, permanent)
 
 The Jurong Point flagship (#03-13/14 Level 3, Jurong Point · WhatsApp **8999 0519**) has opened. **"Opening Soon" / "即将开业" / priority-list / launch-update wording must never be used for Jurong Point again** — older notes below that describe it as pre-opening are history only.
