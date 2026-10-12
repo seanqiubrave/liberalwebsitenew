@@ -12,6 +12,7 @@ Owner statement (6 & 13 Oct 2026): Liberal teaches **Piano and Violin from begin
 
 - Wording: EN `to Grade 8 and on to Diploma level` / `Beyond Grade 8 — ABRSM performance diploma preparation`; ZH `并可继续攻读演奏文凭（Diploma）` / `8 级之后继续进修…`. Don't name specific diploma titles (ARSM/LRSM/etc.) unless the owner supplies them.
 - Done on: the 3 Jurong Point lesson pages ×2 languages (FAQ + FAQ schema, journey paragraph, a 5th "Diploma" step in the ladder), `locations/jurong-point` + `locations-zh/jurong-point` (quick facts, programmes intro, "What music lessons…" FAQ + schema), and `piano-course` / `violin-course` / `drum-course` ×2 languages (badge, level cards, Course schema credential/level).
+- **EN lesson pages ×25 — 中文 toggle activated (13 Oct 2026).** All `pages/{instrument}-lessons-{branch}` pages had the disabled-grey 中文 button (with a stale "pages-zh/abrsm-singapore not built yet" comment) even though their ZH twins existed since Jul 2026. Fixed with the HEADER-FOOTER-GUIDE §14.17 4-spot pattern (hreflang zh-CN, desktop nav, mobile drawer row, footer link → `/pages-zh/<slug>`). Still open: `erin` / `eva` have an active 中文 toggle but no ZH page (404); `index.html` + the 5 `locations/*.html` pages have no `hreflang="zh-CN"` tag and no drawer row; the lesson pages have no mobile wrap rule for the announcement bar (text is clipped on phones).
 - **Not yet done:** the piano/violin/drum lesson pages of the other 4 branches still say "to Grade 8" — extend only if the owner confirms Diploma teaching is offered at those branches too.
 
 ---
