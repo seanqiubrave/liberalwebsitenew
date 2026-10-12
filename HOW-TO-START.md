@@ -6,6 +6,19 @@
 
 ---
 
+## 🈶 CANON UPDATE — 13 Oct 2026 — ZH pages: ONE language button (EN) · no visible "updated" date
+
+Owner request (13 Oct 2026): "所有的中文页面需要统一，上面只有 EN 的按钮" + "也不需要显示更新时间".
+
+- **Top-right of every ZH page = exactly one language button:** `<a class="nav-lang" href="<EN twin>">EN</a>` — no greyed-out 中文 pill, no inline style. (EN pages mirror it with a single `中文` button.) All 72 ZH pages now use this exact markup.
+- **Mobile menu language row (every ZH page):** `<a href="<EN twin>" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">EN · English Version</a>` — replaces the old `style="opacity:.7;">EN` and 18px variants. The drawer's Contact trigger must read `联系我们` (27 pages still said "Contact").
+- **Contact dropdown — one version everywhere (EN + ZH):** Jurong Point [Flagship/旗舰] → Jurong West → Bukit Batok (Le Quest) → Tampines → Tengah [HQ/总部]. The old 4-item menu with "Tengah (HQ) New / 登加 (旗舰总部) New" was still on 16 ZH + 4 EN pages (instructor profiles, the 2 articles, `tina`, `ukulele-course`) — replaced, badge CSS added.
+- **`pages-zh/verginia.html` restored in Chinese.** It had been overwritten with the English page on 14 May 2026 (same-filename collision). Rebuilt from the current `pages-zh/tina.html` chrome + the Chinese profile text from commit `5e5cd2f`.
+- **Visible "✓ Updated … / ✓ 更新于 …" badge removed** from all 51 pages that had it (50 lesson pages + `abrsm-singapore`). Keep `dateModified` in the JSON-LD and `lastmod` in the sitemap — just never show the date on the page. (Privacy/Terms keep their legal "最后更新" line.)
+- Still on the older chrome (not touched): the footer locations column and WhatsApp popup of the ZH instructor/article pages predate the Jurong Point flagship card.
+
+---
+
 ## 🎓 CANON UPDATE — 13 Oct 2026 — Piano, Violin and Drums are taught up to DIPLOMA level
 
 Owner statement (6 & 13 Oct 2026): Liberal teaches **Piano and Violin from beginner through ABRSM Grade 8 to Diploma level**, and **Drums through Trinity Rock & Pop / Rockschool Grade 8 to Diploma level**. Chinese instruments are the lead speciality in the Jurong Point Google Business Profile description (Chinese instruments → Piano/Violin → Drums).

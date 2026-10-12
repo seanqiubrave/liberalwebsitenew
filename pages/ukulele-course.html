@@ -508,7 +508,10 @@
     .kw::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:9px;background:#8ddbd1;border-radius:5px;z-index:-1;transform:scaleX(0);transform-origin:left;animation:kw 0.6s var(--sp) 0.95s forwards}
     @keyframes kw{to{transform:scaleX(1)}}
 
-</style>
+
+    .badge-flag{font-size:9px;font-weight:900;background:#FFD6E0;color:#A63D5A;padding:2px 5px;border-radius:4px;margin-left:4px;vertical-align:middle;text-transform:uppercase;letter-spacing:.5px}
+    .badge-hq{font-size:9px;font-weight:900;background:#D4EDFF;color:#1C5C8A;padding:2px 5px;border-radius:4px;margin-left:4px;vertical-align:middle;text-transform:uppercase;letter-spacing:.5px}
+  </style>
 </head>
 <body>
 
@@ -541,10 +544,11 @@
           <li class="nav-item-dropdown">
           <a href="contact" class="dropdown-trigger">Contact <span class="arrow" aria-hidden="true">▾</span></a>
           <ul class="dropdown-menu">
+            <li><a href="/locations/jurong-point">Jurong Point <span class="badge-flag">Flagship</span></a></li>
             <li><a href="/locations/jurong-west">Jurong West</a></li>
             <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
             <li><a href="/locations/tampines">Tampines</a></li>
-            <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+            <li><a href="/locations/tengah">Tengah <span class="badge-hq">HQ</span></a></li>
           </ul>
         </li>
         </ul>
@@ -570,10 +574,11 @@
     <div class="nav-item-dropdown">
     <a href="contact" class="dropdown-trigger" style="padding-left:0;">Contact <span class="arrow">▾</span></a>
     <ul class="dropdown-menu">
+      <li><a href="/locations/jurong-point">Jurong Point <span class="badge-flag">Flagship</span></a></li>
       <li><a href="/locations/jurong-west">Jurong West</a></li>
       <li><a href="/locations/bukit-batok">Bukit Batok (Le Quest)</a></li>
       <li><a href="/locations/tampines">Tampines</a></li>
-      <li><a href="/locations/tengah">Tengah (HQ) <span class="badge-new">New</span></a></li>
+      <li><a href="/locations/tengah">Tengah <span class="badge-hq">HQ</span></a></li>
     </ul>
   </div>
     <a href="../pages-zh/ukulele-course" style="background:var(--s2);text-align:center;font-weight:700;color:var(--muted);font-size:15px;margin-top:8px;">中文 · Chinese Version</a>
